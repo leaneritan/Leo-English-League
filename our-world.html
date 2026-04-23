@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leo's English League</title>
+
+  <!--
+    CALIBRATION MOCKUP v3 — New main home
+    - Search bar between Leo's name and mode cards
+    - Live search, multi-world badges on results
+    - Text-logo mode cards (no photos)
+    - Home button rules: on main home, logo/Home not clickable (already home)
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper:        #FAFAF7;
+      --surface:      #FFFFFF;
+      --border:       #E5E3DC;
+      --soft:         #F0EEE8;
+      --ink:          #111111;
+      --ink-2:        #5A5853;
+      --ink-3:        #6B6963;
+      --ink-4:        #9A9A95;
+      --nat-yellow:   #FFCC00;
+      --yellow-bg:    #FFFBE6;
+      --yellow-ink:   #8B6B00;
+
+      /* world colors — match mode card accents */
+      --ow-accent:    #FFCC00;  /* Our World  = yellow (Nat Geo) */
+      --ow-ink:       #8B6B00;
+      --ow-bg:        #FFFBE6;
+      --jh-accent:    #2AA65A;  /* Junior High = New Crown green */
+      --jh-ink:       #1B6A39;
+      --jh-bg:        #E8F5EC;
+      --tg-accent:    #E85D3C;  /* Training Ground = warm coral/orange — practice field energy */
+      --tg-ink:       #8F3618;
+      --tg-bg:        #FBEDE7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- top bar ---------- */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      background: var(--ink);
+      color: #FFFFFF;
+    }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    /* On MAIN home, brand is NOT clickable (already home) — no pointer cursor, no hover */
+    .brand.on-home { cursor: default; }
+    .yellow-mark {
+      background: var(--nat-yellow); color: var(--ink);
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 12px; letter-spacing: 0.18em;
+      padding: 6px 12px 5px;
+    }
+    .brand-text {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .topbar-right {
+      font-size: 11px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--ink-4);
+    }
+
+    /* ---------- main container ---------- */
+    .container { max-width: 1280px; margin: 0 auto; padding: 44px 32px 48px; }
+
+    /* ---------- hero ---------- */
+    .hero {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-kicker {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+    .hero-kicker .bar {
+      width: 32px; height: 3px;
+      background: var(--nat-yellow);
+    }
+    .hero-kicker .label {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .hero-name {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700; font-size: 88px;
+      line-height: 0.95; color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .hero-tag {
+      font-size: 15px; color: var(--ink-2);
+      max-width: 480px; line-height: 1.55;
+    }
+
+    /* ---------- search ---------- */
+    .search-wrap { margin-bottom: 36px; }
+    .search-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px;
+    }
+    .search-label .bar {
+      width: 24px; height: 3px;
+      background: var(--nat-yellow);
+    }
+    .search-label .txt {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .search-box {
+      background: var(--surface);
+      border: 1.5px solid var(--ink);
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .search-box svg { flex-shrink: 0; color: var(--ink); }
+    .search-box input {
+      flex: 1; border: 0; outline: 0;
+      font-family: 'Inter', sans-serif; font-size: 15px;
+      color: var(--ink); background: transparent;
+    }
+    .search-box input::placeholder { color: var(--ink-4); }
+    .search-clear {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-3); background: transparent; border: 0;
+      cursor: pointer; padding: 4px 8px;
+      display: none;
+    }
+    .search-clear:hover { color: var(--ink); background: var(--soft); }
+    .search-clear.show { display: inline-block; }
+
+    /* ---------- section title ---------- */
+    .section-title {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 16px;
+      padding-left: 2px;
+    }
+    .section-title .label {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .section-title .rule {
+      flex: 1; height: 1px;
+      background: var(--border);
+    }
+    .section-title .count {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-4);
+    }
+
+    /* ================= MODE CARDS ================= */
+    .modes-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 16px;
+    }
+    .modes-grid.hidden { display: none; }
+
+    .mode-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      min-height: 380px;
+    }
+    .mode-card:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* text-logo slot (replaces photo slot) */
+    .logo-slot {
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 20px;
+    }
+    .mode-card.our-world       .logo-slot { background: #111111; }
+    .mode-card.junior-high     .logo-slot { background: var(--jh-bg); }
+    .mode-card.training-ground .logo-slot { background: var(--tg-bg); }
+
+    /* --- Our World rainbow text-logo --- */
+    .ow-brand {
+      text-align: center;
+      font-family: 'Fredoka', system-ui, sans-serif;
+      font-weight: 700;
+      user-select: none;
+    }
+    .ow-subline {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--nat-yellow);
+      margin-bottom: 10px;
+    }
+    .ow-word {
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .ow-word span { display: inline-block; }
+    .ow-word .l1 { color: #E63946; }  /* O */
+    .ow-word .l2 { color: #F4A11E; }  /* U */
+    .ow-word .l3 { color: #FFCC00; }  /* R */
+    .ow-word .l4 { color: #3BA172; }  /* W */
+    .ow-word .l5 { color: #2AA6D9; }  /* O (globe-like) */
+    .ow-word .l6 { color: #5E6FC2; }  /* R */
+    .ow-word .l7 { color: #9B5BBF; }  /* L */
+    .ow-word .l8 { color: #D65E8E; }  /* D */
+
+    /* --- New Crown green text-logo --- */
+    .nc-brand { text-align: center; user-select: none; }
+    .nc-word {
+      font-family: 'Archivo Black', 'Oswald', sans-serif;
+      font-size: 44px;
+      line-height: 1;
+      color: var(--jh-accent);
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+    }
+    .nc-subline {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      color: var(--jh-ink);
+    }
+    .nc-subline .crown {
+      color: var(--jh-accent); font-size: 14px;
+    }
+
+    /* --- Training Ground text-logo --- */
+    .tg-brand { text-align: center; user-select: none; }
+    .tg-word {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 0.95;
+      color: var(--tg-accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .tg-subline {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--tg-ink);
+    }
+    .tg-subline .dash {
+      width: 12px; height: 2px; background: var(--tg-accent);
+    }
+
+    .mode-body {
+      padding: 22px 24px 24px;
+      flex: 1;
+      display: flex; flex-direction: column;
+    }
+    .mode-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .mode-tag .dot { width: 9px; height: 9px; display: inline-block; }
+    .mode-card.our-world       .mode-tag       { color: var(--ow-ink); }
+    .mode-card.our-world       .mode-tag .dot  { background: var(--nat-yellow); }
+    .mode-card.junior-high     .mode-tag       { color: var(--jh-ink); }
+    .mode-card.junior-high     .mode-tag .dot  { background: var(--jh-accent); }
+    .mode-card.training-ground .mode-tag       { color: var(--tg-ink); }
+    .mode-card.training-ground .mode-tag .dot  { background: var(--tg-accent); }
+
+    .mode-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700; font-size: 32px;
+      line-height: 1; color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .mode-desc {
+      font-size: 14px; color: var(--ink-2);
+      line-height: 1.55; flex: 1;
+      margin-bottom: 16px;
+    }
+    .mode-meta {
+      display: flex; justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .mode-meta .arrow { color: var(--ink); font-weight: 700; }
+
+    /* Our World feature card — yellow top bar */
+    .mode-card.our-world { position: relative; }
+    .mode-card.our-world::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: var(--nat-yellow);
+      z-index: 2;
+    }
+    .mode-card.our-world .mode-title { font-size: 36px; }
+
+    /* ================= SEARCH RESULTS ================= */
+    .results-wrap { display: none; }
+    .results-wrap.show { display: block; }
+
+    .results-header {
+      display: flex; justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .results-count {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 14px;
+      letter-spacing: 0.06em; color: var(--ink);
+    }
+    .results-count .query {
+      color: var(--yellow-ink);
+      background: var(--yellow-bg);
+      padding: 0 6px;
+    }
+
+    .results-list { display: flex; flex-direction: column; gap: 6px; }
+    .result-row {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .result-type {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 0.2em;
+      width: 32px; height: 32px;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .result-type.vocab { background: var(--nat-yellow); color: var(--ink); }
+    .result-type.grammar { background: var(--ink); color: var(--nat-yellow); }
+
+    .result-emoji { font-size: 22px; line-height: 1; }
+
+    .result-body { flex: 1; min-width: 0; }
+    .result-title {
+      font-size: 16px; font-weight: 500; color: var(--ink);
+      line-height: 1.3;
+    }
+    .result-title .hl {
+      background: var(--nat-yellow);
+      color: var(--ink);
+      font-weight: 600;
+      padding: 0 2px;
+    }
+    .result-sub {
+      font-size: 13px; color: var(--ink-3);
+      font-style: italic;
+      margin-top: 2px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+
+    /* world badges — tappable */
+    .result-badges {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+    .world-badge {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 10px 5px;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      display: inline-flex; align-items: center; gap: 6px;
+      text-decoration: none;
+    }
+    .world-badge .w-code { font-weight: 700; }
+    .world-badge .w-sep { opacity: 0.5; }
+    .world-badge.ow {
+      background: var(--ow-bg); color: var(--ow-ink);
+      border-color: var(--nat-yellow);
+    }
+    .world-badge.ow:hover { background: var(--nat-yellow); border-color: var(--ink); color: var(--ink); }
+    .world-badge.jh {
+      background: var(--jh-bg); color: var(--jh-ink);
+      border-color: var(--jh-accent);
+    }
+    .world-badge.jh:hover { background: var(--jh-accent); color: #FFFFFF; }
+    .world-badge.tg {
+      background: var(--tg-bg); color: var(--tg-ink);
+      border-color: var(--tg-accent);
+    }
+    .world-badge.tg:hover { background: var(--tg-accent); color: #FFFFFF; }
+
+    /* empty state */
+    .results-empty {
+      padding: 36px 24px; text-align: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .results-empty .head {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 18px; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .results-empty .sub {
+      font-size: 14px; color: var(--ink-3);
+      margin-bottom: 20px;
+    }
+    .results-empty .suggestions {
+      display: inline-flex; gap: 6px; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .suggestion-chip {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 7px 12px 6px;
+      background: var(--paper); border: 1px solid var(--border);
+      color: var(--ink-3); cursor: pointer;
+      transition: all 0.12s ease;
+    }
+    .suggestion-chip:hover {
+      background: var(--ink); color: var(--nat-yellow); border-color: var(--ink);
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .modes-grid { grid-template-columns: 1fr; }
+      .mode-card { min-height: auto; }
+      .hero-name { font-size: 64px; }
+      .result-row { flex-direction: column; align-items: flex-start; }
+      .result-badges { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <!-- brand NOT clickable on main home -->
+    <div class="brand on-home">
+      <div class="yellow-mark">LEL</div>
+      <div class="brand-text">Leo's English League</div>
+    </div>
+    <div class="topbar-right">Explorer's handbook</div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-kicker">
+        <div class="bar"></div>
+        <div class="label">Welcome back</div>
+      </div>
+      <div class="hero-name">LEO</div>
+      <div class="hero-tag">
+        Your handbook for English grammar, vocabulary, and practice.
+        Search below or pick a mode.
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="search-wrap">
+      <div class="search-label">
+        <div class="bar"></div>
+        <div class="txt">Search everything</div>
+      </div>
+      <div class="search-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Type a word or grammar point — 'pumpkin', 'comparatives', 'should'...">
+        <button class="search-clear" id="searchClear" onclick="clearSearch()">Clear</button>
+      </div>
+    </section>
+
+    <!-- MODE CARDS (shown when search is empty) -->
+    <section class="modes-grid" id="modesGrid">
+
+      <!-- OUR WORLD -->
+      <div class="mode-card our-world">
+        <div class="logo-slot">
+          <div class="ow-brand">
+            <div class="ow-subline">National Geographic</div>
+            <div class="ow-word">
+              <span class="l1">O</span><span class="l2">U</span><span class="l3">R</span>
+              &nbsp;
+              <span class="l4">W</span><span class="l5">O</span><span class="l6">R</span><span class="l7">L</span><span class="l8">D</span>
+            </div>
+          </div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><span class="dot"></span>The handbook</div>
+          <div class="mode-title">Our World</div>
+          <div class="mode-desc">National Geographic Learning · Levels 1 to 6 · grammar, vocabulary, practice</div>
+          <div class="mode-meta">
+            <span>6 levels · 36 units</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUNIOR HIGH -->
+      <div class="mode-card junior-high">
+        <div class="logo-slot">
+          <div class="nc-brand">
+            <div class="nc-word">NEW CROWN</div>
+            <div class="nc-subline">
+              <span class="crown">♛</span>
+              <span>English Series</span>
+            </div>
+          </div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><span class="dot"></span>School</div>
+          <div class="mode-title">Junior High</div>
+          <div class="mode-desc">New Crown textbook units, added by coach</div>
+          <div class="mode-meta">
+            <span>Custom units</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAINING GROUND -->
+      <div class="mode-card training-ground">
+        <div class="logo-slot">
+          <div class="tg-brand">
+            <div class="tg-word">Training<br>Ground</div>
+            <div class="tg-subline">
+              <span class="dash"></span>
+              <span>Practice field</span>
+              <span class="dash"></span>
+            </div>
+          </div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><span class="dot"></span>Practice</div>
+          <div class="mode-title">Training Ground</div>
+          <div class="mode-desc">Custom topics, grammar drills, vocab focus</div>
+          <div class="mode-meta">
+            <span>Build a lesson</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SEARCH RESULTS -->
+    <section class="results-wrap" id="resultsWrap">
+      <div class="results-header">
+        <div class="results-count">
+          <span id="resultsCount">0</span> results for <span class="query" id="resultsQuery"></span>
+        </div>
+      </div>
+      <div class="results-list" id="resultsList"></div>
+    </section>
+
+  </main>
+
+  <script>
+    // Each item can appear in multiple worlds — that's the key feature
+    // world codes: OW = Our World, JH = Junior High, TG = Training Ground
+    const items = [
+      // vocab
+      { type: 'vocab', word: 'pumpkin', emoji: '🎃', worlds: [
+        { code: 'OW', label: 'OW · L4 · U2' },
+        { code: 'JH', label: 'JH · Unit 3' }
+      ]},
+      { type: 'vocab', word: 'relatives', emoji: '👨‍👩‍👧‍👦', worlds: [
+        { code: 'OW', label: 'OW · L4 · U1' }
+      ]},
+      { type: 'vocab', word: 'taller', emoji: '📐', worlds: [
+        { code: 'OW', label: 'OW · L4 · U1' }
+      ]},
+      { type: 'vocab', word: 'cuter', emoji: '🐼', worlds: [
+        { code: 'OW', label: 'OW · L4 · U1' }
+      ]},
+      { type: 'vocab', word: 'friendlier', emoji: '🙂', worlds: [
+        { code: 'OW', label: 'OW · L4 · U1' }
+      ]},
+      { type: 'vocab', word: 'smaller', emoji: '🐭', worlds: [
+        { code: 'OW', label: 'OW · L4 · U1' }
+      ]},
+      { type: 'vocab', word: 'dig', emoji: '⛏️', worlds: [
+        { code: 'OW', label: 'OW · L4 · U2' }
+      ]},
+      { type: 'vocab', word: 'plant', emoji: '🌱', worlds: [
+        { code: 'OW', label: 'OW · L4 · U2' },
+        { code: 'JH', label: 'JH · Unit 5' }
+      ]},
+      { type: 'vocab', word: 'water', emoji: '💧', worlds: [
+        { code: 'OW', label: 'OW · L4 · U2' }
+      ]},
+      { type: 'vocab', word: 'ripe', emoji: '🍅', worlds: [
+        { code: 'OW', label: 'OW · L4 · U2' }
+      ]},
+      { type: 'vocab', word: 'lettuce', emoji: '🥬', worlds: [
+        { code: 'OW', label: 'OW · L4 · U2' }
+      ]},
+      { type: 'vocab', word: 'cucumber', emoji: '🥒', worlds: [
+        { code: 'OW', label: 'OW · L4 · U2' }
+      ]},
+      { type: 'vocab', word: 'glasses', emoji: '👓', worlds: [
+        { code: 'OW', label: 'OW · L4 · U1' }
+      ]},
+      { type: 'vocab', word: 'curly hair', emoji: '🎢', worlds: [
+        { code: 'OW', label: 'OW · L4 · U1' }
+      ]},
+      { type: 'vocab', word: 'animal', emoji: '🦁', worlds: [
+        { code: 'OW', label: 'OW · L3 · U4' },
+        { code: 'JH', label: 'JH · Unit 2' },
+        { code: 'TG', label: 'TG · Animals' }
+      ]},
+
+      // grammar
+      { type: 'grammar', name: 'Comparatives with -er', example: "I'm taller than you.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U1 · G1' }
+      ]},
+      { type: 'grammar', name: 'Present progressive for future plans', example: "I'm going to a movie tonight.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U1 · G2' }
+      ]},
+      { type: 'grammar', name: 'Have to', example: "I have to water the vegetables.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U2 · G1' },
+        { code: 'JH', label: 'JH · Unit 4' }
+      ]},
+      { type: 'grammar', name: 'Would like', example: "I'd like a bowl of soup.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U2 · G2' }
+      ]},
+      { type: 'grammar', name: 'Contrast with but and instead', example: "Long ago people rode horses, but today they drive cars.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U3 · G1' }
+      ]},
+      { type: 'grammar', name: 'Comparatives with more', example: "Soccer is more exciting than golf.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U3 · G2' }
+      ]},
+      { type: 'grammar', name: 'Advice with should', example: "You should drink more water.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U4 · G1' },
+        { code: 'JH', label: 'JH · Unit 6' }
+      ]},
+      { type: 'grammar', name: 'Reflexive pronouns', example: "I made it myself.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U4 · G2' }
+      ]},
+      { type: 'grammar', name: 'Superlatives with -est', example: "She is the tallest in class.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U5 · G1' }
+      ]},
+      { type: 'grammar', name: 'Future with will', example: "It will rain tomorrow.", worlds: [
+        { code: 'OW', label: 'OW · L4 · U6 · G2' },
+        { code: 'JH', label: 'JH · Unit 7' },
+        { code: 'TG', label: 'TG · Predictions' }
+      ]}
+    ];
+
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const modesGrid = document.getElementById('modesGrid');
+    const resultsWrap = document.getElementById('resultsWrap');
+    const resultsList = document.getElementById('resultsList');
+    const resultsCount = document.getElementById('resultsCount');
+    const resultsQuery = document.getElementById('resultsQuery');
+
+    searchInput.addEventListener('input', handleSearch);
+
+    function handleSearch() {
+      const q = searchInput.value.trim().toLowerCase();
+
+      if (q.length === 0) {
+        searchClear.classList.remove('show');
+        modesGrid.classList.remove('hidden');
+        resultsWrap.classList.remove('show');
+        return;
+      }
+
+      searchClear.classList.add('show');
+
+      if (q.length < 2) {
+        // too short yet — don't show results but hide mode cards
+        modesGrid.classList.remove('hidden');
+        resultsWrap.classList.remove('show');
+        return;
+      }
+
+      modesGrid.classList.add('hidden');
+      resultsWrap.classList.add('show');
+
+      const results = searchItems(q);
+      renderResults(results, q);
+    }
+
+    function searchItems(q) {
+      const scored = [];
+      items.forEach(it => {
+        const title = (it.word || it.name).toLowerCase();
+        let score = 0;
+
+        // exact match
+        if (title === q) score = 100;
+        // starts with
+        else if (title.startsWith(q)) score = 80;
+        // contains
+        else if (title.includes(q)) score = 60;
+
+        // for grammar, also check individual keywords in the name
+        if (it.type === 'grammar' && score === 0) {
+          const words = title.split(/\s+/);
+          if (words.some(w => w.startsWith(q))) score = 50;
+          else if (words.some(w => w.includes(q))) score = 40;
+        }
+
+        if (score > 0) scored.push({ item: it, score });
+      });
+
+      scored.sort((a, b) => b.score - a.score);
+      return scored.map(s => s.item);
+    }
+
+    function renderResults(results, q) {
+      resultsCount.textContent = results.length;
+      resultsQuery.textContent = `"${q}"`;
+      resultsList.innerHTML = '';
+
+      if (results.length === 0) {
+        renderEmpty(q);
+        return;
+      }
+
+      results.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'result-row';
+
+        const typeCode = item.type === 'vocab' ? 'V' : 'G';
+        const typeClass = item.type === 'vocab' ? 'vocab' : 'grammar';
+        const titleText = item.word || item.name;
+        const highlighted = highlightMatch(titleText, q);
+
+        const badgesHtml = item.worlds.map(w => {
+          const wClass = w.code.toLowerCase();
+          return `<a class="world-badge ${wClass}" onclick="navigateTo(${JSON.stringify(w.label).replace(/"/g, '&quot;')})">
+            <span class="w-code">${w.code}</span><span class="w-sep">·</span><span>${w.label.replace(w.code + ' · ', '')}</span>
+          </a>`;
+        }).join('');
+
+        let bodyHtml = `<div class="result-title">${highlighted}</div>`;
+        if (item.type === 'grammar' && item.example) {
+          bodyHtml += `<div class="result-sub">${item.example}</div>`;
+        }
+
+        const emojiHtml = item.emoji ? `<div class="result-emoji">${item.emoji}</div>` : '';
+
+        row.innerHTML = `
+          <div class="result-type ${typeClass}">${typeCode}</div>
+          ${emojiHtml}
+          <div class="result-body">${bodyHtml}</div>
+          <div class="result-badges">${badgesHtml}</div>
+        `;
+        resultsList.appendChild(row);
+      });
+    }
+
+    function highlightMatch(text, q) {
+      const lower = text.toLowerCase();
+      const idx = lower.indexOf(q);
+      if (idx < 0) return text;
+      return text.substring(0, idx) +
+             '<span class="hl">' + text.substring(idx, idx + q.length) + '</span>' +
+             text.substring(idx + q.length);
+    }
+
+    function renderEmpty(q) {
+      const suggestions = ['pumpkin', 'comparatives', 'should', 'plant'];
+      const chipsHtml = suggestions.map(s =>
+        `<button class="suggestion-chip" onclick="searchInput.value='${s}'; handleSearch();">${s}</button>`
+      ).join('');
+
+      resultsList.innerHTML = `
+        <div class="results-empty">
+          <div class="head">No matches for "${q}"</div>
+          <div class="sub">Try a different word or grammar point.</div>
+          <div class="suggestions">${chipsHtml}</div>
+        </div>
+      `;
+    }
+
+    function clearSearch() {
+      searchInput.value = '';
+      handleSearch();
+      searchInput.focus();
+    }
+
+    function navigateTo(destination) {
+      // in the real app this would route to the correct page
+      alert(`Navigating to: ${destination}\n\n(In the real app this would open the detail page for this item in this specific world.)`);
+    }
+  </script>
+</body>
+</html>

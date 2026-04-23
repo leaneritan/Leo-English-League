@@ -1,0 +1,379 @@
+{
+  "level": 4,
+  "unit": 1,
+  "set": 1,
+  "topic": "Comparatives with -er",
+  "chart": {
+    "title": "Comparatives with -er",
+    "columns": [
+      "Adjective",
+      "Comparative",
+      "Example"
+    ],
+    "rows": [
+      [
+        "tall",
+        "taller",
+        "Leo is taller than his friend."
+      ],
+      [
+        "fast",
+        "faster",
+        "A cheetah is faster than a horse."
+      ],
+      [
+        "old",
+        "older",
+        "My sister is older than me."
+      ],
+      [
+        "small",
+        "smaller",
+        "A mouse is smaller than a cat."
+      ]
+    ],
+    "note": "Add -er to short adjectives (1 syllable). If the adjective ends in -e, just add -r. If it ends in consonant+vowel+consonant, double the last consonant."
+  },
+  "sentences": [
+    "Leo is taller than his friend.",
+    "A cheetah is faster than a horse.",
+    "This book is older than that one.",
+    "My bag is heavier than yours.",
+    "Summer is hotter than spring.",
+    "This road is longer than that one.",
+    "My phone is newer than my dad's.",
+    "The soup is thicker than the juice.",
+    "Today is colder than yesterday.",
+    "That mountain is higher than this one."
+  ],
+  "rules": [
+    {
+      "id": "r1",
+      "title": "Short adjectives (1 syllable) → add -er",
+      "explanation": "For most short adjectives, simply add -er. tall → taller, fast → faster, cold → colder.",
+      "examples": [
+        "Leo is taller than his friend.",
+        "January is colder than October."
+      ]
+    },
+    {
+      "id": "r2",
+      "title": "Adjectives ending in -e → add -r only",
+      "explanation": "When the adjective already ends in -e, just add -r. nice → nicer, large → larger.",
+      "examples": [
+        "This room is nicer than that one.",
+        "Africa is larger than Europe."
+      ]
+    },
+    {
+      "id": "r3",
+      "title": "CVC adjectives → double the consonant, add -er",
+      "explanation": "If the adjective has one syllable and ends in consonant-vowel-consonant (CVC), double the final consonant. big → bigger, hot → hotter, thin → thinner.",
+      "examples": [
+        "Summer is hotter than spring.",
+        "An elephant is bigger than a horse."
+      ]
+    },
+    {
+      "id": "r4",
+      "title": "Use 'than' after the comparative",
+      "explanation": "Always use 'than' to connect what you are comparing. Never use 'then' here.",
+      "examples": [
+        "Tokyo is bigger than Osaka.",
+        "English is easier than Chinese for Leo."
+      ]
+    },
+    {
+      "id": "r5",
+      "title": "Long adjectives (2+ syllables) → use 'more', not -er",
+      "explanation": "For longer adjectives, don't add -er. Use 'more' before the adjective instead. beautiful → more beautiful. This is covered in Grammar 2.",
+      "examples": [
+        "This film is more interesting than that one.",
+        "Science is more difficult than art."
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "id": "q1",
+      "question": "Leo is _____ than his classmate. (tall)",
+      "options": [
+        "more tall",
+        "taller",
+        "tallest",
+        "talls"
+      ],
+      "answer": 1,
+      "explanation": "Short adjectives add -er. tall → taller. We never say 'more tall' for short adjectives."
+    },
+    {
+      "id": "q2",
+      "question": "Which sentence is correct?",
+      "options": [
+        "Tokyo is more big than Osaka.",
+        "Tokyo is bigger then Osaka.",
+        "Tokyo is bigger than Osaka.",
+        "Tokyo is most big than Osaka."
+      ],
+      "answer": 2,
+      "explanation": "big → bigger (CVC rule: double the g). Use 'than', not 'then'."
+    },
+    {
+      "id": "q3",
+      "question": "My bag is _____ than yours. (heavy)",
+      "options": [
+        "heavyer",
+        "more heavy",
+        "heavier",
+        "heaviest"
+      ],
+      "answer": 2,
+      "explanation": "heavy ends in consonant+y → change y to i, add -er → heavier."
+    },
+    {
+      "id": "q4",
+      "question": "Which word completes: 'This road is longer _____ that one.'",
+      "options": [
+        "then",
+        "that",
+        "than",
+        "as"
+      ],
+      "answer": 2,
+      "explanation": "Always use 'than' after a comparative adjective — never 'then'."
+    },
+    {
+      "id": "q5",
+      "question": "nice → ?",
+      "options": [
+        "niceer",
+        "nicer",
+        "more nice",
+        "nicest"
+      ],
+      "answer": 1,
+      "explanation": "nice ends in -e, so just add -r → nicer."
+    },
+    {
+      "id": "q6",
+      "question": "hot → ?",
+      "options": [
+        "hoter",
+        "more hot",
+        "hotter",
+        "hottest"
+      ],
+      "answer": 2,
+      "explanation": "hot is CVC (h-o-t) → double the t → hotter."
+    },
+    {
+      "id": "q7",
+      "question": "A cheetah is _____ than a horse. (fast)",
+      "options": [
+        "fastest",
+        "faster",
+        "more fast",
+        "fasther"
+      ],
+      "answer": 1,
+      "explanation": "fast is a short adjective → faster. Simple -er rule."
+    },
+    {
+      "id": "q8",
+      "question": "Which is NOT a comparative form?",
+      "options": [
+        "taller",
+        "hotter",
+        "nicer",
+        "beautifuler"
+      ],
+      "answer": 3,
+      "explanation": "beautiful has 3 syllables — we use 'more beautiful', never 'beautifuler'."
+    },
+    {
+      "id": "q9",
+      "question": "My sister is _____ than me. (old)",
+      "options": [
+        "older",
+        "more old",
+        "oldest",
+        "elder"
+      ],
+      "answer": 0,
+      "explanation": "old → older. Standard short adjective rule."
+    },
+    {
+      "id": "q10",
+      "question": "Complete: 'Today is _____ yesterday.' (cold)",
+      "options": [
+        "cold than",
+        "colder than",
+        "more cold than",
+        "coldest than"
+      ],
+      "answer": 1,
+      "explanation": "cold → colder. Always followed by 'than' when making a comparison."
+    }
+  ],
+  "master_quiz": [
+    {
+      "id": "mq1",
+      "type": "multiple_choice",
+      "question": "Leo is _____ than his friend.",
+      "options": [
+        "more tall",
+        "taller",
+        "tallest",
+        "tall than"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "mq2",
+      "type": "multiple_choice",
+      "question": "A mouse is _____ than a cat.",
+      "options": [
+        "small",
+        "more small",
+        "smaller",
+        "smallest"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "mq3",
+      "type": "multiple_choice",
+      "question": "hot → comparative form?",
+      "options": [
+        "hoter",
+        "hotter",
+        "more hot",
+        "hottest"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "mq4",
+      "type": "multiple_choice",
+      "question": "Which uses 'than' correctly?",
+      "options": [
+        "She is taller then him.",
+        "She is taller than him.",
+        "She is more tall than him.",
+        "She is tallest than him."
+      ],
+      "answer": 1
+    },
+    {
+      "id": "mq5",
+      "type": "multiple_choice",
+      "question": "nice → ?",
+      "options": [
+        "niceer",
+        "more nice",
+        "nicer",
+        "nicest"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "mq6",
+      "type": "multiple_choice",
+      "question": "Which adjective uses 'more', not -er?",
+      "options": [
+        "tall",
+        "fast",
+        "beautiful",
+        "old"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "mq7",
+      "type": "build",
+      "question": "Build: 'Tokyo is bigger than Osaka.'",
+      "words": [
+        "Osaka",
+        "bigger",
+        "is",
+        "Tokyo",
+        "than",
+        "more",
+        "big"
+      ],
+      "answer": [
+        "Tokyo",
+        "is",
+        "bigger",
+        "than",
+        "Osaka"
+      ]
+    },
+    {
+      "id": "mq8",
+      "type": "build",
+      "question": "Build: 'Summer is hotter than spring.'",
+      "words": [
+        "hotter",
+        "is",
+        "Spring",
+        "summer",
+        "than",
+        "hot",
+        "Summer"
+      ],
+      "answer": [
+        "Summer",
+        "is",
+        "hotter",
+        "than",
+        "spring"
+      ]
+    },
+    {
+      "id": "mq9",
+      "type": "build",
+      "question": "Build: 'My bag is heavier than yours.'",
+      "words": [
+        "heavier",
+        "is",
+        "yours",
+        "My",
+        "than",
+        "bag",
+        "heavy"
+      ],
+      "answer": [
+        "My",
+        "bag",
+        "is",
+        "heavier",
+        "than",
+        "yours"
+      ]
+    },
+    {
+      "id": "mq10",
+      "type": "build",
+      "question": "Build: 'This road is longer than that one.'",
+      "words": [
+        "longer",
+        "road",
+        "is",
+        "This",
+        "that",
+        "than",
+        "one"
+      ],
+      "answer": [
+        "This",
+        "road",
+        "is",
+        "longer",
+        "than",
+        "that",
+        "one"
+      ]
+    }
+  ]
+}

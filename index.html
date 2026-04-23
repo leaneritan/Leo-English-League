@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leo's English League</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper:      #FAFAF7;
+      --surface:    #FFFFFF;
+      --border:     #E5E3DC;
+      --soft:       #F0EEE8;
+      --ink:        #111111;
+      --ink-2:      #5A5853;
+      --ink-3:      #6B6963;
+      --ink-4:      #9A9A95;
+      --yellow:     #FFCC00;
+      --yellow-bg:  #FFFBE6;
+      --yellow-ink: #8B6B00;
+      --ow-accent:  #FFCC00;
+      --ow-ink:     #8B6B00;
+      --ow-bg:      #FFFBE6;
+      --jh-accent:  #2AA65A;
+      --jh-ink:     #1B6A39;
+      --jh-bg:      #E8F5EC;
+      --tg-accent:  #E85D3C;
+      --tg-ink:     #8F3618;
+      --tg-bg:      #FBEDE7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 32px;
+      background: var(--ink); color: #fff;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .yellow-mark {
+      background: var(--yellow); color: var(--ink);
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 0.18em;
+      padding: 5px 10px 4px;
+    }
+    .brand-text {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #fff;
+    }
+    .topbar-right {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .topbar-right span { color: var(--yellow); }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 48px 32px 60px; }
+
+    /* ── HERO ── */
+    .hero { margin-bottom: 32px; }
+    .hero-kicker {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+    }
+    .hero-kicker .bar { width: 32px; height: 3px; background: var(--yellow); }
+    .hero-kicker-text {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .hero-name {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 64px; line-height: 1;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .hero-name span { color: var(--yellow); }
+    .hero-sub {
+      font-size: 15px; color: var(--ink-3); line-height: 1.5;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap { margin-bottom: 36px; }
+    .search-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .search-label::before {
+      content: ''; display: block;
+      width: 20px; height: 2px; background: var(--yellow);
+    }
+    .search-box {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--surface); border: 2px solid var(--ink);
+      padding: 14px 18px;
+      position: relative;
+    }
+    .search-box svg { flex-shrink: 0; color: var(--ink-3); }
+    .search-box input {
+      flex: 1; border: 0; outline: 0;
+      font-family: 'Inter', sans-serif; font-size: 15px;
+      color: var(--ink); background: transparent;
+    }
+    .search-box input::placeholder { color: var(--ink-4); }
+    .search-clear {
+      background: var(--soft); border: 1px solid var(--border);
+      color: var(--ink-3); font-size: 11px;
+      font-family: 'Oswald', sans-serif; letter-spacing: 0.1em;
+      padding: 4px 10px; cursor: pointer;
+      display: none;
+    }
+    .search-clear:hover { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .search-clear.visible { display: block; }
+
+    /* ── SEARCH RESULTS ── */
+    .results { display: none; flex-direction: column; gap: 3px; margin-top: 8px; }
+    .results.visible { display: flex; }
+
+    .result-row {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 12px 16px;
+      transition: border-color 0.1s;
+    }
+    .result-row:hover { border-color: var(--ink); }
+
+    .result-type {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 10px; letter-spacing: 0.2em;
+      padding: 3px 8px; flex-shrink: 0;
+      min-width: 28px; text-align: center;
+    }
+    .result-type.vocab {
+      background: var(--yellow); color: var(--ink);
+    }
+    .result-type.grammar {
+      background: var(--ink); color: var(--yellow);
+    }
+
+    .result-word {
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 15px; color: var(--ink); flex: 1;
+    }
+    .result-word mark {
+      background: var(--yellow); color: var(--ink);
+      font-weight: 700; padding: 0 1px;
+    }
+
+    .result-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.12em;
+      padding: 4px 9px;
+      border: 1.5px solid transparent;
+      cursor: pointer; transition: all 0.12s;
+      text-decoration: none;
+    }
+    .badge.ow {
+      background: var(--ow-bg); color: var(--ow-ink);
+      border-color: var(--ow-accent);
+    }
+    .badge.ow:hover { background: var(--ow-accent); color: var(--ink); }
+    .badge.jh {
+      background: var(--jh-bg); color: var(--jh-ink);
+      border-color: var(--jh-accent);
+    }
+    .badge.jh:hover { background: var(--jh-accent); color: #fff; }
+    .badge.tg {
+      background: var(--tg-bg); color: var(--tg-ink);
+      border-color: var(--tg-accent);
+    }
+    .badge.tg:hover { background: var(--tg-accent); color: #fff; }
+
+    .badge-world { font-weight: 700; }
+    .badge-sep { opacity: 0.4; margin: 0 1px; }
+    .badge-loc { font-weight: 500; opacity: 0.8; }
+
+    /* empty state */
+    .no-results {
+      display: none;
+      padding: 24px 20px;
+      background: var(--surface); border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .no-results.visible { display: block; }
+    .no-results-msg {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 12px;
+    }
+    .suggestions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .suggestion {
+      background: var(--soft); border: 1px solid var(--border);
+      font-family: 'Oswald', sans-serif; font-size: 11px;
+      letter-spacing: 0.1em; padding: 5px 12px;
+      cursor: pointer; color: var(--ink-2);
+    }
+    .suggestion:hover { border-color: var(--ink); color: var(--ink); }
+
+    /* ── SECTION DIVIDER ── */
+    .section-divider {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-divider .bar { width: 32px; height: 3px; background: var(--yellow); }
+    .section-divider-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .section-divider .rule { flex: 1; height: 1px; background: var(--border); }
+
+    /* ── MODE CARDS ── */
+    .modes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .mode-card {
+      display: flex; flex-direction: column;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.1s;
+      text-decoration: none; color: inherit;
+    }
+    .mode-card:hover { border-color: var(--ink); }
+
+    /* logo slot */
+    .logo-slot {
+      padding: 36px 28px;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1.5px solid var(--border);
+      min-height: 180px;
+    }
+    .mode-card.our-world  .logo-slot { background: var(--ink); }
+    .mode-card.junior-high .logo-slot { background: var(--jh-bg); border-bottom-color: var(--jh-accent); }
+    .mode-card.training-ground .logo-slot { background: var(--tg-bg); border-bottom-color: var(--tg-accent); }
+
+    /* Our World rainbow logo */
+    .ow-brand { text-align: center; user-select: none; }
+    .ow-subline {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 10px;
+    }
+    .ow-word {
+      font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
+      font-size: 50px; line-height: 1; letter-spacing: 0.02em;
+      display: flex; gap: 2px; justify-content: center;
+    }
+    .ow-word span { display: inline-block; }
+    .ow-word .c1 { color: #E63946; }
+    .ow-word .c2 { color: #F4A11E; }
+    .ow-word .c3 { color: #FFCC00; }
+    .ow-word .c4 { color: #2AA65A; margin-left: 8px; }
+    .ow-word .c5 { color: #2AA6D9; }
+    .ow-word .c6 { color: #5E6FC2; }
+    .ow-word .c7 { color: #9B5BBF; }
+    .ow-word .c8 { color: #E85D3C; }
+
+    /* New Crown green logo */
+    .nc-brand { text-align: center; user-select: none; }
+    .nc-word {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 42px; line-height: 1;
+      color: var(--jh-accent); letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+    .nc-subline {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--jh-ink);
+    }
+    .nc-subline .crown { color: var(--jh-accent); font-size: 15px; }
+
+    /* Training Ground logo */
+    .tg-brand { text-align: center; user-select: none; }
+    .tg-word {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 38px; line-height: 0.9; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--tg-accent);
+      margin-bottom: 10px;
+    }
+    .tg-subline {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--tg-ink);
+    }
+    .tg-subline::before, .tg-subline::after {
+      content: '—'; opacity: 0.4;
+    }
+
+    /* card body */
+    .mode-body { padding: 18px 20px 20px; flex: 1; }
+    .mode-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--ink-4); margin-bottom: 8px;
+    }
+    .mode-tag .dot {
+      width: 6px; height: 6px;
+    }
+    .mode-card.our-world    .mode-tag .dot { background: var(--yellow); }
+    .mode-card.junior-high  .mode-tag .dot { background: var(--jh-accent); }
+    .mode-card.training-ground .mode-tag .dot { background: var(--tg-accent); }
+
+    .mode-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 20px; color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .mode-desc {
+      font-size: 13px; color: var(--ink-3); line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .mode-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .mode-card.our-world:hover    .mode-meta .arrow { color: var(--yellow); }
+    .mode-card.junior-high:hover  .mode-meta .arrow { color: var(--jh-accent); }
+    .mode-card.training-ground:hover .mode-meta .arrow { color: var(--tg-accent); }
+    .mode-meta .arrow { font-size: 16px; transition: color 0.15s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .modes-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 44px; }
+      .topbar { padding: 14px 20px; }
+      .container { padding: 32px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="yellow-mark">LEL</div>
+      <div class="brand-text">Leo's English League</div>
+    </div>
+    <div class="topbar-right">The <span>Handbook</span></div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-kicker">
+        <div class="bar"></div>
+        <div class="hero-kicker-text">Welcome back</div>
+      </div>
+      <h1 class="hero-name">LEO'S <span>LEAGUE</span></h1>
+      <p class="hero-sub">Search for a word or grammar point, or pick a mode below.</p>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+      <div class="search-label">Search everything</div>
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input id="searchInput" type="text"
+          placeholder="Try 'pumpkin', 'comparatives', 'should'…"
+          autocomplete="off" spellcheck="false">
+        <button class="search-clear" id="clearBtn">✕ CLEAR</button>
+      </div>
+
+      <!-- Results -->
+      <div class="results" id="results"></div>
+
+      <!-- No results -->
+      <div class="no-results" id="noResults">
+        <div class="no-results-msg">No results found — try one of these</div>
+        <div class="suggestions">
+          <div class="suggestion" onclick="setSearch('pumpkin')">pumpkin</div>
+          <div class="suggestion" onclick="setSearch('comparatives')">comparatives</div>
+          <div class="suggestion" onclick="setSearch('should')">should</div>
+          <div class="suggestion" onclick="setSearch('animal')">animal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODE SECTION HEADER -->
+    <div class="section-divider" id="modeSection">
+      <div class="bar"></div>
+      <div class="section-divider-label">Choose a mode</div>
+      <div class="rule"></div>
+    </div>
+
+    <!-- MODE CARDS -->
+    <div class="modes-grid" id="modesGrid">
+
+      <a href="our-world.html" class="mode-card our-world">
+        <div class="logo-slot">
+          <div class="ow-brand">
+            <div class="ow-subline">National Geographic</div>
+            <div class="ow-word">
+              <span class="c1">O</span><span class="c2">u</span><span class="c3">r</span>
+              <span class="c4">W</span><span class="c5">o</span><span class="c6">r</span><span class="c7">l</span><span class="c8">d</span>
+            </div>
+          </div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><div class="dot"></div>Textbook</div>
+          <div class="mode-title">Our World</div>
+          <div class="mode-desc">Vocab, grammar, and quizzes from National Geographic Learning — Levels 1–6.</div>
+          <div class="mode-meta">
+            <span>Level 4 active</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="mode-card junior-high">
+        <div class="logo-slot">
+          <div class="nc-brand">
+            <div class="nc-word">NEW CROWN</div>
+            <div class="nc-subline"><span class="crown">♛</span> English Series</div>
+          </div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><div class="dot"></div>School textbook</div>
+          <div class="mode-title">Junior High</div>
+          <div class="mode-desc">Units from Leo's school English class — New Crown, added unit by unit.</div>
+          <div class="mode-meta">
+            <span>Coming soon</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="mode-card training-ground">
+        <div class="logo-slot">
+          <div class="tg-brand">
+            <div class="tg-word">Training<br>Ground</div>
+            <div class="tg-subline">Practice Field</div>
+          </div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><div class="dot"></div>Custom practice</div>
+          <div class="mode-title">Training Ground</div>
+          <div class="mode-desc">Custom topics, focused drills, and extra vocab beyond the textbooks.</div>
+          <div class="mode-meta">
+            <span>Coming soon</span>
+            <span class="arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <script>
+    // ── SEARCH DATA (real Level 4 content) ──
+    const DATA = [
+      // Vocab – Our World Level 4
+      { type:'V', word:'relatives',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'different',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'pumpkin',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 3'}] },
+      { type:'V', word:'plant',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
+      { type:'V', word:'turnip',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
+      { type:'V', word:'enormous',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
+      { type:'V', word:'pull',           worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
+      { type:'V', word:'stretch',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
+      { type:'V', word:'animal',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'},{code:'JH',cls:'jh',label:'JH · Unit 1'},{code:'TG',cls:'tg',label:'TG · Set 2'}] },
+      { type:'V', word:'habitat',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
+      { type:'V', word:'pretty',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'handsome',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'athlete',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'wonderful',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'hobby',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'},{code:'JH',cls:'jh',label:'JH · Unit 4'}] },
+      { type:'V', word:'school subject', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+
+      // Grammar – Our World Level 4
+      { type:'G', word:'Comparatives with -er',    worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G1'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
+      { type:'G', word:'Comparatives with more',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G2'}] },
+      { type:'G', word:'Superlatives with -est',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G1'}] },
+      { type:'G', word:'Superlatives with most',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G2'}] },
+      { type:'G', word:'Irregular comparatives',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3 G1'}] },
+      { type:'G', word:'should / shouldn\'t',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G1'},{code:'JH',cls:'jh',label:'JH · Unit 5'}] },
+      { type:'G', word:'have to / don\'t have to', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G2'}] },
+      { type:'G', word:'Present perfect',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G1'}] },
+      { type:'G', word:'ever / never',             worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G2'}] },
+    ];
+
+    const input    = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearBtn');
+    const results  = document.getElementById('results');
+    const noRes    = document.getElementById('noResults');
+    const modeSection = document.getElementById('modeSection');
+    const modesGrid   = document.getElementById('modesGrid');
+
+    function highlight(text, query) {
+      const idx = text.toLowerCase().indexOf(query.toLowerCase());
+      if (idx === -1) return text;
+      return text.slice(0, idx)
+        + '<mark>' + text.slice(idx, idx + query.length) + '</mark>'
+        + text.slice(idx + query.length);
+    }
+
+    function showModes(show) {
+      modesGrid.style.display    = show ? 'grid' : 'none';
+      modeSection.style.display  = show ? 'flex' : 'none';
+    }
+
+    function doSearch(q) {
+      results.innerHTML = '';
+      results.classList.remove('visible');
+      noRes.classList.remove('visible');
+
+      if (q.length < 2) {
+        showModes(true);
+        clearBtn.classList.remove('visible');
+        return;
+      }
+
+      clearBtn.classList.add('visible');
+      showModes(false);
+
+      const hits = DATA.filter(d => d.word.toLowerCase().includes(q.toLowerCase()));
+
+      if (hits.length === 0) {
+        noRes.classList.add('visible');
+        return;
+      }
+
+      hits.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'result-row';
+
+        const typeTag = `<div class="result-type ${item.type === 'V' ? 'vocab' : 'grammar'}">${item.type}</div>`;
+        const wordSpan = `<div class="result-word">${highlight(item.word, q)}</div>`;
+        const badges = item.worlds.map(w =>
+          `<a href="#" class="badge ${w.cls}" onclick="handleBadge('${item.word}','${w.code}');return false;">
+            <span class="badge-world">${w.code}</span>
+            <span class="badge-sep">·</span>
+            <span class="badge-loc">${w.label.split('·')[1].trim()}</span>
+          </a>`
+        ).join('');
+
+        row.innerHTML = typeTag + wordSpan + `<div class="result-badges">${badges}</div>`;
+        results.appendChild(row);
+      });
+
+      results.classList.add('visible');
+    }
+
+    function handleBadge(word, world) {
+      // In the real app, this navigates to the detail page for that word in that world.
+      // For now, show where it would go.
+      alert(`→ ${world}: Opening "${word}" detail page`);
+    }
+
+    function setSearch(val) {
+      input.value = val;
+      doSearch(val);
+    }
+
+    input.addEventListener('input', () => doSearch(input.value.trim()));
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      doSearch('');
+      input.focus();
+    });
+  </script>
+</body>
+</html>
