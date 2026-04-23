@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparatives — Master Quiz</title>
+
+  <!--
+    CALIBRATION MOCKUP — Grammar page, Tab 4 'Master Quiz'
+    10 questions (6 multiple choice + 4 build sentences)
+    20-second timer per question
+    No explanations on wrong answers (test pressure)
+    8/10 to earn Mastery
+    Fully interactive
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper:      #FAFAF7;
+      --surface:    #FFFFFF;
+      --soft:       #F0EEE8;
+      --border:     #E5E3DC;
+      --ink:        #111111;
+      --ink-2:      #5A5853;
+      --ink-3:      #6B6963;
+      --ink-4:      #9A9A95;
+      --yellow:     #FFCC00;
+      --yellow-bg:  #FFFBE6;
+      --yellow-ink: #8B6B00;
+      --green:      #2E7D5F;
+      --green-bg:   #E8F3EE;
+      --green-ink:  #1A5C42;
+      --red:        #C93232;
+      --red-bg:     #FCEBEB;
+      --red-ink:    #8B1A1A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+    /* top bar */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; background: var(--ink); color: #FFFFFF; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .yellow-mark { background: var(--yellow); color: var(--ink); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; padding: 5px 10px 4px; }
+    .brand-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; }
+    .crumb { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); }
+    .crumb a { color: var(--ink-4); text-decoration: none; }
+    .crumb .active { color: var(--yellow); }
+    .crumb .sep { color: var(--yellow); margin: 0 6px; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 24px 32px 48px; }
+    .back-link { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; display: inline-block; cursor: pointer; }
+
+    .page-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .tag { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); background: var(--surface); padding: 4px 8px 3px; border: 1px solid var(--border); }
+    .tag.main { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .unit-tag { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); }
+    .page-head { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; color: var(--ink); margin-bottom: 24px; }
+
+    /* GRAMMAR CHART */
+    .chart-card { background: var(--surface); border: 1px solid var(--ink); overflow: hidden; }
+    .chart-head { background: var(--ink); color: #FFFFFF; padding: 13px 20px; display: flex; align-items: center; gap: 12px; }
+    .chart-head .bar { width: 20px; height: 3px; background: var(--yellow); }
+    .chart-head .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--yellow); }
+    .chart-head .name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 0.04em; margin-left: auto; color: #FFFFFF; }
+    .chart-intro { padding: 14px 22px 12px; border-bottom: 1px solid var(--border); background: var(--yellow-bg); }
+    .chart-intro .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yellow-ink); margin-bottom: 8px; }
+    .chart-intro .ex { font-size: 14px; color: var(--ink); line-height: 1.6; }
+    .chart-intro .ex b { font-weight: 600; color: var(--yellow-ink); }
+    .chart-intro .ex .sep-arrow { color: var(--yellow-ink); margin: 0 8px; }
+    .chart-table { padding: 18px 22px; }
+    .chart-grid { display: grid; grid-template-columns: 1.2fr 1.3fr 0.5fr 1.4fr; gap: 0; border: 1px solid var(--border); }
+    .chart-grid .hd { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); padding: 9px 14px 7px; background: var(--paper); border-bottom: 1px solid var(--border); }
+    .chart-grid .hd.key { background: var(--yellow); color: var(--ink); }
+    .chart-grid .hd.center { text-align: center; }
+    .chart-grid .cell { padding: 10px 14px; font-size: 14px; color: var(--ink); border-bottom: 1px solid var(--soft); border-right: 1px solid var(--soft); }
+    .chart-grid .cell.key { background: var(--yellow-bg); font-weight: 600; color: var(--yellow-ink); border-right: 0; border-left: 0; text-align: center; }
+    .chart-grid .cell.mid { background: var(--paper); text-align: center; color: var(--ink-3); font-style: italic; font-size: 13px; border-right: 0; }
+    .chart-grid .cell.last { border-right: 0; }
+    .chart-grid > *:nth-last-child(-n+4) { border-bottom: 0; }
+    .chart-note { padding: 12px 22px 15px; font-size: 13px; color: var(--ink-2); line-height: 1.7; background: var(--paper); border-top: 1px solid var(--border); }
+    .chart-note b { color: var(--ink); font-weight: 600; }
+    .chart-note .arrow { color: var(--yellow-ink); font-weight: 600; }
+    .chart-note .aside { color: var(--ink-4); }
+
+    /* TABS */
+    .tabs-row { display: flex; gap: 0; margin-top: 22px; border-bottom: 1.5px solid var(--ink); }
+    .tab { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 13px 20px 11px; background: transparent; border: 0; color: var(--ink-3); cursor: pointer; position: relative; display: flex; align-items: center; gap: 10px; }
+    .tab:hover { color: var(--ink); }
+    .tab.active { color: var(--ink); }
+    .tab.active::after { content: ''; position: absolute; bottom: -1.5px; left: 0; right: 0; height: 3px; background: var(--yellow); }
+    .tab .num { font-size: 10px; background: var(--soft); color: var(--ink-3); padding: 3px 7px 2px; }
+    .tab.active .num { background: var(--ink); color: var(--yellow); }
+
+    /* ============ START SCREEN ============ */
+    .start-screen {
+      margin-top: 28px;
+      background: var(--ink); color: #FFFFFF;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .start-screen.hidden { display: none; }
+    .start-kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 14px;
+    }
+    .start-kicker .bar { width: 24px; height: 3px; background: var(--yellow); }
+    .start-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 52px; line-height: 1;
+      margin-bottom: 24px;
+    }
+    .start-rules {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 32px;
+      margin-bottom: 32px;
+      color: #D8D8D4;
+      font-size: 14px;
+    }
+    .start-rules .rule-item {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .start-rules .rule-item strong { color: var(--yellow); font-weight: 600; }
+    .start-btn {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase;
+      padding: 16px 36px;
+      background: var(--yellow); color: var(--ink);
+      border: 0;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .start-btn:hover { background: #FFFFFF; }
+
+    /* ============ QUIZ ============ */
+    .quiz-wrap { padding: 22px 0 0; display: none; }
+    .quiz-wrap.active { display: block; }
+
+    .master-banner {
+      background: var(--ink); color: #FFFFFF;
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 18px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .master-banner .badge {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      background: var(--yellow); color: var(--ink);
+      padding: 5px 10px 4px;
+    }
+    .master-banner .q-counter {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 13px; letter-spacing: 0.12em;
+    }
+    .master-banner .q-counter .current { color: var(--yellow); font-size: 18px; }
+    .master-banner .score-display {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      margin-left: auto;
+      color: #D8D8D4;
+    }
+    .master-banner .score-display .num { color: var(--yellow); }
+
+    /* timer bar */
+    .timer-bar {
+      height: 6px; background: var(--soft);
+      border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .timer-fill {
+      height: 100%; background: var(--yellow);
+      width: 100%;
+      transition: width 0.1s linear, background-color 0.3s ease;
+    }
+    .timer-fill.warn { background: #FFA500; }
+    .timer-fill.danger { background: var(--red); }
+    .timer-seconds {
+      position: absolute; right: 8px; top: -22px;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.06em;
+      color: var(--ink);
+    }
+    .timer-seconds.danger { color: var(--red); }
+
+    /* question */
+    .question-card {
+      background: var(--surface); border: 1px solid var(--border);
+      margin-bottom: 16px; overflow: hidden;
+    }
+    .q-type-label {
+      padding: 10px 20px 8px;
+      border-bottom: 1px solid var(--border);
+      background: var(--paper);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .q-type-label .dot { width: 7px; height: 7px; background: var(--yellow); }
+    .q-type-label .txt {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .q-stem {
+      font-size: 20px; line-height: 1.5;
+      color: var(--ink); font-weight: 400;
+      padding: 20px 20px 8px;
+    }
+    .q-stem .blank {
+      display: inline-block; min-width: 80px;
+      border-bottom: 2px dashed var(--ink-3);
+      text-align: center; font-weight: 600;
+      padding: 0 8px;
+    }
+    .q-stem .blank.filled-correct { border-bottom-style: solid; border-bottom-color: var(--green); color: var(--green-ink); background: var(--green-bg); }
+    .q-stem .blank.filled-wrong { border-bottom-style: solid; border-bottom-color: var(--red); color: var(--red-ink); background: var(--red-bg); }
+    .q-cue {
+      display: inline-flex; flex-wrap: wrap; gap: 6px 14px;
+      padding: 16px 20px;
+      background: var(--yellow-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .q-cue-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--yellow-ink);
+      align-self: center; margin-right: 6px;
+    }
+    .q-cue-chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; color: var(--ink);
+      padding: 4px 10px 3px;
+      background: var(--surface);
+      border: 1px solid var(--yellow);
+      font-weight: 500;
+    }
+
+    /* MC answers */
+    .answers-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 8px; padding: 16px 20px 20px;
+    }
+    .answer-btn {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      padding: 14px 18px;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.12s ease;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .answer-btn:hover:not(:disabled) { border-color: var(--ink); background: var(--yellow-bg); }
+    .answer-btn:disabled { cursor: default; }
+    .answer-btn .letter {
+      width: 28px; height: 28px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600; font-size: 13px;
+      flex-shrink: 0;
+    }
+    .answer-btn:hover:not(:disabled) .letter { background: var(--yellow); border-color: var(--ink); }
+    .answer-btn.picked-correct { border-color: var(--green); background: var(--green-bg); }
+    .answer-btn.picked-correct .letter { background: var(--green); color: #FFFFFF; border-color: var(--green); }
+    .answer-btn.picked-wrong { border-color: var(--red); background: var(--red-bg); }
+    .answer-btn.picked-wrong .letter { background: var(--red); color: #FFFFFF; border-color: var(--red); }
+    .answer-btn.reveal-correct { border-color: var(--green); background: var(--green-bg); }
+    .answer-btn.reveal-correct .letter { background: var(--green); color: #FFFFFF; border-color: var(--green); }
+
+    /* Build Sentences */
+    .build-slot {
+      min-height: 60px;
+      margin: 16px 20px 10px;
+      padding: 14px 16px;
+      background: var(--paper);
+      border: 1.5px solid var(--ink);
+      display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    }
+    .build-slot.correct { border-color: var(--green); background: var(--green-bg); }
+    .build-slot.wrong { border-color: var(--red); background: var(--red-bg); }
+    .build-slot-empty {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .build-chip {
+      display: inline-block;
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+    .build-chip:hover { border-color: var(--ink); background: var(--yellow-bg); }
+    .build-chip.placed { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .build-chip.placed:hover { background: var(--ink-2); }
+    .build-chip.used { opacity: 0.25; pointer-events: none; }
+
+    .build-bank {
+      margin: 0 20px 16px;
+      padding: 16px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    }
+    .build-bank-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3);
+      width: 100%; margin-bottom: 4px;
+    }
+    .build-submit-row {
+      display: flex; gap: 10px; padding: 0 20px 16px;
+    }
+    .build-submit {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 10px 20px;
+      background: var(--ink); color: var(--yellow);
+      border: 0;
+      cursor: pointer;
+    }
+    .build-submit:hover { background: var(--ink-2); }
+    .build-submit:disabled { background: var(--border); color: var(--ink-4); cursor: not-allowed; }
+    .build-reset {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 10px 20px;
+      background: transparent; color: var(--ink);
+      border: 1.5px solid var(--ink);
+      cursor: pointer;
+    }
+
+    /* reveal state for build */
+    .build-reveal {
+      display: none;
+      padding: 12px 20px 16px;
+      border-top: 1px solid var(--border);
+      background: var(--paper);
+    }
+    .build-reveal.show { display: block; }
+    .build-reveal .label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 6px;
+    }
+    .build-reveal .correct-sentence {
+      font-size: 16px; color: var(--green-ink);
+      font-weight: 500;
+      padding: 8px 12px;
+      background: var(--green-bg);
+      display: inline-block;
+    }
+
+    /* ============ END SCREEN ============ */
+    .end-card {
+      display: none;
+      margin-top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--ink);
+      overflow: hidden;
+    }
+    .end-card.show { display: block; }
+    .end-head {
+      padding: 16px 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .end-head.passed { background: var(--yellow); color: var(--ink); }
+    .end-head.failed { background: var(--ink); color: #FFFFFF; }
+    .end-head .bar { width: 20px; height: 3px; background: var(--ink); }
+    .end-head.failed .bar { background: var(--yellow); }
+    .end-head .label {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase;
+    }
+
+    .end-body { padding: 36px 28px 28px; text-align: center; }
+    .mastery-badge {
+      display: none;
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 16px; letter-spacing: 0.3em;
+      padding: 10px 22px 8px;
+      margin-bottom: 20px;
+    }
+    .mastery-badge.show { display: inline-block; }
+
+    .end-score {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 96px; line-height: 1;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .end-score.failed { color: var(--ink-3); }
+    .end-score .total { color: var(--ink-3); font-weight: 500; font-size: 40px; }
+    .end-subhead {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 14px;
+    }
+    .end-msg {
+      font-size: 16px; color: var(--ink-2);
+      margin-bottom: 24px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+      line-height: 1.55;
+    }
+    .end-actions {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    }
+    .end-btn {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 12px 20px;
+      cursor: pointer;
+      border: 1.5px solid var(--ink);
+      transition: all 0.12s ease;
+    }
+    .end-btn.primary { background: var(--ink); color: var(--yellow); }
+    .end-btn.primary:hover { background: var(--yellow); color: var(--ink); }
+    .end-btn.ghost { background: transparent; color: var(--ink); }
+    .end-btn.ghost:hover { background: var(--soft); }
+
+    /* missed questions list */
+    .missed-list {
+      margin-top: 24px;
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      text-align: left;
+    }
+    .missed-list-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 10px;
+    }
+    .missed-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--soft);
+      font-size: 14px;
+    }
+    .missed-item:last-child { border-bottom: 0; }
+    .missed-item .q-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.18em; color: var(--ink-4);
+      margin-right: 8px;
+    }
+    .missed-item .correct-ans {
+      color: var(--green-ink); font-weight: 600;
+      background: var(--green-bg); padding: 0 4px;
+    }
+
+    @media (max-width: 840px) {
+      .chart-grid { grid-template-columns: 1fr 1fr 0.4fr 1fr; }
+      .chart-grid .cell { font-size: 13px; padding: 8px 10px; }
+      .answers-grid { grid-template-columns: 1fr; }
+      .page-head { font-size: 32px; }
+      .start-title { font-size: 36px; }
+      .end-score { font-size: 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="yellow-mark">LEL</div>
+      <div class="brand-text">Leo's English League</div>
+    </div>
+    <div class="crumb">
+      <a>Home</a><span class="sep">/</span><a>Our World</a><span class="sep">/</span><a>Level 4</a><span class="sep">/</span><span class="active">Comparatives with -er</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="back-link">← Back to Level 4</div>
+    <div class="page-meta">
+      <div class="tag main">Grammar 1</div>
+      <div class="unit-tag">Unit 1 · Family &amp; friends</div>
+    </div>
+    <h1 class="page-head">Comparatives with -er</h1>
+
+    <!-- CHART -->
+    <section class="chart-card">
+      <div class="chart-head">
+        <div class="bar"></div>
+        <div class="label">Grammar Chart</div>
+        <div class="name">Comparatives with -er</div>
+      </div>
+      <div class="chart-intro">
+        <div class="label">See how it works</div>
+        <div class="ex">My best friend is <b>bigger</b> than I am.<span class="sep-arrow">—</span>I'm <b>shorter</b> than him, too.</div>
+        <div class="ex">My dog is <b>friendlier</b> than my sister's cat.<span class="sep-arrow">—</span>My dog is also <b>cuter</b> than her cat.</div>
+      </div>
+      <div class="chart-table">
+        <div class="chart-grid">
+          <div class="hd">Subject</div>
+          <div class="hd key">Comparative</div>
+          <div class="hd center">—</div>
+          <div class="hd">Compared to</div>
+          <div class="cell">I'm</div><div class="cell key">taller</div><div class="cell mid">than</div><div class="cell last">you (are)</div>
+          <div class="cell">You're</div><div class="cell key">older</div><div class="cell mid">than</div><div class="cell last">I am</div>
+          <div class="cell">Maria is</div><div class="cell key">shorter</div><div class="cell mid">than</div><div class="cell last">Carlos</div>
+          <div class="cell">She's</div><div class="cell key">shorter</div><div class="cell mid">than</div><div class="cell last">he is / him</div>
+          <div class="cell">My cat is</div><div class="cell key">cuter</div><div class="cell mid">than</div><div class="cell last">your cat</div>
+          <div class="cell">Dogs are</div><div class="cell key">friendlier</div><div class="cell mid">than</div><div class="cell last">cats</div>
+        </div>
+      </div>
+      <div class="chart-note">
+        <b>Rule —</b> Add <b>-er</b>: tall <span class="arrow">→</span> taller · old <span class="arrow">→</span> older · short <span class="arrow">→</span> shorter<br>
+        <b>But —</b> cute <span class="arrow">→</span> cuter · friendly <span class="arrow">→</span> friendlier <span class="aside">(y becomes i)</span>
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <nav class="tabs-row">
+      <button class="tab"><span class="num">01</span>Chart &amp; samples</button>
+      <button class="tab"><span class="num">02</span>Level up</button>
+      <button class="tab"><span class="num">03</span>Quiz</button>
+      <button class="tab active"><span class="num">04</span>Master quiz</button>
+    </nav>
+
+    <!-- START SCREEN -->
+    <section class="start-screen" id="startScreen">
+      <div class="start-kicker">
+        <span class="bar"></span><span>Final challenge</span><span class="bar"></span>
+      </div>
+      <div class="start-title">Master Quiz</div>
+      <div class="start-rules">
+        <div class="rule-item">📝 <strong>10 questions</strong></div>
+        <div class="rule-item">⏱ <strong>20 seconds</strong> each</div>
+        <div class="rule-item">🎯 <strong>8 of 10</strong> to pass</div>
+        <div class="rule-item">🚫 <strong>No help</strong> this time</div>
+      </div>
+      <button class="start-btn" onclick="startQuiz()">Start Master Quiz</button>
+    </section>
+
+    <!-- QUIZ AREA -->
+    <section class="quiz-wrap" id="quizWrap">
+
+      <div class="master-banner">
+        <div class="badge">Master Quiz</div>
+        <div class="q-counter">Q<span class="current" id="qCurrent">1</span> / 10</div>
+        <div class="score-display">Score: <span class="num" id="scoreNum">0</span></div>
+      </div>
+
+      <div class="timer-bar">
+        <div class="timer-fill" id="timerFill"></div>
+        <div class="timer-seconds" id="timerSec">20</div>
+      </div>
+
+      <div id="questionArea"></div>
+
+      <!-- END -->
+      <div class="end-card" id="endCard">
+        <div class="end-head" id="endHead">
+          <div class="bar"></div>
+          <div class="label" id="endLabel">Quiz complete</div>
+        </div>
+        <div class="end-body">
+          <div class="mastery-badge" id="masteryBadge">★ Mastery earned ★</div>
+          <div class="end-subhead" id="endSubhead">Final score</div>
+          <div class="end-score" id="endScore"><span id="finalScore">0</span><span class="total"> / 10</span></div>
+          <div class="end-msg" id="endMsg"></div>
+          <div class="end-actions">
+            <button class="end-btn primary" onclick="location.reload()">Try again</button>
+            <button class="end-btn ghost">Review in Tab 2</button>
+          </div>
+          <div class="missed-list" id="missedList" style="display: none;">
+            <div class="missed-list-label">What you missed</div>
+            <div id="missedItems"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    // 10 questions: 6 multiple choice + 4 build sentences
+    const questions = [
+      {
+        type: 'mc',
+        stem: ['My little brother is ', 'BLANK', ' than our cousin.'],
+        answers: ['more young', 'younger', 'youngest', 'youngerer'],
+        correct: 1
+      },
+      {
+        type: 'mc',
+        stem: ['This soup is ', 'BLANK', ' than yesterday\'s.'],
+        answers: ['spicyer', 'more spicy', 'spicier', 'spiciest'],
+        correct: 2
+      },
+      {
+        type: 'build',
+        cue: ['My dog', 'friendlier', 'my sister\'s cat'],
+        bank: ['My', 'dog', 'is', 'friendlier', 'than', 'my', 'sister\'s', 'cat', 'more', 'the'],
+        correct: ['My', 'dog', 'is', 'friendlier', 'than', 'my', 'sister\'s', 'cat']
+      },
+      {
+        type: 'mc',
+        stem: ['My math homework is ', 'BLANK', ' than last week\'s.'],
+        answers: ['difficulter', 'more difficult', 'most difficult', 'more difficulter'],
+        correct: 1
+      },
+      {
+        type: 'build',
+        cue: ['Elephants', 'bigger', 'horses'],
+        bank: ['Elephants', 'are', 'bigger', 'than', 'horses', 'more', 'biger', 'is'],
+        correct: ['Elephants', 'are', 'bigger', 'than', 'horses']
+      },
+      {
+        type: 'mc',
+        stem: ['The new movie is ', 'BLANK', ' than the first one.'],
+        answers: ['gooder', 'more good', 'better', 'most good'],
+        correct: 2
+      },
+      {
+        type: 'build',
+        cue: ['Today\'s weather', 'worse', 'yesterday\'s'],
+        bank: ['Today\'s', 'weather', 'is', 'worse', 'than', 'yesterday\'s', 'badder', 'more'],
+        correct: ['Today\'s', 'weather', 'is', 'worse', 'than', 'yesterday\'s']
+      },
+      {
+        type: 'mc',
+        stem: ['Summer in Egypt is ', 'BLANK', ' than summer in Canada.'],
+        answers: ['hoter', 'hotter', 'more hot', 'hotest'],
+        correct: 1
+      },
+      {
+        type: 'build',
+        cue: ['This book', 'more interesting', 'that one'],
+        bank: ['This', 'book', 'is', 'more', 'interesting', 'than', 'that', 'one', 'interestinger'],
+        correct: ['This', 'book', 'is', 'more', 'interesting', 'than', 'that', 'one']
+      },
+      {
+        type: 'mc',
+        stem: ['My new phone is ', 'BLANK', ' than my old one.'],
+        answers: ['expensiver', 'more expensive', 'most expensive', 'expensivest'],
+        correct: 1
+      }
+    ];
+
+    const TIMER_DURATION = 20;
+    let currentIdx = 0;
+    let score = 0;
+    let missedQuestions = [];
+    let timerInterval = null;
+    let timeLeft = TIMER_DURATION;
+    let answered = false;
+
+    const startScreen = document.getElementById('startScreen');
+    const quizWrap = document.getElementById('quizWrap');
+    const qCurrentEl = document.getElementById('qCurrent');
+    const scoreNumEl = document.getElementById('scoreNum');
+    const timerFillEl = document.getElementById('timerFill');
+    const timerSecEl = document.getElementById('timerSec');
+    const questionArea = document.getElementById('questionArea');
+    const endCard = document.getElementById('endCard');
+
+    function startQuiz() {
+      startScreen.classList.add('hidden');
+      quizWrap.classList.add('active');
+      renderQuestion(0);
+    }
+
+    function startTimer() {
+      timeLeft = TIMER_DURATION;
+      timerFillEl.style.width = '100%';
+      timerFillEl.classList.remove('warn', 'danger');
+      timerSecEl.classList.remove('danger');
+      timerSecEl.textContent = TIMER_DURATION;
+
+      timerInterval = setInterval(() => {
+        timeLeft -= 0.1;
+        const pct = (timeLeft / TIMER_DURATION) * 100;
+        timerFillEl.style.width = pct + '%';
+        timerSecEl.textContent = Math.max(0, Math.ceil(timeLeft));
+
+        if (timeLeft <= 5 && !timerFillEl.classList.contains('danger')) {
+          timerFillEl.classList.remove('warn');
+          timerFillEl.classList.add('danger');
+          timerSecEl.classList.add('danger');
+        } else if (timeLeft <= 10 && !timerFillEl.classList.contains('warn') && !timerFillEl.classList.contains('danger')) {
+          timerFillEl.classList.add('warn');
+        }
+
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          if (!answered) timeOut();
+        }
+      }, 100);
+    }
+
+    function stopTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function renderQuestion(idx) {
+      questionArea.innerHTML = '';
+      answered = false;
+      currentIdx = idx;
+      qCurrentEl.textContent = idx + 1;
+
+      const q = questions[idx];
+      if (q.type === 'mc') renderMC(idx, q);
+      else renderBuild(idx, q);
+
+      startTimer();
+    }
+
+    function renderMC(idx, q) {
+      const letters = ['A', 'B', 'C', 'D'];
+      const stemHtml = q.stem.map(p =>
+        p === 'BLANK' ? '<span class="blank" id="blank-' + idx + '">____</span>' : p
+      ).join('');
+      const answersHtml = q.answers.map((ans, i) =>
+        `<button class="answer-btn" onclick="pickMC(${idx}, ${i})">
+           <span class="letter">${letters[i]}</span><span>${ans}</span>
+         </button>`
+      ).join('');
+
+      const card = document.createElement('section');
+      card.className = 'question-card';
+      card.id = `q${idx}`;
+      card.innerHTML = `
+        <div class="q-type-label"><span class="dot"></span><span class="txt">Multiple choice</span></div>
+        <div class="q-stem">${stemHtml}</div>
+        <div class="answers-grid">${answersHtml}</div>
+      `;
+      questionArea.appendChild(card);
+    }
+
+    function renderBuild(idx, q) {
+      const cueHtml = q.cue.map(c => `<span class="q-cue-chip">${c}</span>`).join('');
+      const bankHtml = q.bank.map((w, i) =>
+        `<button class="build-chip" id="chip-${idx}-${i}" data-word="${w.replace(/"/g, '&quot;')}" onclick="pickChip(${idx}, ${i})">${w}</button>`
+      ).join('');
+
+      const card = document.createElement('section');
+      card.className = 'question-card';
+      card.id = `q${idx}`;
+      card.innerHTML = `
+        <div class="q-type-label"><span class="dot"></span><span class="txt">Build the sentence</span></div>
+        <div class="q-cue">
+          <span class="q-cue-label">Cue</span>
+          ${cueHtml}
+        </div>
+        <div class="build-slot" id="slot-${idx}">
+          <span class="build-slot-empty">Tap words below to build the sentence</span>
+        </div>
+        <div class="build-bank">
+          <div class="build-bank-label">Word bank — tap to place</div>
+          ${bankHtml}
+        </div>
+        <div class="build-submit-row">
+          <button class="build-submit" id="submit-${idx}" disabled onclick="submitBuild(${idx})">Submit</button>
+          <button class="build-reset" onclick="resetBuild(${idx})">Reset</button>
+        </div>
+        <div class="build-reveal" id="reveal-${idx}">
+          <div class="label">Correct answer was</div>
+          <div class="correct-sentence" id="correct-sentence-${idx}"></div>
+        </div>
+      `;
+      questionArea.appendChild(card);
+    }
+
+    // BUILD STATE
+    let buildPlaced = {}; // qIdx -> [{wordIdx, word}]
+
+    function pickChip(qIdx, wordIdx) {
+      if (answered) return;
+      if (!buildPlaced[qIdx]) buildPlaced[qIdx] = [];
+      const chip = document.getElementById(`chip-${qIdx}-${wordIdx}`);
+      if (chip.classList.contains('used')) return;
+
+      const word = chip.dataset.word;
+      buildPlaced[qIdx].push({ wordIdx, word });
+      chip.classList.add('used');
+      renderSlot(qIdx);
+    }
+
+    function unpickChip(qIdx, placedIdx) {
+      if (answered) return;
+      const placed = buildPlaced[qIdx][placedIdx];
+      document.getElementById(`chip-${qIdx}-${placed.wordIdx}`).classList.remove('used');
+      buildPlaced[qIdx].splice(placedIdx, 1);
+      renderSlot(qIdx);
+    }
+
+    function renderSlot(qIdx) {
+      const slot = document.getElementById(`slot-${qIdx}`);
+      const submit = document.getElementById(`submit-${qIdx}`);
+      const placed = buildPlaced[qIdx] || [];
+      if (placed.length === 0) {
+        slot.innerHTML = '<span class="build-slot-empty">Tap words below to build the sentence</span>';
+        submit.disabled = true;
+      } else {
+        slot.innerHTML = placed.map((p, i) =>
+          `<button class="build-chip placed" onclick="unpickChip(${qIdx}, ${i})">${p.word}</button>`
+        ).join('');
+        submit.disabled = false;
+      }
+    }
+
+    function resetBuild(qIdx) {
+      if (answered) return;
+      const placed = buildPlaced[qIdx] || [];
+      placed.forEach(p => document.getElementById(`chip-${qIdx}-${p.wordIdx}`).classList.remove('used'));
+      buildPlaced[qIdx] = [];
+      renderSlot(qIdx);
+    }
+
+    function submitBuild(qIdx) {
+      if (answered) return;
+      answered = true;
+      stopTimer();
+
+      const q = questions[qIdx];
+      const placed = (buildPlaced[qIdx] || []).map(p => p.word);
+      const isCorrect = placed.length === q.correct.length && placed.every((w, i) => w === q.correct[i]);
+
+      const slot = document.getElementById(`slot-${qIdx}`);
+      slot.classList.add(isCorrect ? 'correct' : 'wrong');
+
+      // disable chips
+      q.bank.forEach((_, i) => {
+        document.getElementById(`chip-${qIdx}-${i}`).disabled = true;
+      });
+      document.getElementById(`submit-${qIdx}`).disabled = true;
+
+      if (!isCorrect) {
+        const reveal = document.getElementById(`reveal-${qIdx}`);
+        document.getElementById(`correct-sentence-${qIdx}`).textContent = q.correct.join(' ') + '.';
+        reveal.classList.add('show');
+        missedQuestions.push({ idx: qIdx, correct: q.correct.join(' ') + '.' });
+      } else {
+        score++;
+        scoreNumEl.textContent = score;
+      }
+
+      setTimeout(() => moveNext(), isCorrect ? 1200 : 2400);
+    }
+
+    function pickMC(qIdx, ansIdx) {
+      if (answered) return;
+      answered = true;
+      stopTimer();
+
+      const q = questions[qIdx];
+      const card = document.getElementById(`q${qIdx}`);
+      const buttons = card.querySelectorAll('.answer-btn');
+      const blank = document.getElementById(`blank-${qIdx}`);
+      const isCorrect = ansIdx === q.correct;
+
+      buttons.forEach(b => b.disabled = true);
+      buttons[ansIdx].classList.add(isCorrect ? 'picked-correct' : 'picked-wrong');
+      if (!isCorrect) buttons[q.correct].classList.add('reveal-correct');
+
+      blank.textContent = q.answers[q.correct];
+      blank.classList.add(isCorrect ? 'filled-correct' : 'filled-wrong');
+
+      if (isCorrect) {
+        score++;
+        scoreNumEl.textContent = score;
+      } else {
+        missedQuestions.push({ idx: qIdx, correct: q.answers[q.correct] });
+      }
+
+      setTimeout(() => moveNext(), isCorrect ? 1200 : 1800);
+    }
+
+    function timeOut() {
+      if (answered) return;
+      answered = true;
+      const q = questions[currentIdx];
+
+      if (q.type === 'mc') {
+        const card = document.getElementById(`q${currentIdx}`);
+        const buttons = card.querySelectorAll('.answer-btn');
+        const blank = document.getElementById(`blank-${currentIdx}`);
+        buttons.forEach(b => b.disabled = true);
+        buttons[q.correct].classList.add('reveal-correct');
+        blank.textContent = q.answers[q.correct];
+        blank.classList.add('filled-wrong');
+        missedQuestions.push({ idx: currentIdx, correct: q.answers[q.correct] });
+      } else {
+        const slot = document.getElementById(`slot-${currentIdx}`);
+        slot.classList.add('wrong');
+        q.bank.forEach((_, i) => {
+          const el = document.getElementById(`chip-${currentIdx}-${i}`);
+          if (el) el.disabled = true;
+        });
+        const reveal = document.getElementById(`reveal-${currentIdx}`);
+        document.getElementById(`correct-sentence-${currentIdx}`).textContent = q.correct.join(' ') + '.';
+        reveal.classList.add('show');
+        missedQuestions.push({ idx: currentIdx, correct: q.correct.join(' ') + '.' });
+      }
+
+      setTimeout(() => moveNext(), 2200);
+    }
+
+    function moveNext() {
+      if (currentIdx + 1 >= questions.length) {
+        showEnd();
+      } else {
+        renderQuestion(currentIdx + 1);
+      }
+    }
+
+    function showEnd() {
+      stopTimer();
+      quizWrap.querySelector('.master-banner').style.display = 'none';
+      quizWrap.querySelector('.timer-bar').style.display = 'none';
+      questionArea.innerHTML = '';
+
+      const passed = score >= 8;
+      const endHead = document.getElementById('endHead');
+      const endLabel = document.getElementById('endLabel');
+      const endScore = document.getElementById('endScore');
+      const masteryBadge = document.getElementById('masteryBadge');
+      const endSubhead = document.getElementById('endSubhead');
+      const endMsg = document.getElementById('endMsg');
+      const missedListEl = document.getElementById('missedList');
+      const missedItemsEl = document.getElementById('missedItems');
+
+      document.getElementById('finalScore').textContent = score;
+
+      if (passed) {
+        endHead.classList.add('passed');
+        endLabel.textContent = 'Mastery earned';
+        masteryBadge.classList.add('show');
+        endSubhead.textContent = 'Master Quiz Passed';
+        endMsg.innerHTML = score === 10
+          ? 'Perfect score. You\'ve fully mastered Comparatives with -er.'
+          : 'You passed the Master Quiz. You understand this grammar point well.';
+      } else {
+        endHead.classList.add('failed');
+        endLabel.textContent = 'Not quite';
+        endScore.classList.add('failed');
+        endSubhead.textContent = 'Below mastery';
+        endMsg.innerHTML = `You need 8 out of 10 to pass. Review the rules in <b>Tab 2: Level up</b> and try the Master Quiz again when you're ready.`;
+      }
+
+      if (missedQuestions.length > 0) {
+        missedListEl.style.display = 'block';
+        missedItemsEl.innerHTML = missedQuestions.map(m =>
+          `<div class="missed-item">
+             <span class="q-label">Q${m.idx + 1}</span>
+             <span>Correct: <span class="correct-ans">${m.correct}</span></span>
+           </div>`
+        ).join('');
+      }
+
+      endCard.classList.add('show');
+      endCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>

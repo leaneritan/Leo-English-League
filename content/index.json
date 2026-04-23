@@ -1,0 +1,56 @@
+{
+  "our-world": {
+    "levels": [
+      {
+        "level": 4,
+        "label": "Level 4",
+        "active": true,
+        "units": [
+          {
+            "unit": 1,
+            "label": "Family & Friends",
+            "vocab_sets": 2,
+            "grammar_sets": 2
+          },
+          {
+            "unit": 2,
+            "label": "Amazing Plants",
+            "vocab_sets": 2,
+            "grammar_sets": 2
+          },
+          {
+            "unit": 3,
+            "label": "Amazing Animals",
+            "vocab_sets": 2,
+            "grammar_sets": 2
+          },
+          {
+            "unit": 4,
+            "label": "Rules and Advice",
+            "vocab_sets": 2,
+            "grammar_sets": 2
+          },
+          {
+            "unit": 5,
+            "label": "People I Admire",
+            "vocab_sets": 2,
+            "grammar_sets": 2
+          }
+        ]
+      },
+      { "level": 1, "label": "Level 1", "active": false, "units": [] },
+      { "level": 2, "label": "Level 2", "active": false, "units": [] },
+      { "level": 3, "label": "Level 3", "active": false, "units": [] },
+      { "level": 5, "label": "Level 5", "active": false, "units": [] },
+      { "level": 6, "label": "Level 6", "active": false, "units": [] }
+    ]
+  },
+  "junior-high": {
+    "status": "coming-soon",
+    "units": []
+  },
+  "training-ground": {
+    "status": "coming-soon",
+    "sets": []
+  }
+}

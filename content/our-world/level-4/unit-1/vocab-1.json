@@ -1,0 +1,33 @@
+{
+  "level": 4,
+  "unit": 1,
+  "set": 1,
+  "words": [
+    {
+      "id": "l4-u1-v1-001",
+      "word": "relatives",
+      "emoji": "👨‍👩‍👧‍👦",
+      "ipa": "ˈrɛlətɪvz",
+      "syllables": "rel·a·tives",
+      "sentence": "We visit our relatives every New Year.",
+      "japanese": {
+        "word": "親戚",
+        "sentence": "私たちは毎年お正月に親戚を訪ねます。",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u1-v1-002",
+      "word": "different",
+      "emoji": "🔄",
+      "ipa": "ˈdɪfərənt",
+      "syllables": "dif·fer·ent",
+      "sentence": "They are sisters, but they look different.",
+      "japanese": {
+        "word": "違う",
+        "sentence": "彼女たちは姉妹ですが、見た目が違います。",
+        "classification": "形容詞"
+      }
+    }
+  ]
+}
