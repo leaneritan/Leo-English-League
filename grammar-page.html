@@ -39,6 +39,7 @@
     .brand-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; }
     .crumb { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); }
     .crumb a { color: var(--ink-4); text-decoration: none; }
+    .crumb a:hover { color: #FFFFFF; }
     .crumb .active { color: var(--yellow); }
     .crumb .sep { color: var(--yellow); margin: 0 6px; }
 
@@ -85,7 +86,7 @@
 
     /* ---------- TABS ---------- */
     .tabs-row { display: flex; gap: 0; margin-top: 22px; border-bottom: 1.5px solid var(--ink); }
-    .tab { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 13px 20px 11px; background: transparent; border: 0; color: var(--ink-3); cursor: pointer; position: relative; display: flex; align-items: center; gap: 10px; }
+    .tab { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 13px 20px 11px; background: transparent; border: 0; color: var(--ink-3); cursor: pointer; position: relative; display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .tab:hover { color: var(--ink); }
     .tab.active { color: var(--ink); }
     .tab.active::after { content: ''; position: absolute; bottom: -1.5px; left: 0; right: 0; height: 3px; background: var(--yellow); }
@@ -118,10 +119,10 @@
   <header class="topbar">
     <div class="brand">
       <div class="yellow-mark">LEL</div>
-      <div class="brand-text">Leo's English League</div>
+      <a href="index.html" class="brand-text">Leo's English League</a>
     </div>
     <div class="crumb">
-      <a>Home</a><span class="sep">/</span><a>Our World</a><span class="sep">/</span><a>Level 4</a><span class="sep">/</span><span class="active">Comparatives with -er</span>
+      <a href="index.html">Home</a><span class="sep">/</span><a href="our-world.html">Our World</a><span class="sep">/</span><a href="our-world.html">Level 4</a><span class="sep">/</span><span class="active">Comparatives with -er</span>
     </div>
   </header>
 
@@ -197,10 +198,10 @@
 
     <!-- TABS -->
     <nav class="tabs-row">
-      <button class="tab active"><span class="num">01</span>Chart &amp; samples</button>
-      <button class="tab"><span class="num">02</span>Level up</button>
-      <button class="tab"><span class="num">03</span>Quiz</button>
-      <button class="tab"><span class="num">04</span>Build sentences</button>
+      <a href="grammar-page.html" class="tab active"><span class="num">01</span>Chart &amp; samples</a>
+      <a href="grammar-tab2-levelup.html" class="tab"><span class="num">02</span>Level up</a>
+      <a href="grammar-tab3-quiz.html" class="tab"><span class="num">03</span>Quiz</a>
+      <a href="grammar-tab4-master.html" class="tab"><span class="num">04</span>Build sentences</a>
     </nav>
 
     <!-- TAB CONTENT — Tab 1 active -->
