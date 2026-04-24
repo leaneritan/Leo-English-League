@@ -8,6 +8,7 @@
     { "source": "/grammar-page", "destination": "/grammar-page.html" },
     { "source": "/grammar-tab2-levelup", "destination": "/grammar-tab2-levelup.html" },
     { "source": "/grammar-tab3-quiz", "destination": "/grammar-tab3-quiz.html" },
-    { "source": "/grammar-tab4-master", "destination": "/grammar-tab4-master.html" }
+    { "source": "/grammar-tab4-master", "destination": "/grammar-tab4-master.html" },
+    { "source": "/relatives", "destination": "/relatives.html" }
   ]
 }

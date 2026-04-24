@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatives — Leo's English League</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper:       #FAFAF7;
+      --surface:     #FFFFFF;
+      --soft:        #F0EEE8;
+      --border:      #E5E3DC;
+      --ink:         #111111;
+      --ink-2:       #5A5853;
+      --ink-3:       #6B6963;
+      --ink-4:       #9A9A95;
+      --yellow:      #FFCC00;
+      --yellow-bg:   #FFFBE6;
+      --yellow-ink:  #8B6B00;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .jp-font { font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif; }
+
+    /* ---------- top bar ---------- */
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 32px;
+      background: var(--ink); color: #FFFFFF;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .yellow-mark {
+      background: var(--yellow); color: var(--ink);
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 11px; letter-spacing: 0.18em;
+      padding: 5px 10px 4px;
+    }
+    .brand-text {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .crumb { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); }
+    .crumb a { color: var(--ink-4); text-decoration: none; }
+    .crumb .active { color: var(--yellow); }
+    .crumb .sep { color: var(--yellow); margin: 0 6px; }
+
+    /* ---------- container ---------- */
+    .container { max-width: 860px; margin: 0 auto; padding: 24px 32px 48px; }
+
+    .back-link {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 18px;
+      display: inline-block; cursor: pointer;
+    }
+    .back-link:hover { color: var(--ink); }
+
+    /* ---------- page meta ---------- */
+    .page-meta {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.2em;
+      color: var(--ink-3); background: var(--surface);
+      padding: 4px 8px 3px;
+      border: 1px solid var(--border);
+    }
+    .tag.main {
+      background: var(--ink); color: var(--yellow);
+      border-color: var(--ink);
+    }
+    .unit-tag {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* ========== VISUAL SLOT ========== */
+    .visual-slot {
+      background: var(--surface);
+      border: 1px solid var(--ink);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .visual-head {
+      background: var(--ink); color: #FFFFFF;
+      padding: 10px 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .visual-head .bar { width: 18px; height: 3px; background: var(--yellow); }
+    .visual-head .label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--yellow);
+    }
+    .visual-head .scene-note {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      margin-left: auto;
+      color: var(--ink-4);
+    }
+
+    .visual-body {
+      background: var(--yellow-bg);
+      height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .visual-body .mega-emoji {
+      font-size: 180px;
+      line-height: 1;
+      user-select: none;
+    }
+    .slot-hint {
+      position: absolute;
+      bottom: 12px; right: 14px;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-4);
+      background: var(--surface);
+      padding: 4px 8px 3px;
+      border: 1px solid var(--border);
+    }
+
+    /* ========== WORD HEADER ========== */
+    .word-head { margin-bottom: 22px; }
+    .word-top-row {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 8px;
+    }
+    .word {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 64px; line-height: 1;
+      color: var(--ink);
+    }
+
+    .audio-btn {
+      width: 48px; height: 48px;
+      border: 1.5px solid var(--ink);
+      background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--ink);
+      transition: all 0.15s ease;
+    }
+    .audio-btn:hover { background: var(--ink); color: var(--yellow); }
+    .audio-btn:active { transform: scale(0.95); }
+    .audio-btn.speaking {
+      background: var(--yellow); color: var(--ink);
+      border-color: var(--ink);
+      animation: pulse 0.9s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .pron-row {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .pron-item {
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .pron-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .pron-value {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px; color: var(--ink-2);
+      font-style: italic;
+    }
+    .syllables .pron-value {
+      font-style: normal;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .pron-divider {
+      width: 1px; height: 18px;
+      background: var(--border);
+    }
+
+    .grammar-meta {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-4);
+    }
+
+    /* ========== SAMPLE SENTENCE ========== */
+    .sentence-card {
+      background: var(--yellow-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--yellow);
+      padding: 18px 22px;
+      margin-bottom: 22px;
+    }
+    .sentence-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--yellow-ink);
+      margin-bottom: 8px;
+    }
+    .sentence-text {
+      font-size: 20px; line-height: 1.5;
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+    }
+    .sentence-text b {
+      font-weight: 600;
+      background: var(--yellow);
+      padding: 0 4px;
+    }
+
+    /* ========== JAPANESE TOGGLE + PANEL ========== */
+    .jp-section { margin-bottom: 24px; }
+    .jp-toggle {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      padding: 10px 18px;
+      background: var(--yellow);
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.15s ease;
+    }
+    .jp-toggle:hover { background: var(--ink); color: var(--yellow); }
+    .jp-toggle .chevron {
+      transition: transform 0.15s ease;
+      width: 12px; height: 12px;
+    }
+    .jp-toggle.open .chevron { transform: rotate(180deg); }
+
+    .jp-card {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-top: 12px;
+      overflow: hidden;
+    }
+    .jp-card.open { display: block; }
+
+    .jp-section-head {
+      background: var(--ink); color: #FFFFFF;
+      padding: 10px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .jp-section-head .bar { width: 16px; height: 3px; background: var(--yellow); }
+    .jp-section-head .label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--yellow);
+    }
+    .jp-section-head .jp-label {
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 500;
+      font-size: 13px;
+      margin-left: auto;
+      color: #FFFFFF;
+    }
+
+    .jp-block {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--border);
+    }
+    .jp-block:last-child { border-bottom: 0; }
+
+    .jp-block-label {
+      display: flex; align-items: baseline; gap: 8px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 8px;
+    }
+    .jp-block-label .ja {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      color: var(--ink-2);
+      text-transform: none;
+    }
+
+    .jp-word {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 32px; line-height: 1.3;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .jp-reading {
+      font-size: 14px; color: var(--ink-3);
+      font-style: italic;
+    }
+
+    .jp-sentence {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 18px; line-height: 1.7;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .jp-sentence b {
+      font-weight: 600;
+      background: var(--yellow-bg);
+      padding: 0 3px;
+    }
+
+    .jp-grammar-row {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .jp-grammar-tag {
+      font-family: 'Noto Sans JP', sans-serif; font-weight: 500;
+      font-size: 15px;
+      padding: 6px 12px 5px;
+      background: var(--yellow-bg);
+      color: var(--yellow-ink);
+      border: 1px solid var(--yellow);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 700px) {
+      .word { font-size: 48px; }
+      .visual-body { height: 240px; }
+      .visual-body .mega-emoji { font-size: 120px; }
+      .sentence-text { font-size: 17px; }
+      .pron-row { gap: 10px; }
+      .pron-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="yellow-mark">LEL</div>
+      <div class="brand-text">Leo's English League</div>
+    </div>
+    <div class="crumb">
+      <a href="index.html">Home</a><span class="sep">/</span><a href="our-world.html">Our World</a><span class="sep">/</span><a>Level 4</a><span class="sep">/</span><a>Unit 1</a><span class="sep">/</span><span class="active">relatives</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="back-link">← Back to Unit 1</div>
+
+    <div class="page-meta">
+      <div class="tag main">Vocabulary</div>
+      <div class="unit-tag">Level 4 · Unit 1 · Vocab 1 · Family &amp; Friends</div>
+    </div>
+
+    <!-- VISUAL SLOT -->
+    <section class="visual-slot">
+      <div class="visual-head">
+        <div class="bar"></div>
+        <div class="label">Visual</div>
+        <div class="scene-note">Interactive scene coming later</div>
+      </div>
+      <div class="visual-body">
+        <div class="mega-emoji">👨‍👩‍👧‍👦</div>
+        <div class="slot-hint">Emoji · v1 fallback</div>
+      </div>
+    </section>
+
+    <!-- WORD + AUDIO -->
+    <section class="word-head">
+      <div class="word-top-row">
+        <div class="word">relatives</div>
+        <button class="audio-btn" id="audioBtn" aria-label="Play pronunciation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="pron-row">
+        <div class="pron-item">
+          <span class="pron-label">IPA</span>
+          <span class="pron-value">/ˈrɛlətɪvz/</span>
+        </div>
+        <div class="pron-divider"></div>
+        <div class="pron-item syllables">
+          <span class="pron-label">Syllables</span>
+          <span class="pron-value">rel · a · tives</span>
+        </div>
+      </div>
+
+      <div class="grammar-meta">Noun · Countable</div>
+    </section>
+
+    <!-- SAMPLE SENTENCE -->
+    <section class="sentence-card">
+      <div class="sentence-label">Sample sentence</div>
+      <div class="sentence-text">We visit our <b>relatives</b> every New Year.</div>
+    </section>
+
+    <!-- JAPANESE TOGGLE + EXPANDED PANEL -->
+    <section class="jp-section">
+      <button class="jp-toggle" id="jpToggle" aria-expanded="false">
+        <span id="jpLabel">Show Japanese</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+
+      <div class="jp-card" id="jpCard">
+        <div class="jp-section-head">
+          <div class="bar"></div>
+          <div class="label">Japanese</div>
+          <div class="jp-label">日本語</div>
+        </div>
+
+        <!-- Japanese word -->
+        <div class="jp-block">
+          <div class="jp-block-label">Word <span class="ja">単語</span></div>
+          <div class="jp-word">親戚</div>
+          <div class="jp-reading">shinsetsu</div>
+        </div>
+
+        <!-- Japanese sentence translation -->
+        <div class="jp-block">
+          <div class="jp-block-label">Sentence <span class="ja">例文</span></div>
+          <div class="jp-sentence">私たちは毎年お正月に<b>親戚</b>を訪ねます。</div>
+        </div>
+
+        <!-- Japanese grammar classification -->
+        <div class="jp-block">
+          <div class="jp-block-label">Grammar <span class="ja">品詞</span></div>
+          <div class="jp-grammar-row">
+            <div class="jp-grammar-tag">名詞</div>
+            <div class="jp-grammar-tag">可算名詞</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const audioBtn = document.getElementById('audioBtn');
+    const wordToSpeak = 'relatives';
+
+    audioBtn.addEventListener('click', () => {
+      if (!('speechSynthesis' in window)) {
+        alert("Sorry — your browser doesn't support speech. Try Chrome, Safari, or Edge.");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(wordToSpeak);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.85;
+      utterance.pitch = 1.0;
+
+      audioBtn.classList.add('speaking');
+      utterance.onend = () => audioBtn.classList.remove('speaking');
+      utterance.onerror = () => audioBtn.classList.remove('speaking');
+
+      window.speechSynthesis.speak(utterance);
+    });
+
+    const jpToggle = document.getElementById('jpToggle');
+    const jpCard = document.getElementById('jpCard');
+    const jpLabel = document.getElementById('jpLabel');
+
+    jpToggle.addEventListener('click', () => {
+      const isOpen = jpCard.classList.toggle('open');
+      jpToggle.classList.toggle('open', isOpen);
+      jpToggle.setAttribute('aria-expanded', isOpen);
+      jpLabel.textContent = isOpen ? 'Hide Japanese' : 'Show Japanese';
+    });
+  </script>
+</body>
+</html>
