@@ -2,5 +2,72 @@
   "level": 4,
   "unit": 1,
   "set": 2,
-  "words": []
+  "unit_name": "Family & Friends",
+  "words": [
+    {
+      "id": "glasses",
+      "word": "glasses",
+      "emoji": "👓",
+      "ipa": "/ˈɡlæsɪz/",
+      "syllables": "glass·es",
+      "pos": "Noun · Plural",
+      "sample": "My older brother started wearing <b>glasses</b> this year.",
+      "jp_word": "眼鏡",
+      "jp_reading": "めがね",
+      "jp_sentence": "兄は今年から<b>眼鏡</b>をかけ始めました。",
+      "jp_tags": ["名詞", "複数形"]
+    },
+    {
+      "id": "wavy-hair",
+      "word": "wavy hair",
+      "emoji": "🌊💇",
+      "ipa": "/ˈweɪvi hɛr/",
+      "syllables": "wa·vy hair",
+      "pos": "Noun phrase",
+      "sample": "My cousin has beautiful <b>wavy hair</b> — it looks different from mine.",
+      "jp_word": "ウェーブヘア",
+      "jp_reading": "ウェーブヘア",
+      "jp_sentence": "いとこはきれいな<b>ウェーブヘア</b>をしていて、私の髪とは違います。",
+      "jp_tags": ["名詞句"]
+    },
+    {
+      "id": "blond-hair",
+      "word": "blond hair",
+      "emoji": "👱‍♀️✨",
+      "ipa": "/blɒnd hɛr/",
+      "syllables": "blond hair",
+      "pos": "Noun phrase",
+      "sample": "Sarah has <b>blond hair</b> — she looks different from her relatives.",
+      "jp_word": "金髪",
+      "jp_reading": "きんぱつ",
+      "jp_sentence": "サラは<b>金髪</b>で、親戚とは違う見た目をしています。",
+      "jp_tags": ["名詞句"]
+    },
+    {
+      "id": "straight-hair",
+      "word": "straight hair",
+      "emoji": "💇‍♂️📏",
+      "ipa": "/streɪt hɛr/",
+      "syllables": "straight hair",
+      "pos": "Noun phrase",
+      "sample": "Jacob has <b>straight hair</b>, but his younger sister has curly hair.",
+      "jp_word": "ストレートヘア",
+      "jp_reading": "ストレートヘア",
+      "jp_sentence": "ジェイコブは<b>ストレートヘア</b>ですが、妹はくせ毛です。",
+      "jp_tags": ["名詞句"]
+    },
+    {
+      "id": "curly-hair",
+      "word": "curly hair",
+      "emoji": "🌀💇",
+      "ipa": "/ˈkɜːrli hɛr/",
+      "syllables": "cur·ly hair",
+      "pos": "Noun phrase",
+      "sample": "My younger sister has <b>curly hair</b> — she is the most different in our family.",
+      "jp_word": "くせ毛",
+      "jp_reading": "くせげ",
+      "jp_sentence": "妹は<b>くせ毛</b>で、家族の中で一番見た目が違います。",
+      "jp_tags": ["名詞句"]
+    }
+  ]
 }
