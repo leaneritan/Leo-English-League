@@ -483,9 +483,29 @@
   <script>
     // ── SEARCH DATA (real Level 4 content) ──
     const DATA = [
-      // Vocab – Our World Level 4
-      { type:'V', word:'relatives',      url:'relatives.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'different',      url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      // Vocab – Our World Level 4 · Unit 1 · Set 1
+      { type:'V', word:'relatives',      url:'vocab.html?level=4&unit=1&set=1&id=relatives',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'different',      url:'vocab.html?level=4&unit=1&set=1&id=different',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'uglier',         url:'vocab.html?level=4&unit=1&set=1&id=uglier',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'cuter',          url:'vocab.html?level=4&unit=1&set=1&id=cuter',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'smarter',        url:'vocab.html?level=4&unit=1&set=1&id=smarter',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'friendlier',     url:'vocab.html?level=4&unit=1&set=1&id=friendlier',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'bigger',         url:'vocab.html?level=4&unit=1&set=1&id=bigger',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'smaller',        url:'vocab.html?level=4&unit=1&set=1&id=smaller',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'stronger',       url:'vocab.html?level=4&unit=1&set=1&id=stronger',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'older',          url:'vocab.html?level=4&unit=1&set=1&id=older',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'younger',        url:'vocab.html?level=4&unit=1&set=1&id=younger',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'taller',         url:'vocab.html?level=4&unit=1&set=1&id=taller',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'shorter',        url:'vocab.html?level=4&unit=1&set=1&id=shorter',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'slower',         url:'vocab.html?level=4&unit=1&set=1&id=slower',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'faster',         url:'vocab.html?level=4&unit=1&set=1&id=faster',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      // Vocab – Our World Level 4 · Unit 1 · Set 2
+      { type:'V', word:'glasses',        url:'vocab.html?level=4&unit=1&set=2&id=glasses',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'wavy hair',      url:'vocab.html?level=4&unit=1&set=2&id=wavy-hair',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'blond hair',     url:'vocab.html?level=4&unit=1&set=2&id=blond-hair',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'straight hair',  url:'vocab.html?level=4&unit=1&set=2&id=straight-hair',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'curly hair',     url:'vocab.html?level=4&unit=1&set=2&id=curly-hair',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      // Vocab – Our World Level 4 · Other units
       { type:'V', word:'pumpkin',        url:'vocab-page.html', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 3'}] },
       { type:'V', word:'plant',          url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
       { type:'V', word:'turnip',         url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
@@ -502,15 +522,15 @@
       { type:'V', word:'school subject', url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
 
       // Grammar – Our World Level 4
-      { type:'G', word:'Comparatives with -er',    url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G1'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
-      { type:'G', word:'Comparatives with more',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G2'}] },
-      { type:'G', word:'Superlatives with -est',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G1'}] },
-      { type:'G', word:'Superlatives with most',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G2'}] },
-      { type:'G', word:'Irregular comparatives',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3 G1'}] },
-      { type:'G', word:'should / shouldn\'t',      url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G1'},{code:'JH',cls:'jh',label:'JH · Unit 5'}] },
-      { type:'G', word:'have to / don\'t have to', url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G2'}] },
-      { type:'G', word:'Present perfect',          url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G1'}] },
-      { type:'G', word:'ever / never',             url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G2'}] },
+      { type:'G', word:'Comparatives with -er',              url:'grammar.html?level=4&unit=1&set=1', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G1'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
+      { type:'G', word:'Present progressive for future plans', url:'grammar.html?level=4&unit=1&set=2', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G2'}] },
+      { type:'G', word:'Superlatives with -est',             url:'grammar-page.html',                 worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G1'}] },
+      { type:'G', word:'Superlatives with most',             url:'grammar-page.html',                 worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G2'}] },
+      { type:'G', word:'Irregular comparatives',             url:'grammar-page.html',                 worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3 G1'}] },
+      { type:'G', word:'should / shouldn\'t',                url:'grammar-page.html',                 worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G1'},{code:'JH',cls:'jh',label:'JH · Unit 5'}] },
+      { type:'G', word:'have to / don\'t have to',           url:'grammar-page.html',                 worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G2'}] },
+      { type:'G', word:'Present perfect',                    url:'grammar-page.html',                 worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G1'}] },
+      { type:'G', word:'ever / never',                       url:'grammar-page.html',                 worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G2'}] },
     ];
 
     const input    = document.getElementById('searchInput');
