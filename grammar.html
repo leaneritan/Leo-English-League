@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar — Leo's English League</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper:      #FAFAF7;
+      --surface:    #FFFFFF;
+      --soft:       #F0EEE8;
+      --border:     #E5E3DC;
+      --ink:        #111111;
+      --ink-2:      #5A5853;
+      --ink-3:      #6B6963;
+      --ink-4:      #9A9A95;
+      --yellow:     #FFCC00;
+      --yellow-bg:  #FFFBE6;
+      --yellow-ink: #8B6B00;
+      --green:      #2E7D5F;
+      --green-bg:   #E8F3EE;
+      --green-ink:  #1A5C42;
+      --red:        #C93232;
+      --red-bg:     #FCEBEB;
+      --red-ink:    #8B1A1A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+    /* ── TOP BAR ── */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; background: var(--ink); color: #fff; }
+    .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .yellow-mark { background: var(--yellow); color: var(--ink); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; padding: 5px 10px 4px; }
+    .brand-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+    .crumb { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); }
+    .crumb a { color: var(--ink-4); text-decoration: none; }
+    .crumb a:hover { color: #fff; }
+    .crumb .active { color: var(--yellow); }
+    .crumb .sep { color: var(--yellow); margin: 0 6px; }
+
+    /* ── CONTAINER ── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 24px 32px 48px; }
+    .page-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .tag { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); background: var(--surface); padding: 4px 8px 3px; border: 1px solid var(--border); }
+    .tag.main { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .unit-tag { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); }
+    .page-head { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; color: var(--ink); margin-bottom: 24px; }
+
+    /* ── LOADING / ERROR ── */
+    .loading { padding: 48px 0; text-align: center; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-4); }
+    .error-msg { padding: 32px; background: var(--red-bg); border: 1px solid var(--red); color: var(--red-ink); font-size: 14px; margin-top: 24px; }
+
+    /* ── GRAMMAR CHART ── */
+    .chart-card { background: var(--surface); border: 1px solid var(--ink); overflow: hidden; }
+    .chart-head { background: var(--ink); color: #fff; padding: 13px 20px; display: flex; align-items: center; gap: 12px; }
+    .chart-head .bar { width: 20px; height: 3px; background: var(--yellow); }
+    .chart-head .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--yellow); }
+    .chart-head .name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 0.04em; margin-left: auto; color: #fff; }
+
+    .chart-intro { padding: 14px 22px 12px; border-bottom: 1px solid var(--border); background: var(--yellow-bg); }
+    .chart-intro .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yellow-ink); margin-bottom: 8px; }
+    .chart-intro .ex { font-size: 14px; color: var(--ink); line-height: 1.6; }
+    .chart-intro .ex b { font-weight: 600; color: var(--yellow-ink); }
+
+    .chart-table { padding: 18px 22px; }
+    .chart-grid { display: grid; gap: 0; border: 1px solid var(--border); }
+    .chart-grid .hd { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); padding: 9px 14px 7px; background: var(--paper); border-bottom: 1px solid var(--border); }
+    .chart-grid .hd.key { background: var(--yellow); color: var(--ink); text-align: center; }
+    .chart-grid .hd.mid { text-align: center; }
+    .chart-grid .cell { padding: 10px 14px; font-size: 14px; color: var(--ink); border-bottom: 1px solid var(--soft); border-right: 1px solid var(--soft); }
+    .chart-grid .cell.key { background: var(--yellow-bg); font-weight: 600; color: var(--yellow-ink); border-right: 0; border-left: 0; text-align: center; }
+    .chart-grid .cell.mid { background: var(--paper); text-align: center; color: var(--ink-3); font-style: italic; font-size: 13px; border-right: 0; }
+    .chart-grid .cell.last { border-right: 0; }
+
+    .chart-note { padding: 12px 22px 15px; font-size: 13px; color: var(--ink-2); line-height: 1.7; background: var(--paper); border-top: 1px solid var(--border); }
+    .chart-note b { color: var(--ink); font-weight: 600; }
+    .chart-note .arrow { color: var(--yellow-ink); font-weight: 600; }
+
+    /* ── TABS ── */
+    .tabs-row { display: flex; gap: 0; margin-top: 22px; border-bottom: 1.5px solid var(--ink); }
+    .tab { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 13px 20px 11px; background: transparent; border: 0; color: var(--ink-3); cursor: pointer; position: relative; display: flex; align-items: center; gap: 10px; }
+    .tab:hover { color: var(--ink); }
+    .tab.active { color: var(--ink); }
+    .tab.active::after { content: ''; position: absolute; bottom: -1.5px; left: 0; right: 0; height: 3px; background: var(--yellow); }
+    .tab .num { font-size: 10px; background: var(--soft); color: var(--ink-3); padding: 3px 7px 2px; }
+    .tab.active .num { background: var(--ink); color: var(--yellow); }
+
+    /* ── TAB PANELS ── */
+    .tab-panel { display: none; padding: 26px 0 0; }
+    .tab-panel.active { display: block; }
+
+    .section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .section-head .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-3); }
+    .section-head .rule { flex: 1; height: 1px; background: var(--border); }
+    .section-head .count { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.2em; color: var(--ink-4); }
+
+    /* ── SAMPLES (Tab 1) ── */
+    .samples { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
+    .sample { background: var(--surface); border: 1px solid var(--border); padding: 13px 16px; display: flex; gap: 12px; align-items: flex-start; }
+    .sample .n { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; color: var(--yellow); flex-shrink: 0; min-width: 20px; }
+    .sample .s { font-size: 14px; color: var(--ink); line-height: 1.45; }
+    .sample .s b { font-weight: 600; background: var(--yellow-bg); padding: 0 3px; }
+
+    /* ── RULE CARDS (Tab 2) ── */
+    .rule-card { background: var(--surface); border: 1px solid var(--border); margin-bottom: 14px; overflow: hidden; }
+    .rule-head { padding: 14px 20px 12px; border-bottom: 1px solid var(--border); background: var(--paper); display: flex; align-items: flex-start; gap: 14px; }
+    .rule-badge { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; background: var(--ink); color: var(--yellow); padding: 5px 9px 4px; flex-shrink: 0; letter-spacing: 0.06em; }
+    .rule-head-text { flex: 1; }
+    .rule-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 17px; line-height: 1.2; color: var(--ink); margin-bottom: 4px; }
+    .rule-subtitle { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+    .rule-subtitle b { color: var(--ink); font-weight: 600; }
+    .rule-words { padding: 14px 20px 12px; border-bottom: 1px solid var(--border); background: var(--yellow-bg); }
+    .rule-words-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yellow-ink); margin-bottom: 10px; }
+    .word-transforms { display: flex; flex-wrap: wrap; gap: 8px; }
+    .word-transform { display: flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border); padding: 5px 10px; }
+    .word-transform .from { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px; color: var(--ink-2); }
+    .word-transform .arrow { color: var(--yellow-ink); font-weight: 700; font-size: 12px; }
+    .word-transform .to { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; color: var(--ink); }
+    .rule-examples { padding: 14px 20px 16px; }
+    .rule-examples-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 8px; }
+    .mini-examples { display: flex; flex-direction: column; gap: 6px; }
+    .mini-example { font-size: 14px; color: var(--ink); line-height: 1.5; padding-left: 12px; border-left: 3px solid var(--yellow); }
+    .mini-example b { font-weight: 600; background: var(--yellow-bg); padding: 0 2px; }
+
+    .samples-section { margin-top: 24px; }
+    .samples-intro { font-size: 14px; color: var(--ink-2); line-height: 1.6; padding: 12px 16px; background: var(--soft); border-left: 3px solid var(--border); margin-bottom: 12px; }
+    .samples-intro b { color: var(--ink); }
+    .sample .kind { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); font-weight: 500; margin-left: 4px; }
+
+    /* ── QUIZ (Tab 3) ── */
+    .quiz-progress { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .progress-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); flex-shrink: 0; }
+    .progress-label .current { color: var(--ink); }
+    .progress-track { flex: 1; height: 6px; background: var(--soft); border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--yellow); transition: width 0.3s ease; }
+    .progress-score { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); flex-shrink: 0; }
+    .progress-score .correct { color: var(--green); }
+
+    .question-card { background: var(--surface); border: 1px solid var(--border); margin-bottom: 16px; overflow: hidden; transition: max-height 0.3s ease; }
+    .question-card.compact { max-height: 72px; overflow: hidden; }
+    .q-header { display: flex; align-items: center; gap: 14px; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+    .q-num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; background: var(--ink); color: var(--yellow); padding: 5px 9px 4px; flex-shrink: 0; letter-spacing: 0.06em; }
+    .q-status-pill { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; padding: 4px 10px 3px; margin-left: auto; display: none; }
+    .q-status-pill.current { display: inline-block; background: var(--yellow); color: var(--ink); border: 1px solid var(--ink); }
+    .q-status-pill.correct { display: inline-block; background: var(--green-bg); color: var(--green-ink); border: 1px solid var(--green); }
+    .q-status-pill.wrong { display: inline-block; background: var(--red-bg); color: var(--red-ink); border: 1px solid var(--red); }
+
+    .q-stem { font-size: 20px; line-height: 1.5; color: var(--ink); padding: 20px 20px 4px; }
+    .q-stem .blank { display: inline-block; min-width: 80px; background: var(--soft); border-bottom: 2px solid var(--ink); padding: 2px 8px; text-align: center; font-weight: 700; font-size: 18px; color: var(--ink-4); }
+    .q-stem .blank.filled { background: var(--yellow-bg); color: var(--yellow-ink); border-bottom-color: var(--yellow-ink); }
+
+    .answers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 16px 20px; }
+    .answer-btn { display: flex; align-items: center; gap: 12px; padding: 13px 16px; background: var(--paper); border: 1.5px solid var(--border); cursor: pointer; font-size: 15px; color: var(--ink); text-align: left; transition: all 0.12s; }
+    .answer-btn:hover:not(:disabled) { border-color: var(--ink); background: var(--surface); }
+    .answer-btn .letter { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; background: var(--soft); color: var(--ink-3); padding: 3px 7px 2px; flex-shrink: 0; }
+    .answer-btn.picked-correct { background: var(--green-bg); border-color: var(--green); }
+    .answer-btn.picked-correct .letter { background: var(--green); color: #fff; }
+    .answer-btn.picked-wrong { background: var(--red-bg); border-color: var(--red); }
+    .answer-btn.picked-wrong .letter { background: var(--red); color: #fff; }
+    .answer-btn.reveal-correct { background: var(--green-bg); border-color: var(--green); border-style: dashed; }
+
+    .explanation { display: none; margin: 0 20px 16px; padding: 14px 16px; background: var(--yellow-bg); border: 1px solid var(--yellow); border-left: 4px solid var(--yellow-ink); }
+    .explanation.show { display: block; }
+    .explanation-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .explanation-head .icon { background: var(--ink); color: var(--yellow); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; padding: 3px 7px 2px; }
+    .explanation-head .title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px; color: var(--ink); }
+    .explanation-body { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+    .explanation-body b { color: var(--ink); font-weight: 600; }
+
+    .next-btn-row { display: none; padding: 0 20px 20px; }
+    .next-btn-row.show { display: block; }
+    .next-btn { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding: 12px 24px; background: var(--ink); color: var(--yellow); border: 0; cursor: pointer; }
+    .next-btn:hover { background: var(--yellow); color: var(--ink); }
+
+    .quiz-end { display: none; background: var(--ink); color: #fff; padding: 40px 32px; text-align: center; margin-top: 16px; }
+    .quiz-end.show { display: block; }
+    .quiz-end-score { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 64px; color: var(--yellow); line-height: 1; }
+    .quiz-end-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #D8D8D4; margin-bottom: 16px; }
+    .quiz-end-msg { font-size: 15px; color: #D8D8D4; line-height: 1.6; margin-bottom: 24px; }
+    .retry-btn { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; padding: 14px 28px; background: var(--yellow); color: var(--ink); border: 0; cursor: pointer; }
+    .retry-btn:hover { background: #fff; }
+
+    /* ── MASTER QUIZ (Tab 4) ── */
+    .start-screen { margin-top: 28px; background: var(--ink); color: #fff; padding: 40px 32px; text-align: center; }
+    .start-screen.hidden { display: none; }
+    .start-kicker { display: inline-flex; align-items: center; gap: 10px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; }
+    .start-kicker .bar { width: 24px; height: 3px; background: var(--yellow); }
+    .start-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 52px; line-height: 1; margin-bottom: 24px; }
+    .start-rules { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 20px 32px; margin-bottom: 32px; color: #D8D8D4; font-size: 14px; }
+    .start-rules .rule-item { display: flex; align-items: center; gap: 10px; }
+    .start-rules .rule-item strong { color: var(--yellow); }
+    .start-btn { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase; padding: 16px 36px; background: var(--yellow); color: var(--ink); border: 0; cursor: pointer; }
+    .start-btn:hover { background: #fff; }
+
+    .master-wrap { padding: 22px 0 0; display: none; }
+    .master-wrap.active { display: block; }
+    .master-banner { background: var(--ink); color: #fff; padding: 14px 20px; display: flex; align-items: center; gap: 18px; margin-bottom: 0; flex-wrap: wrap; }
+    .master-banner .badge { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; background: var(--yellow); color: var(--ink); padding: 5px 10px 4px; }
+    .master-banner .q-counter { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.12em; }
+    .master-banner .q-counter .cur { color: var(--yellow); font-size: 18px; }
+    .master-banner .score-display { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; margin-left: auto; color: #D8D8D4; }
+    .master-banner .score-display .num { color: var(--yellow); }
+
+    .timer-bar { height: 6px; background: var(--soft); overflow: hidden; margin-bottom: 20px; }
+    .timer-fill { height: 100%; width: 100%; background: var(--green); transition: width 1s linear, background 0.5s; }
+    .timer-fill.warn { background: var(--yellow); }
+    .timer-fill.danger { background: var(--red); }
+
+    /* build sentence */
+    .build-prompt { font-size: 20px; line-height: 1.5; color: var(--ink); padding: 20px 20px 12px; }
+    .build-slot { min-height: 52px; margin: 0 20px 12px; border: 2px dashed var(--border); padding: 10px 14px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: var(--paper); }
+    .build-slot.correct { border-color: var(--green); background: var(--green-bg); }
+    .build-slot.wrong { border-color: var(--red); background: var(--red-bg); }
+    .build-slot-empty { font-size: 13px; color: var(--ink-4); font-style: italic; }
+    .build-chip { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px; padding: 6px 12px; border: 1.5px solid var(--border); background: var(--surface); cursor: pointer; color: var(--ink); }
+    .build-chip:hover:not(:disabled) { border-color: var(--ink); }
+    .build-chip.placed { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .build-chip.used { opacity: 0.3; pointer-events: none; }
+    .build-bank { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 20px 16px; }
+    .build-actions { display: flex; gap: 10px; padding: 0 20px 16px; }
+    .build-reset { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 16px; border: 1.5px solid var(--border); background: transparent; color: var(--ink-3); cursor: pointer; }
+    .build-reset:hover { border-color: var(--ink); color: var(--ink); }
+    .build-submit { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 20px; background: var(--ink); color: var(--yellow); border: 0; cursor: pointer; }
+    .build-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .reveal-answer { display: none; margin: 0 20px 16px; padding: 12px 16px; background: var(--red-bg); border: 1px solid var(--red); }
+    .reveal-answer.show { display: block; }
+    .reveal-answer .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-ink); margin-bottom: 4px; }
+    .reveal-answer .sentence { font-size: 15px; font-weight: 600; color: var(--ink); }
+
+    /* master end screen */
+    .master-end { display: none; background: var(--ink); color: #fff; padding: 48px 32px; text-align: center; margin-top: 16px; }
+    .master-end.show { display: block; }
+    .end-head { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.2em; text-transform: uppercase; color: #D8D8D4; margin-bottom: 8px; }
+    .end-score { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 80px; line-height: 1; margin-bottom: 4px; color: var(--yellow); }
+    .end-score.failed { color: var(--red); }
+    .mastery-badge { display: none; background: var(--yellow); color: var(--ink); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; padding: 10px 20px; margin: 12px auto; width: fit-content; }
+    .mastery-badge.show { display: block; }
+    .end-subhead { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; margin-bottom: 12px; }
+    .end-msg { font-size: 15px; color: #D8D8D4; line-height: 1.6; margin-bottom: 28px; }
+    .missed-list { margin: 24px auto 0; max-width: 600px; text-align: left; }
+    .missed-list-head { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #D8D8D4; margin-bottom: 10px; }
+    .missed-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #D8D8D4; }
+    .missed-item .q-label { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; background: var(--red); color: #fff; padding: 3px 7px 2px; flex-shrink: 0; }
+    .missed-item .correct-ans { color: var(--yellow); font-weight: 600; }
+    .master-retry-btn { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; padding: 15px 32px; background: var(--yellow); color: var(--ink); border: 0; cursor: pointer; margin-top: 28px; }
+    .master-retry-btn:hover { background: #fff; }
+
+    @media (max-width: 840px) {
+      .samples { grid-template-columns: 1fr; }
+      .answers-grid { grid-template-columns: 1fr; }
+      .page-head { font-size: 32px; }
+      .topbar { padding: 14px 20px; }
+      .container { padding: 20px 20px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="brand">
+    <div class="yellow-mark">LEL</div>
+    <div class="brand-text">Home</div>
+  </a>
+  <div class="crumb" id="crumb">
+    <a href="index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="our-world.html">Our World</a>
+    <span class="sep">/</span>
+    <span class="active">Grammar</span>
+  </div>
+</header>
+
+<main class="container">
+  <div id="pageContent">
+    <div class="loading">Loading grammar…</div>
+  </div>
+</main>
+
+<script>
+// ── URL PARAMS ──
+const params = new URLSearchParams(window.location.search);
+const level = params.get('level') || '4';
+const unit  = params.get('unit')  || '1';
+const set   = params.get('set')   || '1';
+
+const jsonUrl = `content/our-world/level-${level}/unit-${unit}/grammar-${set}.json`;
+
+// ── QUIZ STATE ──
+let quizData = null;
+let quizCorrect = 0;
+let quizCurrent = 0;
+
+// ── MASTER STATE ──
+let masterScore = 0;
+let masterCurrent = 0;
+let masterMissed = [];
+let masterTimer = null;
+let masterTimeLeft = 20;
+let masterAnswered = false;
+let buildPlaced = {};
+
+fetch(jsonUrl)
+  .then(r => { if (!r.ok) throw new Error('Not found'); return r.json(); })
+  .then(data => renderPage(data))
+  .catch(() => {
+    document.getElementById('pageContent').innerHTML =
+      `<div class="error-msg">Could not load grammar content. Check the URL and try again.</div>`;
+  });
+
+function renderPage(data) {
+  quizData = data;
+
+  // Update crumb
+  document.getElementById('crumb').innerHTML = `
+    <a href="index.html">Home</a><span class="sep">/</span>
+    <a href="our-world.html">Our World</a><span class="sep">/</span>
+    <a href="our-world.html">Level ${data.level}</a><span class="sep">/</span>
+    <a href="our-world.html">Unit ${data.unit}</a><span class="sep">/</span>
+    <span class="active">Grammar ${data.set}</span>
+  `;
+  document.title = `${data.topic} — Leo's English League`;
+
+  const html = `
+    <div class="page-meta">
+      <div class="tag main">Grammar ${data.set}</div>
+      <div class="unit-tag">Unit ${data.unit} · ${data.unit_name}</div>
+    </div>
+    <h1 class="page-head">${data.topic}</h1>
+
+    ${renderChart(data)}
+
+    <nav class="tabs-row" id="tabsRow">
+      <button class="tab active" data-tab="chart"><span class="num">01</span>Chart &amp; samples</button>
+      <button class="tab" data-tab="levelup"><span class="num">02</span>Level up</button>
+      <button class="tab" data-tab="quiz"><span class="num">03</span>Quiz</button>
+      <button class="tab" data-tab="master"><span class="num">04</span>Master quiz</button>
+    </nav>
+
+    <!-- Tab 1: Chart & Samples -->
+    <div class="tab-panel active" id="panel-chart">
+      <div class="section-head">
+        <div class="label">10 sample sentences</div>
+        <div class="rule"></div>
+        <div class="count">Read aloud</div>
+      </div>
+      <div class="samples">
+        ${data.samples.map((s, i) =>
+          `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${s}</div></div>`
+        ).join('')}
+      </div>
+    </div>
+
+    <!-- Tab 2: Level Up -->
+    <div class="tab-panel" id="panel-levelup">
+      <div class="section-head">
+        <div class="label">5 rules</div>
+        <div class="rule"></div>
+        <div class="count">Deeper knowledge</div>
+      </div>
+      ${renderRuleCards(data.levelup.rules)}
+      <div class="samples-section">
+        <div class="section-head">
+          <div class="label">10 mixed examples</div>
+          <div class="rule"></div>
+          <div class="count">Real-world</div>
+        </div>
+        <div class="samples-intro"><b>In the wild —</b> all rule types mixed together, the way you'd read them in a book or hear them in conversation.</div>
+        <div class="samples">
+          ${data.levelup.examples.map((s, i) =>
+            `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${s}</div></div>`
+          ).join('')}
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Quiz -->
+    <div class="tab-panel" id="panel-quiz">
+      <div class="quiz-progress">
+        <div class="progress-label">Q<span class="current" id="qCurrent">1</span> / 10</div>
+        <div class="progress-track"><div class="progress-fill" id="qFill" style="width:10%"></div></div>
+        <div class="progress-score">Score: <span class="correct" id="qScore">0</span>/10</div>
+      </div>
+      <div id="questionsArea"></div>
+      <div class="quiz-end" id="quizEnd">
+        <div class="quiz-end-score" id="quizFinalScore">0</div>
+        <div class="quiz-end-label">out of 10</div>
+        <div class="quiz-end-msg" id="quizEndMsg"></div>
+        <button class="retry-btn" onclick="retryQuiz()">Try again</button>
+      </div>
+    </div>
+
+    <!-- Tab 4: Master Quiz -->
+    <div class="tab-panel" id="panel-master">
+      <div class="start-screen" id="masterStart">
+        <div class="start-kicker"><div class="bar"></div>Master Quiz<div class="bar"></div></div>
+        <div class="start-title">${data.topic}</div>
+        <div class="start-rules">
+          <div class="rule-item">⏱ <strong>20 seconds</strong> per question</div>
+          <div class="rule-item">🎯 <strong>8 / 10</strong> to earn mastery</div>
+          <div class="rule-item">📝 <strong>6 MC</strong> + <strong>4 Build</strong></div>
+          <div class="rule-item">✗ No explanations</div>
+        </div>
+        <button class="start-btn" onclick="startMaster()">Start Master Quiz</button>
+      </div>
+      <div class="master-wrap" id="masterWrap">
+        <div class="master-banner">
+          <span class="badge">Master Quiz</span>
+          <span class="q-counter">Question <span class="cur" id="mCurrent">1</span> of 10</span>
+          <span class="score-display">Score: <span class="num" id="mScore">0</span>/10</span>
+        </div>
+        <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
+        <div id="masterArea"></div>
+        <div class="master-end" id="masterEnd">
+          <div class="end-head" id="endHead">Results</div>
+          <div class="end-score" id="endScore"><span id="finalScore">0</span></div>
+          <div class="mastery-badge" id="masteryBadge">★ Mastery Earned</div>
+          <div class="end-subhead" id="endSubhead"></div>
+          <div class="end-msg" id="endMsg"></div>
+          <div class="missed-list" id="missedList" style="display:none">
+            <div class="missed-list-head">Questions to review</div>
+            <div id="missedItems"></div>
+          </div>
+          <button class="master-retry-btn" onclick="retryMaster()">Try again</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('pageContent').innerHTML = html;
+
+  // Tab switching
+  document.getElementById('tabsRow').addEventListener('click', e => {
+    const tab = e.target.closest('.tab');
+    if (!tab) return;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+
+  // Start quiz
+  renderQuizQuestion(0);
+}
+
+// ── CHART ──
+function renderChart(data) {
+  const cols = data.chart.columns;
+  const colClass = (h, i) => {
+    if (h === '' || h === '—') return 'mid';
+    if (h === 'Comparative' || h === 'Answer') return 'key';
+    if (i === cols.length - 1) return 'last';
+    return '';
+  };
+  const colWidths = cols.map(h => {
+    if (h === '' || h === '—') return '0.5fr';
+    if (h === 'Comparative' || h === 'Answer') return '1.3fr';
+    return '1.2fr';
+  }).join(' ');
+
+  const numCols = cols.length;
+  const lastRowStart = data.chart.rows.length * numCols;
+
+  const hdHtml = cols.map(h => {
+    const cls = colClass(h, cols.indexOf(h));
+    return `<div class="hd${cls ? ' '+cls : ''}">${h}</div>`;
+  }).join('');
+
+  const rowsHtml = data.chart.rows.map((row, ri) => {
+    const isLast = ri === data.chart.rows.length - 1;
+    return row.map((cell, ci) => {
+      const cls = colClass(cols[ci], ci);
+      return `<div class="cell${cls ? ' '+cls : ''}${isLast ? ' last-row' : ''}">${cell}</div>`;
+    }).join('');
+  }).join('');
+
+  const rulesHtml = data.chart.rules.map(r =>
+    `<div>${r}</div>`
+  ).join('');
+
+  const introHtml = data.chart.intro.map(line =>
+    `<div class="ex">${line}</div>`
+  ).join('');
+
+  return `
+    <section class="chart-card">
+      <div class="chart-head">
+        <div class="bar"></div>
+        <div class="label">Grammar Chart</div>
+        <div class="name">${data.topic}</div>
+      </div>
+      <div class="chart-intro">
+        <div class="label">See how it works</div>
+        ${introHtml}
+      </div>
+      <div class="chart-table">
+        <div class="chart-grid" style="grid-template-columns:${colWidths}">
+          ${hdHtml}
+          ${rowsHtml}
+        </div>
+      </div>
+      <div class="chart-note">${rulesHtml}</div>
+    </section>
+  `;
+}
+
+// ── RULE CARDS ──
+function renderRuleCards(rules) {
+  return rules.map((rule, i) => {
+    const transforms = rule.transformations.map(t => {
+      const parts = t.split(' → ');
+      if (parts.length === 2) {
+        return `<div class="word-transform"><span class="from">${parts[0]}</span><span class="arrow">→</span><span class="to">${parts[1]}</span></div>`;
+      }
+      return `<div class="word-transform"><span class="to">${t}</span></div>`;
+    }).join('');
+
+    const examples = rule.examples.map(ex =>
+      `<div class="mini-example">${ex}</div>`
+    ).join('');
+
+    return `
+      <div class="rule-card">
+        <div class="rule-head">
+          <div class="rule-badge">${String(i+1).padStart(2,'0')}</div>
+          <div class="rule-head-text">
+            <div class="rule-title">${rule.title}</div>
+            <div class="rule-subtitle">${rule.explanation}</div>
+          </div>
+        </div>
+        <div class="rule-words">
+          <div class="rule-words-label">Examples</div>
+          <div class="word-transforms">${transforms}</div>
+        </div>
+        <div class="rule-examples">
+          <div class="rule-examples-label">In a sentence</div>
+          <div class="mini-examples">${examples}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ── QUIZ ──
+function renderQuizQuestion(idx) {
+  const q = quizData.quiz[idx];
+  const area = document.getElementById('questionsArea');
+  const letters = ['A','B','C','D'];
+
+  // Split question on ___ blank
+  const stemParts = q.question.split(/_{3,}/);
+  const stemHtml = stemParts.length > 1
+    ? stemParts[0] + `<span class="blank" id="blank-${idx}">____</span>` + stemParts[1]
+    : q.question;
+
+  const answersHtml = q.options.map((opt, i) =>
+    `<button class="answer-btn" onclick="pickQuizAnswer(${idx}, ${i})">
+       <span class="letter">${letters[i]}</span>
+       <span>${opt}</span>
+     </button>`
+  ).join('');
+
+  const card = document.createElement('div');
+  card.className = 'question-card';
+  card.id = `qcard-${idx}`;
+  card.innerHTML = `
+    <div class="q-header">
+      <div class="q-num">Q${String(idx+1).padStart(2,'0')}</div>
+      <span class="q-status-pill current">Current</span>
+      <span class="q-status-pill correct" style="display:none">✓ Correct</span>
+      <span class="q-status-pill wrong" style="display:none">✗ Not quite</span>
+    </div>
+    <div class="q-stem">${stemHtml}</div>
+    <div class="answers-grid">${answersHtml}</div>
+    <div class="explanation" id="exp-${idx}">
+      <div class="explanation-head">
+        <div class="icon">!</div>
+        <div class="title" id="exp-title-${idx}"></div>
+      </div>
+      <div class="explanation-body" id="exp-body-${idx}"></div>
+    </div>
+    <div class="next-btn-row" id="next-${idx}">
+      <button class="next-btn" onclick="nextQuizQuestion(${idx})">
+        ${idx < 9 ? 'Next question →' : 'See results →'}
+      </button>
+    </div>
+  `;
+  area.appendChild(card);
+}
+
+function pickQuizAnswer(qIdx, ansIdx) {
+  const q = quizData.quiz[qIdx];
+  const card = document.getElementById(`qcard-${qIdx}`);
+  const buttons = card.querySelectorAll('.answer-btn');
+  const isCorrect = ansIdx === q.answer;
+
+  buttons.forEach(b => b.disabled = true);
+  buttons[ansIdx].classList.add(isCorrect ? 'picked-correct' : 'picked-wrong');
+  if (!isCorrect) buttons[q.answer].classList.add('reveal-correct');
+
+  const blank = document.getElementById(`blank-${qIdx}`);
+  if (blank) { blank.textContent = q.options[q.answer]; blank.classList.add('filled'); }
+
+  // status pills
+  card.querySelector('.q-status-pill.current').style.display = 'none';
+  card.querySelector(`.q-status-pill.${isCorrect ? 'correct' : 'wrong'}`).style.display = 'inline-block';
+
+  // explanation
+  document.getElementById(`exp-title-${qIdx}`).textContent = isCorrect ? 'Why this is right' : 'Explanation';
+  document.getElementById(`exp-body-${qIdx}`).innerHTML = q.explanation;
+  document.getElementById(`exp-${qIdx}`).classList.add('show');
+  document.getElementById(`next-${qIdx}`).classList.add('show');
+
+  if (isCorrect) { quizCorrect++; document.getElementById('qScore').textContent = quizCorrect; }
+}
+
+function nextQuizQuestion(fromIdx) {
+  document.getElementById(`qcard-${fromIdx}`).classList.add('compact');
+  if (fromIdx + 1 >= quizData.quiz.length) {
+    showQuizEnd(); return;
+  }
+  quizCurrent = fromIdx + 1;
+  document.getElementById('qCurrent').textContent = quizCurrent + 1;
+  document.getElementById('qFill').style.width = ((quizCurrent + 1) * 10) + '%';
+  renderQuizQuestion(quizCurrent);
+  setTimeout(() => document.getElementById(`qcard-${quizCurrent}`).scrollIntoView({behavior:'smooth',block:'center'}), 100);
+}
+
+function showQuizEnd() {
+  const end = document.getElementById('quizEnd');
+  document.getElementById('quizFinalScore').textContent = quizCorrect;
+  const msgs = [
+    [10, 'Perfect! You mastered this — ready for the Master Quiz?'],
+    [8, 'Great work — you really know this grammar point.'],
+    [6, 'Solid effort. Review the ones you missed and try again.'],
+    [4, 'Go back to the Level Up tab and review the rules.'],
+    [0, 'No worries — go back to the Chart &amp; samples tab and read through it again.']
+  ];
+  const msg = msgs.find(m => quizCorrect >= m[0]);
+  document.getElementById('quizEndMsg').innerHTML = msg[1];
+  end.classList.add('show');
+  end.scrollIntoView({behavior:'smooth'});
+}
+
+function retryQuiz() {
+  quizCorrect = 0; quizCurrent = 0;
+  document.getElementById('questionsArea').innerHTML = '';
+  document.getElementById('quizEnd').classList.remove('show');
+  document.getElementById('qScore').textContent = 0;
+  document.getElementById('qCurrent').textContent = 1;
+  document.getElementById('qFill').style.width = '10%';
+  renderQuizQuestion(0);
+}
+
+// ── MASTER QUIZ ──
+function startMaster() {
+  document.getElementById('masterStart').classList.add('hidden');
+  document.getElementById('masterWrap').classList.add('active');
+  renderMasterQuestion(0);
+}
+
+function renderMasterQuestion(idx) {
+  masterCurrent = idx;
+  masterAnswered = false;
+  buildPlaced[idx] = [];
+  document.getElementById('mCurrent').textContent = idx + 1;
+  document.getElementById('masterArea').innerHTML = '';
+
+  const q = quizData.master_quiz[idx];
+  const area = document.getElementById('masterArea');
+  const letters = ['A','B','C','D'];
+
+  startTimer();
+
+  if (q.type === 'multiple_choice') {
+    const stemParts = q.question.split(/_{3,}/);
+    const stemHtml = stemParts.length > 1
+      ? stemParts[0] + `<span class="blank" id="mblank-${idx}">____</span>` + stemParts[1]
+      : q.question;
+    const answersHtml = q.options.map((opt, i) =>
+      `<button class="answer-btn" onclick="pickMasterMC(${idx}, ${i})">
+         <span class="letter">${letters[i]}</span>
+         <span>${opt}</span>
+       </button>`
+    ).join('');
+    const card = document.createElement('div');
+    card.className = 'question-card'; card.id = `qcard-master`;
+    card.innerHTML = `
+      <div class="q-header">
+        <div class="q-num">Q${String(idx+1).padStart(2,'0')}</div>
+        <span class="q-status-pill current">Current</span>
+        <span class="q-status-pill correct" style="display:none">✓ Correct</span>
+        <span class="q-status-pill wrong" style="display:none">✗ Not quite</span>
+      </div>
+      <div class="q-stem">${stemHtml}</div>
+      <div class="answers-grid">${answersHtml}</div>
+    `;
+    area.appendChild(card);
+  } else {
+    // Build sentence
+    const shuffled = [...q.words];
+    const bankHtml = shuffled.map((w, i) =>
+      `<button class="build-chip" id="mchip-${idx}-${i}" onclick="pickBuildChip(${idx}, ${i}, '${w}')">${w}</button>`
+    ).join('');
+    const card = document.createElement('div');
+    card.className = 'question-card'; card.id = 'qcard-master';
+    card.innerHTML = `
+      <div class="q-header">
+        <div class="q-num">Q${String(idx+1).padStart(2,'0')}</div>
+        <span class="q-status-pill current">Current</span>
+        <span class="q-status-pill correct" style="display:none">✓ Correct</span>
+        <span class="q-status-pill wrong" style="display:none">✗ Not quite</span>
+      </div>
+      <div class="build-prompt">${q.question}</div>
+      <div class="build-slot" id="mslot-${idx}">
+        <span class="build-slot-empty">Tap words below to build the sentence</span>
+      </div>
+      <div class="reveal-answer" id="mreveal-${idx}">
+        <div class="label">Correct answer</div>
+        <div class="sentence" id="mcorrect-${idx}"></div>
+      </div>
+      <div class="build-bank">${bankHtml}</div>
+      <div class="build-actions">
+        <button class="build-reset" onclick="resetBuild(${idx})">Reset</button>
+        <button class="build-submit" id="msubmit-${idx}" disabled onclick="submitBuild(${idx})">Check →</button>
+      </div>
+    `;
+    area.appendChild(card);
+  }
+}
+
+function pickBuildChip(qIdx, wordIdx, word) {
+  if (masterAnswered) return;
+  if (!buildPlaced[qIdx]) buildPlaced[qIdx] = [];
+  document.getElementById(`mchip-${qIdx}-${wordIdx}`).classList.add('used');
+  buildPlaced[qIdx].push({ wordIdx, word });
+  renderBuildSlot(qIdx);
+}
+
+function renderBuildSlot(qIdx) {
+  const slot = document.getElementById(`mslot-${qIdx}`);
+  const submit = document.getElementById(`msubmit-${qIdx}`);
+  const placed = buildPlaced[qIdx] || [];
+  if (placed.length === 0) {
+    slot.innerHTML = '<span class="build-slot-empty">Tap words below to build the sentence</span>';
+    submit.disabled = true;
+  } else {
+    slot.innerHTML = placed.map((p, i) =>
+      `<button class="build-chip placed" onclick="unpickChip(${qIdx}, ${i})">${p.word}</button>`
+    ).join('');
+    submit.disabled = false;
+  }
+}
+
+function unpickChip(qIdx, placedIdx) {
+  if (masterAnswered) return;
+  const placed = buildPlaced[qIdx];
+  document.getElementById(`mchip-${qIdx}-${placed[placedIdx].wordIdx}`).classList.remove('used');
+  placed.splice(placedIdx, 1);
+  renderBuildSlot(qIdx);
+}
+
+function resetBuild(qIdx) {
+  if (masterAnswered) return;
+  (buildPlaced[qIdx] || []).forEach(p => {
+    const el = document.getElementById(`mchip-${qIdx}-${p.wordIdx}`);
+    if (el) el.classList.remove('used');
+  });
+  buildPlaced[qIdx] = [];
+  renderBuildSlot(qIdx);
+}
+
+function submitBuild(qIdx) {
+  if (masterAnswered) return;
+  masterAnswered = true; stopTimer();
+  const q = quizData.master_quiz[qIdx];
+  const placed = (buildPlaced[qIdx] || []).map(p => p.word);
+  const isCorrect = placed.length === q.answer.length && placed.every((w, i) => w === q.answer[i]);
+  const slot = document.getElementById(`mslot-${qIdx}`);
+  slot.classList.add(isCorrect ? 'correct' : 'wrong');
+  const card = document.getElementById('qcard-master');
+  card.querySelector('.q-status-pill.current').style.display = 'none';
+  card.querySelector(`.q-status-pill.${isCorrect ? 'correct' : 'wrong'}`).style.display = 'inline-block';
+
+  // disable chips
+  q.words.forEach((_, i) => {
+    const el = document.getElementById(`mchip-${qIdx}-${i}`);
+    if (el) el.disabled = true;
+  });
+  document.getElementById(`msubmit-${qIdx}`).disabled = true;
+
+  if (!isCorrect) {
+    document.getElementById(`mcorrect-${qIdx}`).textContent = q.answer.join(' ') + '.';
+    document.getElementById(`mreveal-${qIdx}`).classList.add('show');
+    masterMissed.push({ idx: qIdx, correct: q.answer.join(' ') + '.' });
+  } else {
+    masterScore++;
+    document.getElementById('mScore').textContent = masterScore;
+  }
+  setTimeout(() => masterMoveNext(), isCorrect ? 1200 : 2400);
+}
+
+function pickMasterMC(qIdx, ansIdx) {
+  if (masterAnswered) return;
+  masterAnswered = true; stopTimer();
+  const q = quizData.master_quiz[qIdx];
+  const card = document.getElementById('qcard-master');
+  const buttons = card.querySelectorAll('.answer-btn');
+  const isCorrect = ansIdx === q.answer;
+  buttons.forEach(b => b.disabled = true);
+  buttons[ansIdx].classList.add(isCorrect ? 'picked-correct' : 'picked-wrong');
+  if (!isCorrect) buttons[q.answer].classList.add('reveal-correct');
+  const blank = document.getElementById(`mblank-${qIdx}`);
+  if (blank) { blank.textContent = q.options[q.answer]; blank.classList.add('filled'); }
+  card.querySelector('.q-status-pill.current').style.display = 'none';
+  card.querySelector(`.q-status-pill.${isCorrect ? 'correct' : 'wrong'}`).style.display = 'inline-block';
+  if (isCorrect) { masterScore++; document.getElementById('mScore').textContent = masterScore; }
+  else masterMissed.push({ idx: qIdx, correct: q.options[q.answer] });
+  setTimeout(() => masterMoveNext(), isCorrect ? 1200 : 1800);
+}
+
+function masterMoveNext() {
+  if (masterCurrent + 1 >= quizData.master_quiz.length) {
+    showMasterEnd();
+  } else {
+    renderMasterQuestion(masterCurrent + 1);
+  }
+}
+
+function startTimer() {
+  masterTimeLeft = 20;
+  const fill = document.getElementById('timerFill');
+  if (!fill) return;
+  fill.style.width = '100%';
+  fill.className = 'timer-fill';
+  clearInterval(masterTimer);
+  masterTimer = setInterval(() => {
+    masterTimeLeft--;
+    const pct = (masterTimeLeft / 20) * 100;
+    fill.style.width = pct + '%';
+    if (masterTimeLeft <= 10) fill.className = 'timer-fill warn';
+    if (masterTimeLeft <= 5) fill.className = 'timer-fill danger';
+    if (masterTimeLeft <= 0) { clearInterval(masterTimer); masterTimeout(); }
+  }, 1000);
+}
+
+function stopTimer() { clearInterval(masterTimer); }
+
+function masterTimeout() {
+  if (masterAnswered) return;
+  masterAnswered = true;
+  const q = quizData.master_quiz[masterCurrent];
+  const card = document.getElementById('qcard-master');
+  if (!card) return;
+  card.querySelector('.q-status-pill.current').style.display = 'none';
+  card.querySelector('.q-status-pill.wrong').style.display = 'inline-block';
+
+  if (q.type === 'multiple_choice') {
+    const buttons = card.querySelectorAll('.answer-btn');
+    buttons.forEach(b => b.disabled = true);
+    if (buttons[q.answer]) buttons[q.answer].classList.add('reveal-correct');
+    masterMissed.push({ idx: masterCurrent, correct: q.options[q.answer] });
+  } else {
+    const slot = document.getElementById(`mslot-${masterCurrent}`);
+    if (slot) slot.classList.add('wrong');
+    const reveal = document.getElementById(`mreveal-${masterCurrent}`);
+    const correct = document.getElementById(`mcorrect-${masterCurrent}`);
+    if (reveal && correct) {
+      correct.textContent = q.answer.join(' ') + '.';
+      reveal.classList.add('show');
+    }
+    masterMissed.push({ idx: masterCurrent, correct: q.answer.join(' ') + '.' });
+  }
+  setTimeout(() => masterMoveNext(), 2200);
+}
+
+function showMasterEnd() {
+  stopTimer();
+  document.getElementById('masterArea').innerHTML = '';
+  document.getElementById('masterWrap').querySelector('.master-banner').style.display = 'none';
+  document.getElementById('masterWrap').querySelector('.timer-bar').style.display = 'none';
+  const passed = masterScore >= 8;
+  document.getElementById('finalScore').textContent = masterScore;
+  if (!passed) document.getElementById('endScore').classList.add('failed');
+  document.getElementById('endHead').textContent = passed ? 'Result' : 'Result';
+  if (passed) document.getElementById('masteryBadge').classList.add('show');
+  document.getElementById('endSubhead').textContent = passed ? 'Master Quiz Passed' : 'Below mastery — ' + masterScore + '/10';
+  document.getElementById('endMsg').innerHTML = masterScore === 10
+    ? 'Perfect score. You\'ve fully mastered this grammar point.'
+    : passed
+    ? 'You passed the Master Quiz. You understand this grammar point well.'
+    : `You need <strong>8 out of 10</strong> to pass. Review the rules in <strong>Tab 2: Level up</strong> and try again.`;
+  if (masterMissed.length > 0) {
+    document.getElementById('missedList').style.display = 'block';
+    document.getElementById('missedItems').innerHTML = masterMissed.map(m =>
+      `<div class="missed-item"><span class="q-label">Q${m.idx+1}</span><span>Correct: <span class="correct-ans">${m.correct}</span></span></div>`
+    ).join('');
+  }
+  document.getElementById('masterEnd').classList.add('show');
+  document.getElementById('masterEnd').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function retryMaster() {
+  masterScore = 0; masterCurrent = 0; masterMissed = []; masterAnswered = false; buildPlaced = {};
+  document.getElementById('masterEnd').classList.remove('show');
+  document.getElementById('masterEnd').querySelector('#endScore').classList.remove('failed');
+  document.getElementById('masteryBadge').classList.remove('show');
+  document.getElementById('mScore').textContent = 0;
+  document.getElementById('masterWrap').querySelector('.master-banner').style.display = 'flex';
+  document.getElementById('masterWrap').querySelector('.timer-bar').style.display = 'block';
+  document.getElementById('masterArea').innerHTML = '';
+  renderMasterQuestion(0);
+}
+</script>
+</body>
+</html>
