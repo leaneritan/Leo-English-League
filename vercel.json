@@ -10,6 +10,7 @@
     { "source": "/grammar-tab3-quiz", "destination": "/grammar-tab3-quiz.html" },
     { "source": "/grammar-tab4-master", "destination": "/grammar-tab4-master.html" },
     { "source": "/relatives", "destination": "/relatives.html" },
-    { "source": "/vocab", "destination": "/vocab.html" }
+    { "source": "/vocab", "destination": "/vocab.html" },
+    { "source": "/grammar", "destination": "/grammar.html" }
   ]
 }
