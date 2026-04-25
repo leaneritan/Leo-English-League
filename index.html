@@ -154,6 +154,8 @@
       background: var(--ink); color: var(--yellow);
     }
 
+    .result-word a { color: inherit; text-decoration: none; }
+    .result-word a:hover { text-decoration: underline; }
     .result-word {
       font-family: 'Inter', sans-serif; font-weight: 600;
       font-size: 15px; color: var(--ink); flex: 1;
@@ -482,33 +484,33 @@
     // ── SEARCH DATA (real Level 4 content) ──
     const DATA = [
       // Vocab – Our World Level 4
-      { type:'V', word:'relatives',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'different',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'pumpkin',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 3'}] },
-      { type:'V', word:'plant',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
-      { type:'V', word:'turnip',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
-      { type:'V', word:'enormous',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
-      { type:'V', word:'pull',           worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
-      { type:'V', word:'stretch',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
-      { type:'V', word:'animal',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'},{code:'JH',cls:'jh',label:'JH · Unit 1'},{code:'TG',cls:'tg',label:'TG · Set 2'}] },
-      { type:'V', word:'habitat',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
-      { type:'V', word:'pretty',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'handsome',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'athlete',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'wonderful',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'hobby',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'},{code:'JH',cls:'jh',label:'JH · Unit 4'}] },
-      { type:'V', word:'school subject', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'relatives',      url:'relatives.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'different',      url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
+      { type:'V', word:'pumpkin',        url:'vocab-page.html', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 3'}] },
+      { type:'V', word:'plant',          url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
+      { type:'V', word:'turnip',         url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
+      { type:'V', word:'enormous',       url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
+      { type:'V', word:'pull',           url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
+      { type:'V', word:'stretch',        url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
+      { type:'V', word:'animal',         url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'},{code:'JH',cls:'jh',label:'JH · Unit 1'},{code:'TG',cls:'tg',label:'TG · Set 2'}] },
+      { type:'V', word:'habitat',        url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
+      { type:'V', word:'pretty',         url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'handsome',       url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'athlete',        url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'wonderful',      url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+      { type:'V', word:'hobby',          url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'},{code:'JH',cls:'jh',label:'JH · Unit 4'}] },
+      { type:'V', word:'school subject', url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
 
       // Grammar – Our World Level 4
-      { type:'G', word:'Comparatives with -er',    worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G1'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
-      { type:'G', word:'Comparatives with more',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G2'}] },
-      { type:'G', word:'Superlatives with -est',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G1'}] },
-      { type:'G', word:'Superlatives with most',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G2'}] },
-      { type:'G', word:'Irregular comparatives',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3 G1'}] },
-      { type:'G', word:'should / shouldn\'t',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G1'},{code:'JH',cls:'jh',label:'JH · Unit 5'}] },
-      { type:'G', word:'have to / don\'t have to', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G2'}] },
-      { type:'G', word:'Present perfect',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G1'}] },
-      { type:'G', word:'ever / never',             worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G2'}] },
+      { type:'G', word:'Comparatives with -er',    url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G1'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
+      { type:'G', word:'Comparatives with more',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G2'}] },
+      { type:'G', word:'Superlatives with -est',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G1'}] },
+      { type:'G', word:'Superlatives with most',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G2'}] },
+      { type:'G', word:'Irregular comparatives',   url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3 G1'}] },
+      { type:'G', word:'should / shouldn\'t',      url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G1'},{code:'JH',cls:'jh',label:'JH · Unit 5'}] },
+      { type:'G', word:'have to / don\'t have to', url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G2'}] },
+      { type:'G', word:'Present perfect',          url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G1'}] },
+      { type:'G', word:'ever / never',             url:'grammar-page.html',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5 G2'}] },
     ];
 
     const input    = document.getElementById('searchInput');
@@ -557,9 +559,9 @@
         row.className = 'result-row';
 
         const typeTag = `<div class="result-type ${item.type === 'V' ? 'vocab' : 'grammar'}">${item.type}</div>`;
-        const wordSpan = `<div class="result-word">${highlight(item.word, q)}</div>`;
+        const wordSpan = `<div class="result-word"><a href="${item.url}">${highlight(item.word, q)}</a></div>`;
         const badges = item.worlds.map(w =>
-          `<a href="#" class="badge ${w.cls}" onclick="handleBadge('${item.word}','${w.code}');return false;">
+          `<a href="${item.url}" class="badge ${w.cls}">
             <span class="badge-world">${w.code}</span>
             <span class="badge-sep">·</span>
             <span class="badge-loc">${w.label.split('·')[1].trim()}</span>
@@ -571,12 +573,6 @@
       });
 
       results.classList.add('visible');
-    }
-
-    function handleBadge(word, world) {
-      // In the real app, this navigates to the detail page for that word in that world.
-      // For now, show where it would go.
-      alert(`→ ${world}: Opening "${word}" detail page`);
     }
 
     function setSearch(val) {
