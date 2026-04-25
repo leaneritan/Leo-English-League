@@ -2,5 +2,72 @@
   "level": 4,
   "unit": 1,
   "set": 2,
-  "words": []
+  "unit_name": "Family & Friends",
+  "words": [
+    {
+      "id": "similar",
+      "word": "similar",
+      "emoji": "🪞",
+      "ipa": "/ˈsɪmɪlər/",
+      "syllables": "sim · i · lar",
+      "pos": "Adjective",
+      "sample": "My brother and I look very <b>similar</b> — people always mix us up.",
+      "jp_word": "似ている",
+      "jp_reading": "niteiru",
+      "jp_sentence": "兄と私はとても<b>似ている</b>。いつも間違えられます。",
+      "jp_tags": ["形容詞"]
+    },
+    {
+      "id": "happier",
+      "word": "happier",
+      "emoji": "😊",
+      "ipa": "/ˈhæpiər/",
+      "syllables": "hap · pi · er",
+      "pos": "Adjective · Comparative",
+      "sample": "I feel <b>happier</b> on weekends than on school days.",
+      "jp_word": "より幸せな",
+      "jp_reading": "yorī shiawasena",
+      "jp_sentence": "学校の日より週末のほうが<b>幸せ</b>に感じます。",
+      "jp_tags": ["形容詞", "比較形容詞"]
+    },
+    {
+      "id": "easier",
+      "word": "easier",
+      "emoji": "✅",
+      "ipa": "/ˈiːziər/",
+      "syllables": "eas · i · er",
+      "pos": "Adjective · Comparative",
+      "sample": "Maths is <b>easier</b> than science for me.",
+      "jp_word": "より簡単な",
+      "jp_reading": "yorī kantanna",
+      "jp_sentence": "私にとって数学は理科より<b>簡単</b>です。",
+      "jp_tags": ["形容詞", "比較形容詞"]
+    },
+    {
+      "id": "longer",
+      "word": "longer",
+      "emoji": "📏",
+      "ipa": "/ˈlɒŋɡər/",
+      "syllables": "long · er",
+      "pos": "Adjective · Comparative",
+      "sample": "Her hair is <b>longer</b> than mine.",
+      "jp_word": "より長い",
+      "jp_reading": "yorī nagai",
+      "jp_sentence": "彼女の髪は私のより<b>長い</b>です。",
+      "jp_tags": ["形容詞", "比較形容詞"]
+    },
+    {
+      "id": "smarter",
+      "word": "smarter",
+      "emoji": "🧠",
+      "ipa": "/ˈsmɑːrtər/",
+      "syllables": "smart · er",
+      "pos": "Adjective · Comparative",
+      "sample": "My little sister is <b>smarter</b> than most adults I know.",
+      "jp_word": "より賢い",
+      "jp_reading": "yorī kashikoi",
+      "jp_sentence": "妹は私が知っているほとんどの大人より<b>賢い</b>。",
+      "jp_tags": ["形容詞", "比較形容詞"]
+    }
+  ]
 }

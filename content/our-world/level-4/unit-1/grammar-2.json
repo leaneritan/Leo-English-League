@@ -2,15 +2,286 @@
   "level": 4,
   "unit": 1,
   "set": 2,
-  "topic": "",
+  "unit_name": "Family & Friends",
+  "title": "Present progressive for future plans",
+  "tag": "Grammar 2",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Present progressive for future plans",
+    "intro_examples": [
+      {
+        "text": "I'm <b>meeting</b> my relatives tomorrow.",
+        "continuation": "She's <b>visiting</b> her friends next weekend."
+      },
+      {
+        "text": "We're <b>having</b> a party on Saturday.",
+        "continuation": "He's <b>flying</b> to Tokyo next month."
+      }
+    ],
+    "rows": [
+      ["I'm", "meeting my relatives", "—", "tomorrow"],
+      ["She's", "visiting her grandparents", "—", "next weekend"],
+      ["We're", "having a party", "—", "on Saturday"],
+      ["He's", "flying to Tokyo", "—", "next month"],
+      ["They're", "coming to dinner", "—", "tonight"]
+    ],
+    "note_rule": "Form: am / is / are + verb-ing. Use for scheduled future events.",
+    "note_exception": "Common time expressions: tomorrow, next week, tonight, on [day]",
+    "note_exception_detail": "these signal a future plan"
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    "I'm <b>meeting</b> my cousins after school today.",
+    "She's <b>visiting</b> Tokyo for the first time next spring.",
+    "We're <b>having</b> a family dinner tonight.",
+    "He's <b>flying</b> to London on Thursday.",
+    "They're <b>coming</b> to our house this Sunday.",
+    "I'm <b>not going</b> to school tomorrow — it's a public holiday.",
+    "Are you <b>visiting</b> your relatives next summer?",
+    "My parents are <b>planning</b> a big birthday party for me.",
+    "Leo is <b>studying</b> with his friends this afternoon.",
+    "We're <b>watching</b> the big game together on Saturday night."
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "Form — am / is / are + verb-ing",
+        "subtitle": "Choose the correct form of <b>be</b>, then add <b>-ing</b> to the verb.",
+        "transforms": [
+          {"from": "I talk", "to": "I am talking"},
+          {"from": "she meets", "to": "she is meeting"},
+          {"from": "we fly", "to": "we are flying"},
+          {"from": "they visit", "to": "they are visiting"}
+        ],
+        "examples": [
+          "I <b>am meeting</b> my friend at 3 pm.",
+          "She <b>is visiting</b> her aunt next weekend."
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Use for scheduled future events",
+        "subtitle": "Only when you already have a plan or schedule — not for habits or general facts.",
+        "transforms": [
+          {"from": "I meet her every day.", "to": "I am meeting her tomorrow."},
+          {"from": "She visits often.", "to": "She is visiting next week."}
+        ],
+        "examples": [
+          "I'm <b>seeing</b> the doctor on Monday. <em>(scheduled appointment)</em>",
+          "She's <b>starting</b> her new school next term. <em>(definite plan)</em>"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Common future time expressions",
+        "subtitle": "These words and phrases signal a future plan — look for them as clues.",
+        "transforms": [
+          {"from": "tomorrow", "to": "next week / month / year"},
+          {"from": "tonight", "to": "this weekend / Saturday"},
+          {"from": "on Monday", "to": "in two days"}
+        ],
+        "examples": [
+          "They're arriving <b>tomorrow</b>.",
+          "We're moving house <b>next month</b>."
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Negative — am / is / are + not + verb-ing",
+        "subtitle": "To say something is <b>not</b> happening, add <b>not</b> after the helping verb.",
+        "transforms": [
+          {"from": "I am going", "to": "I am not going (I'm not going)"},
+          {"from": "she is coming", "to": "she is not coming (she isn't coming)"},
+          {"from": "they are staying", "to": "they are not staying (they aren't staying)"}
+        ],
+        "examples": [
+          "I'm <b>not going</b> to the party.",
+          "She <b>isn't coming</b> — she has work."
+        ]
+      },
+      {
+        "num": "05",
+        "title": "Questions — Am / Is / Are + subject + verb-ing?",
+        "subtitle": "Move the helping verb to the front to make a question.",
+        "transforms": [
+          {"from": "You are going.", "to": "Are you going?"},
+          {"from": "She is coming.", "to": "Is she coming?"},
+          {"from": "They are flying.", "to": "Are they flying?"}
+        ],
+        "examples": [
+          "<b>Are</b> you <b>coming</b> to the party?",
+          "<b>Is</b> Leo <b>flying</b> with us?"
+        ]
+      }
+    ],
+    "mixed_samples": [
+      {"text": "My teacher <b>is testing</b> us on Friday, so I'm studying tonight.", "kind": "Rule 1 + 2"},
+      {"text": "She <b>isn't coming</b> to practice — she has a doctor's appointment.", "kind": "Rule 4 · negative"},
+      {"text": "<b>Are</b> they <b>arriving</b> by train or by bus?", "kind": "Rule 5 · question"},
+      {"text": "We're <b>having</b> a big family meal tomorrow evening.", "kind": "Rule 3 · tomorrow"},
+      {"text": "I'm <b>not watching</b> TV tonight — I have homework.", "kind": "Rule 4 · negative"},
+      {"text": "He's <b>starting</b> a new job <b>next Monday</b>.", "kind": "Rule 3 · next Monday"},
+      {"text": "<b>Are</b> you <b>bringing</b> anything to the party?", "kind": "Rule 5 · question"},
+      {"text": "My parents are <b>flying</b> to New York on the 15th.", "kind": "Rule 2 · scheduled event"},
+      {"text": "She <b>isn't visiting</b> us this weekend — the weather is bad.", "kind": "Rule 4 · negative"},
+      {"text": "We're <b>meeting</b> our old friends from primary school this Saturday.", "kind": "Rule 3 · this Saturday"}
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["I ", "BLANK", " my grandparents next Sunday."],
+        "answers": ["visit", "am visiting", "will visit", "am visit"],
+        "correct": 1,
+        "explanation": {
+          "title": "Use be + verb-ing for future plans",
+          "body": "\"Next Sunday\" signals a future plan. With \"I\", use <b>am</b> + verb-ing → <span class=\"right-form\">am visiting</span>. \"Visit\" alone is simple present (a habit), not a future plan."
+        }
+      },
+      {
+        "stem": ["She ", "BLANK", " on Saturday afternoon."],
+        "answers": ["working", "are working", "is working", "work"],
+        "correct": 2,
+        "explanation": {
+          "title": "She → is + verb-ing",
+          "body": "With \"she\", always use <b>is</b> (not \"are\"). The verb-ing form is needed because this is a planned future event: <span class=\"right-form\">is working</span>. \"Working\" alone has no helping verb."
+        }
+      },
+      {
+        "stem": ["", "BLANK", " they coming to the party?"],
+        "answers": ["Is", "Are", "Am", "Do"],
+        "correct": 1,
+        "explanation": {
+          "title": "Questions: Are + they + verb-ing?",
+          "body": "To ask a question with the present progressive, move the helping verb to the front. \"They\" uses <b>are</b> → <span class=\"right-form\">Are</span> they coming? \"Do\" is for simple present, not progressive."
+        }
+      },
+      {
+        "stem": ["He is not ", "BLANK", " tomorrow."],
+        "answers": ["going", "go", "went", "goes"],
+        "correct": 0,
+        "explanation": {
+          "title": "Negative: be + not + verb-ing",
+          "body": "After \"is not\", add the <b>verb-ing</b> form: <span class=\"right-form\">going</span>. The structure is: he is not + verb-ing. We never say \"is not go\" or \"is not went\"."
+        }
+      },
+      {
+        "stem": ["We ", "BLANK", " dinner at 7 tonight."],
+        "answers": ["have", "is having", "are having", "having"],
+        "correct": 2,
+        "explanation": {
+          "title": "We → are + verb-ing",
+          "body": "\"We\" uses <b>are</b>. Dinner at 7 tonight is a scheduled plan → use present progressive: <span class=\"right-form\">are having</span>. \"Have\" is simple present; \"is having\" uses the wrong helping verb for \"we\"."
+        }
+      },
+      {
+        "stem": ["I ", "BLANK", " the airport at 6 am tomorrow."],
+        "answers": ["leaving", "leave", "am leaving", "left"],
+        "correct": 2,
+        "explanation": {
+          "title": "I + am + verb-ing",
+          "body": "\"I\" always uses <b>am</b>. \"Tomorrow\" signals a future plan → <span class=\"right-form\">am leaving</span>. \"Leaving\" alone has no helping verb; \"left\" is past tense."
+        }
+      },
+      {
+        "stem": ["She ", "BLANK", " her relatives next month."],
+        "answers": ["visit", "is visiting", "are visiting", "visited"],
+        "correct": 1,
+        "explanation": {
+          "title": "She → is + verb-ing",
+          "body": "\"Next month\" = future plan. \"She\" uses <b>is</b> → <span class=\"right-form\">is visiting</span>. \"Are visiting\" uses the wrong helping verb; \"visited\" is past tense."
+        }
+      },
+      {
+        "stem": ["They ", "BLANK", " for Japan on Friday."],
+        "answers": ["flies", "is flying", "are flying", "flying"],
+        "correct": 2,
+        "explanation": {
+          "title": "They → are + verb-ing",
+          "body": "\"They\" uses <b>are</b>. \"On Friday\" = scheduled departure → use present progressive: <span class=\"right-form\">are flying</span>. \"Flies\" is simple present 3rd person singular; \"is flying\" uses the wrong helping verb."
+        }
+      },
+      {
+        "stem": ["I ", "BLANK", " my friends this weekend."],
+        "answers": ["meet", "am meeting", "meeting", "is meeting"],
+        "correct": 1,
+        "explanation": {
+          "title": "I + am + verb-ing",
+          "body": "\"This weekend\" = future plan. \"I\" uses <b>am</b> → <span class=\"right-form\">am meeting</span>. \"Meet\" is simple present; \"meeting\" alone has no helping verb."
+        }
+      },
+      {
+        "stem": ["She ", "BLANK", " with us — she has other plans."],
+        "answers": ["isn't coming", "aren't coming", "not coming", "doesn't coming"],
+        "correct": 0,
+        "explanation": {
+          "title": "Negative: isn't / aren't + verb-ing",
+          "body": "\"She\" uses <b>is</b> → negative is <span class=\"right-form\">isn't coming</span>. \"Aren't coming\" uses the wrong helping verb; \"not coming\" has no helping verb; \"doesn't coming\" mixes forms incorrectly."
+        }
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["My teacher ", "BLANK", " us tomorrow."],
+        "answers": ["testing", "is testing", "are testing", "will testing"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "stem": ["", "BLANK", " you meeting her after class?"],
+        "answers": ["Do", "Are", "Is", "Did"],
+        "correct": 1
+      },
+      {
+        "type": "build",
+        "cue": ["I", "am meeting", "my friends"],
+        "bank": ["I", "am", "meeting", "my", "friends", "after", "school", "is", "go"],
+        "correct": ["I", "am", "meeting", "my", "friends", "after", "school"]
+      },
+      {
+        "type": "mc",
+        "stem": ["He ", "BLANK", " tonight — he has homework."],
+        "answers": ["isn't going out", "aren't going out", "not going out", "don't going out"],
+        "correct": 0
+      },
+      {
+        "type": "build",
+        "cue": ["They", "visiting relatives", "next weekend"],
+        "bank": ["They", "are", "visiting", "their", "relatives", "next", "weekend", "is", "visit"],
+        "correct": ["They", "are", "visiting", "their", "relatives", "next", "weekend"]
+      },
+      {
+        "type": "mc",
+        "stem": ["We ", "BLANK", " our relatives next weekend."],
+        "answers": ["visit", "are visit", "are visiting", "visiting"],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "stem": ["She ", "BLANK", " for London on Monday morning."],
+        "answers": ["leave", "is leaving", "are leaving", "left"],
+        "correct": 1
+      },
+      {
+        "type": "build",
+        "cue": ["She", "flying to Tokyo", "on Monday"],
+        "bank": ["She", "is", "flying", "to", "Tokyo", "on", "Monday", "are", "flew"],
+        "correct": ["She", "is", "flying", "to", "Tokyo", "on", "Monday"]
+      },
+      {
+        "type": "mc",
+        "stem": ["I ", "BLANK", " dinner — it'll be ready in 20 minutes."],
+        "answers": ["cook", "am cooking", "is cooking", "cooks"],
+        "correct": 1
+      },
+      {
+        "type": "build",
+        "cue": ["We", "having a party", "tonight"],
+        "bank": ["We", "are", "having", "a", "party", "tonight", "is", "have", "had"],
+        "correct": ["We", "are", "having", "a", "party", "tonight"]
+      }
+    ]
+  }
 }
