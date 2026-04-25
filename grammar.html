@@ -316,7 +316,24 @@ fetch(jsonUrl)
 function renderPage(data) {
   quizData = data;
 
-  // Update crumb
+  // Normalise field names — handle both schema versions
+  const topic = data.topic || data.title || 'Grammar';
+  const unitName = data.unit_name || '';
+  const samples = data.tab1_samples || data.samples || [];
+  const levelup = data.tab2_levelup || data.levelup || {};
+  const rules = levelup.rules || [];
+  const mixedSamples = levelup.mixed_samples || levelup.examples || [];
+  const quizQuestions = (data.tab3_quiz && data.tab3_quiz.questions) || data.quiz || [];
+  const masterQuestions = (data.tab4_master && data.tab4_master.questions) || data.master_quiz || [];
+
+  // Store normalised refs for later
+  quizData._topic = topic;
+  quizData._samples = samples;
+  quizData._rules = rules;
+  quizData._mixedSamples = mixedSamples;
+  quizData._quizQuestions = quizQuestions;
+  quizData._masterQuestions = masterQuestions;
+
   document.getElementById('crumb').innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
     <a href="our-world.html">Our World</a><span class="sep">/</span>
@@ -324,16 +341,16 @@ function renderPage(data) {
     <a href="our-world.html">Unit ${data.unit}</a><span class="sep">/</span>
     <span class="active">Grammar ${data.set}</span>
   `;
-  document.title = `${data.topic} — Leo's English League`;
+  document.title = `${topic} — Leo's English League`;
 
   const html = `
     <div class="page-meta">
       <div class="tag main">Grammar ${data.set}</div>
-      <div class="unit-tag">Unit ${data.unit} · ${data.unit_name}</div>
+      <div class="unit-tag">Unit ${data.unit} · ${unitName}</div>
     </div>
-    <h1 class="page-head">${data.topic}</h1>
+    <h1 class="page-head">${topic}</h1>
 
-    ${renderChart(data)}
+    ${renderChart(data, topic)}
 
     <nav class="tabs-row" id="tabsRow">
       <button class="tab active" data-tab="chart"><span class="num">01</span>Chart &amp; samples</button>
@@ -342,7 +359,7 @@ function renderPage(data) {
       <button class="tab" data-tab="master"><span class="num">04</span>Master quiz</button>
     </nav>
 
-    <!-- Tab 1: Chart & Samples -->
+    <!-- Tab 1 -->
     <div class="tab-panel active" id="panel-chart">
       <div class="section-head">
         <div class="label">10 sample sentences</div>
@@ -350,36 +367,38 @@ function renderPage(data) {
         <div class="count">Read aloud</div>
       </div>
       <div class="samples">
-        ${data.samples.map((s, i) =>
+        ${samples.map((s, i) =>
           `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${s}</div></div>`
         ).join('')}
       </div>
     </div>
 
-    <!-- Tab 2: Level Up -->
+    <!-- Tab 2 -->
     <div class="tab-panel" id="panel-levelup">
       <div class="section-head">
         <div class="label">5 rules</div>
         <div class="rule"></div>
         <div class="count">Deeper knowledge</div>
       </div>
-      ${renderRuleCards(data.levelup.rules)}
+      ${renderRuleCards(rules)}
       <div class="samples-section">
         <div class="section-head">
           <div class="label">10 mixed examples</div>
           <div class="rule"></div>
           <div class="count">Real-world</div>
         </div>
-        <div class="samples-intro"><b>In the wild —</b> all rule types mixed together, the way you'd read them in a book or hear them in conversation.</div>
+        <div class="samples-intro"><b>In the wild —</b> all rule types mixed together.</div>
         <div class="samples">
-          ${data.levelup.examples.map((s, i) =>
-            `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${s}</div></div>`
-          ).join('')}
+          ${mixedSamples.map((s, i) => {
+            const text = typeof s === 'string' ? s : s.text;
+            const kind = typeof s === 'object' && s.kind ? `<span class="kind">${s.kind}</span>` : '';
+            return `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${text} ${kind}</div></div>`;
+          }).join('')}
         </div>
       </div>
     </div>
 
-    <!-- Tab 3: Quiz -->
+    <!-- Tab 3 -->
     <div class="tab-panel" id="panel-quiz">
       <div class="quiz-progress">
         <div class="progress-label">Q<span class="current" id="qCurrent">1</span> / 10</div>
@@ -395,15 +414,15 @@ function renderPage(data) {
       </div>
     </div>
 
-    <!-- Tab 4: Master Quiz -->
+    <!-- Tab 4 -->
     <div class="tab-panel" id="panel-master">
       <div class="start-screen" id="masterStart">
         <div class="start-kicker"><div class="bar"></div>Master Quiz<div class="bar"></div></div>
-        <div class="start-title">${data.topic}</div>
+        <div class="start-title">${topic}</div>
         <div class="start-rules">
           <div class="rule-item">⏱ <strong>20 seconds</strong> per question</div>
           <div class="rule-item">🎯 <strong>8 / 10</strong> to earn mastery</div>
-          <div class="rule-item">📝 <strong>6 MC</strong> + <strong>4 Build</strong></div>
+          <div class="rule-item">📝 MC + Build sentences</div>
           <div class="rule-item">✗ No explanations</div>
         </div>
         <button class="start-btn" onclick="startMaster()">Start Master Quiz</button>
@@ -411,8 +430,8 @@ function renderPage(data) {
       <div class="master-wrap" id="masterWrap">
         <div class="master-banner">
           <span class="badge">Master Quiz</span>
-          <span class="q-counter">Question <span class="cur" id="mCurrent">1</span> of 10</span>
-          <span class="score-display">Score: <span class="num" id="mScore">0</span>/10</span>
+          <span class="q-counter">Question <span class="cur" id="mCurrent">1</span> of ${masterQuestions.length}</span>
+          <span class="score-display">Score: <span class="num" id="mScore">0</span>/${masterQuestions.length}</span>
         </div>
         <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
         <div id="masterArea"></div>
@@ -434,7 +453,6 @@ function renderPage(data) {
 
   document.getElementById('pageContent').innerHTML = html;
 
-  // Tab switching
   document.getElementById('tabsRow').addEventListener('click', e => {
     const tab = e.target.closest('.tab');
     if (!tab) return;
@@ -444,67 +462,71 @@ function renderPage(data) {
     document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
   });
 
-  // Start quiz
   renderQuizQuestion(0);
 }
 
 // ── CHART ──
-function renderChart(data) {
-  const cols = data.chart.columns;
-  const colClass = (h, i) => {
-    if (h === '' || h === '—') return 'mid';
-    if (h === 'Comparative' || h === 'Answer') return 'key';
-    if (i === cols.length - 1) return 'last';
-    return '';
-  };
-  const colWidths = cols.map(h => {
-    if (h === '' || h === '—') return '0.5fr';
-    if (h === 'Comparative' || h === 'Answer') return '1.3fr';
-    return '1.2fr';
-  }).join(' ');
+function renderChart(data, topic) {
+  const chart = data.chart || {};
 
-  const numCols = cols.length;
-  const lastRowStart = data.chart.rows.length * numCols;
+  // Intro examples — handle both schemas
+  let introHtml = '';
+  if (chart.intro) {
+    introHtml = chart.intro.map(line => `<div class="ex">${line}</div>`).join('');
+  } else if (chart.intro_examples) {
+    introHtml = chart.intro_examples.map(ex =>
+      `<div class="ex">${ex.text}${ex.continuation ? ` <span style="color:var(--yellow-ink);margin:0 6px">—</span> ${ex.continuation}` : ''}</div>`
+    ).join('');
+  }
 
-  const hdHtml = cols.map(h => {
-    const cls = colClass(h, cols.indexOf(h));
-    return `<div class="hd${cls ? ' '+cls : ''}">${h}</div>`;
-  }).join('');
-
-  const rowsHtml = data.chart.rows.map((row, ri) => {
-    const isLast = ri === data.chart.rows.length - 1;
+  // Table rows — always present
+  const rows = chart.rows || [];
+  const rowsHtml = rows.map((row, ri) => {
+    const isLast = ri === rows.length - 1;
     return row.map((cell, ci) => {
-      const cls = colClass(cols[ci], ci);
-      return `<div class="cell${cls ? ' '+cls : ''}${isLast ? ' last-row' : ''}">${cell}</div>`;
+      let cls = '';
+      if (ci === 1) cls = 'key';
+      else if (ci === 2) cls = 'mid';
+      else if (ci === rows[0].length - 1 && ci > 2) cls = 'last';
+      return `<div class="cell${cls ? ' '+cls : ''}">${cell}</div>`;
     }).join('');
   }).join('');
 
-  const rulesHtml = data.chart.rules.map(r =>
-    `<div>${r}</div>`
-  ).join('');
+  // Header row — 4 cols standard
+  const hdHtml = `
+    <div class="hd">Subject</div>
+    <div class="hd key">Comparative</div>
+    <div class="hd mid">—</div>
+    <div class="hd">Compared to</div>
+  `;
 
-  const introHtml = data.chart.intro.map(line =>
-    `<div class="ex">${line}</div>`
-  ).join('');
+  // Notes
+  let noteHtml = '';
+  if (chart.rules) {
+    noteHtml = chart.rules.map(r => `<div>${r}</div>`).join('');
+  } else if (chart.note_rule) {
+    noteHtml = `<div><b>Rule —</b> ${chart.note_rule}</div>`;
+    if (chart.note_exception) noteHtml += `<div><b>But —</b> ${chart.note_exception}${chart.note_exception_detail ? ` <span style="color:var(--ink-4)">(${chart.note_exception_detail})</span>` : ''}</div>`;
+  }
 
   return `
     <section class="chart-card">
       <div class="chart-head">
         <div class="bar"></div>
         <div class="label">Grammar Chart</div>
-        <div class="name">${data.topic}</div>
+        <div class="name">${topic}</div>
       </div>
       <div class="chart-intro">
         <div class="label">See how it works</div>
         ${introHtml}
       </div>
       <div class="chart-table">
-        <div class="chart-grid" style="grid-template-columns:${colWidths}">
+        <div class="chart-grid" style="grid-template-columns:1.2fr 1.3fr 0.5fr 1.4fr">
           ${hdHtml}
           ${rowsHtml}
         </div>
       </div>
-      <div class="chart-note">${rulesHtml}</div>
+      <div class="chart-note">${noteHtml}</div>
     </section>
   `;
 }
@@ -512,25 +534,30 @@ function renderChart(data) {
 // ── RULE CARDS ──
 function renderRuleCards(rules) {
   return rules.map((rule, i) => {
-    const transforms = rule.transformations.map(t => {
-      const parts = t.split(' → ');
-      if (parts.length === 2) {
-        return `<div class="word-transform"><span class="from">${parts[0]}</span><span class="arrow">→</span><span class="to">${parts[1]}</span></div>`;
+    // Handle both schemas: transforms array of objects {from,to} or strings "x → y"
+    const transforms = (rule.transforms || rule.transformations || []).map(t => {
+      if (typeof t === 'object') {
+        return `<div class="word-transform"><span class="from">${t.from}</span><span class="arrow">→</span><span class="to">${t.to}</span></div>`;
       }
-      return `<div class="word-transform"><span class="to">${t}</span></div>`;
+      const parts = t.split(' → ');
+      return parts.length === 2
+        ? `<div class="word-transform"><span class="from">${parts[0]}</span><span class="arrow">→</span><span class="to">${parts[1]}</span></div>`
+        : `<div class="word-transform"><span class="to">${t}</span></div>`;
     }).join('');
 
-    const examples = rule.examples.map(ex =>
+    const examples = (rule.examples || []).map(ex =>
       `<div class="mini-example">${ex}</div>`
     ).join('');
+
+    const subtitle = rule.subtitle || rule.explanation || '';
 
     return `
       <div class="rule-card">
         <div class="rule-head">
-          <div class="rule-badge">${String(i+1).padStart(2,'0')}</div>
+          <div class="rule-badge">${rule.num || String(i+1).padStart(2,'0')}</div>
           <div class="rule-head-text">
             <div class="rule-title">${rule.title}</div>
-            <div class="rule-subtitle">${rule.explanation}</div>
+            <div class="rule-subtitle">${subtitle}</div>
           </div>
         </div>
         <div class="rule-words">
@@ -548,17 +575,30 @@ function renderRuleCards(rules) {
 
 // ── QUIZ ──
 function renderQuizQuestion(idx) {
-  const q = quizData.quiz[idx];
+  const questions = quizData._quizQuestions;
+  const q = questions[idx];
   const area = document.getElementById('questionsArea');
   const letters = ['A','B','C','D'];
 
-  // Split question on ___ blank
-  const stemParts = q.question.split(/_{3,}/);
-  const stemHtml = stemParts.length > 1
-    ? stemParts[0] + `<span class="blank" id="blank-${idx}">____</span>` + stemParts[1]
-    : q.question;
+  // Handle both stem formats: array with "BLANK" or string with "___"
+  let stemHtml = '';
+  if (Array.isArray(q.stem)) {
+    stemHtml = q.stem.map(part =>
+      part === 'BLANK' ? `<span class="blank" id="blank-${idx}">____</span>` : part
+    ).join('');
+  } else {
+    const parts = (q.question || q.stem || '').split(/_{3,}/);
+    stemHtml = parts.length > 1
+      ? parts[0] + `<span class="blank" id="blank-${idx}">____</span>` + parts[1]
+      : (q.question || q.stem || '');
+  }
 
-  const answersHtml = q.options.map((opt, i) =>
+  const options = q.answers || q.options || [];
+  const correct = q.correct !== undefined ? q.correct : q.answer;
+  const expTitle = (q.explanation && q.explanation.title) || 'Explanation';
+  const expBody = (q.explanation && q.explanation.body) || (typeof q.explanation === 'string' ? q.explanation : '');
+
+  const answersHtml = options.map((opt, i) =>
     `<button class="answer-btn" onclick="pickQuizAnswer(${idx}, ${i})">
        <span class="letter">${letters[i]}</span>
        <span>${opt}</span>
@@ -586,33 +626,37 @@ function renderQuizQuestion(idx) {
     </div>
     <div class="next-btn-row" id="next-${idx}">
       <button class="next-btn" onclick="nextQuizQuestion(${idx})">
-        ${idx < 9 ? 'Next question →' : 'See results →'}
+        ${idx < questions.length - 1 ? 'Next question →' : 'See results →'}
       </button>
     </div>
   `;
   area.appendChild(card);
+
+  // store correct/expTitle/expBody on element for retrieval
+  card.dataset.correct = correct;
+  card.dataset.expTitle = expTitle;
+  card.dataset.expBody = expBody;
+  card.dataset.correctWord = options[correct] || '';
 }
 
 function pickQuizAnswer(qIdx, ansIdx) {
-  const q = quizData.quiz[qIdx];
   const card = document.getElementById(`qcard-${qIdx}`);
+  const correct = parseInt(card.dataset.correct);
   const buttons = card.querySelectorAll('.answer-btn');
-  const isCorrect = ansIdx === q.answer;
+  const isCorrect = ansIdx === correct;
 
   buttons.forEach(b => b.disabled = true);
   buttons[ansIdx].classList.add(isCorrect ? 'picked-correct' : 'picked-wrong');
-  if (!isCorrect) buttons[q.answer].classList.add('reveal-correct');
+  if (!isCorrect) buttons[correct].classList.add('reveal-correct');
 
   const blank = document.getElementById(`blank-${qIdx}`);
-  if (blank) { blank.textContent = q.options[q.answer]; blank.classList.add('filled'); }
+  if (blank) { blank.textContent = card.dataset.correctWord; blank.classList.add('filled'); }
 
-  // status pills
   card.querySelector('.q-status-pill.current').style.display = 'none';
   card.querySelector(`.q-status-pill.${isCorrect ? 'correct' : 'wrong'}`).style.display = 'inline-block';
 
-  // explanation
-  document.getElementById(`exp-title-${qIdx}`).textContent = isCorrect ? 'Why this is right' : 'Explanation';
-  document.getElementById(`exp-body-${qIdx}`).innerHTML = q.explanation;
+  document.getElementById(`exp-title-${qIdx}`).textContent = isCorrect ? 'Why this is right' : card.dataset.expTitle;
+  document.getElementById(`exp-body-${qIdx}`).innerHTML = card.dataset.expBody;
   document.getElementById(`exp-${qIdx}`).classList.add('show');
   document.getElementById(`next-${qIdx}`).classList.add('show');
 
@@ -620,13 +664,12 @@ function pickQuizAnswer(qIdx, ansIdx) {
 }
 
 function nextQuizQuestion(fromIdx) {
+  const questions = quizData._quizQuestions;
   document.getElementById(`qcard-${fromIdx}`).classList.add('compact');
-  if (fromIdx + 1 >= quizData.quiz.length) {
-    showQuizEnd(); return;
-  }
+  if (fromIdx + 1 >= questions.length) { showQuizEnd(); return; }
   quizCurrent = fromIdx + 1;
   document.getElementById('qCurrent').textContent = quizCurrent + 1;
-  document.getElementById('qFill').style.width = ((quizCurrent + 1) * 10) + '%';
+  document.getElementById('qFill').style.width = ((quizCurrent + 1) / questions.length * 100) + '%';
   renderQuizQuestion(quizCurrent);
   setTimeout(() => document.getElementById(`qcard-${quizCurrent}`).scrollIntoView({behavior:'smooth',block:'center'}), 100);
 }
@@ -634,15 +677,8 @@ function nextQuizQuestion(fromIdx) {
 function showQuizEnd() {
   const end = document.getElementById('quizEnd');
   document.getElementById('quizFinalScore').textContent = quizCorrect;
-  const msgs = [
-    [10, 'Perfect! You mastered this — ready for the Master Quiz?'],
-    [8, 'Great work — you really know this grammar point.'],
-    [6, 'Solid effort. Review the ones you missed and try again.'],
-    [4, 'Go back to the Level Up tab and review the rules.'],
-    [0, 'No worries — go back to the Chart &amp; samples tab and read through it again.']
-  ];
-  const msg = msgs.find(m => quizCorrect >= m[0]);
-  document.getElementById('quizEndMsg').innerHTML = msg[1];
+  const msgs = [[10,'Perfect! Ready for the Master Quiz?'],[8,'Great work!'],[6,'Solid — review the ones you missed.'],[4,'Go back to Level Up and review the rules.'],[0,'Go back to Chart &amp; samples and read through again.']];
+  document.getElementById('quizEndMsg').innerHTML = msgs.find(m => quizCorrect >= m[0])[1];
   end.classList.add('show');
   end.scrollIntoView({behavior:'smooth'});
 }
@@ -671,25 +707,36 @@ function renderMasterQuestion(idx) {
   document.getElementById('mCurrent').textContent = idx + 1;
   document.getElementById('masterArea').innerHTML = '';
 
-  const q = quizData.master_quiz[idx];
+  const q = quizData._masterQuestions[idx];
   const area = document.getElementById('masterArea');
   const letters = ['A','B','C','D'];
+  const isBuild = q.type === 'build';
 
   startTimer();
 
-  if (q.type === 'multiple_choice') {
-    const stemParts = q.question.split(/_{3,}/);
-    const stemHtml = stemParts.length > 1
-      ? stemParts[0] + `<span class="blank" id="mblank-${idx}">____</span>` + stemParts[1]
-      : q.question;
-    const answersHtml = q.options.map((opt, i) =>
-      `<button class="answer-btn" onclick="pickMasterMC(${idx}, ${i})">
-         <span class="letter">${letters[i]}</span>
-         <span>${opt}</span>
-       </button>`
+  const card = document.createElement('div');
+  card.className = 'question-card';
+  card.id = 'qcard-master';
+
+  if (!isBuild) {
+    // MC — handle both stem formats
+    let stemHtml = '';
+    if (Array.isArray(q.stem)) {
+      stemHtml = q.stem.map(part =>
+        part === 'BLANK' ? `<span class="blank" id="mblank-${idx}">____</span>` : part
+      ).join('');
+    } else {
+      const parts = (q.question || '').split(/_{3,}/);
+      stemHtml = parts.length > 1
+        ? parts[0] + `<span class="blank" id="mblank-${idx}">____</span>` + parts[1]
+        : (q.question || '');
+    }
+    const options = q.answers || q.options || [];
+    const correct = q.correct !== undefined ? q.correct : q.answer;
+    const answersHtml = options.map((opt, i) =>
+      `<button class="answer-btn" onclick="pickMasterMC(${idx}, ${i})">\
+         <span class="letter">${letters[i]}</span><span>${opt}</span></button>`
     ).join('');
-    const card = document.createElement('div');
-    card.className = 'question-card'; card.id = `qcard-master`;
     card.innerHTML = `
       <div class="q-header">
         <div class="q-num">Q${String(idx+1).padStart(2,'0')}</div>
@@ -700,15 +747,15 @@ function renderMasterQuestion(idx) {
       <div class="q-stem">${stemHtml}</div>
       <div class="answers-grid">${answersHtml}</div>
     `;
-    area.appendChild(card);
+    card.dataset.correct = correct;
+    card.dataset.correctWord = options[correct] || '';
   } else {
-    // Build sentence
-    const shuffled = [...q.words];
-    const bankHtml = shuffled.map((w, i) =>
-      `<button class="build-chip" id="mchip-${idx}-${i}" onclick="pickBuildChip(${idx}, ${i}, '${w}')">${w}</button>`
+    // Build — handle both bank/words field names
+    const bank = q.bank || q.words || [];
+    const cueText = Array.isArray(q.cue) ? q.cue.join(' … ') : (q.question || '');
+    const bankHtml = bank.map((w, i) =>
+      `<button class="build-chip" id="mchip-${idx}-${i}" onclick="pickBuildChip(${idx},${i},'${w.replace(/'/g,"\\'")}' )">${w}</button>`
     ).join('');
-    const card = document.createElement('div');
-    card.className = 'question-card'; card.id = 'qcard-master';
     card.innerHTML = `
       <div class="q-header">
         <div class="q-num">Q${String(idx+1).padStart(2,'0')}</div>
@@ -716,7 +763,7 @@ function renderMasterQuestion(idx) {
         <span class="q-status-pill correct" style="display:none">✓ Correct</span>
         <span class="q-status-pill wrong" style="display:none">✗ Not quite</span>
       </div>
-      <div class="build-prompt">${q.question}</div>
+      <div class="build-prompt">Build: <em>${cueText}</em></div>
       <div class="build-slot" id="mslot-${idx}">
         <span class="build-slot-empty">Tap words below to build the sentence</span>
       </div>
@@ -730,8 +777,9 @@ function renderMasterQuestion(idx) {
         <button class="build-submit" id="msubmit-${idx}" disabled onclick="submitBuild(${idx})">Check →</button>
       </div>
     `;
-    area.appendChild(card);
+    card.dataset.correctArr = JSON.stringify(q.correct);
   }
+  area.appendChild(card);
 }
 
 function pickBuildChip(qIdx, wordIdx, word) {
@@ -778,49 +826,43 @@ function resetBuild(qIdx) {
 function submitBuild(qIdx) {
   if (masterAnswered) return;
   masterAnswered = true; stopTimer();
-  const q = quizData.master_quiz[qIdx];
+  const q = quizData._masterQuestions[qIdx];
+  const correctArr = q.correct || [];
   const placed = (buildPlaced[qIdx] || []).map(p => p.word);
-  const isCorrect = placed.length === q.answer.length && placed.every((w, i) => w === q.answer[i]);
+  const isCorrect = placed.length === correctArr.length && placed.every((w, i) => w === correctArr[i]);
   const slot = document.getElementById(`mslot-${qIdx}`);
   slot.classList.add(isCorrect ? 'correct' : 'wrong');
   const card = document.getElementById('qcard-master');
   card.querySelector('.q-status-pill.current').style.display = 'none';
   card.querySelector(`.q-status-pill.${isCorrect ? 'correct' : 'wrong'}`).style.display = 'inline-block';
-
-  // disable chips
-  q.words.forEach((_, i) => {
-    const el = document.getElementById(`mchip-${qIdx}-${i}`);
-    if (el) el.disabled = true;
-  });
+  const bank = q.bank || q.words || [];
+  bank.forEach((_, i) => { const el = document.getElementById(`mchip-${qIdx}-${i}`); if (el) el.disabled = true; });
   document.getElementById(`msubmit-${qIdx}`).disabled = true;
-
   if (!isCorrect) {
-    document.getElementById(`mcorrect-${qIdx}`).textContent = q.answer.join(' ') + '.';
+    document.getElementById(`mcorrect-${qIdx}`).textContent = correctArr.join(' ') + '.';
     document.getElementById(`mreveal-${qIdx}`).classList.add('show');
-    masterMissed.push({ idx: qIdx, correct: q.answer.join(' ') + '.' });
-  } else {
-    masterScore++;
-    document.getElementById('mScore').textContent = masterScore;
-  }
+    masterMissed.push({ idx: qIdx, correct: correctArr.join(' ') + '.' });
+  } else { masterScore++; document.getElementById('mScore').textContent = masterScore; }
   setTimeout(() => masterMoveNext(), isCorrect ? 1200 : 2400);
 }
 
 function pickMasterMC(qIdx, ansIdx) {
   if (masterAnswered) return;
   masterAnswered = true; stopTimer();
-  const q = quizData.master_quiz[qIdx];
   const card = document.getElementById('qcard-master');
+  const correct = parseInt(card.dataset.correct);
+  const correctWord = card.dataset.correctWord;
   const buttons = card.querySelectorAll('.answer-btn');
-  const isCorrect = ansIdx === q.answer;
+  const isCorrect = ansIdx === correct;
   buttons.forEach(b => b.disabled = true);
   buttons[ansIdx].classList.add(isCorrect ? 'picked-correct' : 'picked-wrong');
-  if (!isCorrect) buttons[q.answer].classList.add('reveal-correct');
+  if (!isCorrect) buttons[correct].classList.add('reveal-correct');
   const blank = document.getElementById(`mblank-${qIdx}`);
-  if (blank) { blank.textContent = q.options[q.answer]; blank.classList.add('filled'); }
+  if (blank) { blank.textContent = correctWord; blank.classList.add('filled'); }
   card.querySelector('.q-status-pill.current').style.display = 'none';
   card.querySelector(`.q-status-pill.${isCorrect ? 'correct' : 'wrong'}`).style.display = 'inline-block';
   if (isCorrect) { masterScore++; document.getElementById('mScore').textContent = masterScore; }
-  else masterMissed.push({ idx: qIdx, correct: q.options[q.answer] });
+  else masterMissed.push({ idx: qIdx, correct: correctWord });
   setTimeout(() => masterMoveNext(), isCorrect ? 1200 : 1800);
 }
 
@@ -854,27 +896,30 @@ function stopTimer() { clearInterval(masterTimer); }
 function masterTimeout() {
   if (masterAnswered) return;
   masterAnswered = true;
-  const q = quizData.master_quiz[masterCurrent];
+  const q = quizData._masterQuestions[masterCurrent];
   const card = document.getElementById('qcard-master');
   if (!card) return;
   card.querySelector('.q-status-pill.current').style.display = 'none';
   card.querySelector('.q-status-pill.wrong').style.display = 'inline-block';
 
-  if (q.type === 'multiple_choice') {
+  if (q.type === 'mc') {
     const buttons = card.querySelectorAll('.answer-btn');
+    const correct = parseInt(card.dataset.correct);
+    const correctWord = card.dataset.correctWord;
     buttons.forEach(b => b.disabled = true);
-    if (buttons[q.answer]) buttons[q.answer].classList.add('reveal-correct');
-    masterMissed.push({ idx: masterCurrent, correct: q.options[q.answer] });
+    if (buttons[correct]) buttons[correct].classList.add('reveal-correct');
+    masterMissed.push({ idx: masterCurrent, correct: correctWord });
   } else {
+    const correctArr = q.correct || [];
     const slot = document.getElementById(`mslot-${masterCurrent}`);
     if (slot) slot.classList.add('wrong');
     const reveal = document.getElementById(`mreveal-${masterCurrent}`);
-    const correct = document.getElementById(`mcorrect-${masterCurrent}`);
-    if (reveal && correct) {
-      correct.textContent = q.answer.join(' ') + '.';
+    const correctEl = document.getElementById(`mcorrect-${masterCurrent}`);
+    if (reveal && correctEl) {
+      correctEl.textContent = correctArr.join(' ') + '.';
       reveal.classList.add('show');
     }
-    masterMissed.push({ idx: masterCurrent, correct: q.answer.join(' ') + '.' });
+    masterMissed.push({ idx: masterCurrent, correct: correctArr.join(' ') + '.' });
   }
   setTimeout(() => masterMoveNext(), 2200);
 }
