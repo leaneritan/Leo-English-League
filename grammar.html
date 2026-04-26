@@ -827,7 +827,7 @@ function resetBuild(qIdx) {
 
 function submitBuild(qIdx) {
   if (masterAnswered) return;
-  masterAnswered = true; stopTimer();
+  masterAnswered = true;
   const q = quizData._masterQuestions[qIdx];
   const correctArr = q.correct || [];
   const placed = (buildPlaced[qIdx] || []).map(p => p.word);
@@ -850,7 +850,7 @@ function submitBuild(qIdx) {
 
 function pickMasterMC(qIdx, ansIdx) {
   if (masterAnswered) return;
-  masterAnswered = true; stopTimer();
+  masterAnswered = true;
   const card = document.getElementById('qcard-master');
   const correct = parseInt(card.dataset.correct);
   const correctWord = card.dataset.correctWord;
