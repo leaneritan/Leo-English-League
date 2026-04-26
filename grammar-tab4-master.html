@@ -729,6 +729,11 @@
       else renderBuild(idx, q);
 
       startTimer();
+
+      requestAnimationFrame(() => {
+        const card = document.getElementById(`q${idx}`);
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     }
 
     function renderMC(idx, q) {
