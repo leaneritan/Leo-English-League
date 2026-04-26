@@ -301,7 +301,7 @@ let masterScore = 0;
 let masterCurrent = 0;
 let masterMissed = [];
 let masterTimer = null;
-let masterTimeLeft = 20;
+
 let masterAnswered = false;
 let buildPlaced = {};
 
@@ -431,9 +431,8 @@ function renderPage(data) {
         <div class="master-banner">
           <span class="badge">Master Quiz</span>
           <span class="q-counter">Question <span class="cur" id="mCurrent">1</span> of ${masterQuestions.length}</span>
-          <span class="score-display">Score: <span class="num" id="mScore">0</span>/${masterQuestions.length}</span>
+          <span class="score-display">⏱ <span id="mTimer">0:00</span> &nbsp;|&nbsp; Score: <span class="num" id="mScore">0</span>/${masterQuestions.length}</span>
         </div>
-        <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
         <div id="masterArea"></div>
         <div class="master-end" id="masterEnd">
           <div class="end-head" id="endHead">Results</div>
@@ -695,8 +694,10 @@ function retryQuiz() {
 
 // ── MASTER QUIZ ──
 function startMaster() {
+  masterElapsed = 0;
   document.getElementById('masterStart').classList.add('hidden');
   document.getElementById('masterWrap').classList.add('active');
+  startTimer();
   renderMasterQuestion(0);
 }
 
@@ -711,8 +712,6 @@ function renderMasterQuestion(idx) {
   const area = document.getElementById('masterArea');
   const letters = ['A','B','C','D'];
   const isBuild = q.type === 'build';
-
-  startTimer();
 
   const card = document.createElement('div');
   card.className = 'question-card';
@@ -752,8 +751,11 @@ function renderMasterQuestion(idx) {
   } else {
     // Build — handle both bank/words field names
     const bank = q.bank || q.words || [];
+    // Shuffle the bank so words are in random order
+    const shuffled = [...bank].map((w, i) => ({ w, i }))
+      .sort(() => Math.random() - 0.5);
     const cueText = Array.isArray(q.cue) ? q.cue.join(' … ') : (q.question || '');
-    const bankHtml = bank.map((w, i) =>
+    const bankHtml = shuffled.map(({ w, i }) =>
       `<button class="build-chip" id="mchip-${idx}-${i}" onclick="pickBuildChip(${idx},${i},'${w.replace(/'/g,"\\'")}' )">${w}</button>`
     ).join('');
     card.innerHTML = `
@@ -867,27 +869,24 @@ function pickMasterMC(qIdx, ansIdx) {
 }
 
 function masterMoveNext() {
-  if (masterCurrent + 1 >= quizData.master_quiz.length) {
+  if (masterCurrent + 1 >= quizData._masterQuestions.length) {
     showMasterEnd();
   } else {
     renderMasterQuestion(masterCurrent + 1);
   }
 }
 
+let masterElapsed = 0;
+
 function startTimer() {
-  masterTimeLeft = 20;
-  const fill = document.getElementById('timerFill');
-  if (!fill) return;
-  fill.style.width = '100%';
-  fill.className = 'timer-fill';
+  if (masterCurrent === 0) masterElapsed = 0;
   clearInterval(masterTimer);
   masterTimer = setInterval(() => {
-    masterTimeLeft--;
-    const pct = (masterTimeLeft / 20) * 100;
-    fill.style.width = pct + '%';
-    if (masterTimeLeft <= 10) fill.className = 'timer-fill warn';
-    if (masterTimeLeft <= 5) fill.className = 'timer-fill danger';
-    if (masterTimeLeft <= 0) { clearInterval(masterTimer); masterTimeout(); }
+    masterElapsed++;
+    const mins = Math.floor(masterElapsed / 60);
+    const secs = masterElapsed % 60;
+    const el = document.getElementById("mTimer");
+    if (el) el.textContent = mins + ":" + String(secs).padStart(2, "0");
   }, 1000);
 }
 
@@ -928,13 +927,16 @@ function showMasterEnd() {
   stopTimer();
   document.getElementById('masterArea').innerHTML = '';
   document.getElementById('masterWrap').querySelector('.master-banner').style.display = 'none';
-  document.getElementById('masterWrap').querySelector('.timer-bar').style.display = 'none';
+
+  const mins = Math.floor(masterElapsed / 60);
+  const secs = masterElapsed % 60;
+  const timeStr = `${mins}:${String(secs).padStart(2,'0')}`;
+
   const passed = masterScore >= 8;
   document.getElementById('finalScore').textContent = masterScore;
   if (!passed) document.getElementById('endScore').classList.add('failed');
-  document.getElementById('endHead').textContent = passed ? 'Result' : 'Result';
   if (passed) document.getElementById('masteryBadge').classList.add('show');
-  document.getElementById('endSubhead').textContent = passed ? 'Master Quiz Passed' : 'Below mastery — ' + masterScore + '/10';
+  document.getElementById('endSubhead').textContent = passed ? `Master Quiz Passed — ${timeStr}` : `Below mastery — ${masterScore}/10 — ${timeStr}`;
   document.getElementById('endMsg').innerHTML = masterScore === 10
     ? 'Perfect score. You\'ve fully mastered this grammar point.'
     : passed
@@ -951,13 +953,14 @@ function showMasterEnd() {
 }
 
 function retryMaster() {
-  masterScore = 0; masterCurrent = 0; masterMissed = []; masterAnswered = false; buildPlaced = {};
+  masterScore = 0; masterCurrent = 0; masterMissed = []; masterAnswered = false; buildPlaced = {}; masterElapsed = 0;
   document.getElementById('masterEnd').classList.remove('show');
-  document.getElementById('masterEnd').querySelector('#endScore').classList.remove('failed');
+  document.getElementById('endScore').classList.remove('failed');
   document.getElementById('masteryBadge').classList.remove('show');
   document.getElementById('mScore').textContent = 0;
+  const timerEl = document.getElementById('mTimer');
+  if (timerEl) timerEl.textContent = '0:00';
   document.getElementById('masterWrap').querySelector('.master-banner').style.display = 'flex';
-  document.getElementById('masterWrap').querySelector('.timer-bar').style.display = 'block';
   document.getElementById('masterArea').innerHTML = '';
   renderMasterQuestion(0);
 }
