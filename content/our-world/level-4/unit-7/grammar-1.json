@@ -1,0 +1,177 @@
+{
+  "level": 4,
+  "unit": 7,
+  "set": 1,
+  "unit_name": "Good Idea!",
+  "topic": "Used to — past habits",
+  "chart": {
+    "title": "Used to — past habits",
+    "columns": ["Subject", "Form", "Verb", "Example"],
+    "rows": [
+      ["I / She / Children", "used to", "play outside.", "I used to play video games inside."],
+      ["My friend", "didn't use to", "have a computer.", "My friend didn't use to have a computer."],
+      ["Did you", "use to", "play?", "Yes, I did. / No, I didn't."]
+    ],
+    "note": "Use 'used to' to talk about habits or situations in the past that don't happen now. 'Used to' is different from 'be used to'. Question form: Did + subject + use to + verb?"
+  },
+  "sentences": [
+    "I used to walk to school every day.",
+    "She used to have long hair.",
+    "People didn't use to have cell phones.",
+    "Did you use to play outside after school?",
+    "We used to watch black and white TV.",
+    "He didn't use to like vegetables.",
+    "Children used to learn without computers.",
+    "My grandparents used to wash clothes by hand.",
+    "Did people use to travel by horse?",
+    "I didn't use to drink coffee, but now I do."
+  ],
+  "rules": [
+    {
+      "id": "r1",
+      "title": "Positive — subject + used to + verb",
+      "explanation": "Use 'used to + verb' to say something happened regularly in the past but doesn't happen now.",
+      "examples": [
+        "I used to play outside every day.",
+        "She used to have a pet rabbit."
+      ]
+    },
+    {
+      "id": "r2",
+      "title": "Negative — subject + didn't use to + verb",
+      "explanation": "Use 'didn't use to + verb' to say something did NOT happen regularly in the past.",
+      "examples": [
+        "People didn't use to have electricity.",
+        "My friend didn't use to like reading."
+      ]
+    },
+    {
+      "id": "r3",
+      "title": "Question — Did + subject + use to + verb?",
+      "explanation": "To ask about past habits, use 'Did + subject + use to + verb?' Answer with Yes, I did or No, I didn't.",
+      "examples": [
+        "Did you use to walk to school?",
+        "Did people use to travel by horse?"
+      ]
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "type": "mc",
+        "prompt": "People _____ have cell phones in the past.",
+        "answers": ["used to not", "didn't use to", "not used to", "don't used to"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "_____ you use to walk to school?",
+        "answers": ["Were", "Do", "Did", "Used"],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "prompt": "I _____ play soccer every weekend when I was young.",
+        "answers": ["used to", "use to", "was used to", "did use"],
+        "correct": 0
+      },
+      {
+        "type": "mc",
+        "prompt": "She _____ like vegetables, but now she loves them.",
+        "answers": ["used to not", "wasn't use to", "didn't use to", "not used to"],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "prompt": "Did people use to travel by horse? Yes, _____ .",
+        "answers": ["they used", "they did", "they were", "they do"],
+        "correct": 1
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "I / used to / live / in Tokyo",
+        "bank": ["I", "used", "to", "live", "in", "Tokyo", "living", "use"],
+        "correct": ["I", "used", "to", "live", "in", "Tokyo"]
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "She / didn't use to / have / a computer",
+        "bank": ["She", "didn't", "use", "to", "have", "a", "computer", "used"],
+        "correct": ["She", "didn't", "use", "to", "have", "a", "computer"]
+      }
+    ]
+  },
+  "master_quiz": {
+    "questions": [
+      {
+        "type": "mc",
+        "prompt": "My grandparents _____ wash clothes by hand.",
+        "answers": ["used to", "use to", "were used to", "did used to"],
+        "correct": 0
+      },
+      {
+        "type": "mc",
+        "prompt": "_____ children use to go to school on Saturdays?",
+        "answers": ["Were", "Did", "Do", "Used"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "He _____ have a bicycle, but now he drives a car.",
+        "answers": ["is used to", "used to", "didn't used to", "use to"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "I _____ drink coffee. I only drink tea.",
+        "answers": ["used to not", "not use to", "didn't use to", "wasn't use to"],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "prompt": "Did you use to play sports? No, _____ .",
+        "answers": ["I didn't", "I wasn't", "I used not", "I don't"],
+        "correct": 0
+      },
+      {
+        "type": "mc",
+        "prompt": "People _____ watch TV in black and white.",
+        "answers": ["use to", "did use to", "used to", "were use to"],
+        "correct": 2
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "Did / people / use to / travel / by horse?",
+        "bank": ["Did", "people", "use", "to", "travel", "by", "horse", "used"],
+        "correct": ["Did", "people", "use", "to", "travel", "by", "horse"]
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "We / used to / watch / black and white TV",
+        "bank": ["We", "used", "to", "watch", "black", "and", "white", "TV", "use"],
+        "correct": ["We", "used", "to", "watch", "black", "and", "white", "TV"]
+      },
+      {
+        "type": "mc",
+        "prompt": "She _____ have short hair, but now it's very long.",
+        "answers": ["didn't use to", "not used to", "wasn't used to", "use to not"],
+        "correct": 0
+      },
+      {
+        "type": "mc",
+        "prompt": "Which sentence is correct?",
+        "answers": [
+          "I use to play piano.",
+          "I used to played piano.",
+          "I used to play piano.",
+          "I did used to play piano."
+        ],
+        "correct": 2
+      }
+    ]
+  }
+}
