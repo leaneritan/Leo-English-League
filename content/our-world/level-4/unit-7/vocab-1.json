@@ -1,0 +1,190 @@
+{
+  "level": 4,
+  "unit": 7,
+  "set": 1,
+  "unit_name": "Good Idea!",
+  "words": [
+    {
+      "id": "l4-u7-v1-001",
+      "word": "invention",
+      "emoji": "💡",
+      "ipa": "ɪnˈvɛnʃən",
+      "syllables": "in·ven·tion",
+      "sentence": "The windshield wiper was a useful invention.",
+      "japanese": {
+        "word": "発明",
+        "sentence": "ワイパーは役に立つ発明でした。",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-002",
+      "word": "problem",
+      "emoji": "😟",
+      "ipa": "ˈprɒbləm",
+      "syllables": "prob·lem",
+      "sentence": "I have a problem. My invention isn't working.",
+      "japanese": {
+        "word": "問題",
+        "sentence": "問題があります。私の発明がうまく動きません。",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-003",
+      "word": "solution",
+      "emoji": "✅",
+      "ipa": "səˈluːʃən",
+      "syllables": "so·lu·tion",
+      "sentence": "Do you know a good solution?",
+      "japanese": {
+        "word": "解決策",
+        "sentence": "良い解決策を知っていますか？",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-004",
+      "word": "wheel",
+      "emoji": "🎡",
+      "ipa": "wiːl",
+      "syllables": "wheel",
+      "sentence": "Wheels are the most famous invention.",
+      "japanese": {
+        "word": "車輪",
+        "sentence": "車輪は最も有名な発明です。",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-005",
+      "word": "electricity",
+      "emoji": "⚡",
+      "ipa": "ɪˌlɛkˈtrɪsɪti",
+      "syllables": "e·lec·tri·ci·ty",
+      "sentence": "Did you know that electricity is not an invention?",
+      "japanese": {
+        "word": "電気",
+        "sentence": "電気は発明ではないことを知っていましたか？",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-006",
+      "word": "useful",
+      "emoji": "🔧",
+      "ipa": "ˈjuːsfəl",
+      "syllables": "use·ful",
+      "sentence": "Umbrellas are useful in the rain.",
+      "japanese": {
+        "word": "役に立つ",
+        "sentence": "傘は雨の日に役に立ちます。",
+        "classification": "形容詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-007",
+      "word": "battery",
+      "emoji": "🔋",
+      "ipa": "ˈbætəri",
+      "syllables": "bat·ter·y",
+      "sentence": "My cell phone needs a new battery.",
+      "japanese": {
+        "word": "電池",
+        "sentence": "私の携帯電話は新しい電池が必要です。",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-008",
+      "word": "imagination",
+      "emoji": "🌈",
+      "ipa": "ɪˌmædʒɪˈneɪʃən",
+      "syllables": "i·mag·i·na·tion",
+      "sentence": "My sister writes cool stories. She has a lot of imagination.",
+      "japanese": {
+        "word": "想像力",
+        "sentence": "私の妹はかっこいい話を書きます。彼女はとても想像力があります。",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-009",
+      "word": "creativity",
+      "emoji": "🎨",
+      "ipa": "ˌkriːeɪˈtɪvɪti",
+      "syllables": "cre·a·tiv·i·ty",
+      "sentence": "To invent things, you need creativity.",
+      "japanese": {
+        "word": "創造力",
+        "sentence": "ものを発明するには、創造力が必要です。",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-010",
+      "word": "idea",
+      "emoji": "🤔",
+      "ipa": "aɪˈdɪə",
+      "syllables": "i·de·a",
+      "sentence": "That was a good idea!",
+      "japanese": {
+        "word": "アイデア",
+        "sentence": "それは良いアイデアでした！",
+        "classification": "名詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-011",
+      "word": "invent",
+      "emoji": "🧑‍🔬",
+      "ipa": "ɪnˈvɛnt",
+      "syllables": "in·vent",
+      "sentence": "Who invented electric lights?",
+      "japanese": {
+        "word": "発明する",
+        "sentence": "誰が電灯を発明しましたか？",
+        "classification": "動詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-012",
+      "word": "try",
+      "emoji": "💪",
+      "ipa": "traɪ",
+      "syllables": "try",
+      "sentence": "What are you trying to do?",
+      "japanese": {
+        "word": "試みる",
+        "sentence": "あなたは何をしようとしていますか？",
+        "classification": "動詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-013",
+      "word": "fail",
+      "emoji": "❌",
+      "ipa": "feɪl",
+      "syllables": "fail",
+      "sentence": "I studied very hard, so I won't fail.",
+      "japanese": {
+        "word": "失敗する",
+        "sentence": "一生懸命勉強したので、失敗しません。",
+        "classification": "動詞"
+      }
+    },
+    {
+      "id": "l4-u7-v1-014",
+      "word": "succeed",
+      "emoji": "🏆",
+      "ipa": "səkˈsiːd",
+      "syllables": "suc·ceed",
+      "sentence": "The Wright brothers succeeded.",
+      "japanese": {
+        "word": "成功する",
+        "sentence": "ライト兄弟は成功しました。",
+        "classification": "動詞"
+      }
+    }
+  ]
+}
