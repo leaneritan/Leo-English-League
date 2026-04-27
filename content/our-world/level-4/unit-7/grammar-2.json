@@ -1,0 +1,192 @@
+{
+  "level": 4,
+  "unit": 7,
+  "set": 2,
+  "unit_name": "Good Idea!",
+  "topic": "You — general statements",
+  "chart": {
+    "title": "You — general statements",
+    "columns": ["Question", "Answer"],
+    "rows": [
+      ["What can you do on this computer?", "You can play games and do homework."],
+      ["How do you make vegetable soup?", "First, you wash the vegetables. Then you cook them."],
+      ["How do you use that invention?", "You press the button and you turn the wheel."]
+    ],
+    "note": "In English, 'you' can mean 'people in general' — not one specific person. It is used to give instructions or explain how things work. 'How do you use it?' means 'How does one use it?' or 'How do people use it?'"
+  },
+  "sentences": [
+    "How do you use that toy?",
+    "You press the button to turn it on.",
+    "First, you put the battery inside.",
+    "You can find good ideas everywhere.",
+    "How do you make electricity?",
+    "You turn the wheel and it moves.",
+    "You need creativity to invent things.",
+    "How do you solve this problem?",
+    "You lift the lid to open it.",
+    "You can succeed if you keep trying."
+  ],
+  "rules": [
+    {
+      "id": "r1",
+      "title": "'You' for people in general",
+      "explanation": "In English, 'you' doesn't always mean one specific person. It can mean 'people in general' — like saying 'one' or 'people' in other languages.",
+      "examples": [
+        "You need a battery to use this.",
+        "You can find good ideas everywhere."
+      ]
+    },
+    {
+      "id": "r2",
+      "title": "'How do you...?' — asking about general process",
+      "explanation": "Use 'How do you + verb?' to ask how something works or how to do something in general. It is not asking one specific person.",
+      "examples": [
+        "How do you use this invention?",
+        "How do you make the wheels turn?"
+      ]
+    },
+    {
+      "id": "r3",
+      "title": "Giving instructions with 'you'",
+      "explanation": "Use 'you + verb' to give step-by-step instructions. This is common in recipes, manuals, and explanations.",
+      "examples": [
+        "First, you put the battery in. Then you press the button.",
+        "You lift your arms and shake your legs."
+      ]
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "type": "mc",
+        "prompt": "How _____ you use this invention?",
+        "answers": ["are", "do", "did", "can"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "'You need creativity to invent things.' Here 'you' means _____ .",
+        "answers": ["only Leo", "only the teacher", "people in general", "a specific friend"],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "prompt": "First, _____ put the battery inside.",
+        "answers": ["he", "you", "they", "I"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "Which sentence uses 'you' for people in general?",
+        "answers": [
+          "You are my best friend.",
+          "You need to call me tonight.",
+          "You can learn a lot from mistakes.",
+          "You left your bag here."
+        ],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "prompt": "How do you turn it on? _____ press the button.",
+        "answers": ["He", "They", "You", "She"],
+        "correct": 2
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "How / do / you / use / that / toy?",
+        "bank": ["How", "do", "you", "use", "that", "toy", "does", "your"],
+        "correct": ["How", "do", "you", "use", "that", "toy"]
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "You / need / creativity / to / invent / things",
+        "bank": ["You", "need", "creativity", "to", "invent", "things", "needs", "inventing"],
+        "correct": ["You", "need", "creativity", "to", "invent", "things"]
+      }
+    ]
+  },
+  "master_quiz": {
+    "questions": [
+      {
+        "type": "mc",
+        "prompt": "_____ do you make the wheels turn?",
+        "answers": ["What", "How", "Why", "When"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "'You can succeed if you keep trying.' Here 'you' means _____ .",
+        "answers": ["the teacher", "people in general", "only Leo", "only inventors"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "Which sentence gives a general instruction?",
+        "answers": [
+          "You are very smart today.",
+          "You called me yesterday.",
+          "First, you lift the lid to open it.",
+          "You forgot your homework."
+        ],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "prompt": "How do you use that machine? _____ press the red button.",
+        "answers": ["I", "He", "You", "She"],
+        "correct": 2
+      },
+      {
+        "type": "mc",
+        "prompt": "Which question asks about a general process?",
+        "answers": [
+          "Did you eat lunch?",
+          "How do you make electricity?",
+          "Are you coming tomorrow?",
+          "Do you like robots?"
+        ],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "First, _____ put the battery in. Then _____ turn it on.",
+        "answers": ["I / I", "he / he", "you / you", "they / they"],
+        "correct": 2
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "You / can / find / good / ideas / everywhere",
+        "bank": ["You", "can", "find", "good", "ideas", "everywhere", "found", "finding"],
+        "correct": ["You", "can", "find", "good", "ideas", "everywhere"]
+      },
+      {
+        "type": "build",
+        "prompt": "Build the sentence:",
+        "hint": "You / lift / your / arms / and / shake / your / legs",
+        "bank": ["You", "lift", "your", "arms", "and", "shake", "your", "legs", "lifts", "shakes"],
+        "correct": ["You", "lift", "your", "arms", "and", "shake", "your", "legs"]
+      },
+      {
+        "type": "mc",
+        "prompt": "How do you solve this problem? _____ think carefully and try again.",
+        "answers": ["He", "You", "They", "I"],
+        "correct": 1
+      },
+      {
+        "type": "mc",
+        "prompt": "Which sentence is correct?",
+        "answers": [
+          "How does you use this?",
+          "How do you uses this?",
+          "How do you use this?",
+          "How you do use this?"
+        ],
+        "correct": 2
+      }
+    ]
+  }
+}
