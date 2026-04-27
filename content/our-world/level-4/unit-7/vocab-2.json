@@ -5,69 +5,69 @@
   "unit_name": "Good Idea!",
   "words": [
     {
-      "id": "l4-u7-v2-001",
+      "id": "move",
       "word": "move",
       "emoji": "🏃",
-      "ipa": "muːv",
+      "ipa": "/muːv/",
       "syllables": "move",
-      "sentence": "Don't move. I'm taking a photo!",
-      "japanese": {
-        "word": "動く",
-        "sentence": "動かないで。写真を撮っています！",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "Don't <b>move</b>. I'm taking a photo!",
+      "jp_word": "動く",
+      "jp_reading": "うごく",
+      "jp_sentence": "<b>動か</b>ないで。写真を撮っています！",
+      "jp_tags": ["動詞"]
     },
     {
-      "id": "l4-u7-v2-002",
+      "id": "turn",
       "word": "turn",
       "emoji": "🔄",
-      "ipa": "tɜːn",
+      "ipa": "/tɜːn/",
       "syllables": "turn",
-      "sentence": "The wheels turn.",
-      "japanese": {
-        "word": "回る",
-        "sentence": "車輪が回ります。",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "The wheels <b>turn</b> when you push the car.",
+      "jp_word": "回る",
+      "jp_reading": "まわる",
+      "jp_sentence": "車を押すと車輪が<b>回ります</b>。",
+      "jp_tags": ["動詞"]
     },
     {
-      "id": "l4-u7-v2-003",
+      "id": "put",
       "word": "put",
       "emoji": "📌",
-      "ipa": "pʊt",
+      "ipa": "/pʊt/",
       "syllables": "put",
-      "sentence": "Every morning I put my things in my backpack.",
-      "japanese": {
-        "word": "置く",
-        "sentence": "毎朝、私は自分のものをバックパックに入れます。",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "Every morning I <b>put</b> my things in my backpack.",
+      "jp_word": "置く・入れる",
+      "jp_reading": "おく・いれる",
+      "jp_sentence": "毎朝、私は自分のものをバックパックに<b>入れます</b>。",
+      "jp_tags": ["動詞"]
     },
     {
-      "id": "l4-u7-v2-004",
+      "id": "use",
       "word": "use",
       "emoji": "🛠️",
-      "ipa": "juːz",
+      "ipa": "/juːz/",
       "syllables": "use",
-      "sentence": "How do you use that toy?",
-      "japanese": {
-        "word": "使う",
-        "sentence": "そのおもちゃはどのように使いますか？",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "How do you <b>use</b> that toy?",
+      "jp_word": "使う",
+      "jp_reading": "つかう",
+      "jp_sentence": "そのおもちゃはどのように<b>使い</b>ますか？",
+      "jp_tags": ["動詞"]
     },
     {
-      "id": "l4-u7-v2-005",
+      "id": "lift",
       "word": "lift",
       "emoji": "💪",
-      "ipa": "lɪft",
+      "ipa": "/lɪft/",
       "syllables": "lift",
-      "sentence": "Lift your arms and shake your legs.",
-      "japanese": {
-        "word": "持ち上げる",
-        "sentence": "腕を上げて、足を振ってください。",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "<b>Lift</b> your arms and shake your legs.",
+      "jp_word": "持ち上げる",
+      "jp_reading": "もちあげる",
+      "jp_sentence": "腕を<b>持ち上げて</b>、足を振ってください。",
+      "jp_tags": ["動詞"]
     }
   ]
 }
