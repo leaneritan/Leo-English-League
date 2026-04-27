@@ -3,188 +3,250 @@
   "unit": 7,
   "set": 2,
   "unit_name": "Good Idea!",
-  "topic": "You — general statements",
+  "title": "You — general statements",
+  "tag": "Grammar 2",
   "chart": {
     "title": "You — general statements",
-    "columns": ["Question", "Answer"],
-    "rows": [
-      ["What can you do on this computer?", "You can play games and do homework."],
-      ["How do you make vegetable soup?", "First, you wash the vegetables. Then you cook them."],
-      ["How do you use that invention?", "You press the button and you turn the wheel."]
+    "intro_examples": [
+      {
+        "text": "What can <b>you</b> do on this computer?",
+        "continuation": "<b>You</b> can play games and do homework."
+      },
+      {
+        "text": "How do <b>you</b> make vegetable soup?",
+        "continuation": "First, <b>you</b> wash the vegetables. Then <b>you</b> cook them."
+      }
     ],
-    "note": "In English, 'you' can mean 'people in general' — not one specific person. It is used to give instructions or explain how things work. 'How do you use it?' means 'How does one use it?' or 'How do people use it?'"
+    "rows": [
+      ["What can you do?", "You can play games.", "people in general"],
+      ["How do you use it?", "You press the button.", "people in general"],
+      ["How do you make soup?", "First, you wash the vegetables.", "people in general"]
+    ],
+    "note_rule": "'You' can mean 'people in general' — not one specific person.",
+    "note_exception": "How do you use it? = How does one use it?",
+    "note_exception_detail": "Used for instructions and explanations"
   },
-  "sentences": [
-    "How do you use that toy?",
-    "You press the button to turn it on.",
-    "First, you put the battery inside.",
-    "You can find good ideas everywhere.",
-    "How do you make electricity?",
-    "You turn the wheel and it moves.",
-    "You need creativity to invent things.",
-    "How do you solve this problem?",
-    "You lift the lid to open it.",
-    "You can succeed if you keep trying."
+  "tab1_samples": [
+    "How do <b>you</b> use that toy?",
+    "<b>You</b> press the button to turn it on.",
+    "First, <b>you</b> put the battery inside.",
+    "<b>You</b> can find good ideas everywhere.",
+    "How do <b>you</b> make electricity?",
+    "<b>You</b> turn the wheel and it moves.",
+    "<b>You</b> need creativity to invent things.",
+    "How do <b>you</b> solve this problem?",
+    "<b>You</b> lift the lid to open it.",
+    "<b>You</b> can succeed if you keep trying."
   ],
-  "rules": [
-    {
-      "id": "r1",
-      "title": "'You' for people in general",
-      "explanation": "In English, 'you' doesn't always mean one specific person. It can mean 'people in general' — like saying 'one' or 'people' in other languages.",
-      "examples": [
-        "You need a battery to use this.",
-        "You can find good ideas everywhere."
-      ]
-    },
-    {
-      "id": "r2",
-      "title": "'How do you...?' — asking about general process",
-      "explanation": "Use 'How do you + verb?' to ask how something works or how to do something in general. It is not asking one specific person.",
-      "examples": [
-        "How do you use this invention?",
-        "How do you make the wheels turn?"
-      ]
-    },
-    {
-      "id": "r3",
-      "title": "Giving instructions with 'you'",
-      "explanation": "Use 'you + verb' to give step-by-step instructions. This is common in recipes, manuals, and explanations.",
-      "examples": [
-        "First, you put the battery in. Then you press the button.",
-        "You lift your arms and shake your legs."
-      ]
-    }
-  ],
-  "quiz": {
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "'You' for people in general",
+        "subtitle": "In English, <b>you</b> doesn't always mean one specific person. It can mean 'people in general'.",
+        "transforms": [
+          {"from": "people in general need", "to": "You need a battery to use this."},
+          {"from": "anyone can find", "to": "You can find good ideas everywhere."}
+        ],
+        "examples": [
+          "<b>You</b> need a battery to use this.",
+          "<b>You</b> can find good ideas everywhere."
+        ]
+      },
+      {
+        "num": "02",
+        "title": "'How do you...?' — asking about process",
+        "subtitle": "Use <b>How do you + verb?</b> to ask how something works in general — not asking one specific person.",
+        "transforms": [
+          {"from": "How does one use this?", "to": "How do you use this invention?"},
+          {"from": "How does one make it turn?", "to": "How do you make the wheels turn?"}
+        ],
+        "examples": [
+          "How do <b>you</b> use this invention?",
+          "How do <b>you</b> make the wheels turn?"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Giving instructions with 'you'",
+        "subtitle": "Use <b>you + verb</b> to give step-by-step instructions. Common in recipes and explanations.",
+        "transforms": [
+          {"from": "step 1", "to": "First, you put the battery in."},
+          {"from": "step 2", "to": "Then you press the button."}
+        ],
+        "examples": [
+          "First, <b>you</b> put the battery in. Then <b>you</b> press the button.",
+          "<b>You</b> lift your arms and shake your legs."
+        ]
+      }
+    ],
+    "mixed_samples": [
+      {"text": "How do <b>you</b> use that machine? <b>You</b> press the red button.", "kind": "Rule 2 + Rule 3"},
+      {"text": "<b>You</b> need creativity to invent great things.", "kind": "Rule 1 · general"},
+      {"text": "First, <b>you</b> put the battery in. Then <b>you</b> turn it on.", "kind": "Rule 3 · instructions"},
+      {"text": "How do <b>you</b> make the wheels turn?", "kind": "Rule 2 · question"},
+      {"text": "<b>You</b> can succeed if you keep trying.", "kind": "Rule 1 · general"},
+      {"text": "How do <b>you</b> solve this problem? <b>You</b> think carefully.", "kind": "Rule 2 + Rule 3"},
+      {"text": "<b>You</b> lift the lid to open the box.", "kind": "Rule 3 · instructions"},
+      {"text": "<b>You</b> can find good ideas in everyday life.", "kind": "Rule 1 · general"},
+      {"text": "How do <b>you</b> use scissors? <b>You</b> hold them like this.", "kind": "Rule 2 + Rule 3"},
+      {"text": "First, <b>you</b> wash the vegetables. Then <b>you</b> cook them.", "kind": "Rule 3 · instructions"}
+    ]
+  },
+  "tab3_quiz": {
     "questions": [
       {
-        "type": "mc",
-        "prompt": "How _____ you use this invention?",
+        "stem": ["How ", "BLANK", " you use this invention?"],
         "answers": ["are", "do", "did", "can"],
-        "correct": 1
+        "correct": 1,
+        "explanation": {
+          "title": "Rule 2 — How do you...?",
+          "body": "To ask about a general process, use <b>How do you + verb?</b> The correct answer is <span class=\"right-form\">do</span>. <span class=\"rule-ref\">Rule 2</span>"
+        }
       },
       {
-        "type": "mc",
-        "prompt": "'You need creativity to invent things.' Here 'you' means _____ .",
+        "stem": ["'You need creativity to invent things.' Here 'you' means ", "BLANK", "."],
         "answers": ["only Leo", "only the teacher", "people in general", "a specific friend"],
-        "correct": 2
+        "correct": 2,
+        "explanation": {
+          "title": "Rule 1 — General meaning",
+          "body": "Here 'you' means <span class=\"right-form\">people in general</span> — not one specific person. <span class=\"rule-ref\">Rule 1</span>"
+        }
       },
       {
-        "type": "mc",
-        "prompt": "First, _____ put the battery inside.",
+        "stem": ["First, ", "BLANK", " put the battery inside."],
         "answers": ["he", "you", "they", "I"],
-        "correct": 1
+        "correct": 1,
+        "explanation": {
+          "title": "Rule 3 — Instructions",
+          "body": "When giving instructions, use <b>you + verb</b>. The correct answer is <span class=\"right-form\">you</span>. <span class=\"rule-ref\">Rule 3</span>"
+        }
       },
       {
-        "type": "mc",
-        "prompt": "Which sentence uses 'you' for people in general?",
-        "answers": [
-          "You are my best friend.",
-          "You need to call me tonight.",
-          "You can learn a lot from mistakes.",
-          "You left your bag here."
-        ],
-        "correct": 2
+        "stem": ["Which sentence uses 'you' for people in general?"],
+        "answers": ["You are my best friend.", "You need to call me tonight.", "You can learn a lot from mistakes.", "You left your bag here."],
+        "correct": 2,
+        "explanation": {
+          "title": "Rule 1 — General meaning",
+          "body": "'<b>You can learn a lot from mistakes</b>' means anyone can learn — it's general. The others refer to one specific person. <span class=\"rule-ref\">Rule 1</span>"
+        }
       },
       {
-        "type": "mc",
-        "prompt": "How do you turn it on? _____ press the button.",
+        "stem": ["How do you turn it on? ", "BLANK", " press the button."],
         "answers": ["He", "They", "You", "She"],
-        "correct": 2
+        "correct": 2,
+        "explanation": {
+          "title": "Rule 3 — Instructions",
+          "body": "When answering 'How do you...?', use <b>You + verb</b>. The correct answer is <span class=\"right-form\">You</span>. <span class=\"rule-ref\">Rule 3</span>"
+        }
       },
       {
-        "type": "build",
-        "prompt": "Build the sentence:",
-        "hint": "How / do / you / use / that / toy?",
-        "bank": ["How", "do", "you", "use", "that", "toy", "does", "your"],
-        "correct": ["How", "do", "you", "use", "that", "toy"]
+        "stem": ["How do ", "BLANK", " make the wheels turn?"],
+        "answers": ["he", "she", "you", "they"],
+        "correct": 2,
+        "explanation": {
+          "title": "Rule 2 — How do you...?",
+          "body": "Use <b>How do you + verb?</b> to ask about a general process. The correct answer is <span class=\"right-form\">you</span>. <span class=\"rule-ref\">Rule 2</span>"
+        }
       },
       {
-        "type": "build",
-        "prompt": "Build the sentence:",
-        "hint": "You / need / creativity / to / invent / things",
-        "bank": ["You", "need", "creativity", "to", "invent", "things", "needs", "inventing"],
-        "correct": ["You", "need", "creativity", "to", "invent", "things"]
+        "stem": ["", "BLANK", " can find good ideas everywhere."],
+        "answers": ["He", "You", "They", "She"],
+        "correct": 1,
+        "explanation": {
+          "title": "Rule 1 — General meaning",
+          "body": "Use <b>You</b> to talk about people in general. The correct answer is <span class=\"right-form\">You</span>. <span class=\"rule-ref\">Rule 1</span>"
+        }
+      },
+      {
+        "stem": ["How do you solve this problem? ", "BLANK", " think carefully and try again."],
+        "answers": ["He", "You", "They", "I"],
+        "correct": 1,
+        "explanation": {
+          "title": "Rule 3 — Instructions",
+          "body": "Use <b>You + verb</b> to give a general instruction or explanation. The correct answer is <span class=\"right-form\">You</span>. <span class=\"rule-ref\">Rule 3</span>"
+        }
+      },
+      {
+        "stem": ["Which question asks about a general process?"],
+        "answers": ["Did you eat lunch?", "How do you make electricity?", "Are you coming tomorrow?", "Do you like robots?"],
+        "correct": 1,
+        "explanation": {
+          "title": "Rule 2 — How do you...?",
+          "body": "'<b>How do you make electricity?</b>' asks about a general process — not one specific person. <span class=\"rule-ref\">Rule 2</span>"
+        }
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["How does you use this?", "How do you uses this?", "How do you use this?", "How you do use this?"],
+        "correct": 2,
+        "explanation": {
+          "title": "Rule 2 — Correct form",
+          "body": "The correct form is <b>How do you + base verb?</b> The correct answer is <span class=\"right-form\">How do you use this?</span> <span class=\"rule-ref\">Rule 2</span>"
+        }
       }
     ]
   },
-  "master_quiz": {
+  "tab4_master": {
     "questions": [
       {
         "type": "mc",
-        "prompt": "_____ do you make the wheels turn?",
+        "stem": ["", "BLANK", " do you make the wheels turn?"],
         "answers": ["What", "How", "Why", "When"],
         "correct": 1
       },
       {
         "type": "mc",
-        "prompt": "'You can succeed if you keep trying.' Here 'you' means _____ .",
+        "stem": ["'You can succeed if you keep trying.' Here 'you' means ", "BLANK", "."],
         "answers": ["the teacher", "people in general", "only Leo", "only inventors"],
         "correct": 1
       },
       {
-        "type": "mc",
-        "prompt": "Which sentence gives a general instruction?",
-        "answers": [
-          "You are very smart today.",
-          "You called me yesterday.",
-          "First, you lift the lid to open it.",
-          "You forgot your homework."
-        ],
-        "correct": 2
+        "type": "build",
+        "cue": ["How do you", "use that toy?"],
+        "bank": ["How", "do", "you", "use", "that", "toy", "does", "your"],
+        "correct": ["How", "do", "you", "use", "that", "toy"]
       },
       {
         "type": "mc",
-        "prompt": "How do you use that machine? _____ press the red button.",
+        "stem": ["Which sentence gives a general instruction?"],
+        "answers": ["You are very smart today.", "You called me yesterday.", "First, you lift the lid to open it.", "You forgot your homework."],
+        "correct": 2
+      },
+      {
+        "type": "build",
+        "cue": ["You need", "creativity to invent things"],
+        "bank": ["You", "need", "creativity", "to", "invent", "things", "needs", "inventing"],
+        "correct": ["You", "need", "creativity", "to", "invent", "things"]
+      },
+      {
+        "type": "mc",
+        "stem": ["How do you use that machine? ", "BLANK", " press the red button."],
         "answers": ["I", "He", "You", "She"],
         "correct": 2
       },
       {
-        "type": "mc",
-        "prompt": "Which question asks about a general process?",
-        "answers": [
-          "Did you eat lunch?",
-          "How do you make electricity?",
-          "Are you coming tomorrow?",
-          "Do you like robots?"
-        ],
-        "correct": 1
+        "type": "build",
+        "cue": ["You can find", "good ideas everywhere"],
+        "bank": ["You", "can", "find", "good", "ideas", "everywhere", "found", "finding"],
+        "correct": ["You", "can", "find", "good", "ideas", "everywhere"]
       },
       {
         "type": "mc",
-        "prompt": "First, _____ put the battery in. Then _____ turn it on.",
+        "stem": ["First, ", "BLANK", " put the battery in. Then ", "BLANK", " turn it on."],
         "answers": ["I / I", "he / he", "you / you", "they / they"],
         "correct": 2
       },
       {
         "type": "build",
-        "prompt": "Build the sentence:",
-        "hint": "You / can / find / good / ideas / everywhere",
-        "bank": ["You", "can", "find", "good", "ideas", "everywhere", "found", "finding"],
-        "correct": ["You", "can", "find", "good", "ideas", "everywhere"]
-      },
-      {
-        "type": "build",
-        "prompt": "Build the sentence:",
-        "hint": "You / lift / your / arms / and / shake / your / legs",
+        "cue": ["You lift your arms", "and shake your legs"],
         "bank": ["You", "lift", "your", "arms", "and", "shake", "your", "legs", "lifts", "shakes"],
         "correct": ["You", "lift", "your", "arms", "and", "shake", "your", "legs"]
       },
       {
         "type": "mc",
-        "prompt": "How do you solve this problem? _____ think carefully and try again.",
-        "answers": ["He", "You", "They", "I"],
-        "correct": 1
-      },
-      {
-        "type": "mc",
-        "prompt": "Which sentence is correct?",
-        "answers": [
-          "How does you use this?",
-          "How do you uses this?",
-          "How do you use this?",
-          "How you do use this?"
-        ],
+        "stem": ["Which sentence is correct?"],
+        "answers": ["How does you use this?", "How do you uses this?", "How do you use this?", "How you do use this?"],
         "correct": 2
       }
     ]
