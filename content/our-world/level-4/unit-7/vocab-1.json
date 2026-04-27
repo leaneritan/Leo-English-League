@@ -5,186 +5,186 @@
   "unit_name": "Good Idea!",
   "words": [
     {
-      "id": "l4-u7-v1-001",
+      "id": "invention",
       "word": "invention",
       "emoji": "💡",
-      "ipa": "ɪnˈvɛnʃən",
+      "ipa": "/ɪnˈvɛnʃən/",
       "syllables": "in·ven·tion",
-      "sentence": "The windshield wiper was a useful invention.",
-      "japanese": {
-        "word": "発明",
-        "sentence": "ワイパーは役に立つ発明でした。",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Countable",
+      "sample": "The windshield wiper was a very useful <b>invention</b>.",
+      "jp_word": "発明",
+      "jp_reading": "はつめい",
+      "jp_sentence": "ワイパーはとても役に立つ<b>発明</b>でした。",
+      "jp_tags": ["名詞", "可算名詞"]
     },
     {
-      "id": "l4-u7-v1-002",
+      "id": "problem",
       "word": "problem",
       "emoji": "😟",
-      "ipa": "ˈprɒbləm",
+      "ipa": "/ˈprɒbləm/",
       "syllables": "prob·lem",
-      "sentence": "I have a problem. My invention isn't working.",
-      "japanese": {
-        "word": "問題",
-        "sentence": "問題があります。私の発明がうまく動きません。",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Countable",
+      "sample": "I have a <b>problem</b>. My invention isn't working.",
+      "jp_word": "問題",
+      "jp_reading": "もんだい",
+      "jp_sentence": "<b>問題</b>があります。私の発明がうまく動きません。",
+      "jp_tags": ["名詞", "可算名詞"]
     },
     {
-      "id": "l4-u7-v1-003",
+      "id": "solution",
       "word": "solution",
       "emoji": "✅",
-      "ipa": "səˈluːʃən",
+      "ipa": "/səˈluːʃən/",
       "syllables": "so·lu·tion",
-      "sentence": "Do you know a good solution?",
-      "japanese": {
-        "word": "解決策",
-        "sentence": "良い解決策を知っていますか？",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Countable",
+      "sample": "Do you know a good <b>solution</b> to this problem?",
+      "jp_word": "解決策",
+      "jp_reading": "かいけつさく",
+      "jp_sentence": "この問題の良い<b>解決策</b>を知っていますか？",
+      "jp_tags": ["名詞", "可算名詞"]
     },
     {
-      "id": "l4-u7-v1-004",
+      "id": "wheel",
       "word": "wheel",
       "emoji": "🎡",
-      "ipa": "wiːl",
+      "ipa": "/wiːl/",
       "syllables": "wheel",
-      "sentence": "Wheels are the most famous invention.",
-      "japanese": {
-        "word": "車輪",
-        "sentence": "車輪は最も有名な発明です。",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Countable",
+      "sample": "<b>Wheels</b> are one of the most famous inventions in history.",
+      "jp_word": "車輪",
+      "jp_reading": "しゃりん",
+      "jp_sentence": "<b>車輪</b>は歴史上最も有名な発明のひとつです。",
+      "jp_tags": ["名詞", "可算名詞"]
     },
     {
-      "id": "l4-u7-v1-005",
+      "id": "electricity",
       "word": "electricity",
       "emoji": "⚡",
-      "ipa": "ɪˌlɛkˈtrɪsɪti",
+      "ipa": "/ɪˌlɛkˈtrɪsɪti/",
       "syllables": "e·lec·tri·ci·ty",
-      "sentence": "Did you know that electricity is not an invention?",
-      "japanese": {
-        "word": "電気",
-        "sentence": "電気は発明ではないことを知っていましたか？",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Uncountable",
+      "sample": "Did you know that <b>electricity</b> itself is not an invention?",
+      "jp_word": "電気",
+      "jp_reading": "でんき",
+      "jp_sentence": "<b>電気</b>そのものは発明ではないことを知っていましたか？",
+      "jp_tags": ["名詞", "不可算名詞"]
     },
     {
-      "id": "l4-u7-v1-006",
+      "id": "useful",
       "word": "useful",
       "emoji": "🔧",
-      "ipa": "ˈjuːsfəl",
+      "ipa": "/ˈjuːsfəl/",
       "syllables": "use·ful",
-      "sentence": "Umbrellas are useful in the rain.",
-      "japanese": {
-        "word": "役に立つ",
-        "sentence": "傘は雨の日に役に立ちます。",
-        "classification": "形容詞"
-      }
+      "pos": "Adjective",
+      "sample": "Umbrellas are very <b>useful</b> in the rain.",
+      "jp_word": "役に立つ",
+      "jp_reading": "やくにたつ",
+      "jp_sentence": "傘は雨の日にとても<b>役に立ちます</b>。",
+      "jp_tags": ["形容詞"]
     },
     {
-      "id": "l4-u7-v1-007",
+      "id": "battery",
       "word": "battery",
       "emoji": "🔋",
-      "ipa": "ˈbætəri",
+      "ipa": "/ˈbætəri/",
       "syllables": "bat·ter·y",
-      "sentence": "My cell phone needs a new battery.",
-      "japanese": {
-        "word": "電池",
-        "sentence": "私の携帯電話は新しい電池が必要です。",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Countable",
+      "sample": "My cell phone needs a new <b>battery</b> — it dies so fast.",
+      "jp_word": "電池",
+      "jp_reading": "でんち",
+      "jp_sentence": "私の携帯電話はすぐ切れるので、新しい<b>電池</b>が必要です。",
+      "jp_tags": ["名詞", "可算名詞"]
     },
     {
-      "id": "l4-u7-v1-008",
+      "id": "imagination",
       "word": "imagination",
       "emoji": "🌈",
-      "ipa": "ɪˌmædʒɪˈneɪʃən",
+      "ipa": "/ɪˌmædʒɪˈneɪʃən/",
       "syllables": "i·mag·i·na·tion",
-      "sentence": "My sister writes cool stories. She has a lot of imagination.",
-      "japanese": {
-        "word": "想像力",
-        "sentence": "私の妹はかっこいい話を書きます。彼女はとても想像力があります。",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Uncountable",
+      "sample": "My sister writes cool stories — she has a lot of <b>imagination</b>.",
+      "jp_word": "想像力",
+      "jp_reading": "そうぞうりょく",
+      "jp_sentence": "妹はかっこいい話を書きます。彼女はとても<b>想像力</b>があります。",
+      "jp_tags": ["名詞", "不可算名詞"]
     },
     {
-      "id": "l4-u7-v1-009",
+      "id": "creativity",
       "word": "creativity",
       "emoji": "🎨",
-      "ipa": "ˌkriːeɪˈtɪvɪti",
+      "ipa": "/ˌkriːeɪˈtɪvɪti/",
       "syllables": "cre·a·tiv·i·ty",
-      "sentence": "To invent things, you need creativity.",
-      "japanese": {
-        "word": "創造力",
-        "sentence": "ものを発明するには、創造力が必要です。",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Uncountable",
+      "sample": "To invent things, you need <b>creativity</b> and imagination.",
+      "jp_word": "創造力",
+      "jp_reading": "そうぞうりょく",
+      "jp_sentence": "ものを発明するには、<b>創造力</b>と想像力が必要です。",
+      "jp_tags": ["名詞", "不可算名詞"]
     },
     {
-      "id": "l4-u7-v1-010",
+      "id": "idea",
       "word": "idea",
       "emoji": "🤔",
-      "ipa": "aɪˈdɪə",
+      "ipa": "/aɪˈdɪə/",
       "syllables": "i·de·a",
-      "sentence": "That was a good idea!",
-      "japanese": {
-        "word": "アイデア",
-        "sentence": "それは良いアイデアでした！",
-        "classification": "名詞"
-      }
+      "pos": "Noun · Countable",
+      "sample": "That was a really good <b>idea</b>!",
+      "jp_word": "アイデア・考え",
+      "jp_reading": "あいであ・かんがえ",
+      "jp_sentence": "それは本当に良い<b>アイデア</b>でした！",
+      "jp_tags": ["名詞", "可算名詞"]
     },
     {
-      "id": "l4-u7-v1-011",
+      "id": "invent",
       "word": "invent",
       "emoji": "🧑‍🔬",
-      "ipa": "ɪnˈvɛnt",
+      "ipa": "/ɪnˈvɛnt/",
       "syllables": "in·vent",
-      "sentence": "Who invented electric lights?",
-      "japanese": {
-        "word": "発明する",
-        "sentence": "誰が電灯を発明しましたか？",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "Who <b>invented</b> electric lights?",
+      "jp_word": "発明する",
+      "jp_reading": "はつめいする",
+      "jp_sentence": "誰が電灯を<b>発明した</b>のですか？",
+      "jp_tags": ["動詞"]
     },
     {
-      "id": "l4-u7-v1-012",
+      "id": "try",
       "word": "try",
       "emoji": "💪",
-      "ipa": "traɪ",
+      "ipa": "/traɪ/",
       "syllables": "try",
-      "sentence": "What are you trying to do?",
-      "japanese": {
-        "word": "試みる",
-        "sentence": "あなたは何をしようとしていますか？",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "What are you <b>trying</b> to do?",
+      "jp_word": "試みる・やってみる",
+      "jp_reading": "こころみる・やってみる",
+      "jp_sentence": "あなたは何を<b>やろうとして</b>いますか？",
+      "jp_tags": ["動詞"]
     },
     {
-      "id": "l4-u7-v1-013",
+      "id": "fail",
       "word": "fail",
       "emoji": "❌",
-      "ipa": "feɪl",
+      "ipa": "/feɪl/",
       "syllables": "fail",
-      "sentence": "I studied very hard, so I won't fail.",
-      "japanese": {
-        "word": "失敗する",
-        "sentence": "一生懸命勉強したので、失敗しません。",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "I studied very hard, so I won't <b>fail</b>.",
+      "jp_word": "失敗する",
+      "jp_reading": "しっぱいする",
+      "jp_sentence": "一生懸命勉強したので、<b>失敗</b>しません。",
+      "jp_tags": ["動詞"]
     },
     {
-      "id": "l4-u7-v1-014",
+      "id": "succeed",
       "word": "succeed",
       "emoji": "🏆",
-      "ipa": "səkˈsiːd",
+      "ipa": "/səkˈsiːd/",
       "syllables": "suc·ceed",
-      "sentence": "The Wright brothers succeeded.",
-      "japanese": {
-        "word": "成功する",
-        "sentence": "ライト兄弟は成功しました。",
-        "classification": "動詞"
-      }
+      "pos": "Verb",
+      "sample": "The Wright brothers <b>succeeded</b> — they built the first airplane.",
+      "jp_word": "成功する",
+      "jp_reading": "せいこうする",
+      "jp_sentence": "ライト兄弟は<b>成功し</b>、最初の飛行機を作りました。",
+      "jp_tags": ["動詞"]
     }
   ]
 }
