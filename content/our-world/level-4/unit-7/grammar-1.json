@@ -29,16 +29,16 @@
     "note_exception_detail": "'Used to' is different from 'be used to'"
   },
   "tab1_samples": [
-    "I <b>used to</b> walk to school every day.",
-    "She <b>used to</b> have long hair.",
-    "People <b>didn't use to</b> have cell phones.",
-    "Did you <b>use to</b> play outside after school?",
-    "We <b>used to</b> watch black and white TV.",
-    "He <b>didn't use to</b> like vegetables.",
-    "Children <b>used to</b> learn without computers.",
-    "My grandparents <b>used to</b> wash clothes by hand.",
-    "Did people <b>use to</b> travel by horse?",
-    "I <b>didn't use to</b> drink coffee, but now I do."
+    { "text": "I <b>used to</b> walk to school every day.",                         "jp": "毎日学校まで歩いていました。" },
+    { "text": "She <b>used to</b> have long hair.",                                  "jp": "彼女は前は長い髪をしていました。" },
+    { "text": "People <b>didn't use to</b> have cell phones.",                       "jp": "昔、人々は携帯電話を持っていませんでした。" },
+    { "text": "Did you <b>use to</b> play outside after school?",                    "jp": "放課後、外で遊んでいましたか？" },
+    { "text": "We <b>used to</b> watch black and white TV.",                         "jp": "私たちは白黒テレビを見ていました。" },
+    { "text": "He <b>didn't use to</b> like vegetables.",                            "jp": "彼は前は野菜が好きではありませんでした。" },
+    { "text": "Children <b>used to</b> learn without computers.",                    "jp": "子供たちはコンピューターなしで勉強していました。" },
+    { "text": "My grandparents <b>used to</b> wash clothes by hand.",                "jp": "祖父母は手で服を洗っていました。" },
+    { "text": "Did people <b>use to</b> travel by horse?",                          "jp": "昔、人々は馬で旅をしていましたか？" },
+    { "text": "I <b>didn't use to</b> drink coffee, but now I do.",                 "jp": "以前はコーヒーを飲んでいませんでしたが、今は飲みます。" }
   ],
   "tab2_levelup": {
     "rules": [
@@ -52,8 +52,8 @@
           {"from": "She has long hair (past)", "to": "She used to have long hair"}
         ],
         "examples": [
-          "I <b>used to</b> play outside every day.",
-          "She <b>used to</b> have a pet rabbit."
+          { "text": "I <b>used to</b> play outside every day.",    "jp": "毎日外で遊んでいました。" },
+          { "text": "She <b>used to</b> have a pet rabbit.",        "jp": "彼女はペットのウサギを飼っていました。" }
         ]
       },
       {
@@ -66,8 +66,8 @@
           {"from": "no cell phones (past)", "to": "People didn't use to have cell phones"}
         ],
         "examples": [
-          "People <b>didn't use to</b> have electricity.",
-          "My friend <b>didn't use to</b> like reading."
+          { "text": "People <b>didn't use to</b> have electricity.",      "jp": "昔、人々は電気を持っていませんでした。" },
+          { "text": "My friend <b>didn't use to</b> like reading.",        "jp": "友達は前は読書が好きではありませんでした。" }
         ]
       },
       {
@@ -79,22 +79,22 @@
           {"from": "people / travel by horse", "to": "Did people use to travel by horse?"}
         ],
         "examples": [
-          "<b>Did</b> you <b>use to</b> walk to school?",
-          "<b>Did</b> people <b>use to</b> travel by horse?"
+          { "text": "<b>Did</b> you <b>use to</b> walk to school?",        "jp": "学校まで歩いていましたか？" },
+          { "text": "<b>Did</b> people <b>use to</b> travel by horse?",    "jp": "昔、人々は馬で旅をしていましたか？" }
         ]
       }
     ],
     "mixed_samples": [
-      {"text": "I <b>used to</b> live in a small town.", "kind": "Rule 1 · positive"},
-      {"text": "People <b>didn't use to</b> have washing machines.", "kind": "Rule 2 · negative"},
-      {"text": "<b>Did</b> you <b>use to</b> play tennis? Yes, I did.", "kind": "Rule 3 · question"},
-      {"text": "She <b>used to</b> walk to school every morning.", "kind": "Rule 1 · positive"},
-      {"text": "Children <b>didn't use to</b> have smartphones.", "kind": "Rule 2 · negative"},
-      {"text": "<b>Did</b> people <b>use to</b> cook on fire? Yes, they did.", "kind": "Rule 3 · question"},
-      {"text": "My dad <b>used to</b> ride his bike to work.", "kind": "Rule 1 · positive"},
-      {"text": "I <b>didn't use to</b> like vegetables, but now I love them.", "kind": "Rule 2 · negative"},
-      {"text": "<b>Did</b> she <b>use to</b> have curly hair? No, she didn't.", "kind": "Rule 3 · question"},
-      {"text": "We <b>used to</b> watch black and white TV.", "kind": "Rule 1 · positive"}
+      {"text": "I <b>used to</b> live in a small town.",                              "kind": "Rule 1 · positive",  "jp": "私は小さな町に住んでいました。"},
+      {"text": "People <b>didn't use to</b> have washing machines.",                  "kind": "Rule 2 · negative",  "jp": "昔、人々は洗濯機を持っていませんでした。"},
+      {"text": "<b>Did</b> you <b>use to</b> play tennis? Yes, I did.",               "kind": "Rule 3 · question",  "jp": "テニスをしていましたか？はい、していました。"},
+      {"text": "She <b>used to</b> walk to school every morning.",                    "kind": "Rule 1 · positive",  "jp": "彼女は毎朝学校まで歩いていました。"},
+      {"text": "Children <b>didn't use to</b> have smartphones.",                     "kind": "Rule 2 · negative",  "jp": "子供たちはスマートフォンを持っていませんでした。"},
+      {"text": "<b>Did</b> people <b>use to</b> cook on fire? Yes, they did.",        "kind": "Rule 3 · question",  "jp": "昔、人々は火で料理をしていましたか？はい、していました。"},
+      {"text": "My dad <b>used to</b> ride his bike to work.",                        "kind": "Rule 1 · positive",  "jp": "父は自転車で仕事に行っていました。"},
+      {"text": "I <b>didn't use to</b> like vegetables, but now I love them.",        "kind": "Rule 2 · negative",  "jp": "前は野菜が好きではありませんでしたが、今は大好きです。"},
+      {"text": "<b>Did</b> she <b>use to</b> have curly hair? No, she didn't.",       "kind": "Rule 3 · question",  "jp": "彼女はくせ毛でしたか？いいえ、ちがいます。"},
+      {"text": "We <b>used to</b> watch black and white TV.",                         "kind": "Rule 1 · positive",  "jp": "私たちは白黒テレビを見ていました。"}
     ]
   },
   "tab3_quiz": {

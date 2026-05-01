@@ -27,16 +27,16 @@
     "note_exception_detail": "Used for instructions and explanations"
   },
   "tab1_samples": [
-    "How do <b>you</b> use that toy?",
-    "<b>You</b> press the button to turn it on.",
-    "First, <b>you</b> put the battery inside.",
-    "<b>You</b> can find good ideas everywhere.",
-    "How do <b>you</b> make electricity?",
-    "<b>You</b> turn the wheel and it moves.",
-    "<b>You</b> need creativity to invent things.",
-    "How do <b>you</b> solve this problem?",
-    "<b>You</b> lift the lid to open it.",
-    "<b>You</b> can succeed if you keep trying."
+    { "text": "How do <b>you</b> use that toy?",                    "jp": "そのおもちゃをどのように使いますか？" },
+    { "text": "<b>You</b> press the button to turn it on.",         "jp": "ボタンを押すと電源が入ります。" },
+    { "text": "First, <b>you</b> put the battery inside.",          "jp": "まず、電池を中に入れます。" },
+    { "text": "<b>You</b> can find good ideas everywhere.",         "jp": "どこでも良いアイデアを見つけることができます。" },
+    { "text": "How do <b>you</b> make electricity?",                "jp": "電気をどのように作りますか？" },
+    { "text": "<b>You</b> turn the wheel and it moves.",            "jp": "車輪を回すと動きます。" },
+    { "text": "<b>You</b> need creativity to invent things.",       "jp": "ものを発明するには創造力が必要です。" },
+    { "text": "How do <b>you</b> solve this problem?",              "jp": "この問題をどのように解きますか？" },
+    { "text": "<b>You</b> lift the lid to open it.",                "jp": "蓋を持ち上げると開きます。" },
+    { "text": "<b>You</b> can succeed if you keep trying.",         "jp": "あきらめずに挑戦し続ければ、成功できます。" }
   ],
   "tab2_levelup": {
     "rules": [
@@ -49,8 +49,8 @@
           {"from": "anyone can find", "to": "You can find good ideas everywhere."}
         ],
         "examples": [
-          "<b>You</b> need a battery to use this.",
-          "<b>You</b> can find good ideas everywhere."
+          { "text": "<b>You</b> need a battery to use this.",          "jp": "これを使うには電池が必要です。" },
+          { "text": "<b>You</b> can find good ideas everywhere.",       "jp": "どこでも良いアイデアを見つけることができます。" }
         ]
       },
       {
@@ -62,8 +62,8 @@
           {"from": "How does one make it turn?", "to": "How do you make the wheels turn?"}
         ],
         "examples": [
-          "How do <b>you</b> use this invention?",
-          "How do <b>you</b> make the wheels turn?"
+          { "text": "How do <b>you</b> use this invention?",            "jp": "この発明品をどのように使いますか？" },
+          { "text": "How do <b>you</b> make the wheels turn?",          "jp": "車輪をどのように回しますか？" }
         ]
       },
       {
@@ -75,22 +75,22 @@
           {"from": "step 2", "to": "Then you press the button."}
         ],
         "examples": [
-          "First, <b>you</b> put the battery in. Then <b>you</b> press the button.",
-          "<b>You</b> lift your arms and shake your legs."
+          { "text": "First, <b>you</b> put the battery in. Then <b>you</b> press the button.", "jp": "まず、電池を入れます。それからボタンを押します。" },
+          { "text": "<b>You</b> lift your arms and shake your legs.",                           "jp": "両腕を上げて、足を振ります。" }
         ]
       }
     ],
     "mixed_samples": [
-      {"text": "How do <b>you</b> use that machine? <b>You</b> press the red button.", "kind": "Rule 2 + Rule 3"},
-      {"text": "<b>You</b> need creativity to invent great things.", "kind": "Rule 1 · general"},
-      {"text": "First, <b>you</b> put the battery in. Then <b>you</b> turn it on.", "kind": "Rule 3 · instructions"},
-      {"text": "How do <b>you</b> make the wheels turn?", "kind": "Rule 2 · question"},
-      {"text": "<b>You</b> can succeed if you keep trying.", "kind": "Rule 1 · general"},
-      {"text": "How do <b>you</b> solve this problem? <b>You</b> think carefully.", "kind": "Rule 2 + Rule 3"},
-      {"text": "<b>You</b> lift the lid to open the box.", "kind": "Rule 3 · instructions"},
-      {"text": "<b>You</b> can find good ideas in everyday life.", "kind": "Rule 1 · general"},
-      {"text": "How do <b>you</b> use scissors? <b>You</b> hold them like this.", "kind": "Rule 2 + Rule 3"},
-      {"text": "First, <b>you</b> wash the vegetables. Then <b>you</b> cook them.", "kind": "Rule 3 · instructions"}
+      {"text": "How do <b>you</b> use that machine? <b>You</b> press the red button.",  "kind": "Rule 2 + Rule 3",       "jp": "その機械をどのように使いますか？赤いボタンを押します。"},
+      {"text": "<b>You</b> need creativity to invent great things.",                    "kind": "Rule 1 · general",      "jp": "素晴らしいものを発明するには創造力が必要です。"},
+      {"text": "First, <b>you</b> put the battery in. Then <b>you</b> turn it on.",     "kind": "Rule 3 · instructions", "jp": "まず、電池を入れます。それから電源を入れます。"},
+      {"text": "How do <b>you</b> make the wheels turn?",                               "kind": "Rule 2 · question",     "jp": "車輪をどのように回しますか？"},
+      {"text": "<b>You</b> can succeed if you keep trying.",                            "kind": "Rule 1 · general",      "jp": "あきらめずに挑戦し続ければ、成功できます。"},
+      {"text": "How do <b>you</b> solve this problem? <b>You</b> think carefully.",     "kind": "Rule 2 + Rule 3",       "jp": "この問題をどのように解きますか？よく考えます。"},
+      {"text": "<b>You</b> lift the lid to open the box.",                              "kind": "Rule 3 · instructions", "jp": "蓋を持ち上げると箱が開きます。"},
+      {"text": "<b>You</b> can find good ideas in everyday life.",                      "kind": "Rule 1 · general",      "jp": "日常生活の中に良いアイデアを見つけることができます。"},
+      {"text": "How do <b>you</b> use scissors? <b>You</b> hold them like this.",       "kind": "Rule 2 + Rule 3",       "jp": "はさみをどのように使いますか？こうやって持ちます。"},
+      {"text": "First, <b>you</b> wash the vegetables. Then <b>you</b> cook them.",     "kind": "Rule 3 · instructions", "jp": "まず、野菜を洗います。それから料理します。"}
     ]
   },
   "tab3_quiz": {
