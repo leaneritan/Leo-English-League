@@ -477,7 +477,7 @@ function renderPage(data) {
     tab.classList.add('active');
     document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
     const jpWrap = document.getElementById('jpToggleWrap');
-    if (jpWrap) jpWrap.style.display = (tab.dataset.tab === 'chart' || tab.dataset.tab === 'levelup') ? 'flex' : 'none';
+    if (jpWrap) jpWrap.style.display = (tab.dataset.tab === 'master') ? 'none' : 'flex';
   });
 
   renderQuizQuestion(0);
@@ -652,6 +652,7 @@ function renderQuizQuestion(idx) {
     </div>
   `;
   area.appendChild(card);
+  if (jpVisible) { const jp = document.getElementById(`qjp-${idx}`); if (jp) jp.classList.add('jp-on'); }
 
   // store correct/expTitle/expBody on element for retrieval
   card.dataset.correct = correct;
@@ -700,7 +701,6 @@ function showQuizEnd() {
   document.getElementById('quizFinalScore').textContent = quizCorrect;
   const msgs = [[10,'Perfect! Ready for the Master Quiz?'],[8,'Great work!'],[6,'Solid — review the ones you missed.'],[4,'Go back to Level Up and review the rules.'],[0,'Go back to Chart &amp; samples and read through again.']];
   document.getElementById('quizEndMsg').innerHTML = msgs.find(m => quizCorrect >= m[0])[1];
-  document.querySelectorAll('#panel-quiz .q-jp').forEach(el => el.classList.add('jp-on'));
   end.classList.add('show');
   end.scrollIntoView({behavior:'smooth'});
 }
@@ -708,7 +708,7 @@ function showQuizEnd() {
 // ── JAPANESE TOGGLE ──
 function toggleJP() {
   jpVisible = !jpVisible;
-  document.querySelectorAll('#panel-chart .jp-line, #panel-levelup .jp-line').forEach(el => {
+  document.querySelectorAll('#panel-chart .jp-line, #panel-levelup .jp-line, #panel-quiz .q-jp').forEach(el => {
     el.classList.toggle('jp-on', jpVisible);
   });
   const btn = document.getElementById('jpToggle');
