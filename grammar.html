@@ -108,10 +108,12 @@
 
     /* ── JAPANESE ── */
     .jp-line { font-size: 12px; color: var(--ink-3); margin-top: 5px; line-height: 1.5; display: none; font-style: normal; }
-    .jp-line.jp-on { display: block; }
+    .jp-line.jp-on,
+    body.jp-visible .jp-line { display: block; }
     .mini-example .jp-line { margin-top: 3px; padding-left: 0; border-left: none; }
     .q-jp { font-size: 13px; color: var(--ink-3); padding: 0 20px 12px; display: none; line-height: 1.5; }
-    .q-jp.jp-on { display: block; }
+    .q-jp.jp-on,
+    body.jp-visible .q-jp { display: block; }
     .jp-toggle-wrap { margin-left: auto; display: flex; align-items: center; padding: 0 8px; }
     .jp-toggle-btn { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 12px 4px; border: 1.5px solid var(--border); background: transparent; color: var(--ink-3); cursor: pointer; white-space: nowrap; transition: all 0.15s; }
     .jp-toggle-btn.on { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
@@ -708,7 +710,8 @@ function showQuizEnd() {
 // ── JAPANESE TOGGLE ──
 function toggleJP() {
   jpVisible = !jpVisible;
-  document.querySelectorAll('#panel-chart .jp-line, #panel-levelup .jp-line, #panel-quiz .q-jp').forEach(el => {
+  document.body.classList.toggle('jp-visible', jpVisible);
+  document.querySelectorAll('.jp-line, .q-jp').forEach(el => {
     el.classList.toggle('jp-on', jpVisible);
   });
   const btn = document.getElementById('jpToggle');
