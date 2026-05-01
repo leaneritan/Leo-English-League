@@ -316,7 +316,7 @@ let masterAnswered = false;
 let buildPlaced = {};
 let jpVisible = false;
 
-fetch(jsonUrl)
+fetch(jsonUrl + '?v=' + Date.now())
   .then(r => { if (!r.ok) throw new Error('Not found'); return r.json(); })
   .then(data => renderPage(data))
   .catch(() => {
