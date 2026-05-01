@@ -106,6 +106,16 @@
     .sample .s { font-size: 14px; color: var(--ink); line-height: 1.45; }
     .sample .s b { font-weight: 600; background: var(--yellow-bg); padding: 0 3px; }
 
+    /* ── JAPANESE ── */
+    .jp-line { font-size: 12px; color: var(--ink-3); margin-top: 5px; line-height: 1.5; display: none; font-style: normal; }
+    .jp-line.jp-on { display: block; }
+    .mini-example .jp-line { margin-top: 3px; padding-left: 0; border-left: none; }
+    .q-jp { font-size: 13px; color: var(--ink-3); padding: 0 20px 12px; display: none; line-height: 1.5; }
+    .q-jp.jp-on { display: block; }
+    .jp-toggle-wrap { margin-left: auto; display: flex; align-items: center; padding: 0 8px; }
+    .jp-toggle-btn { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 12px 4px; border: 1.5px solid var(--border); background: transparent; color: var(--ink-3); cursor: pointer; white-space: nowrap; transition: all 0.15s; }
+    .jp-toggle-btn.on { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+
     /* ── RULE CARDS (Tab 2) ── */
     .rule-card { background: var(--surface); border: 1px solid var(--border); margin-bottom: 14px; overflow: hidden; }
     .rule-head { padding: 14px 20px 12px; border-bottom: 1px solid var(--border); background: var(--paper); display: flex; align-items: flex-start; gap: 14px; }
@@ -304,6 +314,7 @@ let masterTimer = null;
 
 let masterAnswered = false;
 let buildPlaced = {};
+let jpVisible = false;
 
 fetch(jsonUrl)
   .then(r => { if (!r.ok) throw new Error('Not found'); return r.json(); })
@@ -357,6 +368,9 @@ function renderPage(data) {
       <button class="tab" data-tab="levelup"><span class="num">02</span>Level up</button>
       <button class="tab" data-tab="quiz"><span class="num">03</span>Quiz</button>
       <button class="tab" data-tab="master"><span class="num">04</span>Master quiz</button>
+      <div class="jp-toggle-wrap" id="jpToggleWrap">
+        <button class="jp-toggle-btn" id="jpToggle" onclick="toggleJP()">日本語</button>
+      </div>
     </nav>
 
     <!-- Tab 1 -->
@@ -367,9 +381,11 @@ function renderPage(data) {
         <div class="count">Read aloud</div>
       </div>
       <div class="samples">
-        ${samples.map((s, i) =>
-          `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${s}</div></div>`
-        ).join('')}
+        ${samples.map((s, i) => {
+          const text = typeof s === 'string' ? s : (s.text || s);
+          const jp   = typeof s === 'object' && s.jp ? `<div class="jp-line">${s.jp}</div>` : '';
+          return `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${text}${jp}</div></div>`;
+        }).join('')}
       </div>
     </div>
 
@@ -392,7 +408,8 @@ function renderPage(data) {
           ${mixedSamples.map((s, i) => {
             const text = typeof s === 'string' ? s : s.text;
             const kind = typeof s === 'object' && s.kind ? `<span class="kind">${s.kind}</span>` : '';
-            return `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${text} ${kind}</div></div>`;
+            const jp   = typeof s === 'object' && s.jp ? `<div class="jp-line">${s.jp}</div>` : '';
+            return `<div class="sample"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="s">${text} ${kind}${jp}</div></div>`;
           }).join('')}
         </div>
       </div>
@@ -459,6 +476,8 @@ function renderPage(data) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    const jpWrap = document.getElementById('jpToggleWrap');
+    if (jpWrap) jpWrap.style.display = (tab.dataset.tab === 'chart' || tab.dataset.tab === 'levelup') ? 'flex' : 'none';
   });
 
   renderQuizQuestion(0);
@@ -544,9 +563,11 @@ function renderRuleCards(rules) {
         : `<div class="word-transform"><span class="to">${t}</span></div>`;
     }).join('');
 
-    const examples = (rule.examples || []).map(ex =>
-      `<div class="mini-example">${ex}</div>`
-    ).join('');
+    const examples = (rule.examples || []).map(ex => {
+      const text = typeof ex === 'string' ? ex : (ex.text || ex);
+      const jp   = typeof ex === 'object' && ex.jp ? `<div class="jp-line">${ex.jp}</div>` : '';
+      return `<div class="mini-example">${text}${jp}</div>`;
+    }).join('');
 
     const subtitle = rule.subtitle || rule.explanation || '';
 
@@ -615,6 +636,7 @@ function renderQuizQuestion(idx) {
       <span class="q-status-pill wrong" style="display:none">✗ Not quite</span>
     </div>
     <div class="q-stem">${stemHtml}</div>
+    ${q.jp ? `<div class="q-jp" id="qjp-${idx}">${q.jp}</div>` : ''}
     <div class="answers-grid">${answersHtml}</div>
     <div class="explanation" id="exp-${idx}">
       <div class="explanation-head">
@@ -678,8 +700,19 @@ function showQuizEnd() {
   document.getElementById('quizFinalScore').textContent = quizCorrect;
   const msgs = [[10,'Perfect! Ready for the Master Quiz?'],[8,'Great work!'],[6,'Solid — review the ones you missed.'],[4,'Go back to Level Up and review the rules.'],[0,'Go back to Chart &amp; samples and read through again.']];
   document.getElementById('quizEndMsg').innerHTML = msgs.find(m => quizCorrect >= m[0])[1];
+  document.querySelectorAll('#panel-quiz .q-jp').forEach(el => el.classList.add('jp-on'));
   end.classList.add('show');
   end.scrollIntoView({behavior:'smooth'});
+}
+
+// ── JAPANESE TOGGLE ──
+function toggleJP() {
+  jpVisible = !jpVisible;
+  document.querySelectorAll('#panel-chart .jp-line, #panel-levelup .jp-line').forEach(el => {
+    el.classList.toggle('jp-on', jpVisible);
+  });
+  const btn = document.getElementById('jpToggle');
+  if (btn) { btn.textContent = jpVisible ? '日本語 ON' : '日本語'; btn.classList.toggle('on', jpVisible); }
 }
 
 function retryQuiz() {
@@ -744,6 +777,7 @@ function renderMasterQuestion(idx) {
         <span class="q-status-pill wrong" style="display:none">✗ Not quite</span>
       </div>
       <div class="q-stem">${stemHtml}</div>
+      ${q.jp ? `<div class="q-jp" id="mjp-${idx}">${q.jp}</div>` : ''}
       <div class="answers-grid">${answersHtml}</div>
     `;
     card.dataset.correct = correct;
@@ -766,6 +800,7 @@ function renderMasterQuestion(idx) {
         <span class="q-status-pill wrong" style="display:none">✗ Not quite</span>
       </div>
       <div class="build-prompt">Build: <em>${cueText}</em></div>
+      ${q.jp ? `<div class="q-jp" id="mjp-${idx}">${q.jp}</div>` : ''}
       <div class="build-slot" id="mslot-${idx}">
         <span class="build-slot-empty">Tap words below to build the sentence</span>
       </div>
@@ -845,6 +880,8 @@ function submitBuild(qIdx) {
     document.getElementById(`mreveal-${qIdx}`).classList.add('show');
     masterMissed.push({ idx: qIdx, correct: correctArr.join(' ') + '.' });
   } else { masterScore++; document.getElementById('mScore').textContent = masterScore; }
+  const _buildJp = document.getElementById(`mjp-${qIdx}`);
+  if (_buildJp) _buildJp.classList.add('jp-on');
   setTimeout(() => masterMoveNext(), isCorrect ? 1200 : 2400);
 }
 
@@ -865,6 +902,8 @@ function pickMasterMC(qIdx, ansIdx) {
   card.querySelector(`.q-status-pill.${isCorrect ? 'correct' : 'wrong'}`).style.display = 'inline-block';
   if (isCorrect) { masterScore++; document.getElementById('mScore').textContent = masterScore; }
   else masterMissed.push({ idx: qIdx, correct: correctWord });
+  const _mcJp = document.getElementById(`mjp-${qIdx}`);
+  if (_mcJp) _mcJp.classList.add('jp-on');
   setTimeout(() => masterMoveNext(), isCorrect ? 1200 : 1800);
 }
 
@@ -920,6 +959,8 @@ function masterTimeout() {
     }
     masterMissed.push({ idx: masterCurrent, correct: correctArr.join(' ') + '.' });
   }
+  const _toJp = document.getElementById(`mjp-${masterCurrent}`);
+  if (_toJp) _toJp.classList.add('jp-on');
   setTimeout(() => masterMoveNext(), 2200);
 }
 
