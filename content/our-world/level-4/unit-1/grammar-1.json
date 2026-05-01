@@ -30,16 +30,16 @@
     "note_exception_detail": "y becomes i"
   },
   "tab1_samples": [
-    "My brother is <b>taller</b> than me.",
-    "This book is <b>shorter</b> than that one.",
-    "Her hair is <b>longer</b> than mine.",
-    "A cat is <b>smaller</b> than a dog.",
-    "Grandpa is <b>older</b> than Dad.",
-    "My baby sister is <b>cuter</b> than my brother.",
-    "Dogs are <b>friendlier</b> than hamsters.",
-    "Soccer is <b>faster</b> than baseball.",
-    "My backpack is <b>heavier</b> than yours.",
-    "The new school is <b>bigger</b> than the old one."
+    { "text": "My brother is <b>taller</b> than me.",              "jp": "兄は私より背が高いです。" },
+    { "text": "This book is <b>shorter</b> than that one.",        "jp": "この本はあの本より短いです。" },
+    { "text": "Her hair is <b>longer</b> than mine.",              "jp": "彼女の髪は私の髪より長いです。" },
+    { "text": "A cat is <b>smaller</b> than a dog.",               "jp": "猫は犬より小さいです。" },
+    { "text": "Grandpa is <b>older</b> than Dad.",                 "jp": "おじいちゃんはお父さんより年上です。" },
+    { "text": "My baby sister is <b>cuter</b> than my brother.",   "jp": "妹は兄よりかわいいです。" },
+    { "text": "Dogs are <b>friendlier</b> than hamsters.",         "jp": "犬はハムスターより親しみやすいです。" },
+    { "text": "Soccer is <b>faster</b> than baseball.",            "jp": "サッカーは野球より速い競技です。" },
+    { "text": "My backpack is <b>heavier</b> than yours.",         "jp": "私のリュックはあなたのより重いです。" },
+    { "text": "The new school is <b>bigger</b> than the old one.", "jp": "新しい学校は古い学校より大きいです。" }
   ],
   "tab2_levelup": {
     "rules": [
