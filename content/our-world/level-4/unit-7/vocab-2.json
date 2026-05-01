@@ -1,0 +1,73 @@
+{
+  "level": 4,
+  "unit": 7,
+  "set": 2,
+  "unit_name": "Good Idea!",
+  "words": [
+    {
+      "id": "move",
+      "word": "move",
+      "emoji": "🏃",
+      "ipa": "/muːv/",
+      "syllables": "move",
+      "pos": "Verb",
+      "sample": "Don't <b>move</b>. I'm taking a photo!",
+      "jp_word": "動く",
+      "jp_reading": "うごく",
+      "jp_sentence": "<b>動か</b>ないで。写真を撮っています！",
+      "jp_tags": ["動詞"]
+    },
+    {
+      "id": "turn",
+      "word": "turn",
+      "emoji": "🔄",
+      "ipa": "/tɜːn/",
+      "syllables": "turn",
+      "pos": "Verb",
+      "sample": "The wheels <b>turn</b> when you push the car.",
+      "jp_word": "回る",
+      "jp_reading": "まわる",
+      "jp_sentence": "車を押すと車輪が<b>回ります</b>。",
+      "jp_tags": ["動詞"]
+    },
+    {
+      "id": "put",
+      "word": "put",
+      "emoji": "📌",
+      "ipa": "/pʊt/",
+      "syllables": "put",
+      "pos": "Verb",
+      "sample": "Every morning I <b>put</b> my things in my backpack.",
+      "jp_word": "置く・入れる",
+      "jp_reading": "おく・いれる",
+      "jp_sentence": "毎朝、私は自分のものをバックパックに<b>入れます</b>。",
+      "jp_tags": ["動詞"]
+    },
+    {
+      "id": "use",
+      "word": "use",
+      "emoji": "🛠️",
+      "ipa": "/juːz/",
+      "syllables": "use",
+      "pos": "Verb",
+      "sample": "How do you <b>use</b> that toy?",
+      "jp_word": "使う",
+      "jp_reading": "つかう",
+      "jp_sentence": "そのおもちゃはどのように<b>使い</b>ますか？",
+      "jp_tags": ["動詞"]
+    },
+    {
+      "id": "lift",
+      "word": "lift",
+      "emoji": "💪",
+      "ipa": "/lɪft/",
+      "syllables": "lift",
+      "pos": "Verb",
+      "sample": "<b>Lift</b> your arms and shake your legs.",
+      "jp_word": "持ち上げる",
+      "jp_reading": "もちあげる",
+      "jp_sentence": "腕を<b>持ち上げて</b>、足を振ってください。",
+      "jp_tags": ["動詞"]
+    }
+  ]
+}
