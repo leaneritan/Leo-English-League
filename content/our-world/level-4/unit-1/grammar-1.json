@@ -55,8 +55,8 @@
           {"from": "cheap", "to": "cheaper"}
         ],
         "examples": [
-          "My dad is <b>older</b> than my mum.",
-          "The train is <b>faster</b> than the bus."
+          { "text": "My dad is <b>older</b> than my mum.",       "jp": "お父さんはお母さんより年上です。" },
+          { "text": "The train is <b>faster</b> than the bus.",  "jp": "電車はバスより速いです。" }
         ]
       },
       {
@@ -71,8 +71,8 @@
           {"from": "pretty", "to": "prettier"}
         ],
         "examples": [
-          "Math is <b>easier</b> than science for me.",
-          "I'm <b>happier</b> in summer than in winter."
+          { "text": "Math is <b>easier</b> than science for me.",       "jp": "私にとって数学は理科より簡単です。" },
+          { "text": "I'm <b>happier</b> in summer than in winter.",     "jp": "私は冬より夏の方が幸せです。" }
         ]
       },
       {
@@ -87,8 +87,8 @@
           {"from": "fat", "to": "fatter"}
         ],
         "examples": [
-          "Egypt is <b>hotter</b> than Canada.",
-          "Elephants are <b>bigger</b> than horses."
+          { "text": "Egypt is <b>hotter</b> than Canada.",        "jp": "エジプトはカナダより暑いです。" },
+          { "text": "Elephants are <b>bigger</b> than horses.",   "jp": "象は馬より大きいです。" }
         ]
       },
       {
@@ -102,8 +102,8 @@
           {"from": "expensive", "to": "more expensive"}
         ],
         "examples": [
-          "Soccer is <b>more exciting</b> than golf.",
-          "This book is <b>more interesting</b> than that one."
+          { "text": "Soccer is <b>more exciting</b> than golf.",              "jp": "サッカーはゴルフよりわくわくします。" },
+          { "text": "This book is <b>more interesting</b> than that one.",    "jp": "この本はあの本よりおもしろいです。" }
         ]
       },
       {
@@ -118,22 +118,22 @@
           {"from": "much / many", "to": "more"}
         ],
         "examples": [
-          "My English is <b>better</b> than last year.",
-          "Today's weather is <b>worse</b> than yesterday's."
+          { "text": "My English is <b>better</b> than last year.",          "jp": "私の英語は去年より上手になりました。" },
+          { "text": "Today's weather is <b>worse</b> than yesterday's.",    "jp": "今日の天気は昨日より悪いです。" }
         ]
       }
     ],
     "mixed_samples": [
-      {"text": "My new phone is <b>more expensive</b> than my old one.", "kind": "Rule 4 · \"more\""},
-      {"text": "I feel <b>happier</b> on weekends than on school days.", "kind": "Rule 2 · y → i"},
-      {"text": "Cheetahs run <b>faster</b> than any other land animal.", "kind": "Rule 1 · regular"},
-      {"text": "My little brother draws <b>better</b> than me.", "kind": "Rule 5 · irregular"},
-      {"text": "The weather in Tokyo is <b>hotter</b> in summer than in Osaka.", "kind": "Rule 3 · doubling"},
-      {"text": "Science class is <b>more difficult</b> than English class this year.", "kind": "Rule 4 · \"more\""},
-      {"text": "This road is <b>longer</b> than the one we took last time.", "kind": "Rule 1 · regular"},
-      {"text": "Today is <b>worse</b> than yesterday — it's raining again.", "kind": "Rule 5 · irregular"},
-      {"text": "My cat is <b>friendlier</b> than most dogs I've met.", "kind": "Rule 2 · y → i"},
-      {"text": "The new stadium is <b>bigger</b> and <b>more modern</b> than the old one.", "kind": "Rule 3 + Rule 4"}
+      {"text": "My new phone is <b>more expensive</b> than my old one.",                         "kind": "Rule 4 · \"more\"",   "jp": "私の新しいスマホは古いものより高価です。"},
+      {"text": "I feel <b>happier</b> on weekends than on school days.",                         "kind": "Rule 2 · y → i",      "jp": "私は学校がある日より週末の方が幸せです。"},
+      {"text": "Cheetahs run <b>faster</b> than any other land animal.",                         "kind": "Rule 1 · regular",    "jp": "チーターはどの陸上動物よりも速く走ります。"},
+      {"text": "My little brother draws <b>better</b> than me.",                                 "kind": "Rule 5 · irregular",  "jp": "弟は私より絵が上手です。"},
+      {"text": "The weather in Tokyo is <b>hotter</b> in summer than in Osaka.",                 "kind": "Rule 3 · doubling",   "jp": "東京の夏の気温は大阪より高いです。"},
+      {"text": "Science class is <b>more difficult</b> than English class this year.",           "kind": "Rule 4 · \"more\"",   "jp": "今年は理科の授業は英語より難しいです。"},
+      {"text": "This road is <b>longer</b> than the one we took last time.",                     "kind": "Rule 1 · regular",    "jp": "この道は前回通った道より長いです。"},
+      {"text": "Today is <b>worse</b> than yesterday — it's raining again.",                     "kind": "Rule 5 · irregular",  "jp": "今日は昨日より最悪です——また雨が降っています。"},
+      {"text": "My cat is <b>friendlier</b> than most dogs I've met.",                           "kind": "Rule 2 · y → i",      "jp": "うちの猫は私が会ったほとんどの犬より人懐こいです。"},
+      {"text": "The new stadium is <b>bigger</b> and <b>more modern</b> than the old one.",      "kind": "Rule 3 + Rule 4",     "jp": "新しいスタジアムは古いものより大きくて現代的です。"}
     ]
   },
   "tab3_quiz": {
