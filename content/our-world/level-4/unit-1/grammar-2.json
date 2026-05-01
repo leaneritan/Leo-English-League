@@ -29,16 +29,16 @@
     "note_exception_detail": "these signal a future plan"
   },
   "tab1_samples": [
-    "I'm <b>meeting</b> my cousins after school today.",
-    "She's <b>visiting</b> Tokyo for the first time next spring.",
-    "We're <b>having</b> a family dinner tonight.",
-    "He's <b>flying</b> to London on Thursday.",
-    "They're <b>coming</b> to our house this Sunday.",
-    "I'm <b>not going</b> to school tomorrow — it's a public holiday.",
-    "Are you <b>visiting</b> your relatives next summer?",
-    "My parents are <b>planning</b> a big birthday party for me.",
-    "Leo is <b>studying</b> with his friends this afternoon.",
-    "We're <b>watching</b> the big game together on Saturday night."
+    { "text": "I'm <b>meeting</b> my cousins after school today.",                        "jp": "今日放課後、いとこたちに会います。" },
+    { "text": "She's <b>visiting</b> Tokyo for the first time next spring.",               "jp": "彼女は来春、初めて東京を訪れます。" },
+    { "text": "We're <b>having</b> a family dinner tonight.",                               "jp": "今夜、家族で夕食を食べます。" },
+    { "text": "He's <b>flying</b> to London on Thursday.",                                 "jp": "彼は木曜日にロンドンへ飛びます。" },
+    { "text": "They're <b>coming</b> to our house this Sunday.",                           "jp": "彼らはこの日曜日に私たちの家に来ます。" },
+    { "text": "I'm <b>not going</b> to school tomorrow — it's a public holiday.",          "jp": "明日は祝日なので学校に行きません。" },
+    { "text": "Are you <b>visiting</b> your relatives next summer?",                       "jp": "来年の夏、親戚を訪ねる予定ですか？" },
+    { "text": "My parents are <b>planning</b> a big birthday party for me.",               "jp": "両親が私のために大きな誕生日パーティーを計画しています。" },
+    { "text": "Leo is <b>studying</b> with his friends this afternoon.",                   "jp": "レオは今日の午後、友達と勉強します。" },
+    { "text": "We're <b>watching</b> the big game together on Saturday night.",            "jp": "土曜日の夜、みんなで大試合を観ます。" }
   ],
   "tab2_levelup": {
     "rules": [
@@ -53,8 +53,8 @@
           {"from": "they visit", "to": "they are visiting"}
         ],
         "examples": [
-          "I <b>am meeting</b> my friend at 3 pm.",
-          "She <b>is visiting</b> her aunt next weekend."
+          { "text": "I <b>am meeting</b> my friend at 3 pm.",        "jp": "午後3時に友達に会います。" },
+          { "text": "She <b>is visiting</b> her aunt next weekend.",  "jp": "彼女は来週末、おばさんを訪ねます。" }
         ]
       },
       {
@@ -66,8 +66,8 @@
           {"from": "She visits often.", "to": "She is visiting next week."}
         ],
         "examples": [
-          "I'm <b>seeing</b> the doctor on Monday. <em>(scheduled appointment)</em>",
-          "She's <b>starting</b> her new school next term. <em>(definite plan)</em>"
+          { "text": "I'm <b>seeing</b> the doctor on Monday. <em>(scheduled appointment)</em>",  "jp": "月曜日に医者に行きます（予約済みの診察）。" },
+          { "text": "She's <b>starting</b> her new school next term. <em>(definite plan)</em>",   "jp": "彼女は来学期から新しい学校に通い始めます（確定した予定）。" }
         ]
       },
       {
@@ -80,8 +80,8 @@
           {"from": "on Monday", "to": "in two days"}
         ],
         "examples": [
-          "They're arriving <b>tomorrow</b>.",
-          "We're moving house <b>next month</b>."
+          { "text": "They're arriving <b>tomorrow</b>.",       "jp": "彼らは明日到着します。" },
+          { "text": "We're moving house <b>next month</b>.",  "jp": "来月、引っ越しをします。" }
         ]
       },
       {
@@ -94,8 +94,8 @@
           {"from": "they are staying", "to": "they are not staying (they aren't staying)"}
         ],
         "examples": [
-          "I'm <b>not going</b> to the party.",
-          "She <b>isn't coming</b> — she has work."
+          { "text": "I'm <b>not going</b> to the party.",      "jp": "パーティーには行きません。" },
+          { "text": "She <b>isn't coming</b> — she has work.", "jp": "彼女は来ません——仕事があります。" }
         ]
       },
       {
@@ -108,22 +108,22 @@
           {"from": "They are flying.", "to": "Are they flying?"}
         ],
         "examples": [
-          "<b>Are</b> you <b>coming</b> to the party?",
-          "<b>Is</b> Leo <b>flying</b> with us?"
+          { "text": "<b>Are</b> you <b>coming</b> to the party?", "jp": "パーティーに来ますか？" },
+          { "text": "<b>Is</b> Leo <b>flying</b> with us?",       "jp": "レオは私たちと一緒に飛行機に乗りますか？" }
         ]
       }
     ],
     "mixed_samples": [
-      {"text": "My teacher <b>is testing</b> us on Friday, so I'm studying tonight.", "kind": "Rule 1 + 2"},
-      {"text": "She <b>isn't coming</b> to practice — she has a doctor's appointment.", "kind": "Rule 4 · negative"},
-      {"text": "<b>Are</b> they <b>arriving</b> by train or by bus?", "kind": "Rule 5 · question"},
-      {"text": "We're <b>having</b> a big family meal tomorrow evening.", "kind": "Rule 3 · tomorrow"},
-      {"text": "I'm <b>not watching</b> TV tonight — I have homework.", "kind": "Rule 4 · negative"},
-      {"text": "He's <b>starting</b> a new job <b>next Monday</b>.", "kind": "Rule 3 · next Monday"},
-      {"text": "<b>Are</b> you <b>bringing</b> anything to the party?", "kind": "Rule 5 · question"},
-      {"text": "My parents are <b>flying</b> to New York on the 15th.", "kind": "Rule 2 · scheduled event"},
-      {"text": "She <b>isn't visiting</b> us this weekend — the weather is bad.", "kind": "Rule 4 · negative"},
-      {"text": "We're <b>meeting</b> our old friends from primary school this Saturday.", "kind": "Rule 3 · this Saturday"}
+      {"text": "My teacher <b>is testing</b> us on Friday, so I'm studying tonight.", "kind": "Rule 1 + 2",           "jp": "先生が金曜日にテストをするので、今夜勉強しています。"},
+      {"text": "She <b>isn't coming</b> to practice — she has a doctor's appointment.", "kind": "Rule 4 · negative", "jp": "彼女は練習に来ません——医者の予約があります。"},
+      {"text": "<b>Are</b> they <b>arriving</b> by train or by bus?", "kind": "Rule 5 · question",                  "jp": "彼らは電車で来ますか、それともバスで来ますか？"},
+      {"text": "We're <b>having</b> a big family meal tomorrow evening.", "kind": "Rule 3 · tomorrow",               "jp": "明日の夕方、家族で大きな食事をします。"},
+      {"text": "I'm <b>not watching</b> TV tonight — I have homework.", "kind": "Rule 4 · negative",                "jp": "今夜はテレビを見ません——宿題があります。"},
+      {"text": "He's <b>starting</b> a new job <b>next Monday</b>.", "kind": "Rule 3 · next Monday",                "jp": "彼は来週月曜日から新しい仕事を始めます。"},
+      {"text": "<b>Are</b> you <b>bringing</b> anything to the party?", "kind": "Rule 5 · question",                "jp": "パーティーに何か持ってきますか？"},
+      {"text": "My parents are <b>flying</b> to New York on the 15th.", "kind": "Rule 2 · scheduled event",        "jp": "両親は15日にニューヨークへ飛行機で行きます。"},
+      {"text": "She <b>isn't visiting</b> us this weekend — the weather is bad.", "kind": "Rule 4 · negative",      "jp": "天気が悪いので、彼女は今週末、私たちを訪ねません。"},
+      {"text": "We're <b>meeting</b> our old friends from primary school this Saturday.", "kind": "Rule 3 · this Saturday", "jp": "この土曜日に小学校の旧友たちに会います。"}
     ]
   },
   "tab3_quiz": {
