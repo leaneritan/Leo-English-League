@@ -321,6 +321,22 @@
     /* grammar section inside accordion */
     .acc-grammar { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
 
+    /* tab panels */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* levels grid */
+    .levels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
+    .level-card { background: var(--surface); border: 1.5px solid var(--border); padding: 28px 24px; }
+    .level-card.active-level { background: var(--yellow-bg); border-color: var(--yellow); }
+    .level-card-num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 36px; line-height: 1; color: var(--ink-4); margin-bottom: 6px; }
+    .level-card.active-level .level-card-num { color: var(--ink); }
+    .level-card-name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 0.1em; color: var(--ink-4); margin-bottom: 16px; }
+    .level-card.active-level .level-card-name { color: var(--ink); }
+    .level-badge { display: inline-block; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 10px 3px; }
+    .level-badge.soon { background: var(--soft); color: var(--ink-4); }
+    .level-badge.now { background: var(--ink); color: var(--yellow); }
+
     /* responsive */
     @media (max-width: 840px) {
       .vocab-grid { grid-template-columns: repeat(2, 1fr); }
@@ -328,6 +344,7 @@
       .page-head { font-size: 32px; }
       .gram-row { flex-wrap: wrap; }
       .gram-ex { text-align: left; width: 100%; }
+      .levels-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -358,11 +375,14 @@
       <button class="search-clear" id="clearSearch">✕ CLEAR</button>
     </div>
 
-    <nav class="tabs-bar">
-      <button class="tab active">Vocab <span class="count">312</span></button>
-      <button class="tab">Grammar <span class="count">78</span></button>
-      <button class="tab">Levels <span class="count">6</span></button>
+    <nav class="tabs-bar" id="tabsBar">
+      <button class="tab active" data-tab="vocab">Vocab <span class="count">312</span></button>
+      <button class="tab" data-tab="grammar">Grammar <span class="count">6</span></button>
+      <button class="tab" data-tab="levels">Levels <span class="count">6</span></button>
     </nav>
+
+    <!-- ── VOCAB PANEL ── -->
+    <div class="tab-panel active" id="panel-vocab">
 
     <div class="filter-row">
       <div class="filter-label">Showing</div>
@@ -541,12 +561,121 @@
 
     <div class="no-results" id="noResults">No matches found</div>
 
+    </div><!-- /panel-vocab -->
+
+    <!-- ── GRAMMAR PANEL ── -->
+    <div class="tab-panel" id="panel-grammar">
+
+      <div class="unit-divider">
+        <span class="u-num">Unit 1</span><span class="u-label">Family &amp; Friends</span>
+        <span class="u-rule"></span>
+      </div>
+      <div class="grammar-list">
+        <a class="gram-row" href="grammar.html?level=4&unit=1&set=1">
+          <div class="gram-tag">G1</div>
+          <div class="gram-name">Comparatives with -er</div>
+          <div class="gram-ex">I am taller than Eduardo.</div>
+        </a>
+        <a class="gram-row" href="grammar.html?level=4&unit=1&set=2">
+          <div class="gram-tag">G2</div>
+          <div class="gram-name">Present progressive for future plans</div>
+          <div class="gram-ex">I'm going to a movie tonight.</div>
+        </a>
+      </div>
+
+      <div class="unit-divider">
+        <span class="u-num">Unit 6</span><span class="u-label">Wonders of the Sea</span>
+        <span class="u-rule"></span>
+      </div>
+      <div class="grammar-list">
+        <a class="gram-row" href="grammar.html?level=4&unit=6&set=1">
+          <div class="gram-tag">G1</div>
+          <div class="gram-name">Have to, must, can't, and don't</div>
+          <div class="gram-ex">You can't throw garbage in the ocean.</div>
+        </a>
+        <a class="gram-row" href="grammar.html?level=4&unit=6&set=2">
+          <div class="gram-tag">G2</div>
+          <div class="gram-name">Future with will and won't</div>
+          <div class="gram-ex">In the future, people will live longer.</div>
+        </a>
+      </div>
+
+      <div class="unit-divider">
+        <span class="u-num">Unit 7</span><span class="u-label">Good Idea!</span>
+        <span class="u-rule"></span>
+      </div>
+      <div class="grammar-list">
+        <a class="gram-row" href="grammar.html?level=4&unit=7&set=1">
+          <div class="gram-tag">G1</div>
+          <div class="gram-name">Used to — past habits</div>
+          <div class="gram-ex">We used to play outside every day.</div>
+        </a>
+        <a class="gram-row" href="grammar.html?level=4&unit=7&set=2">
+          <div class="gram-tag">G2</div>
+          <div class="gram-name">You — general statements</div>
+          <div class="gram-ex">How do you use that invention?</div>
+        </a>
+      </div>
+
+    </div><!-- /panel-grammar -->
+
+    <!-- ── LEVELS PANEL ── -->
+    <div class="tab-panel" id="panel-levels">
+
+      <div class="levels-grid">
+        <div class="level-card">
+          <div class="level-card-num">L1</div>
+          <div class="level-card-name">Level 1</div>
+          <div class="level-badge soon">Coming soon</div>
+        </div>
+        <div class="level-card">
+          <div class="level-card-num">L2</div>
+          <div class="level-card-name">Level 2</div>
+          <div class="level-badge soon">Coming soon</div>
+        </div>
+        <div class="level-card">
+          <div class="level-card-num">L3</div>
+          <div class="level-card-name">Level 3</div>
+          <div class="level-badge soon">Coming soon</div>
+        </div>
+        <div class="level-card active-level">
+          <div class="level-card-num">L4</div>
+          <div class="level-card-name">Level 4</div>
+          <div class="level-badge now">Active now</div>
+        </div>
+        <div class="level-card">
+          <div class="level-card-num">L5</div>
+          <div class="level-card-name">Level 5</div>
+          <div class="level-badge soon">Coming soon</div>
+        </div>
+        <div class="level-card">
+          <div class="level-card-num">L6</div>
+          <div class="level-card-name">Level 6</div>
+          <div class="level-badge soon">Coming soon</div>
+        </div>
+      </div>
+
+    </div><!-- /panel-levels -->
+
   </main>
 
   <script>
     function toggleUnit(header) {
       header.parentElement.classList.toggle('open');
     }
+
+    // Tab switching
+    document.getElementById('tabsBar').addEventListener('click', e => {
+      const tab = e.target.closest('[data-tab]');
+      if (!tab) return;
+      const key = tab.dataset.tab;
+      document.querySelectorAll('#tabsBar .tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + key).classList.add('active');
+      // search box only makes sense on vocab tab
+      document.querySelector('.search-box').style.display = key === 'vocab' ? '' : 'none';
+    });
 
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash;
