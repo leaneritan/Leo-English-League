@@ -92,6 +92,21 @@
       color: var(--ink); background: transparent;
     }
     .search-box input::placeholder { color: var(--ink-4); }
+    .search-clear {
+      display: none;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.18em;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--ink-3); padding: 4px 9px; cursor: pointer;
+      flex-shrink: 0;
+    }
+    .search-clear:hover { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .no-results {
+      display: none;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-4); padding: 32px 0; text-align: center;
+    }
 
     /* tabs */
     .tabs-bar {
@@ -339,7 +354,8 @@
         <circle cx="11" cy="11" r="7"/>
         <path d="m21 21-4.35-4.35"/>
       </svg>
-      <input type="text" placeholder="Search a word or a grammar point — 'pumpkin', 'comparatives', 'should'...">
+      <input id="searchInput" type="text" placeholder="Search a word or a grammar point — 'pumpkin', 'comparatives', 'should'..." autocomplete="off">
+      <button class="search-clear" id="clearSearch">✕ CLEAR</button>
     </div>
 
     <nav class="tabs-bar">
@@ -523,12 +539,15 @@
       </div>
     </div>
 
+    <div class="no-results" id="noResults">No matches found</div>
+
   </main>
 
   <script>
     function toggleUnit(header) {
       header.parentElement.classList.toggle('open');
     }
+
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash;
       if (hash) {
@@ -538,6 +557,71 @@
           setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
         }
       }
+    });
+
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn    = document.getElementById('clearSearch');
+    const noResults   = document.getElementById('noResults');
+
+    function doSearch(raw) {
+      const q = raw.toLowerCase().trim();
+      clearBtn.style.display = q ? 'inline-block' : 'none';
+
+      const accordions = document.querySelectorAll('.unit-accordion');
+      let totalVisible = 0;
+
+      accordions.forEach(acc => {
+        let accVisible = 0;
+
+        // vocab grids
+        acc.querySelectorAll('.vocab-grid').forEach(grid => {
+          let gridVisible = 0;
+          grid.querySelectorAll('.vocab-tile').forEach(tile => {
+            const word = tile.querySelector('.word').textContent.toLowerCase();
+            const show = !q || word.includes(q);
+            tile.style.display = show ? '' : 'none';
+            if (show) gridVisible++;
+          });
+          grid.style.display = (!q || gridVisible) ? '' : 'none';
+          const label = grid.previousElementSibling;
+          if (label && label.classList.contains('set-label') && !label.classList.contains('grammar')) {
+            label.style.display = (!q || gridVisible) ? '' : 'none';
+          }
+          accVisible += gridVisible;
+        });
+
+        // grammar rows
+        const gramSection = acc.querySelector('.acc-grammar');
+        if (gramSection) {
+          let gramVisible = 0;
+          gramSection.querySelectorAll('.gram-row').forEach(row => {
+            const name = row.querySelector('.gram-name').textContent.toLowerCase();
+            const show = !q || name.includes(q);
+            row.style.display = show ? '' : 'none';
+            if (show) gramVisible++;
+          });
+          gramSection.style.display = (!q || gramVisible) ? '' : 'none';
+          accVisible += gramVisible;
+        }
+
+        if (!q) {
+          acc.style.display = '';
+        } else {
+          acc.style.display = accVisible ? '' : 'none';
+          if (accVisible) acc.classList.add('open');
+        }
+
+        totalVisible += accVisible;
+      });
+
+      noResults.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', () => doSearch(searchInput.value));
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      doSearch('');
+      searchInput.focus();
     });
   </script>
 </body>
