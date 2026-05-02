@@ -128,7 +128,9 @@
             "text": "She <b>is visiting</b> her aunt next weekend.",
             "jp": "彼女は来週末、おばさんを訪ねます。"
           }
-        ]
+        ],
+        "jp_title": "形——am / is / are + 動詞-ing",
+        "jp_subtitle": "be の正しい形を選び、動詞に -ing をつけます。"
       },
       {
         "num": "02",
@@ -153,7 +155,9 @@
             "text": "She's <b>starting</b> her new school next term. <em>(definite plan)</em>",
             "jp": "彼女は来学期から新しい学校に通い始めます（確定した予定）。"
           }
-        ]
+        ],
+        "jp_title": "予定されている未来の出来事に使う",
+        "jp_subtitle": "すでに計画や予定がある場合にのみ使います——習慣や一般的な事実には使いません。"
       },
       {
         "num": "03",
@@ -182,7 +186,9 @@
             "text": "We're moving house <b>next month</b>.",
             "jp": "来月、引っ越しをします。"
           }
-        ]
+        ],
+        "jp_title": "よく使う未来の時間表現",
+        "jp_subtitle": "これらの語句は未来の計画を示しています——手がかりとして探しましょう。"
       },
       {
         "num": "04",
@@ -211,7 +217,9 @@
             "text": "She <b>isn't coming</b> — she has work.",
             "jp": "彼女は来ません——仕事があります。"
           }
-        ]
+        ],
+        "jp_title": "否定形——am / is / are + not + 動詞-ing",
+        "jp_subtitle": "「〜しない」と言うには、助動詞の後に not を加えます。"
       },
       {
         "num": "05",
@@ -240,7 +248,9 @@
             "text": "<b>Is</b> Leo <b>flying</b> with us?",
             "jp": "レオは私たちと一緒に飛行機に乗りますか？"
           }
-        ]
+        ],
+        "jp_title": "疑問文——Am / Is / Are + 主語 + 動詞-ing?",
+        "jp_subtitle": "疑問文を作るには、助動詞を文頭に移動させます。"
       }
     ],
     "mixed_samples": [
