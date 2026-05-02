@@ -1,0 +1,260 @@
+{
+  "level": 4,
+  "unit": 6,
+  "set": 2,
+  "unit_name": "Wonders of the Sea",
+  "title": "Future with will and won't",
+  "tag": "Future Tense",
+  "chart": {
+    "title": "Future with will and won't",
+    "intro_examples": [
+      { "text": "In the future, people will live longer.", "continuation": "won't = will not" },
+      { "text": "In the future, we won't use paper money.", "continuation": "we'll = we will" }
+    ],
+    "rows": [
+      ["In the future,", "people", "will", "live longer."],
+      ["In the future,", "we", "won't", "use paper money."],
+      ["Where", "will we", "live", "in the future?"],
+      ["Will", "people", "live", "longer?"]
+    ],
+    "note_rule": "Use will to talk about the future. Use won't (will not) for negative future statements.",
+    "note_exception": "won't = will not · we'll = we will",
+    "note_exception_detail": "When you aren't 100% sure, use maybe. Example: In the future, will people live longer? Maybe."
+  },
+  "tab1_samples": [
+    { "text": "In the future, people <b>will</b> live in underwater cities.", "jp": "将来、人々は海底都市に住むでしょう。" },
+    { "text": "Scientists <b>will</b> find new ways to clean the ocean.", "jp": "科学者たちは海をきれいにする新しい方法を見つけるでしょう。" },
+    { "text": "Ocean pollution <b>won't</b> stop without our help.", "jp": "私たちの助けなしでは、海の汚染は止まらないでしょう。" },
+    { "text": "<b>Will</b> we see whales in every ocean in the future?", "jp": "将来、すべての海でクジラを見ることができるでしょうか？" },
+    { "text": "Sea turtles <b>won't</b> disappear if we stop throwing plastic in the ocean.", "jp": "海にプラスチックを捨てるのをやめれば、ウミガメは消えないでしょう。" },
+    { "text": "People <b>will</b> use electric boats to protect the ocean in the future.", "jp": "将来、人々は海を守るために電気ボートを使うでしょう。" },
+    { "text": "<b>Will</b> dolphins still live in the ocean in 100 years?", "jp": "100年後もイルカは海に住んでいるでしょうか？" },
+    { "text": "We <b>won't</b> have clean oceans if we don't stop pollution now.", "jp": "今すぐ汚染を止めなければ、きれいな海はなくなるでしょう。" },
+    { "text": "Children today <b>will</b> work hard to protect the ocean — maybe.", "jp": "今日の子どもたちは海を守るために頑張るでしょう。たぶん。" },
+    { "text": "In the future, overfishing <b>won't</b> be a problem if we make better rules.", "jp": "よりよい規則を作れば、将来乱獲は問題にならないでしょう。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "will",
+        "jp_title": "will（ウィル）",
+        "subtitle": "Use <b>will</b> for positive future statements.",
+        "jp_subtitle": "肯定の未来の文には<b>will</b>を使います。",
+        "transforms": [{ "from": "future (positive)", "to": "will + base verb" }],
+        "examples": [
+          { "text": "People <b>will</b> live longer in the future.", "jp": "将来、人々はより長く生きるでしょう。" },
+          { "text": "We <b>will</b> find new sea creatures.", "jp": "私たちは新しい海の生き物を発見するでしょう。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "won't",
+        "jp_title": "won't（ウォント）",
+        "subtitle": "Use <b>won't</b> for negative future statements. (won't = will not)",
+        "jp_subtitle": "否定の未来の文には<b>won't</b>を使います。（won't = will not）",
+        "transforms": [{ "from": "future (negative)", "to": "won't + base verb" }],
+        "examples": [
+          { "text": "We <b>won't</b> use paper money in the future.", "jp": "将来、私たちは紙のお金を使わないでしょう。" },
+          { "text": "Whales <b>won't</b> disappear if we protect them.", "jp": "保護すればクジラは消えないでしょう。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Will…? (yes/no questions)",
+        "jp_title": "Will…?（はい・いいえ疑問文）",
+        "subtitle": "Put <b>Will</b> at the start to make a yes/no question.",
+        "jp_subtitle": "はい・いいえ疑問文は<b>Will</b>を文頭に置きます。",
+        "transforms": [{ "from": "yes/no question", "to": "Will + subject + base verb?" }],
+        "examples": [
+          { "text": "<b>Will</b> people live longer?", "jp": "人々はより長く生きるでしょうか？" },
+          { "text": "<b>Will</b> the ocean be clean in the future?", "jp": "将来、海はきれいになるでしょうか？" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Wh- + will (information questions)",
+        "jp_title": "Wh- + will（情報疑問文）",
+        "subtitle": "Use a question word before <b>will</b> for information questions.",
+        "jp_subtitle": "情報疑問文は疑問詞を<b>will</b>の前に置きます。",
+        "transforms": [{ "from": "information question", "to": "Wh-word + will + subject + verb?" }],
+        "examples": [
+          { "text": "Where <b>will</b> we live in the future?", "jp": "将来、私たちはどこに住むでしょうか？" },
+          { "text": "What <b>will</b> happen to the ocean?", "jp": "海はどうなるでしょうか？" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "maybe",
+        "jp_title": "maybe（たぶん）",
+        "subtitle": "Use <b>maybe</b> when you are not 100% sure.",
+        "jp_subtitle": "100%確信がないときは<b>maybe</b>を使います。",
+        "transforms": [{ "from": "not sure", "to": "maybe + will" }],
+        "examples": [
+          { "text": "In the future, <b>maybe</b> people will live under the sea.", "jp": "将来、たぶん人々は海の下に住むでしょう。" },
+          { "text": "Will sea turtles survive? <b>Maybe.</b>", "jp": "ウミガメは生き残るでしょうか？たぶん。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "In the future, we <b>will</b> use robots to clean the ocean.", "kind": "will", "jp": "将来、私たちは海をきれいにするためにロボットを使うでしょう。" },
+      { "text": "People <b>won't</b> throw plastic in the ocean in the future.", "kind": "won't", "jp": "将来、人々は海にプラスチックを捨てないでしょう。" },
+      { "text": "<b>Will</b> dolphins still live in the ocean in 100 years?", "kind": "will question", "jp": "100年後もイルカは海に住んでいるでしょうか？" },
+      { "text": "Where <b>will</b> sea turtles go if the ocean gets too warm?", "kind": "wh- question", "jp": "海が温かくなりすぎたら、ウミガメはどこへ行くでしょうか？" },
+      { "text": "Maybe we <b>will</b> find new ocean resources in the future.", "kind": "maybe", "jp": "たぶん将来、新しい海の資源を見つけるでしょう。" },
+      { "text": "Scientists <b>will</b> discover new creatures in the midnight zone.", "kind": "will", "jp": "科学者たちは真夜中ゾーンで新しい生き物を発見するでしょう。" },
+      { "text": "Overfishing <b>won't</b> stop if people don't make better rules.", "kind": "won't", "jp": "人々がよりよい規則を作らなければ、乱獲は止まらないでしょう。" },
+      { "text": "<b>Will</b> there be more pollution in the ocean next year?", "kind": "will question", "jp": "来年、海の汚染はさらに増えるでしょうか？" },
+      { "text": "When <b>will</b> people stop throwing garbage into the sea?", "kind": "wh- question", "jp": "人々はいつ海にゴミを捨てるのをやめるでしょうか？" },
+      { "text": "Maybe sea creatures <b>will</b> become extinct if we don't act now.", "kind": "maybe", "jp": "たぶん今すぐ行動しなければ、海の生き物は絶滅するでしょう。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["In the future, people", "___", "live longer."],
+        "answers": ["will", "won't", "are", "have to"],
+        "correct": 0,
+        "explanation": { "title": "will", "body": "Use <b>will</b> + base verb to talk about positive future events." },
+        "jp": "将来、人々はより長く生きるでしょう。"
+      },
+      {
+        "stem": ["We", "___", "use paper money in the future."],
+        "answers": ["won't", "will", "don't", "aren't"],
+        "correct": 0,
+        "explanation": { "title": "won't", "body": "Use <b>won't</b> (will not) for negative future statements." },
+        "jp": "将来、私たちは紙のお金を使わないでしょう。"
+      },
+      {
+        "stem": ["___", "will we live in the future?"],
+        "answers": ["Where", "What", "Why", "Who"],
+        "correct": 0,
+        "explanation": { "title": "Where", "body": "Use <b>Where</b> to ask about a place. It comes before <b>will</b> in a question." },
+        "jp": "将来、私たちはどこに住むでしょうか？"
+      },
+      {
+        "stem": ["___", "people live longer in the future?"],
+        "answers": ["Will", "Do", "Are", "Have"],
+        "correct": 0,
+        "explanation": { "title": "Will", "body": "For yes/no future questions, put <b>Will</b> at the start of the sentence." },
+        "jp": "将来、人々はより長く生きるでしょうか？"
+      },
+      {
+        "stem": ["Sea turtles won't", "___", "if we stop using plastic."],
+        "answers": ["disappear", "disappears", "disappearing", "disappeared"],
+        "correct": 0,
+        "explanation": { "title": "won't + base verb", "body": "After <b>won't</b>, always use the base form of the verb — no -s, -ing, or -ed." },
+        "jp": "プラスチックの使用をやめれば、ウミガメは消えないでしょう。"
+      },
+      {
+        "stem": ["In the future, will we", "___", "new sea creatures?"],
+        "answers": ["discover", "discovers", "discovered", "discovering"],
+        "correct": 0,
+        "explanation": { "title": "will + base verb", "body": "In questions with <b>will</b>, use the base form of the verb." },
+        "jp": "将来、私たちは新しい海の生き物を発見するでしょうか？"
+      },
+      {
+        "stem": ["Will the ocean be clean?", "Yes, it", "___."],
+        "answers": ["will", "won't", "does", "is"],
+        "correct": 0,
+        "explanation": { "title": "Short answer: Yes, it will.", "body": "For short answers with <b>will</b>, say <b>Yes, it will</b> or <b>No, it won't</b>." },
+        "jp": "海はきれいになるでしょうか？はい、なるでしょう。"
+      },
+      {
+        "stem": ["Maybe scientists", "___", "find a way to clean the ocean."],
+        "answers": ["will", "won't", "are", "have"],
+        "correct": 0,
+        "explanation": { "title": "maybe + will", "body": "Use <b>maybe</b> + <b>will</b> when you are not 100% sure about the future." },
+        "jp": "たぶん科学者たちは海をきれいにする方法を見つけるでしょう。"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["People will lives longer.", "People will live longer.", "People wills live longer.", "People will living longer."],
+        "correct": 1,
+        "explanation": { "title": "will + base verb", "body": "After <b>will</b>, always use the base form of the verb — no -s, -ing, or -ed." },
+        "jp": "人々はより長く生きるでしょう。"
+      },
+      {
+        "stem": ["What will happen to the ocean if we", "___", "stop pollution?"],
+        "answers": ["don't", "won't", "can't", "didn't"],
+        "correct": 0,
+        "explanation": { "title": "if + present tense", "body": "In <b>if</b>-clauses, we use the present tense (<b>don't</b>), not <b>won't</b>." },
+        "jp": "汚染を止めなければ、海はどうなるでしょうか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["In the future, we ___ use paper money."],
+        "answers": ["won't", "will", "don't", "aren't"],
+        "correct": 0,
+        "jp": "将来、私たちは紙のお金を使わないでしょう。"
+      },
+      {
+        "type": "mc",
+        "stem": ["___ will sea turtles live if the ocean is too warm?"],
+        "answers": ["Where", "What", "Will", "Who"],
+        "correct": 0,
+        "jp": "海が温かすぎたら、ウミガメはどこに住むでしょうか？"
+      },
+      {
+        "type": "mc",
+        "stem": ["Scientists will ___ new creatures in the midnight zone."],
+        "answers": ["discover", "discovers", "discovered", "discovering"],
+        "correct": 0,
+        "jp": "科学者たちは真夜中ゾーンで新しい生き物を発見するでしょう。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Will dolphins survive? No, they ___."],
+        "answers": ["won't", "will", "don't", "aren't"],
+        "correct": 0,
+        "jp": "イルカは生き残るでしょうか？いいえ、生き残らないでしょう。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Maybe people ___ live under the sea one day."],
+        "answers": ["will", "won't", "do", "are"],
+        "correct": 0,
+        "jp": "たぶん将来、人々は海の下に住むでしょう。"
+      },
+      {
+        "type": "build",
+        "cue": "People / will / live / longer / in the future",
+        "bank": ["People", "will", "live", "longer", "in", "the", "future", ".", "won't", "lives"],
+        "correct": ["People", "will", "live", "longer", "in", "the", "future", "."],
+        "jp": "将来、人々はより長く生きるでしょう。"
+      },
+      {
+        "type": "build",
+        "cue": "We / won't / use / paper money",
+        "bank": ["We", "won't", "use", "paper", "money", ".", "will", "don't"],
+        "correct": ["We", "won't", "use", "paper", "money", "."],
+        "jp": "私たちは紙のお金を使わないでしょう。"
+      },
+      {
+        "type": "build",
+        "cue": "Will / people / live / longer?",
+        "bank": ["Will", "people", "live", "longer", "?", "won't", "Do", "lives"],
+        "correct": ["Will", "people", "live", "longer", "?"],
+        "jp": "人々はより長く生きるでしょうか？"
+      },
+      {
+        "type": "build",
+        "cue": "Where / will / we / live / in the future?",
+        "bank": ["Where", "will", "we", "live", "in", "the", "future", "?", "won't", "What"],
+        "correct": ["Where", "will", "we", "live", "in", "the", "future", "?"],
+        "jp": "将来、私たちはどこに住むでしょうか？"
+      },
+      {
+        "type": "build",
+        "cue": "Maybe / sea turtles / will / survive",
+        "bank": ["Maybe", "sea", "turtles", "will", "survive", ".", "won't", "Perhaps"],
+        "correct": ["Maybe", "sea", "turtles", "will", "survive", "."],
+        "jp": "たぶんウミガメは生き残るでしょう。"
+      }
+    ]
+  }
+}
