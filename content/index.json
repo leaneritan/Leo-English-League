@@ -37,6 +37,12 @@
             "grammar_sets": 2
           },
           {
+            "unit": 6,
+            "label": "Wonders of the Sea",
+            "vocab_sets": 2,
+            "grammar_sets": 2
+          },
+          {
             "unit": 7,
             "label": "Good Idea!",
             "vocab_sets": 2,
