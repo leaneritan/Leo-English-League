@@ -18,27 +18,82 @@
       }
     ],
     "rows": [
-      ["I'm", "meeting my relatives", "—", "tomorrow"],
-      ["She's", "visiting her grandparents", "—", "next weekend"],
-      ["We're", "having a party", "—", "on Saturday"],
-      ["He's", "flying to Tokyo", "—", "next month"],
-      ["They're", "coming to dinner", "—", "tonight"]
+      [
+        "I'm",
+        "meeting my relatives",
+        "—",
+        "tomorrow"
+      ],
+      [
+        "She's",
+        "visiting her grandparents",
+        "—",
+        "next weekend"
+      ],
+      [
+        "We're",
+        "having a party",
+        "—",
+        "on Saturday"
+      ],
+      [
+        "He's",
+        "flying to Tokyo",
+        "—",
+        "next month"
+      ],
+      [
+        "They're",
+        "coming to dinner",
+        "—",
+        "tonight"
+      ]
     ],
     "note_rule": "Form: am / is / are + verb-ing. Use for scheduled future events.",
     "note_exception": "Common time expressions: tomorrow, next week, tonight, on [day]",
     "note_exception_detail": "these signal a future plan"
   },
   "tab1_samples": [
-    { "text": "I'm <b>meeting</b> my cousins after school today.",                        "jp": "今日放課後、いとこたちに会います。" },
-    { "text": "She's <b>visiting</b> Tokyo for the first time next spring.",               "jp": "彼女は来春、初めて東京を訪れます。" },
-    { "text": "We're <b>having</b> a family dinner tonight.",                               "jp": "今夜、家族で夕食を食べます。" },
-    { "text": "He's <b>flying</b> to London on Thursday.",                                 "jp": "彼は木曜日にロンドンへ飛びます。" },
-    { "text": "They're <b>coming</b> to our house this Sunday.",                           "jp": "彼らはこの日曜日に私たちの家に来ます。" },
-    { "text": "I'm <b>not going</b> to school tomorrow — it's a public holiday.",          "jp": "明日は祝日なので学校に行きません。" },
-    { "text": "Are you <b>visiting</b> your relatives next summer?",                       "jp": "来年の夏、親戚を訪ねる予定ですか？" },
-    { "text": "My parents are <b>planning</b> a big birthday party for me.",               "jp": "両親が私のために大きな誕生日パーティーを計画しています。" },
-    { "text": "Leo is <b>studying</b> with his friends this afternoon.",                   "jp": "レオは今日の午後、友達と勉強します。" },
-    { "text": "We're <b>watching</b> the big game together on Saturday night.",            "jp": "土曜日の夜、みんなで大試合を観ます。" }
+    {
+      "text": "I'm <b>meeting</b> my cousins after school today.",
+      "jp": "今日放課後、いとこたちに会います。"
+    },
+    {
+      "text": "She's <b>visiting</b> Tokyo for the first time next spring.",
+      "jp": "彼女は来春、初めて東京を訪れます。"
+    },
+    {
+      "text": "We're <b>having</b> a family dinner tonight.",
+      "jp": "今夜、家族で夕食を食べます。"
+    },
+    {
+      "text": "He's <b>flying</b> to London on Thursday.",
+      "jp": "彼は木曜日にロンドンへ飛びます。"
+    },
+    {
+      "text": "They're <b>coming</b> to our house this Sunday.",
+      "jp": "彼らはこの日曜日に私たちの家に来ます。"
+    },
+    {
+      "text": "I'm <b>not going</b> to school tomorrow — it's a public holiday.",
+      "jp": "明日は祝日なので学校に行きません。"
+    },
+    {
+      "text": "Are you <b>visiting</b> your relatives next summer?",
+      "jp": "来年の夏、親戚を訪ねる予定ですか？"
+    },
+    {
+      "text": "My parents are <b>planning</b> a big birthday party for me.",
+      "jp": "両親が私のために大きな誕生日パーティーを計画しています。"
+    },
+    {
+      "text": "Leo is <b>studying</b> with his friends this afternoon.",
+      "jp": "レオは今日の午後、友達と勉強します。"
+    },
+    {
+      "text": "We're <b>watching</b> the big game together on Saturday night.",
+      "jp": "土曜日の夜、みんなで大試合を観ます。"
+    }
   ],
   "tab2_levelup": {
     "rules": [
@@ -47,14 +102,32 @@
         "title": "Form — am / is / are + verb-ing",
         "subtitle": "Choose the correct form of <b>be</b>, then add <b>-ing</b> to the verb.",
         "transforms": [
-          {"from": "I talk", "to": "I am talking"},
-          {"from": "she meets", "to": "she is meeting"},
-          {"from": "we fly", "to": "we are flying"},
-          {"from": "they visit", "to": "they are visiting"}
+          {
+            "from": "I talk",
+            "to": "I am talking"
+          },
+          {
+            "from": "she meets",
+            "to": "she is meeting"
+          },
+          {
+            "from": "we fly",
+            "to": "we are flying"
+          },
+          {
+            "from": "they visit",
+            "to": "they are visiting"
+          }
         ],
         "examples": [
-          { "text": "I <b>am meeting</b> my friend at 3 pm.",        "jp": "午後3時に友達に会います。" },
-          { "text": "She <b>is visiting</b> her aunt next weekend.",  "jp": "彼女は来週末、おばさんを訪ねます。" }
+          {
+            "text": "I <b>am meeting</b> my friend at 3 pm.",
+            "jp": "午後3時に友達に会います。"
+          },
+          {
+            "text": "She <b>is visiting</b> her aunt next weekend.",
+            "jp": "彼女は来週末、おばさんを訪ねます。"
+          }
         ]
       },
       {
@@ -62,12 +135,24 @@
         "title": "Use for scheduled future events",
         "subtitle": "Only when you already have a plan or schedule — not for habits or general facts.",
         "transforms": [
-          {"from": "I meet her every day.", "to": "I am meeting her tomorrow."},
-          {"from": "She visits often.", "to": "She is visiting next week."}
+          {
+            "from": "I meet her every day.",
+            "to": "I am meeting her tomorrow."
+          },
+          {
+            "from": "She visits often.",
+            "to": "She is visiting next week."
+          }
         ],
         "examples": [
-          { "text": "I'm <b>seeing</b> the doctor on Monday. <em>(scheduled appointment)</em>",  "jp": "月曜日に医者に行きます（予約済みの診察）。" },
-          { "text": "She's <b>starting</b> her new school next term. <em>(definite plan)</em>",   "jp": "彼女は来学期から新しい学校に通い始めます（確定した予定）。" }
+          {
+            "text": "I'm <b>seeing</b> the doctor on Monday. <em>(scheduled appointment)</em>",
+            "jp": "月曜日に医者に行きます（予約済みの診察）。"
+          },
+          {
+            "text": "She's <b>starting</b> her new school next term. <em>(definite plan)</em>",
+            "jp": "彼女は来学期から新しい学校に通い始めます（確定した予定）。"
+          }
         ]
       },
       {
@@ -75,13 +160,28 @@
         "title": "Common future time expressions",
         "subtitle": "These words and phrases signal a future plan — look for them as clues.",
         "transforms": [
-          {"from": "tomorrow", "to": "next week / month / year"},
-          {"from": "tonight", "to": "this weekend / Saturday"},
-          {"from": "on Monday", "to": "in two days"}
+          {
+            "from": "tomorrow",
+            "to": "next week / month / year"
+          },
+          {
+            "from": "tonight",
+            "to": "this weekend / Saturday"
+          },
+          {
+            "from": "on Monday",
+            "to": "in two days"
+          }
         ],
         "examples": [
-          { "text": "They're arriving <b>tomorrow</b>.",       "jp": "彼らは明日到着します。" },
-          { "text": "We're moving house <b>next month</b>.",  "jp": "来月、引っ越しをします。" }
+          {
+            "text": "They're arriving <b>tomorrow</b>.",
+            "jp": "彼らは明日到着します。"
+          },
+          {
+            "text": "We're moving house <b>next month</b>.",
+            "jp": "来月、引っ越しをします。"
+          }
         ]
       },
       {
@@ -89,13 +189,28 @@
         "title": "Negative — am / is / are + not + verb-ing",
         "subtitle": "To say something is <b>not</b> happening, add <b>not</b> after the helping verb.",
         "transforms": [
-          {"from": "I am going", "to": "I am not going (I'm not going)"},
-          {"from": "she is coming", "to": "she is not coming (she isn't coming)"},
-          {"from": "they are staying", "to": "they are not staying (they aren't staying)"}
+          {
+            "from": "I am going",
+            "to": "I am not going (I'm not going)"
+          },
+          {
+            "from": "she is coming",
+            "to": "she is not coming (she isn't coming)"
+          },
+          {
+            "from": "they are staying",
+            "to": "they are not staying (they aren't staying)"
+          }
         ],
         "examples": [
-          { "text": "I'm <b>not going</b> to the party.",      "jp": "パーティーには行きません。" },
-          { "text": "She <b>isn't coming</b> — she has work.", "jp": "彼女は来ません——仕事があります。" }
+          {
+            "text": "I'm <b>not going</b> to the party.",
+            "jp": "パーティーには行きません。"
+          },
+          {
+            "text": "She <b>isn't coming</b> — she has work.",
+            "jp": "彼女は来ません——仕事があります。"
+          }
         ]
       },
       {
@@ -103,120 +218,275 @@
         "title": "Questions — Am / Is / Are + subject + verb-ing?",
         "subtitle": "Move the helping verb to the front to make a question.",
         "transforms": [
-          {"from": "You are going.", "to": "Are you going?"},
-          {"from": "She is coming.", "to": "Is she coming?"},
-          {"from": "They are flying.", "to": "Are they flying?"}
+          {
+            "from": "You are going.",
+            "to": "Are you going?"
+          },
+          {
+            "from": "She is coming.",
+            "to": "Is she coming?"
+          },
+          {
+            "from": "They are flying.",
+            "to": "Are they flying?"
+          }
         ],
         "examples": [
-          { "text": "<b>Are</b> you <b>coming</b> to the party?", "jp": "パーティーに来ますか？" },
-          { "text": "<b>Is</b> Leo <b>flying</b> with us?",       "jp": "レオは私たちと一緒に飛行機に乗りますか？" }
+          {
+            "text": "<b>Are</b> you <b>coming</b> to the party?",
+            "jp": "パーティーに来ますか？"
+          },
+          {
+            "text": "<b>Is</b> Leo <b>flying</b> with us?",
+            "jp": "レオは私たちと一緒に飛行機に乗りますか？"
+          }
         ]
       }
     ],
     "mixed_samples": [
-      {"text": "My teacher <b>is testing</b> us on Friday, so I'm studying tonight.", "kind": "Rule 1 + 2",           "jp": "先生が金曜日にテストをするので、今夜勉強しています。"},
-      {"text": "She <b>isn't coming</b> to practice — she has a doctor's appointment.", "kind": "Rule 4 · negative", "jp": "彼女は練習に来ません——医者の予約があります。"},
-      {"text": "<b>Are</b> they <b>arriving</b> by train or by bus?", "kind": "Rule 5 · question",                  "jp": "彼らは電車で来ますか、それともバスで来ますか？"},
-      {"text": "We're <b>having</b> a big family meal tomorrow evening.", "kind": "Rule 3 · tomorrow",               "jp": "明日の夕方、家族で大きな食事をします。"},
-      {"text": "I'm <b>not watching</b> TV tonight — I have homework.", "kind": "Rule 4 · negative",                "jp": "今夜はテレビを見ません——宿題があります。"},
-      {"text": "He's <b>starting</b> a new job <b>next Monday</b>.", "kind": "Rule 3 · next Monday",                "jp": "彼は来週月曜日から新しい仕事を始めます。"},
-      {"text": "<b>Are</b> you <b>bringing</b> anything to the party?", "kind": "Rule 5 · question",                "jp": "パーティーに何か持ってきますか？"},
-      {"text": "My parents are <b>flying</b> to New York on the 15th.", "kind": "Rule 2 · scheduled event",        "jp": "両親は15日にニューヨークへ飛行機で行きます。"},
-      {"text": "She <b>isn't visiting</b> us this weekend — the weather is bad.", "kind": "Rule 4 · negative",      "jp": "天気が悪いので、彼女は今週末、私たちを訪ねません。"},
-      {"text": "We're <b>meeting</b> our old friends from primary school this Saturday.", "kind": "Rule 3 · this Saturday", "jp": "この土曜日に小学校の旧友たちに会います。"}
+      {
+        "text": "My teacher <b>is testing</b> us on Friday, so I'm studying tonight.",
+        "kind": "Rule 1 + 2",
+        "jp": "先生が金曜日にテストをするので、今夜勉強しています。"
+      },
+      {
+        "text": "She <b>isn't coming</b> to practice — she has a doctor's appointment.",
+        "kind": "Rule 4 · negative",
+        "jp": "彼女は練習に来ません——医者の予約があります。"
+      },
+      {
+        "text": "<b>Are</b> they <b>arriving</b> by train or by bus?",
+        "kind": "Rule 5 · question",
+        "jp": "彼らは電車で来ますか、それともバスで来ますか？"
+      },
+      {
+        "text": "We're <b>having</b> a big family meal tomorrow evening.",
+        "kind": "Rule 3 · tomorrow",
+        "jp": "明日の夕方、家族で大きな食事をします。"
+      },
+      {
+        "text": "I'm <b>not watching</b> TV tonight — I have homework.",
+        "kind": "Rule 4 · negative",
+        "jp": "今夜はテレビを見ません——宿題があります。"
+      },
+      {
+        "text": "He's <b>starting</b> a new job <b>next Monday</b>.",
+        "kind": "Rule 3 · next Monday",
+        "jp": "彼は来週月曜日から新しい仕事を始めます。"
+      },
+      {
+        "text": "<b>Are</b> you <b>bringing</b> anything to the party?",
+        "kind": "Rule 5 · question",
+        "jp": "パーティーに何か持ってきますか？"
+      },
+      {
+        "text": "My parents are <b>flying</b> to New York on the 15th.",
+        "kind": "Rule 2 · scheduled event",
+        "jp": "両親は15日にニューヨークへ飛行機で行きます。"
+      },
+      {
+        "text": "She <b>isn't visiting</b> us this weekend — the weather is bad.",
+        "kind": "Rule 4 · negative",
+        "jp": "天気が悪いので、彼女は今週末、私たちを訪ねません。"
+      },
+      {
+        "text": "We're <b>meeting</b> our old friends from primary school this Saturday.",
+        "kind": "Rule 3 · this Saturday",
+        "jp": "この土曜日に小学校の旧友たちに会います。"
+      }
     ]
   },
   "tab3_quiz": {
     "questions": [
       {
-        "stem": ["I ", "BLANK", " my grandparents next Sunday."],
-        "answers": ["visit", "am visiting", "will visit", "am visit"],
+        "stem": [
+          "I ",
+          "BLANK",
+          " my grandparents next Sunday."
+        ],
+        "answers": [
+          "visit",
+          "am visiting",
+          "will visit",
+          "am visit"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Use be + verb-ing for future plans",
           "body": "\"Next Sunday\" signals a future plan. With \"I\", use <b>am</b> + verb-ing → <span class=\"right-form\">am visiting</span>. \"Visit\" alone is simple present (a habit), not a future plan."
-        }
+        },
+        "jp": "来週の日曜日に祖父母を訪ねます。"
       },
       {
-        "stem": ["She ", "BLANK", " on Saturday afternoon."],
-        "answers": ["working", "are working", "is working", "work"],
+        "stem": [
+          "She ",
+          "BLANK",
+          " on Saturday afternoon."
+        ],
+        "answers": [
+          "working",
+          "are working",
+          "is working",
+          "work"
+        ],
         "correct": 2,
         "explanation": {
           "title": "She → is + verb-ing",
           "body": "With \"she\", always use <b>is</b> (not \"are\"). The verb-ing form is needed because this is a planned future event: <span class=\"right-form\">is working</span>. \"Working\" alone has no helping verb."
-        }
+        },
+        "jp": "土曜日の午後、彼女は仕事をしています。"
       },
       {
-        "stem": ["", "BLANK", " they coming to the party?"],
-        "answers": ["Is", "Are", "Am", "Do"],
+        "stem": [
+          "",
+          "BLANK",
+          " they coming to the party?"
+        ],
+        "answers": [
+          "Is",
+          "Are",
+          "Am",
+          "Do"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Questions: Are + they + verb-ing?",
           "body": "To ask a question with the present progressive, move the helping verb to the front. \"They\" uses <b>are</b> → <span class=\"right-form\">Are</span> they coming? \"Do\" is for simple present, not progressive."
-        }
+        },
+        "jp": "彼らはパーティーに来ますか？"
       },
       {
-        "stem": ["He is not ", "BLANK", " tomorrow."],
-        "answers": ["going", "go", "went", "goes"],
+        "stem": [
+          "He is not ",
+          "BLANK",
+          " tomorrow."
+        ],
+        "answers": [
+          "going",
+          "go",
+          "went",
+          "goes"
+        ],
         "correct": 0,
         "explanation": {
           "title": "Negative: be + not + verb-ing",
           "body": "After \"is not\", add the <b>verb-ing</b> form: <span class=\"right-form\">going</span>. The structure is: he is not + verb-ing. We never say \"is not go\" or \"is not went\"."
-        }
+        },
+        "jp": "彼は明日行きません。"
       },
       {
-        "stem": ["We ", "BLANK", " dinner at 7 tonight."],
-        "answers": ["have", "is having", "are having", "having"],
+        "stem": [
+          "We ",
+          "BLANK",
+          " dinner at 7 tonight."
+        ],
+        "answers": [
+          "have",
+          "is having",
+          "are having",
+          "having"
+        ],
         "correct": 2,
         "explanation": {
           "title": "We → are + verb-ing",
           "body": "\"We\" uses <b>are</b>. Dinner at 7 tonight is a scheduled plan → use present progressive: <span class=\"right-form\">are having</span>. \"Have\" is simple present; \"is having\" uses the wrong helping verb for \"we\"."
-        }
+        },
+        "jp": "今夜7時に夕食を食べます。"
       },
       {
-        "stem": ["I ", "BLANK", " the airport at 6 am tomorrow."],
-        "answers": ["leaving", "leave", "am leaving", "left"],
+        "stem": [
+          "I ",
+          "BLANK",
+          " the airport at 6 am tomorrow."
+        ],
+        "answers": [
+          "leaving",
+          "leave",
+          "am leaving",
+          "left"
+        ],
         "correct": 2,
         "explanation": {
           "title": "I + am + verb-ing",
           "body": "\"I\" always uses <b>am</b>. \"Tomorrow\" signals a future plan → <span class=\"right-form\">am leaving</span>. \"Leaving\" alone has no helping verb; \"left\" is past tense."
-        }
+        },
+        "jp": "明日の午前6時に空港を出発します。"
       },
       {
-        "stem": ["She ", "BLANK", " her relatives next month."],
-        "answers": ["visit", "is visiting", "are visiting", "visited"],
+        "stem": [
+          "She ",
+          "BLANK",
+          " her relatives next month."
+        ],
+        "answers": [
+          "visit",
+          "is visiting",
+          "are visiting",
+          "visited"
+        ],
         "correct": 1,
         "explanation": {
           "title": "She → is + verb-ing",
           "body": "\"Next month\" = future plan. \"She\" uses <b>is</b> → <span class=\"right-form\">is visiting</span>. \"Are visiting\" uses the wrong helping verb; \"visited\" is past tense."
-        }
+        },
+        "jp": "彼女は来月、親戚を訪ねます。"
       },
       {
-        "stem": ["They ", "BLANK", " for Japan on Friday."],
-        "answers": ["flies", "is flying", "are flying", "flying"],
+        "stem": [
+          "They ",
+          "BLANK",
+          " for Japan on Friday."
+        ],
+        "answers": [
+          "flies",
+          "is flying",
+          "are flying",
+          "flying"
+        ],
         "correct": 2,
         "explanation": {
           "title": "They → are + verb-ing",
           "body": "\"They\" uses <b>are</b>. \"On Friday\" = scheduled departure → use present progressive: <span class=\"right-form\">are flying</span>. \"Flies\" is simple present 3rd person singular; \"is flying\" uses the wrong helping verb."
-        }
+        },
+        "jp": "彼らは金曜日に日本へ飛びます。"
       },
       {
-        "stem": ["I ", "BLANK", " my friends this weekend."],
-        "answers": ["meet", "am meeting", "meeting", "is meeting"],
+        "stem": [
+          "I ",
+          "BLANK",
+          " my friends this weekend."
+        ],
+        "answers": [
+          "meet",
+          "am meeting",
+          "meeting",
+          "is meeting"
+        ],
         "correct": 1,
         "explanation": {
           "title": "I + am + verb-ing",
           "body": "\"This weekend\" = future plan. \"I\" uses <b>am</b> → <span class=\"right-form\">am meeting</span>. \"Meet\" is simple present; \"meeting\" alone has no helping verb."
-        }
+        },
+        "jp": "今週末、友達に会います。"
       },
       {
-        "stem": ["She ", "BLANK", " with us — she has other plans."],
-        "answers": ["isn't coming", "aren't coming", "not coming", "doesn't coming"],
+        "stem": [
+          "She ",
+          "BLANK",
+          " with us — she has other plans."
+        ],
+        "answers": [
+          "isn't coming",
+          "aren't coming",
+          "not coming",
+          "doesn't coming"
+        ],
         "correct": 0,
         "explanation": {
           "title": "Negative: isn't / aren't + verb-ing",
           "body": "\"She\" uses <b>is</b> → negative is <span class=\"right-form\">isn't coming</span>. \"Aren't coming\" uses the wrong helping verb; \"not coming\" has no helping verb; \"doesn't coming\" mixes forms incorrectly."
-        }
+        },
+        "jp": "彼女は一緒に来ません——他に予定があります。"
       }
     ]
   },
@@ -224,63 +494,214 @@
     "questions": [
       {
         "type": "mc",
-        "stem": ["My teacher ", "BLANK", " us tomorrow."],
-        "answers": ["testing", "is testing", "are testing", "will testing"],
-        "correct": 1
+        "stem": [
+          "My teacher ",
+          "BLANK",
+          " us tomorrow."
+        ],
+        "answers": [
+          "testing",
+          "is testing",
+          "are testing",
+          "will testing"
+        ],
+        "correct": 1,
+        "jp": "先生は明日、私たちをテストします。"
       },
       {
         "type": "mc",
-        "stem": ["", "BLANK", " you meeting her after class?"],
-        "answers": ["Do", "Are", "Is", "Did"],
-        "correct": 1
+        "stem": [
+          "",
+          "BLANK",
+          " you meeting her after class?"
+        ],
+        "answers": [
+          "Do",
+          "Are",
+          "Is",
+          "Did"
+        ],
+        "correct": 1,
+        "jp": "放課後、彼女に会いますか？"
       },
       {
         "type": "build",
-        "cue": ["I", "am meeting", "my friends"],
-        "bank": ["I", "am", "meeting", "my", "friends", "after", "school", "is", "go"],
-        "correct": ["I", "am", "meeting", "my", "friends", "after", "school"]
+        "cue": [
+          "I",
+          "am meeting",
+          "my friends"
+        ],
+        "bank": [
+          "I",
+          "am",
+          "meeting",
+          "my",
+          "friends",
+          "after",
+          "school",
+          "is",
+          "go"
+        ],
+        "correct": [
+          "I",
+          "am",
+          "meeting",
+          "my",
+          "friends",
+          "after",
+          "school"
+        ],
+        "jp": "放課後、友達に会います。"
       },
       {
         "type": "mc",
-        "stem": ["He ", "BLANK", " tonight — he has homework."],
-        "answers": ["isn't going out", "aren't going out", "not going out", "don't going out"],
-        "correct": 0
+        "stem": [
+          "He ",
+          "BLANK",
+          " tonight — he has homework."
+        ],
+        "answers": [
+          "isn't going out",
+          "aren't going out",
+          "not going out",
+          "don't going out"
+        ],
+        "correct": 0,
+        "jp": "彼は今夜出かけません——宿題があります。"
       },
       {
         "type": "build",
-        "cue": ["They", "visiting relatives", "next weekend"],
-        "bank": ["They", "are", "visiting", "their", "relatives", "next", "weekend", "is", "visit"],
-        "correct": ["They", "are", "visiting", "their", "relatives", "next", "weekend"]
+        "cue": [
+          "They",
+          "visiting relatives",
+          "next weekend"
+        ],
+        "bank": [
+          "They",
+          "are",
+          "visiting",
+          "their",
+          "relatives",
+          "next",
+          "weekend",
+          "is",
+          "visit"
+        ],
+        "correct": [
+          "They",
+          "are",
+          "visiting",
+          "their",
+          "relatives",
+          "next",
+          "weekend"
+        ],
+        "jp": "彼らは来週末、親戚を訪ねます。"
       },
       {
         "type": "mc",
-        "stem": ["We ", "BLANK", " our relatives next weekend."],
-        "answers": ["visit", "are visit", "are visiting", "visiting"],
-        "correct": 2
+        "stem": [
+          "We ",
+          "BLANK",
+          " our relatives next weekend."
+        ],
+        "answers": [
+          "visit",
+          "are visit",
+          "are visiting",
+          "visiting"
+        ],
+        "correct": 2,
+        "jp": "来週末、私たちは親戚を訪ねます。"
       },
       {
         "type": "mc",
-        "stem": ["She ", "BLANK", " for London on Monday morning."],
-        "answers": ["leave", "is leaving", "are leaving", "left"],
-        "correct": 1
+        "stem": [
+          "She ",
+          "BLANK",
+          " for London on Monday morning."
+        ],
+        "answers": [
+          "leave",
+          "is leaving",
+          "are leaving",
+          "left"
+        ],
+        "correct": 1,
+        "jp": "彼女は月曜日の朝、ロンドンに向けて出発します。"
       },
       {
         "type": "build",
-        "cue": ["She", "flying to Tokyo", "on Monday"],
-        "bank": ["She", "is", "flying", "to", "Tokyo", "on", "Monday", "are", "flew"],
-        "correct": ["She", "is", "flying", "to", "Tokyo", "on", "Monday"]
+        "cue": [
+          "She",
+          "flying to Tokyo",
+          "on Monday"
+        ],
+        "bank": [
+          "She",
+          "is",
+          "flying",
+          "to",
+          "Tokyo",
+          "on",
+          "Monday",
+          "are",
+          "flew"
+        ],
+        "correct": [
+          "She",
+          "is",
+          "flying",
+          "to",
+          "Tokyo",
+          "on",
+          "Monday"
+        ],
+        "jp": "彼女は月曜日に東京へ飛行機で行きます。"
       },
       {
         "type": "mc",
-        "stem": ["I ", "BLANK", " dinner — it'll be ready in 20 minutes."],
-        "answers": ["cook", "am cooking", "is cooking", "cooks"],
-        "correct": 1
+        "stem": [
+          "I ",
+          "BLANK",
+          " dinner — it'll be ready in 20 minutes."
+        ],
+        "answers": [
+          "cook",
+          "am cooking",
+          "is cooking",
+          "cooks"
+        ],
+        "correct": 1,
+        "jp": "夕食を作っています——20分で準備できます。"
       },
       {
         "type": "build",
-        "cue": ["We", "having a party", "tonight"],
-        "bank": ["We", "are", "having", "a", "party", "tonight", "is", "have", "had"],
-        "correct": ["We", "are", "having", "a", "party", "tonight"]
+        "cue": [
+          "We",
+          "having a party",
+          "tonight"
+        ],
+        "bank": [
+          "We",
+          "are",
+          "having",
+          "a",
+          "party",
+          "tonight",
+          "is",
+          "have",
+          "had"
+        ],
+        "correct": [
+          "We",
+          "are",
+          "having",
+          "a",
+          "party",
+          "tonight"
+        ],
+        "jp": "今夜パーティーをします。"
       }
     ]
   }

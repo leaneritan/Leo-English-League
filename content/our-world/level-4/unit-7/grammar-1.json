@@ -18,27 +18,82 @@
       }
     ],
     "rows": [
-      ["I", "used to", "play outside.", "I used to play video games inside."],
-      ["She", "used to", "have long hair.", "She used to have long hair."],
-      ["Children", "used to", "learn without computers.", "Children used to learn without computers."],
-      ["My friend", "didn't use to", "have a computer.", "My friend didn't use to have a computer."],
-      ["Did you", "use to", "play?", "Yes, I did. / No, I didn't."]
+      [
+        "I",
+        "used to",
+        "play outside.",
+        "I used to play video games inside."
+      ],
+      [
+        "She",
+        "used to",
+        "have long hair.",
+        "She used to have long hair."
+      ],
+      [
+        "Children",
+        "used to",
+        "learn without computers.",
+        "Children used to learn without computers."
+      ],
+      [
+        "My friend",
+        "didn't use to",
+        "have a computer.",
+        "My friend didn't use to have a computer."
+      ],
+      [
+        "Did you",
+        "use to",
+        "play?",
+        "Yes, I did. / No, I didn't."
+      ]
     ],
     "note_rule": "Use 'used to' for past habits that don't happen now.",
     "note_exception": "Question: Did + subject + use to + verb?",
     "note_exception_detail": "'Used to' is different from 'be used to'"
   },
   "tab1_samples": [
-    { "text": "I <b>used to</b> walk to school every day.",                         "jp": "毎日学校まで歩いていました。" },
-    { "text": "She <b>used to</b> have long hair.",                                  "jp": "彼女は前は長い髪をしていました。" },
-    { "text": "People <b>didn't use to</b> have cell phones.",                       "jp": "昔、人々は携帯電話を持っていませんでした。" },
-    { "text": "Did you <b>use to</b> play outside after school?",                    "jp": "放課後、外で遊んでいましたか？" },
-    { "text": "We <b>used to</b> watch black and white TV.",                         "jp": "私たちは白黒テレビを見ていました。" },
-    { "text": "He <b>didn't use to</b> like vegetables.",                            "jp": "彼は前は野菜が好きではありませんでした。" },
-    { "text": "Children <b>used to</b> learn without computers.",                    "jp": "子供たちはコンピューターなしで勉強していました。" },
-    { "text": "My grandparents <b>used to</b> wash clothes by hand.",                "jp": "祖父母は手で服を洗っていました。" },
-    { "text": "Did people <b>use to</b> travel by horse?",                          "jp": "昔、人々は馬で旅をしていましたか？" },
-    { "text": "I <b>didn't use to</b> drink coffee, but now I do.",                 "jp": "以前はコーヒーを飲んでいませんでしたが、今は飲みます。" }
+    {
+      "text": "I <b>used to</b> walk to school every day.",
+      "jp": "毎日学校まで歩いていました。"
+    },
+    {
+      "text": "She <b>used to</b> have long hair.",
+      "jp": "彼女は前は長い髪をしていました。"
+    },
+    {
+      "text": "People <b>didn't use to</b> have cell phones.",
+      "jp": "昔、人々は携帯電話を持っていませんでした。"
+    },
+    {
+      "text": "Did you <b>use to</b> play outside after school?",
+      "jp": "放課後、外で遊んでいましたか？"
+    },
+    {
+      "text": "We <b>used to</b> watch black and white TV.",
+      "jp": "私たちは白黒テレビを見ていました。"
+    },
+    {
+      "text": "He <b>didn't use to</b> like vegetables.",
+      "jp": "彼は前は野菜が好きではありませんでした。"
+    },
+    {
+      "text": "Children <b>used to</b> learn without computers.",
+      "jp": "子供たちはコンピューターなしで勉強していました。"
+    },
+    {
+      "text": "My grandparents <b>used to</b> wash clothes by hand.",
+      "jp": "祖父母は手で服を洗っていました。"
+    },
+    {
+      "text": "Did people <b>use to</b> travel by horse?",
+      "jp": "昔、人々は馬で旅をしていましたか？"
+    },
+    {
+      "text": "I <b>didn't use to</b> drink coffee, but now I do.",
+      "jp": "以前はコーヒーを飲んでいませんでしたが、今は飲みます。"
+    }
   ],
   "tab2_levelup": {
     "rules": [
@@ -47,13 +102,28 @@
         "title": "Positive — used to + verb",
         "subtitle": "Use <b>used to + verb</b> to say something happened regularly in the past but doesn't happen now.",
         "transforms": [
-          {"from": "past habit", "to": "used to + verb"},
-          {"from": "I play outside (past)", "to": "I used to play outside"},
-          {"from": "She has long hair (past)", "to": "She used to have long hair"}
+          {
+            "from": "past habit",
+            "to": "used to + verb"
+          },
+          {
+            "from": "I play outside (past)",
+            "to": "I used to play outside"
+          },
+          {
+            "from": "She has long hair (past)",
+            "to": "She used to have long hair"
+          }
         ],
         "examples": [
-          { "text": "I <b>used to</b> play outside every day.",    "jp": "毎日外で遊んでいました。" },
-          { "text": "She <b>used to</b> have a pet rabbit.",        "jp": "彼女はペットのウサギを飼っていました。" }
+          {
+            "text": "I <b>used to</b> play outside every day.",
+            "jp": "毎日外で遊んでいました。"
+          },
+          {
+            "text": "She <b>used to</b> have a pet rabbit.",
+            "jp": "彼女はペットのウサギを飼っていました。"
+          }
         ]
       },
       {
@@ -61,13 +131,28 @@
         "title": "Negative — didn't use to + verb",
         "subtitle": "Use <b>didn't use to + verb</b> to say something did NOT happen regularly in the past.",
         "transforms": [
-          {"from": "didn't use to", "to": "didn't use to + verb"},
-          {"from": "no computers (past)", "to": "People didn't use to have computers"},
-          {"from": "no cell phones (past)", "to": "People didn't use to have cell phones"}
+          {
+            "from": "didn't use to",
+            "to": "didn't use to + verb"
+          },
+          {
+            "from": "no computers (past)",
+            "to": "People didn't use to have computers"
+          },
+          {
+            "from": "no cell phones (past)",
+            "to": "People didn't use to have cell phones"
+          }
         ],
         "examples": [
-          { "text": "People <b>didn't use to</b> have electricity.",      "jp": "昔、人々は電気を持っていませんでした。" },
-          { "text": "My friend <b>didn't use to</b> like reading.",        "jp": "友達は前は読書が好きではありませんでした。" }
+          {
+            "text": "People <b>didn't use to</b> have electricity.",
+            "jp": "昔、人々は電気を持っていませんでした。"
+          },
+          {
+            "text": "My friend <b>didn't use to</b> like reading.",
+            "jp": "友達は前は読書が好きではありませんでした。"
+          }
         ]
       },
       {
@@ -75,119 +160,269 @@
         "title": "Question — Did + subject + use to + verb?",
         "subtitle": "To ask about past habits, use <b>Did + subject + use to + verb?</b> Answer with Yes, I did or No, I didn't.",
         "transforms": [
-          {"from": "you / walk to school", "to": "Did you use to walk to school?"},
-          {"from": "people / travel by horse", "to": "Did people use to travel by horse?"}
+          {
+            "from": "you / walk to school",
+            "to": "Did you use to walk to school?"
+          },
+          {
+            "from": "people / travel by horse",
+            "to": "Did people use to travel by horse?"
+          }
         ],
         "examples": [
-          { "text": "<b>Did</b> you <b>use to</b> walk to school?",        "jp": "学校まで歩いていましたか？" },
-          { "text": "<b>Did</b> people <b>use to</b> travel by horse?",    "jp": "昔、人々は馬で旅をしていましたか？" }
+          {
+            "text": "<b>Did</b> you <b>use to</b> walk to school?",
+            "jp": "学校まで歩いていましたか？"
+          },
+          {
+            "text": "<b>Did</b> people <b>use to</b> travel by horse?",
+            "jp": "昔、人々は馬で旅をしていましたか？"
+          }
         ]
       }
     ],
     "mixed_samples": [
-      {"text": "I <b>used to</b> live in a small town.",                              "kind": "Rule 1 · positive",  "jp": "私は小さな町に住んでいました。"},
-      {"text": "People <b>didn't use to</b> have washing machines.",                  "kind": "Rule 2 · negative",  "jp": "昔、人々は洗濯機を持っていませんでした。"},
-      {"text": "<b>Did</b> you <b>use to</b> play tennis? Yes, I did.",               "kind": "Rule 3 · question",  "jp": "テニスをしていましたか？はい、していました。"},
-      {"text": "She <b>used to</b> walk to school every morning.",                    "kind": "Rule 1 · positive",  "jp": "彼女は毎朝学校まで歩いていました。"},
-      {"text": "Children <b>didn't use to</b> have smartphones.",                     "kind": "Rule 2 · negative",  "jp": "子供たちはスマートフォンを持っていませんでした。"},
-      {"text": "<b>Did</b> people <b>use to</b> cook on fire? Yes, they did.",        "kind": "Rule 3 · question",  "jp": "昔、人々は火で料理をしていましたか？はい、していました。"},
-      {"text": "My dad <b>used to</b> ride his bike to work.",                        "kind": "Rule 1 · positive",  "jp": "父は自転車で仕事に行っていました。"},
-      {"text": "I <b>didn't use to</b> like vegetables, but now I love them.",        "kind": "Rule 2 · negative",  "jp": "前は野菜が好きではありませんでしたが、今は大好きです。"},
-      {"text": "<b>Did</b> she <b>use to</b> have curly hair? No, she didn't.",       "kind": "Rule 3 · question",  "jp": "彼女はくせ毛でしたか？いいえ、ちがいます。"},
-      {"text": "We <b>used to</b> watch black and white TV.",                         "kind": "Rule 1 · positive",  "jp": "私たちは白黒テレビを見ていました。"}
+      {
+        "text": "I <b>used to</b> live in a small town.",
+        "kind": "Rule 1 · positive",
+        "jp": "私は小さな町に住んでいました。"
+      },
+      {
+        "text": "People <b>didn't use to</b> have washing machines.",
+        "kind": "Rule 2 · negative",
+        "jp": "昔、人々は洗濯機を持っていませんでした。"
+      },
+      {
+        "text": "<b>Did</b> you <b>use to</b> play tennis? Yes, I did.",
+        "kind": "Rule 3 · question",
+        "jp": "テニスをしていましたか？はい、していました。"
+      },
+      {
+        "text": "She <b>used to</b> walk to school every morning.",
+        "kind": "Rule 1 · positive",
+        "jp": "彼女は毎朝学校まで歩いていました。"
+      },
+      {
+        "text": "Children <b>didn't use to</b> have smartphones.",
+        "kind": "Rule 2 · negative",
+        "jp": "子供たちはスマートフォンを持っていませんでした。"
+      },
+      {
+        "text": "<b>Did</b> people <b>use to</b> cook on fire? Yes, they did.",
+        "kind": "Rule 3 · question",
+        "jp": "昔、人々は火で料理をしていましたか？はい、していました。"
+      },
+      {
+        "text": "My dad <b>used to</b> ride his bike to work.",
+        "kind": "Rule 1 · positive",
+        "jp": "父は自転車で仕事に行っていました。"
+      },
+      {
+        "text": "I <b>didn't use to</b> like vegetables, but now I love them.",
+        "kind": "Rule 2 · negative",
+        "jp": "前は野菜が好きではありませんでしたが、今は大好きです。"
+      },
+      {
+        "text": "<b>Did</b> she <b>use to</b> have curly hair? No, she didn't.",
+        "kind": "Rule 3 · question",
+        "jp": "彼女はくせ毛でしたか？いいえ、ちがいます。"
+      },
+      {
+        "text": "We <b>used to</b> watch black and white TV.",
+        "kind": "Rule 1 · positive",
+        "jp": "私たちは白黒テレビを見ていました。"
+      }
     ]
   },
   "tab3_quiz": {
     "questions": [
       {
-        "stem": ["People ", "BLANK", " have cell phones in the past."],
-        "answers": ["used to not", "didn't use to", "not used to", "don't used to"],
+        "stem": [
+          "People ",
+          "BLANK",
+          " have cell phones in the past."
+        ],
+        "answers": [
+          "used to not",
+          "didn't use to",
+          "not used to",
+          "don't used to"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 2 — Negative form",
           "body": "The negative form is <b>didn't use to + verb</b>. The correct answer is <span class=\"right-form\">didn't use to</span>. <span class=\"rule-ref\">Rule 2</span> We never say 'used to not' or 'not used to'."
-        }
+        },
+        "jp": "昔、人々は携帯電話を持っていませんでした。"
       },
       {
-        "stem": ["", "BLANK", " you use to walk to school?"],
-        "answers": ["Were", "Do", "Did", "Used"],
+        "stem": [
+          "",
+          "BLANK",
+          " you use to walk to school?"
+        ],
+        "answers": [
+          "Were",
+          "Do",
+          "Did",
+          "Used"
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 3 — Question form",
           "body": "Questions use <b>Did + subject + use to + verb</b>. The correct answer is <span class=\"right-form\">Did</span>. <span class=\"rule-ref\">Rule 3</span>"
-        }
+        },
+        "jp": "学校まで歩いていましたか？"
       },
       {
-        "stem": ["I ", "BLANK", " play soccer every weekend when I was young."],
-        "answers": ["used to", "use to", "was used to", "did use"],
+        "stem": [
+          "I ",
+          "BLANK",
+          " play soccer every weekend when I was young."
+        ],
+        "answers": [
+          "used to",
+          "use to",
+          "was used to",
+          "did use"
+        ],
         "correct": 0,
         "explanation": {
           "title": "Rule 1 — Positive form",
           "body": "The positive form is <b>used to + verb</b>. The correct answer is <span class=\"right-form\">used to</span>. <span class=\"rule-ref\">Rule 1</span>"
-        }
+        },
+        "jp": "若い頃、毎週末サッカーをしていました。"
       },
       {
-        "stem": ["She ", "BLANK", " like vegetables, but now she loves them."],
-        "answers": ["used to not", "wasn't use to", "didn't use to", "not used to"],
+        "stem": [
+          "She ",
+          "BLANK",
+          " like vegetables, but now she loves them."
+        ],
+        "answers": [
+          "used to not",
+          "wasn't use to",
+          "didn't use to",
+          "not used to"
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 2 — Negative form",
           "body": "The negative form is <b>didn't use to + verb</b>. The correct answer is <span class=\"right-form\">didn't use to</span>. <span class=\"rule-ref\">Rule 2</span>"
-        }
+        },
+        "jp": "彼女は前は野菜が好きではありませんでしたが、今は大好きです。"
       },
       {
-        "stem": ["Did people use to travel by horse? Yes, ", "BLANK", "."],
-        "answers": ["they used", "they did", "they were", "they do"],
+        "stem": [
+          "Did people use to travel by horse? Yes, ",
+          "BLANK",
+          "."
+        ],
+        "answers": [
+          "they used",
+          "they did",
+          "they were",
+          "they do"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 3 — Short answer",
           "body": "Short answers use <b>Yes, they did</b> or <b>No, they didn't</b>. The correct answer is <span class=\"right-form\">they did</span>. <span class=\"rule-ref\">Rule 3</span>"
-        }
+        },
+        "jp": "昔、人々は馬で旅をしていましたか？はい、していました。"
       },
       {
-        "stem": ["My grandparents ", "BLANK", " wash clothes by hand."],
-        "answers": ["use to", "did use to", "used to", "were use to"],
+        "stem": [
+          "My grandparents ",
+          "BLANK",
+          " wash clothes by hand."
+        ],
+        "answers": [
+          "use to",
+          "did use to",
+          "used to",
+          "were use to"
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 1 — Positive form",
           "body": "The positive form is <b>used to + verb</b>. The correct answer is <span class=\"right-form\">used to</span>. <span class=\"rule-ref\">Rule 1</span>"
-        }
+        },
+        "jp": "祖父母は手で服を洗っていました。"
       },
       {
-        "stem": ["Children ", "BLANK", " learn with computers at school."],
-        "answers": ["didn't use to", "used to not", "not use to", "weren't use to"],
+        "stem": [
+          "Children ",
+          "BLANK",
+          " learn with computers at school."
+        ],
+        "answers": [
+          "didn't use to",
+          "used to not",
+          "not use to",
+          "weren't use to"
+        ],
         "correct": 0,
         "explanation": {
           "title": "Rule 2 — Negative form",
           "body": "The negative form is <b>didn't use to + verb</b>. The correct answer is <span class=\"right-form\">didn't use to</span>. <span class=\"rule-ref\">Rule 2</span>"
-        }
+        },
+        "jp": "子供たちは学校でコンピューターを使って勉強していませんでした。"
       },
       {
-        "stem": ["Which sentence is correct?"],
-        "answers": ["I use to play piano.", "I used to played piano.", "I used to play piano.", "I did used to play piano."],
+        "stem": [
+          "Which sentence is correct?"
+        ],
+        "answers": [
+          "I use to play piano.",
+          "I used to played piano.",
+          "I used to play piano.",
+          "I did used to play piano."
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 1 — Correct form",
           "body": "The correct form is <b>used to + base verb</b>. The correct answer is <span class=\"right-form\">I used to play piano</span>. <span class=\"rule-ref\">Rule 1</span>"
-        }
+        },
+        "jp": "ピアノを弾いていました。"
       },
       {
-        "stem": ["", "BLANK", " she use to have long hair? No, she didn't."],
-        "answers": ["Was", "Did", "Used", "Does"],
+        "stem": [
+          "",
+          "BLANK",
+          " she use to have long hair? No, she didn't."
+        ],
+        "answers": [
+          "Was",
+          "Did",
+          "Used",
+          "Does"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 3 — Question form",
           "body": "Questions use <b>Did + subject + use to + verb</b>. The correct answer is <span class=\"right-form\">Did</span>. <span class=\"rule-ref\">Rule 3</span>"
-        }
+        },
+        "jp": "彼女は前は長い髪でしたか？いいえ、ちがいます。"
       },
       {
-        "stem": ["We ", "BLANK", " watch black and white TV when I was little."],
-        "answers": ["use to", "used to", "didn't used to", "were use to"],
+        "stem": [
+          "We ",
+          "BLANK",
+          " watch black and white TV when I was little."
+        ],
+        "answers": [
+          "use to",
+          "used to",
+          "didn't used to",
+          "were use to"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 1 — Positive form",
           "body": "The positive form is <b>used to + verb</b>. The correct answer is <span class=\"right-form\">used to</span>. <span class=\"rule-ref\">Rule 1</span>"
-        }
+        },
+        "jp": "子供の頃、白黒テレビを見ていました。"
       }
     ]
   },
@@ -195,63 +430,210 @@
     "questions": [
       {
         "type": "mc",
-        "stem": ["My grandparents ", "BLANK", " wash clothes by hand."],
-        "answers": ["used to", "use to", "were used to", "did used to"],
-        "correct": 0
+        "stem": [
+          "My grandparents ",
+          "BLANK",
+          " wash clothes by hand."
+        ],
+        "answers": [
+          "used to",
+          "use to",
+          "were used to",
+          "did used to"
+        ],
+        "correct": 0,
+        "jp": "祖父母は手で服を洗っていました。"
       },
       {
         "type": "mc",
-        "stem": ["", "BLANK", " children use to go to school on Saturdays?"],
-        "answers": ["Were", "Did", "Do", "Used"],
-        "correct": 1
+        "stem": [
+          "",
+          "BLANK",
+          " children use to go to school on Saturdays?"
+        ],
+        "answers": [
+          "Were",
+          "Did",
+          "Do",
+          "Used"
+        ],
+        "correct": 1,
+        "jp": "子供たちは土曜日に学校に行っていましたか？"
       },
       {
         "type": "build",
-        "cue": ["I", "used to", "live in Tokyo"],
-        "bank": ["I", "used", "to", "live", "in", "Tokyo", "living", "use"],
-        "correct": ["I", "used", "to", "live", "in", "Tokyo"]
+        "cue": [
+          "I",
+          "used to",
+          "live in Tokyo"
+        ],
+        "bank": [
+          "I",
+          "used",
+          "to",
+          "live",
+          "in",
+          "Tokyo",
+          "living",
+          "use"
+        ],
+        "correct": [
+          "I",
+          "used",
+          "to",
+          "live",
+          "in",
+          "Tokyo"
+        ],
+        "jp": "東京に住んでいました。"
       },
       {
         "type": "mc",
-        "stem": ["She ", "BLANK", " have a bicycle, but now she drives a car."],
-        "answers": ["is used to", "used to", "didn't used to", "use to"],
-        "correct": 1
+        "stem": [
+          "She ",
+          "BLANK",
+          " have a bicycle, but now she drives a car."
+        ],
+        "answers": [
+          "is used to",
+          "used to",
+          "didn't used to",
+          "use to"
+        ],
+        "correct": 1,
+        "jp": "彼女は以前、自転車を持っていましたが、今は車を運転します。"
       },
       {
         "type": "build",
-        "cue": ["She", "didn't use to", "have a computer"],
-        "bank": ["She", "didn't", "use", "to", "have", "a", "computer", "used"],
-        "correct": ["She", "didn't", "use", "to", "have", "a", "computer"]
+        "cue": [
+          "She",
+          "didn't use to",
+          "have a computer"
+        ],
+        "bank": [
+          "She",
+          "didn't",
+          "use",
+          "to",
+          "have",
+          "a",
+          "computer",
+          "used"
+        ],
+        "correct": [
+          "She",
+          "didn't",
+          "use",
+          "to",
+          "have",
+          "a",
+          "computer"
+        ],
+        "jp": "彼女はコンピューターを持っていませんでした。"
       },
       {
         "type": "mc",
-        "stem": ["I ", "BLANK", " drink coffee. I only drink tea."],
-        "answers": ["used to not", "not use to", "didn't use to", "wasn't use to"],
-        "correct": 2
+        "stem": [
+          "I ",
+          "BLANK",
+          " drink coffee. I only drink tea."
+        ],
+        "answers": [
+          "used to not",
+          "not use to",
+          "didn't use to",
+          "wasn't use to"
+        ],
+        "correct": 2,
+        "jp": "以前はコーヒーを飲みませんでした。お茶だけ飲みます。"
       },
       {
         "type": "build",
-        "cue": ["Did", "people", "use to travel by horse?"],
-        "bank": ["Did", "people", "use", "to", "travel", "by", "horse", "used"],
-        "correct": ["Did", "people", "use", "to", "travel", "by", "horse"]
+        "cue": [
+          "Did",
+          "people",
+          "use to travel by horse?"
+        ],
+        "bank": [
+          "Did",
+          "people",
+          "use",
+          "to",
+          "travel",
+          "by",
+          "horse",
+          "used"
+        ],
+        "correct": [
+          "Did",
+          "people",
+          "use",
+          "to",
+          "travel",
+          "by",
+          "horse"
+        ],
+        "jp": "昔、人々は馬で旅をしていましたか？"
       },
       {
         "type": "mc",
-        "stem": ["People ", "BLANK", " watch TV in black and white."],
-        "answers": ["use to", "did use to", "used to", "were use to"],
-        "correct": 2
+        "stem": [
+          "People ",
+          "BLANK",
+          " watch TV in black and white."
+        ],
+        "answers": [
+          "use to",
+          "did use to",
+          "used to",
+          "were use to"
+        ],
+        "correct": 2,
+        "jp": "人々は白黒でテレビを見ていました。"
       },
       {
         "type": "build",
-        "cue": ["We", "used to", "watch black and white TV"],
-        "bank": ["We", "used", "to", "watch", "black", "and", "white", "TV", "use"],
-        "correct": ["We", "used", "to", "watch", "black", "and", "white", "TV"]
+        "cue": [
+          "We",
+          "used to",
+          "watch black and white TV"
+        ],
+        "bank": [
+          "We",
+          "used",
+          "to",
+          "watch",
+          "black",
+          "and",
+          "white",
+          "TV",
+          "use"
+        ],
+        "correct": [
+          "We",
+          "used",
+          "to",
+          "watch",
+          "black",
+          "and",
+          "white",
+          "TV"
+        ],
+        "jp": "私たちは白黒テレビを見ていました。"
       },
       {
         "type": "mc",
-        "stem": ["Which sentence is correct?"],
-        "answers": ["I use to play piano.", "I used to played piano.", "I used to play piano.", "I did used to play piano."],
-        "correct": 2
+        "stem": [
+          "Which sentence is correct?"
+        ],
+        "answers": [
+          "I use to play piano.",
+          "I used to played piano.",
+          "I used to play piano.",
+          "I did used to play piano."
+        ],
+        "correct": 2,
+        "jp": "ピアノを弾いていました。"
       }
     ]
   }

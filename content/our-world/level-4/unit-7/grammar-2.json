@@ -18,25 +18,67 @@
       }
     ],
     "rows": [
-      ["What can you do?", "You can play games.", "people in general"],
-      ["How do you use it?", "You press the button.", "people in general"],
-      ["How do you make soup?", "First, you wash the vegetables.", "people in general"]
+      [
+        "What can you do?",
+        "You can play games.",
+        "people in general"
+      ],
+      [
+        "How do you use it?",
+        "You press the button.",
+        "people in general"
+      ],
+      [
+        "How do you make soup?",
+        "First, you wash the vegetables.",
+        "people in general"
+      ]
     ],
     "note_rule": "'You' can mean 'people in general' — not one specific person.",
     "note_exception": "How do you use it? = How does one use it?",
     "note_exception_detail": "Used for instructions and explanations"
   },
   "tab1_samples": [
-    { "text": "How do <b>you</b> use that toy?",                    "jp": "そのおもちゃをどのように使いますか？" },
-    { "text": "<b>You</b> press the button to turn it on.",         "jp": "ボタンを押すと電源が入ります。" },
-    { "text": "First, <b>you</b> put the battery inside.",          "jp": "まず、電池を中に入れます。" },
-    { "text": "<b>You</b> can find good ideas everywhere.",         "jp": "どこでも良いアイデアを見つけることができます。" },
-    { "text": "How do <b>you</b> make electricity?",                "jp": "電気をどのように作りますか？" },
-    { "text": "<b>You</b> turn the wheel and it moves.",            "jp": "車輪を回すと動きます。" },
-    { "text": "<b>You</b> need creativity to invent things.",       "jp": "ものを発明するには創造力が必要です。" },
-    { "text": "How do <b>you</b> solve this problem?",              "jp": "この問題をどのように解きますか？" },
-    { "text": "<b>You</b> lift the lid to open it.",                "jp": "蓋を持ち上げると開きます。" },
-    { "text": "<b>You</b> can succeed if you keep trying.",         "jp": "あきらめずに挑戦し続ければ、成功できます。" }
+    {
+      "text": "How do <b>you</b> use that toy?",
+      "jp": "そのおもちゃをどのように使いますか？"
+    },
+    {
+      "text": "<b>You</b> press the button to turn it on.",
+      "jp": "ボタンを押すと電源が入ります。"
+    },
+    {
+      "text": "First, <b>you</b> put the battery inside.",
+      "jp": "まず、電池を中に入れます。"
+    },
+    {
+      "text": "<b>You</b> can find good ideas everywhere.",
+      "jp": "どこでも良いアイデアを見つけることができます。"
+    },
+    {
+      "text": "How do <b>you</b> make electricity?",
+      "jp": "電気をどのように作りますか？"
+    },
+    {
+      "text": "<b>You</b> turn the wheel and it moves.",
+      "jp": "車輪を回すと動きます。"
+    },
+    {
+      "text": "<b>You</b> need creativity to invent things.",
+      "jp": "ものを発明するには創造力が必要です。"
+    },
+    {
+      "text": "How do <b>you</b> solve this problem?",
+      "jp": "この問題をどのように解きますか？"
+    },
+    {
+      "text": "<b>You</b> lift the lid to open it.",
+      "jp": "蓋を持ち上げると開きます。"
+    },
+    {
+      "text": "<b>You</b> can succeed if you keep trying.",
+      "jp": "あきらめずに挑戦し続ければ、成功できます。"
+    }
   ],
   "tab2_levelup": {
     "rules": [
@@ -45,12 +87,24 @@
         "title": "'You' for people in general",
         "subtitle": "In English, <b>you</b> doesn't always mean one specific person. It can mean 'people in general'.",
         "transforms": [
-          {"from": "people in general need", "to": "You need a battery to use this."},
-          {"from": "anyone can find", "to": "You can find good ideas everywhere."}
+          {
+            "from": "people in general need",
+            "to": "You need a battery to use this."
+          },
+          {
+            "from": "anyone can find",
+            "to": "You can find good ideas everywhere."
+          }
         ],
         "examples": [
-          { "text": "<b>You</b> need a battery to use this.",          "jp": "これを使うには電池が必要です。" },
-          { "text": "<b>You</b> can find good ideas everywhere.",       "jp": "どこでも良いアイデアを見つけることができます。" }
+          {
+            "text": "<b>You</b> need a battery to use this.",
+            "jp": "これを使うには電池が必要です。"
+          },
+          {
+            "text": "<b>You</b> can find good ideas everywhere.",
+            "jp": "どこでも良いアイデアを見つけることができます。"
+          }
         ]
       },
       {
@@ -58,12 +112,24 @@
         "title": "'How do you...?' — asking about process",
         "subtitle": "Use <b>How do you + verb?</b> to ask how something works in general — not asking one specific person.",
         "transforms": [
-          {"from": "How does one use this?", "to": "How do you use this invention?"},
-          {"from": "How does one make it turn?", "to": "How do you make the wheels turn?"}
+          {
+            "from": "How does one use this?",
+            "to": "How do you use this invention?"
+          },
+          {
+            "from": "How does one make it turn?",
+            "to": "How do you make the wheels turn?"
+          }
         ],
         "examples": [
-          { "text": "How do <b>you</b> use this invention?",            "jp": "この発明品をどのように使いますか？" },
-          { "text": "How do <b>you</b> make the wheels turn?",          "jp": "車輪をどのように回しますか？" }
+          {
+            "text": "How do <b>you</b> use this invention?",
+            "jp": "この発明品をどのように使いますか？"
+          },
+          {
+            "text": "How do <b>you</b> make the wheels turn?",
+            "jp": "車輪をどのように回しますか？"
+          }
         ]
       },
       {
@@ -71,119 +137,265 @@
         "title": "Giving instructions with 'you'",
         "subtitle": "Use <b>you + verb</b> to give step-by-step instructions. Common in recipes and explanations.",
         "transforms": [
-          {"from": "step 1", "to": "First, you put the battery in."},
-          {"from": "step 2", "to": "Then you press the button."}
+          {
+            "from": "step 1",
+            "to": "First, you put the battery in."
+          },
+          {
+            "from": "step 2",
+            "to": "Then you press the button."
+          }
         ],
         "examples": [
-          { "text": "First, <b>you</b> put the battery in. Then <b>you</b> press the button.", "jp": "まず、電池を入れます。それからボタンを押します。" },
-          { "text": "<b>You</b> lift your arms and shake your legs.",                           "jp": "両腕を上げて、足を振ります。" }
+          {
+            "text": "First, <b>you</b> put the battery in. Then <b>you</b> press the button.",
+            "jp": "まず、電池を入れます。それからボタンを押します。"
+          },
+          {
+            "text": "<b>You</b> lift your arms and shake your legs.",
+            "jp": "両腕を上げて、足を振ります。"
+          }
         ]
       }
     ],
     "mixed_samples": [
-      {"text": "How do <b>you</b> use that machine? <b>You</b> press the red button.",  "kind": "Rule 2 + Rule 3",       "jp": "その機械をどのように使いますか？赤いボタンを押します。"},
-      {"text": "<b>You</b> need creativity to invent great things.",                    "kind": "Rule 1 · general",      "jp": "素晴らしいものを発明するには創造力が必要です。"},
-      {"text": "First, <b>you</b> put the battery in. Then <b>you</b> turn it on.",     "kind": "Rule 3 · instructions", "jp": "まず、電池を入れます。それから電源を入れます。"},
-      {"text": "How do <b>you</b> make the wheels turn?",                               "kind": "Rule 2 · question",     "jp": "車輪をどのように回しますか？"},
-      {"text": "<b>You</b> can succeed if you keep trying.",                            "kind": "Rule 1 · general",      "jp": "あきらめずに挑戦し続ければ、成功できます。"},
-      {"text": "How do <b>you</b> solve this problem? <b>You</b> think carefully.",     "kind": "Rule 2 + Rule 3",       "jp": "この問題をどのように解きますか？よく考えます。"},
-      {"text": "<b>You</b> lift the lid to open the box.",                              "kind": "Rule 3 · instructions", "jp": "蓋を持ち上げると箱が開きます。"},
-      {"text": "<b>You</b> can find good ideas in everyday life.",                      "kind": "Rule 1 · general",      "jp": "日常生活の中に良いアイデアを見つけることができます。"},
-      {"text": "How do <b>you</b> use scissors? <b>You</b> hold them like this.",       "kind": "Rule 2 + Rule 3",       "jp": "はさみをどのように使いますか？こうやって持ちます。"},
-      {"text": "First, <b>you</b> wash the vegetables. Then <b>you</b> cook them.",     "kind": "Rule 3 · instructions", "jp": "まず、野菜を洗います。それから料理します。"}
+      {
+        "text": "How do <b>you</b> use that machine? <b>You</b> press the red button.",
+        "kind": "Rule 2 + Rule 3",
+        "jp": "その機械をどのように使いますか？赤いボタンを押します。"
+      },
+      {
+        "text": "<b>You</b> need creativity to invent great things.",
+        "kind": "Rule 1 · general",
+        "jp": "素晴らしいものを発明するには創造力が必要です。"
+      },
+      {
+        "text": "First, <b>you</b> put the battery in. Then <b>you</b> turn it on.",
+        "kind": "Rule 3 · instructions",
+        "jp": "まず、電池を入れます。それから電源を入れます。"
+      },
+      {
+        "text": "How do <b>you</b> make the wheels turn?",
+        "kind": "Rule 2 · question",
+        "jp": "車輪をどのように回しますか？"
+      },
+      {
+        "text": "<b>You</b> can succeed if you keep trying.",
+        "kind": "Rule 1 · general",
+        "jp": "あきらめずに挑戦し続ければ、成功できます。"
+      },
+      {
+        "text": "How do <b>you</b> solve this problem? <b>You</b> think carefully.",
+        "kind": "Rule 2 + Rule 3",
+        "jp": "この問題をどのように解きますか？よく考えます。"
+      },
+      {
+        "text": "<b>You</b> lift the lid to open the box.",
+        "kind": "Rule 3 · instructions",
+        "jp": "蓋を持ち上げると箱が開きます。"
+      },
+      {
+        "text": "<b>You</b> can find good ideas in everyday life.",
+        "kind": "Rule 1 · general",
+        "jp": "日常生活の中に良いアイデアを見つけることができます。"
+      },
+      {
+        "text": "How do <b>you</b> use scissors? <b>You</b> hold them like this.",
+        "kind": "Rule 2 + Rule 3",
+        "jp": "はさみをどのように使いますか？こうやって持ちます。"
+      },
+      {
+        "text": "First, <b>you</b> wash the vegetables. Then <b>you</b> cook them.",
+        "kind": "Rule 3 · instructions",
+        "jp": "まず、野菜を洗います。それから料理します。"
+      }
     ]
   },
   "tab3_quiz": {
     "questions": [
       {
-        "stem": ["How ", "BLANK", " you use this invention?"],
-        "answers": ["are", "do", "did", "can"],
+        "stem": [
+          "How ",
+          "BLANK",
+          " you use this invention?"
+        ],
+        "answers": [
+          "are",
+          "do",
+          "did",
+          "can"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 2 — How do you...?",
           "body": "To ask about a general process, use <b>How do you + verb?</b> The correct answer is <span class=\"right-form\">do</span>. <span class=\"rule-ref\">Rule 2</span>"
-        }
+        },
+        "jp": "この発明品をどのように使いますか？"
       },
       {
-        "stem": ["'You need creativity to invent things.' Here 'you' means ", "BLANK", "."],
-        "answers": ["only Leo", "only the teacher", "people in general", "a specific friend"],
+        "stem": [
+          "'You need creativity to invent things.' Here 'you' means ",
+          "BLANK",
+          "."
+        ],
+        "answers": [
+          "only Leo",
+          "only the teacher",
+          "people in general",
+          "a specific friend"
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 1 — General meaning",
           "body": "Here 'you' means <span class=\"right-form\">people in general</span> — not one specific person. <span class=\"rule-ref\">Rule 1</span>"
-        }
+        },
+        "jp": "「ものを発明するには創造力が必要です」——「you」は一般の人々を意味します。"
       },
       {
-        "stem": ["First, ", "BLANK", " put the battery inside."],
-        "answers": ["he", "you", "they", "I"],
+        "stem": [
+          "First, ",
+          "BLANK",
+          " put the battery inside."
+        ],
+        "answers": [
+          "he",
+          "you",
+          "they",
+          "I"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 3 — Instructions",
           "body": "When giving instructions, use <b>you + verb</b>. The correct answer is <span class=\"right-form\">you</span>. <span class=\"rule-ref\">Rule 3</span>"
-        }
+        },
+        "jp": "まず、電池を中に入れます。"
       },
       {
-        "stem": ["Which sentence uses 'you' for people in general?"],
-        "answers": ["You are my best friend.", "You need to call me tonight.", "You can learn a lot from mistakes.", "You left your bag here."],
+        "stem": [
+          "Which sentence uses 'you' for people in general?"
+        ],
+        "answers": [
+          "You are my best friend.",
+          "You need to call me tonight.",
+          "You can learn a lot from mistakes.",
+          "You left your bag here."
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 1 — General meaning",
           "body": "'<b>You can learn a lot from mistakes</b>' means anyone can learn — it's general. The others refer to one specific person. <span class=\"rule-ref\">Rule 1</span>"
-        }
+        },
+        "jp": "間違いからたくさん学ぶことができます。"
       },
       {
-        "stem": ["How do you turn it on? ", "BLANK", " press the button."],
-        "answers": ["He", "They", "You", "She"],
+        "stem": [
+          "How do you turn it on? ",
+          "BLANK",
+          " press the button."
+        ],
+        "answers": [
+          "He",
+          "They",
+          "You",
+          "She"
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 3 — Instructions",
           "body": "When answering 'How do you...?', use <b>You + verb</b>. The correct answer is <span class=\"right-form\">You</span>. <span class=\"rule-ref\">Rule 3</span>"
-        }
+        },
+        "jp": "どのように電源を入れますか？ボタンを押します。"
       },
       {
-        "stem": ["How do ", "BLANK", " make the wheels turn?"],
-        "answers": ["he", "she", "you", "they"],
+        "stem": [
+          "How do ",
+          "BLANK",
+          " make the wheels turn?"
+        ],
+        "answers": [
+          "he",
+          "she",
+          "you",
+          "they"
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 2 — How do you...?",
           "body": "Use <b>How do you + verb?</b> to ask about a general process. The correct answer is <span class=\"right-form\">you</span>. <span class=\"rule-ref\">Rule 2</span>"
-        }
+        },
+        "jp": "車輪をどのように回しますか？"
       },
       {
-        "stem": ["", "BLANK", " can find good ideas everywhere."],
-        "answers": ["He", "You", "They", "She"],
+        "stem": [
+          "",
+          "BLANK",
+          " can find good ideas everywhere."
+        ],
+        "answers": [
+          "He",
+          "You",
+          "They",
+          "She"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 1 — General meaning",
           "body": "Use <b>You</b> to talk about people in general. The correct answer is <span class=\"right-form\">You</span>. <span class=\"rule-ref\">Rule 1</span>"
-        }
+        },
+        "jp": "どこでも良いアイデアを見つけることができます。"
       },
       {
-        "stem": ["How do you solve this problem? ", "BLANK", " think carefully and try again."],
-        "answers": ["He", "You", "They", "I"],
+        "stem": [
+          "How do you solve this problem? ",
+          "BLANK",
+          " think carefully and try again."
+        ],
+        "answers": [
+          "He",
+          "You",
+          "They",
+          "I"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 3 — Instructions",
           "body": "Use <b>You + verb</b> to give a general instruction or explanation. The correct answer is <span class=\"right-form\">You</span>. <span class=\"rule-ref\">Rule 3</span>"
-        }
+        },
+        "jp": "この問題をどのように解きますか？よく考えてもう一度試みます。"
       },
       {
-        "stem": ["Which question asks about a general process?"],
-        "answers": ["Did you eat lunch?", "How do you make electricity?", "Are you coming tomorrow?", "Do you like robots?"],
+        "stem": [
+          "Which question asks about a general process?"
+        ],
+        "answers": [
+          "Did you eat lunch?",
+          "How do you make electricity?",
+          "Are you coming tomorrow?",
+          "Do you like robots?"
+        ],
         "correct": 1,
         "explanation": {
           "title": "Rule 2 — How do you...?",
           "body": "'<b>How do you make electricity?</b>' asks about a general process — not one specific person. <span class=\"rule-ref\">Rule 2</span>"
-        }
+        },
+        "jp": "電気をどのように作りますか？"
       },
       {
-        "stem": ["Which sentence is correct?"],
-        "answers": ["How does you use this?", "How do you uses this?", "How do you use this?", "How you do use this?"],
+        "stem": [
+          "Which sentence is correct?"
+        ],
+        "answers": [
+          "How does you use this?",
+          "How do you uses this?",
+          "How do you use this?",
+          "How you do use this?"
+        ],
         "correct": 2,
         "explanation": {
           "title": "Rule 2 — Correct form",
           "body": "The correct form is <b>How do you + base verb?</b> The correct answer is <span class=\"right-form\">How do you use this?</span> <span class=\"rule-ref\">Rule 2</span>"
-        }
+        },
+        "jp": "これをどのように使いますか？"
       }
     ]
   },
@@ -191,63 +403,205 @@
     "questions": [
       {
         "type": "mc",
-        "stem": ["", "BLANK", " do you make the wheels turn?"],
-        "answers": ["What", "How", "Why", "When"],
-        "correct": 1
+        "stem": [
+          "",
+          "BLANK",
+          " do you make the wheels turn?"
+        ],
+        "answers": [
+          "What",
+          "How",
+          "Why",
+          "When"
+        ],
+        "correct": 1,
+        "jp": "車輪をどのように回しますか？"
       },
       {
         "type": "mc",
-        "stem": ["'You can succeed if you keep trying.' Here 'you' means ", "BLANK", "."],
-        "answers": ["the teacher", "people in general", "only Leo", "only inventors"],
-        "correct": 1
+        "stem": [
+          "'You can succeed if you keep trying.' Here 'you' means ",
+          "BLANK",
+          "."
+        ],
+        "answers": [
+          "the teacher",
+          "people in general",
+          "only Leo",
+          "only inventors"
+        ],
+        "correct": 1,
+        "jp": "「あきらめずに挑戦し続ければ、成功できます」——「you」は一般の人々を意味します。"
       },
       {
         "type": "build",
-        "cue": ["How do you", "use that toy?"],
-        "bank": ["How", "do", "you", "use", "that", "toy", "does", "your"],
-        "correct": ["How", "do", "you", "use", "that", "toy"]
+        "cue": [
+          "How do you",
+          "use that toy?"
+        ],
+        "bank": [
+          "How",
+          "do",
+          "you",
+          "use",
+          "that",
+          "toy",
+          "does",
+          "your"
+        ],
+        "correct": [
+          "How",
+          "do",
+          "you",
+          "use",
+          "that",
+          "toy"
+        ],
+        "jp": "そのおもちゃをどのように使いますか？"
       },
       {
         "type": "mc",
-        "stem": ["Which sentence gives a general instruction?"],
-        "answers": ["You are very smart today.", "You called me yesterday.", "First, you lift the lid to open it.", "You forgot your homework."],
-        "correct": 2
+        "stem": [
+          "Which sentence gives a general instruction?"
+        ],
+        "answers": [
+          "You are very smart today.",
+          "You called me yesterday.",
+          "First, you lift the lid to open it.",
+          "You forgot your homework."
+        ],
+        "correct": 2,
+        "jp": "まず、蓋を持ち上げると開きます。"
       },
       {
         "type": "build",
-        "cue": ["You need", "creativity to invent things"],
-        "bank": ["You", "need", "creativity", "to", "invent", "things", "needs", "inventing"],
-        "correct": ["You", "need", "creativity", "to", "invent", "things"]
+        "cue": [
+          "You need",
+          "creativity to invent things"
+        ],
+        "bank": [
+          "You",
+          "need",
+          "creativity",
+          "to",
+          "invent",
+          "things",
+          "needs",
+          "inventing"
+        ],
+        "correct": [
+          "You",
+          "need",
+          "creativity",
+          "to",
+          "invent",
+          "things"
+        ],
+        "jp": "ものを発明するには創造力が必要です。"
       },
       {
         "type": "mc",
-        "stem": ["How do you use that machine? ", "BLANK", " press the red button."],
-        "answers": ["I", "He", "You", "She"],
-        "correct": 2
+        "stem": [
+          "How do you use that machine? ",
+          "BLANK",
+          " press the red button."
+        ],
+        "answers": [
+          "I",
+          "He",
+          "You",
+          "She"
+        ],
+        "correct": 2,
+        "jp": "その機械をどのように使いますか？赤いボタンを押します。"
       },
       {
         "type": "build",
-        "cue": ["You can find", "good ideas everywhere"],
-        "bank": ["You", "can", "find", "good", "ideas", "everywhere", "found", "finding"],
-        "correct": ["You", "can", "find", "good", "ideas", "everywhere"]
+        "cue": [
+          "You can find",
+          "good ideas everywhere"
+        ],
+        "bank": [
+          "You",
+          "can",
+          "find",
+          "good",
+          "ideas",
+          "everywhere",
+          "found",
+          "finding"
+        ],
+        "correct": [
+          "You",
+          "can",
+          "find",
+          "good",
+          "ideas",
+          "everywhere"
+        ],
+        "jp": "どこでも良いアイデアを見つけることができます。"
       },
       {
         "type": "mc",
-        "stem": ["First, ", "BLANK", " put the battery in. Then ", "BLANK", " turn it on."],
-        "answers": ["I / I", "he / he", "you / you", "they / they"],
-        "correct": 2
+        "stem": [
+          "First, ",
+          "BLANK",
+          " put the battery in. Then ",
+          "BLANK",
+          " turn it on."
+        ],
+        "answers": [
+          "I / I",
+          "he / he",
+          "you / you",
+          "they / they"
+        ],
+        "correct": 2,
+        "jp": "まず、電池を入れます。それから電源を入れます。"
       },
       {
         "type": "build",
-        "cue": ["You lift your arms", "and shake your legs"],
-        "bank": ["You", "lift", "your", "arms", "and", "shake", "your", "legs", "lifts", "shakes"],
-        "correct": ["You", "lift", "your", "arms", "and", "shake", "your", "legs"]
+        "cue": [
+          "You lift your arms",
+          "and shake your legs"
+        ],
+        "bank": [
+          "You",
+          "lift",
+          "your",
+          "arms",
+          "and",
+          "shake",
+          "your",
+          "legs",
+          "lifts",
+          "shakes"
+        ],
+        "correct": [
+          "You",
+          "lift",
+          "your",
+          "arms",
+          "and",
+          "shake",
+          "your",
+          "legs"
+        ],
+        "jp": "両腕を上げて、足を振ります。"
       },
       {
         "type": "mc",
-        "stem": ["Which sentence is correct?"],
-        "answers": ["How does you use this?", "How do you uses this?", "How do you use this?", "How you do use this?"],
-        "correct": 2
+        "stem": [
+          "Which sentence is correct?"
+        ],
+        "answers": [
+          "How does you use this?",
+          "How do you uses this?",
+          "How do you use this?",
+          "How you do use this?"
+        ],
+        "correct": 2,
+        "jp": "これをどのように使いますか？"
       }
     ]
   }
