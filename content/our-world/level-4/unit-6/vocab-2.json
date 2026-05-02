@@ -1,0 +1,73 @@
+{
+  "level": 4,
+  "unit": 6,
+  "set": 2,
+  "unit_name": "Wonders of the Sea",
+  "words": [
+    {
+      "id": "oil-spill",
+      "word": "an oil spill",
+      "emoji": "🛢️",
+      "ipa": "/ɔɪl spɪl/",
+      "syllables": "oil spill",
+      "pos": "Noun · Countable",
+      "sample": "There was a bad <b>oil spill</b> near the beach, so we can't swim there.",
+      "jp_word": "原油流出",
+      "jp_reading": "げんゆりゅうしゅつ",
+      "jp_sentence": "浜辺の近くで大きな<b>原油流出</b>があったので、そこでは泳げません。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "garbage",
+      "word": "garbage",
+      "emoji": "🗑️",
+      "ipa": "/ˈɡɑːrbɪdʒ/",
+      "syllables": "gar·bage",
+      "pos": "Noun · Uncountable",
+      "sample": "Don't throw <b>garbage</b> on the beach — keep it clean.",
+      "jp_word": "ゴミ",
+      "jp_reading": "ごみ",
+      "jp_sentence": "浜辺に<b>ゴミ</b>を捨てないでください。きれいにしましょう。",
+      "jp_tags": ["名詞", "不可算名詞"]
+    },
+    {
+      "id": "overfishing",
+      "word": "overfishing",
+      "emoji": "🐟",
+      "ipa": "/ˌoʊvərˈfɪʃɪŋ/",
+      "syllables": "o·ver·fish·ing",
+      "pos": "Noun · Uncountable",
+      "sample": "We need to stop <b>overfishing</b> to protect ocean life.",
+      "jp_word": "乱獲",
+      "jp_reading": "らんかく",
+      "jp_sentence": "海の生き物を守るために<b>乱獲</b>をやめる必要があります。",
+      "jp_tags": ["名詞", "不可算名詞"]
+    },
+    {
+      "id": "plastic",
+      "word": "plastic",
+      "emoji": "🧴",
+      "ipa": "/ˈplæstɪk/",
+      "syllables": "plas·tic",
+      "pos": "Noun · Uncountable",
+      "sample": "Don't throw <b>plastic</b> bags in the water — fish and birds get hurt.",
+      "jp_word": "プラスチック",
+      "jp_reading": "ぷらすちっく",
+      "jp_sentence": "水の中に<b>プラスチック</b>袋を捨てないでください。魚や鳥が傷つきます。",
+      "jp_tags": ["名詞", "不可算名詞"]
+    },
+    {
+      "id": "biodegradable",
+      "word": "biodegradable",
+      "emoji": "🌱",
+      "ipa": "/ˌbaɪoʊdɪˈɡreɪdəbl/",
+      "syllables": "bi·o·de·grad·a·ble",
+      "pos": "Adjective",
+      "sample": "Food is <b>biodegradable</b>, but plastic is not.",
+      "jp_word": "生分解性の",
+      "jp_reading": "せいぶんかいせいの",
+      "jp_sentence": "食べ物は<b>生分解性</b>ですが、プラスチックはそうではありません。",
+      "jp_tags": ["形容詞"]
+    }
+  ]
+}
