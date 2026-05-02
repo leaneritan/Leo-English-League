@@ -1,0 +1,259 @@
+{
+  "level": 4,
+  "unit": 6,
+  "set": 1,
+  "unit_name": "Wonders of the Sea",
+  "title": "Have to, must, can't, and don't",
+  "tag": "Obligation & Rules",
+  "chart": {
+    "title": "Have to, must, can't, and don't",
+    "intro_examples": [
+      { "text": "We must keep the classroom clean.", "continuation": "We have to keep the classroom clean." },
+      { "text": "You can't throw trash on the floor.", "continuation": "Don't throw trash on the floor." }
+    ],
+    "rows": [
+      ["We", "must / have to", "keep", "the classroom clean."],
+      ["You", "can't", "throw", "trash on the floor."],
+      ["", "Don't", "throw", "trash on the floor."]
+    ],
+    "note_rule": "Use must and have to to say something is necessary. Use can't and don't to say something is not allowed.",
+    "note_exception": "can't = cannot",
+    "note_exception_detail": "don't = do not"
+  },
+  "tab1_samples": [
+    { "text": "We <b>must</b> protect the ocean from pollution.", "jp": "私たちは海を汚染から守らなければなりません。" },
+    { "text": "You <b>have to</b> pick up your garbage on the beach.", "jp": "浜辺でゴミを拾わなければなりません。" },
+    { "text": "You <b>can't</b> throw plastic bags into the water.", "jp": "水の中にプラスチック袋を捨ててはいけません。" },
+    { "text": "<b>Don't</b> touch the sea creatures at the aquarium.", "jp": "水族館で海の生き物に触ってはいけません。" },
+    { "text": "We <b>have to</b> stop overfishing to protect sea life.", "jp": "海の生き物を守るために乱獲をやめなければなりません。" },
+    { "text": "You <b>must</b> turn off the lights when you leave the room.", "jp": "部屋を出るときは電気を消さなければなりません。" },
+    { "text": "We <b>have to</b> use less plastic to protect the ocean.", "jp": "海を守るためにプラスチックの使用を減らさなければなりません。" },
+    { "text": "You <b>can't</b> swim near an oil spill — it's very dangerous.", "jp": "原油流出の近くでは泳いではいけません。とても危険です。" },
+    { "text": "<b>Don't</b> throw garbage into the sea — it hurts dolphins and sea turtles.", "jp": "海にゴミを捨てないでください。イルカやウミガメが傷つきます。" },
+    { "text": "Schools <b>must</b> teach students about protecting ocean resources.", "jp": "学校は生徒に海の資源を守ることを教えなければなりません。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "must",
+        "jp_title": "must（マスト）",
+        "subtitle": "Use <b>must</b> to say something is necessary.",
+        "jp_subtitle": "必要なことを言うときに<b>must</b>を使います。",
+        "transforms": [{ "from": "necessary", "to": "must + verb" }],
+        "examples": [
+          { "text": "We <b>must</b> protect the ocean.", "jp": "私たちは海を守らなければなりません。" },
+          { "text": "You <b>must</b> wear a life jacket on the boat.", "jp": "ボートに乗るときは救命胴衣を着なければなりません。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "have to",
+        "jp_title": "have to（ハブ・トゥー）",
+        "subtitle": "Use <b>have to</b> to say something is necessary.",
+        "jp_subtitle": "必要なことを言うときに<b>have to</b>を使います。",
+        "transforms": [{ "from": "necessary", "to": "have to + verb" }],
+        "examples": [
+          { "text": "We <b>have to</b> stop overfishing.", "jp": "私たちは乱獲をやめなければなりません。" },
+          { "text": "You <b>have to</b> clean the beach after your picnic.", "jp": "ピクニックの後は浜辺をきれいにしなければなりません。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "can't",
+        "jp_title": "can't（キャント）",
+        "subtitle": "Use <b>can't</b> to say something is not allowed.",
+        "jp_subtitle": "禁止されていることを言うときに<b>can't</b>を使います。",
+        "transforms": [{ "from": "not allowed", "to": "can't + verb" }],
+        "examples": [
+          { "text": "You <b>can't</b> throw plastic into the water.", "jp": "水の中にプラスチックを捨ててはいけません。" },
+          { "text": "We <b>can't</b> ignore pollution in the ocean.", "jp": "海の汚染を無視することはできません。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Don't",
+        "jp_title": "Don't（ドント）",
+        "subtitle": "Use <b>Don't</b> + verb for negative commands.",
+        "jp_subtitle": "否定の命令文には<b>Don't</b> + 動詞を使います。",
+        "transforms": [{ "from": "command (negative)", "to": "Don't + verb" }],
+        "examples": [
+          { "text": "<b>Don't</b> throw garbage in the sea.", "jp": "海にゴミを捨てないでください。" },
+          { "text": "<b>Don't</b> touch the sea creatures.", "jp": "海の生き物に触らないでください。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "must = have to",
+        "jp_title": "must = have to（同じ意味）",
+        "subtitle": "<b>Must</b> and <b>have to</b> have the same meaning.",
+        "jp_subtitle": "<b>must</b>と<b>have to</b>は同じ意味です。",
+        "transforms": [{ "from": "must", "to": "= have to (same meaning)" }],
+        "examples": [
+          { "text": "We <b>must</b> protect resources. = We <b>have to</b> protect resources.", "jp": "私たちは資源を守らなければなりません。（どちらも同じ意味）" },
+          { "text": "You <b>must</b> stop overfishing. = You <b>have to</b> stop overfishing.", "jp": "乱獲をやめなければなりません。（どちらも同じ意味）" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "We <b>must</b> keep the beach clean for future generations.", "kind": "must", "jp": "将来の世代のために浜辺をきれいに保たなければなりません。" },
+      { "text": "You <b>have to</b> put your garbage in the bin.", "kind": "have to", "jp": "ゴミ箱にゴミを入れなければなりません。" },
+      { "text": "You <b>can't</b> fish in protected ocean zones.", "kind": "can't", "jp": "保護された海域では釣りをしてはいけません。" },
+      { "text": "<b>Don't</b> use single-use plastic bags at the beach.", "kind": "don't", "jp": "浜辺で使い捨てプラスチック袋を使わないでください。" },
+      { "text": "We <b>have to</b> protect endangered sea creatures.", "kind": "have to", "jp": "絶滅危惧種の海の生き物を守らなければなりません。" },
+      { "text": "You <b>must</b> report an oil spill immediately.", "kind": "must", "jp": "原油流出はすぐに報告しなければなりません。" },
+      { "text": "You <b>can't</b> buy products made from endangered sea animals.", "kind": "can't", "jp": "絶滅危惧種の海の動物から作られた製品を買ってはいけません。" },
+      { "text": "<b>Don't</b> leave your garbage near the ocean.", "kind": "don't", "jp": "海の近くにゴミを置いていかないでください。" },
+      { "text": "Schools <b>must</b> teach students about ocean conservation.", "kind": "must", "jp": "学校は生徒に海洋保護について教えなければなりません。" },
+      { "text": "We <b>have to</b> work together to stop ocean pollution.", "kind": "have to", "jp": "海の汚染を止めるために協力しなければなりません。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["We", "___", "protect the ocean from pollution."],
+        "answers": ["must", "don't", "aren't", "weren't"],
+        "correct": 0,
+        "explanation": { "title": "must", "body": "Use <b>must</b> to say something is necessary or very important." },
+        "jp": "私たちは海を汚染から守らなければなりません。"
+      },
+      {
+        "stem": ["You", "___", "throw garbage into the sea."],
+        "answers": ["can't", "must", "have to", "will"],
+        "correct": 0,
+        "explanation": { "title": "can't", "body": "Use <b>can't</b> to say something is not allowed." },
+        "jp": "海にゴミを捨ててはいけません。"
+      },
+      {
+        "stem": ["___", "touch the sea creatures at the aquarium."],
+        "answers": ["Don't", "Does", "Do", "Can"],
+        "correct": 0,
+        "explanation": { "title": "Don't", "body": "Use <b>Don't</b> + base verb to give a negative command." },
+        "jp": "水族館で海の生き物に触らないでください。"
+      },
+      {
+        "stem": ["We", "___", "stop overfishing to protect sea life."],
+        "answers": ["have to", "has to", "having", "had"],
+        "correct": 0,
+        "explanation": { "title": "have to", "body": "Use <b>have to</b> to say something is necessary. It means the same as <b>must</b>." },
+        "jp": "海の生き物を守るために乱獲をやめなければなりません。"
+      },
+      {
+        "stem": ["You", "___", "swim near the oil spill — it's dangerous."],
+        "answers": ["can't", "must", "have to", "will"],
+        "correct": 0,
+        "explanation": { "title": "can't", "body": "Use <b>can't</b> to say something is not allowed or not possible." },
+        "jp": "原油流出の近くでは泳いではいけません。危険です。"
+      },
+      {
+        "stem": ["We must", "___", "less plastic to protect the ocean."],
+        "answers": ["use", "uses", "using", "used"],
+        "correct": 0,
+        "explanation": { "title": "must + base verb", "body": "After <b>must</b>, always use the base form of the verb — no -s, -ing, or -ed." },
+        "jp": "私たちは海を守るためにプラスチックの使用を減らさなければなりません。"
+      },
+      {
+        "stem": ["You", "___", "pick up your garbage on the beach."],
+        "answers": ["have to", "has to", "having to", "had"],
+        "correct": 0,
+        "explanation": { "title": "have to", "body": "Use <b>have to</b> with a subject to say something is necessary." },
+        "jp": "浜辺でゴミを拾わなければなりません。"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["We must protecting the ocean.", "We must protect the ocean.", "We musts protect the ocean.", "We must protects the ocean."],
+        "correct": 1,
+        "explanation": { "title": "must + base verb", "body": "After <b>must</b>, always use the base form of the verb. No -ing and no -s." },
+        "jp": "私たちは海を守らなければなりません。"
+      },
+      {
+        "stem": ["Schools", "___", "teach students about protecting ocean resources."],
+        "answers": ["must", "musts", "are must", "having to"],
+        "correct": 0,
+        "explanation": { "title": "must", "body": "<b>Must</b> is the same for all subjects — we never add -s." },
+        "jp": "学校は生徒に海の資源を守ることを教えなければなりません。"
+      },
+      {
+        "stem": ["Don't", "___", "garbage near the ocean."],
+        "answers": ["leave", "leaves", "leaving", "left"],
+        "correct": 0,
+        "explanation": { "title": "Don't + base verb", "body": "After <b>Don't</b>, always use the base form of the verb." },
+        "jp": "海の近くにゴミを置いていかないでください。"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["You ___ throw plastic bags into the sea."],
+        "answers": ["can't", "must", "have", "do"],
+        "correct": 0,
+        "jp": "水の中にプラスチック袋を捨ててはいけません。"
+      },
+      {
+        "type": "mc",
+        "stem": ["We ___ protect our natural resources."],
+        "answers": ["have to", "has to", "having", "had to not"],
+        "correct": 0,
+        "jp": "私たちは自然資源を守らなければなりません。"
+      },
+      {
+        "type": "mc",
+        "stem": ["___ touch the sea creatures at the aquarium."],
+        "answers": ["Don't", "Doesn't", "Does", "Can"],
+        "correct": 0,
+        "jp": "水族館で海の生き物に触らないでください。"
+      },
+      {
+        "type": "mc",
+        "stem": ["You ___ swim near the oil spill."],
+        "answers": ["can't", "must", "have to", "will"],
+        "correct": 0,
+        "jp": "原油流出の近くでは泳いではいけません。"
+      },
+      {
+        "type": "mc",
+        "stem": ["We must ___ less plastic to help the ocean."],
+        "answers": ["use", "uses", "using", "used"],
+        "correct": 0,
+        "jp": "私たちは海を助けるためにプラスチックの使用を減らさなければなりません。"
+      },
+      {
+        "type": "build",
+        "cue": "We / must / protect / the ocean",
+        "bank": ["We", "must", "protect", "the", "ocean", ".", "can't", "have"],
+        "correct": ["We", "must", "protect", "the", "ocean", "."],
+        "jp": "私たちは海を守らなければなりません。"
+      },
+      {
+        "type": "build",
+        "cue": "You / can't / throw / garbage / into the sea",
+        "bank": ["You", "can't", "throw", "garbage", "into", "the", "sea", ".", "must", "don't"],
+        "correct": ["You", "can't", "throw", "garbage", "into", "the", "sea", "."],
+        "jp": "海にゴミを捨ててはいけません。"
+      },
+      {
+        "type": "build",
+        "cue": "Don't / touch / the sea creatures",
+        "bank": ["Don't", "touch", "the", "sea", "creatures", ".", "Can't", "must"],
+        "correct": ["Don't", "touch", "the", "sea", "creatures", "."],
+        "jp": "海の生き物に触らないでください。"
+      },
+      {
+        "type": "build",
+        "cue": "We / have to / stop / overfishing",
+        "bank": ["We", "have", "to", "stop", "overfishing", ".", "must", "can't"],
+        "correct": ["We", "have", "to", "stop", "overfishing", "."],
+        "jp": "私たちは乱獲をやめなければなりません。"
+      },
+      {
+        "type": "build",
+        "cue": "Schools / must / teach / students / about ocean conservation",
+        "bank": ["Schools", "must", "teach", "students", "about", "ocean", "conservation", ".", "can't", "to"],
+        "correct": ["Schools", "must", "teach", "students", "about", "ocean", "conservation", "."],
+        "jp": "学校は生徒に海洋保護について教えなければなりません。"
+      }
+    ]
+  }
+}
