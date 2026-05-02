@@ -579,7 +579,9 @@ function renderRuleCards(rules) {
           <div class="rule-badge">${rule.num || String(i+1).padStart(2,'0')}</div>
           <div class="rule-head-text">
             <div class="rule-title">${rule.title}</div>
+            ${rule.jp_title ? `<div class="jp-line">${rule.jp_title}</div>` : ''}
             <div class="rule-subtitle">${subtitle}</div>
+            ${rule.jp_subtitle ? `<div class="jp-line">${rule.jp_subtitle}</div>` : ''}
           </div>
         </div>
         <div class="rule-words">

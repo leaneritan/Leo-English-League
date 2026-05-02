@@ -105,7 +105,9 @@
             "text": "<b>You</b> can find good ideas everywhere.",
             "jp": "どこでも良いアイデアを見つけることができます。"
           }
-        ]
+        ],
+        "jp_title": "「You」——一般の人々を表す",
+        "jp_subtitle": "英語の you は必ずしも特定の一人を指すわけではなく、「一般の人々」を表すこともあります。"
       },
       {
         "num": "02",
@@ -130,7 +132,9 @@
             "text": "How do <b>you</b> make the wheels turn?",
             "jp": "車輪をどのように回しますか？"
           }
-        ]
+        ],
+        "jp_title": "「How do you...?」——やり方を尋ねる",
+        "jp_subtitle": "How do you + 動詞? を使って、一般的なやり方を尋ねます——特定の一人に聞くわけではありません。"
       },
       {
         "num": "03",
@@ -155,7 +159,9 @@
             "text": "<b>You</b> lift your arms and shake your legs.",
             "jp": "両腕を上げて、足を振ります。"
           }
-        ]
+        ],
+        "jp_title": "「you」を使った指示の与え方",
+        "jp_subtitle": "you + 動詞 を使って、手順を示す指示を与えます。レシピや説明文によく使われます。"
       }
     ],
     "mixed_samples": [

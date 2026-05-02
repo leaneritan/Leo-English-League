@@ -124,7 +124,9 @@
             "text": "She <b>used to</b> have a pet rabbit.",
             "jp": "彼女はペットのウサギを飼っていました。"
           }
-        ]
+        ],
+        "jp_title": "肯定文——used to + 動詞",
+        "jp_subtitle": "used to + 動詞を使って、過去に定期的にしていたが今はしていないことを表します。"
       },
       {
         "num": "02",
@@ -153,7 +155,9 @@
             "text": "My friend <b>didn't use to</b> like reading.",
             "jp": "友達は前は読書が好きではありませんでした。"
           }
-        ]
+        ],
+        "jp_title": "否定文——didn't use to + 動詞",
+        "jp_subtitle": "didn't use to + 動詞を使って、過去に定期的にしていなかったことを表します。"
       },
       {
         "num": "03",
@@ -178,7 +182,9 @@
             "text": "<b>Did</b> people <b>use to</b> travel by horse?",
             "jp": "昔、人々は馬で旅をしていましたか？"
           }
-        ]
+        ],
+        "jp_title": "疑問文——Did + 主語 + use to + 動詞?",
+        "jp_subtitle": "過去の習慣について尋ねるには Did + 主語 + use to + 動詞? を使います。答えは Yes, I did. または No, I didn't. です。"
       }
     ],
     "mixed_samples": [
