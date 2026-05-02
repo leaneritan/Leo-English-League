@@ -7,6 +7,9 @@
   "tag": "Future Tense",
   "chart": {
     "title": "Future with will and won't",
+    "headers": ["Context", "Subject", "will / won't", "Verb phrase"],
+    "key_col": 2,
+    "mid_col": -1,
     "intro_examples": [
       { "text": "In the future, people will live longer.", "continuation": "won't = will not" },
       { "text": "In the future, we won't use paper money.", "continuation": "we'll = we will" }

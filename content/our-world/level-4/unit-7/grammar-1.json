@@ -7,6 +7,9 @@
   "tag": "Grammar 1",
   "chart": {
     "title": "Used to — past habits",
+    "headers": ["Subject", "used to / didn't use to", "Verb phrase", "Full example"],
+    "key_col": 1,
+    "mid_col": -1,
     "intro_examples": [
       {
         "text": "I <b>used to</b> play video games inside.",

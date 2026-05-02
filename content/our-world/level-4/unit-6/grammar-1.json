@@ -7,6 +7,9 @@
   "tag": "Obligation & Rules",
   "chart": {
     "title": "Have to, must, can't, and don't",
+    "headers": ["Subject", "Modal verb", "Action", "Object / Rest"],
+    "key_col": 1,
+    "mid_col": -1,
     "intro_examples": [
       { "text": "We must keep the classroom clean.", "continuation": "We have to keep the classroom clean." },
       { "text": "You can't throw trash on the floor.", "continuation": "Don't throw trash on the floor." }

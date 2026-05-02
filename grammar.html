@@ -303,6 +303,29 @@ const set   = params.get('set')   || '1';
 
 const jsonUrl = `content/our-world/level-${level}/unit-${unit}/grammar-${set}.json`;
 
+// ── STEM RENDERER ──
+function renderStem(stem, blankId) {
+  const blankHtml = `<span class="blank" id="${blankId}">____</span>`;
+  if (Array.isArray(stem)) {
+    const out = [];
+    for (let i = 0; i < stem.length; i++) {
+      const part = stem[i];
+      if (part === 'BLANK' || part === '___') {
+        if (out.length && !out[out.length - 1].endsWith(' ')) out.push(' ');
+        out.push(blankHtml);
+        if (i + 1 < stem.length && stem[i + 1] && !stem[i + 1].startsWith(' ')) out.push(' ');
+      } else if (typeof part === 'string' && part.includes('___')) {
+        out.push(part.split(/_{3,}/).join(blankHtml));
+      } else {
+        out.push(part || '');
+      }
+    }
+    return out.join('');
+  }
+  const s = stem || '';
+  return s.includes('___') ? s.split(/_{3,}/).join(blankHtml) : s;
+}
+
 // ── QUIZ STATE ──
 let quizData = null;
 let quizCorrect = 0;
@@ -482,7 +505,7 @@ function renderPage(data) {
     if (jpWrap) jpWrap.style.display = (tab.dataset.tab === 'master') ? 'none' : 'flex';
   });
 
-  renderQuizQuestion(0);
+  if (quizQuestions.length > 0) renderQuizQuestion(0);
 }
 
 // ── CHART ──
@@ -499,26 +522,46 @@ function renderChart(data, topic) {
     ).join('');
   }
 
-  // Table rows — always present
   const rows = chart.rows || [];
-  const rowsHtml = rows.map((row, ri) => {
-    const isLast = ri === rows.length - 1;
-    return row.map((cell, ci) => {
-      let cls = '';
-      if (ci === 1) cls = 'key';
-      else if (ci === 2) cls = 'mid';
-      else if (ci === rows[0].length - 1 && ci > 2) cls = 'last';
-      return `<div class="cell${cls ? ' '+cls : ''}">${cell}</div>`;
-    }).join('');
+
+  if (!rows.length) {
+    return `
+      <section class="chart-card">
+        <div class="chart-head"><div class="bar"></div><div class="label">Grammar Chart</div><div class="name">${topic}</div></div>
+        <div class="chart-intro"><div class="label">See how it works</div>${introHtml}</div>
+      </section>
+    `;
+  }
+
+  const numCols = rows[0].length;
+  const keyCol = chart.key_col !== undefined ? chart.key_col : 1;
+  // midCol: for 4-col grids use col 2 unless it's the keyCol; can be overridden per-chart
+  const midCol = chart.mid_col !== undefined ? chart.mid_col :
+                 (numCols === 4 && keyCol !== 2) ? 2 : -1;
+
+  const defaultHeaders = ['Subject', 'Comparative', '—', 'Compared to'];
+  const headers = chart.headers || defaultHeaders.slice(0, numCols);
+
+  const colWidths = numCols === 4 ? '1.2fr 1.3fr 0.5fr 1.4fr' :
+                    numCols === 3 ? '1.5fr 2fr 1fr' :
+                    Array(numCols).fill('1fr').join(' ');
+
+  const hdHtml = headers.map((h, i) => {
+    let cls = 'hd';
+    if (i === keyCol) cls += ' key';
+    else if (i === midCol) cls += ' mid';
+    return `<div class="${cls}">${h}</div>`;
   }).join('');
 
-  // Header row — 4 cols standard
-  const hdHtml = `
-    <div class="hd">Subject</div>
-    <div class="hd key">Comparative</div>
-    <div class="hd mid">—</div>
-    <div class="hd">Compared to</div>
-  `;
+  const rowsHtml = rows.map(row => {
+    return row.map((cell, ci) => {
+      let cls = 'cell';
+      if (ci === keyCol) cls += ' key';
+      else if (ci === midCol) cls += ' mid';
+      else if (ci === row.length - 1) cls += ' last';
+      return `<div class="${cls}">${cell}</div>`;
+    }).join('');
+  }).join('');
 
   // Notes
   let noteHtml = '';
@@ -541,7 +584,7 @@ function renderChart(data, topic) {
         ${introHtml}
       </div>
       <div class="chart-table">
-        <div class="chart-grid" style="grid-template-columns:1.2fr 1.3fr 0.5fr 1.4fr">
+        <div class="chart-grid" style="grid-template-columns:${colWidths}">
           ${hdHtml}
           ${rowsHtml}
         </div>
@@ -604,18 +647,7 @@ function renderQuizQuestion(idx) {
   const area = document.getElementById('questionsArea');
   const letters = ['A','B','C','D'];
 
-  // Handle both stem formats: array with "BLANK" or string with "___"
-  let stemHtml = '';
-  if (Array.isArray(q.stem)) {
-    stemHtml = q.stem.map(part =>
-      part === 'BLANK' ? `<span class="blank" id="blank-${idx}">____</span>` : part
-    ).join('');
-  } else {
-    const parts = (q.question || q.stem || '').split(/_{3,}/);
-    stemHtml = parts.length > 1
-      ? parts[0] + `<span class="blank" id="blank-${idx}">____</span>` + parts[1]
-      : (q.question || q.stem || '');
-  }
+  const stemHtml = renderStem(q.stem || q.question, `blank-${idx}`);
 
   const options = q.answers || q.options || [];
   const correct = q.correct !== undefined ? q.correct : q.answer;
@@ -756,18 +788,8 @@ function renderMasterQuestion(idx) {
   card.id = 'qcard-master';
 
   if (!isBuild) {
-    // MC — handle both stem formats
-    let stemHtml = '';
-    if (Array.isArray(q.stem)) {
-      stemHtml = q.stem.map(part =>
-        part === 'BLANK' ? `<span class="blank" id="mblank-${idx}">____</span>` : part
-      ).join('');
-    } else {
-      const parts = (q.question || '').split(/_{3,}/);
-      stemHtml = parts.length > 1
-        ? parts[0] + `<span class="blank" id="mblank-${idx}">____</span>` + parts[1]
-        : (q.question || '');
-    }
+    // MC
+    const stemHtml = renderStem(q.stem || q.question, `mblank-${idx}`);
     const options = q.answers || q.options || [];
     const correct = q.correct !== undefined ? q.correct : q.answer;
     const answersHtml = options.map((opt, i) =>
