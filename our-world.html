@@ -228,6 +228,7 @@
       background: var(--surface); border: 1px solid var(--border);
       padding: 11px 16px;
       cursor: pointer; transition: all 0.12s ease;
+      text-decoration: none;
     }
     .gram-row:hover { border-color: var(--ink); }
     .gram-tag {
@@ -249,36 +250,25 @@
     }
 
     /* ── accordion ── */
-    .unit-accordion {
-      margin-bottom: 4px;
-      border: 1px solid var(--border);
-    }
-    .unit-accordion.open {
-      border-color: var(--ink);
-    }
+    .unit-accordion { border: 1px solid var(--border); margin-bottom: 6px; }
+    .unit-accordion.open { border-color: var(--ink); }
 
     .acc-header {
       display: flex; align-items: center; gap: 12px;
-      padding: 14px 18px;
-      cursor: pointer;
-      background: var(--surface);
-      user-select: none;
-      transition: background 0.12s ease;
+      padding: 14px 18px; cursor: pointer;
+      background: var(--surface); user-select: none;
+      transition: background 0.12s;
     }
     .acc-header:hover { background: var(--yellow-bg); }
     .unit-accordion.open .acc-header { background: var(--ink); }
 
     .acc-num {
       font-family: 'Oswald', sans-serif; font-weight: 700;
-      font-size: 15px; color: var(--ink);
-      flex-shrink: 0;
+      font-size: 15px; color: var(--ink); flex-shrink: 0;
     }
     .unit-accordion.open .acc-num { color: var(--yellow); }
 
-    .acc-sep {
-      font-size: 11px; color: var(--border);
-      flex-shrink: 0;
-    }
+    .acc-sep { font-size: 11px; color: var(--border); flex-shrink: 0; }
     .unit-accordion.open .acc-sep { color: var(--ink-3); }
 
     .acc-title {
@@ -300,21 +290,21 @@
 
     .acc-chevron {
       width: 16px; height: 16px; flex-shrink: 0;
-      color: var(--ink-4);
-      transition: transform 0.2s ease;
+      color: var(--ink-4); transition: transform 0.2s ease;
     }
-    .unit-accordion.open .acc-chevron {
-      transform: rotate(180deg);
-      color: var(--yellow);
-    }
+    .unit-accordion.open .acc-chevron { transform: rotate(180deg); color: var(--yellow); }
 
     .acc-body {
-      display: none;
-      padding: 16px 18px 20px;
-      background: var(--paper);
-      border-top: 1px solid var(--border);
+      display: none; padding: 16px 18px 20px;
+      background: var(--paper); border-top: 1px solid var(--border);
     }
     .unit-accordion.open .acc-body { display: block; }
+
+    /* vocab tile link */
+    .vocab-tile { text-decoration: none; display: block; }
+
+    /* grammar section inside accordion */
+    .acc-grammar { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
 
     /* responsive */
     @media (max-width: 840px) {
@@ -374,75 +364,173 @@
     <!-- UNIT 1 -->
     <div class="unit-accordion" id="unit-1">
       <div class="acc-header" onclick="toggleUnit(this)">
-        <span class="acc-num">Unit 1</span>
-        <span class="acc-sep">·</span>
+        <span class="acc-num">Unit 1</span><span class="acc-sep">·</span>
         <span class="acc-title">Family &amp; Friends</span>
         <span class="acc-rule"></span>
-        <span class="acc-count">20 words</span>
+        <span class="acc-count">20 words · 2 grammar</span>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="acc-body">
         <div class="set-label"><span class="dot"></span>Vocabulary 1</div>
         <div class="vocab-grid">
-          <div class="vocab-tile"><div class="emoji">👨‍👩‍👧‍👦</div><div class="word">relatives</div></div>
-          <div class="vocab-tile expanded"><div class="word">different</div><div class="sentence">"They are sisters, but they look different."</div></div>
-          <div class="vocab-tile"><div class="emoji">🐊</div><div class="word">uglier</div></div>
-          <div class="vocab-tile"><div class="emoji">🐼</div><div class="word">cuter</div></div>
-          <div class="vocab-tile"><div class="emoji">🧠</div><div class="word">smarter</div></div>
-          <div class="vocab-tile"><div class="emoji">🙂</div><div class="word">friendlier</div></div>
-          <div class="vocab-tile"><div class="emoji">📏</div><div class="word">bigger</div></div>
-          <div class="vocab-tile"><div class="emoji">🐭</div><div class="word">smaller</div></div>
-          <div class="vocab-tile"><div class="emoji">💪</div><div class="word">stronger</div></div>
-          <div class="vocab-tile"><div class="emoji">👴</div><div class="word">older</div></div>
-          <div class="vocab-tile"><div class="emoji">👶</div><div class="word">younger</div></div>
-          <div class="vocab-tile"><div class="emoji">📐</div><div class="word">taller</div></div>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=relatives"><div class="emoji">👪</div><div class="word">relatives</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=different"><div class="emoji">🔀</div><div class="word">different</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=uglier"><div class="emoji">👎</div><div class="word">uglier</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=cuter"><div class="emoji">🥰</div><div class="word">cuter</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=smarter"><div class="emoji">🧠</div><div class="word">smarter</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=friendlier"><div class="emoji">🫂</div><div class="word">friendlier</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=bigger"><div class="emoji">↗️</div><div class="word">bigger</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=smaller"><div class="emoji">↘️</div><div class="word">smaller</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=stronger"><div class="emoji">💪</div><div class="word">stronger</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=older"><div class="emoji">👴</div><div class="word">older</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=younger"><div class="emoji">👶</div><div class="word">younger</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=taller"><div class="emoji">⬆️</div><div class="word">taller</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=shorter"><div class="emoji">⬇️</div><div class="word">shorter</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=slower"><div class="emoji">🐢</div><div class="word">slower</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=1&id=faster"><div class="emoji">🏎️</div><div class="word">faster</div></a>
         </div>
         <div class="set-label"><span class="dot"></span>Vocabulary 2</div>
         <div class="vocab-grid">
-          <div class="vocab-tile"><div class="emoji">👓</div><div class="word">glasses</div></div>
-          <div class="vocab-tile"><div class="emoji">🌀</div><div class="word">wavy hair</div></div>
-          <div class="vocab-tile"><div class="emoji">💛</div><div class="word">blond hair</div></div>
-          <div class="vocab-tile"><div class="emoji">📏</div><div class="word">straight hair</div></div>
-          <div class="vocab-tile"><div class="emoji">🎢</div><div class="word">curly hair</div></div>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=2&id=glasses"><div class="emoji">👓</div><div class="word">glasses</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=2&id=wavy-hair"><div class="emoji">🌊</div><div class="word">wavy hair</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=2&id=blond-hair"><div class="emoji">👱‍♀️</div><div class="word">blond hair</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=2&id=straight-hair"><div class="emoji">💇‍♂️</div><div class="word">straight hair</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=1&set=2&id=curly-hair"><div class="emoji">🌀</div><div class="word">curly hair</div></a>
+        </div>
+        <div class="acc-grammar">
+          <div class="set-label grammar"><span class="dot"></span>Grammar</div>
+          <div class="grammar-list">
+            <a class="gram-row" href="grammar.html?level=4&unit=1&set=1">
+              <div class="gram-tag">G1</div>
+              <div class="gram-name">Comparatives with -er</div>
+              <div class="gram-ex">I am taller than Eduardo.</div>
+            </a>
+            <a class="gram-row" href="grammar.html?level=4&unit=1&set=2">
+              <div class="gram-tag">G2</div>
+              <div class="gram-name">Present progressive for future plans</div>
+              <div class="gram-ex">I'm going to a movie tonight.</div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- UNIT 2 -->
-    <div class="unit-accordion" id="unit-2">
+    <!-- UNIT 6 -->
+    <div class="unit-accordion" id="unit-6">
       <div class="acc-header" onclick="toggleUnit(this)">
-        <span class="acc-num">Unit 2</span>
-        <span class="acc-sep">·</span>
-        <span class="acc-title">The Garden</span>
+        <span class="acc-num">Unit 6</span><span class="acc-sep">·</span>
+        <span class="acc-title">Wonders of the Sea</span>
         <span class="acc-rule"></span>
-        <span class="acc-count">8 words</span>
+        <span class="acc-count">21 words · 2 grammar</span>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="acc-body">
         <div class="set-label"><span class="dot"></span>Vocabulary 1</div>
         <div class="vocab-grid">
-          <div class="vocab-tile"><div class="emoji">⛏️</div><div class="word">dig</div></div>
-          <div class="vocab-tile"><div class="emoji">🌱</div><div class="word">plant</div></div>
-          <div class="vocab-tile"><div class="emoji">💧</div><div class="word">water</div></div>
-          <div class="vocab-tile"><div class="emoji">🌿</div><div class="word">weed</div></div>
-          <div class="vocab-tile"><div class="emoji">🍅</div><div class="word">ripe</div></div>
-          <div class="vocab-tile"><div class="emoji">🎃</div><div class="word">pumpkin</div></div>
-          <div class="vocab-tile"><div class="emoji">🥬</div><div class="word">lettuce</div></div>
-          <div class="vocab-tile"><div class="emoji">🥒</div><div class="word">cucumber</div></div>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=pollution"><div class="emoji">🏭</div><div class="word">pollution</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=resource"><div class="emoji">💎</div><div class="word">a resource</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=disappear"><div class="emoji">👻</div><div class="word">disappear</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=creature"><div class="emoji">🐙</div><div class="word">a creature</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=layer"><div class="emoji">🥞</div><div class="word">a layer</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=zone"><div class="emoji">🗺️</div><div class="word">a zone</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=sunlight"><div class="emoji">☀️</div><div class="word">sunlight</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=midnight"><div class="emoji">🌑</div><div class="word">midnight</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=whale"><div class="emoji">🐋</div><div class="word">a whale</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=squid"><div class="emoji">🦑</div><div class="word">a squid</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=dolphin"><div class="emoji">🐬</div><div class="word">a dolphin</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=fish"><div class="emoji">🐟</div><div class="word">fish</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=shark"><div class="emoji">🦈</div><div class="word">a shark</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=sea-turtle"><div class="emoji">🐢</div><div class="word">a sea turtle</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=octopus"><div class="emoji">🐙</div><div class="word">an octopus</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=1&id=sea-sponges"><div class="emoji">🧽</div><div class="word">sea sponges</div></a>
+        </div>
+        <div class="set-label"><span class="dot"></span>Vocabulary 2</div>
+        <div class="vocab-grid">
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=2&id=oil-spill"><div class="emoji">🛢️</div><div class="word">oil spill</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=2&id=garbage"><div class="emoji">🗑️</div><div class="word">garbage</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=2&id=overfishing"><div class="emoji">🐟</div><div class="word">overfishing</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=2&id=plastic"><div class="emoji">🧴</div><div class="word">plastic</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=6&set=2&id=biodegradable"><div class="emoji">🌱</div><div class="word">biodegradable</div></a>
+        </div>
+        <div class="acc-grammar">
+          <div class="set-label grammar"><span class="dot"></span>Grammar</div>
+          <div class="grammar-list">
+            <a class="gram-row" href="grammar.html?level=4&unit=6&set=1">
+              <div class="gram-tag">G1</div>
+              <div class="gram-name">Have to, must, can't, and don't</div>
+              <div class="gram-ex">You can't throw garbage in the ocean.</div>
+            </a>
+            <a class="gram-row" href="grammar.html?level=4&unit=6&set=2">
+              <div class="gram-tag">G2</div>
+              <div class="gram-name">Future with will and won't</div>
+              <div class="gram-ex">In the future, people will live longer.</div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
+    <!-- UNIT 7 -->
+    <div class="unit-accordion" id="unit-7">
+      <div class="acc-header" onclick="toggleUnit(this)">
+        <span class="acc-num">Unit 7</span><span class="acc-sep">·</span>
+        <span class="acc-title">Good Idea!</span>
+        <span class="acc-rule"></span>
+        <span class="acc-count">19 words · 2 grammar</span>
+        <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="acc-body">
+        <div class="set-label"><span class="dot"></span>Vocabulary 1</div>
+        <div class="vocab-grid">
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=invention"><div class="emoji">💡</div><div class="word">invention</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=problem"><div class="emoji">😟</div><div class="word">problem</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=solution"><div class="emoji">✅</div><div class="word">solution</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=wheel"><div class="emoji">🎡</div><div class="word">wheel</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=electricity"><div class="emoji">⚡</div><div class="word">electricity</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=useful"><div class="emoji">🔧</div><div class="word">useful</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=battery"><div class="emoji">🔋</div><div class="word">battery</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=imagination"><div class="emoji">🌈</div><div class="word">imagination</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=creativity"><div class="emoji">🎨</div><div class="word">creativity</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=idea"><div class="emoji">🤔</div><div class="word">idea</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=invent"><div class="emoji">🧑‍🔬</div><div class="word">invent</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=try"><div class="emoji">💪</div><div class="word">try</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=fail"><div class="emoji">❌</div><div class="word">fail</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=1&id=succeed"><div class="emoji">🏆</div><div class="word">succeed</div></a>
+        </div>
+        <div class="set-label"><span class="dot"></span>Vocabulary 2</div>
+        <div class="vocab-grid">
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=2&id=move"><div class="emoji">🏃</div><div class="word">move</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=2&id=turn"><div class="emoji">🔄</div><div class="word">turn</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=2&id=put"><div class="emoji">📌</div><div class="word">put</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=2&id=use"><div class="emoji">🛠️</div><div class="word">use</div></a>
+          <a class="vocab-tile" href="vocab.html?level=4&unit=7&set=2&id=lift"><div class="emoji">💪</div><div class="word">lift</div></a>
+        </div>
+        <div class="acc-grammar">
+          <div class="set-label grammar"><span class="dot"></span>Grammar</div>
+          <div class="grammar-list">
+            <a class="gram-row" href="grammar.html?level=4&unit=7&set=1">
+              <div class="gram-tag">G1</div>
+              <div class="gram-name">You for general statements</div>
+              <div class="gram-ex">You can play games on this computer.</div>
+            </a>
+            <a class="gram-row" href="grammar.html?level=4&unit=7&set=2">
+              <div class="gram-tag">G2</div>
+              <div class="gram-name">Used to for past habits</div>
+              <div class="gram-ex">I used to play outside. Now I play video games.</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </main>
+
   <script>
     function toggleUnit(header) {
       header.parentElement.classList.toggle('open');
     }
-
-    // Auto-open + scroll to anchor on load
     window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash; // e.g. #unit-7
+      const hash = window.location.hash;
       if (hash) {
         const target = document.querySelector(hash);
         if (target) {
