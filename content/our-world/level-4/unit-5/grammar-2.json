@@ -2,15 +2,260 @@
   "level": 4,
   "unit": 5,
   "set": 2,
-  "topic": "",
+  "unit_name": "People I Admire",
+  "title": "Irregular comparatives and superlatives",
+  "tag": "Irregular Forms",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Irregular comparatives and superlatives",
+    "headers": ["Subject", "good", "bad", "Context"],
+    "key_col": 1,
+    "mid_col": -1,
+    "intro_examples": [
+      { "text": "Volleyball is better than basketball.", "continuation": "Green peppers are the worst pizza topping." }
+    ],
+    "rows": [
+      ["My cooking is", "good.", "bad.", ""],
+      ["Volleyball is", "better", "worse", "than basketball."],
+      ["Green peppers are", "the best", "the worst", "pizza topping."]
+    ],
+    "note_rule": "The words good and bad have different comparative and superlative forms.",
+    "note_exception": "good → better → the best",
+    "note_exception_detail": "bad → worse → the worst"
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "My cooking is <b>good</b>, but my mom's cooking is <b>better</b>.", "jp": "私の料理は<b>良い</b>ですが、お母さんの料理は<b>もっと良い</b>です。" },
+    { "text": "This movie is <b>bad</b>, but the sequel is even <b>worse</b>.", "jp": "この映画は<b>ひどい</b>ですが、続編はさらに<b>ひどい</b>です。" },
+    { "text": "LeBron James is the <b>best</b> basketball player in the world.", "jp": "レブロン・ジェームズは世界で<b>最高の</b>バスケットボール選手です。" },
+    { "text": "That was the <b>worst</b> meal I've ever had.", "jp": "あれは私が今まで食べた中で<b>最悪の</b>食事でした。" },
+    { "text": "She is a <b>good</b> singer, but her sister is <b>better</b>.", "jp": "彼女は<b>上手な</b>歌手ですが、妹の方が<b>もっと上手</b>です。" },
+    { "text": "My English is <b>better</b> than last year.", "jp": "私の英語は去年より<b>上手</b>になりました。" },
+    { "text": "This is the <b>best</b> TV show I've ever seen.", "jp": "これは私が今まで見た中で<b>最高の</b>テレビ番組です。" },
+    { "text": "That was a <b>bad</b> idea, but this one is even <b>worse</b>.", "jp": "あれは<b>悪い</b>アイデアでしたが、これはさらに<b>悪い</b>です。" },
+    { "text": "JK Rowling is the <b>best</b> writer in the world.", "jp": "JKローリングは世界で<b>最高の</b>作家です。" },
+    { "text": "That was the <b>worst</b> school subject for me.", "jp": "あれは私にとって<b>最悪の</b>学校の科目でした。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "good → better → the best",
+        "jp_title": "good → better → the best",
+        "subtitle": "<b>Good</b> has a special comparative (<b>better</b>) and superlative (<b>the best</b>).",
+        "jp_subtitle": "<b>good</b>には特別な比較級（<b>better</b>）と最上級（<b>the best</b>）があります。",
+        "transforms": [{ "from": "good", "to": "better → the best" }],
+        "examples": [
+          { "text": "My cooking is <b>good</b>. Your cooking is <b>better</b>. Her cooking is <b>the best</b>.", "jp": "私の料理は良いです。あなたの料理はもっと良いです。彼女の料理が一番です。" },
+          { "text": "She is a <b>good</b> actor, but he is <b>better</b>.", "jp": "彼女は上手な俳優ですが、彼の方がもっと上手です。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "bad → worse → the worst",
+        "jp_title": "bad → worse → the worst",
+        "subtitle": "<b>Bad</b> has a special comparative (<b>worse</b>) and superlative (<b>the worst</b>).",
+        "jp_subtitle": "<b>bad</b>には特別な比較級（<b>worse</b>）と最上級（<b>the worst</b>）があります。",
+        "transforms": [{ "from": "bad", "to": "worse → the worst" }],
+        "examples": [
+          { "text": "The weather is <b>bad</b> today. Yesterday was <b>worse</b>. Last week was <b>the worst</b>.", "jp": "今日の天気は悪いです。昨日はもっと悪かったです。先週が最悪でした。" },
+          { "text": "That movie was <b>bad</b>, but this one is even <b>worse</b>.", "jp": "あの映画はひどかったですが、この映画はさらにひどいです。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "better / worse + than",
+        "jp_title": "better / worse + than（比較）",
+        "subtitle": "Use <b>better</b> or <b>worse</b> to compare two things. Add <b>than</b>.",
+        "jp_subtitle": "2つのものを比べるときは<b>better</b>か<b>worse</b>を使い、後に<b>than</b>をつけます。",
+        "transforms": [{ "from": "A is good / bad", "to": "A is better / worse <b>than</b> B" }],
+        "examples": [
+          { "text": "Volleyball is <b>better</b> than basketball.", "jp": "バレーボールはバスケットボールより良いです。" },
+          { "text": "My cooking is <b>worse</b> than my mom's.", "jp": "私の料理はお母さんより下手です。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "the best / the worst",
+        "jp_title": "the best / the worst（最上級）",
+        "subtitle": "Use <b>the best</b> or <b>the worst</b> for the superlative form.",
+        "jp_subtitle": "最上級には<b>the best</b>または<b>the worst</b>を使います。",
+        "transforms": [{ "from": "best / worst", "to": "<b>the</b> best / <b>the</b> worst" }],
+        "examples": [
+          { "text": "Green peppers are <b>the worst</b> pizza topping.", "jp": "ピーマンは最悪のピザのトッピングです。" },
+          { "text": "LeBron James is <b>the best</b> basketball player in the world.", "jp": "レブロン・ジェームズは世界で最高のバスケットボール選手です。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "NOT gooder / badder",
+        "jp_title": "gooder・badderは使わない！",
+        "subtitle": "Never add <b>-er</b> or <b>-est</b> to good or bad. They are irregular.",
+        "jp_subtitle": "goodとbadに<b>-er</b>や<b>-est</b>はつけません。不規則変化です。",
+        "transforms": [{ "from": "❌ gooder / goodest / badder / baddest", "to": "✓ better / the best / worse / the worst" }],
+        "examples": [
+          { "text": "❌ She's the goodest singer. → ✓ She's <b>the best</b> singer.", "jp": "❌ goodestは間違い → ✓ the bestが正しいです。" },
+          { "text": "❌ This is badder. → ✓ This is <b>worse</b>.", "jp": "❌ badderは間違い → ✓ worseが正しいです。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "Volleyball is <b>better</b> than basketball.", "kind": "better", "jp": "バレーボールはバスケットボールより良いです。" },
+      { "text": "Green peppers are <b>the worst</b> pizza topping.", "kind": "the worst", "jp": "ピーマンは最悪のピザのトッピングです。" },
+      { "text": "LeBron James is <b>the best</b> athlete in the world.", "kind": "the best", "jp": "レブロン・ジェームズは世界で最高のアスリートです。" },
+      { "text": "My English is <b>better</b> than last year.", "kind": "better", "jp": "私の英語は去年よりも上手になりました。" },
+      { "text": "That was the <b>worst</b> movie I've ever seen.", "kind": "the worst", "jp": "あれは私が今まで見た中で最悪の映画でした。" },
+      { "text": "She is a <b>good</b> actor, but he is <b>better</b>.", "kind": "better", "jp": "彼女は上手な俳優ですが、彼の方がもっと上手です。" },
+      { "text": "This is the <b>best</b> TV show I've ever seen.", "kind": "the best", "jp": "これは私が今まで見た中で最高のテレビ番組です。" },
+      { "text": "My cooking is <b>worse</b> than my mom's.", "kind": "worse", "jp": "私の料理はお母さんより下手です。" },
+      { "text": "JK Rowling is <b>the best</b> writer in the world.", "kind": "the best", "jp": "JKローリングは世界で最高の作家です。" },
+      { "text": "That was a <b>bad</b> idea, but this one is even <b>worse</b>.", "kind": "worse", "jp": "あれは悪いアイデアでしたが、これはさらに悪いです。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["Volleyball is", "___", "than basketball."],
+        "answers": ["better", "gooder", "more good", "goodest"],
+        "correct": 0,
+        "explanation": { "title": "better", "body": "<b>Good</b> is irregular. The comparative form is <b>better</b>, not gooder." },
+        "jp": "バレーボールはバスケットボールより良いです。"
+      },
+      {
+        "stem": ["Green peppers are the", "___", "pizza topping."],
+        "answers": ["worst", "baddest", "most bad", "badder"],
+        "correct": 0,
+        "explanation": { "title": "the worst", "body": "<b>Bad</b> is irregular. The superlative form is <b>the worst</b>, not the baddest." },
+        "jp": "ピーマンは最悪のピザのトッピングです。"
+      },
+      {
+        "stem": ["She is a good actor, but he is even", "___", "."],
+        "answers": ["better", "gooder", "more good", "best"],
+        "correct": 0,
+        "explanation": { "title": "better", "body": "Use <b>better</b> to compare two things. <b>Best</b> is the superlative — use it for three or more." },
+        "jp": "彼女は上手な俳優ですが、彼の方がもっと上手です。"
+      },
+      {
+        "stem": ["That was the", "___", "movie I've ever seen."],
+        "answers": ["worst", "baddest", "most bad", "badder"],
+        "correct": 0,
+        "explanation": { "title": "the worst", "body": "Use <b>the worst</b> for the superlative of bad." },
+        "jp": "あれは私が今まで見た中で最悪の映画でした。"
+      },
+      {
+        "stem": ["Which is correct?"],
+        "answers": ["LeBron is the best player.", "LeBron is the goodest player.", "LeBron is the most good player.", "LeBron is the gooder player."],
+        "correct": 0,
+        "explanation": { "title": "the best", "body": "Good → better → <b>the best</b>. Never use goodest or most good." },
+        "jp": "レブロンは最高の選手です。"
+      },
+      {
+        "stem": ["My cooking is", "___", "than my mom's."],
+        "answers": ["worse", "badder", "more bad", "worst"],
+        "correct": 0,
+        "explanation": { "title": "worse", "body": "Use <b>worse + than</b> to compare two things. Bad → <b>worse</b> → the worst." },
+        "jp": "私の料理はお母さんより下手です。"
+      },
+      {
+        "stem": ["This is the", "___", "TV show I've ever seen."],
+        "answers": ["best", "goodest", "most good", "gooder"],
+        "correct": 0,
+        "explanation": { "title": "the best", "body": "Good → better → <b>the best</b>. Always use <b>the</b> with the superlative." },
+        "jp": "これは私が今まで見た中で最高のテレビ番組です。"
+      },
+      {
+        "stem": ["good →", "___", "→ the best"],
+        "answers": ["better", "gooder", "more good", "best"],
+        "correct": 0,
+        "explanation": { "title": "better", "body": "The full pattern is: good → <b>better</b> → the best." },
+        "jp": "goodの比較級はbetterです。"
+      },
+      {
+        "stem": ["bad →", "___", "→ the worst"],
+        "answers": ["worse", "badder", "more bad", "worst"],
+        "correct": 0,
+        "explanation": { "title": "worse", "body": "The full pattern is: bad → <b>worse</b> → the worst." },
+        "jp": "badの比較級はworseです。"
+      },
+      {
+        "stem": ["Which is correct?"],
+        "answers": ["This pizza is worse than that one.", "This pizza is more bad than that one.", "This pizza is badder than that one.", "This pizza is baddest."],
+        "correct": 0,
+        "explanation": { "title": "worse than", "body": "Use <b>worse than</b> to compare. Bad is irregular — never use badder or more bad." },
+        "jp": "このピザはあれよりひどいです。"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["Volleyball is ___ than basketball."],
+        "answers": ["better", "gooder", "more good", "best"],
+        "correct": 0,
+        "jp": "バレーボールはバスケットボールより良いです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Green peppers are the ___ pizza topping."],
+        "answers": ["worst", "baddest", "most bad", "badder"],
+        "correct": 0,
+        "jp": "ピーマンは最悪のピザのトッピングです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["JK Rowling is the ___ writer in the world."],
+        "answers": ["best", "goodest", "most good", "gooder"],
+        "correct": 0,
+        "jp": "JKローリングは世界で最高の作家です。"
+      },
+      {
+        "type": "mc",
+        "stem": ["That movie was bad, but this one is even ___."],
+        "answers": ["worse", "badder", "more bad", "worst"],
+        "correct": 0,
+        "jp": "あの映画はひどかったですが、この映画はさらにひどいです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["good → better → ___"],
+        "answers": ["the best", "the goodest", "the most good", "the gooder"],
+        "correct": 0,
+        "jp": "goodの最上級は the best です。"
+      },
+      {
+        "type": "build",
+        "cue": "Volleyball / is / better / than / basketball",
+        "bank": ["Volleyball", "is", "better", "than", "basketball", ".", "worse", "gooder"],
+        "correct": ["Volleyball", "is", "better", "than", "basketball", "."],
+        "jp": "バレーボールはバスケットボールより良いです。"
+      },
+      {
+        "type": "build",
+        "cue": "Green peppers / are / the worst / pizza topping",
+        "bank": ["Green", "peppers", "are", "the", "worst", "pizza", "topping", ".", "best", "baddest"],
+        "correct": ["Green", "peppers", "are", "the", "worst", "pizza", "topping", "."],
+        "jp": "ピーマンは最悪のピザのトッピングです。"
+      },
+      {
+        "type": "build",
+        "cue": "She is / the best / singer / in the world",
+        "bank": ["She", "is", "the", "best", "singer", "in", "the", "world", ".", "goodest", "worst"],
+        "correct": ["She", "is", "the", "best", "singer", "in", "the", "world", "."],
+        "jp": "彼女は世界で最高の歌手です。"
+      },
+      {
+        "type": "build",
+        "cue": "This movie / is / worse / than / that one",
+        "bank": ["This", "movie", "is", "worse", "than", "that", "one", ".", "badder", "worst"],
+        "correct": ["This", "movie", "is", "worse", "than", "that", "one", "."],
+        "jp": "この映画はあれよりひどいです。"
+      },
+      {
+        "type": "build",
+        "cue": "LeBron James / is / the best / athlete / in the world",
+        "bank": ["LeBron", "James", "is", "the", "best", "athlete", "in", "the", "world", ".", "goodest", "better"],
+        "correct": ["LeBron", "James", "is", "the", "best", "athlete", "in", "the", "world", "."],
+        "jp": "レブロン・ジェームズは世界で最高のアスリートです。"
+      }
+    ]
+  }
 }
