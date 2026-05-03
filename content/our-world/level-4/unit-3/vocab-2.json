@@ -2,5 +2,72 @@
   "level": 4,
   "unit": 3,
   "set": 2,
-  "words": []
+  "unit_name": "Long Ago and Today",
+  "words": [
+    {
+      "id": "modern",
+      "word": "modern",
+      "emoji": "🚀⚡",
+      "ipa": "/ˈmɒdərn/",
+      "syllables": "mod·ern",
+      "pos": "Adjective",
+      "sample": "Long ago, life was slow. <b>Modern</b> life is fast.",
+      "jp_word": "現代的な",
+      "jp_reading": "げんだいてきな",
+      "jp_sentence": "昔、生活はゆっくりでした。<b>現代</b>の生活は速いです。",
+      "jp_tags": ["形容詞"]
+    },
+    {
+      "id": "difficult",
+      "word": "difficult",
+      "emoji": "😥🤔",
+      "ipa": "/ˈdɪfɪkəlt/",
+      "syllables": "dif·fi·cult",
+      "pos": "Adjective",
+      "sample": "This math problem is very <b>difficult</b>.",
+      "jp_word": "難しい",
+      "jp_reading": "むずかしい",
+      "jp_sentence": "この数学の問題はとても<b>難しい</b>です。",
+      "jp_tags": ["形容詞"]
+    },
+    {
+      "id": "expensive",
+      "word": "expensive",
+      "emoji": "💎💸",
+      "ipa": "/ɪkˈspɛnsɪv/",
+      "syllables": "ex·pen·sive",
+      "pos": "Adjective",
+      "sample": "That video game is very <b>expensive</b>.",
+      "jp_word": "値段が高い",
+      "jp_reading": "ねだんがたかい",
+      "jp_sentence": "あのビデオゲームはとても<b>値段が高い</b>です。",
+      "jp_tags": ["形容詞"]
+    },
+    {
+      "id": "old-fashioned",
+      "word": "old-fashioned",
+      "emoji": "📞👴",
+      "ipa": "/ˌoʊld ˈfæʃənd/",
+      "syllables": "old-fash·ioned",
+      "pos": "Adjective",
+      "sample": "I don't like that dress because it's <b>old-fashioned</b>.",
+      "jp_word": "古くさい",
+      "jp_reading": "ふるくさい",
+      "jp_sentence": "そのドレスは<b>古くさい</b>から好きではありません。",
+      "jp_tags": ["形容詞"]
+    },
+    {
+      "id": "important",
+      "word": "important",
+      "emoji": "⭐❗",
+      "ipa": "/ɪmˈpɔːrtənt/",
+      "syllables": "im·por·tant",
+      "pos": "Adjective",
+      "sample": "It's <b>important</b> to do your homework.",
+      "jp_word": "大切な",
+      "jp_reading": "たいせつな",
+      "jp_sentence": "宿題をすることは<b>大切</b>です。",
+      "jp_tags": ["形容詞"]
+    }
+  ]
 }
