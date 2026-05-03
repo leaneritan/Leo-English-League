@@ -2,15 +2,262 @@
   "level": 4,
   "unit": 5,
   "set": 1,
-  "topic": "",
+  "unit_name": "People I Admire",
+  "title": "Superlatives with -est and most",
+  "tag": "Superlatives",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Superlatives with -est and most",
+    "headers": ["Subject", "the", "Superlative", "Noun", "Context"],
+    "key_col": 2,
+    "mid_col": -1,
+    "intro_examples": [
+      { "text": "She's the smartest person I know.", "continuation": "They're the most famous soccer players in the world." }
+    ],
+    "rows": [
+      ["I'm", "the", "shortest", "student", "in my class."],
+      ["He's", "the", "funniest", "actor", "on TV."],
+      ["She's", "the", "smartest", "person", "I know."],
+      ["It's", "the", "most popular", "food", "on the menu."],
+      ["They're", "the", "most famous", "soccer players", "in the world."]
+    ],
+    "note_rule": "Use -est for short adjectives. Use most for adjectives with two or more syllables.",
+    "note_exception": "1 syllable: short → the shortest · smart → the smartest",
+    "note_exception_detail": "2 syllables ending in -y: funny → the funniest · 2+ syllables: popular → the most popular"
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "She's the <b>shortest</b> student in my class.", "jp": "彼女はクラスで一番<b>背が低い</b>生徒です。" },
+    { "text": "He's the <b>funniest</b> actor on TV.", "jp": "彼はテレビで一番<b>おもしろい</b>俳優です。" },
+    { "text": "JK Rowling is the <b>most famous</b> writer in the world.", "jp": "JKローリングは世界で一番<b>有名な</b>作家です。" },
+    { "text": "LeBron James is the <b>greatest</b> athlete of his generation.", "jp": "レブロン・ジェームズは同世代で最も<b>偉大な</b>アスリートです。" },
+    { "text": "That was the <b>most popular</b> movie of the year.", "jp": "それは今年一番<b>人気の</b>映画でした。" },
+    { "text": "My grandpa is the <b>most interesting</b> person I know.", "jp": "祖父は私の知っている中で一番<b>面白い</b>人です。" },
+    { "text": "She is the <b>bravest</b> firefighter in the city.", "jp": "彼女は市内で一番<b>勇敢な</b>消防士です。" },
+    { "text": "This is the <b>most wonderful</b> TV show I've ever seen.", "jp": "これは私が今まで見た中で一番<b>素晴らしい</b>テレビ番組です。" },
+    { "text": "Tennis is the <b>most popular</b> sport at our school.", "jp": "テニスは私たちの学校で一番<b>人気の</b>スポーツです。" },
+    { "text": "Mozart is the <b>most talented</b> composer in history.", "jp": "モーツァルトは歴史上最も<b>才能のある</b>作曲家です。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "-est (1 syllable)",
+        "jp_title": "-est（1音節の形容詞）",
+        "subtitle": "Add <b>-est</b> to adjectives with one syllable.",
+        "jp_subtitle": "1音節の形容詞には<b>-est</b>をつけます。",
+        "transforms": [{ "from": "short · smart · tall · brave", "to": "the short<b>est</b> · the smart<b>est</b> · the tall<b>est</b> · the brav<b>est</b>" }],
+        "examples": [
+          { "text": "I'm the <b>shortest</b> student in my class.", "jp": "私はクラスで一番背が低い生徒です。" },
+          { "text": "She's the <b>smartest</b> person I know.", "jp": "彼女は私の知っている中で一番頭がいい人です。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "-iest (ends in -y)",
+        "jp_title": "-iest（-yで終わる形容詞）",
+        "subtitle": "Change <b>-y</b> to <b>-iest</b> for adjectives ending in -y.",
+        "jp_subtitle": "-yで終わる形容詞は<b>yをiに変えてestをつけます</b>。",
+        "transforms": [{ "from": "funn<b>y</b> · prett<b>y</b>", "to": "the funn<b>iest</b> · the prett<b>iest</b>" }],
+        "examples": [
+          { "text": "He's the <b>funniest</b> actor on TV.", "jp": "彼はテレビで一番おもしろい俳優です。" },
+          { "text": "She's the <b>prettiest</b> person in the room.", "jp": "彼女は部屋の中で一番きれいな人です。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "most + (2+ syllables)",
+        "jp_title": "most +（2音節以上の形容詞）",
+        "subtitle": "Use <b>the most</b> + adjective for words with two or more syllables.",
+        "jp_subtitle": "2音節以上の形容詞には<b>the most</b>を前につけます。",
+        "transforms": [{ "from": "popular · famous · talented · wonderful", "to": "the <b>most</b> popular · the <b>most</b> famous · the <b>most</b> talented" }],
+        "examples": [
+          { "text": "JK Rowling is the <b>most famous</b> writer in the world.", "jp": "JKローリングは世界で一番有名な作家です。" },
+          { "text": "It's the <b>most popular</b> food on the menu.", "jp": "それはメニューの中で一番人気の料理です。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "always use 'the'",
+        "jp_title": "必ず 'the' をつける",
+        "subtitle": "Always use <b>the</b> before a superlative adjective.",
+        "jp_subtitle": "最上級の形容詞の前には必ず<b>the</b>をつけます。",
+        "transforms": [{ "from": "superlative", "to": "<b>the</b> + superlative" }],
+        "examples": [
+          { "text": "She is <b>the</b> smartest person I know.", "jp": "彼女は私の知っている中で一番頭がいいです。" },
+          { "text": "He is <b>the</b> most talented actor on TV.", "jp": "彼はテレビで一番才能のある俳優です。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "good → best · bad → worst",
+        "jp_title": "不規則形: good → best · bad → worst",
+        "subtitle": "<b>Good</b> and <b>bad</b> have special superlative forms.",
+        "jp_subtitle": "<b>good</b>と<b>bad</b>は特別な最上級の形があります。",
+        "transforms": [{ "from": "good / bad", "to": "the <b>best</b> / the <b>worst</b>" }],
+        "examples": [
+          { "text": "She is the <b>best</b> singer in the world.", "jp": "彼女は世界で一番上手な歌手です。" },
+          { "text": "That was the <b>worst</b> movie I've ever seen.", "jp": "あれは私が今まで見た中で一番ひどい映画でした。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "She's the <b>shortest</b> student in my class.", "kind": "-est", "jp": "彼女はクラスで一番背が低い生徒です。" },
+      { "text": "He's the <b>funniest</b> actor on TV.", "kind": "-iest", "jp": "彼はテレビで一番おもしろい俳優です。" },
+      { "text": "JK Rowling is the <b>most famous</b> writer in the world.", "kind": "most", "jp": "JKローリングは世界で一番有名な作家です。" },
+      { "text": "LeBron James is the <b>greatest</b> athlete of his generation.", "kind": "-est", "jp": "レブロン・ジェームズは同世代で最も偉大なアスリートです。" },
+      { "text": "That was the <b>most popular</b> movie of the year.", "kind": "most", "jp": "それは今年一番人気の映画でした。" },
+      { "text": "My grandpa is the <b>most interesting</b> person I know.", "kind": "most", "jp": "祖父は私の知っている中で一番面白い人です。" },
+      { "text": "Tennis is the <b>most popular</b> sport at our school.", "kind": "most", "jp": "テニスは私たちの学校で一番人気のスポーツです。" },
+      { "text": "She is the <b>prettiest</b> person in the room.", "kind": "-iest", "jp": "彼女は部屋の中で一番きれいな人です。" },
+      { "text": "He is the <b>most talented</b> composer in history.", "kind": "most", "jp": "彼は歴史上最も才能のある作曲家です。" },
+      { "text": "This is the <b>best</b> school subject I've ever studied.", "kind": "irregular", "jp": "これは私が今まで勉強した中で一番いい学校の科目です。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["She's the", "___", "student in my class."],
+        "answers": ["shortest", "most short", "shorter", "short"],
+        "correct": 0,
+        "explanation": { "title": "-est", "body": "Use <b>-est</b> for one-syllable adjectives. short → the <b>shortest</b>." },
+        "jp": "彼女はクラスで一番背が低い生徒です。"
+      },
+      {
+        "stem": ["He's the", "___", "actor on TV."],
+        "answers": ["funniest", "most funny", "funnier", "funnest"],
+        "correct": 0,
+        "explanation": { "title": "-iest", "body": "For adjectives ending in -y, change y to <b>-iest</b>. funny → the <b>funniest</b>." },
+        "jp": "彼はテレビで一番おもしろい俳優です。"
+      },
+      {
+        "stem": ["JK Rowling is the", "___", "writer in the world."],
+        "answers": ["most famous", "famousest", "more famous", "famoust"],
+        "correct": 0,
+        "explanation": { "title": "most +", "body": "For adjectives with 2+ syllables, use <b>the most</b> + adjective." },
+        "jp": "JKローリングは世界で一番有名な作家です。"
+      },
+      {
+        "stem": ["It's the", "___", "food on the menu."],
+        "answers": ["most popular", "popularest", "more popular", "most popularest"],
+        "correct": 0,
+        "explanation": { "title": "most popular", "body": "<b>Popular</b> has 3 syllables, so use <b>the most</b> popular." },
+        "jp": "それはメニューの中で一番人気の料理です。"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["She's the smartest.", "She's most smartest.", "She's the most smartest.", "She's smarter."],
+        "correct": 0,
+        "explanation": { "title": "the smartest", "body": "<b>Smart</b> is one syllable, so use <b>-est</b>. Never use 'most' with -est." },
+        "jp": "彼女は一番頭がいいです。"
+      },
+      {
+        "stem": ["They're the", "___", "soccer players in the world."],
+        "answers": ["most famous", "famousest", "more famous", "most famousest"],
+        "correct": 0,
+        "explanation": { "title": "most famous", "body": "<b>Famous</b> has 2 syllables, so use <b>the most</b> famous." },
+        "jp": "彼らは世界で一番有名なサッカー選手です。"
+      },
+      {
+        "stem": ["funny →"],
+        "answers": ["the funniest", "the most funny", "the funnest", "the most funniest"],
+        "correct": 0,
+        "explanation": { "title": "-iest", "body": "Adjectives ending in -y: drop the y and add <b>-iest</b>. funny → the <b>funniest</b>." },
+        "jp": "funnyの最上級は the funniest です。"
+      },
+      {
+        "stem": ["My grandpa is the most", "___", "person I know."],
+        "answers": ["interesting", "interestingest", "interestingly", "interest"],
+        "correct": 0,
+        "explanation": { "title": "most + adjective", "body": "After <b>the most</b>, always use the base adjective form." },
+        "jp": "祖父は私の知っている中で一番面白い人です。"
+      },
+      {
+        "stem": ["Which is correct?"],
+        "answers": ["He's the tallest.", "He's the most tallest.", "He's most tall.", "He's talliest."],
+        "correct": 0,
+        "explanation": { "title": "the tallest", "body": "<b>Tall</b> has one syllable, so just add <b>-est</b>. Never combine most + -est." },
+        "jp": "彼は一番背が高いです。"
+      },
+      {
+        "stem": ["She is the", "___", "athlete I've ever seen."],
+        "answers": ["most amazing", "amazingest", "more amazing", "most amazingest"],
+        "correct": 0,
+        "explanation": { "title": "most amazing", "body": "<b>Amazing</b> has 3 syllables, so use <b>the most</b> amazing." },
+        "jp": "彼女は私が今まで見た中で一番素晴らしいアスリートです。"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["She's ___ shortest student in my class."],
+        "answers": ["the", "a", "an", "—"],
+        "correct": 0,
+        "jp": "彼女はクラスで一番背が低い生徒です。"
+      },
+      {
+        "type": "mc",
+        "stem": ["He's the ___ actor on TV."],
+        "answers": ["funniest", "most funny", "funnier", "funnest"],
+        "correct": 0,
+        "jp": "彼はテレビで一番おもしろい俳優です。"
+      },
+      {
+        "type": "mc",
+        "stem": ["JK Rowling is the most ___ writer in the world."],
+        "answers": ["famous", "fame", "famously", "famed"],
+        "correct": 0,
+        "jp": "JKローリングは世界で一番有名な作家です。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Tennis is the most popular ___ at our school."],
+        "answers": ["sport", "sports", "sporting", "sported"],
+        "correct": 0,
+        "jp": "テニスは私たちの学校で一番人気のスポーツです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["short → ___"],
+        "answers": ["the shortest", "the most short", "the shorter", "the shorttest"],
+        "correct": 0,
+        "jp": "shortの最上級は the shortest です。"
+      },
+      {
+        "type": "build",
+        "cue": "She's / the / smartest / person / I know",
+        "bank": ["She's", "the", "smartest", "person", "I", "know", ".", "most", "smarter"],
+        "correct": ["She's", "the", "smartest", "person", "I", "know", "."],
+        "jp": "彼女は私の知っている中で一番頭がいい人です。"
+      },
+      {
+        "type": "build",
+        "cue": "He's / the / funniest / actor / on TV",
+        "bank": ["He's", "the", "funniest", "actor", "on", "TV", ".", "most", "funnier"],
+        "correct": ["He's", "the", "funniest", "actor", "on", "TV", "."],
+        "jp": "彼はテレビで一番おもしろい俳優です。"
+      },
+      {
+        "type": "build",
+        "cue": "It's / the / most popular / food / on the menu",
+        "bank": ["It's", "the", "most", "popular", "food", "on", "the", "menu", ".", "popularest"],
+        "correct": ["It's", "the", "most", "popular", "food", "on", "the", "menu", "."],
+        "jp": "それはメニューの中で一番人気の料理です。"
+      },
+      {
+        "type": "build",
+        "cue": "They're / the / most famous / soccer players / in the world",
+        "bank": ["They're", "the", "most", "famous", "soccer", "players", "in", "the", "world", ".", "famousest"],
+        "correct": ["They're", "the", "most", "famous", "soccer", "players", "in", "the", "world", "."],
+        "jp": "彼らは世界で一番有名なサッカー選手です。"
+      },
+      {
+        "type": "build",
+        "cue": "I'm / the / shortest / student / in my class",
+        "bank": ["I'm", "the", "shortest", "student", "in", "my", "class", ".", "most", "shorter"],
+        "correct": ["I'm", "the", "shortest", "student", "in", "my", "class", "."],
+        "jp": "私はクラスで一番背が低い生徒です。"
+      }
+    ]
+  }
 }
