@@ -2,15 +2,261 @@
   "level": 4,
   "unit": 3,
   "set": 2,
-  "topic": "",
+  "unit_name": "Long Ago and Today",
+  "title": "Comparatives with more",
+  "tag": "more + adj.",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Comparatives with more + adjective",
+    "headers": ["Subject", "Verb", "more", "Adjective", "than", "Object"],
+    "key_col": 3,
+    "mid_col": 2,
+    "intro_examples": [
+      {
+        "text": "History is <b>more interesting</b> than math.",
+        "continuation": "Use <b>more</b> + adjective + <b>than</b> for long adjectives."
+      }
+    ],
+    "rows": [
+      ["History is", "", "more", "interesting", "than", "math."],
+      ["Cars are", "", "more", "expensive", "than", "bikes."],
+      ["The new house is", "", "more", "modern", "than", "the old one."]
+    ],
+    "note_rule": "Use <b>more</b> + adjective + <b>than</b> with some two-syllable adjectives (<i>modern</i>) and all adjectives with three or more syllables (<i>difficult, expensive, interesting</i>)."
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "History is <b>more interesting</b> than math.", "jp": "歴史は数学よりも<b>もっと面白い</b>です。" },
+    { "text": "Cars are <b>more expensive</b> than bikes.", "jp": "車は自転車よりも<b>もっと値段が高い</b>です。" },
+    { "text": "The new house is <b>more modern</b> than the old one.", "jp": "新しい家は古い家よりも<b>もっと現代的</b>です。" },
+    { "text": "Cell phones are <b>more useful</b> than old telephones.", "jp": "携帯電話は昔の電話よりも<b>もっと便利</b>です。" },
+    { "text": "This video game is <b>more difficult</b> than that one.", "jp": "このビデオゲームはあれよりも<b>もっと難しい</b>です。" },
+    { "text": "English is <b>more important</b> than I thought.", "jp": "英語は思っていたよりも<b>もっと大切</b>です。" },
+    { "text": "Modern life is <b>more comfortable</b> than life long ago.", "jp": "現代の生活は昔の生活よりも<b>もっと快適</b>です。" },
+    { "text": "Electric lights are <b>more convenient</b> than candles.", "jp": "電灯はろうそくよりも<b>もっと便利</b>です。" },
+    { "text": "Making my bed is <b>more difficult</b> than washing dishes.", "jp": "ベッドを整えることは皿を洗うことよりも<b>もっと難しい</b>です。" },
+    { "text": "My new cell phone is <b>more expensive</b> than my old one.", "jp": "私の新しい携帯電話は古いものよりも<b>もっと値段が高い</b>です。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "more + 3 or more syllable adjectives",
+        "jp_title": "3音節以上の形容詞にはmore",
+        "subtitle": "All adjectives with <b>3 or more syllables</b> use <b>more</b> + adjective + <b>than</b>.",
+        "jp_subtitle": "<b>3音節以上</b>のすべての形容詞は<b>more</b> + 形容詞 + <b>than</b>を使います。",
+        "transforms": [{ "from": "dif·fi·cult (3) / ex·pen·sive (3) / in·ter·est·ing (4)", "to": "<b>more</b> difficult / <b>more</b> expensive / <b>more</b> interesting" }],
+        "examples": [
+          { "text": "This game is <b>more difficult</b> than that one.", "jp": "このゲームはあれよりも難しいです。" },
+          { "text": "History is <b>more interesting</b> than math.", "jp": "歴史は数学よりも面白いです。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "more + some 2-syllable adjectives",
+        "jp_title": "一部の2音節形容詞にもmore",
+        "subtitle": "<b>Some</b> two-syllable adjectives also use <b>more</b> (e.g., <i>modern, useful</i>).",
+        "jp_subtitle": "<b>一部の</b>2音節形容詞も<b>more</b>を使います（例：<i>modern, useful</i>）。",
+        "transforms": [{ "from": "mod·ern (2 syllables)", "to": "<b>more</b> modern than" }],
+        "examples": [
+          { "text": "The new house is <b>more modern</b> than the old one.", "jp": "新しい家は古い家よりも現代的です。" },
+          { "text": "Cell phones are <b>more useful</b> than old telephones.", "jp": "携帯電話は昔の電話よりも便利です。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Never add -er to long adjectives",
+        "jp_title": "長い形容詞に-erをつけない",
+        "subtitle": "Do <b>NOT</b> add <b>-er</b> to adjectives that use <b>more</b>.",
+        "jp_subtitle": "<b>more</b>を使う形容詞に<b>-er</b>をつけては<b>いけません</b>。",
+        "transforms": [{ "from": "expensiver ✗ / difficulter ✗ / interestinger ✗", "to": "more expensive ✓ / more difficult ✓ / more interesting ✓" }],
+        "examples": [
+          { "text": "Cars are <b>more expensive</b> than bikes. (NOT expensiver)", "jp": "車は自転車よりも値段が高いです。（expensiversではありません）" },
+          { "text": "English is <b>more important</b> than I thought. (NOT importanter)", "jp": "英語は思っていたよりも大切です。（importanterではありません）" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Always use than",
+        "jp_title": "必ずthanを使う",
+        "subtitle": "Use <b>than</b> after the adjective when comparing two things.",
+        "jp_subtitle": "2つのものを比べるとき、形容詞の後に<b>than</b>を使います。",
+        "transforms": [{ "from": "more interesting math  ✗", "to": "more interesting <b>than</b> math  ✓" }],
+        "examples": [
+          { "text": "History is more interesting <b>than</b> math.", "jp": "歴史は数学よりも面白いです。" },
+          { "text": "Modern life is more comfortable <b>than</b> life long ago.", "jp": "現代の生活は昔の生活よりも快適です。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "Key adjectives that use more",
+        "jp_title": "moreを使う主な形容詞",
+        "subtitle": "Remember: <b>difficult, expensive, interesting, important, modern, comfortable</b> all use <b>more</b>.",
+        "jp_subtitle": "<b>difficult, expensive, interesting, important, modern, comfortable</b>はすべて<b>more</b>を使います。",
+        "transforms": [{ "from": "difficult / expensive / interesting / important", "to": "more difficult / more expensive / more interesting / more important" }],
+        "examples": [
+          { "text": "This chore is <b>more difficult</b> than making my bed.", "jp": "この家事はベッドを整えるより難しいです。" },
+          { "text": "Electric lights are <b>more convenient</b> than candles.", "jp": "電灯はろうそくよりも便利です。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "History is <b>more interesting</b> than math.", "kind": "interesting", "jp": "歴史は数学よりも面白いです。" },
+      { "text": "Cars are <b>more expensive</b> than bikes.", "kind": "expensive", "jp": "車は自転車よりも値段が高いです。" },
+      { "text": "The new house is <b>more modern</b> than the old one.", "kind": "modern", "jp": "新しい家は古い家よりも現代的です。" },
+      { "text": "This video game is <b>more difficult</b> than that one.", "kind": "difficult", "jp": "このビデオゲームはあれよりも難しいです。" },
+      { "text": "Cell phones are <b>more useful</b> than old telephones.", "kind": "useful", "jp": "携帯電話は昔の電話よりも便利です。" },
+      { "text": "English is <b>more important</b> than I thought.", "kind": "important", "jp": "英語は思っていたよりも大切です。" },
+      { "text": "Modern life is <b>more comfortable</b> than life long ago.", "kind": "comfortable", "jp": "現代の生活は昔の生活よりも快適です。" },
+      { "text": "Electric lights are <b>more convenient</b> than candles.", "kind": "convenient", "jp": "電灯はろうそくよりも便利です。" },
+      { "text": "My new cell phone is <b>more expensive</b> than my old one.", "kind": "expensive", "jp": "私の新しい携帯電話は古いものよりも値段が高いです。" },
+      { "text": "Making my bed is <b>more difficult</b> than washing dishes.", "kind": "difficult", "jp": "ベッドを整えることは皿を洗うことよりも難しいです。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["History is more", "___", "than math."],
+        "answers": ["interesting", "interestinger", "most interesting", "interest"],
+        "correct": 0,
+        "explanation": { "title": "interesting", "body": "<b>Interesting</b> has 4 syllables, so use <b>more interesting</b>." },
+        "jp": "歴史は数学よりも面白いです。"
+      },
+      {
+        "stem": ["Cars are more", "___", "than bikes."],
+        "answers": ["expensive", "expensiver", "most expensive", "expensively"],
+        "correct": 0,
+        "explanation": { "title": "expensive", "body": "<b>Expensive</b> has 3 syllables. Use <b>more expensive</b>, not 'expensiver'." },
+        "jp": "車は自転車よりも値段が高いです。"
+      },
+      {
+        "stem": ["The new house is more", "___", "than the old one."],
+        "answers": ["modern", "moderner", "most modern", "modernly"],
+        "correct": 0,
+        "explanation": { "title": "modern", "body": "<b>Modern</b> is a 2-syllable adjective that uses <b>more</b>." },
+        "jp": "新しい家は古い家よりも現代的です。"
+      },
+      {
+        "stem": ["Cell phones are", "___", "useful than old phones."],
+        "answers": ["more", "most", "very", "so"],
+        "correct": 0,
+        "explanation": { "title": "more", "body": "For comparatives, use <b>more</b> + adjective + <b>than</b>." },
+        "jp": "携帯電話は昔の電話よりも便利です。"
+      },
+      {
+        "stem": ["Which adjective uses 'more' to compare?"],
+        "answers": ["interesting", "tall", "fast", "old"],
+        "correct": 0,
+        "explanation": { "title": "interesting", "body": "<b>Interesting</b> (4 syllables) uses <b>more</b>. Short adjectives like tall, fast, old use <b>-er</b>." },
+        "jp": "「more」を使って比較する形容詞はどれですか？"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["Cars are more expensive than bikes.", "Cars are expensiver than bikes.", "Cars are most expensive than bikes.", "Cars are expensive more than bikes."],
+        "correct": 0,
+        "explanation": { "title": "more expensive than", "body": "Use <b>more</b> before the adjective and <b>than</b> after it." },
+        "jp": "正しい文はどれですか？"
+      },
+      {
+        "stem": ["This game is more", "___", "than that one."],
+        "answers": ["difficult", "difficulter", "most difficult", "difficultest"],
+        "correct": 0,
+        "explanation": { "title": "difficult", "body": "<b>Difficult</b> has 3 syllables. Use <b>more difficult</b>." },
+        "jp": "このゲームはあれよりも難しいです。"
+      },
+      {
+        "stem": ["All adjectives with three or more syllables use ___."],
+        "answers": ["more … than", "-er … than", "most", "-est"],
+        "correct": 0,
+        "explanation": { "title": "more … than", "body": "3+ syllable adjectives always use <b>more … than</b> for comparatives." },
+        "jp": "3音節以上の形容詞は何を使いますか？"
+      },
+      {
+        "stem": ["English is more", "___", "than I thought."],
+        "answers": ["important", "importanter", "most important", "importantly"],
+        "correct": 0,
+        "explanation": { "title": "important", "body": "<b>Important</b> has 3 syllables. Use <b>more important</b>." },
+        "jp": "英語は思っていたよりも大切です。"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["Modern life is more comfortable than life long ago.", "Modern life is comfortabler than life long ago.", "Modern life is most comfortable than life long ago.", "Modern life is more comfortably than life long ago."],
+        "correct": 0,
+        "explanation": { "title": "more comfortable than", "body": "<b>Comfortable</b> (4 syllables) uses <b>more</b>. Never add -er to long adjectives." },
+        "jp": "正しい文はどれですか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["History is more ___ than math."],
+        "answers": ["interesting", "interestinger", "most interesting", "interest"],
+        "correct": 0,
+        "jp": "歴史は数学よりも面白いです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Cars are more ___ than bikes."],
+        "answers": ["expensive", "expensiver", "most expensive", "expensively"],
+        "correct": 0,
+        "jp": "車は自転車よりも値段が高いです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Cell phones are ___ useful than old phones."],
+        "answers": ["more", "most", "very", "so"],
+        "correct": 0,
+        "jp": "携帯電話は昔の電話よりも便利です。"
+      },
+      {
+        "type": "mc",
+        "stem": ["This game is more ___ than that one."],
+        "answers": ["difficult", "difficulter", "most difficult", "difficultest"],
+        "correct": 0,
+        "jp": "このゲームはあれよりも難しいです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["English is more ___ than I thought."],
+        "answers": ["important", "importanter", "most important", "importantly"],
+        "correct": 0,
+        "jp": "英語は思っていたよりも大切です。"
+      },
+      {
+        "type": "build",
+        "cue": "History / more interesting / than / math",
+        "bank": ["History", "is", "more", "interesting", "than", "math.", "less", "interestinger"],
+        "correct": ["History", "is", "more", "interesting", "than", "math."],
+        "jp": "歴史は数学よりも面白いです。"
+      },
+      {
+        "type": "build",
+        "cue": "Cars / more expensive / than / bikes",
+        "bank": ["Cars", "are", "more", "expensive", "than", "bikes.", "expensiver", "less"],
+        "correct": ["Cars", "are", "more", "expensive", "than", "bikes."],
+        "jp": "車は自転車よりも値段が高いです。"
+      },
+      {
+        "type": "build",
+        "cue": "The new house / more modern / than / the old one",
+        "bank": ["The", "new", "house", "is", "more", "modern", "than", "the", "old", "one.", "most", "moderner"],
+        "correct": ["The", "new", "house", "is", "more", "modern", "than", "the", "old", "one."],
+        "jp": "新しい家は古い家よりも現代的です。"
+      },
+      {
+        "type": "build",
+        "cue": "This game / more difficult / than / that one",
+        "bank": ["This", "game", "is", "more", "difficult", "than", "that", "one.", "difficulter", "less"],
+        "correct": ["This", "game", "is", "more", "difficult", "than", "that", "one."],
+        "jp": "このゲームはあれよりも難しいです。"
+      },
+      {
+        "type": "build",
+        "cue": "English / more important / than / I thought",
+        "bank": ["English", "is", "more", "important", "than", "I", "thought.", "importanter", "most"],
+        "correct": ["English", "is", "more", "important", "than", "I", "thought."],
+        "jp": "英語は思っていたよりも大切です。"
+      }
+    ]
+  }
 }

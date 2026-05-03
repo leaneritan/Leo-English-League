@@ -2,15 +2,261 @@
   "level": 4,
   "unit": 3,
   "set": 1,
-  "topic": "",
+  "unit_name": "Long Ago and Today",
+  "title": "Contrast with but and instead",
+  "tag": "but / instead",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Contrast with but and instead",
+    "headers": ["Long ago …", "Contrast word", "Today …"],
+    "key_col": 1,
+    "mid_col": 1,
+    "intro_examples": [
+      {
+        "text": "Long ago, people rode horses, <b>but</b> today they drive cars.",
+        "continuation": "Long ago, people rode horses. Today, they drive cars <b>instead</b>."
+      }
+    ],
+    "rows": [
+      ["Long ago, people rode horses,", "but", "today they drive cars."],
+      ["Long ago, people rode horses.", "instead", "Today, they drive cars instead."]
+    ],
+    "note_rule": "Use a comma (,) before <b>but</b>.",
+    "note_exception": "Use <b>instead</b> at the end of the sentence."
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "Long ago, people rode horses, <b>but</b> today they drive cars.", "jp": "昔、人々は馬に乗っていましたが、今日では車を運転します。" },
+    { "text": "Long ago, people used fire, <b>but</b> today they use electric lights.", "jp": "昔、人々は火を使っていましたが、今日では電灯を使います。" },
+    { "text": "Long ago, life was slow, <b>but</b> modern life is fast.", "jp": "昔は生活がゆっくりでしたが、現代の生活は速いです。" },
+    { "text": "Long ago, towns were small, <b>but</b> today cities are big.", "jp": "昔は町が小さかったですが、今日では都市は大きいです。" },
+    { "text": "Long ago, chores were difficult, <b>but</b> today they are easy.", "jp": "昔は家事が難しかったですが、今日では簡単です。" },
+    { "text": "Long ago, people sewed clothes. Today, they buy them <b>instead</b>.", "jp": "昔、人々は服を縫っていました。今日では、代わりに買います。" },
+    { "text": "Long ago, people told stories. Today, they watch TV <b>instead</b>.", "jp": "昔、人々は話を語っていました。今日では、代わりにテレビを見ます。" },
+    { "text": "Long ago, people cooked over fire. Today, they use a stove <b>instead</b>.", "jp": "昔、人々は火の上で料理していました。今日では、代わりにコンロを使います。" },
+    { "text": "Long ago, children helped with chores. Today, they play video games <b>instead</b>.", "jp": "昔、子どもたちは家事を手伝っていました。今日では、代わりにビデオゲームをします。" },
+    { "text": "Long ago, people learned from books. Today, they use cell phones <b>instead</b>.", "jp": "昔、人々は本から学んでいました。今日では、代わりに携帯電話を使います。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "but = contrast in one sentence",
+        "jp_title": "but = 1つの文の中で対比を表す",
+        "subtitle": "Use <b>but</b> to join two contrasting ideas in <b>one sentence</b>.",
+        "jp_subtitle": "<b>but</b>を使って、1つの文の中で対照的な2つの考えをつなぎます。",
+        "transforms": [{ "from": "Long ago, people rode horses. / Today they drive cars.", "to": "Long ago, people rode horses, <b>but</b> today they drive cars." }],
+        "examples": [
+          { "text": "Long ago, people rode horses, <b>but</b> today they drive cars.", "jp": "昔、人々は馬に乗っていましたが、今日では車を運転します。" },
+          { "text": "Long ago, life was slow, <b>but</b> modern life is fast.", "jp": "昔は生活がゆっくりでしたが、現代の生活は速いです。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Comma before but",
+        "jp_title": "butの前にコンマ",
+        "subtitle": "Always use a <b>comma (,)</b> before <b>but</b> when joining two clauses.",
+        "jp_subtitle": "2つの節をつなぐときは、<b>but</b>の前に必ず<b>コンマ（,）</b>を置きます。",
+        "transforms": [{ "from": "Long ago, people rode horses but today they drive cars.", "to": "Long ago, people rode horses<b>,</b> but today they drive cars." }],
+        "examples": [
+          { "text": "Long ago, towns were small<b>,</b> but today cities are big.", "jp": "昔は町が小さかったですが、今日では都市は大きいです。" },
+          { "text": "Long ago, people used fire<b>,</b> but today they use electric lights.", "jp": "昔、人々は火を使っていましたが、今日では電灯を使います。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "instead = contrast at the end",
+        "jp_title": "instead = 文末に置いて対比を表す",
+        "subtitle": "Use <b>instead</b> at the <b>end</b> of the second sentence.",
+        "jp_subtitle": "<b>instead</b>は2番目の文の<b>末尾</b>に置きます。",
+        "transforms": [{ "from": "Long ago, people rode horses. / Today they drive cars.", "to": "Long ago, people rode horses. Today, they drive cars <b>instead</b>." }],
+        "examples": [
+          { "text": "Long ago, people sewed clothes. Today, they buy them <b>instead</b>.", "jp": "昔、人々は服を縫っていました。今日では、代わりに買います。" },
+          { "text": "Long ago, people told stories. Today, they watch TV <b>instead</b>.", "jp": "昔、人々は話を語っていました。今日では、代わりにテレビを見ます。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Period before the instead sentence",
+        "jp_title": "instead文の前はピリオド",
+        "subtitle": "When using <b>instead</b>, the first sentence ends with a <b>period (.)</b>.",
+        "jp_subtitle": "<b>instead</b>を使う場合、最初の文は<b>ピリオド（.）</b>で終わります。",
+        "transforms": [{ "from": "Long ago, people cooked over fire, instead today…  ✗", "to": "Long ago, people cooked over fire<b>.</b> Today, they use a stove instead. ✓" }],
+        "examples": [
+          { "text": "Long ago, children helped with chores<b>.</b> Today, they play video games instead.", "jp": "昔、子どもたちは家事を手伝っていました。今日では、代わりにビデオゲームをします。" },
+          { "text": "Long ago, people learned from books<b>.</b> Today, they use cell phones instead.", "jp": "昔、人々は本から学んでいました。今日では、代わりに携帯電話を使います。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "but vs instead",
+        "jp_title": "butとinsteadの違い",
+        "subtitle": "<b>but</b> = one sentence · <b>instead</b> = two sentences, end of the second.",
+        "jp_subtitle": "<b>but</b> = 1つの文・<b>instead</b> = 2つの文、2文目の末尾。",
+        "transforms": [{ "from": "Long ago … , but today …", "to": "Long ago … . Today, … instead." }],
+        "examples": [
+          { "text": "Long ago, people rode horses, <b>but</b> today they drive cars.", "jp": "昔、人々は馬に乗っていましたが、今日では車を運転します。" },
+          { "text": "Long ago, people rode horses. Today, they drive cars <b>instead</b>.", "jp": "昔、人々は馬に乗っていました。今日では、代わりに車を運転します。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "Long ago, people rode horses, <b>but</b> today they drive cars.", "kind": "but", "jp": "昔、人々は馬に乗っていましたが、今日では車を運転します。" },
+      { "text": "Long ago, people sewed clothes. Today, they buy them <b>instead</b>.", "kind": "instead", "jp": "昔、人々は服を縫っていました。今日では、代わりに買います。" },
+      { "text": "Long ago, life was slow, <b>but</b> modern life is fast.", "kind": "but", "jp": "昔は生活がゆっくりでしたが、現代の生活は速いです。" },
+      { "text": "Long ago, people told stories. Today, they watch TV <b>instead</b>.", "kind": "instead", "jp": "昔、人々は話を語っていました。今日では、代わりにテレビを見ます。" },
+      { "text": "Long ago, towns were small, <b>but</b> today cities are big.", "kind": "but", "jp": "昔は町が小さかったですが、今日では都市は大きいです。" },
+      { "text": "Long ago, people cooked over fire. Today, they use a stove <b>instead</b>.", "kind": "instead", "jp": "昔、人々は火の上で料理していました。今日では、代わりにコンロを使います。" },
+      { "text": "Long ago, people used fire, <b>but</b> today they use electric lights.", "kind": "but", "jp": "昔、人々は火を使っていましたが、今日では電灯を使います。" },
+      { "text": "Long ago, children helped with chores. Today, they play video games <b>instead</b>.", "kind": "instead", "jp": "昔、子どもたちは家事を手伝っていました。今日では、代わりにビデオゲームをします。" },
+      { "text": "Long ago, chores were difficult, <b>but</b> today they are easy.", "kind": "but", "jp": "昔は家事が難しかったですが、今日では簡単です。" },
+      { "text": "Long ago, people learned from books. Today, they use cell phones <b>instead</b>.", "kind": "instead", "jp": "昔、人々は本から学んでいました。今日では、代わりに携帯電話を使います。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["Long ago, people rode horses,", "___", "today they drive cars."],
+        "answers": ["but", "instead", "so", "because"],
+        "correct": 0,
+        "explanation": { "title": "but", "body": "Use <b>but</b> to contrast two ideas in one sentence. Don't forget the comma before <b>but</b>." },
+        "jp": "昔、人々は馬に乗っていましたが、今日では車を運転します。"
+      },
+      {
+        "stem": ["Long ago, people used fire. Today, they use electric lights", "___", "."],
+        "answers": ["instead", "but", "so", "and"],
+        "correct": 0,
+        "explanation": { "title": "instead", "body": "Use <b>instead</b> at the end of the second sentence." },
+        "jp": "昔、人々は火を使っていました。今日では、代わりに電灯を使います。"
+      },
+      {
+        "stem": ["Long ago, life was slow,", "___", "modern life is fast."],
+        "answers": ["but", "instead", "and", "or"],
+        "correct": 0,
+        "explanation": { "title": "but", "body": "Use <b>but</b> to join two contrasting ideas in one sentence." },
+        "jp": "昔は生活がゆっくりでしたが、現代の生活は速いです。"
+      },
+      {
+        "stem": ["Long ago, people sewed clothes. Today, they buy them", "___", "."],
+        "answers": ["instead", "but", "and", "then"],
+        "correct": 0,
+        "explanation": { "title": "instead", "body": "Use <b>instead</b> at the end of the sentence to show contrast." },
+        "jp": "昔、人々は服を縫っていました。今日では、代わりに買います。"
+      },
+      {
+        "stem": ["Long ago, towns were small,", "___", "today cities are big."],
+        "answers": ["but", "instead", "so", "because"],
+        "correct": 0,
+        "explanation": { "title": "but", "body": "<b>But</b> connects two contrasting ideas: small towns long ago vs. big cities today." },
+        "jp": "昔は町が小さかったですが、今日では都市は大きいです。"
+      },
+      {
+        "stem": ["Long ago, people told stories. Today, they watch TV", "___", "."],
+        "answers": ["instead", "but", "however", "also"],
+        "correct": 0,
+        "explanation": { "title": "instead", "body": "<b>Instead</b> goes at the end of the second sentence to show a change." },
+        "jp": "昔、人々は話を語っていました。今日では、代わりにテレビを見ます。"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["Long ago, people rode horses, but today they drive cars.", "Long ago, people rode horses but today they drive cars.", "Long ago, people rode horses, but, today they drive cars.", "Long ago, people rode horses but, today they drive cars."],
+        "correct": 0,
+        "explanation": { "title": "Comma before but", "body": "Use a <b>comma (,) before but</b> when joining two clauses." },
+        "jp": "butの前にコンマを置きます。"
+      },
+      {
+        "stem": ["Where does 'instead' go in a sentence?"],
+        "answers": ["at the end", "at the beginning", "after the verb", "before the noun"],
+        "correct": 0,
+        "explanation": { "title": "at the end", "body": "<b>Instead</b> always goes at the <b>end</b> of the sentence." },
+        "jp": "insteadは文末に置きます。"
+      },
+      {
+        "stem": ["What punctuation comes before 'but' in a contrast sentence?"],
+        "answers": ["a comma", "a period", "nothing", "a semicolon"],
+        "correct": 0,
+        "explanation": { "title": "a comma", "body": "Use a <b>comma (,)</b> before <b>but</b>: Long ago, people rode horses<b>,</b> but today they drive cars." },
+        "jp": "butの前にはコンマを使います。"
+      },
+      {
+        "stem": ["Long ago, children helped with chores. Today, they play video games", "___", "."],
+        "answers": ["instead", "but", "and", "or"],
+        "correct": 0,
+        "explanation": { "title": "instead", "body": "Two sentences — use <b>instead</b> at the end of the second sentence." },
+        "jp": "昔、子どもたちは家事を手伝っていました。今日では、代わりにビデオゲームをします。"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["Long ago, people rode horses, ___ today they drive cars."],
+        "answers": ["but", "instead", "so", "because"],
+        "correct": 0,
+        "jp": "昔、人々は馬に乗っていましたが、今日では車を運転します。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Long ago, people used fire. Today, they use electric lights ___."],
+        "answers": ["instead", "but", "and", "so"],
+        "correct": 0,
+        "jp": "昔、人々は火を使っていました。今日では、代わりに電灯を使います。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Long ago, life was slow, ___ modern life is fast."],
+        "answers": ["but", "instead", "and", "or"],
+        "correct": 0,
+        "jp": "昔は生活がゆっくりでしたが、現代の生活は速いです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Long ago, people sewed clothes. Today, they buy them ___."],
+        "answers": ["instead", "but", "and", "then"],
+        "correct": 0,
+        "jp": "昔、人々は服を縫っていました。今日では、代わりに買います。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Long ago, towns were small, ___ today cities are big."],
+        "answers": ["but", "instead", "so", "because"],
+        "correct": 0,
+        "jp": "昔は町が小さかったですが、今日では都市は大きいです。"
+      },
+      {
+        "type": "build",
+        "cue": "Long ago / people rode horses / but / today they drive cars",
+        "bank": ["Long", "ago,", "people", "rode", "horses,", "but", "today", "they", "drive", "cars.", "instead", "and"],
+        "correct": ["Long", "ago,", "people", "rode", "horses,", "but", "today", "they", "drive", "cars."],
+        "jp": "昔、人々は馬に乗っていましたが、今日では車を運転します。"
+      },
+      {
+        "type": "build",
+        "cue": "Long ago / people sewed clothes / Today / they buy them instead",
+        "bank": ["Long", "ago,", "people", "sewed", "clothes.", "Today,", "they", "buy", "them", "instead.", "but", "and"],
+        "correct": ["Long", "ago,", "people", "sewed", "clothes.", "Today,", "they", "buy", "them", "instead."],
+        "jp": "昔、人々は服を縫っていました。今日では、代わりに買います。"
+      },
+      {
+        "type": "build",
+        "cue": "Long ago / life was slow / but / modern life is fast",
+        "bank": ["Long", "ago,", "life", "was", "slow,", "but", "modern", "life", "is", "fast.", "instead", "and"],
+        "correct": ["Long", "ago,", "life", "was", "slow,", "but", "modern", "life", "is", "fast."],
+        "jp": "昔は生活がゆっくりでしたが、現代の生活は速いです。"
+      },
+      {
+        "type": "build",
+        "cue": "Long ago / people told stories / Today / they watch TV instead",
+        "bank": ["Long", "ago,", "people", "told", "stories.", "Today,", "they", "watch", "TV", "instead.", "but", "and"],
+        "correct": ["Long", "ago,", "people", "told", "stories.", "Today,", "they", "watch", "TV", "instead."],
+        "jp": "昔、人々は話を語っていました。今日では、代わりにテレビを見ます。"
+      },
+      {
+        "type": "build",
+        "cue": "Long ago / towns were small / but / today cities are big",
+        "bank": ["Long", "ago,", "towns", "were", "small,", "but", "today", "cities", "are", "big.", "instead", "so"],
+        "correct": ["Long", "ago,", "towns", "were", "small,", "but", "today", "cities", "are", "big."],
+        "jp": "昔は町が小さかったですが、今日では都市は大きいです。"
+      }
+    ]
+  }
 }
