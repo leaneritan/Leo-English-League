@@ -2,15 +2,264 @@
   "level": 4,
   "unit": 4,
   "set": 2,
-  "topic": "",
+  "unit_name": "Rules and Advice",
+  "title": "Reflexive pronouns",
+  "tag": "Reflexive Pronouns",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Reflexive pronouns",
+    "headers": ["Subject", "Verb", "Reflexive Pronoun", "Context"],
+    "key_col": 2,
+    "mid_col": 1,
+    "intro_examples": [
+      { "text": "I cut myself. = I cut my own body.", "continuation": "I made the kit by myself. = I made it alone." }
+    ],
+    "rows": [
+      ["I", "cut", "myself", "with the scissors."],
+      ["You", "cut", "yourself", "with the scissors."],
+      ["She", "cut", "herself", "with the scissors."],
+      ["He", "cut", "himself", "with the scissors."],
+      ["We", "cut", "ourselves", "with the scissors."],
+      ["You", "cut", "yourselves", "with the scissors."],
+      ["They", "cut", "themselves", "with the scissors."]
+    ],
+    "note_rule": "Use a reflexive pronoun when the subject and object are the same person.",
+    "note_exception": "I cut myself. = I cut my own body.",
+    "note_exception_detail": "by myself / by yourself = alone (no one helped me)"
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "I cut <b>myself</b> with the scissors.", "jp": "私はハサミで<b>自分自身</b>を切ってしまいました。" },
+    { "text": "She hurt <b>herself</b> on her bike.", "jp": "彼女は自転車で<b>自分自身</b>を傷つけました。" },
+    { "text": "He made the first-aid kit <b>by himself</b>.", "jp": "彼は<b>一人で</b>救急箱を作りました。" },
+    { "text": "Be careful! Don't cut <b>yourself</b>!", "jp": "気をつけて！<b>自分自身</b>を切らないでください！" },
+    { "text": "We cooked dinner <b>ourselves</b>.", "jp": "私たちは<b>自分たちで</b>夕食を作りました。" },
+    { "text": "They cleaned the classroom <b>by themselves</b>.", "jp": "彼らは<b>一人で</b>教室を掃除しました。" },
+    { "text": "She put the bandage on <b>herself</b>.", "jp": "彼女は<b>自分で</b>包帯を巻きました。" },
+    { "text": "He burned <b>himself</b> on the stove.", "jp": "彼はコンロで<b>自分自身</b>をやけどしました。" },
+    { "text": "I did my homework <b>by myself</b>.", "jp": "私は<b>一人で</b>宿題をしました。" },
+    { "text": "You should take care of <b>yourself</b> when you have a cold.", "jp": "風邪をひいているときは<b>自分自身</b>を大切にすべきです。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "I / You → myself / yourself",
+        "jp_title": "I / You → myself / yourself",
+        "subtitle": "<b>I</b> → myself · <b>You</b> (one person) → yourself",
+        "jp_subtitle": "<b>I</b>の再帰代名詞は<b>myself</b>、<b>you</b>（一人）は<b>yourself</b>です。",
+        "transforms": [{ "from": "I / You (one person)", "to": "my<b>self</b> / your<b>self</b>" }],
+        "examples": [
+          { "text": "I cut <b>myself</b> with the scissors.", "jp": "私はハサミで自分自身を切ってしまいました。" },
+          { "text": "Be careful! Don't cut <b>yourself</b>!", "jp": "気をつけて！自分自身を切らないでください！" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "He / She → himself / herself",
+        "jp_title": "He / She → himself / herself",
+        "subtitle": "<b>He</b> → himself · <b>She</b> → herself",
+        "jp_subtitle": "<b>he</b>の再帰代名詞は<b>himself</b>、<b>she</b>は<b>herself</b>です。",
+        "transforms": [{ "from": "He / She", "to": "him<b>self</b> / her<b>self</b>" }],
+        "examples": [
+          { "text": "He burned <b>himself</b> on the stove.", "jp": "彼はコンロで自分自身をやけどしました。" },
+          { "text": "She put the bandage on <b>herself</b>.", "jp": "彼女は自分で包帯を巻きました。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "We / You / They → ourselves / yourselves / themselves",
+        "jp_title": "We / You / They → ourselves / yourselves / themselves",
+        "subtitle": "<b>We</b> → ourselves · <b>You</b> (group) → yourselves · <b>They</b> → themselves",
+        "jp_subtitle": "<b>we</b>→ourselves・<b>you（複数）</b>→yourselves・<b>they</b>→themselvesです。",
+        "transforms": [{ "from": "We / You (group) / They", "to": "our<b>selves</b> / your<b>selves</b> / them<b>selves</b>" }],
+        "examples": [
+          { "text": "We cooked dinner <b>ourselves</b>.", "jp": "私たちは自分たちで夕食を作りました。" },
+          { "text": "They cleaned the classroom <b>by themselves</b>.", "jp": "彼らは一人で教室を掃除しました。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "subject = object",
+        "jp_title": "主語 = 目的語のとき",
+        "subtitle": "Use a reflexive pronoun when the subject does something <b>to themselves</b>.",
+        "jp_subtitle": "主語が<b>自分自身</b>に何かをするとき、再帰代名詞を使います。",
+        "transforms": [{ "from": "She hurt her. (someone else)", "to": "She hurt <b>herself</b>. (same person)" }],
+        "examples": [
+          { "text": "She hurt <b>herself</b> on her bike.", "jp": "彼女は自転車で自分自身を傷つけました。" },
+          { "text": "He burned <b>himself</b> on the stove.", "jp": "彼はコンロで自分自身をやけどしました。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "by myself = alone",
+        "jp_title": "by myself = 一人で（誰の助けもなく）",
+        "subtitle": "Use <b>by</b> + reflexive pronoun to mean <b>alone</b> or <b>without help</b>.",
+        "jp_subtitle": "<b>by</b> + 再帰代名詞で「<b>一人で</b>」「<b>誰の助けもなく</b>」という意味になります。",
+        "transforms": [{ "from": "alone / without help", "to": "by my<b>self</b> / by your<b>self</b> / by him<b>self</b>..." }],
+        "examples": [
+          { "text": "I made the first-aid kit <b>by myself</b>. = I made it alone.", "jp": "私は一人で救急箱を作りました。（誰も手伝いませんでした）" },
+          { "text": "She did the project <b>by herself</b>.", "jp": "彼女は一人でプロジェクトをしました。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "I cut <b>myself</b> with the scissors.", "kind": "myself", "jp": "私はハサミで自分自身を切ってしまいました。" },
+      { "text": "She hurt <b>herself</b> on her bike.", "kind": "herself", "jp": "彼女は自転車で自分自身を傷つけました。" },
+      { "text": "He made the first-aid kit <b>by himself</b>.", "kind": "by himself", "jp": "彼は一人で救急箱を作りました。" },
+      { "text": "We cooked dinner <b>ourselves</b>.", "kind": "ourselves", "jp": "私たちは自分たちで夕食を作りました。" },
+      { "text": "Be careful! Don't cut <b>yourself</b>!", "kind": "yourself", "jp": "気をつけて！自分自身を切らないでください！" },
+      { "text": "They cleaned the classroom <b>by themselves</b>.", "kind": "by themselves", "jp": "彼らは一人で教室を掃除しました。" },
+      { "text": "He burned <b>himself</b> on the stove.", "kind": "himself", "jp": "彼はコンロで自分自身をやけどしました。" },
+      { "text": "I did my homework <b>by myself</b>.", "kind": "by myself", "jp": "私は一人で宿題をしました。" },
+      { "text": "She put the bandage on <b>herself</b>.", "kind": "herself", "jp": "彼女は自分で包帯を巻きました。" },
+      { "text": "You should take care of <b>yourself</b> when you have a cold.", "kind": "yourself", "jp": "風邪をひいているときは自分自身を大切にすべきです。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["I cut", "___", "with the scissors."],
+        "answers": ["myself", "yourself", "himself", "me"],
+        "correct": 0,
+        "explanation": { "title": "myself", "body": "The subject is <b>I</b>, so use <b>myself</b>." },
+        "jp": "私はハサミで自分自身を切ってしまいました。"
+      },
+      {
+        "stem": ["He burned", "___", "on the stove."],
+        "answers": ["himself", "herself", "itself", "him"],
+        "correct": 0,
+        "explanation": { "title": "himself", "body": "The subject is <b>He</b>, so use <b>himself</b>." },
+        "jp": "彼はコンロで自分自身をやけどしました。"
+      },
+      {
+        "stem": ["She hurt", "___", "on her bike."],
+        "answers": ["herself", "himself", "myself", "her"],
+        "correct": 0,
+        "explanation": { "title": "herself", "body": "The subject is <b>She</b>, so use <b>herself</b>." },
+        "jp": "彼女は自転車で自分自身を傷つけました。"
+      },
+      {
+        "stem": ["We cooked dinner", "___", "."],
+        "answers": ["ourselves", "yourselves", "themselves", "us"],
+        "correct": 0,
+        "explanation": { "title": "ourselves", "body": "The subject is <b>We</b>, so use <b>ourselves</b>." },
+        "jp": "私たちは自分たちで夕食を作りました。"
+      },
+      {
+        "stem": ["They cleaned the classroom by", "___", "."],
+        "answers": ["themselves", "ourselves", "yourselves", "them"],
+        "correct": 0,
+        "explanation": { "title": "themselves", "body": "The subject is <b>They</b>, so use <b>themselves</b>. By themselves = alone." },
+        "jp": "彼らは一人で教室を掃除しました。"
+      },
+      {
+        "stem": ["I made the first-aid kit by", "___", "."],
+        "answers": ["myself", "yourself", "himself", "me"],
+        "correct": 0,
+        "explanation": { "title": "by myself", "body": "<b>By myself</b> = alone, without help. Subject is I → myself." },
+        "jp": "私は一人で救急箱を作りました。"
+      },
+      {
+        "stem": ["Be careful! Don't cut", "___", "!"],
+        "answers": ["yourself", "myself", "herself", "you"],
+        "correct": 0,
+        "explanation": { "title": "yourself", "body": "The command 'Don't cut...' is for <b>you</b>, so use <b>yourself</b>." },
+        "jp": "気をつけて！自分自身を切らないでください！"
+      },
+      {
+        "stem": ["Which is correct?"],
+        "answers": ["She hurt herself.", "She hurt herself's.", "She hurt her.", "Herself she hurt."],
+        "correct": 0,
+        "explanation": { "title": "herself", "body": "When the subject (she) and object are the same person, use <b>herself</b>." },
+        "jp": "彼女は自分自身を傷つけました。"
+      },
+      {
+        "stem": ["I made the kit by myself. This means:"],
+        "answers": ["I made it alone.", "Someone helped me.", "I should make it.", "I didn't make it."],
+        "correct": 0,
+        "explanation": { "title": "by myself = alone", "body": "<b>By myself</b> means alone — no one helped." },
+        "jp": "by myselfは「一人で・誰の助けもなく」という意味です。"
+      },
+      {
+        "stem": ["You (group) cut", "___", "with the scissors."],
+        "answers": ["yourselves", "yourself", "themselves", "you"],
+        "correct": 0,
+        "explanation": { "title": "yourselves", "body": "For a group of people (you plural), use <b>yourselves</b>." },
+        "jp": "あなたたちはハサミで自分自身を切ってしまいました。"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["I cut ___ with the scissors."],
+        "answers": ["myself", "yourself", "himself", "me"],
+        "correct": 0,
+        "jp": "私はハサミで自分自身を切ってしまいました。"
+      },
+      {
+        "type": "mc",
+        "stem": ["He burned ___ on the stove."],
+        "answers": ["himself", "herself", "myself", "him"],
+        "correct": 0,
+        "jp": "彼はコンロで自分自身をやけどしました。"
+      },
+      {
+        "type": "mc",
+        "stem": ["We cooked dinner ___."],
+        "answers": ["ourselves", "yourselves", "themselves", "us"],
+        "correct": 0,
+        "jp": "私たちは自分たちで夕食を作りました。"
+      },
+      {
+        "type": "mc",
+        "stem": ["I made the kit by ___. = I made it alone."],
+        "answers": ["myself", "yourself", "himself", "me"],
+        "correct": 0,
+        "jp": "私は一人で救急箱を作りました。"
+      },
+      {
+        "type": "mc",
+        "stem": ["She hurt ___ on her bike."],
+        "answers": ["herself", "himself", "yourself", "her"],
+        "correct": 0,
+        "jp": "彼女は自転車で自分自身を傷つけました。"
+      },
+      {
+        "type": "build",
+        "cue": "I / cut / myself / with the scissors",
+        "bank": ["I", "cut", "myself", "with", "the", "scissors", ".", "yourself", "me"],
+        "correct": ["I", "cut", "myself", "with", "the", "scissors", "."],
+        "jp": "私はハサミで自分自身を切ってしまいました。"
+      },
+      {
+        "type": "build",
+        "cue": "She / hurt / herself / on her bike",
+        "bank": ["She", "hurt", "herself", "on", "her", "bike", ".", "himself", "her"],
+        "correct": ["She", "hurt", "herself", "on", "her", "bike", "."],
+        "jp": "彼女は自転車で自分自身を傷つけました。"
+      },
+      {
+        "type": "build",
+        "cue": "He / made / the first-aid kit / by himself",
+        "bank": ["He", "made", "the", "first-aid", "kit", "by", "himself", ".", "herself", "by"],
+        "correct": ["He", "made", "the", "first-aid", "kit", "by", "himself", "."],
+        "jp": "彼は一人で救急箱を作りました。"
+      },
+      {
+        "type": "build",
+        "cue": "We / cooked / dinner / ourselves",
+        "bank": ["We", "cooked", "dinner", "ourselves", ".", "themselves", "yourselves"],
+        "correct": ["We", "cooked", "dinner", "ourselves", "."],
+        "jp": "私たちは自分たちで夕食を作りました。"
+      },
+      {
+        "type": "build",
+        "cue": "They / cleaned / the classroom / by themselves",
+        "bank": ["They", "cleaned", "the", "classroom", "by", "themselves", ".", "ourselves", "yourselves"],
+        "correct": ["They", "cleaned", "the", "classroom", "by", "themselves", "."],
+        "jp": "彼らは一人で教室を掃除しました。"
+      }
+    ]
+  }
 }
