@@ -2,5 +2,72 @@
   "level": 4,
   "unit": 5,
   "set": 2,
-  "words": []
+  "unit_name": "People I Admire",
+  "words": [
+    {
+      "id": "tv-show",
+      "word": "a TV show",
+      "emoji": "📺🎬",
+      "ipa": "/tiː viː ʃoʊ/",
+      "syllables": "TV show",
+      "pos": "Noun · Countable",
+      "sample": "What's your favorite <b>TV show</b>?",
+      "jp_word": "テレビ番組",
+      "jp_reading": "てれびばんぐみ",
+      "jp_sentence": "あなたのお気に入りの<b>テレビ番組</b>は何ですか？",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "hobby",
+      "word": "a hobby",
+      "emoji": "🎨🎮",
+      "ipa": "/ˈhɒbi/",
+      "syllables": "hob·by",
+      "pos": "Noun · Countable",
+      "sample": "Reading books is my favorite <b>hobby</b>.",
+      "jp_word": "趣味",
+      "jp_reading": "しゅみ",
+      "jp_sentence": "読書は私のお気に入りの<b>趣味</b>です。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "school-subject",
+      "word": "a school subject",
+      "emoji": "📖📚",
+      "ipa": "/skuːl ˈsʌbdʒɪkt/",
+      "syllables": "school sub·ject",
+      "pos": "Noun · Countable",
+      "sample": "English is the best <b>school subject</b>.",
+      "jp_word": "学校の科目",
+      "jp_reading": "がっこうのかもく",
+      "jp_sentence": "英語は一番いい<b>学校の科目</b>です。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "sport",
+      "word": "a sport",
+      "emoji": "⚽🏃",
+      "ipa": "/spɔːrt/",
+      "syllables": "sport",
+      "pos": "Noun · Countable",
+      "sample": "Tennis is a wonderful <b>sport</b>.",
+      "jp_word": "スポーツ",
+      "jp_reading": "すぽーつ",
+      "jp_sentence": "テニスは素晴らしい<b>スポーツ</b>です。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "writer",
+      "word": "a writer",
+      "emoji": "✍️📝",
+      "ipa": "/ˈraɪtər/",
+      "syllables": "writ·er",
+      "pos": "Noun · Countable",
+      "sample": "JK Rowling is a wonderful <b>writer</b>.",
+      "jp_word": "作家",
+      "jp_reading": "さっか",
+      "jp_sentence": "JKローリングは素晴らしい<b>作家</b>です。",
+      "jp_tags": ["名詞", "可算名詞"]
+    }
+  ]
 }
