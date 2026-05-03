@@ -2,15 +2,259 @@
   "level": 4,
   "unit": 4,
   "set": 1,
-  "topic": "",
+  "unit_name": "Rules and Advice",
+  "title": "Advice with should",
+  "tag": "Should & Shouldn't",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Advice with should",
+    "headers": ["Subject", "Modal", "Verb", "Context"],
+    "key_col": 1,
+    "mid_col": -1,
+    "intro_examples": [
+      { "text": "You should study for the test.", "continuation": "She shouldn't stay inside all day." }
+    ],
+    "rows": [
+      ["I / You / He / She", "should", "study", "for the test."],
+      ["I / You / He / She", "shouldn't", "stay", "inside all day."]
+    ],
+    "note_rule": "Use should or shouldn't to ask for and give advice.",
+    "note_exception": "shouldn't = should not",
+    "note_exception_detail": "Should is the same for all subjects — never add -s."
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "You <b>should</b> study for the test.", "jp": "テストのために<b>勉強すべきです</b>。" },
+    { "text": "She <b>shouldn't</b> stay inside all day.", "jp": "彼女は一日中家にいる<b>べきではありません</b>。" },
+    { "text": "You <b>should</b> go to bed early if you have a fever.", "jp": "熱があるなら早く<b>寝るべきです</b>。" },
+    { "text": "He <b>shouldn't</b> go to school with a cold.", "jp": "彼は風邪をひいているときに学校へ<b>行くべきではありません</b>。" },
+    { "text": "You <b>should</b> take some medicine for your headache.", "jp": "頭痛には薬を<b>飲むべきです</b>。" },
+    { "text": "She <b>should</b> put a bandage on her cut.", "jp": "彼女は切り傷に包帯を<b>巻くべきです</b>。" },
+    { "text": "You <b>shouldn't</b> eat too much sugar — it's bad for your teeth.", "jp": "砂糖を食べすぎる<b>べきではありません</b>。歯に悪いです。" },
+    { "text": "He <b>should</b> see a doctor about his stomachache.", "jp": "彼は腹痛について医者に<b>診てもらうべきです</b>。" },
+    { "text": "What <b>should</b> she do? She <b>should</b> stay in bed.", "jp": "彼女はどうす<b>べきですか</b>？ベッドで休む<b>べきです</b>。" },
+    { "text": "<b>Should</b> she go to school? No, she <b>shouldn't</b>.", "jp": "彼女は学校へ行く<b>べきですか</b>？いいえ、行く<b>べきではありません</b>。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "should + verb",
+        "jp_title": "should + 動詞（アドバイス）",
+        "subtitle": "Use <b>should</b> + base verb to give advice or a suggestion.",
+        "jp_subtitle": "アドバイスや提案をするときは<b>should</b> + 動詞の原形を使います。",
+        "transforms": [{ "from": "advice", "to": "subject + <b>should</b> + verb" }],
+        "examples": [
+          { "text": "You <b>should</b> study for the test.", "jp": "テストのために勉強すべきです。" },
+          { "text": "She <b>should</b> stay in bed.", "jp": "彼女はベッドで休むべきです。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "shouldn't + verb",
+        "jp_title": "shouldn't + 動詞（否定のアドバイス）",
+        "subtitle": "Use <b>shouldn't</b> + base verb to say something is not a good idea.",
+        "jp_subtitle": "よくないことを伝えるときは<b>shouldn't</b> + 動詞の原形を使います。",
+        "transforms": [{ "from": "should + not", "to": "shouldn't + verb" }],
+        "examples": [
+          { "text": "You <b>shouldn't</b> stay inside all day.", "jp": "一日中家にいるべきではありません。" },
+          { "text": "He <b>shouldn't</b> go to school with a cold.", "jp": "彼は風邪をひいているときに学校へ行くべきではありません。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "same for all subjects",
+        "jp_title": "全ての主語で同じ形",
+        "subtitle": "<b>Should</b> is the same for I, you, he, she, it, we, they. Never add -s.",
+        "jp_subtitle": "I・you・he・she・they、どの主語でも<b>should</b>の形は変わりません。",
+        "transforms": [{ "from": "I / you / he / she / they", "to": "<b>should</b> (never shoulds)" }],
+        "examples": [
+          { "text": "I <b>should</b> rest. She <b>should</b> rest. They <b>should</b> rest.", "jp": "私も・彼女も・彼らも should の形は同じです。" },
+          { "text": "He <b>shouldn't</b> eat that. We <b>shouldn't</b> eat that.", "jp": "shouldnの形も全ての主語で変わりません。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Should + subject...?",
+        "jp_title": "Should + 主語 ...?（はい・いいえの質問）",
+        "subtitle": "To make a yes/no question, put <b>Should</b> at the beginning.",
+        "jp_subtitle": "はい・いいえの質問は文の最初に<b>Should</b>を置きます。",
+        "transforms": [{ "from": "She should stay home.", "to": "<b>Should</b> she stay home?" }],
+        "examples": [
+          { "text": "<b>Should</b> she stay home? — Yes, she should. / No, she shouldn't.", "jp": "彼女は家にいるべきですか？ — はい、そうです。／いいえ、違います。" },
+          { "text": "<b>Should</b> I take medicine? — Yes, you should.", "jp": "薬を飲むべきですか？ — はい、飲むべきです。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "What should...do?",
+        "jp_title": "What should ... do?（アドバイスを求める）",
+        "subtitle": "Use <b>What should</b> + subject + <b>do?</b> to ask for advice.",
+        "jp_subtitle": "アドバイスを求めるときは<b>What should</b> + 主語 + <b>do?</b>を使います。",
+        "transforms": [{ "from": "asking for advice", "to": "What <b>should</b> + subject + do?" }],
+        "examples": [
+          { "text": "<b>What should</b> she do? — She should stay in bed.", "jp": "彼女はどうすべきですか？ — ベッドで休むべきです。" },
+          { "text": "<b>What should</b> I do? — You should see a doctor.", "jp": "私はどうすべきですか？ — 医者に行くべきです。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "You <b>should</b> study for the test.", "kind": "should", "jp": "テストのために勉強すべきです。" },
+      { "text": "He <b>shouldn't</b> go to school with a cold.", "kind": "shouldn't", "jp": "彼は風邪をひいているときに学校へ行くべきではありません。" },
+      { "text": "<b>Should</b> she stay home? Yes, she <b>should</b>.", "kind": "question", "jp": "彼女は家にいるべきですか？はい、そうです。" },
+      { "text": "<b>What should</b> he do? He <b>should</b> see a doctor.", "kind": "what should", "jp": "彼はどうすべきですか？医者に行くべきです。" },
+      { "text": "You <b>should</b> put a bandage on that cut.", "kind": "should", "jp": "その切り傷に包帯を巻くべきです。" },
+      { "text": "She <b>shouldn't</b> eat too much sugar.", "kind": "shouldn't", "jp": "彼女は砂糖を食べすぎるべきではありません。" },
+      { "text": "<b>Should</b> I take medicine? No, you <b>shouldn't</b>.", "kind": "question", "jp": "薬を飲むべきですか？いいえ、飲むべきではありません。" },
+      { "text": "You <b>should</b> use a thermometer if you feel hot.", "kind": "should", "jp": "体が熱いときは体温計を使うべきです。" },
+      { "text": "He <b>shouldn't</b> go outside with a broken leg.", "kind": "shouldn't", "jp": "彼は足を骨折しているときに外に出るべきではありません。" },
+      { "text": "<b>What should</b> she do? She <b>should</b> stay in bed.", "kind": "what should", "jp": "彼女はどうすべきですか？ベッドで休むべきです。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["You", "___", "study for the test."],
+        "answers": ["should", "shoulds", "should to", "shoulding"],
+        "correct": 0,
+        "explanation": { "title": "should", "body": "Use <b>should</b> + base verb to give advice. Never add -s or -to." },
+        "jp": "テストのために勉強すべきです。"
+      },
+      {
+        "stem": ["She", "___", "go to school with a cold."],
+        "answers": ["shouldn't", "should", "should not to", "not should"],
+        "correct": 0,
+        "explanation": { "title": "shouldn't", "body": "Use <b>shouldn't</b> to say something is not a good idea. shouldn't = should not." },
+        "jp": "彼女は風邪をひいているときに学校へ行くべきではありません。"
+      },
+      {
+        "stem": ["___", "she stay in bed?"],
+        "answers": ["Should", "Should to", "Shoulds", "Is"],
+        "correct": 0,
+        "explanation": { "title": "Should", "body": "For yes/no questions, put <b>Should</b> at the beginning of the sentence." },
+        "jp": "彼女はベッドで休むべきですか？"
+      },
+      {
+        "stem": ["What should she", "___", "?"],
+        "answers": ["do", "does", "doing", "done"],
+        "correct": 0,
+        "explanation": { "title": "do", "body": "After <b>should</b>, always use the base form of the verb — no -s, -ing, or -ed." },
+        "jp": "彼女はどうすべきですか？"
+      },
+      {
+        "stem": ["Should she stay home? Yes, she", "___", "."],
+        "answers": ["should", "shoulds", "should to", "is"],
+        "correct": 0,
+        "explanation": { "title": "should", "body": "Short answer: Yes, she <b>should</b>. / No, she shouldn't." },
+        "jp": "彼女は家にいるべきですか？はい、そうです。"
+      },
+      {
+        "stem": ["He", "___", "eat too much sugar."],
+        "answers": ["shouldn't", "should", "not should", "shouldn't to"],
+        "correct": 0,
+        "explanation": { "title": "shouldn't", "body": "Use <b>shouldn't</b> for negative advice. It is the same for all subjects." },
+        "jp": "彼は砂糖を食べすぎるべきではありません。"
+      },
+      {
+        "stem": ["Which is correct?"],
+        "answers": ["She should rest.", "She should rests.", "She shoulds rest.", "She should to rest."],
+        "correct": 0,
+        "explanation": { "title": "should + base verb", "body": "After <b>should</b>, always use the base verb. No -s, no -to." },
+        "jp": "彼女は休むべきです。"
+      },
+      {
+        "stem": ["You", "___", "take medicine for your headache."],
+        "answers": ["should", "should to", "shoulds", "shoulding"],
+        "correct": 0,
+        "explanation": { "title": "should", "body": "<b>Should</b> is the same for all subjects. Never add -s or use 'should to'." },
+        "jp": "頭痛には薬を飲むべきです。"
+      },
+      {
+        "stem": ["Should she go to school? No, she", "___", "."],
+        "answers": ["shouldn't", "shouldn't to", "not should", "shoulds not"],
+        "correct": 0,
+        "explanation": { "title": "shouldn't", "body": "Short negative answer: No, she <b>shouldn't</b>." },
+        "jp": "彼女は学校へ行くべきですか？いいえ、行くべきではありません。"
+      },
+      {
+        "stem": ["___", "I see a doctor?"],
+        "answers": ["Should", "Should to", "Am", "Do"],
+        "correct": 0,
+        "explanation": { "title": "Should", "body": "Put <b>Should</b> first to make a yes/no question." },
+        "jp": "医者に行くべきですか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["You ___ study for the test."],
+        "answers": ["should", "shoulds", "should to", "shoulding"],
+        "correct": 0,
+        "jp": "テストのために勉強すべきです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["She ___ go to school with a fever."],
+        "answers": ["shouldn't", "should", "not should", "shouldn't to"],
+        "correct": 0,
+        "jp": "彼女は熱があるときに学校へ行くべきではありません。"
+      },
+      {
+        "type": "mc",
+        "stem": ["___ she stay in bed?"],
+        "answers": ["Should", "Should to", "Does", "Is"],
+        "correct": 0,
+        "jp": "彼女はベッドで休むべきですか？"
+      },
+      {
+        "type": "mc",
+        "stem": ["What ___ I do?"],
+        "answers": ["should", "shoulds", "should to", "am"],
+        "correct": 0,
+        "jp": "私はどうすべきですか？"
+      },
+      {
+        "type": "mc",
+        "stem": ["Should she stay home? Yes, she ___."],
+        "answers": ["should", "shoulds", "should to", "is"],
+        "correct": 0,
+        "jp": "彼女は家にいるべきですか？はい、そうです。"
+      },
+      {
+        "type": "build",
+        "cue": "You / should / study / for the test",
+        "bank": ["You", "should", "study", "for", "the", "test", ".", "shouldn't", "studies"],
+        "correct": ["You", "should", "study", "for", "the", "test", "."],
+        "jp": "テストのために勉強すべきです。"
+      },
+      {
+        "type": "build",
+        "cue": "She / shouldn't / go / to school",
+        "bank": ["She", "shouldn't", "go", "to", "school", ".", "should", "goes"],
+        "correct": ["She", "shouldn't", "go", "to", "school", "."],
+        "jp": "彼女は学校へ行くべきではありません。"
+      },
+      {
+        "type": "build",
+        "cue": "Should / she / stay / in bed?",
+        "bank": ["Should", "she", "stay", "in", "bed", "?", "Shouldn't", "stays"],
+        "correct": ["Should", "she", "stay", "in", "bed", "?"],
+        "jp": "彼女はベッドで休むべきですか？"
+      },
+      {
+        "type": "build",
+        "cue": "What / should / she / do?",
+        "bank": ["What", "should", "she", "do", "?", "does", "shouldn't"],
+        "correct": ["What", "should", "she", "do", "?"],
+        "jp": "彼女はどうすべきですか？"
+      },
+      {
+        "type": "build",
+        "cue": "You / should / take / medicine / for your headache",
+        "bank": ["You", "should", "take", "medicine", "for", "your", "headache", ".", "shouldn't", "takes"],
+        "correct": ["You", "should", "take", "medicine", "for", "your", "headache", "."],
+        "jp": "頭痛には薬を飲むべきです。"
+      }
+    ]
+  }
 }
