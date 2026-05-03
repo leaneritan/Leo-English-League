@@ -2,5 +2,72 @@
   "level": 4,
   "unit": 4,
   "set": 2,
-  "words": []
+  "unit_name": "Rules and Advice",
+  "words": [
+    {
+      "id": "burn",
+      "word": "a burn",
+      "emoji": "🔥🤚",
+      "ipa": "/bɜːrn/",
+      "syllables": "burn",
+      "pos": "Noun · Countable",
+      "sample": "How did Andrea get a <b>burn</b> on her finger?",
+      "jp_word": "火傷",
+      "jp_reading": "やけど",
+      "jp_sentence": "アンドレアはどうして指に<b>やけど</b>をしたのですか？",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "broken-leg",
+      "word": "a broken leg",
+      "emoji": "🦴🦵",
+      "ipa": "/ˈbroʊkən lɛɡ/",
+      "syllables": "bro·ken leg",
+      "pos": "Noun · Countable",
+      "sample": "Lusia has a <b>broken leg</b>.",
+      "jp_word": "足の骨折",
+      "jp_reading": "あしのこっせつ",
+      "jp_sentence": "ルシアは<b>足を骨折</b>しています。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "scratch",
+      "word": "a scratch",
+      "emoji": "😣🩸",
+      "ipa": "/skrætʃ/",
+      "syllables": "scratch",
+      "pos": "Noun · Countable",
+      "sample": "Look at this <b>scratch</b>! I fell off my bike!",
+      "jp_word": "擦り傷",
+      "jp_reading": "すりきず",
+      "jp_sentence": "この<b>擦り傷</b>を見て！自転車から落ちました！",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "bruise",
+      "word": "a bruise",
+      "emoji": "💜🤕",
+      "ipa": "/bruːz/",
+      "syllables": "bruise",
+      "pos": "Noun · Countable",
+      "sample": "Felipe fell and has a <b>bruise</b> on his leg.",
+      "jp_word": "あざ",
+      "jp_reading": "あざ",
+      "jp_sentence": "フェリペは転んで足に<b>あざ</b>ができました。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "cut",
+      "word": "a cut",
+      "emoji": "✂️🩸",
+      "ipa": "/kʌt/",
+      "syllables": "cut",
+      "pos": "Noun · Countable",
+      "sample": "Maria has a <b>cut</b> on her finger.",
+      "jp_word": "切り傷",
+      "jp_reading": "きりきず",
+      "jp_sentence": "マリアは指に<b>切り傷</b>があります。",
+      "jp_tags": ["名詞", "可算名詞"]
+    }
+  ]
 }
