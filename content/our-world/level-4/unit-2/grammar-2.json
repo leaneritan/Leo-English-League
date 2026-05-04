@@ -2,15 +2,262 @@
   "level": 4,
   "unit": 2,
   "set": 2,
-  "topic": "",
+  "unit_name": "Fresh Food",
+  "title": "Would like",
+  "tag": "would like",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Would like",
+    "headers": ["Question", "Context", "Answer", "Note"],
+    "key_col": 0,
+    "mid_col": 1,
+    "intro_examples": [
+      {
+        "text": "What <b>would</b> you <b>like</b>? → I'<b>d like</b> a salad, please.",
+        "continuation": "Use <b>would like</b> to ask for something politely."
+      }
+    ],
+    "rows": [
+      ["What <b>would</b> you <b>like</b>?", "", "I'd like a salad, please.", "I'd = I would"],
+      ["What <b>would</b> you <b>like</b>", "for lunch? / to drink?", "We'd like some soup. / Nothing, thanks.", "we'd = we would"],
+      ["<b>Would</b> you <b>like</b>", "some juice?", "Yes, please. / No, thanks.", ""]
+    ],
+    "note_rule": "Use <b>would like</b> to ask for something politely: <b>I'd like…</b>  <b>We'd like…</b>",
+    "note_exception": "I'd = I would · we'd = we would"
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "What <b>would</b> you <b>like</b> for lunch?", "jp": "昼食に何を<b>召し上がりますか</b>？" },
+    { "text": "I'<b>d like</b> a salad, please.", "jp": "サラダを<b>いただきたい</b>です。" },
+    { "text": "We'<b>d like</b> some soup, please.", "jp": "スープを<b>いただきたい</b>です。" },
+    { "text": "<b>Would</b> you <b>like</b> some juice?", "jp": "ジュースはいかが<b>ですか</b>？" },
+    { "text": "Yes, please. I'<b>d like</b> some juice.", "jp": "はい、ぜひ。ジュースを<b>いただきたい</b>です。" },
+    { "text": "No, thanks. I <b>wouldn't like</b> any juice.", "jp": "いいえ、けっこうです。" },
+    { "text": "What <b>would</b> you <b>like</b> to drink?", "jp": "何を飲み<b>たいですか</b>？" },
+    { "text": "I'<b>d like</b> some hot pepper sauce on my food.", "jp": "料理にホットソースを<b>かけたい</b>です。" },
+    { "text": "<b>Would</b> you <b>like</b> a cucumber in your salad?", "jp": "サラダにきゅうりを入れ<b>たいですか</b>？" },
+    { "text": "I'<b>d like</b> a pumpkin pie, please.", "jp": "かぼちゃパイを<b>いただきたい</b>です。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "would like = polite request",
+        "jp_title": "would like = 丁寧なお願い",
+        "subtitle": "Use <b>would like</b> to ask for something politely. It is more polite than <b>want</b>.",
+        "jp_subtitle": "<b>would like</b>は丁寧にお願いするときに使います。<b>want</b>より丁寧です。",
+        "transforms": [{ "from": "I want a salad. (less polite)", "to": "I <b>would like</b> a salad, please. (polite)" }],
+        "examples": [
+          { "text": "I'<b>d like</b> a salad, please.", "jp": "サラダをいただきたいです。" },
+          { "text": "We'<b>d like</b> some soup, please.", "jp": "スープをいただきたいです。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "I'd = I would",
+        "jp_title": "I'd = I would（短縮形）",
+        "subtitle": "<b>I'd</b> is the contraction of <b>I would</b>. Use it before <b>like</b>.",
+        "jp_subtitle": "<b>I'd</b>は<b>I would</b>の短縮形です。<b>like</b>の前に置きます。",
+        "transforms": [{ "from": "I would like a salad.", "to": "I'<b>d</b> like a salad." }],
+        "examples": [
+          { "text": "I'<b>d like</b> a salad, please.", "jp": "サラダをいただきたいです。" },
+          { "text": "I'<b>d like</b> a pumpkin pie, please.", "jp": "かぼちゃパイをいただきたいです。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "we'd = we would",
+        "jp_title": "we'd = we would（短縮形）",
+        "subtitle": "<b>We'd</b> is the contraction of <b>we would</b>. Use it before <b>like</b>.",
+        "jp_subtitle": "<b>We'd</b>は<b>we would</b>の短縮形です。<b>like</b>の前に置きます。",
+        "transforms": [{ "from": "We would like some soup.", "to": "We'<b>d</b> like some soup." }],
+        "examples": [
+          { "text": "We'<b>d like</b> some soup, please.", "jp": "スープをいただきたいです。" },
+          { "text": "We'<b>d like</b> some vegetables from the garden.", "jp": "庭の野菜をいただきたいです。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "What would you like?",
+        "jp_title": "What would you like?（wh疑問文）",
+        "subtitle": "Use <b>What would you like?</b> to ask what someone wants politely.",
+        "jp_subtitle": "<b>What would you like?</b>は相手が何を望むかを丁寧に尋ねます。",
+        "transforms": [{ "from": "What would you like ___?", "to": "What would you like <b>for lunch</b>? / <b>to drink</b>?" }],
+        "examples": [
+          { "text": "What <b>would</b> you <b>like</b> for lunch?", "jp": "昼食に何を召し上がりますか？" },
+          { "text": "What <b>would</b> you <b>like</b> to drink?", "jp": "何を飲みたいですか？" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "Would you like…? → Yes, please. / No, thanks.",
+        "jp_title": "Would you like…? → Yes, please. / No, thanks.",
+        "subtitle": "Use <b>Would you like…?</b> to offer something. Answer with <b>Yes, please</b> or <b>No, thanks</b>.",
+        "jp_subtitle": "<b>Would you like…?</b>で何かを勧めます。<b>Yes, please</b>か<b>No, thanks</b>で答えます。",
+        "transforms": [{ "from": "Would you like some juice?", "to": "Yes, <b>please</b>. / No, <b>thanks</b>." }],
+        "examples": [
+          { "text": "<b>Would</b> you <b>like</b> some juice? → Yes, please.", "jp": "ジュースはいかがですか？→ はい、ぜひ。" },
+          { "text": "<b>Would</b> you <b>like</b> a cucumber in your salad? → No, thanks.", "jp": "サラダにきゅうりを入れたいですか？→ いいえ、けっこうです。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "I'<b>d like</b> a salad, please.", "kind": "I'd like", "jp": "サラダをいただきたいです。" },
+      { "text": "What <b>would</b> you <b>like</b> for lunch?", "kind": "would you like", "jp": "昼食に何を召し上がりますか？" },
+      { "text": "We'<b>d like</b> some soup, please.", "kind": "we'd like", "jp": "スープをいただきたいです。" },
+      { "text": "<b>Would</b> you <b>like</b> some juice?", "kind": "would you like", "jp": "ジュースはいかがですか？" },
+      { "text": "I'<b>d like</b> a pumpkin pie, please.", "kind": "I'd like", "jp": "かぼちゃパイをいただきたいです。" },
+      { "text": "What <b>would</b> you <b>like</b> to drink?", "kind": "would you like", "jp": "何を飲みたいですか？" },
+      { "text": "We'<b>d like</b> some vegetables from the garden.", "kind": "we'd like", "jp": "庭の野菜をいただきたいです。" },
+      { "text": "<b>Would</b> you <b>like</b> a cucumber in your salad?", "kind": "would you like", "jp": "サラダにきゅうりを入れたいですか？" },
+      { "text": "I'<b>d like</b> some hot pepper sauce on my food.", "kind": "I'd like", "jp": "料理にホットソースをかけたいです。" },
+      { "text": "<b>Would</b> you <b>like</b> some juice? → Yes, please.", "kind": "would you like", "jp": "ジュースはいかがですか？→ はい、ぜひ。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["I'___", "like a salad, please."],
+        "answers": ["d", "ve", "m", "ll"],
+        "correct": 0,
+        "explanation": { "title": "I'd", "body": "<b>I'd</b> is the contraction of <b>I would</b>. I'd like = I would like." },
+        "jp": "サラダをいただきたいです。"
+      },
+      {
+        "stem": ["What", "___", "you like for lunch?"],
+        "answers": ["would", "will", "do", "are"],
+        "correct": 0,
+        "explanation": { "title": "would", "body": "Use <b>would</b> to ask politely: What <b>would</b> you like?" },
+        "jp": "昼食に何を召し上がりますか？"
+      },
+      {
+        "stem": ["We'___", "like some soup, please."],
+        "answers": ["d", "ve", "re", "ll"],
+        "correct": 0,
+        "explanation": { "title": "we'd", "body": "<b>We'd</b> is the contraction of <b>we would</b>." },
+        "jp": "スープをいただきたいです。"
+      },
+      {
+        "stem": ["___", "you like some juice?"],
+        "answers": ["Would", "Will", "Do", "Are"],
+        "correct": 0,
+        "explanation": { "title": "Would", "body": "Use <b>Would you like…?</b> to offer something politely." },
+        "jp": "ジュースはいかがですか？"
+      },
+      {
+        "stem": ["Would you like some juice? →", "___"],
+        "answers": ["Yes, please.", "Yes, I want.", "Yes, I do.", "Yes, I am."],
+        "correct": 0,
+        "explanation": { "title": "Yes, please.", "body": "The polite answer to <b>Would you like…?</b> is <b>Yes, please</b> or <b>No, thanks</b>." },
+        "jp": "ジュースはいかがですか？→ はい、ぜひ。"
+      },
+      {
+        "stem": ["I'd = ___"],
+        "answers": ["I would", "I will", "I do", "I am"],
+        "correct": 0,
+        "explanation": { "title": "I would", "body": "<b>I'd</b> is the short form of <b>I would</b>." },
+        "jp": "I'dは何の短縮形ですか？"
+      },
+      {
+        "stem": ["Which is more polite?"],
+        "answers": ["I'd like a salad, please.", "I want a salad.", "Give me a salad.", "Salad, now."],
+        "correct": 0,
+        "explanation": { "title": "I'd like", "body": "<b>I'd like</b> is the polite way to request something." },
+        "jp": "どれが最も丁寧ですか？"
+      },
+      {
+        "stem": ["What would you like", "___", "?"],
+        "answers": ["to drink", "drinking", "drink", "drinks"],
+        "correct": 0,
+        "explanation": { "title": "to drink", "body": "After <b>would like</b>, use the infinitive: <b>to drink</b>." },
+        "jp": "何を飲みたいですか？"
+      },
+      {
+        "stem": ["We'd = ___"],
+        "answers": ["we would", "we will", "we do", "we are"],
+        "correct": 0,
+        "explanation": { "title": "we would", "body": "<b>We'd</b> is the short form of <b>we would</b>." },
+        "jp": "We'dは何の短縮形ですか？"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["I'd like a salad, please.", "I'd likes a salad, please.", "I'd liking a salad, please.", "I'd liked a salad, please."],
+        "correct": 0,
+        "explanation": { "title": "I'd like", "body": "After <b>would</b>, always use the base form: <b>like</b> (not likes/liking/liked)." },
+        "jp": "正しい文はどれですか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["I'___ like a salad, please."],
+        "answers": ["d", "ve", "m", "ll"],
+        "correct": 0,
+        "jp": "サラダをいただきたいです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["What ___ you like for lunch?"],
+        "answers": ["would", "will", "do", "are"],
+        "correct": 0,
+        "jp": "昼食に何を召し上がりますか？"
+      },
+      {
+        "type": "mc",
+        "stem": ["___ you like some juice?"],
+        "answers": ["Would", "Will", "Do", "Are"],
+        "correct": 0,
+        "jp": "ジュースはいかがですか？"
+      },
+      {
+        "type": "mc",
+        "stem": ["Would you like some soup? →"],
+        "answers": ["Yes, please.", "Yes, I want.", "Yes, I do.", "Yes, I will."],
+        "correct": 0,
+        "jp": "スープはいかがですか？→ はい、ぜひ。"
+      },
+      {
+        "type": "mc",
+        "stem": ["We'd like = ___"],
+        "answers": ["We would like", "We will like", "We do like", "We are like"],
+        "correct": 0,
+        "jp": "We'd likeは何の意味ですか？"
+      },
+      {
+        "type": "build",
+        "cue": "I / would like / a salad / please",
+        "bank": ["I'd", "like", "a", "salad,", "please.", "want", "likes"],
+        "correct": ["I'd", "like", "a", "salad,", "please."],
+        "jp": "サラダをいただきたいです。"
+      },
+      {
+        "type": "build",
+        "cue": "What / would / you / like / for lunch",
+        "bank": ["What", "would", "you", "like", "for", "lunch?", "will", "do"],
+        "correct": ["What", "would", "you", "like", "for", "lunch?"],
+        "jp": "昼食に何を召し上がりますか？"
+      },
+      {
+        "type": "build",
+        "cue": "We / would like / some soup / please",
+        "bank": ["We'd", "like", "some", "soup,", "please.", "want", "likes"],
+        "correct": ["We'd", "like", "some", "soup,", "please."],
+        "jp": "スープをいただきたいです。"
+      },
+      {
+        "type": "build",
+        "cue": "Would / you / like / some juice",
+        "bank": ["Would", "you", "like", "some", "juice?", "Will", "do"],
+        "correct": ["Would", "you", "like", "some", "juice?"],
+        "jp": "ジュースはいかがですか？"
+      },
+      {
+        "type": "build",
+        "cue": "What / would / you / like / to drink",
+        "bank": ["What", "would", "you", "like", "to", "drink?", "will", "drinking"],
+        "correct": ["What", "would", "you", "like", "to", "drink?"],
+        "jp": "何を飲みたいですか？"
+      }
+    ]
+  }
 }
