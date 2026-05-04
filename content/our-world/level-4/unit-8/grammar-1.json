@@ -1,1 +1,262 @@
-{"level":4,"unit":8,"set":1,"topic":"","chart":{"title":"","columns":[],"rows":[],"note":""},"sentences":[],"rules":[],"quiz":[],"master_quiz":[]}
+{
+  "level": 4,
+  "unit": 8,
+  "set": 1,
+  "unit_name": "That's Really Interesting!",
+  "title": "Describing people with who",
+  "tag": "who",
+  "chart": {
+    "title": "Describing people with who",
+    "headers": ["Person", "who", "Description"],
+    "key_col": 1,
+    "mid_col": 1,
+    "intro_examples": [
+      {
+        "text": "The person <b>who</b> has the highest score wins the game.",
+        "continuation": "Use <b>who</b> to give more information about a person."
+      }
+    ],
+    "rows": [
+      ["The person", "who", "has the highest score wins the game."],
+      ["I know a boy", "who", "collects movie posters."],
+      ["We have three cousins", "who", "play in a musical group together."]
+    ],
+    "note_rule": "Use <b>who</b> to describe a person. <b>Who</b> connects two ideas about the same person.",
+    "note_exception": "I know a boy. + He collects movie posters. → I know a boy <b>who</b> collects movie posters."
+  },
+  "tab1_samples": [
+    { "text": "The person <b>who</b> has the highest score wins the game.", "jp": "最高得点を持っている人がゲームに勝ちます。" },
+    { "text": "I know a boy <b>who</b> collects movie posters.", "jp": "私は映画ポスターを集めている男の子を知っています。" },
+    { "text": "We have three cousins <b>who</b> play in a musical group together.", "jp": "私たちには音楽グループで一緒に演奏しているいとこが3人います。" },
+    { "text": "She is the girl <b>who</b> takes photos of animals.", "jp": "彼女は動物の写真を撮る女の子です。" },
+    { "text": "He is a boy <b>who</b> enjoys video games alone.", "jp": "彼は一人でビデオゲームを楽しむ男の子です。" },
+    { "text": "I have a friend <b>who</b> collects comic books.", "jp": "私にはマンガを集めている友達がいます。" },
+    { "text": "The student <b>who</b> scores the most points wins.", "jp": "最もポイントを獲得した生徒が勝ちます。" },
+    { "text": "Do you know anyone <b>who</b> collects fossils?", "jp": "化石を集めている人を知っていますか？" },
+    { "text": "My brother is someone <b>who</b> loves dinosaurs.", "jp": "私の兄は恐竜が大好きな人です。" },
+    { "text": "She is a creative person <b>who</b> likes to draw.", "jp": "彼女は絵を描くのが好きな創造的な人です。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "who = for people",
+        "jp_title": "who = 人を説明するとき",
+        "subtitle": "Use <b>who</b> to give extra information about a <b>person</b>.",
+        "jp_subtitle": "<b>人</b>について詳しく説明するときに<b>who</b>を使います。",
+        "transforms": [{ "from": "I know a boy. + He collects movie posters.", "to": "I know a boy <b>who</b> collects movie posters." }],
+        "examples": [
+          { "text": "I know a boy <b>who</b> collects movie posters.", "jp": "私は映画ポスターを集めている男の子を知っています。" },
+          { "text": "She is a girl <b>who</b> takes photos of animals.", "jp": "彼女は動物の写真を撮る女の子です。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "who comes right after the person",
+        "jp_title": "whoは人のすぐ後に置く",
+        "subtitle": "Put <b>who</b> directly after the noun (person) you are describing.",
+        "jp_subtitle": "説明している名詞（人）のすぐ後に<b>who</b>を置きます。",
+        "transforms": [{ "from": "The person wins ___ has the highest score.", "to": "The person <b>who</b> has the highest score wins." }],
+        "examples": [
+          { "text": "The person <b>who</b> has the highest score wins.", "jp": "最高得点を持っている人が勝ちます。" },
+          { "text": "The student <b>who</b> scores the most points wins.", "jp": "最もポイントを獲得した生徒が勝ちます。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "who joins two sentences",
+        "jp_title": "whoは2つの文をつなぐ",
+        "subtitle": "<b>Who</b> connects two sentences about the same person into one.",
+        "jp_subtitle": "<b>who</b>は同じ人についての2つの文を1つにつなぎます。",
+        "transforms": [{ "from": "I have a friend. + She collects comic books.", "to": "I have a friend <b>who</b> collects comic books." }],
+        "examples": [
+          { "text": "I have a friend <b>who</b> collects comic books.", "jp": "私にはマンガを集めている友達がいます。" },
+          { "text": "My brother is someone <b>who</b> loves dinosaurs.", "jp": "私の兄は恐竜が大好きな人です。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "who = he / she / they",
+        "jp_title": "whoはhe / she / theyの代わり",
+        "subtitle": "<b>Who</b> replaces <b>he</b>, <b>she</b>, or <b>they</b> in the second part of the sentence.",
+        "jp_subtitle": "<b>who</b>は文の後半で<b>he</b>、<b>she</b>、<b>they</b>の代わりになります。",
+        "transforms": [{ "from": "We have cousins. They play in a musical group.", "to": "We have cousins <b>who</b> play in a musical group." }],
+        "examples": [
+          { "text": "We have three cousins <b>who</b> play in a musical group together.", "jp": "私たちには音楽グループで一緒に演奏しているいとこが3人います。" },
+          { "text": "Do you know anyone <b>who</b> collects fossils?", "jp": "化石を集めている人を知っていますか？" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "NOT which — who is only for people",
+        "jp_title": "whichではなくwho（人にはwhoのみ）",
+        "subtitle": "Use <b>who</b> for people. Use <b>which</b> for things. Never use <b>which</b> for a person.",
+        "jp_subtitle": "人には<b>who</b>、物には<b>which</b>を使います。人に<b>which</b>を使ってはいけません。",
+        "transforms": [{ "from": "I know a boy which collects fossils. ✗", "to": "I know a boy <b>who</b> collects fossils. ✓" }],
+        "examples": [
+          { "text": "I know a boy <b>who</b> collects fossils. ✓", "jp": "私は化石を集めている男の子を知っています。（正しい）" },
+          { "text": "She is a creative person <b>who</b> likes to draw. ✓", "jp": "彼女は絵を描くのが好きな創造的な人です。（正しい）" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "The person <b>who</b> has the highest score wins the game.", "kind": "who", "jp": "最高得点を持っている人がゲームに勝ちます。" },
+      { "text": "I know a boy <b>who</b> collects movie posters.", "kind": "who", "jp": "私は映画ポスターを集めている男の子を知っています。" },
+      { "text": "We have three cousins <b>who</b> play in a musical group together.", "kind": "who", "jp": "私たちには音楽グループで一緒に演奏しているいとこが3人います。" },
+      { "text": "She is the girl <b>who</b> takes photos of animals.", "kind": "who", "jp": "彼女は動物の写真を撮る女の子です。" },
+      { "text": "I have a friend <b>who</b> collects comic books.", "kind": "who", "jp": "私にはマンガを集めている友達がいます。" },
+      { "text": "The student <b>who</b> scores the most points wins.", "kind": "who", "jp": "最もポイントを獲得した生徒が勝ちます。" },
+      { "text": "Do you know anyone <b>who</b> collects fossils?", "kind": "who", "jp": "化石を集めている人を知っていますか？" },
+      { "text": "My brother is someone <b>who</b> loves dinosaurs.", "kind": "who", "jp": "私の兄は恐竜が大好きな人です。" },
+      { "text": "He is a boy <b>who</b> enjoys video games alone.", "kind": "who", "jp": "彼は一人でビデオゲームを楽しむ男の子です。" },
+      { "text": "She is a creative person <b>who</b> likes to draw.", "kind": "who", "jp": "彼女は絵を描くのが好きな創造的な人です。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["The person", "___", "has the highest score wins the game."],
+        "answers": ["who", "which", "where", "what"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "Use <b>who</b> to describe a person. 'The person' is a person, so use <b>who</b>." },
+        "jp": "最高得点を持っている人がゲームに勝ちます。"
+      },
+      {
+        "stem": ["I know a boy", "___", "collects comic books."],
+        "answers": ["who", "which", "whose", "whom"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "'A boy' is a person, so use <b>who</b>." },
+        "jp": "私はマンガを集めている男の子を知っています。"
+      },
+      {
+        "stem": ["She is the girl", "___", "takes photos of animals."],
+        "answers": ["who", "which", "that", "where"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "'The girl' is a person, so use <b>who</b>." },
+        "jp": "彼女は動物の写真を撮る女の子です。"
+      },
+      {
+        "stem": ["We have three cousins", "___", "play in a musical group together."],
+        "answers": ["who", "which", "where", "what"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "'Cousins' are people, so use <b>who</b>." },
+        "jp": "私たちには音楽グループで一緒に演奏しているいとこが3人います。"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["I know a boy who collects fossils.", "I know a boy which collects fossils.", "I know a boy where collects fossils.", "I know a boy what collects fossils."],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "Use <b>who</b> for people. Never use <b>which</b> for a person." },
+        "jp": "正しい文はどれですか？"
+      },
+      {
+        "stem": ["Do you know anyone", "___", "collects bugs?"],
+        "answers": ["who", "which", "where", "what"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "'Anyone' refers to a person, so use <b>who</b>." },
+        "jp": "虫を集めている人を知っていますか？"
+      },
+      {
+        "stem": ["My brother is someone", "___", "loves dinosaurs."],
+        "answers": ["who", "which", "whose", "where"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "'Someone' is a person, so use <b>who</b>." },
+        "jp": "私の兄は恐竜が大好きな人です。" },
+      {
+        "stem": ["'Who' is used for ___."],
+        "answers": ["people", "things", "places", "animals"],
+        "correct": 0,
+        "explanation": { "title": "people", "body": "<b>Who</b> is used only to describe <b>people</b>. Use <b>which</b> for things." },
+        "jp": "whoは何を説明するときに使いますか？"
+      },
+      {
+        "stem": ["I have a friend", "___", "collects stuffed animals."],
+        "answers": ["who", "which", "where", "whose"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "'A friend' is a person, so use <b>who</b>." },
+        "jp": "私にはぬいぐるみを集めている友達がいます。"
+      },
+      {
+        "stem": ["The student", "___", "scores the most points wins."],
+        "answers": ["who", "which", "what", "where"],
+        "correct": 0,
+        "explanation": { "title": "who", "body": "'The student' is a person, so use <b>who</b>." },
+        "jp": "最もポイントを獲得した生徒が勝ちます。"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["The person ___ has the highest score wins."],
+        "answers": ["who", "which", "where", "what"],
+        "correct": 0,
+        "jp": "最高得点を持っている人が勝ちます。"
+      },
+      {
+        "type": "mc",
+        "stem": ["I know a boy ___ collects comic books."],
+        "answers": ["who", "which", "whose", "where"],
+        "correct": 0,
+        "jp": "私はマンガを集めている男の子を知っています。"
+      },
+      {
+        "type": "mc",
+        "stem": ["She is a creative person ___ likes to draw."],
+        "answers": ["who", "which", "that", "where"],
+        "correct": 0,
+        "jp": "彼女は絵を描くのが好きな創造的な人です。"
+      },
+      {
+        "type": "mc",
+        "stem": ["Do you know anyone ___ collects fossils?"],
+        "answers": ["who", "which", "where", "what"],
+        "correct": 0,
+        "jp": "化石を集めている人を知っていますか？"
+      },
+      {
+        "type": "mc",
+        "stem": ["My brother is someone ___ loves dinosaurs."],
+        "answers": ["who", "which", "whose", "where"],
+        "correct": 0,
+        "jp": "私の兄は恐竜が大好きな人です。"
+      },
+      {
+        "type": "build",
+        "cue": "The person / who / has the highest score / wins the game",
+        "bank": ["The", "person", "who", "has", "the", "highest", "score", "wins", "the", "game.", "which", "where"],
+        "correct": ["The", "person", "who", "has", "the", "highest", "score", "wins", "the", "game."],
+        "jp": "最高得点を持っている人がゲームに勝ちます。"
+      },
+      {
+        "type": "build",
+        "cue": "I know a boy / who / collects movie posters",
+        "bank": ["I", "know", "a", "boy", "who", "collects", "movie", "posters.", "which", "whose"],
+        "correct": ["I", "know", "a", "boy", "who", "collects", "movie", "posters."],
+        "jp": "私は映画ポスターを集めている男の子を知っています。"
+      },
+      {
+        "type": "build",
+        "cue": "She is the girl / who / takes photos of animals",
+        "bank": ["She", "is", "the", "girl", "who", "takes", "photos", "of", "animals.", "which", "where"],
+        "correct": ["She", "is", "the", "girl", "who", "takes", "photos", "of", "animals."],
+        "jp": "彼女は動物の写真を撮る女の子です。"
+      },
+      {
+        "type": "build",
+        "cue": "I have a friend / who / collects comic books",
+        "bank": ["I", "have", "a", "friend", "who", "collects", "comic", "books.", "which", "whose"],
+        "correct": ["I", "have", "a", "friend", "who", "collects", "comic", "books."],
+        "jp": "私にはマンガを集めている友達がいます。"
+      },
+      {
+        "type": "build",
+        "cue": "We have cousins / who / play in a musical group / together",
+        "bank": ["We", "have", "three", "cousins", "who", "play", "in", "a", "musical", "group", "together.", "which", "where"],
+        "correct": ["We", "have", "three", "cousins", "who", "play", "in", "a", "musical", "group", "together."],
+        "jp": "私たちには音楽グループで一緒に演奏しているいとこが3人います。"
+      }
+    ]
+  }
+}
