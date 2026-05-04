@@ -2,15 +2,264 @@
   "level": 4,
   "unit": 2,
   "set": 1,
-  "topic": "",
+  "unit_name": "Fresh Food",
+  "title": "Have to",
+  "tag": "have to / has to",
   "chart": {
-    "title": "",
-    "columns": [],
-    "rows": [],
-    "note": ""
+    "title": "Have to",
+    "headers": ["Subject", "Negative", "Modal", "Verb", "Time"],
+    "key_col": 2,
+    "mid_col": 1,
+    "intro_examples": [
+      {
+        "text": "I <b>have to</b> cook tonight.",
+        "continuation": "She <b>has to</b> cook tonight."
+      }
+    ],
+    "rows": [
+      ["I / You / We / They", "", "have to", "cook", "tonight."],
+      ["I / You / We / They", "don't", "have to", "cook", "tonight."],
+      ["She / He", "", "has to", "cook", "tonight."],
+      ["She / He", "doesn't", "have to", "cook", "tonight."]
+    ],
+    "note_rule": "Use <b>have to</b> with I / You / We / They. Use <b>has to</b> with She / He.",
+    "note_exception": "What <b>do</b> you have to do? → I <b>have to</b> cook dinner.",
+    "note_exception_detail": "What <b>does</b> she have to do? → She <b>has to</b> water the garden."
   },
-  "sentences": [],
-  "rules": [],
-  "quiz": [],
-  "master_quiz": []
+  "tab1_samples": [
+    { "text": "I <b>have to</b> cook dinner tonight.", "jp": "私は今夜、夕食を作ら<b>なければなりません</b>。" },
+    { "text": "She <b>has to</b> water the garden every day.", "jp": "彼女は毎日、庭に水をやら<b>なければなりません</b>。" },
+    { "text": "We <b>have to</b> pick the vegetables before noon.", "jp": "私たちは正午前に野菜を収穫し<b>なければなりません</b>。" },
+    { "text": "He <b>has to</b> weed the garden once a week.", "jp": "彼は週に一度、庭の草取りをし<b>なければなりません</b>。" },
+    { "text": "You <b>have to</b> plant the seeds in a row.", "jp": "あなたは種を一列に植え<b>なければなりません</b>。" },
+    { "text": "They <b>don't have to</b> dig today.", "jp": "彼らは今日、掘ら<b>なくてもいい</b>です。" },
+    { "text": "She <b>doesn't have to</b> grow her own food.", "jp": "彼女は自分で食べ物を育て<b>なくてもいい</b>です。" },
+    { "text": "I <b>don't have to</b> go to the market on Fridays.", "jp": "私は毎週金曜日に市場へ行か<b>なくてもいい</b>です。" },
+    { "text": "What <b>do</b> you <b>have to</b> do in the garden?", "jp": "庭で何をし<b>なければなりません</b>か？" },
+    { "text": "What <b>does</b> he <b>have to</b> do this morning?", "jp": "彼は今朝、何をし<b>なければなりません</b>か？" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "have to (I / You / We / They)",
+        "jp_title": "have to（I / You / We / They）",
+        "subtitle": "Use <b>have to</b> + base verb with I, You, We, and They.",
+        "jp_subtitle": "I、You、We、Theyには<b>have to</b> + 動詞の原形を使います。",
+        "transforms": [{ "from": "I / You / We / They + ___", "to": "I / You / We / They + <b>have to</b> + verb" }],
+        "examples": [
+          { "text": "I <b>have to</b> cook dinner tonight.", "jp": "私は今夜、夕食を作らなければなりません。" },
+          { "text": "They <b>have to</b> pick the vegetables.", "jp": "彼らは野菜を収穫しなければなりません。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "has to (She / He)",
+        "jp_title": "has to（She / He）",
+        "subtitle": "Use <b>has to</b> + base verb with She and He.",
+        "jp_subtitle": "SheとHeには<b>has to</b> + 動詞の原形を使います。",
+        "transforms": [{ "from": "She / He + ___", "to": "She / He + <b>has to</b> + verb" }],
+        "examples": [
+          { "text": "She <b>has to</b> water the garden.", "jp": "彼女は庭に水をやらなければなりません。" },
+          { "text": "He <b>has to</b> weed the garden once a week.", "jp": "彼は週に一度、草取りをしなければなりません。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "don't have to (I / You / We / They)",
+        "jp_title": "don't have to（I / You / We / They）",
+        "subtitle": "Use <b>don't have to</b> to say something is NOT necessary.",
+        "jp_subtitle": "<b>don't have to</b>は「〜しなくてもよい」という意味です。",
+        "transforms": [{ "from": "I / You / We / They + ___", "to": "I / You / We / They + <b>don't have to</b> + verb" }],
+        "examples": [
+          { "text": "I <b>don't have to</b> go to the market today.", "jp": "私は今日、市場へ行かなくてもいいです。" },
+          { "text": "They <b>don't have to</b> dig today.", "jp": "彼らは今日、掘らなくてもいいです。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "doesn't have to (She / He)",
+        "jp_title": "doesn't have to（She / He）",
+        "subtitle": "Use <b>doesn't have to</b> with She and He for negative.",
+        "jp_subtitle": "SheとHeの否定形は<b>doesn't have to</b>を使います。",
+        "transforms": [{ "from": "She / He + doesn't + ___", "to": "She / He + <b>doesn't have to</b> + verb" }],
+        "examples": [
+          { "text": "She <b>doesn't have to</b> grow her own food.", "jp": "彼女は自分で食べ物を育てなくてもいいです。" },
+          { "text": "He <b>doesn't have to</b> water the plants today.", "jp": "彼は今日、植物に水をやらなくてもいいです。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "Questions: What do / does … have to do?",
+        "jp_title": "疑問文：What do / does … have to do?",
+        "subtitle": "Use <b>do</b> for I/You/We/They and <b>does</b> for She/He in questions.",
+        "jp_subtitle": "疑問文ではI/You/We/Theyに<b>do</b>、She/Heに<b>does</b>を使います。",
+        "transforms": [{ "from": "What ___ you / she have to do?", "to": "What <b>do</b> you / What <b>does</b> she have to do?" }],
+        "examples": [
+          { "text": "What <b>do</b> you have to do? → I have to cook dinner.", "jp": "あなたは何をしなければなりませんか？→ 夕食を作らなければなりません。" },
+          { "text": "What <b>does</b> she have to do? → She has to water the garden.", "jp": "彼女は何をしなければなりませんか？→ 庭に水をやらなければなりません。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "I <b>have to</b> cook dinner tonight.", "kind": "have to", "jp": "私は今夜、夕食を作らなければなりません。" },
+      { "text": "She <b>has to</b> water the garden every day.", "kind": "has to", "jp": "彼女は毎日、庭に水をやらなければなりません。" },
+      { "text": "They <b>don't have to</b> dig today.", "kind": "don't have to", "jp": "彼らは今日、掘らなくてもいいです。" },
+      { "text": "He <b>has to</b> weed the garden once a week.", "kind": "has to", "jp": "彼は週に一度、草取りをしなければなりません。" },
+      { "text": "We <b>have to</b> pick the vegetables before noon.", "kind": "have to", "jp": "私たちは正午前に野菜を収穫しなければなりません。" },
+      { "text": "She <b>doesn't have to</b> grow her own food.", "kind": "doesn't have to", "jp": "彼女は自分で食べ物を育てなくてもいいです。" },
+      { "text": "You <b>have to</b> plant the seeds in a row.", "kind": "have to", "jp": "あなたは種を一列に植えなければなりません。" },
+      { "text": "I <b>don't have to</b> go to the market on Fridays.", "kind": "don't have to", "jp": "私は毎週金曜日に市場へ行かなくてもいいです。" },
+      { "text": "What <b>do</b> you have to do in the garden?", "kind": "do … have to", "jp": "庭で何をしなければなりませんか？" },
+      { "text": "What <b>does</b> he have to do this morning?", "kind": "does … have to", "jp": "彼は今朝、何をしなければなりませんか？" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["I", "___", "cook dinner tonight."],
+        "answers": ["have to", "has to", "don't", "does"],
+        "correct": 0,
+        "explanation": { "title": "have to", "body": "The subject is <b>I</b>, so use <b>have to</b>." },
+        "jp": "私は今夜、夕食を作らなければなりません。"
+      },
+      {
+        "stem": ["She", "___", "water the garden."],
+        "answers": ["has to", "have to", "don't have to", "do"],
+        "correct": 0,
+        "explanation": { "title": "has to", "body": "The subject is <b>She</b>, so use <b>has to</b>." },
+        "jp": "彼女は庭に水をやらなければなりません。"
+      },
+      {
+        "stem": ["They", "___", "pick the vegetables."],
+        "answers": ["have to", "has to", "does have to", "is"],
+        "correct": 0,
+        "explanation": { "title": "have to", "body": "The subject is <b>They</b>, so use <b>have to</b>." },
+        "jp": "彼らは野菜を収穫しなければなりません。"
+      },
+      {
+        "stem": ["He", "___", "weed the garden today. (not necessary)"],
+        "answers": ["doesn't have to", "don't have to", "haven't to", "isn't"],
+        "correct": 0,
+        "explanation": { "title": "doesn't have to", "body": "The subject is <b>He</b>, so the negative is <b>doesn't have to</b>." },
+        "jp": "彼は今日、草取りをしなくてもいいです。"
+      },
+      {
+        "stem": ["We", "___", "plant the seeds. (not necessary)"],
+        "answers": ["don't have to", "doesn't have to", "haven't", "isn't"],
+        "correct": 0,
+        "explanation": { "title": "don't have to", "body": "The subject is <b>We</b>, so the negative is <b>don't have to</b>." },
+        "jp": "私たちは種を植えなくてもいいです。"
+      },
+      {
+        "stem": ["What", "___", "you have to do?"],
+        "answers": ["do", "does", "have", "has"],
+        "correct": 0,
+        "explanation": { "title": "do", "body": "Use <b>do</b> in questions with I / You / We / They." },
+        "jp": "あなたは何をしなければなりませんか？"
+      },
+      {
+        "stem": ["What", "___", "she have to do?"],
+        "answers": ["does", "do", "has", "is"],
+        "correct": 0,
+        "explanation": { "title": "does", "body": "Use <b>does</b> in questions with She / He." },
+        "jp": "彼女は何をしなければなりませんか？"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["She has to water the garden.", "She have to water the garden.", "She don't has to water the garden.", "Does she has to water the garden?"],
+        "correct": 0,
+        "explanation": { "title": "has to", "body": "With <b>she</b>, use <b>has to</b> (not have to)." },
+        "jp": "正しい文はどれですか？"
+      },
+      {
+        "stem": ["I / You / We / They use ___ to show obligation."],
+        "answers": ["have to", "has to", "does", "is"],
+        "correct": 0,
+        "explanation": { "title": "have to", "body": "I, You, We, They all use <b>have to</b>." },
+        "jp": "I / You / We / Theyには何を使いますか？"
+      },
+      {
+        "stem": ["She / He uses ___ to show obligation."],
+        "answers": ["has to", "have to", "do", "don't"],
+        "correct": 0,
+        "explanation": { "title": "has to", "body": "She and He use <b>has to</b>." },
+        "jp": "She / Heには何を使いますか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["I ___ cook dinner tonight."],
+        "answers": ["have to", "has to", "don't", "does"],
+        "correct": 0,
+        "jp": "私は今夜、夕食を作らなければなりません。"
+      },
+      {
+        "type": "mc",
+        "stem": ["She ___ water the garden every day."],
+        "answers": ["has to", "have to", "don't have to", "do"],
+        "correct": 0,
+        "jp": "彼女は毎日、庭に水をやらなければなりません。"
+      },
+      {
+        "type": "mc",
+        "stem": ["They ___ dig today. (not necessary)"],
+        "answers": ["don't have to", "doesn't have to", "have to", "has to"],
+        "correct": 0,
+        "jp": "彼らは今日、掘らなくてもいいです。"
+      },
+      {
+        "type": "mc",
+        "stem": ["What ___ she have to do?"],
+        "answers": ["does", "do", "has", "is"],
+        "correct": 0,
+        "jp": "彼女は何をしなければなりませんか？"
+      },
+      {
+        "type": "mc",
+        "stem": ["He ___ weed the garden. (not necessary)"],
+        "answers": ["doesn't have to", "don't have to", "has", "have"],
+        "correct": 0,
+        "jp": "彼は草取りをしなくてもいいです。"
+      },
+      {
+        "type": "build",
+        "cue": "I / have to / cook dinner / tonight",
+        "bank": ["I", "have", "to", "cook", "dinner", "tonight.", "has", "don't"],
+        "correct": ["I", "have", "to", "cook", "dinner", "tonight."],
+        "jp": "私は今夜、夕食を作らなければなりません。"
+      },
+      {
+        "type": "build",
+        "cue": "She / has to / water the garden",
+        "bank": ["She", "has", "to", "water", "the", "garden.", "have", "do"],
+        "correct": ["She", "has", "to", "water", "the", "garden."],
+        "jp": "彼女は庭に水をやらなければなりません。"
+      },
+      {
+        "type": "build",
+        "cue": "We / have to / pick the vegetables / before noon",
+        "bank": ["We", "have", "to", "pick", "the", "vegetables", "before", "noon.", "has", "don't"],
+        "correct": ["We", "have", "to", "pick", "the", "vegetables", "before", "noon."],
+        "jp": "私たちは正午前に野菜を収穫しなければなりません。"
+      },
+      {
+        "type": "build",
+        "cue": "They / don't have to / dig / today",
+        "bank": ["They", "don't", "have", "to", "dig", "today.", "doesn't", "has"],
+        "correct": ["They", "don't", "have", "to", "dig", "today."],
+        "jp": "彼らは今日、掘らなくてもいいです。"
+      },
+      {
+        "type": "build",
+        "cue": "What / does / she / have to do",
+        "bank": ["What", "does", "she", "have", "to", "do?", "do", "has"],
+        "correct": ["What", "does", "she", "have", "to", "do?"],
+        "jp": "彼女は何をしなければなりませんか？"
+      }
+    ]
+  }
 }
