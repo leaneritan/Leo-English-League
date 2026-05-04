@@ -1,1 +1,73 @@
-{"level":4,"unit":8,"set":2,"words":[]}
+{
+  "level": 4,
+  "unit": 8,
+  "set": 2,
+  "unit_name": "That's Really Interesting!",
+  "words": [
+    {
+      "id": "comic-book",
+      "word": "a comic book",
+      "emoji": "📖💥",
+      "ipa": "/ˈkɒmɪk bʊk/",
+      "syllables": "com·ic book",
+      "pos": "Noun · Countable",
+      "sample": "A boy in my class collects <b>comic books</b>.",
+      "jp_word": "マンガ・コミック",
+      "jp_reading": "まんが・こみっく",
+      "jp_sentence": "クラスの男の子が<b>マンガ</b>を集めています。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "bug",
+      "word": "a bug",
+      "emoji": "🐛🔍",
+      "ipa": "/bʌɡ/",
+      "syllables": "bug",
+      "pos": "Noun · Countable",
+      "sample": "Some people are scared of <b>bugs</b>, but I love them.",
+      "jp_word": "虫",
+      "jp_reading": "むし",
+      "jp_sentence": "<b>虫</b>が怖い人もいますが、私は大好きです。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "dinosaur",
+      "word": "a dinosaur",
+      "emoji": "🦕🦖",
+      "ipa": "/ˈdaɪnəsɔːr/",
+      "syllables": "di·no·saur",
+      "pos": "Noun · Countable",
+      "sample": "I think that <b>dinosaurs</b> are really interesting.",
+      "jp_word": "恐竜",
+      "jp_reading": "きょうりゅう",
+      "jp_sentence": "<b>恐竜</b>はとても面白いと思います。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "fossil",
+      "word": "a fossil",
+      "emoji": "🦴🪨",
+      "ipa": "/ˈfɒsəl/",
+      "syllables": "fos·sil",
+      "pos": "Noun · Countable",
+      "sample": "My brother collects old <b>fossils</b>.",
+      "jp_word": "化石",
+      "jp_reading": "かせき",
+      "jp_sentence": "私の兄は古い<b>化石</b>を集めています。",
+      "jp_tags": ["名詞", "可算名詞"]
+    },
+    {
+      "id": "stuffed-animal",
+      "word": "a stuffed animal",
+      "emoji": "🧸❤️",
+      "ipa": "/stʌft ˈænɪməl/",
+      "syllables": "stuffed an·i·mal",
+      "pos": "Noun · Countable",
+      "sample": "My mom gave me a <b>stuffed animal</b> for my birthday.",
+      "jp_word": "ぬいぐるみ",
+      "jp_reading": "ぬいぐるみ",
+      "jp_sentence": "お母さんが誕生日に<b>ぬいぐるみ</b>をくれました。",
+      "jp_tags": ["名詞", "可算名詞"]
+    }
+  ]
+}
