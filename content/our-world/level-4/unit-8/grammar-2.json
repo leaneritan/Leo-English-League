@@ -1,1 +1,264 @@
-{"level":4,"unit":8,"set":2,"topic":"","chart":{"title":"","columns":[],"rows":[],"note":""},"sentences":[],"rules":[],"quiz":[],"master_quiz":[]}
+{
+  "level": 4,
+  "unit": 8,
+  "set": 2,
+  "unit_name": "That's Really Interesting!",
+  "title": "Direct and indirect objects",
+  "tag": "direct & indirect obj.",
+  "chart": {
+    "title": "Direct and indirect objects",
+    "headers": ["Pattern A (to / for)", "=", "Pattern B (no preposition)"],
+    "key_col": 0,
+    "mid_col": 1,
+    "intro_examples": [
+      {
+        "text": "Show the comic book <b>to James</b>. = Show <b>James</b> the comic book.",
+        "continuation": "The indirect object can come before or after the direct object."
+      }
+    ],
+    "rows": [
+      ["Show the comic book <b>to James</b>.", "=", "Show <b>James</b> the comic book."],
+      ["My dad gave this fossil <b>to me</b>.", "=", "My dad gave <b>me</b> this fossil."],
+      ["My mom bought stuffed animals <b>for them</b>.", "=", "My mom bought <b>them</b> stuffed animals."]
+    ],
+    "note_rule": "Direct object = the <b>thing</b>. Indirect object = the <b>person</b> who receives it.",
+    "note_exception": "Pattern A: verb + thing + <b>to / for</b> + person",
+    "note_exception_detail": "Pattern B: verb + person + thing (no preposition)"
+  },
+  "tab1_samples": [
+    { "text": "Show the comic book <b>to James</b>.", "jp": "コミックをジェームズに見せてください。" },
+    { "text": "Show <b>James</b> the comic book.", "jp": "ジェームズにコミックを見せてください。" },
+    { "text": "My dad gave this fossil <b>to me</b>.", "jp": "お父さんがこの化石を私にくれました。" },
+    { "text": "My dad gave <b>me</b> this fossil.", "jp": "お父さんが私にこの化石をくれました。" },
+    { "text": "My mom bought stuffed animals <b>for them</b>.", "jp": "お母さんが彼らのためにぬいぐるみを買いました。" },
+    { "text": "My mom bought <b>them</b> stuffed animals.", "jp": "お母さんが彼らにぬいぐるみを買いました。" },
+    { "text": "She showed her avatar <b>to us</b>.", "jp": "彼女は私たちに彼女のアバターを見せました。" },
+    { "text": "She showed <b>us</b> her avatar.", "jp": "彼女は私たちに彼女のアバターを見せました。" },
+    { "text": "He gave the controller <b>to her</b>.", "jp": "彼は彼女にコントローラーを渡しました。" },
+    { "text": "He gave <b>her</b> the controller.", "jp": "彼は彼女にコントローラーを渡しました。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "Direct object = the thing",
+        "jp_title": "直接目的語 = もの",
+        "subtitle": "The <b>direct object</b> is the <b>thing</b> that is given, shown, or bought.",
+        "jp_subtitle": "<b>直接目的語</b>は渡したり、見せたり、買ったりする<b>もの</b>です。",
+        "transforms": [{ "from": "Show the comic book to James.", "to": "Show <b>the comic book</b> to James. → 'the comic book' = direct object" }],
+        "examples": [
+          { "text": "My dad gave <b>this fossil</b> to me.", "jp": "お父さんがこの化石を私にくれました。→「this fossil」が直接目的語" },
+          { "text": "My mom bought <b>stuffed animals</b> for them.", "jp": "お母さんがぬいぐるみを彼らのために買いました。→「stuffed animals」が直接目的語" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Indirect object = the person",
+        "jp_title": "間接目的語 = 人",
+        "subtitle": "The <b>indirect object</b> is the <b>person</b> who receives the thing.",
+        "jp_subtitle": "<b>間接目的語</b>はものを受け取る<b>人</b>です。",
+        "transforms": [{ "from": "Show the comic book to James.", "to": "Show the comic book to <b>James</b>. → 'James' = indirect object" }],
+        "examples": [
+          { "text": "My dad gave this fossil to <b>me</b>.", "jp": "お父さんがこの化石を私にくれました。→「me」が間接目的語" },
+          { "text": "My mom bought stuffed animals for <b>them</b>.", "jp": "お母さんがぬいぐるみを彼らのために買いました。→「them」が間接目的語" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Pattern A: verb + thing + to/for + person",
+        "jp_title": "パターンA：動詞 + もの + to/for + 人",
+        "subtitle": "Put the <b>thing</b> first, then <b>to</b> or <b>for</b>, then the <b>person</b>.",
+        "jp_subtitle": "先に<b>もの</b>を置き、次に<b>to</b>または<b>for</b>、そして<b>人</b>を置きます。",
+        "transforms": [{ "from": "verb + [thing] + to/for + [person]", "to": "Show [the comic book] <b>to</b> [James]." }],
+        "examples": [
+          { "text": "Show the comic book <b>to</b> James.", "jp": "コミックをジェームズに見せてください。" },
+          { "text": "He gave the controller <b>to</b> her.", "jp": "彼は彼女にコントローラーを渡しました。" }
+        ]
+      },
+      {
+        "num": "04",
+        "title": "Pattern B: verb + person + thing",
+        "jp_title": "パターンB：動詞 + 人 + もの",
+        "subtitle": "Put the <b>person</b> first (no preposition), then the <b>thing</b>.",
+        "jp_subtitle": "先に<b>人</b>を置き（前置詞なし）、次に<b>もの</b>を置きます。",
+        "transforms": [{ "from": "verb + [person] + [thing]", "to": "Show [James] [the comic book]." }],
+        "examples": [
+          { "text": "Show <b>James</b> the comic book.", "jp": "ジェームズにコミックを見せてください。" },
+          { "text": "My dad gave <b>me</b> this fossil.", "jp": "お父さんが私にこの化石をくれました。" }
+        ]
+      },
+      {
+        "num": "05",
+        "title": "give / show / buy = both patterns",
+        "jp_title": "give / show / buy = 両方のパターンが使える",
+        "subtitle": "Verbs like <b>give</b>, <b>show</b>, and <b>buy</b> can use both Pattern A and Pattern B.",
+        "jp_subtitle": "<b>give</b>、<b>show</b>、<b>buy</b>などの動詞は両方のパターンが使えます。",
+        "transforms": [{ "from": "My mom bought stuffed animals for them. (A)", "to": "My mom bought them stuffed animals. (B)" }],
+        "examples": [
+          { "text": "She showed her avatar <b>to us</b>. = She showed <b>us</b> her avatar.", "jp": "彼女は私たちにアバターを見せました。（両方正しい）" },
+          { "text": "He gave the controller <b>to her</b>. = He gave <b>her</b> the controller.", "jp": "彼は彼女にコントローラーを渡しました。（両方正しい）" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "Show the comic book <b>to James</b>.", "kind": "to + person", "jp": "コミックをジェームズに見せてください。" },
+      { "text": "Show <b>James</b> the comic book.", "kind": "person first", "jp": "ジェームズにコミックを見せてください。" },
+      { "text": "My dad gave this fossil <b>to me</b>.", "kind": "to + person", "jp": "お父さんがこの化石を私にくれました。" },
+      { "text": "My dad gave <b>me</b> this fossil.", "kind": "person first", "jp": "お父さんが私にこの化石をくれました。" },
+      { "text": "My mom bought stuffed animals <b>for them</b>.", "kind": "for + person", "jp": "お母さんがぬいぐるみを彼らのために買いました。" },
+      { "text": "My mom bought <b>them</b> stuffed animals.", "kind": "person first", "jp": "お母さんが彼らにぬいぐるみを買いました。" },
+      { "text": "She showed her avatar <b>to us</b>.", "kind": "to + person", "jp": "彼女は私たちにアバターを見せました。" },
+      { "text": "She showed <b>us</b> her avatar.", "kind": "person first", "jp": "彼女は私たちにアバターを見せました。" },
+      { "text": "He gave the controller <b>to her</b>.", "kind": "to + person", "jp": "彼は彼女にコントローラーを渡しました。" },
+      { "text": "He gave <b>her</b> the controller.", "kind": "person first", "jp": "彼は彼女にコントローラーを渡しました。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["Show the comic book", "___", "James."],
+        "answers": ["to", "for", "at", "of"],
+        "correct": 0,
+        "explanation": { "title": "to", "body": "Use <b>to</b> with verbs like give and show: show the comic book <b>to</b> James." },
+        "jp": "コミックをジェームズに見せてください。"
+      },
+      {
+        "stem": ["My dad gave this fossil", "___", "me."],
+        "answers": ["to", "for", "at", "from"],
+        "correct": 0,
+        "explanation": { "title": "to", "body": "Use <b>to</b> with 'give': gave this fossil <b>to</b> me." },
+        "jp": "お父さんがこの化石を私にくれました。"
+      },
+      {
+        "stem": ["My mom bought stuffed animals", "___", "them."],
+        "answers": ["for", "to", "at", "from"],
+        "correct": 0,
+        "explanation": { "title": "for", "body": "Use <b>for</b> with 'buy': bought stuffed animals <b>for</b> them." },
+        "jp": "お母さんがぬいぐるみを彼らのために買いました。"
+      },
+      {
+        "stem": ["Show the comic book to James. = Show", "___", "the comic book."],
+        "answers": ["James", "to James", "James's", "for James"],
+        "correct": 0,
+        "explanation": { "title": "James", "body": "In Pattern B, the person comes directly after the verb with <b>no preposition</b>." },
+        "jp": "コミックをジェームズに見せてください。"
+      },
+      {
+        "stem": ["My dad gave this fossil to me. = My dad gave", "___", "this fossil."],
+        "answers": ["me", "to me", "for me", "my"],
+        "correct": 0,
+        "explanation": { "title": "me", "body": "In Pattern B, the indirect object comes right after the verb: gave <b>me</b> this fossil." },
+        "jp": "お父さんが私にこの化石をくれました。"
+      },
+      {
+        "stem": ["Which sentence is correct?"],
+        "answers": ["She showed us her avatar.", "She showed her avatar us.", "She showed to us her avatar.", "She showed her avatar to we."],
+        "correct": 0,
+        "explanation": { "title": "showed us her avatar", "body": "Pattern B: verb + <b>person</b> + thing. No preposition before the person." },
+        "jp": "正しい文はどれですか？"
+      },
+      {
+        "stem": ["He gave the controller to her. = He gave", "___", "the controller."],
+        "answers": ["her", "to her", "for her", "she"],
+        "correct": 0,
+        "explanation": { "title": "her", "body": "Pattern B: verb + <b>her</b> + thing (no preposition)." },
+        "jp": "彼は彼女にコントローラーを渡しました。"
+      },
+      {
+        "stem": ["In 'My mom bought stuffed animals for them,' what is the direct object?"],
+        "answers": ["stuffed animals", "them", "my mom", "for"],
+        "correct": 0,
+        "explanation": { "title": "stuffed animals", "body": "The <b>direct object</b> is the <b>thing</b>: stuffed animals." },
+        "jp": "直接目的語（もの）はどれですか？"
+      },
+      {
+        "stem": ["In 'My dad gave me this fossil,' what is the indirect object?"],
+        "answers": ["me", "this fossil", "my dad", "gave"],
+        "correct": 0,
+        "explanation": { "title": "me", "body": "The <b>indirect object</b> is the <b>person</b> who receives the thing: me." },
+        "jp": "間接目的語（人）はどれですか？"
+      },
+      {
+        "stem": ["Which uses 'for' (not 'to')?"],
+        "answers": ["My mom bought a comic book for me.", "My dad gave a fossil to me.", "Show the avatar to James.", "He gave her the controller."],
+        "correct": 0,
+        "explanation": { "title": "for", "body": "Use <b>for</b> with 'buy'. Use <b>to</b> with 'give' and 'show'." },
+        "jp": "「for」を使う文はどれですか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      {
+        "type": "mc",
+        "stem": ["Show the comic book ___ James."],
+        "answers": ["to", "for", "at", "of"],
+        "correct": 0,
+        "jp": "コミックをジェームズに見せてください。"
+      },
+      {
+        "type": "mc",
+        "stem": ["My mom bought stuffed animals ___ them."],
+        "answers": ["for", "to", "at", "from"],
+        "correct": 0,
+        "jp": "お母さんがぬいぐるみを彼らのために買いました。"
+      },
+      {
+        "type": "mc",
+        "stem": ["My dad gave this fossil to me. = My dad gave ___ this fossil."],
+        "answers": ["me", "to me", "for me", "my"],
+        "correct": 0,
+        "jp": "お父さんが私にこの化石をくれました。"
+      },
+      {
+        "type": "mc",
+        "stem": ["She showed her avatar to us. = She showed ___ her avatar."],
+        "answers": ["us", "to us", "for us", "we"],
+        "correct": 0,
+        "jp": "彼女は私たちにアバターを見せました。"
+      },
+      {
+        "type": "mc",
+        "stem": ["He gave the controller to her. = He gave ___ the controller."],
+        "answers": ["her", "to her", "for her", "she"],
+        "correct": 0,
+        "jp": "彼は彼女にコントローラーを渡しました。"
+      },
+      {
+        "type": "build",
+        "cue": "Show / James / the comic book",
+        "bank": ["Show", "James", "the", "comic", "book.", "to", "for"],
+        "correct": ["Show", "James", "the", "comic", "book."],
+        "jp": "ジェームズにコミックを見せてください。"
+      },
+      {
+        "type": "build",
+        "cue": "My dad / gave / me / this fossil",
+        "bank": ["My", "dad", "gave", "me", "this", "fossil.", "to", "for"],
+        "correct": ["My", "dad", "gave", "me", "this", "fossil."],
+        "jp": "お父さんが私にこの化石をくれました。"
+      },
+      {
+        "type": "build",
+        "cue": "My mom / bought / them / stuffed animals",
+        "bank": ["My", "mom", "bought", "them", "stuffed", "animals.", "for", "to"],
+        "correct": ["My", "mom", "bought", "them", "stuffed", "animals."],
+        "jp": "お母さんが彼らにぬいぐるみを買いました。"
+      },
+      {
+        "type": "build",
+        "cue": "Show / the comic book / to James",
+        "bank": ["Show", "the", "comic", "book", "to", "James.", "for", "at"],
+        "correct": ["Show", "the", "comic", "book", "to", "James."],
+        "jp": "コミックをジェームズに見せてください。"
+      },
+      {
+        "type": "build",
+        "cue": "She / showed / us / her avatar",
+        "bank": ["She", "showed", "us", "her", "avatar.", "to", "for"],
+        "correct": ["She", "showed", "us", "her", "avatar."],
+        "jp": "彼女は私たちにアバターを見せました。"
+      }
+    ]
+  }
+}
