@@ -47,6 +47,12 @@
             "label": "Good Idea!",
             "vocab_sets": 2,
             "grammar_sets": 2
+          },
+          {
+            "unit": 8,
+            "label": "That's Really Interesting!",
+            "vocab_sets": 2,
+            "grammar_sets": 2
           }
         ]
       },
