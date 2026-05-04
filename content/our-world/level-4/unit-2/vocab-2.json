@@ -2,5 +2,85 @@
   "level": 4,
   "unit": 2,
   "set": 2,
-  "words": []
+  "unit_name": "Fresh Food",
+  "words": [
+    {
+      "id": "how-often",
+      "word": "how often",
+      "emoji": "❓🔄",
+      "ipa": "/haʊ ˈɒfən/",
+      "syllables": "how of·ten",
+      "pos": "Question Phrase",
+      "sample": "<b>How often</b> do you eat fruit?",
+      "jp_word": "どのくらいの頻度で",
+      "jp_reading": "どのくらいのひんどで",
+      "jp_sentence": "<b>どのくらいの頻度で</b>果物を食べますか？",
+      "jp_tags": ["フレーズ", "疑問詞"]
+    },
+    {
+      "id": "every-day",
+      "word": "every day",
+      "emoji": "🌞📅",
+      "ipa": "/ˈɛvri deɪ/",
+      "syllables": "ev·ery day",
+      "pos": "Adverb · Phrase",
+      "sample": "I eat fruit <b>every day</b>.",
+      "jp_word": "毎日",
+      "jp_reading": "まいにち",
+      "jp_sentence": "私は<b>毎日</b>果物を食べます。",
+      "jp_tags": ["副詞", "フレーズ"]
+    },
+    {
+      "id": "on-fridays",
+      "word": "on Fridays",
+      "emoji": "🎉🗓️",
+      "ipa": "/ɒn ˈfraɪdeɪz/",
+      "syllables": "on Fri·days",
+      "pos": "Adverb · Phrase",
+      "sample": "<b>On Fridays</b> I have to go to the market with my mother.",
+      "jp_word": "毎週金曜日に",
+      "jp_reading": "まいしゅうきんようびに",
+      "jp_sentence": "<b>毎週金曜日に</b>、お母さんと市場へ行かなければなりません。",
+      "jp_tags": ["副詞", "フレーズ"]
+    },
+    {
+      "id": "once-a-month",
+      "word": "once a month",
+      "emoji": "🌙📅",
+      "ipa": "/wʌns ə mʌnθ/",
+      "syllables": "once a month",
+      "pos": "Adverb · Phrase",
+      "sample": "<b>Once a month</b>, we take vegetables to our neighbour.",
+      "jp_word": "月に一度",
+      "jp_reading": "つきにいちど",
+      "jp_sentence": "<b>月に一度</b>、私たちは隣人に野菜を持っていきます。",
+      "jp_tags": ["副詞", "フレーズ"]
+    },
+    {
+      "id": "twice-a-year",
+      "word": "twice a year",
+      "emoji": "📌✌️",
+      "ipa": "/twaɪs ə jɪər/",
+      "syllables": "twice a year",
+      "pos": "Adverb · Phrase",
+      "sample": "<b>Twice a year</b> my dad has to plant new seeds.",
+      "jp_word": "年に二度",
+      "jp_reading": "ねんににど",
+      "jp_sentence": "<b>年に二度</b>、お父さんは新しい種を植えなければなりません。",
+      "jp_tags": ["副詞", "フレーズ"]
+    },
+    {
+      "id": "three-times-a-week",
+      "word": "three times a week",
+      "emoji": "🔢📅",
+      "ipa": "/θriː taɪmz ə wiːk/",
+      "syllables": "three times a week",
+      "pos": "Adverb · Phrase",
+      "sample": "<b>Three times a week</b> we weed the garden.",
+      "jp_word": "週に三回",
+      "jp_reading": "しゅうにさんかい",
+      "jp_sentence": "<b>週に三回</b>、私たちは庭の草取りをします。",
+      "jp_tags": ["副詞", "フレーズ"]
+    }
+  ]
 }
