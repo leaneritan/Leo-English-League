@@ -3,319 +3,342 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vocab — Leo's English Lab</title>
+  <title>Vocabulary — Leo's English Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --nc-green: #2E7D32;
-      --nc-green-mid: #388E3C;
-      --nc-green-light: #4CAF50;
-      --nc-green-pale: #E8F5E9;
-      --nc-navy: #1B5E20;
-      --coral: #E8735A;
-      --gold: #F9A825;
-      --text-dark: #1A1A2E;
-      --text-mid: #4A4A6A;
-      --text-light: #7A7A9A;
-      --page-bg: #F4FBF4;
-      --card-h: 180px;
+      --nc:#2E7D32;--nc-mid:#388E3C;--nc-light:#4CAF50;
+      --nc-pale:#E8F5E9;--nc-xpale:#F1F8F1;--navy:#1B5E20;
+      --gold:#F9A825;--dark:#1A1A2E;--mid:#4A4A6A;--light:#7A7A9A;
+      --bg:#F4FBF4;--white:#fff;
+      --shadow:0 2px 12px rgba(46,125,50,.10);
+      --shadow-lg:0 6px 24px rgba(46,125,50,.15);
+      --r:16px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Nunito', sans-serif; background: var(--page-bg); color: var(--text-dark); }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh}
 
     /* HEADER */
-    .hdr {
-      background: linear-gradient(135deg, var(--nc-navy) 0%, var(--nc-green) 70%, var(--nc-green-light) 100%);
-      color: white; padding: 18px 20px 14px;
-      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-    }
-    .back-btn {
-      background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3);
-      color: white; border-radius: 50px; padding: 6px 16px;
-      font-family: 'Nunito',sans-serif; font-weight: 700; font-size: 13px;
-      cursor: pointer; text-decoration: none; flex-shrink: 0;
-    }
-    .hdr-title { font-family: 'Baloo 2',cursive; font-size: 22px; font-weight: 800; }
-    .hdr-sub { font-size: 13px; opacity: 0.8; font-weight: 600; }
-    .hdr-count { margin-left: auto; text-align: right; }
-    .hdr-count .n { font-size: 22px; font-weight: 900; display: block; }
-    .hdr-count .l { font-size: 11px; opacity: 0.75; font-weight: 700; }
+    .hdr{background:linear-gradient(135deg,var(--navy) 0%,var(--nc) 65%,var(--nc-light) 100%);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(0,0,0,.2)}
+    .back-btn{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;border-radius:50px;padding:6px 14px;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;cursor:pointer;text-decoration:none;transition:background .15s;white-space:nowrap}
+    .back-btn:hover{background:rgba(255,255,255,.25)}
+    .hdr-info{flex:1;min-width:0}
+    .hdr-title{font-family:'Baloo 2',cursive;font-size:19px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .hdr-sub{font-size:11px;opacity:.8;font-weight:600}
+    .hdr-r{margin-left:auto;text-align:right;flex-shrink:0}
+    .hdr-n{font-size:21px;font-weight:900;line-height:1}
+    .hdr-l{font-size:10px;opacity:.75;font-weight:700}
 
     /* CONTROLS */
-    .controls {
-      background: white; border-bottom: 2px solid var(--nc-green-pale);
-      padding: 12px 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-    }
-    .search-wrap {
-      flex: 1; min-width: 200px;
-      display: flex; align-items: center; gap: 8px;
-      background: var(--page-bg); border: 2px solid #D4EDDA; border-radius: 50px; padding: 8px 16px;
-    }
-    .search-wrap input {
-      flex: 1; border: none; outline: none; font-family: 'Nunito',sans-serif; font-size: 14px;
-      background: transparent; color: var(--text-dark);
-    }
-    .search-wrap input::placeholder { color: var(--text-light); }
-    .filter-btns { display: flex; gap: 6px; flex-wrap: wrap; }
-    .filter-btn {
-      border-radius: 50px; padding: 6px 14px; font-family: 'Nunito',sans-serif;
-      font-weight: 700; font-size: 12px; cursor: pointer; border: 2px solid transparent;
-      transition: all 0.15s;
-    }
-    .filter-btn.all { background: var(--nc-green); color: white; }
-    .filter-btn.inactive { background: white; color: var(--text-mid); border-color: #E0E0E0; }
-    .filter-btn.inactive:hover { border-color: var(--nc-green); color: var(--nc-green); }
+    .ctrl{background:#fff;border-bottom:2px solid var(--nc-pale);padding:10px 14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .srch{flex:1;min-width:160px;display:flex;align-items:center;gap:7px;background:var(--bg);border:2px solid #C8E6C9;border-radius:50px;padding:7px 14px;transition:border-color .15s}
+    .srch:focus-within{border-color:var(--nc)}
+    .srch input{flex:1;border:none;outline:none;font-family:'Nunito',sans-serif;font-size:13px;background:transparent;color:var(--dark)}
+    .srch input::placeholder{color:var(--light)}
+    .filters{display:flex;gap:5px;flex-wrap:wrap}
+    .fb{border-radius:50px;padding:5px 13px;font-family:'Nunito',sans-serif;font-weight:700;font-size:11px;cursor:pointer;border:2px solid #E0E0E0;background:#fff;color:var(--mid);transition:all .15s}
+    .fb.on{background:var(--nc);color:#fff;border-color:var(--nc)}
+    .fb:hover:not(.on){border-color:var(--nc);color:var(--nc)}
 
-    /* STATS BAR */
-    .stats-bar {
-      padding: 10px 20px; font-size: 13px; color: var(--text-mid); font-weight: 600;
-      display: flex; gap: 16px; align-items: center;
-    }
-    .progress-wrap { flex: 1; max-width: 240px; }
-    .progress-track { height: 6px; background: #E0E0E0; border-radius: 3px; overflow: hidden; }
-    .progress-fill { height: 100%; background: linear-gradient(to right, var(--nc-green), var(--nc-green-light)); border-radius: 3px; transition: width 0.4s; }
+    /* STATS */
+    .stats{padding:8px 14px;font-size:12px;color:var(--mid);font-weight:600;display:flex;gap:14px;align-items:center}
+    .pw{flex:1;max-width:180px}
+    .pt{height:5px;background:#E0E0E0;border-radius:3px;overflow:hidden}
+    .pf{height:100%;background:linear-gradient(to right,var(--nc),var(--nc-light));border-radius:3px;transition:width .4s}
 
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 14px; padding: 16px 20px 40px;
-    }
+    /* LIST */
+    #listView{display:block}
+    .wlist{padding:8px 14px 50px;display:flex;flex-direction:column;gap:7px}
+    .wrow{background:#fff;border-radius:var(--r);box-shadow:var(--shadow);border:1.5px solid var(--nc-pale);display:flex;align-items:center;gap:11px;padding:11px 14px;cursor:pointer;transition:all .15s}
+    .wrow:hover{box-shadow:var(--shadow-lg);border-color:var(--nc-light);transform:translateY(-1px)}
+    .wrow.known{background:var(--nc-xpale);border-color:var(--nc-light)}
+    .rem{font-size:26px;flex-shrink:0;width:38px;text-align:center}
+    .ri{flex:1;min-width:0}
+    .rw{font-family:'Baloo 2',cursive;font-size:16px;font-weight:800;color:var(--navy)}
+    .ripa{font-size:11px;color:var(--light);font-weight:600}
+    .rr{display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .tbadge{font-size:10px;font-weight:800;border-radius:50px;padding:2px 9px;white-space:nowrap}
+    .tS{background:var(--nc-pale);color:var(--nc)}
+    .tM{background:#FFF3E0;color:#E65100}
+    .kbox{width:23px;height:23px;border-radius:6px;border:2.5px solid #C8E6C9;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;flex-shrink:0;transition:all .15s;z-index:2}
+    .kbox.on{background:var(--nc);border-color:var(--nc);color:#fff}
+    .rarr{font-size:13px;color:var(--light)}
 
-    /* FLIP CARD */
-    .flip-wrap {
-      height: var(--card-h); perspective: 1000px; cursor: pointer;
-    }
-    .flip-inner {
-      position: relative; width: 100%; height: 100%;
-      transition: transform 0.5s;
-      transform-style: preserve-3d;
-    }
-    .flip-wrap.flipped .flip-inner { transform: rotateY(180deg); }
-    .flip-front, .flip-back {
-      position: absolute; width: 100%; height: 100%;
-      backface-visibility: hidden; border-radius: 16px;
-      display: flex; flex-direction: column;
-      box-shadow: 0 3px 12px rgba(46,125,50,0.10);
-    }
-    .flip-front {
-      background: white; border: 1.5px solid var(--nc-green-pale);
-      align-items: center; justify-content: center; text-align: center;
-      padding: 16px;
-    }
-    .flip-back {
-      background: linear-gradient(135deg, var(--nc-navy) 0%, var(--nc-green) 100%);
-      border: none; color: white;
-      transform: rotateY(180deg);
-      align-items: center; justify-content: center; text-align: center;
-      padding: 14px;
-    }
+    /* DETAIL */
+    #detailView{display:none}
+    .dwrap{max-width:540px;margin:0 auto;padding:18px 14px 60px}
+    .dcard{background:#fff;border-radius:22px;box-shadow:var(--shadow-lg);overflow:hidden}
+    .dtop{background:linear-gradient(135deg,var(--navy) 0%,var(--nc) 100%);color:#fff;padding:22px 20px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+    .dknown{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;border-radius:50px;padding:5px 12px;font-family:'Nunito',sans-serif;font-weight:800;font-size:11px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px}
+    .dknown.on{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+    .dvbtn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.35);color:#fff;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:17px;cursor:pointer;transition:all .15s}
+    .dvbtn:hover{background:rgba(255,255,255,.35)}
+    .dvbtn.spk{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+    .dtag{font-size:11px;font-weight:800;border-radius:50px;padding:4px 12px;margin-bottom:10px;background:rgba(255,255,255,.2);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+    .demoji{font-size:60px;margin-bottom:10px;line-height:1}
+    .dword{font-family:'Baloo 2',cursive;font-size:30px;font-weight:800;line-height:1.1;margin-bottom:6px}
+    .dipa-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:center}
+    .dipa{font-size:14px;opacity:.85;font-weight:600}
+    .dsyl{font-size:12px;opacity:.6;font-weight:600;letter-spacing:1px}
+    .dpos{margin-top:7px;font-size:12px;opacity:.8;font-weight:700}
 
-    /* FRONT CONTENT */
-    .card-tag {
-      position: absolute; top: 10px; left: 10px;
-      font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
-      border-radius: 50px; padding: 2px 8px;
-    }
-    .card-tag.Starter { background: var(--nc-green-pale); color: var(--nc-green); }
-    .card-tag.Lesson1 { background: #E3F2FD; color: #1565C0; }
-    .card-tag.MyDictionary { background: #FFF3E0; color: #E65100; }
+    .dbody{padding:18px 20px}
+    .sblock{background:var(--nc-xpale);border-left:4px solid var(--nc);border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:16px}
+    .slbl{font-size:10px;font-weight:800;color:var(--nc);letter-spacing:1px;margin-bottom:5px;text-transform:uppercase}
+    .stxt{font-size:15px;font-weight:700;color:var(--dark);line-height:1.5}
+    .stxt b{color:var(--nc);font-weight:900}
 
-    .card-emoji { font-size: 32px; margin-bottom: 6px; }
-    .card-word { font-family: 'Baloo 2',cursive; font-size: 18px; font-weight: 800; color: var(--nc-navy); }
-    .card-ipa { font-size: 11px; color: var(--text-light); font-weight: 600; margin: 2px 0; }
-    .card-syllables { font-size: 11px; color: var(--text-mid); font-weight: 600; letter-spacing: 1px; margin: 1px 0; }
-    .card-pos { font-size: 11px; color: var(--nc-green); font-weight: 700; margin-top: 2px; }
-    .card-sample { font-size: 11px; color: var(--text-mid); margin-top: 4px; line-height: 1.4; }
-    .card-sample b { color: var(--nc-green); font-weight: 900; }
-    .card-flip-hint { position: absolute; bottom: 8px; right: 10px; font-size: 10px; opacity: 0.4; }
+    .jpblock{background:#FAFAFA;border:1.5px solid #E8E8E8;border-radius:12px;padding:14px 16px}
+    .jplbl{font-size:10px;font-weight:800;color:var(--mid);letter-spacing:1px;margin-bottom:9px;text-transform:uppercase}
+    .jpw{font-size:21px;font-weight:800;color:var(--dark);margin-bottom:3px}
+    .jpr{font-size:12px;color:var(--mid);font-weight:600;margin-bottom:8px}
+    .jps{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:9px}
+    .jps b{color:var(--dark);font-weight:900}
+    .jptags{display:flex;gap:5px;flex-wrap:wrap}
+    .jptag{background:var(--nc-pale);color:var(--nc);border-radius:50px;padding:2px 9px;font-size:11px;font-weight:700}
 
-    /* BACK CONTENT */
-    .back-jp-word { font-family: 'Baloo 2',cursive; font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-    .back-reading { font-size: 12px; opacity: 0.75; margin-bottom: 4px; }
-    .back-sentence { font-size: 12px; opacity: 0.85; line-height: 1.5; margin-bottom: 6px; }
-    .back-sentence b { opacity: 1; font-weight: 900; }
-    .back-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; }
-    .back-tag { background: rgba(255,255,255,0.2); border-radius: 50px; padding: 2px 8px; font-size: 10px; font-weight: 700; }
-    .back-flip-hint { position: absolute; bottom: 8px; right: 10px; font-size: 10px; opacity: 0.4; }
+    /* NAV */
+    .dnav{display:flex;align-items:center;justify-content:space-between;padding:14px 0 0;gap:10px}
+    .nbtn{background:#fff;border:2px solid var(--nc-pale);border-radius:50px;padding:9px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;color:var(--nc);cursor:pointer;box-shadow:var(--shadow);transition:all .15s}
+    .nbtn:hover:not(:disabled){background:var(--nc);color:#fff;border-color:var(--nc)}
+    .nbtn:disabled{opacity:.3;cursor:not-allowed}
+    .nctr{font-size:12px;font-weight:700;color:var(--mid)}
 
-    /* EMPTY */
-    .empty { text-align: center; padding: 60px 20px; color: var(--text-light); }
-    .empty span { font-size: 40px; display: block; margin-bottom: 10px; }
-
-    /* LOADING */
-    .loading { text-align: center; padding: 60px; color: var(--nc-green); font-weight: 700; font-size: 16px; }
-
-    @media (max-width: 500px) {
-      .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 12px 12px 40px; }
-      --card-h: 160px;
-    }
+    .empty{text-align:center;padding:50px 20px;color:var(--light)}
+    .eico{font-size:38px;display:block;margin-bottom:10px}
   </style>
 </head>
 <body>
 
 <header class="hdr">
-  <a href="junior-high.html" class="back-btn">← JH1</a>
-  <div>
-    <div class="hdr-title" id="pageTitle">Vocabulary</div>
-    <div class="hdr-sub" id="pageSubtitle">Loading...</div>
+  <a id="backBtn" href="junior-high.html" class="back-btn">← JH1</a>
+  <div class="hdr-info">
+    <div class="hdr-title" id="hdrTitle">Vocabulary</div>
+    <div class="hdr-sub" id="hdrSub">Loading...</div>
   </div>
-  <div class="hdr-count">
-    <span class="n" id="wordCount">—</span>
-    <span class="l">words</span>
+  <div class="hdr-r">
+    <div class="hdr-n" id="hdrCount">—</div>
+    <div class="hdr-l">words</div>
   </div>
 </header>
 
-<div class="controls">
-  <div class="search-wrap">
-    🔍
-    <input type="text" id="searchInput" placeholder="Search words..." oninput="applyFilters()">
+<!-- LIST -->
+<div id="listView">
+  <div class="ctrl">
+    <div class="srch">🔍<input type="text" id="srchInput" placeholder="Search words..." oninput="applyFilters()"></div>
+    <div class="filters" id="filterBtns"></div>
   </div>
-  <div class="filter-btns" id="filterBtns"></div>
+  <div class="stats">
+    <span id="visCnt">—</span>
+    <div class="pw"><div class="pt"><div class="pf" id="progFill" style="width:0%"></div></div></div>
+    <span id="knownCnt">0 known</span>
+  </div>
+  <div class="wlist" id="wordList"><div class="empty"><span class="eico">⏳</span>Loading...</div></div>
 </div>
 
-<div class="stats-bar">
-  <span id="visibleCount">Loading...</span>
-  <div class="progress-wrap">
-    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+<!-- DETAIL -->
+<div id="detailView">
+  <div class="dwrap">
+    <div class="dcard">
+      <div class="dtop">
+        <button class="dknown" id="dknownBtn" onclick="toggleKnownDetail()">☐ Known</button>
+        <button class="dvbtn" id="voiceBtn" onclick="speak()" title="Listen">🔊</button>
+        <div class="dtag" id="dTag"></div>
+        <div class="demoji" id="dEmoji"></div>
+        <div class="dword" id="dWord"></div>
+        <div class="dipa-row">
+          <span class="dipa" id="dIpa"></span>
+          <span class="dsyl" id="dSyl"></span>
+        </div>
+        <div class="dpos" id="dPos"></div>
+      </div>
+      <div class="dbody">
+        <div class="sblock">
+          <div class="slbl">Sample Sentence</div>
+          <div class="stxt" id="dSample"></div>
+        </div>
+        <div class="jpblock">
+          <div class="jplbl">日本語</div>
+          <div class="jpw" id="dJpW"></div>
+          <div class="jpr" id="dJpR"></div>
+          <div class="jps" id="dJpS"></div>
+          <div class="jptags" id="dJpT"></div>
+        </div>
+      </div>
+    </div>
+    <div class="dnav">
+      <button class="nbtn" id="prevBtn" onclick="navigate(-1)">← Prev</button>
+      <span class="nctr" id="navCtr"></span>
+      <button class="nbtn" id="nextBtn" onclick="navigate(1)">Next →</button>
+    </div>
   </div>
-  <span id="flippedCount">0 studied</span>
-</div>
-
-<div id="grid" class="grid">
-  <div class="loading">⏳ Loading vocabulary...</div>
 </div>
 
 <script>
 const params = new URLSearchParams(location.search);
-const unit = params.get('unit') || 'starter';
-
+const unit   = params.get('unit') || 'starter';
+const initId = params.get('id') || null;
 const unitMeta = {
-  'starter':  { title: 'Starter Vocabulary',  sub: 'Elementary Review · New Crown JH1' },
-  'lesson-1': { title: 'Lesson 1 Vocabulary', sub: 'Nice to Meet You! · New Crown JH1' },
+  'starter':  {title:'Starter Vocabulary', sub:'Elementary Review · New Crown JH1'},
+  'lesson-1': {title:'Lesson 1 Vocabulary',sub:'Nice to Meet You! · New Crown JH1'},
 };
-const meta = unitMeta[unit] || { title: 'Vocabulary', sub: 'New Crown JH1' };
-document.getElementById('pageTitle').textContent = meta.title;
-document.getElementById('pageSubtitle').textContent = meta.sub;
+const meta = unitMeta[unit] || {title:'Vocabulary',sub:'New Crown JH1'};
+document.getElementById('hdrTitle').textContent = meta.title;
+document.getElementById('hdrSub').textContent   = meta.sub;
 
-let allWords = [];
-let activeFilters = new Set(['All']);
-let flippedSet = new Set();
-
-const tagStyles = {
-  'Starter':      'Starter',
-  'My Dictionary':'MyDictionary',
-  'Lesson 1':     'Lesson1',
-};
+let allWords=[], filtered=[], curIdx=0, activeFilter='All';
+const SK = id => `nc-known-${unit}-${id}`;
+const isKnown = id => localStorage.getItem(SK(id))==='1';
+const setKnown = (id,v) => v ? localStorage.setItem(SK(id),'1') : localStorage.removeItem(SK(id));
+const totalKnown = () => allWords.filter(w=>isKnown(w.id)).length;
 
 async function loadVocab() {
   const path = `content/new-crown/jh1/${unit}/vocab.json`;
   try {
-    const res = await fetch(path);
-    if (!res.ok) throw new Error('Not found');
+    const res  = await fetch(path);
+    if (!res.ok) throw new Error();
     const data = await res.json();
-    allWords = data.words || [];
-    document.getElementById('wordCount').textContent = allWords.length;
+    allWords   = data.words || [];
+    document.getElementById('hdrCount').textContent = allWords.length;
     buildFilters();
-    renderGrid(allWords);
-  } catch(e) {
-    document.getElementById('grid').innerHTML = `<div class="empty"><span>❌</span>Could not load vocabulary.<br><small>${path}</small></div>`;
+    applyFilters();
+    if (initId) { const i=allWords.findIndex(w=>w.id===initId); if(i>=0) openDetail(i); }
+  } catch {
+    document.getElementById('wordList').innerHTML=`<div class="empty"><span class="eico">❌</span>Could not load vocab.</div>`;
   }
 }
 
 function buildFilters() {
-  const tags = ['All', ...new Set(allWords.map(w => w.tag).filter(Boolean))];
-  const container = document.getElementById('filterBtns');
-  container.innerHTML = '';
-  tags.forEach(tag => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn ' + (tag === 'All' ? 'all' : 'inactive');
-    btn.textContent = tag === 'My Dictionary' ? '📖 My Dict' : tag === 'Starter' ? '⭐ ' + tag : '📘 ' + tag;
-    btn.dataset.tag = tag;
-    btn.addEventListener('click', () => {
-      activeFilters = new Set([tag]);
-      document.querySelectorAll('.filter-btn').forEach(b => {
-        b.className = 'filter-btn ' + (b.dataset.tag === tag ? 'all' : 'inactive');
-      });
+  const tags=['All',...new Set(allWords.map(w=>w.tag).filter(Boolean)),'✅ Known','📚 To Study'];
+  const c=document.getElementById('filterBtns'); c.innerHTML='';
+  tags.forEach(tag=>{
+    const b=document.createElement('button');
+    b.className='fb'+(tag==='All'?' on':'');
+    b.textContent=tag==='Starter'?'⭐ Starter':tag==='My Dictionary'?'📖 My Dict':tag;
+    b.dataset.tag=tag;
+    b.addEventListener('click',()=>{
+      activeFilter=tag;
+      document.querySelectorAll('.fb').forEach(x=>x.classList.toggle('on',x.dataset.tag===tag));
       applyFilters();
     });
-    container.appendChild(btn);
+    c.appendChild(b);
   });
 }
 
 function applyFilters() {
-  const q = document.getElementById('searchInput').value.toLowerCase().trim();
-  const tag = [...activeFilters][0];
-  const filtered = allWords.filter(w => {
-    const matchTag = tag === 'All' || w.tag === tag;
-    const matchQ = !q || w.word.toLowerCase().includes(q) || (w.jp_word||'').includes(q) || (w.jp_reading||'').includes(q);
-    return matchTag && matchQ;
+  const q=(document.getElementById('srchInput').value||'').toLowerCase().trim();
+  filtered=allWords.filter(w=>{
+    const mt = activeFilter==='All'?true:activeFilter==='✅ Known'?isKnown(w.id):activeFilter==='📚 To Study'?!isKnown(w.id):w.tag===activeFilter;
+    const mq = !q||w.word.toLowerCase().includes(q)||(w.jp_word||'').includes(q)||(w.jp_reading||'').includes(q);
+    return mt&&mq;
   });
-  renderGrid(filtered);
+  renderList(); updateStats();
 }
 
-function renderGrid(words) {
-  const grid = document.getElementById('grid');
-  document.getElementById('visibleCount').textContent = `${words.length} word${words.length !== 1 ? 's' : ''}`;
-  updateProgress();
-
-  if (!words.length) {
-    grid.innerHTML = `<div class="empty"><span>🔍</span>No words found</div>`;
-    return;
-  }
-
-  grid.innerHTML = '';
-  words.forEach(w => {
-    const tagClass = tagStyles[w.tag] || 'Starter';
-    const isFlipped = flippedSet.has(w.id);
-
-    const wrap = document.createElement('div');
-    wrap.className = 'flip-wrap' + (isFlipped ? ' flipped' : '');
-    wrap.dataset.id = w.id;
-    wrap.innerHTML = `
-      <div class="flip-inner">
-        <div class="flip-front">
-          <span class="card-tag ${tagClass}">${w.tag || ''}</span>
-          <div class="card-emoji">${w.emoji || '📝'}</div>
-          <div class="card-word">${w.word}</div>
-          <div class="card-ipa">${w.ipa || ''}</div>
-          <div class="card-syllables">${w.syllables || ''}</div>
-          <div class="card-pos">${w.pos || ''}</div>
-          <div class="card-sample">${w.sample || ''}</div>
-          <div class="card-flip-hint">tap to flip</div>
-        </div>
-        <div class="flip-back">
-          <div class="back-jp-word">${w.jp_word || ''}</div>
-          <div class="back-reading">${w.jp_reading || ''}</div>
-          <div class="back-sentence">${(w.jp_sentence || '').replace(/<b>/g,'<b>').replace(/<\/b>/g,'</b>')}</div>
-          <div class="back-tags">${(w.jp_tags||[]).map(t=>`<span class="back-tag">${t}</span>`).join('')}</div>
-          <div class="back-flip-hint">tap to flip</div>
-        </div>
-      </div>
-    `;
-    wrap.addEventListener('click', () => {
-      const id = wrap.dataset.id;
-      if (flippedSet.has(id)) {
-        flippedSet.delete(id);
-        wrap.classList.remove('flipped');
-      } else {
-        flippedSet.add(id);
-        wrap.classList.add('flipped');
-      }
-      updateProgress();
+function renderList() {
+  const list=document.getElementById('wordList');
+  document.getElementById('visCnt').textContent=`${filtered.length} word${filtered.length!==1?'s':''}`;
+  if(!filtered.length){list.innerHTML=`<div class="empty"><span class="eico">🔍</span>No words found</div>`;return;}
+  list.innerHTML='';
+  filtered.forEach(w=>{
+    const known=isKnown(w.id);
+    const tc=w.tag==='My Dictionary'?'tM':'tS';
+    const row=document.createElement('div');
+    row.className='wrow'+(known?' known':'');
+    row.innerHTML=`
+      <div class="rem">${w.emoji||'📝'}</div>
+      <div class="ri"><div class="rw">${w.word}</div><div class="ripa">${w.ipa||''}</div></div>
+      <div class="rr">
+        <span class="tbadge ${tc}">${w.tag||''}</span>
+        <div class="kbox${known?' on':''}" data-id="${w.id}">${known?'✓':''}</div>
+        <span class="rarr">›</span>
+      </div>`;
+    row.querySelector('.kbox').addEventListener('click',e=>{
+      e.stopPropagation();
+      const id=e.currentTarget.dataset.id, v=!isKnown(id);
+      setKnown(id,v);
+      e.currentTarget.classList.toggle('on',v);
+      e.currentTarget.textContent=v?'✓':'';
+      row.classList.toggle('known',v);
+      updateStats();
     });
-    grid.appendChild(wrap);
+    row.addEventListener('click',()=>{ const i=allWords.findIndex(x=>x.id===w.id); openDetail(i); });
+    list.appendChild(row);
   });
 }
 
-function updateProgress() {
-  const total = allWords.length;
-  const studied = flippedSet.size;
-  const pct = total ? Math.round(studied / total * 100) : 0;
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('flippedCount').textContent = `${studied} studied`;
+function updateStats() {
+  const k=totalKnown(), pct=allWords.length?Math.round(k/allWords.length*100):0;
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('knownCnt').textContent=`${k} known`;
 }
 
+function openDetail(idx) {
+  if(idx<0||idx>=allWords.length) return;
+  curIdx=idx; const w=allWords[idx];
+  document.getElementById('listView').style.display='none';
+  document.getElementById('detailView').style.display='block';
+  const bb=document.getElementById('backBtn'); bb.href='#'; bb.onclick=closeDetail;
+
+  const tc=w.tag==='My Dictionary'?'tM':'tS';
+  document.getElementById('dTag').textContent=w.tag||'';
+  document.getElementById('dTag').className=`dtag tbadge ${tc}`;
+  document.getElementById('dEmoji').textContent=w.emoji||'📝';
+  document.getElementById('dWord').textContent=w.word;
+  document.getElementById('dIpa').textContent=w.ipa||'';
+  document.getElementById('dSyl').textContent=w.syllables?`· ${w.syllables}`:'';
+  document.getElementById('dPos').textContent=w.pos||'';
+  document.getElementById('dSample').innerHTML=w.sample||'';
+  document.getElementById('dJpW').textContent=w.jp_word||'';
+  document.getElementById('dJpR').textContent=w.jp_reading||'';
+  document.getElementById('dJpS').innerHTML=w.jp_sentence||'';
+  document.getElementById('dJpT').innerHTML=(w.jp_tags||[]).map(t=>`<span class="jptag">${t}</span>`).join('');
+
+  const known=isKnown(w.id);
+  const kb=document.getElementById('dknownBtn');
+  kb.textContent=known?'✓ Known':'☐ Known'; kb.className='dknown'+(known?' on':'');
+
+  document.getElementById('navCtr').textContent=`${idx+1} / ${allWords.length}`;
+  document.getElementById('prevBtn').disabled=idx===0;
+  document.getElementById('nextBtn').disabled=idx===allWords.length-1;
+
+  const url=new URL(location.href);
+  url.searchParams.set('id',w.id); history.replaceState(null,'',url);
+  window.scrollTo(0,0);
+}
+
+function closeDetail(e) {
+  if(e) e.preventDefault();
+  document.getElementById('listView').style.display='block';
+  document.getElementById('detailView').style.display='none';
+  const bb=document.getElementById('backBtn'); bb.href='junior-high.html'; bb.onclick=null;
+  applyFilters();
+  const url=new URL(location.href); url.searchParams.delete('id'); history.replaceState(null,'',url);
+}
+
+function navigate(dir) { openDetail(curIdx+dir); }
+
+function toggleKnownDetail() {
+  const w=allWords[curIdx], v=!isKnown(w.id);
+  setKnown(w.id,v);
+  const kb=document.getElementById('dknownBtn');
+  kb.textContent=v?'✓ Known':'☐ Known'; kb.className='dknown'+(v?' on':'');
+  updateStats();
+}
+
+function speak() {
+  const w=allWords[curIdx];
+  if(!w||!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const btn=document.getElementById('voiceBtn');
+  const utt=new SpeechSynthesisUtterance(w.word);
+  utt.lang='en-US'; utt.rate=0.85;
+  utt.onstart=()=>btn.classList.add('spk');
+  utt.onend=()=>btn.classList.remove('spk');
+  window.speechSynthesis.speak(utt);
+}
+
+window.addEventListener('popstate',()=>{ if(!new URLSearchParams(location.search).get('id')) closeDetail(); });
 loadVocab();
 </script>
 </body>
