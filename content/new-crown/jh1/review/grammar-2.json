@@ -1,141 +1,90 @@
 {
-  "level": "JH1",
-  "unit": "review",
-  "set": 2,
-  "unit_name": "Review",
-  "title": "Word Order: S + V + O",
-  "tag": "Review",
-  "chart": {
-    "title": "English Word Order",
-    "intro_examples": [
-      { "text": "私は　サッカーを　します。", "continuation": "Japanese: Subject → Object → Verb" },
-      { "text": "I play soccer.", "continuation": "English: Subject → Verb → Object" }
-    ],
-    "rows": [
-      { "subject": "I", "verb": "play", "object": "soccer.", "jp": "私はサッカーをします。" },
-      { "subject": "I", "verb": "like", "object": "music.", "jp": "私は音楽が好きです。" },
-      { "subject": "She", "verb": "eats", "object": "sushi.", "jp": "彼女は寿司を食べます。" },
-      { "subject": "He", "verb": "studies", "object": "English.", "jp": "彼は英語を勉強します。" },
-      { "subject": "I", "verb": "drink", "object": "milk.", "jp": "私は牛乳を飲みます。" }
-    ],
-    "note_rule": "In English, the verb always comes BEFORE the object. Remember: S → V → O",
-    "note_exception": "Japanese puts the verb at the END. English puts it in the MIDDLE.",
-    "note_exception_detail": "私は【サッカーを】【します】→ I 【play】【soccer】."
-  },
-  "tab1_samples": [
-    { "text": "I play soccer.", "jp": "私はサッカーをします。" },
-    { "text": "I like music.", "jp": "私は音楽が好きです。" },
-    { "text": "I eat sushi.", "jp": "私は寿司を食べます。" },
-    { "text": "I study English.", "jp": "私は英語を勉強します。" },
-    { "text": "I drink green tea.", "jp": "私は緑茶を飲みます。" },
-    { "text": "I watch anime.", "jp": "私はアニメを見ます。" },
-    { "text": "I read manga.", "jp": "私はマンガを読みます。" },
-    { "text": "I love J-pop.", "jp": "私はJポップが大好きです。" }
+  "lesson": 0,
+  "cando_num": "復習2",
+  "cando_jp": "英語の語順(主語＋動詞＋目的語)を理解する。",
+  "cando_en": "Understand English word order: Subject + Verb + Object.",
+  "textbook_pages": "p.7〜24",
+
+  "kihon_bun": [
+    { "en": "I play soccer.", "jp": "私はサッカーをします。" }
   ],
-  "tab2_levelup": {
-    "rules": [
+
+  "point": {
+    "title_jp": "日本語と英語は文字もちがうけれど、文を作るときの単語の順番(語順)もちがうね。",
+    "title_en": "Japanese and English not only use different letters — they also have different word order.",
+    "items": [
       {
-        "num": "01",
-        "title": "Subject + Verb",
-        "jp_title": "主語＋動詞",
-        "subtitle": "The verb comes right after the subject",
-        "jp_subtitle": "動詞は主語の直後",
-        "transforms": [
-          { "from": "私は　します", "to": "I play" },
-          { "from": "私は　食べます", "to": "I eat" }
-        ],
-        "examples": [
-          { "text": "I play.", "jp": "私はします。" },
-          { "text": "I eat.", "jp": "私は食べます。" }
-        ]
+        "num": "1",
+        "title_jp": "英語は「だれが(主語)＋どうします(動詞)＋何を(目的語)」の順番にする！",
+        "title_en": "English word order: Subject + Verb + Object",
+        "body_jp": "・英語の語順は「主語→動詞→目的語」。日本語とちがって、動詞は最後に来ない。\n例：私は(S) サッカーを(O) します(V)。→ I(S) play(V) soccer(O).",
+        "body_en": "・English order: Subject → Verb → Object. Unlike Japanese, the verb does NOT come last.\nExample: 私は(S) サッカーを(O) します(V). → I(S) play(V) soccer(O)."
       },
       {
-        "num": "02",
-        "title": "Verb + Object",
-        "jp_title": "動詞＋目的語",
-        "subtitle": "The object comes AFTER the verb",
-        "jp_subtitle": "目的語は動詞の後",
-        "transforms": [
-          { "from": "サッカーを　します", "to": "play soccer" },
-          { "from": "音楽を　好きです", "to": "like music" }
-        ],
-        "examples": [
-          { "text": "play soccer", "jp": "サッカーをする" },
-          { "text": "like music", "jp": "音楽が好き" }
-        ]
-      },
-      {
-        "num": "03",
-        "title": "Full Sentence: S + V + O",
-        "jp_title": "完全な文：主語＋動詞＋目的語",
-        "subtitle": "Put it all together!",
-        "jp_subtitle": "全部つなげよう！",
-        "transforms": [
-          { "from": "私は　サッカーを　します。", "to": "I play soccer." },
-          { "from": "私は　音楽を　好きです。", "to": "I like music." }
-        ],
-        "examples": [
-          { "text": "I play soccer.", "jp": "私はサッカーをします。" },
-          { "text": "I like music.", "jp": "私は音楽が好きです。" },
-          { "text": "I eat rice.", "jp": "私はご飯を食べます。" }
-        ]
-      }
-    ],
-    "mixed_samples": [
-      { "text": "I like basketball.", "kind": "S+V+O", "jp": "私はバスケットボールが好きです。" },
-      { "text": "I study math.", "kind": "S+V+O", "jp": "私は数学を勉強します。" },
-      { "text": "I eat ramen.", "kind": "S+V+O", "jp": "私はラーメンを食べます。" },
-      { "text": "I watch movies.", "kind": "S+V+O", "jp": "私は映画を見ます。" },
-      { "text": "I practice tennis.", "kind": "S+V+O", "jp": "私はテニスの練習をします。" }
-    ]
-  },
-  "tab3_quiz": {
-    "questions": [
-      {
-        "stem": ["Put the words in the correct order:", "soccer / I / play"],
-        "answers": ["soccer I play.", "I soccer play.", "I play soccer.", "play I soccer."],
-        "correct": 2,
-        "explanation": { "title": "S + V + O order", "body": "In English: Subject (I) + Verb (play) + Object (soccer)." },
-        "jp": "正しい語順はどれですか？"
-      },
-      {
-        "stem": ["Put the words in the correct order:", "music / like / I"],
-        "answers": ["I like music.", "Music I like.", "Like I music.", "I music like."],
-        "correct": 0,
-        "explanation": { "title": "S + V + O order", "body": "I (S) + like (V) + music (O). The verb always comes before the object!" },
-        "jp": "正しい語順はどれですか？"
-      },
-      {
-        "stem": ["Which sentence has the CORRECT English word order?"],
-        "answers": ["Soccer I play.", "I soccer play.", "Play I soccer.", "I play soccer."],
-        "correct": 3,
-        "explanation": { "title": "Verb before object", "body": "English: I play soccer. ✅ Japanese order would be: I soccer play. ❌" },
-        "jp": "正しい英語の語順はどれですか？"
-      },
-      {
-        "stem": ["私は寿司を食べます。→ English?"],
-        "answers": ["I sushi eat.", "I eat sushi.", "Eat I sushi.", "Sushi I eat."],
-        "correct": 1,
-        "explanation": { "title": "Translation", "body": "私は(I) 食べます(eat) 寿司を(sushi). → I eat sushi." },
-        "jp": "英語に直すとどれですか？"
-      },
-      {
-        "stem": ["I ___ English. (study)", "Where does the verb go?"],
-        "answers": ["I English study.", "English I study.", "I study English.", "Study I English."],
-        "correct": 2,
-        "explanation": { "title": "Verb position", "body": "The verb (study) goes between the subject (I) and object (English)." },
-        "jp": "動詞はどこに入りますか？"
+        "num": "2",
+        "title_jp": "語順がちがうと意味が変わったり、伝わらなくなることがある！",
+        "title_en": "Wrong word order changes the meaning or makes it unclear!",
+        "body_jp": "・日本語：サッカーをします、私は。→ちょっと変だけど、伝えたいことはわかるね。\n・英語：Play soccer I. → これだと意味さえ伝わらず、「サッカーしなさい」という命令だと思われちゃうかも…\n・きちんと覚えよう！",
+        "body_en": "・Japanese: サッカーをします、私は。(odd but understandable)\n・English: Play soccer I. (unclear — sounds like a command!)\n・Learn the correct order carefully!"
       }
     ]
   },
-  "tab4_master": {
-    "questions": [
-      { "type": "build", "cue": "日本語→英語: 私は音楽を聞きます。", "bank": ["I", "listen", "to", "music", "."], "correct": "I listen to music.", "jp": "私は音楽を聞きます。" },
-      { "type": "build", "cue": "日本語→英語: 私はラーメンを食べます。", "bank": ["I", "eat", "ramen", "."], "correct": "I eat ramen.", "jp": "私はラーメンを食べます。" },
-      { "type": "build", "cue": "語順を直せ: tennis / I / practice", "bank": ["I", "practice", "tennis", "."], "correct": "I practice tennis.", "jp": "私はテニスを練習します。" },
-      { "type": "mcq", "stem": "私は野球が好きです。→ English?", "answers": ["Baseball I like.", "I baseball like.", "I like baseball.", "Like I baseball."], "correct": 2, "jp": "正しい英語訳はどれですか？" },
-      { "type": "mcq", "stem": "私はマンガを読みます。→ English?", "answers": ["I manga read.", "I read manga.", "Read I manga.", "Manga I read."], "correct": 1, "jp": "正しい英語訳はどれですか？" },
-      { "type": "fill", "stem": "I ___ soccer. (play / plays / playing)", "answers": ["play", "plays", "playing"], "correct": 0, "jp": "私はサッカーをします。" }
-    ]
-  }
+
+  "section_a": {
+    "instruction_jp": "絵を参考に、（）内の単語を正しく並べかえて書いてみよう。",
+    "instruction_en": "Look at the picture and rearrange the words correctly.",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "正しい語順の英文はどれ？",
+      "instruction_en": "Which sentence has the correct word order?",
+      "scenes": [
+        { "id": 1, "context_jp": "私は数学を勉強するよ。", "context_en": "I study math." },
+        { "id": 2, "context_jp": "私はハイキングを楽しむよ。", "context_en": "I enjoy hiking." }
+      ],
+      "choices": [
+        { "en": "I study math.", "jp": "私は数学を勉強します。", "correct_scene": 1 },
+        { "en": "I enjoy hiking.", "jp": "私はハイキングを楽しみます。", "correct_scene": 2 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "語順に気をつけて、日本語に合う英文を完成させよう。",
+      "instruction_en": "Complete the sentence with correct word order.",
+      "items": [
+        {
+          "jp": "私は数学を勉強します。",
+          "en_template": "I ___ math.",
+          "bank": ["study", "math", "like", "play"],
+          "answer": ["study"]
+        },
+        {
+          "jp": "私はハイキングを楽しみます。",
+          "en_template": "I ___ hiking.",
+          "bank": ["enjoy", "like", "play", "study"],
+          "answer": ["enjoy"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "（）内の単語を正しく並べかえて書こう。",
+      "instruction_en": "Rearrange the words into the correct order.",
+      "items": [
+        {
+          "jp": "私は数学を勉強します。",
+          "bank": ["study", "math", "I", "."],
+          "answer": ["I", "study", "math", "."]
+        },
+        {
+          "jp": "私はハイキングを楽しみます。",
+          "bank": ["enjoy", "hiking", "I", "."],
+          "answer": ["I", "enjoy", "hiking", "."]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": null,
+
+  "section_b": null
 }
