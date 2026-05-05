@@ -250,6 +250,23 @@
     .result-banner.ok { background: var(--nc-green-pale); color: var(--nc-navy); border: 1.5px solid #A5D6A7; }
     .result-banner.no { background: #FFEBEE; color: #C62828; border: 1.5px solid #EF9A9A; }
 
+    /* SET NAV */
+    .set-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      background: white; border-bottom: 2px solid var(--nc-green-pale);
+      padding: 8px 16px; gap: 12px;
+    }
+    .set-nav-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--nc-green-pale); color: var(--nc-navy);
+      border: 1.5px solid #C8E6C9; border-radius: 50px;
+      padding: 6px 16px; font-family: 'Nunito',sans-serif; font-weight: 800;
+      font-size: 13px; text-decoration: none; transition: all 0.15s;
+    }
+    .set-nav-btn:not(.disabled):hover { background: #C8E6C9; border-color: #A5D6A7; }
+    .set-nav-btn.disabled { opacity: 0.35; pointer-events: none; cursor: not-allowed; }
+    .set-nav-label { font-family: 'Baloo 2',cursive; font-weight: 700; font-size: 15px; color: var(--nc-green); }
+
     /* LOADING / ERROR */
     .loading { text-align: center; padding: 60px; color: var(--nc-green); font-weight: 700; font-size: 16px; }
     .error { text-align: center; padding: 60px; color: var(--coral); font-weight: 700; }
@@ -266,6 +283,12 @@
   <div class="hdr-sub" id="hdrSub"></div>
   <div class="intro-wrap" id="introWrap"></div>
 </header>
+
+<div class="set-nav">
+  <a id="prevBtn" class="set-nav-btn disabled" href="#">← Prev</a>
+  <span class="set-nav-label" id="setNavLabel">Set —</span>
+  <a id="nextBtn" class="set-nav-btn disabled" href="#">Next →</a>
+</div>
 
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('chart',this)">📊 Chart</button>
@@ -309,8 +332,28 @@ async function loadGrammar() {
     if (!res.ok) throw new Error('Not found');
     const g = await res.json();
     render(g);
+    setupNav();
   } catch(e) {
     document.getElementById('tab-chart').innerHTML = `<div class="error">❌ Could not load: ${path}</div>`;
+  }
+}
+
+async function setupNav() {
+  const setNum = parseInt(set, 10);
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  document.getElementById('setNavLabel').textContent = `Set ${setNum}`;
+
+  if (setNum > 1) {
+    prevBtn.href = `?unit=${unit}&set=${setNum - 1}`;
+    prevBtn.classList.remove('disabled');
+  }
+
+  const nextPath = `content/new-crown/jh1/${unit}/grammar-${setNum + 1}.json`;
+  const probe = await fetch(nextPath, { method: 'HEAD' });
+  if (probe.ok) {
+    nextBtn.href = `?unit=${unit}&set=${setNum + 1}`;
+    nextBtn.classList.remove('disabled');
   }
 }
 
