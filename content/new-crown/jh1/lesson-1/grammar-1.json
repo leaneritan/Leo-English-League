@@ -1,149 +1,167 @@
 {
-  "level": "JH1",
-  "unit": "lesson-1",
-  "set": 1,
-  "unit_name": "Lesson 1",
-  "title": "I am / I like",
-  "tag": "Lesson 1",
-  "chart": {
-    "title": "I am · I like · I'm",
-    "intro_examples": [
-      { "text": "I am Kato Riku.", "continuation": "私は加藤陸です。" },
-      { "text": "I like music.", "continuation": "私は音楽が好きです。" },
-      { "text": "I'm a soccer fan.", "continuation": "私はサッカーファンです。（短縮形）" }
-    ],
-    "rows": [
-      { "type": "be", "full": "I am Leo.", "short": "I'm Leo.", "jp": "私はレオです。" },
-      { "type": "be", "full": "I am a student.", "short": "I'm a student.", "jp": "私は学生です。" },
-      { "type": "be", "full": "I am a soccer fan.", "short": "I'm a soccer fan.", "jp": "私はサッカーファンです。" },
-      { "type": "general", "full": "I like music.", "short": "—", "jp": "私は音楽が好きです。" },
-      { "type": "general", "full": "I play soccer.", "short": "—", "jp": "私はサッカーをします。" },
-      { "type": "general", "full": "I eat sushi.", "short": "—", "jp": "私は寿司を食べます。" },
-      { "type": "general", "full": "I study English.", "short": "—", "jp": "私は英語を勉強します。" },
-      { "type": "general", "full": "I drink milk.", "short": "—", "jp": "私は牛乳を飲みます。" }
-    ],
-    "note_rule": "Use 'I am' with nouns and adjectives. Use 'I like/play/eat...' with general actions. I am → I'm (contraction).",
-    "note_exception": "General verbs: like, play, eat, drink, study, watch, read, listen",
-    "note_exception_detail": "I am + noun/adjective ✅　　I like + noun ✅　　I am + verb ❌"
-  },
-  "tab1_samples": [
-    { "text": "I am Leo.", "jp": "私はレオです。" },
-    { "text": "I'm a student.", "jp": "私は学生です。" },
-    { "text": "I'm from Japan.", "jp": "私は日本出身です。" },
-    { "text": "I like J-pop.", "jp": "私はJポップが好きです。" },
-    { "text": "I play basketball.", "jp": "私はバスケットボールをします。" },
-    { "text": "I eat sushi.", "jp": "私は寿司を食べます。" },
-    { "text": "I drink green tea.", "jp": "私は緑茶を飲みます。" },
-    { "text": "I study English.", "jp": "私は英語を勉強します。" },
-    { "text": "I watch anime.", "jp": "私はアニメを見ます。" },
-    { "text": "I read manga every day.", "jp": "私は毎日マンガを読みます。" }
+  "lesson": 1,
+  "cando_num": "1",
+  "cando_jp": "自分の名前や好きなことなどを英語で紹介できる。",
+  "cando_en": "I can introduce my name and things I like in English.",
+  "textbook_pages": "p.25〜27",
+
+  "kihon_bun": [
+    { "en": "I am Kato Riku.", "jp": "私は加藤陸です。" },
+    { "en": "I like music.", "jp": "私は音楽が好きです。" }
   ],
-  "tab2_levelup": {
-    "rules": [
+
+  "point": {
+    "title_jp": "「私は…です」は I am …、「私は…が好きです」は I like .... で表す！",
+    "title_en": "'I am...' means 私は…です / 'I like...' means 私は…が好きです",
+    "items": [
       {
-        "num": "01",
-        "title": "I am + noun / adjective",
-        "jp_title": "I am ＋ 名詞・形容詞",
-        "subtitle": "Use 'am' with the be verb",
-        "jp_subtitle": "be動詞（am）は名詞・形容詞の前に使う",
-        "transforms": [
-          { "from": "私は　学生　です。", "to": "I am a student." },
-          { "from": "私は　13歳　です。", "to": "I am 13 years old." }
-        ],
-        "examples": [
-          { "text": "I am Leo.", "jp": "私はレオです。" },
-          { "text": "I am a junior high student.", "jp": "私は中学生です。" },
-          { "text": "I am 13 years old.", "jp": "私は13歳です。" }
-        ]
+        "num": "1",
+        "title_jp": "I am .... の文",
+        "title_en": "Sentences with 'I am'",
+        "body_jp": "・I は主語で「私は」という意味。いつも大文字で書く。\n・am は be 動詞と言い、「…である[です]」にあたる語。\n・be 動詞は前後の語句を「＝」(イコール)でつなぐ役割を持つ。",
+        "body_en": "・'I' is the subject meaning 'me'. Always written in capitals.\n・'am' is a be verb meaning 'equals / is'.\n・Be verbs connect two parts of a sentence like an equals sign."
       },
       {
-        "num": "02",
-        "title": "I'm = I am (contraction)",
-        "jp_title": "I'm = I am（短縮形）",
-        "subtitle": "Drop the 'a' and add an apostrophe",
-        "jp_subtitle": "「a」を消してアポストロフィをつける",
-        "transforms": [
-          { "from": "I am Leo.", "to": "I'm Leo." },
-          { "from": "I am a student.", "to": "I'm a student." }
-        ],
-        "examples": [
-          { "text": "I'm Leo.", "jp": "私はレオです。" },
-          { "text": "I'm a soccer fan.", "jp": "私はサッカーファンです。" }
-        ]
+        "num": "2",
+        "title_jp": "短縮形(ちぢめた言い方)",
+        "title_en": "Contractions",
+        "body_jp": "・I am は、ふつう I'm とちぢめて言う。",
+        "body_en": "・'I am' is usually shortened to 'I'm' in speech and informal writing."
       },
       {
-        "num": "03",
-        "title": "I + general verb + object",
-        "jp_title": "I ＋ 一般動詞 ＋ 目的語",
-        "subtitle": "like, play, eat, drink, study, watch, read",
-        "jp_subtitle": "一般動詞は「する動作」を表す",
-        "transforms": [
-          { "from": "私は　音楽を　好きです。", "to": "I like music." },
-          { "from": "私は　サッカーを　します。", "to": "I play soccer." }
-        ],
-        "examples": [
-          { "text": "I like anime.", "jp": "私はアニメが好きです。" },
-          { "text": "I play tennis.", "jp": "私はテニスをします。" },
-          { "text": "I eat ramen.", "jp": "私はラーメンを食べます。" }
-        ]
-      }
-    ],
-    "mixed_samples": [
-      { "text": "I am Yamada Hana.", "kind": "I am + name", "jp": "私は山田ハナです。" },
-      { "text": "I'm a big soccer fan.", "kind": "I'm + noun", "jp": "私はサッカーの大ファンです。" },
-      { "text": "I like rock music.", "kind": "I like + noun", "jp": "私はロック音楽が好きです。" },
-      { "text": "I play basketball after school.", "kind": "I play + noun", "jp": "私は放課後バスケットボールをします。" },
-      { "text": "I study English every day.", "kind": "I study + noun", "jp": "私は毎日英語を勉強します。" },
-      { "text": "I eat sushi and ramen.", "kind": "I eat + noun", "jp": "私は寿司とラーメンを食べます。" }
-    ]
-  },
-  "tab3_quiz": {
-    "questions": [
-      {
-        "stem": ["Choose the correct sentence:"],
-        "answers": ["I am like music.", "I like music.", "I am music.", "Like I music."],
-        "correct": 1,
-        "explanation": { "title": "I like + noun", "body": "Use 'I like' with things you enjoy. 'I am' is NOT used with verbs." },
-        "jp": "正しい文はどれですか？"
-      },
-      {
-        "stem": ["I am a student. → Short form?"],
-        "answers": ["I'am a student.", "I' a student.", "I'm a student.", "Am I a student."],
-        "correct": 2,
-        "explanation": { "title": "Contraction", "body": "I am → I'm. Remove the 'a' and add an apostrophe (')." },
-        "jp": "短縮形はどれですか？"
-      },
-      {
-        "stem": ["Which verb goes with 'I am'?"],
-        "answers": ["I am play soccer.", "I am like music.", "I am a soccer fan.", "I am eat sushi."],
-        "correct": 2,
-        "explanation": { "title": "I am + noun", "body": "I am is followed by a noun or adjective, NOT a verb. I am a soccer fan. ✅" },
-        "jp": "「I am」の後に来るのはどれですか？"
-      },
-      {
-        "stem": ["私は寿司を食べます。→ English?"],
-        "answers": ["I am eat sushi.", "I eating sushi.", "I eat sushi.", "I eats sushi."],
-        "correct": 2,
-        "explanation": { "title": "General verb", "body": "Use I + verb (eat, drink, play, study...) to describe actions." },
-        "jp": "正しい英語はどれですか？"
-      },
-      {
-        "stem": ["Which is correct?"],
-        "answers": ["I'm play soccer.", "I'm soccer player.", "I'm a soccer player.", "I'm like soccer."],
-        "correct": 2,
-        "explanation": { "title": "I'm + a + noun", "body": "I'm (I am) + a + noun. We need 'a' before a singular noun: I'm a soccer player." },
-        "jp": "正しい文はどれですか？"
+        "num": "3",
+        "title_jp": "一般動詞(be 動詞(am, are)以外の動詞)の文",
+        "title_en": "Sentences with general verbs",
+        "body_jp": "・動作や状態などを表す動詞を一般動詞と言う。\n例: drink, eat, like, play, study など",
+        "body_en": "・Verbs that express actions or states are called general verbs.\nExamples: drink, eat, like, play, study"
       }
     ]
   },
-  "tab4_master": {
-    "questions": [
-      { "type": "mcq", "stem": "私はレオです。", "answers": ["I like Leo.", "I am Leo.", "I'm Leo Tanaka.", "I play Leo."], "correct": 1, "jp": "正しい英語はどれですか？" },
-      { "type": "mcq", "stem": "私は音楽が好きです。", "answers": ["I am music.", "I'm like music.", "I like music.", "I am like music."], "correct": 2, "jp": "正しい英語はどれですか？" },
-      { "type": "fill", "stem": "I ___ a soccer fan. (am / is / like)", "answers": ["am", "is", "like"], "correct": 0, "jp": "私はサッカーファンです。" },
-      { "type": "fill", "stem": "I ___ sushi every day. (am / eat / is)", "answers": ["am", "eat", "is"], "correct": 1, "jp": "私は毎日寿司を食べます。" },
-      { "type": "build", "cue": "日本語→英語: 私は野球が好きです。", "bank": ["I", "like", "baseball", "."], "correct": "I like baseball.", "jp": "私は野球が好きです。" },
-      { "type": "build", "cue": "短縮形に: I am a student.", "bank": ["I'm", "a", "student", "."], "correct": "I'm a student.", "jp": "短縮形にしましょう。" }
+
+  "section_a": {
+    "instruction_jp": "基本を確認する！",
+    "instruction_en": "Check the basics!",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "絵の中の□にあう英文を選び、線で結ぼう。",
+      "instruction_en": "Choose the correct English sentence for each picture.",
+      "scenes": [
+        { "id": 1, "context_jp": "教室で自己紹介", "context_en": "Self-introduction in class" },
+        { "id": 2, "context_jp": "部活で自己紹介", "context_en": "Self-introduction at club" },
+        { "id": 3, "context_jp": "好きなものを伝える", "context_en": "Telling what you like" }
+      ],
+      "choices": [
+        { "en": "I'm Yui.", "jp": "私はユイです。", "correct_scene": 2 },
+        { "en": "I like sushi.", "jp": "私は寿司が好きです。", "correct_scene": 3 },
+        { "en": "I am Ken.", "jp": "私はケンです。", "correct_scene": 1 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本文にあう英文になるように、＿に適する語を書こう。",
+      "instruction_en": "Fill in the blank to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "私は12歳です。",
+          "en_template": "___ twelve.",
+          "bank": ["I", "am", "like", "play", "study"],
+          "answer": ["I", "am"]
+        },
+        {
+          "jp": "私はスポーツが好きです。",
+          "en_template": "I ___ sports.",
+          "bank": ["am", "like", "play", "study", "eat"],
+          "answer": ["like"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、正しく書こう。",
+      "instruction_en": "Rearrange the words to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "私は花です。",
+          "bank": ["am", "I", "Hana", "."],
+          "answer": ["I", "am", "Hana", "."]
+        },
+        {
+          "jp": "私は紅茶を飲みます。",
+          "bank": ["drink", "I", "tea", "."],
+          "answer": ["I", "drink", "tea", "."]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": {
+    "instruction_jp": "日本文にあうように、＿に適する語を書こう。",
+    "instruction_en": "Write the English word that matches the Japanese.",
+    "items": [
+      { "jp": "試合", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "game" },
+      { "jp": "私を、私に", "pos_jp": "代", "pos_en": "pronoun", "hint": "", "answer": "me" },
+      { "jp": "テレビで", "pos_jp": "前", "pos_en": "preposition", "hint": "___ TV", "answer": "on" },
+      { "jp": "茶をよく飲む", "pos_jp": "副", "pos_en": "adverb", "hint": "___ drink tea", "answer": "often" },
+      { "jp": "英語で", "pos_jp": "前", "pos_en": "preposition", "hint": "___ English", "answer": "in" },
+      { "jp": "スポーツについて(の)", "pos_jp": "前", "pos_en": "preposition", "hint": "___ sports", "answer": "about" },
+      { "jp": "私はサッカーが上手だ。", "pos_jp": "連語", "pos_en": "phrase", "hint": "I am ___ ___ soccer.", "answer": "good at" }
     ]
+  },
+
+  "section_b": {
+    "instruction_jp": "伝える練習をする！",
+    "instruction_en": "Practice expressing yourself!",
+    "ex1": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、全文を書こう。",
+      "instruction_en": "Rearrange all the words to write the full sentence.",
+      "items": [
+        {
+          "jp": "私はケイトです。",
+          "bank": ["Kate", "I'm", "."],
+          "answer": ["I'm", "Kate", "."]
+        },
+        {
+          "jp": "私は理科が好きです。",
+          "bank": ["science", "like", "I", "."],
+          "answer": ["I", "like", "science", "."]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "build",
+      "instruction_jp": "下のメモを参考に、ゆりの自己紹介を完成させよう。",
+      "instruction_en": "Complete Yuri's self-introduction using the notes below.",
+      "context_jp": "ゆりが、初対面の Sara(サラ)に英語で自己紹介します。",
+      "context_en": "Yuri introduces herself in English to Sara for the first time.",
+      "items": [
+        {
+          "label_jp": "私は…です (名前：佐藤ゆり)",
+          "label_en": "I am... (name: Sato Yuri)",
+          "bank": ["I", "am", "like", "Sato", "Yuri", "."],
+          "answer": ["I", "am", "Sato", "Yuri", "."]
+        },
+        {
+          "label_jp": "私は…が好きです (好きなスポーツ：サッカー)",
+          "label_en": "I like... (favorite sport: soccer)",
+          "bank": ["I", "am", "like", "play", "soccer", "."],
+          "answer": ["I", "like", "soccer", "."]
+        },
+        {
+          "label_jp": "私は…が好きです (好きな教科：英語)",
+          "label_en": "I like... (favorite subject: English)",
+          "bank": ["I", "am", "like", "play", "English", "."],
+          "answer": ["I", "like", "English", "."]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "free_write",
+      "instruction_jp": "新しいALTのPeter(ピーター)のために、自己紹介カードを作ろう。右のPeterの自己紹介カードと青字を参考に、あなたが自分の「名前(フルネーム)」「好きな食べ物」「するスポーツ」を伝える英文を書こう。",
+      "instruction_en": "Make a self-introduction card for your new ALT Peter. Write sentences about your full name, favorite food, and a sport you play.",
+      "example_jp": "「好きな食べ物」「するスポーツ」をそれぞれ2つ伝える。",
+      "example_en": "Include 2 foods and 2 sports.",
+      "example_text": "I'm Peter Evans.\nI like natto.\nI like okonomiyaki, too.\nI play tennis.\nI play basketball, too."
+    }
   }
 }
