@@ -1,143 +1,150 @@
 {
-  "level": "JH1",
-  "unit": "lesson-1",
-  "set": 3,
-  "unit_name": "Lesson 1",
-  "title": "I am not / I don't",
-  "tag": "Lesson 1",
-  "chart": {
-    "title": "Negative Sentences",
-    "intro_examples": [
-      { "text": "I am not a basketball fan.", "continuation": "私はバスケットボールファンではありません。" },
-      { "text": "I don't practice soccer every day.", "continuation": "私は毎日サッカーを練習しません。" }
-    ],
-    "rows": [
-      { "positive": "I am a soccer fan.", "negative": "I am not a soccer fan.", "short": "I'm not a soccer fan.", "jp": "私はサッカーファンではありません。" },
-      { "positive": "I am from Tokyo.", "negative": "I am not from Tokyo.", "short": "I'm not from Tokyo.", "jp": "私は東京出身ではありません。" },
-      { "positive": "I like sushi.", "negative": "I do not like sushi.", "short": "I don't like sushi.", "jp": "私は寿司が好きではありません。" },
-      { "positive": "I play soccer.", "negative": "I do not play soccer.", "short": "I don't play soccer.", "jp": "私はサッカーをしません。" },
-      { "positive": "I eat fish.", "negative": "I do not eat fish.", "short": "I don't eat fish.", "jp": "私は魚を食べません。" }
-    ],
-    "note_rule": "Be verb negative: I am not (= I'm not). General verb negative: I do not (= I don't).",
-    "note_exception": "There is NO 'I amn't'. Always use I'm not for be verb negatives.",
-    "note_exception_detail": "I'm not a fan. ✅　　I amn't a fan. ❌"
-  },
-  "tab1_samples": [
-    { "text": "I am not a basketball fan.", "jp": "私はバスケットボールファンではありません。" },
-    { "text": "I'm not from Tokyo.", "jp": "私は東京出身ではありません。" },
-    { "text": "I'm not a morning person.", "jp": "私は朝型の人間ではありません。" },
-    { "text": "I don't like spicy food.", "jp": "私は辛い食べ物が好きではありません。" },
-    { "text": "I don't play baseball.", "jp": "私は野球をしません。" },
-    { "text": "I don't study Chinese.", "jp": "私は中国語を勉強しません。" },
-    { "text": "I don't eat meat.", "jp": "私は肉を食べません。" },
-    { "text": "I don't watch TV often.", "jp": "私はテレビをあまり見ません。" },
-    { "text": "I'm not good at math.", "jp": "私は数学が得意ではありません。" },
-    { "text": "I don't drink coffee.", "jp": "私はコーヒーを飲みません。" }
+  "lesson": 1,
+  "cando_num": "2-2",
+  "cando_jp": "「…ではありません」「…しません」と否定することができる。",
+  "cando_en": "I can make negative sentences using 'am not' and 'do not'.",
+  "textbook_pages": "p.28〜29",
+
+  "kihon_bun": [
+    { "en": "I am not a basketball fan.", "jp": "私はバスケットボールのファンではありません。" },
+    { "en": "I do not practice soccer every day.", "jp": "私は毎日サッカーを練習しません。" }
   ],
-  "tab2_levelup": {
-    "rules": [
+
+  "point": {
+    "title_jp": "「私は…ではありません」は I am not …、「私は…しません」は〈I do not＋動詞 ....〉で表す！",
+    "title_en": "'I am not...' = 私は…ではありません / 'I do not + verb...' = 私は…しません",
+    "items": [
       {
-        "num": "01",
-        "title": "I am not (be verb negative)",
-        "jp_title": "I am not（be動詞の否定）",
-        "subtitle": "Add 'not' after 'am'",
-        "jp_subtitle": "「am」の後に「not」をつける",
-        "transforms": [
-          { "from": "I am a soccer fan.", "to": "I am not a soccer fan." },
-          { "from": "I am from Osaka.", "to": "I am not from Osaka." }
-        ],
-        "examples": [
-          { "text": "I am not a morning person.", "jp": "私は朝型の人間ではありません。" },
-          { "text": "I'm not tired.", "jp": "私は疲れていません。" }
-        ]
+        "num": "1",
+        "title_jp": "I am not .... の文",
+        "title_en": "Sentences with 'I am not'",
+        "body_jp": "・「私は…ではありません」と否定するときは、I am[I'm] not .... で表す。",
+        "body_en": "・Use 'I am not...' (I'm not...) to say you are NOT something."
       },
       {
-        "num": "02",
-        "title": "I'm not = I am not",
-        "jp_title": "I'm not = I am not（短縮形）",
-        "subtitle": "The only contraction for 'am not'",
-        "jp_subtitle": "「am not」の短縮形はI'm not だけ",
-        "transforms": [
-          { "from": "I am not a fan.", "to": "I'm not a fan." },
-          { "from": "I am not good at math.", "to": "I'm not good at math." }
-        ],
-        "examples": [
-          { "text": "I'm not a baseball fan.", "jp": "私は野球ファンではありません。" },
-          { "text": "I'm not from Tokyo.", "jp": "私は東京出身ではありません。" }
-        ]
-      },
-      {
-        "num": "03",
-        "title": "I do not / I don't (general verb negative)",
-        "jp_title": "I do not / I don't（一般動詞の否定）",
-        "subtitle": "Add 'do not' before the verb",
-        "jp_subtitle": "動詞の前に「do not」を加える",
-        "transforms": [
-          { "from": "I like sushi.", "to": "I do not like sushi." },
-          { "from": "I play soccer.", "to": "I don't play soccer." }
-        ],
-        "examples": [
-          { "text": "I don't like spicy food.", "jp": "私は辛い食べ物が好きではありません。" },
-          { "text": "I don't eat meat.", "jp": "私は肉を食べません。" },
-          { "text": "I don't study on weekends.", "jp": "私は週末に勉強しません。" }
-        ]
-      }
-    ],
-    "mixed_samples": [
-      { "text": "I'm not a hip-hop dancer.", "kind": "I'm not", "jp": "私はヒップホップダンサーではありません。" },
-      { "text": "I don't like bitter coffee.", "kind": "I don't", "jp": "私はにがいコーヒーが好きではありません。" },
-      { "text": "I'm not good at math, but I love English.", "kind": "I'm not", "jp": "私は数学が得意ではありませんが、英語が大好きです。" },
-      { "text": "I don't play soccer. I play basketball.", "kind": "I don't", "jp": "私はサッカーをしません。バスケットボールをします。" },
-      { "text": "I'm not tired.", "kind": "I'm not", "jp": "私は疲れていません。" }
-    ]
-  },
-  "tab3_quiz": {
-    "questions": [
-      {
-        "stem": ["I am a soccer fan. → Negative?"],
-        "answers": ["I don't a soccer fan.", "I am not a soccer fan.", "I not am a soccer fan.", "I amn't a soccer fan."],
-        "correct": 1,
-        "explanation": { "title": "I am not", "body": "Be verb negative: add 'not' after 'am'. I am not a soccer fan." },
-        "jp": "否定文はどれですか？"
-      },
-      {
-        "stem": ["I like music. → Negative?"],
-        "answers": ["I am not like music.", "I not like music.", "I don't like music.", "I like not music."],
-        "correct": 2,
-        "explanation": { "title": "I don't + verb", "body": "General verb negative: I do not (= I don't) + verb. I don't like music." },
-        "jp": "否定文はどれですか？"
-      },
-      {
-        "stem": ["Which is the correct SHORT form of 'I am not'?"],
-        "answers": ["I amn't", "I'mnot", "I'm not", "I not'm"],
-        "correct": 2,
-        "explanation": { "title": "I'm not", "body": "I am not → I'm not. There is NO 'amn't' in English!" },
-        "jp": "「I am not」の短縮形はどれですか？" 
-      },
-      {
-        "stem": ["I play tennis. → Negative?"],
-        "answers": ["I am not play tennis.", "I plays not tennis.", "I don't plays tennis.", "I don't play tennis."],
-        "correct": 3,
-        "explanation": { "title": "I don't + base verb", "body": "I don't + verb (base form). NOT 'plays'." },
-        "jp": "否定文はどれですか？"
-      },
-      {
-        "stem": ["Which sentence is correct?"],
-        "answers": ["I'm not a morning person.", "I don't a morning person.", "I amn't a morning person.", "I not am a morning person."],
-        "correct": 0,
-        "explanation": { "title": "I'm not + noun", "body": "For be verb negatives with nouns: I'm not + noun." },
-        "jp": "正しい文はどれですか？"
+        "num": "2",
+        "title_jp": "一般動詞の否定文",
+        "title_en": "Negative sentences with general verbs",
+        "body_jp": "・「私は…しません」と否定するときは、〈I do not[don't]＋動詞 ....〉で表す。",
+        "body_en": "・Use 'I do not [don't] + verb...' to say you do NOT do something."
       }
     ]
   },
-  "tab4_master": {
-    "questions": [
-      { "type": "mcq", "stem": "I am a fan. → 否定文は？", "answers": ["I don't a fan.", "I am not a fan.", "I'm not fan.", "I not am a fan."], "correct": 1, "jp": "否定文はどれですか？" },
-      { "type": "mcq", "stem": "I like spicy food. → 否定文は？", "answers": ["I'm not like spicy food.", "I not like spicy food.", "I don't like spicy food.", "I likes not spicy food."], "correct": 2, "jp": "否定文はどれですか？" },
-      { "type": "fill", "stem": "I ___ not a baseball fan. (am / do / don't)", "answers": ["am", "do", "don't"], "correct": 0, "jp": "私は野球ファンではありません。" },
-      { "type": "fill", "stem": "I ___ eat meat. (am not / don't / aren't)", "answers": ["am not", "don't", "aren't"], "correct": 1, "jp": "私は肉を食べません。" },
-      { "type": "build", "cue": "否定文を作れ: I like bitter coffee.", "bank": ["I", "don't", "like", "bitter", "coffee", "."], "correct": "I don't like bitter coffee.", "jp": "私はにがいコーヒーが好きではありません。" },
-      { "type": "build", "cue": "否定文を作れ: I am a morning person.", "bank": ["I'm", "not", "a", "morning", "person", "."], "correct": "I'm not a morning person.", "jp": "私は朝型の人間ではありません。" }
+
+  "section_a": {
+    "instruction_jp": "基本を確認する！",
+    "instruction_en": "Check the basics!",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "絵の中の□に入るセリフとなるように、適する語を選んで書こう。",
+      "instruction_en": "Choose the correct word to complete each speech bubble.",
+      "scenes": [
+        { "id": 1, "context_jp": "教室で", "context_en": "In the classroom" },
+        { "id": 2, "context_jp": "学校の前で", "context_en": "In front of school" },
+        { "id": 3, "context_jp": "カフェで", "context_en": "At a café" }
+      ],
+      "choices": [
+        { "en": "I am not a tennis fan.", "jp": "私はテニスのファンではありません。", "correct_scene": 1 },
+        { "en": "I'm not in a club.", "jp": "私はクラブに入っていません。", "correct_scene": 2 },
+        { "en": "I don't drink coffee.", "jp": "私はコーヒーを飲みません。", "correct_scene": 3 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本文にあう英文になるように、＿に適する語を書こう。",
+      "instruction_en": "Fill in the blank to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "私は花ではありません。",
+          "en_template": "I ___ ___ Hana.",
+          "bank": ["am", "do", "not", "don't", "like"],
+          "answer": ["am", "not"]
+        },
+        {
+          "jp": "私はピアノを演奏しません。",
+          "en_template": "I ___ ___ the piano.",
+          "bank": ["am", "do", "not", "don't", "play"],
+          "answer": ["don't", "play"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、正しく書こう。",
+      "instruction_en": "Rearrange the words to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "私は日曜日にサッカーを練習しません。",
+          "bank": ["not", "I", "practice", "do", "soccer", "on", "Sundays", "."],
+          "answer": ["I", "do", "not", "practice", "soccer", "on", "Sundays", "."]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": {
+    "instruction_jp": "英語は日本語に、日本語は英語にかえて書こう。",
+    "instruction_en": "Translate: English to Japanese, Japanese to English.",
+    "items": [
+      { "jp": "ほほえみ、微笑", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "smile" },
+      { "jp": "声", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "voice" },
+      { "jp": "歌", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "song" },
+      { "jp": "彼女のイヌ", "pos_jp": "代", "pos_en": "pronoun", "hint": "___ dog", "answer": "her" },
+      { "jp": "人気のある映画", "pos_jp": "形", "pos_en": "adjective", "hint": "a ___ movie", "answer": "popular" },
+      { "jp": "it is の短縮形", "pos_jp": "短", "pos_en": "contraction", "hint": "", "answer": "it's" },
+      { "jp": "私のお気に入りの歌手", "pos_jp": "形", "pos_en": "adjective", "hint": "my ___ singer", "answer": "favorite" },
+      { "jp": "とても上手にピアノを演奏する", "pos_jp": "副", "pos_en": "adverb", "hint": "play the piano ___", "answer": "very well" }
     ]
+  },
+
+  "section_b": {
+    "instruction_jp": "伝える練習をする！",
+    "instruction_en": "Practice expressing yourself!",
+    "ex1": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、全文を書こう。",
+      "instruction_en": "Rearrange all the words to write the full sentence.",
+      "items": [
+        {
+          "jp": "彼女は上手に踊ることができます。",
+          "bank": ["can", "she", "well", "dance", "."],
+          "answer": ["She", "can", "dance", "well", "."]
+        },
+        {
+          "jp": "あなたはパンダを見ることができます。",
+          "bank": ["can", "pandas", "you", "see", "."],
+          "answer": ["You", "can", "see", "pandas", "."]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "build",
+      "instruction_jp": "（）内の語や符号に1語つけ足し、弾ける楽器について伝える英文全文を完成させよう。",
+      "instruction_en": "Add one word to complete the full sentence about what instrument can be played.",
+      "context_jp": "志保が留学生のEllen(エレン)に、クラスメイトのことを紹介しています。",
+      "context_en": "Shiho is introducing classmates to exchange student Ellen.",
+      "items": [
+        {
+          "label_jp": "リオは三味線を弾けるよ。",
+          "label_en": "Rio can play the shamisen.",
+          "bank": ["the", "Rio", "shamisen", "play", "can", "."],
+          "answer": ["Rio", "can", "play", "the", "shamisen", "."]
+        },
+        {
+          "label_jp": "ケンジは琴を弾けるよ。",
+          "label_en": "Kenji can play the koto.",
+          "bank": ["play", "koto", "the", "Kenji", "can", "."],
+          "answer": ["Kenji", "can", "play", "the", "koto", "."]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "free_write",
+      "instruction_jp": "廉が来週遊びにくるSam(サム)に、家族を紹介することになりました。左のメモを参考に、廉になったつもりで①には弟、②にはお母さんのできることを英語で書こう。また、あなたができることについて、Samに伝える英文を書こう。",
+      "instruction_en": "Write what Ren's brother and mother can do. Then write what you can do.",
+      "example_jp": "弟のできること：スキー・ケーキを作る / 母のできること：すしを作る・絵をかく",
+      "example_en": "Brother: ski, make a cake / Mother: make sushi, draw pictures",
+      "example_text": "He can ski.\nShe can make sushi."
+    }
   }
 }
