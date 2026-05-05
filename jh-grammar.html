@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar — Leo's English Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --nc-green: #2E7D32;
+      --nc-green-mid: #388E3C;
+      --nc-green-light: #4CAF50;
+      --nc-green-pale: #E8F5E9;
+      --nc-green-xpale: #F1F8F1;
+      --nc-navy: #1B5E20;
+      --coral: #E8735A;
+      --gold: #F9A825;
+      --blue: #1976D2;
+      --blue-light: #E3F2FD;
+      --text-dark: #1A1A2E;
+      --text-mid: #4A4A6A;
+      --text-light: #7A7A9A;
+      --page-bg: #F4FBF4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito',sans-serif; background: var(--page-bg); color: var(--text-dark); }
+
+    /* HEADER */
+    .hdr {
+      background: linear-gradient(135deg, var(--nc-navy) 0%, var(--nc-green) 70%, var(--nc-green-light) 100%);
+      color: white; padding: 16px 20px;
+    }
+    .hdr-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .back-btn {
+      background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3);
+      color: white; border-radius: 50px; padding: 6px 14px;
+      font-family: 'Nunito',sans-serif; font-weight: 700; font-size: 13px;
+      cursor: pointer; text-decoration: none;
+    }
+    .hdr-badge {
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50px; padding: 3px 12px; font-size: 11px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .hdr-title { font-family: 'Baloo 2',cursive; font-size: 22px; font-weight: 800; line-height: 1.1; }
+    .hdr-sub { font-size: 13px; opacity: 0.82; font-weight: 600; }
+
+    /* INTRO CARDS */
+    .intro-wrap {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;
+    }
+    .intro-card {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px; padding: 8px 14px; flex: 1; min-width: 200px;
+    }
+    .intro-en { font-family: 'Baloo 2',cursive; font-size: 15px; font-weight: 700; }
+    .intro-jp { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+
+    /* TABS */
+    .tab-bar {
+      background: white; border-bottom: 2px solid var(--nc-green-pale);
+      display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+    .tab-btn {
+      padding: 12px 18px; font-family: 'Nunito',sans-serif; font-weight: 800; font-size: 13px;
+      border: none; background: transparent; cursor: pointer; color: var(--text-light);
+      border-bottom: 3px solid transparent; white-space: nowrap; flex-shrink: 0;
+      transition: all 0.15s;
+    }
+    .tab-btn.active { color: var(--nc-green); border-bottom-color: var(--nc-green); }
+    .tab-btn:hover:not(.active) { color: var(--nc-green-mid); background: var(--nc-green-xpale); }
+
+    /* CONTENT */
+    .content { max-width: 800px; margin: 0 auto; padding: 20px; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* CHART TAB */
+    .chart-note {
+      background: linear-gradient(135deg, var(--nc-green-pale), var(--nc-green-xpale));
+      border: 2px solid #C8E6C9; border-radius: 14px; padding: 16px 20px; margin-bottom: 20px;
+    }
+    .chart-note-title { font-weight: 800; color: var(--nc-green); font-size: 14px; margin-bottom: 4px; }
+    .chart-note-body { font-size: 14px; color: var(--text-dark); line-height: 1.6; }
+    .chart-exception {
+      background: #FFF8E1; border: 2px solid #FFE082; border-radius: 14px;
+      padding: 14px 18px; margin-bottom: 20px;
+    }
+    .chart-exception-title { font-weight: 800; color: #F57F17; font-size: 13px; margin-bottom: 4px; }
+    .chart-exception-body { font-size: 13px; color: var(--text-dark); font-family: 'Baloo 2',cursive; }
+
+    .chart-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    .chart-table th {
+      background: var(--nc-green); color: white; padding: 10px 14px;
+      text-align: left; font-size: 12px; font-weight: 800; text-transform: uppercase;
+    }
+    .chart-table th:first-child { border-radius: 8px 0 0 0; }
+    .chart-table th:last-child { border-radius: 0 8px 0 0; }
+    .chart-table td { padding: 10px 14px; font-size: 14px; border-bottom: 1px solid #E8F5E9; }
+    .chart-table tr:last-child td { border-bottom: none; }
+    .chart-table tr:nth-child(even) td { background: var(--nc-green-xpale); }
+    .chart-table td:first-child { font-weight: 700; color: var(--nc-green); }
+    .chart-table .jp-cell { color: var(--text-mid); font-size: 13px; }
+
+    .en-text { font-family: 'Baloo 2',cursive; font-weight: 700; color: var(--nc-navy); }
+    .arrow { color: var(--nc-green); margin: 0 6px; }
+
+    /* SAMPLES TAB */
+    .sample-list { display: flex; flex-direction: column; gap: 10px; }
+    .sample-item {
+      background: white; border: 1.5px solid var(--nc-green-pale); border-radius: 12px;
+      padding: 12px 16px; display: flex; gap: 12px; align-items: flex-start;
+    }
+    .sample-num {
+      width: 24px; height: 24px; background: var(--nc-green); color: white;
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 11px; flex-shrink: 0; margin-top: 1px;
+    }
+    .sample-en { font-family: 'Baloo 2',cursive; font-size: 16px; font-weight: 700; color: var(--nc-navy); }
+    .sample-jp { font-size: 13px; color: var(--text-mid); margin-top: 3px; }
+
+    /* LEVEL UP TAB */
+    .rule-card {
+      background: white; border: 1.5px solid var(--nc-green-pale); border-radius: 14px;
+      padding: 18px 20px; margin-bottom: 16px;
+    }
+    .rule-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .rule-num {
+      background: var(--nc-green); color: white; border-radius: 8px;
+      padding: 4px 10px; font-weight: 900; font-size: 12px; flex-shrink: 0;
+    }
+    .rule-title { font-weight: 800; font-size: 16px; color: var(--nc-navy); }
+    .rule-subtitle { font-size: 13px; color: var(--text-mid); font-weight: 600; }
+    .rule-jp-title { font-size: 13px; color: var(--nc-green); font-weight: 700; }
+
+    .transform-list { margin: 12px 0; display: flex; flex-direction: column; gap: 8px; }
+    .transform-item {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      background: var(--nc-green-xpale); border-radius: 8px; padding: 8px 12px;
+    }
+    .transform-from { font-family: 'Baloo 2',cursive; font-size: 14px; color: var(--text-mid); text-decoration: line-through; }
+    .transform-to { font-family: 'Baloo 2',cursive; font-size: 14px; font-weight: 800; color: var(--nc-green); }
+
+    .example-list { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+    .example-item {
+      background: var(--nc-green-xpale); border-left: 3px solid var(--nc-green);
+      border-radius: 0 8px 8px 0; padding: 8px 12px;
+    }
+    .example-en { font-family: 'Baloo 2',cursive; font-weight: 700; color: var(--nc-navy); font-size: 14px; }
+    .example-jp { font-size: 12px; color: var(--text-mid); margin-top: 2px; }
+
+    /* QUIZ TAB */
+    .quiz-q {
+      background: white; border: 1.5px solid var(--nc-green-pale); border-radius: 14px;
+      padding: 18px 20px; margin-bottom: 16px;
+    }
+    .quiz-stem { font-family: 'Baloo 2',cursive; font-size: 16px; font-weight: 700; color: var(--nc-navy); margin-bottom: 4px; }
+    .quiz-jp { font-size: 12px; color: var(--text-light); margin-bottom: 14px; }
+    .quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+    .quiz-opt {
+      border: 2px solid #E0E0E0; border-radius: 10px; padding: 10px 16px;
+      font-family: 'Nunito',sans-serif; font-weight: 700; font-size: 14px;
+      cursor: pointer; text-align: left; background: white; transition: all 0.15s;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .quiz-opt:hover:not(:disabled) { border-color: var(--nc-green); background: var(--nc-green-xpale); }
+    .quiz-opt.correct { border-color: var(--nc-green); background: var(--nc-green-pale); color: var(--nc-navy); }
+    .quiz-opt.wrong { border-color: #EF5350; background: #FFEBEE; color: #C62828; }
+    .quiz-opt:disabled { cursor: not-allowed; }
+    .opt-letter {
+      width: 22px; height: 22px; border-radius: 50%; border: 2px solid currentColor;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; flex-shrink: 0;
+    }
+    .quiz-feedback {
+      display: none; margin-top: 12px; border-radius: 10px; padding: 12px 16px;
+    }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.correct { background: var(--nc-green-pale); border: 1.5px solid #A5D6A7; }
+    .quiz-feedback.wrong { background: #FFEBEE; border: 1.5px solid #EF9A9A; }
+    .feedback-title { font-weight: 800; font-size: 13px; margin-bottom: 4px; }
+    .feedback-body { font-size: 13px; line-height: 1.5; }
+    .quiz-score { text-align: center; font-weight: 800; color: var(--nc-green); font-size: 16px; padding: 10px 0; }
+
+    /* MASTER TAB */
+    .master-q {
+      background: white; border: 1.5px solid var(--nc-green-pale); border-radius: 14px;
+      padding: 18px 20px; margin-bottom: 16px;
+    }
+    .master-label { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--nc-green); margin-bottom: 8px; letter-spacing: 1px; }
+    .master-stem { font-family: 'Baloo 2',cursive; font-size: 16px; font-weight: 700; color: var(--nc-navy); margin-bottom: 8px; }
+    .master-jp { font-size: 13px; color: var(--text-light); margin-bottom: 14px; }
+
+    .mcq-opts { display: flex; flex-direction: column; gap: 7px; }
+    .mcq-opt {
+      border: 2px solid #E0E0E0; border-radius: 10px; padding: 9px 14px;
+      font-family: 'Nunito',sans-serif; font-weight: 700; font-size: 14px;
+      cursor: pointer; text-align: left; background: white; transition: all 0.15s;
+    }
+    .mcq-opt:hover:not(:disabled) { border-color: var(--nc-green); background: var(--nc-green-xpale); }
+    .mcq-opt.correct { border-color: var(--nc-green); background: var(--nc-green-pale); }
+    .mcq-opt.wrong { border-color: #EF5350; background: #FFEBEE; }
+    .mcq-opt:disabled { cursor: not-allowed; }
+
+    .fill-input {
+      border: 2px solid var(--nc-green); border-radius: 8px; padding: 8px 14px;
+      font-family: 'Nunito',sans-serif; font-weight: 700; font-size: 15px;
+      width: 100%; outline: none; transition: border-color 0.15s;
+    }
+    .fill-input:focus { border-color: var(--nc-green-mid); }
+    .fill-input.correct { background: var(--nc-green-pale); border-color: var(--nc-green); }
+    .fill-input.wrong { background: #FFEBEE; border-color: #EF5350; }
+    .fill-submit {
+      margin-top: 8px; background: var(--nc-green); color: white;
+      border: none; border-radius: 8px; padding: 9px 20px;
+      font-family: 'Nunito',sans-serif; font-weight: 800; font-size: 14px;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .fill-submit:hover { background: var(--nc-green-mid); }
+
+    .bank-area { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; min-height: 44px; }
+    .answer-area {
+      min-height: 44px; background: var(--nc-green-xpale); border: 2px dashed #A5D6A7;
+      border-radius: 10px; padding: 8px; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;
+    }
+    .word-chip {
+      background: white; border: 2px solid var(--nc-green-pale); border-radius: 8px;
+      padding: 6px 12px; font-family: 'Nunito',sans-serif; font-weight: 700; font-size: 14px;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .word-chip:hover { border-color: var(--nc-green); background: var(--nc-green-pale); }
+    .word-chip.used { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+    .answer-chip {
+      background: var(--nc-green); color: white; border: none; border-radius: 8px;
+      padding: 6px 12px; font-family: 'Nunito',sans-serif; font-weight: 700; font-size: 14px;
+      cursor: pointer;
+    }
+    .answer-chip:hover { background: var(--nc-green-mid); }
+    .build-check {
+      background: var(--nc-green); color: white; border: none; border-radius: 8px;
+      padding: 9px 20px; font-family: 'Nunito',sans-serif; font-weight: 800; font-size: 14px;
+      cursor: pointer;
+    }
+
+    .result-banner {
+      border-radius: 10px; padding: 10px 16px; margin-top: 10px;
+      font-weight: 800; font-size: 14px;
+    }
+    .result-banner.ok { background: var(--nc-green-pale); color: var(--nc-navy); border: 1.5px solid #A5D6A7; }
+    .result-banner.no { background: #FFEBEE; color: #C62828; border: 1.5px solid #EF9A9A; }
+
+    /* LOADING / ERROR */
+    .loading { text-align: center; padding: 60px; color: var(--nc-green); font-weight: 700; font-size: 16px; }
+    .error { text-align: center; padding: 60px; color: var(--coral); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-top">
+    <a id="backBtn" href="junior-high.html" class="back-btn">← JH1</a>
+    <span class="hdr-badge" id="hdrBadge">Grammar</span>
+  </div>
+  <div class="hdr-title" id="hdrTitle">Loading...</div>
+  <div class="hdr-sub" id="hdrSub"></div>
+  <div class="intro-wrap" id="introWrap"></div>
+</header>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('chart',this)">📊 Chart</button>
+  <button class="tab-btn" onclick="switchTab('samples',this)">💬 Samples</button>
+  <button class="tab-btn" onclick="switchTab('levelup',this)">⬆️ Level Up</button>
+  <button class="tab-btn" onclick="switchTab('quiz',this)">❓ Quiz</button>
+  <button class="tab-btn" onclick="switchTab('master',this)">🏆 Master</button>
+</div>
+
+<div class="content">
+  <div id="tab-chart" class="tab-panel active">
+    <div class="loading">⏳ Loading grammar...</div>
+  </div>
+  <div id="tab-samples" class="tab-panel"></div>
+  <div id="tab-levelup" class="tab-panel"></div>
+  <div id="tab-quiz" class="tab-panel"></div>
+  <div id="tab-master" class="tab-panel"></div>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const unit = params.get('unit') || 'review';
+const set  = params.get('set')  || '1';
+
+const hubUrl = 'junior-high.html';
+document.getElementById('backBtn').href = hubUrl;
+
+let quizScore = 0, quizTotal = 0;
+
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+async function loadGrammar() {
+  const path = `content/new-crown/jh1/${unit}/grammar-${set}.json`;
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error('Not found');
+    const g = await res.json();
+    render(g);
+  } catch(e) {
+    document.getElementById('tab-chart').innerHTML = `<div class="error">❌ Could not load: ${path}</div>`;
+  }
+}
+
+function render(g) {
+  document.getElementById('hdrTitle').textContent = g.title || 'Grammar';
+  document.getElementById('hdrSub').textContent = (g.tag || '') + ' · New Crown JH1';
+  document.getElementById('hdrBadge').textContent = 'Set ' + set + ' · ' + (g.tag || 'Grammar');
+
+  // Intro examples in header
+  if (g.chart && g.chart.intro_examples) {
+    const wrap = document.getElementById('introWrap');
+    wrap.innerHTML = g.chart.intro_examples.map(ex => `
+      <div class="intro-card">
+        <div class="intro-en">${ex.text}</div>
+        <div class="intro-jp">${ex.continuation}</div>
+      </div>
+    `).join('');
+  }
+
+  renderChart(g);
+  renderSamples(g);
+  renderLevelUp(g);
+  renderQuiz(g);
+  renderMaster(g);
+}
+
+function renderChart(g) {
+  const c = g.chart || {};
+  let html = '';
+
+  // Note rule
+  if (c.note_rule) {
+    html += `<div class="chart-note">
+      <div class="chart-note-title">📌 Rule</div>
+      <div class="chart-note-body">${c.note_rule}</div>
+    </div>`;
+  }
+
+  // Table - detect column types from first row
+  if (c.rows && c.rows.length) {
+    const keys = Object.keys(c.rows[0]).filter(k => k !== 'jp' && k !== 'jp_q' && k !== 'jp_a');
+    const colLabels = {
+      rule: 'Rule', example: 'Example', jp: '日本語',
+      full: 'Full Form', short: 'Short Form', type: 'Type',
+      question: 'Question', yes: 'Yes ✅', no: 'No ❌',
+      positive: 'Positive ✅', negative: 'Negative', short: 'Short Form',
+      pattern: 'Pattern', answer: 'Answer',
+      subject: 'Subject (主語)', verb: 'Verb (動詞)', object: 'Object (目的語)',
+    };
+    html += `<table class="chart-table"><tr>`;
+    keys.forEach(k => { html += `<th>${colLabels[k] || k}</th>`; });
+    html += `<th>🇯🇵</th></tr>`;
+    c.rows.forEach(row => {
+      html += '<tr>';
+      keys.forEach(k => {
+        html += `<td class="en-text">${row[k] || '—'}</td>`;
+      });
+      const jp = row.jp || row.jp_q || row.jp_a || '';
+      html += `<td class="jp-cell">${jp}</td></tr>`;
+    });
+    html += '</table>';
+  }
+
+  // Exception note
+  if (c.note_exception) {
+    html += `<div class="chart-exception">
+      <div class="chart-exception-title">⚠️ ${c.note_exception}</div>
+      <div class="chart-exception-body">${c.note_exception_detail || ''}</div>
+    </div>`;
+  }
+
+  document.getElementById('tab-chart').innerHTML = html || '<p style="padding:20px;color:var(--text-light)">No chart data.</p>';
+}
+
+function renderSamples(g) {
+  const samples = g.tab1_samples || [];
+  let html = '<div class="sample-list">';
+  samples.forEach((s, i) => {
+    html += `<div class="sample-item">
+      <div class="sample-num">${i+1}</div>
+      <div>
+        <div class="sample-en">${s.text}</div>
+        <div class="sample-jp">${s.jp}</div>
+      </div>
+    </div>`;
+  });
+  html += '</div>';
+  document.getElementById('tab-samples').innerHTML = html;
+}
+
+function renderLevelUp(g) {
+  const lu = g.tab2_levelup || {};
+  let html = '';
+
+  (lu.rules || []).forEach(rule => {
+    html += `<div class="rule-card">
+      <div class="rule-header">
+        <div class="rule-num">${rule.num}</div>
+        <div>
+          <div class="rule-title">${rule.title}</div>
+          <div class="rule-jp-title">${rule.jp_title || ''}</div>
+          <div class="rule-subtitle">${rule.subtitle || ''}</div>
+        </div>
+      </div>`;
+
+    if (rule.transforms && rule.transforms.length) {
+      html += '<div class="transform-list">';
+      rule.transforms.forEach(t => {
+        html += `<div class="transform-item">
+          <span class="transform-from">${t.from}</span>
+          <span class="arrow">→</span>
+          <span class="transform-to">${t.to}</span>
+        </div>`;
+      });
+      html += '</div>';
+    }
+
+    if (rule.examples && rule.examples.length) {
+      html += '<div class="example-list">';
+      rule.examples.forEach(ex => {
+        html += `<div class="example-item">
+          <div class="example-en">${ex.text}</div>
+          <div class="example-jp">${ex.jp}</div>
+        </div>`;
+      });
+      html += '</div>';
+    }
+
+    html += '</div>';
+  });
+
+  if (lu.mixed_samples && lu.mixed_samples.length) {
+    html += '<div class="chart-note" style="margin-top:20px"><div class="chart-note-title">🔀 Mixed Practice</div>';
+    lu.mixed_samples.forEach(s => {
+      html += `<div style="margin:8px 0; padding:8px 0; border-bottom:1px solid #C8E6C9;">
+        <div class="en-text" style="font-size:15px">${s.text} <span style="font-size:11px;color:var(--text-light);font-family:Nunito,sans-serif">[${s.kind}]</span></div>
+        <div style="font-size:12px;color:var(--text-mid);margin-top:2px">${s.jp}</div>
+      </div>`;
+    });
+    html += '</div>';
+  }
+
+  document.getElementById('tab-levelup').innerHTML = html;
+}
+
+function renderQuiz(g) {
+  const qs = (g.tab3_quiz || {}).questions || [];
+  quizTotal = qs.length; quizScore = 0;
+  let html = `<div class="quiz-score" id="quizScore">Score: 0 / ${quizTotal}</div>`;
+
+  qs.forEach((q, qi) => {
+    const letters = ['A','B','C','D'];
+    html += `<div class="quiz-q" id="quiz-q-${qi}">
+      <div class="quiz-stem">${q.stem.join('<br>')}</div>
+      <div class="quiz-jp">${q.jp}</div>
+      <div class="quiz-opts">`;
+
+    q.answers.forEach((ans, ai) => {
+      html += `<button class="quiz-opt" onclick="checkQuiz(${qi},${ai},${q.correct},this)" data-qi="${qi}" data-ai="${ai}">
+        <span class="opt-letter">${letters[ai]}</span>${ans}
+      </button>`;
+    });
+
+    html += `</div>
+      <div class="quiz-feedback" id="qfb-${qi}">
+        <div class="feedback-title" id="qfb-title-${qi}"></div>
+        <div class="feedback-body" id="qfb-body-${qi}"></div>
+      </div>
+    </div>`;
+  });
+
+  document.getElementById('tab-quiz').innerHTML = html;
+}
+
+const checkedQuiz = new Set();
+function checkQuiz(qi, ai, correct, btn) {
+  if (checkedQuiz.has(qi)) return;
+  checkedQuiz.add(qi);
+
+  const allOpts = document.querySelectorAll(`[data-qi="${qi}"]`);
+  allOpts.forEach(b => { b.disabled = true; });
+
+  const isCorrect = ai === correct;
+  if (isCorrect) {
+    btn.classList.add('correct');
+    quizScore++;
+    document.getElementById('quizScore').textContent = `Score: ${quizScore} / ${quizTotal}`;
+  } else {
+    btn.classList.add('wrong');
+    allOpts[correct].classList.add('correct');
+  }
+
+  // Show explanation from data (stored via data attr)
+  const fb = document.getElementById(`qfb-${qi}`);
+  fb.classList.add('show', isCorrect ? 'correct' : 'wrong');
+  document.getElementById(`qfb-title-${qi}`).textContent = isCorrect ? '✅ Correct!' : '❌ Not quite';
+  // Note: explanation text stored in rendered data must be re-read from original data
+  fb.classList.add(isCorrect ? 'correct' : 'wrong');
+}
+
+function renderMaster(g) {
+  const qs = (g.tab4_master || {}).questions || [];
+  let html = '';
+
+  qs.forEach((q, qi) => {
+    html += `<div class="master-q" id="master-q-${qi}">
+      <div class="master-label">
+        ${q.type === 'mcq' ? '🔵 Multiple Choice' : q.type === 'fill' ? '✏️ Fill in the Blank' : '🔧 Build the Sentence'}
+      </div>
+      <div class="master-stem">${q.type === 'build' ? q.cue : q.stem}</div>
+      <div class="master-jp">${q.jp}</div>`;
+
+    if (q.type === 'mcq') {
+      html += `<div class="mcq-opts">`;
+      q.answers.forEach((ans, ai) => {
+        html += `<button class="mcq-opt" onclick="checkMcq(${qi},${ai},${q.correct},this)">${ans}</button>`;
+      });
+      html += `</div>`;
+    }
+
+    else if (q.type === 'fill') {
+      html += `<select class="fill-input" id="fill-${qi}">
+        <option value="">-- select --</option>
+        ${q.answers.map((a,i) => `<option value="${i}">${a}</option>`).join('')}
+      </select>
+      <button class="fill-submit" onclick="checkFill(${qi},${q.correct})">Check ✓</button>`;
+    }
+
+    else if (q.type === 'build') {
+      const bank = q.bank.map((w,i) => `<span class="word-chip" onclick="addWord('${qi}','${w}',this)">${w}</span>`).join('');
+      html += `<div style="margin-bottom:6px;font-size:12px;color:var(--text-light);font-weight:700">Tap words to build the sentence:</div>
+        <div class="bank-area" id="bank-${qi}">${bank}</div>
+        <div class="answer-area" id="ans-${qi}"></div>
+        <button class="build-check" onclick="checkBuild('${qi}','${q.correct.replace(/'/g,"\\'")}')">Check ✓</button>
+        <button onclick="resetBuild('${qi}')" style="margin-left:8px;background:#E0E0E0;border:none;border-radius:8px;padding:9px 14px;font-family:Nunito,sans-serif;font-weight:800;cursor:pointer">Reset</button>`;
+    }
+
+    html += `<div class="result-banner" id="res-${qi}" style="display:none"></div></div>`;
+  });
+
+  document.getElementById('tab-master').innerHTML = html;
+}
+
+const checkedMaster = new Set();
+function checkMcq(qi, ai, correct, btn) {
+  if (checkedMaster.has('m' + qi)) return;
+  checkedMaster.add('m' + qi);
+  const parent = btn.closest('.master-q');
+  parent.querySelectorAll('.mcq-opt').forEach((b,i) => {
+    b.disabled = true;
+    if (i === correct) b.classList.add('correct');
+  });
+  const isOk = ai === correct;
+  if (!isOk) btn.classList.add('wrong');
+  showResult(qi, isOk, isOk ? '✅ Correct!' : '❌ Try again next time!');
+}
+
+function checkFill(qi, correct) {
+  if (checkedMaster.has('f' + qi)) return;
+  checkedMaster.add('f' + qi);
+  const sel = document.getElementById('fill-' + qi);
+  const isOk = parseInt(sel.value) === correct;
+  sel.className = 'fill-input ' + (isOk ? 'correct' : 'wrong');
+  sel.disabled = true;
+  showResult(qi, isOk, isOk ? '✅ Correct!' : `❌ Correct answer: ${sel.options[correct+1]?.text}`);
+}
+
+const buildAnswers = {};
+function addWord(qi, word, chip) {
+  if (!buildAnswers[qi]) buildAnswers[qi] = [];
+  buildAnswers[qi].push(word);
+  chip.classList.add('used');
+  const ansArea = document.getElementById('ans-' + qi);
+  const chip2 = document.createElement('span');
+  chip2.className = 'answer-chip';
+  chip2.textContent = word;
+  chip2.onclick = () => {
+    buildAnswers[qi] = buildAnswers[qi].filter((_,i) => i !== buildAnswers[qi].lastIndexOf(word));
+    chip2.remove();
+    chip.classList.remove('used');
+  };
+  ansArea.appendChild(chip2);
+}
+function resetBuild(qi) {
+  buildAnswers[qi] = [];
+  document.getElementById('ans-' + qi).innerHTML = '';
+  document.getElementById('bank-' + qi).querySelectorAll('.word-chip').forEach(c => c.classList.remove('used'));
+  const res = document.getElementById('res-' + qi);
+  res.style.display = 'none';
+  checkedMaster.delete('b' + qi);
+}
+function checkBuild(qi, correct) {
+  if (checkedMaster.has('b' + qi)) return;
+  checkedMaster.add('b' + qi);
+  const answer = (buildAnswers[qi] || []).join(' ');
+  const isOk = answer.trim() === correct.trim();
+  showResult(qi, isOk, isOk ? '✅ Perfect!' : `❌ Correct: ${correct}`);
+}
+
+function showResult(qi, isOk, msg) {
+  const res = document.getElementById('res-' + qi);
+  res.style.display = 'block';
+  res.className = 'result-banner ' + (isOk ? 'ok' : 'no');
+  res.textContent = msg;
+}
+
+loadGrammar();
+</script>
+</body>
+</html>
