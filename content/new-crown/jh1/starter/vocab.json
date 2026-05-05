@@ -94,7 +94,7 @@
       "word": "egg",
       "tag": "Starter",
       "emoji": "🥚",
-      "ipa": "/eɡ/",
+      "ipa": "/ɛɡ/",
       "syllables": "egg",
       "pos": "Noun · Countable",
       "sample": "I eat an <b>egg</b> for breakfast.",
@@ -179,13 +179,13 @@
       "word": "apple",
       "tag": "Starter",
       "emoji": "🍎",
-      "ipa": "/ˈapə‍l/",
+      "ipa": "/ˈæpəl/",
       "syllables": "ap·ple",
       "pos": "Noun · Countable",
       "sample": "I see an <b>apple</b>.",
       "jp_word": "リンゴ",
       "jp_reading": "リンゴ",
-      "jp_sentence": "これは<b>リンゴ</b>です。",
+      "jp_sentence": "私は<b>リンゴ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -196,13 +196,13 @@
       "word": "circle",
       "tag": "Starter",
       "emoji": "⭕",
-      "ipa": "/sˈɜːkə‍l/",
+      "ipa": "/ˈsɜːrkəl/",
       "syllables": "cir·cle",
       "pos": "Noun · Countable",
       "sample": "I see a <b>circle</b>.",
       "jp_word": "円、輪",
       "jp_reading": "えん、わ",
-      "jp_sentence": "これは<b>円、輪</b>です。",
+      "jp_sentence": "私は<b>円</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -213,16 +213,16 @@
       "word": "cream",
       "tag": "Starter",
       "emoji": "🥛",
-      "ipa": "/kɹˈiːm/",
+      "ipa": "/kriːm/",
       "syllables": "cream",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>cream</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>cream</b>.",
       "jp_word": "クリーム",
       "jp_reading": "クリーム",
-      "jp_sentence": "これは<b>クリーム</b>です。",
+      "jp_sentence": "私は<b>クリーム</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -230,13 +230,13 @@
       "word": "Egypt",
       "tag": "Starter",
       "emoji": "🇪🇬",
-      "ipa": "/ˈiːd‍ʒɪpt/",
+      "ipa": "/ˈiːdʒəpt/",
       "syllables": "Egypt",
       "pos": "Noun · Proper",
       "sample": "I know <b>Egypt</b>.",
       "jp_word": "エジプト",
       "jp_reading": "エジプト",
-      "jp_sentence": "これは<b>エジプト</b>です。",
+      "jp_sentence": "私は<b>エジプト</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -247,13 +247,13 @@
       "word": "glove",
       "tag": "Starter",
       "emoji": "🧤",
-      "ipa": "/ɡlˈʌv/",
+      "ipa": "/ɡlʌv/",
       "syllables": "glove",
       "pos": "Noun · Countable",
       "sample": "I see a <b>glove</b>.",
       "jp_word": "(野球)グローブ",
       "jp_reading": "(野球)グローブ",
-      "jp_sentence": "これは<b>(野球)グローブ</b>です。",
+      "jp_sentence": "私は<b>(野球)グローブ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -264,13 +264,13 @@
       "word": "gym",
       "tag": "Starter",
       "emoji": "🏟️",
-      "ipa": "/d‍ʒˈɪm/",
+      "ipa": "/dʒɪm/",
       "syllables": "gym",
       "pos": "Noun · Countable",
       "sample": "I see a <b>gym</b>.",
       "jp_word": "体育館",
       "jp_reading": "たいいくかん",
-      "jp_sentence": "これは<b>体育館</b>です。",
+      "jp_sentence": "私は<b>体育館</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -281,16 +281,16 @@
       "word": "ice",
       "tag": "Starter",
       "emoji": "🧊",
-      "ipa": "/ˈa‍ɪs/",
+      "ipa": "/aɪs/",
       "syllables": "ice",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>ice</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>ice</b>.",
       "jp_word": "アイス、氷",
       "jp_reading": "アイス、氷",
-      "jp_sentence": "これは<b>アイス、氷</b>です。",
+      "jp_sentence": "私は<b>アイス</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -298,16 +298,16 @@
       "word": "ice cream",
       "tag": "Starter",
       "emoji": "🍦",
-      "ipa": "/ˈa‍ɪs kɹˈiːm/",
+      "ipa": "/aɪs kriːm/",
       "syllables": "ice cream",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>ice cream</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>ice cream</b>.",
       "jp_word": "アイスクリーム",
       "jp_reading": "アイスクリーム",
-      "jp_sentence": "これは<b>アイスクリーム</b>です。",
+      "jp_sentence": "私は<b>アイスクリーム</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -315,16 +315,16 @@
       "word": "ink",
       "tag": "Starter",
       "emoji": "🖋️",
-      "ipa": "/ˈɪŋk/",
+      "ipa": "/ɪŋk/",
       "syllables": "ink",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>ink</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>ink</b>.",
       "jp_word": "インク",
       "jp_reading": "インク",
-      "jp_sentence": "これは<b>インク</b>です。",
+      "jp_sentence": "私は<b>インク</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -332,16 +332,16 @@
       "word": "jam",
       "tag": "Starter",
       "emoji": "🍓",
-      "ipa": "/d‍ʒˈam/",
+      "ipa": "/dʒæm/",
       "syllables": "jam",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>jam</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>jam</b>.",
       "jp_word": "ジャム",
       "jp_reading": "ジャム",
-      "jp_sentence": "これは<b>ジャム</b>です。",
+      "jp_sentence": "私は<b>ジャム</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -349,13 +349,13 @@
       "word": "king",
       "tag": "Starter",
       "emoji": "👑",
-      "ipa": "/kˈɪŋ/",
+      "ipa": "/kɪŋ/",
       "syllables": "king",
       "pos": "Noun · Countable",
       "sample": "I see a <b>king</b>.",
       "jp_word": "王",
       "jp_reading": "おう",
-      "jp_sentence": "これは<b>王</b>です。",
+      "jp_sentence": "私は<b>王</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -366,16 +366,16 @@
       "word": "lunch",
       "tag": "Starter",
       "emoji": "🔤",
-      "ipa": "/lˈʌnt‍ʃ/",
+      "ipa": "/lʌntʃ/",
       "syllables": "lunch",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>lunch</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>lunch</b>.",
       "jp_word": "昼食；(お昼の)弁当",
       "jp_reading": "ひるしょく；(おひるの)べんとう",
-      "jp_sentence": "これは<b>昼食；(お昼の)弁当</b>です。",
+      "jp_sentence": "私は<b>昼食</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -383,13 +383,13 @@
       "word": "nurse",
       "tag": "Starter",
       "emoji": "🧑‍⚕️",
-      "ipa": "/nˈɜːs/",
+      "ipa": "/nɜːrs/",
       "syllables": "nurse",
       "pos": "Noun · Countable",
       "sample": "I see a <b>nurse</b>.",
       "jp_word": "看護師",
       "jp_reading": "かんごし",
-      "jp_sentence": "これは<b>看護師</b>です。",
+      "jp_sentence": "私は<b>看護師</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -406,7 +406,7 @@
       "sample": "I see an <b>octopus</b>.",
       "jp_word": "タコ",
       "jp_reading": "タコ",
-      "jp_sentence": "これは<b>タコ</b>です。",
+      "jp_sentence": "私は<b>タコ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -417,13 +417,13 @@
       "word": "park",
       "tag": "Starter",
       "emoji": "🏞️",
-      "ipa": "/pˈɑːk/",
+      "ipa": "/pɑːrk/",
       "syllables": "park",
       "pos": "Noun · Countable",
       "sample": "I see a <b>park</b>.",
       "jp_word": "公園・遊園地",
       "jp_reading": "こうえん・ゆうえんち",
-      "jp_sentence": "これは<b>公園・遊園地</b>です。",
+      "jp_sentence": "私は<b>公園・遊園地</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -434,13 +434,13 @@
       "word": "queen",
       "tag": "Starter",
       "emoji": "👑",
-      "ipa": "/kwˈiːn/",
+      "ipa": "/kwiːn/",
       "syllables": "queen",
       "pos": "Noun · Countable",
       "sample": "I see a <b>queen</b>.",
       "jp_word": "女王",
       "jp_reading": "じょおう",
-      "jp_sentence": "これは<b>女王</b>です。",
+      "jp_sentence": "私は<b>女王</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -451,13 +451,13 @@
       "word": "rabbit",
       "tag": "Starter",
       "emoji": "🐰",
-      "ipa": "/ɹˈabɪt/",
+      "ipa": "/ˈræbət/",
       "syllables": "rabbit",
       "pos": "Noun · Countable",
       "sample": "I see a <b>rabbit</b>.",
       "jp_word": "ウサギ",
       "jp_reading": "ウサギ",
-      "jp_sentence": "これは<b>ウサギ</b>です。",
+      "jp_sentence": "私は<b>ウサギ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -468,13 +468,13 @@
       "word": "station",
       "tag": "Starter",
       "emoji": "🚉",
-      "ipa": "/stˈe‍ɪʃən/",
+      "ipa": "/ˈsteɪʃən/",
       "syllables": "station",
       "pos": "Noun · Countable",
       "sample": "I see a <b>station</b>.",
       "jp_word": "(鉄道の)駅",
       "jp_reading": "(鉄道の)駅",
-      "jp_sentence": "これは<b>(鉄道の)駅</b>です。",
+      "jp_sentence": "私は<b>(鉄道の)駅</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -485,13 +485,13 @@
       "word": "tiger",
       "tag": "Starter",
       "emoji": "🐯",
-      "ipa": "/tˈa‍ɪɡə/",
+      "ipa": "/ˈtaɪɡər/",
       "syllables": "tiger",
       "pos": "Noun · Countable",
       "sample": "I see a <b>tiger</b>.",
       "jp_word": "トラ",
       "jp_reading": "トラ",
-      "jp_sentence": "これは<b>トラ</b>です。",
+      "jp_sentence": "私は<b>トラ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -502,13 +502,13 @@
       "word": "umbrella",
       "tag": "Starter",
       "emoji": "☂️",
-      "ipa": "/ʌmbɹˈɛlə/",
+      "ipa": "/əˈmbrɛlə/",
       "syllables": "umbrella",
       "pos": "Noun · Countable",
       "sample": "I see an <b>umbrella</b>.",
       "jp_word": "かさ",
       "jp_reading": "かさ",
-      "jp_sentence": "これは<b>かさ</b>です。",
+      "jp_sentence": "私は<b>かさ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -519,13 +519,13 @@
       "word": "unicycle",
       "tag": "Starter",
       "emoji": "🛞",
-      "ipa": "/jˈuːnɪsˌa‍ɪkə‍l/",
+      "ipa": "/ˈjuːnəˌsaɪkəl/",
       "syllables": "unicycle",
       "pos": "Noun · Countable",
-      "sample": "I see an <b>unicycle</b>.",
+      "sample": "I see a <b>unicycle</b>.",
       "jp_word": "一輪車",
       "jp_reading": "一輪車",
-      "jp_sentence": "これは<b>一輪車</b>です。",
+      "jp_sentence": "私は<b>一輪車</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -536,13 +536,13 @@
       "word": "vet",
       "tag": "Starter",
       "emoji": "🧑‍⚕️",
-      "ipa": "/vˈɛt/",
+      "ipa": "/vɛt/",
       "syllables": "vet",
       "pos": "Noun · Countable",
       "sample": "I see a <b>vet</b>.",
       "jp_word": "獣医",
       "jp_reading": "じゅうい",
-      "jp_sentence": "これは<b>獣医</b>です。",
+      "jp_sentence": "私は<b>獣医</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -553,16 +553,16 @@
       "word": "weather",
       "tag": "Starter",
       "emoji": "🌤️",
-      "ipa": "/wˈɛðə/",
+      "ipa": "/ˈweðər/",
       "syllables": "weather",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>weather</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>weather</b>.",
       "jp_word": "(そのときどきの)天気、天候",
       "jp_reading": "(そのときどきの)天気、天候",
-      "jp_sentence": "これは<b>(そのときどきの)天気、天候</b>です。",
+      "jp_sentence": "私は<b>(そのときどきの)天気</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -570,13 +570,13 @@
       "word": "yacht",
       "tag": "Starter",
       "emoji": "⛵",
-      "ipa": "/jˈɒt/",
+      "ipa": "/jɒt/",
       "syllables": "yacht",
       "pos": "Noun · Countable",
       "sample": "I see a <b>yacht</b>.",
       "jp_word": "ヨット",
       "jp_reading": "ヨット",
-      "jp_sentence": "これは<b>ヨット</b>です。",
+      "jp_sentence": "私は<b>ヨット</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -587,13 +587,13 @@
       "word": "zoo",
       "tag": "Starter",
       "emoji": "🦁",
-      "ipa": "/zˈuː/",
+      "ipa": "/zuː/",
       "syllables": "zoo",
       "pos": "Noun · Countable",
       "sample": "I see a <b>zoo</b>.",
       "jp_word": "動物園",
       "jp_reading": "どうぶつえん",
-      "jp_sentence": "これは<b>動物園</b>です。",
+      "jp_sentence": "私は<b>動物園</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -604,16 +604,16 @@
       "word": "economics",
       "tag": "Starter",
       "emoji": "💹",
-      "ipa": "/ˌiːkənˈɒmɪks/",
+      "ipa": "/ˌekəˈnɒmɪks/",
       "syllables": "e·co·nom·ics",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>economics</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>economics</b>.",
       "jp_word": "経済学",
       "jp_reading": "けいざいがく",
-      "jp_sentence": "これは<b>経済学</b>です。",
+      "jp_sentence": "私は<b>経済学</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -621,16 +621,16 @@
       "word": "education",
       "tag": "Starter",
       "emoji": "🎓",
-      "ipa": "/ˌɛd‍ʒuːkˈe‍ɪʃən/",
+      "ipa": "/ˌɛdʒəˈkeɪʃən/",
       "syllables": "ed·u·ca·tion",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>education</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>education</b>.",
       "jp_word": "教育",
       "jp_reading": "きょういく",
-      "jp_sentence": "これは<b>教育</b>です。",
+      "jp_sentence": "私は<b>教育</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -644,7 +644,7 @@
       "sample": "I know <b>English</b>.",
       "jp_word": "英語",
       "jp_reading": "えいご",
-      "jp_sentence": "これは<b>英語</b>です。",
+      "jp_sentence": "私は<b>英語</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -655,16 +655,16 @@
       "word": "food",
       "tag": "Starter",
       "emoji": "🍽️",
-      "ipa": "/fˈuːd/",
+      "ipa": "/fuːd/",
       "syllables": "food",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>food</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>food</b>.",
       "jp_word": "食べ物",
       "jp_reading": "たべもの",
-      "jp_sentence": "これは<b>食べ物</b>です。",
+      "jp_sentence": "私は<b>食べ物</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -672,15 +672,16 @@
       "word": "French",
       "tag": "Starter",
       "emoji": "🇫🇷",
-      "ipa": "/fɹˈɛnt‍ʃ/",
+      "ipa": "/frɛntʃ/",
       "syllables": "French",
-      "pos": "Adjective",
-      "sample": "This is <b>French</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see a <b>French</b>.",
       "jp_word": "フランスの",
       "jp_reading": "フランスの",
-      "jp_sentence": "これは<b>フランスの</b>です。",
+      "jp_sentence": "私は<b>フランスの</b>を見ます。",
       "jp_tags": [
-        "形容詞"
+        "名詞",
+        "可算名詞"
       ]
     },
     {
@@ -688,16 +689,16 @@
       "word": "French fries",
       "tag": "Starter",
       "emoji": "🍟",
-      "ipa": "/fɹˈɛnt‍ʃ fɹˈa‍ɪz/",
+      "ipa": "/frɛntʃ fraɪz/",
       "syllables": "French fries",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>French fries</b>.",
+      "pos": "Noun · Plural",
+      "sample": "I see some <b>French fries</b>.",
       "jp_word": "フライドポテト",
       "jp_reading": "フライドポテト",
-      "jp_sentence": "これは<b>フライドポテト</b>です。",
+      "jp_sentence": "私は<b>フライドポテト</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "複数名詞"
       ]
     },
     {
@@ -705,13 +706,13 @@
       "word": "fried",
       "tag": "Starter",
       "emoji": "🍳",
-      "ipa": "/fɹˈa‍ɪd/",
+      "ipa": "/fraɪd/",
       "syllables": "fried",
       "pos": "Adjective",
       "sample": "This is <b>fried</b>.",
       "jp_word": "油で揚げた、揚げ物の",
       "jp_reading": "油で揚げた、揚げ物の",
-      "jp_sentence": "これは<b>油で揚げた、揚げ物の</b>です。",
+      "jp_sentence": "それは<b>油で揚げた</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -721,16 +722,16 @@
       "word": "fried chicken",
       "tag": "Starter",
       "emoji": "🍗",
-      "ipa": "/fɹˈa‍ɪd t‍ʃˈɪkɪn/",
+      "ipa": "/fraɪd ˈtʃɪkən/",
       "syllables": "fried chicken",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>fried chicken</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>fried chicken</b>.",
       "jp_word": "フライドチキン",
       "jp_reading": "フライドチキン",
-      "jp_sentence": "これは<b>フライドチキン</b>です。",
+      "jp_sentence": "私は<b>フライドチキン</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -738,13 +739,13 @@
       "word": "fry",
       "tag": "Starter",
       "emoji": "🍤",
-      "ipa": "/fɹˈa‍ɪ/",
+      "ipa": "/fraɪ/",
       "syllables": "fry",
       "pos": "Noun · Countable",
       "sample": "I see a <b>fry</b>.",
       "jp_word": "揚げ物、フライ",
       "jp_reading": "揚げ物、フライ",
-      "jp_sentence": "これは<b>揚げ物、フライ</b>です。",
+      "jp_sentence": "私は<b>揚げ物</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -755,13 +756,13 @@
       "word": "grilled",
       "tag": "Starter",
       "emoji": "🔥",
-      "ipa": "/ɡɹˈɪld/",
+      "ipa": "/ɡrɪld/",
       "syllables": "grilled",
       "pos": "Adjective",
       "sample": "This is <b>grilled</b>.",
       "jp_word": "グリルで焼いた",
       "jp_reading": "グリルで焼いた",
-      "jp_sentence": "これは<b>グリルで焼いた</b>です。",
+      "jp_sentence": "それは<b>グリルで焼いた</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -771,16 +772,16 @@
       "word": "grilled fish",
       "tag": "Starter",
       "emoji": "🐟",
-      "ipa": "/ɡɹˈɪld fˈɪʃ/",
+      "ipa": "/ɡrɪld fɪʃ/",
       "syllables": "grilled fish",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>grilled fish</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>grilled fish</b>.",
       "jp_word": "焼き魚",
       "jp_reading": "焼き魚",
-      "jp_sentence": "これは<b>焼き魚</b>です。",
+      "jp_sentence": "私は<b>焼き魚</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -788,16 +789,16 @@
       "word": "ham",
       "tag": "Starter",
       "emoji": "🥩",
-      "ipa": "/hˈam/",
+      "ipa": "/hæm/",
       "syllables": "ham",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>ham</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>ham</b>.",
       "jp_word": "ハム",
       "jp_reading": "ハム",
-      "jp_sentence": "これは<b>ハム</b>です。",
+      "jp_sentence": "私は<b>ハム</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -805,13 +806,13 @@
       "word": "hamburger",
       "tag": "Starter",
       "emoji": "🍔",
-      "ipa": "/hˈambɜːɡə/",
+      "ipa": "/ˈhæmbɚɡɚ/",
       "syllables": "ham·bur·ger",
       "pos": "Noun · Countable",
       "sample": "I see a <b>hamburger</b>.",
       "jp_word": "ハンバーガー",
       "jp_reading": "ハンバーガー",
-      "jp_sentence": "これは<b>ハンバーガー</b>です。",
+      "jp_sentence": "私は<b>ハンバーガー</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -822,13 +823,13 @@
       "word": "home",
       "tag": "Starter",
       "emoji": "🏠",
-      "ipa": "/hˈə‍ʊm/",
+      "ipa": "/hoʊm/",
       "syllables": "home",
       "pos": "Adjective",
       "sample": "This is <b>home</b>.",
       "jp_word": "家庭の",
       "jp_reading": "家庭の",
-      "jp_sentence": "これは<b>家庭の</b>です。",
+      "jp_sentence": "それは<b>家庭の</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -838,13 +839,13 @@
       "word": "hot",
       "tag": "Starter",
       "emoji": "🔥",
-      "ipa": "/hˈɒt/",
+      "ipa": "/hɒt/",
       "syllables": "hot",
       "pos": "Adjective",
       "sample": "This is <b>hot</b>.",
       "jp_word": "熱い；暑い",
       "jp_reading": "熱い；暑い",
-      "jp_sentence": "これは<b>熱い；暑い</b>です。",
+      "jp_sentence": "それは<b>熱い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -854,13 +855,13 @@
       "word": "hot dog",
       "tag": "Starter",
       "emoji": "🌭",
-      "ipa": "/hˈɒt dˈɒɡ/",
+      "ipa": "/hɒt dɒɡ/",
       "syllables": "hot dog",
       "pos": "Noun · Countable",
       "sample": "I see a <b>hot dog</b>.",
       "jp_word": "ホットドッグ",
       "jp_reading": "ホットドッグ",
-      "jp_sentence": "これは<b>ホットドッグ</b>です。",
+      "jp_sentence": "私は<b>ホットドッグ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -871,16 +872,16 @@
       "word": "Japanese",
       "tag": "Starter",
       "emoji": "🇯🇵",
-      "ipa": "/d‍ʒˌapənˈiːz/",
+      "ipa": "/ˌdʒæpəˈniːz/",
       "syllables": "Japanese",
-      "pos": "Noun · Proper",
-      "sample": "I know <b>Japanese</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see a <b>Japanese</b>.",
       "jp_word": "日本語",
       "jp_reading": "にほんご",
-      "jp_sentence": "これは<b>日本語</b>です。",
+      "jp_sentence": "私は<b>日本語</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "固有名詞"
+        "可算名詞"
       ]
     },
     {
@@ -888,13 +889,13 @@
       "word": "moral",
       "tag": "Starter",
       "emoji": "🧭",
-      "ipa": "/mˈɒɹə‍l/",
+      "ipa": "/ˈmɔːrəl/",
       "syllables": "moral",
       "pos": "Adjective",
       "sample": "This is <b>moral</b>.",
       "jp_word": "道徳的な、道徳の",
       "jp_reading": "どうとくてきな、どうとくの",
-      "jp_sentence": "これは<b>道徳的な、道徳の</b>です。",
+      "jp_sentence": "それは<b>道徳的な</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -904,16 +905,16 @@
       "word": "moral education",
       "tag": "Starter",
       "emoji": "🧭",
-      "ipa": "/mˈɒɹə‍l ˌɛd‍ʒuːkˈe‍ɪʃən/",
+      "ipa": "/ˈmɔːrəl ˌedʒəˈkeɪʃən/",
       "syllables": "moral ed·u·ca·tion",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>moral education</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>moral education</b>.",
       "jp_word": "(教科の)道徳",
       "jp_reading": "(教科の)道徳",
-      "jp_sentence": "これは<b>(教科の)道徳</b>です。",
+      "jp_sentence": "私は<b>(教科の)道徳</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -921,16 +922,16 @@
       "word": "music",
       "tag": "Starter",
       "emoji": "🎵",
-      "ipa": "/mjˈuːzɪk/",
+      "ipa": "/ˈmjuːzɪk/",
       "syllables": "music",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>music</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>music</b>.",
       "jp_word": "音楽",
       "jp_reading": "おんがく",
-      "jp_sentence": "これは<b>音楽</b>です。",
+      "jp_sentence": "私は<b>音楽</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -938,13 +939,13 @@
       "word": "noodle",
       "tag": "Starter",
       "emoji": "🍜",
-      "ipa": "/nˈuːdə‍l/",
+      "ipa": "/ˈnuːdəl/",
       "syllables": "noodle",
       "pos": "Noun · Countable",
       "sample": "I see a <b>noodle</b>.",
       "jp_word": "(ふつうnoodles)麺類",
       "jp_reading": "(ふつうnoodles)麺類",
-      "jp_sentence": "これは<b>(ふつうnoodles)麺類</b>です。",
+      "jp_sentence": "私は<b>(ふつうnoodles)麺類</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -955,13 +956,13 @@
       "word": "nut",
       "tag": "Starter",
       "emoji": "🥜",
-      "ipa": "/nˈʌt/",
+      "ipa": "/nʌt/",
       "syllables": "nut",
       "pos": "Noun · Countable",
       "sample": "I see a <b>nut</b>.",
       "jp_word": "木の実、ナッツ",
       "jp_reading": "きのみ、ナッツ",
-      "jp_sentence": "これは<b>木の実、ナッツ</b>です。",
+      "jp_sentence": "私は<b>木の実</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -978,7 +979,7 @@
       "sample": "I see an <b>omelet</b>.",
       "jp_word": "オムレツ",
       "jp_reading": "オムレツ",
-      "jp_sentence": "これは<b>オムレツ</b>です。",
+      "jp_sentence": "私は<b>オムレツ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -989,16 +990,16 @@
       "word": "P.E.",
       "tag": "Starter",
       "emoji": "🏃",
-      "ipa": "/pˌiːˈiː/",
+      "ipa": "/ˌpiː ˈiː/",
       "syllables": "P.E.",
-      "pos": "Noun · Proper",
-      "sample": "I know <b>P.E.</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>P.E.</b>.",
       "jp_word": "体育",
       "jp_reading": "たいいく",
-      "jp_sentence": "これは<b>体育</b>です。",
+      "jp_sentence": "私は<b>体育</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "固有名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1006,13 +1007,13 @@
       "word": "pizza",
       "tag": "Starter",
       "emoji": "🍕",
-      "ipa": "/pˈiːtsə/",
+      "ipa": "/ˈpiːtsə/",
       "syllables": "pizza",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pizza</b>.",
       "jp_word": "ピザ",
       "jp_reading": "ピザ",
-      "jp_sentence": "これは<b>ピザ</b>です。",
+      "jp_sentence": "私は<b>ピザ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1023,16 +1024,16 @@
       "word": "pork",
       "tag": "Starter",
       "emoji": "🥩",
-      "ipa": "/pˈɔːk/",
+      "ipa": "/pɔːrk/",
       "syllables": "pork",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>pork</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>pork</b>.",
       "jp_word": "豚肉",
       "jp_reading": "ぶたにく",
-      "jp_sentence": "これは<b>豚肉</b>です。",
+      "jp_sentence": "私は<b>豚肉</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1040,16 +1041,16 @@
       "word": "rice",
       "tag": "Starter",
       "emoji": "🍚",
-      "ipa": "/ɹˈa‍ɪs/",
+      "ipa": "/raɪs/",
       "syllables": "rice",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>rice</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>rice</b>.",
       "jp_word": "米",
       "jp_reading": "こめ",
-      "jp_sentence": "これは<b>米</b>です。",
+      "jp_sentence": "私は<b>米</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1057,13 +1058,13 @@
       "word": "rice ball",
       "tag": "Starter",
       "emoji": "🍙",
-      "ipa": "/ɹˈa‍ɪs bˈɔːl/",
+      "ipa": "/raɪs bɔːl/",
       "syllables": "rice ball",
       "pos": "Noun · Countable",
       "sample": "I see a <b>rice ball</b>.",
       "jp_word": "おにぎり",
       "jp_reading": "おにぎり",
-      "jp_sentence": "これは<b>おにぎり</b>です。",
+      "jp_sentence": "私は<b>おにぎり</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1074,13 +1075,13 @@
       "word": "salad",
       "tag": "Starter",
       "emoji": "🥗",
-      "ipa": "/sˈaləd/",
+      "ipa": "/ˈsæləd/",
       "syllables": "salad",
       "pos": "Noun · Countable",
       "sample": "I see a <b>salad</b>.",
       "jp_word": "サラダ",
       "jp_reading": "サラダ",
-      "jp_sentence": "これは<b>サラダ</b>です。",
+      "jp_sentence": "私は<b>サラダ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1091,13 +1092,13 @@
       "word": "sandwich",
       "tag": "Starter",
       "emoji": "🥪",
-      "ipa": "/sˈandwɪt‍ʃ/",
+      "ipa": "/ˈsændwɪtʃ/",
       "syllables": "sandwich",
       "pos": "Noun · Countable",
       "sample": "I see a <b>sandwich</b>.",
       "jp_word": "サンドイッチ",
       "jp_reading": "サンドイッチ",
-      "jp_sentence": "これは<b>サンドイッチ</b>です。",
+      "jp_sentence": "私は<b>サンドイッチ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1108,13 +1109,13 @@
       "word": "sausage",
       "tag": "Starter",
       "emoji": "🌭",
-      "ipa": "/sˈɒsɪd‍ʒ/",
+      "ipa": "/ˈsɒsɪdʒ/",
       "syllables": "sausage",
       "pos": "Noun · Countable",
       "sample": "I see a <b>sausage</b>.",
       "jp_word": "ソーセージ",
       "jp_reading": "ソーセージ",
-      "jp_sentence": "これは<b>ソーセージ</b>です。",
+      "jp_sentence": "私は<b>ソーセージ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1125,16 +1126,16 @@
       "word": "science",
       "tag": "Starter",
       "emoji": "🔬",
-      "ipa": "/sˈa‍ɪ‍əns/",
+      "ipa": "/ˈsaɪəns/",
       "syllables": "science",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>science</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>science</b>.",
       "jp_word": "理科、自然科学",
       "jp_reading": "りか、しぜんかがく",
-      "jp_sentence": "これは<b>理科、自然科学</b>です。",
+      "jp_sentence": "私は<b>理科</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1142,13 +1143,13 @@
       "word": "social",
       "tag": "Starter",
       "emoji": "👥",
-      "ipa": "/sˈə‍ʊʃə‍l/",
+      "ipa": "/ˈsoʊʃəl/",
       "syllables": "social",
       "pos": "Adjective",
       "sample": "This is <b>social</b>.",
       "jp_word": "社会の；社会的な",
       "jp_reading": "しゃかいの；しゃかいてきな",
-      "jp_sentence": "これは<b>社会の；社会的な</b>です。",
+      "jp_sentence": "それは<b>社会の</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -1158,16 +1159,16 @@
       "word": "social studies",
       "tag": "Starter",
       "emoji": "🌏",
-      "ipa": "/sˈə‍ʊʃə‍l stˈʌdiz/",
+      "ipa": "/ˈsoʊʃəl ˈstʌdiːz/",
       "syllables": "social studies",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>social studies</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>social studies</b>.",
       "jp_word": "(小・中学校などで学ぶ)社会科",
       "jp_reading": "(小・中学校などで学ぶ)社会科",
-      "jp_sentence": "これは<b>(小・中学校などで学ぶ)社会科</b>です。",
+      "jp_sentence": "私は<b>(小・中学校などで学ぶ)社会科</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1175,16 +1176,16 @@
       "word": "soup",
       "tag": "Starter",
       "emoji": "🍲",
-      "ipa": "/sˈuːp/",
+      "ipa": "/suːp/",
       "syllables": "soup",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>soup</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>soup</b>.",
       "jp_word": "スープ",
       "jp_reading": "スープ",
-      "jp_sentence": "これは<b>スープ</b>です。",
+      "jp_sentence": "私は<b>スープ</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1192,16 +1193,16 @@
       "word": "spaghetti",
       "tag": "Starter",
       "emoji": "🍝",
-      "ipa": "/spɐɡˈɛti/",
+      "ipa": "/spəˈɡɛtiː/",
       "syllables": "spaghetti",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>spaghetti</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>spaghetti</b>.",
       "jp_word": "スパゲッティ",
       "jp_reading": "スパゲッティ",
-      "jp_sentence": "これは<b>スパゲッティ</b>です。",
+      "jp_sentence": "私は<b>スパゲッティ</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1209,13 +1210,13 @@
       "word": "steak",
       "tag": "Starter",
       "emoji": "🥩",
-      "ipa": "/stˈe‍ɪk/",
+      "ipa": "/steɪk/",
       "syllables": "steak",
       "pos": "Noun · Countable",
       "sample": "I see a <b>steak</b>.",
       "jp_word": "ステーキ",
       "jp_reading": "ステーキ",
-      "jp_sentence": "これは<b>ステーキ</b>です。",
+      "jp_sentence": "私は<b>ステーキ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1226,13 +1227,13 @@
       "word": "study",
       "tag": "Starter",
       "emoji": "📖",
-      "ipa": "/stˈʌdi/",
+      "ipa": "/ˈstʌdiː/",
       "syllables": "study",
       "pos": "Noun · Countable",
       "sample": "I see a <b>study</b>.",
       "jp_word": "勉強する；研究、学業",
       "jp_reading": "べんきょうする；けんきゅう、がくぎょう",
-      "jp_sentence": "これは<b>勉強する；研究、学業</b>です。",
+      "jp_sentence": "私は<b>勉強する</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1243,13 +1244,13 @@
       "word": "subject",
       "tag": "Starter",
       "emoji": "📚",
-      "ipa": "/sˈʌbd‍ʒɛkt/",
+      "ipa": "/səˈbdʒɛkt/",
       "syllables": "subject",
       "pos": "Noun · Countable",
       "sample": "I see a <b>subject</b>.",
       "jp_word": "教科、科目",
       "jp_reading": "きょうか、かもく",
-      "jp_sentence": "これは<b>教科、科目</b>です。",
+      "jp_sentence": "私は<b>教科</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1260,16 +1261,16 @@
       "word": "sushi",
       "tag": "Starter",
       "emoji": "🍣",
-      "ipa": "/sˈuːʃi/",
+      "ipa": "/ˈsuːʃiː/",
       "syllables": "sushi",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>sushi</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>sushi</b>.",
       "jp_word": "寿司",
       "jp_reading": "寿司",
-      "jp_sentence": "これは<b>寿司</b>です。",
+      "jp_sentence": "私は<b>寿司</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1277,16 +1278,16 @@
       "word": "technology",
       "tag": "Starter",
       "emoji": "💻",
-      "ipa": "/tɛknˈɒləd‍ʒi/",
+      "ipa": "/tekˈnɒlədʒi/",
       "syllables": "tech·nol·o·gy",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>technology</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>technology</b>.",
       "jp_word": "科学技術、テクノロジー",
       "jp_reading": "かがくぎじゅつ、テクノロジー",
-      "jp_sentence": "これは<b>科学技術、テクノロジー</b>です。",
+      "jp_sentence": "私は<b>科学技術</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1294,16 +1295,16 @@
       "word": "technology and home economics",
       "tag": "Starter",
       "emoji": "💻🏠",
-      "ipa": "/tɛknˈɒləd‍ʒi and hˈə‍ʊm ˌiːkənˈɒmɪks/",
+      "ipa": "/tekˈnɒlədʒi ənd həʊm ˌekəˈnɒmɪks/",
       "syllables": "tech·nol·o·gy and home e·co·nom·ics",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>technology and home economics</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>technology and home economics</b>.",
       "jp_word": "(教科の)技術家庭科",
       "jp_reading": "(教科の)技術家庭科",
-      "jp_sentence": "これは<b>(教科の)技術家庭科</b>です。",
+      "jp_sentence": "私は<b>(教科の)技術家庭科</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1311,16 +1312,16 @@
       "word": "archery",
       "tag": "Starter",
       "emoji": "🏹",
-      "ipa": "/ˈɑːt‍ʃəɹi/",
+      "ipa": "/ˈɑːrtʃəri/",
       "syllables": "archery",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>archery</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>archery</b>.",
       "jp_word": "アーチェリー、弓道",
       "jp_reading": "アーチェリー、弓道",
-      "jp_sentence": "これは<b>アーチェリー、弓道</b>です。",
+      "jp_sentence": "私は<b>アーチェリー</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1328,16 +1329,16 @@
       "word": "badminton",
       "tag": "Starter",
       "emoji": "🏸",
-      "ipa": "/bˈadmɪntən/",
+      "ipa": "/ˈbæˌdmɪntən/",
       "syllables": "badminton",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>badminton</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>badminton</b>.",
       "jp_word": "バドミントン",
       "jp_reading": "バドミントン",
-      "jp_sentence": "これは<b>バドミントン</b>です。",
+      "jp_sentence": "私は<b>バドミントン</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1345,13 +1346,13 @@
       "word": "banana",
       "tag": "Starter",
       "emoji": "🍌",
-      "ipa": "/bɐnˈɑːnə/",
+      "ipa": "/bəˈnænə/",
       "syllables": "banana",
       "pos": "Noun · Countable",
       "sample": "I see a <b>banana</b>.",
       "jp_word": "バナナ",
       "jp_reading": "バナナ",
-      "jp_sentence": "これは<b>バナナ</b>です。",
+      "jp_sentence": "私は<b>バナナ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1362,16 +1363,16 @@
       "word": "baseball",
       "tag": "Starter",
       "emoji": "⚾",
-      "ipa": "/bˈe‍ɪsbɔːl/",
+      "ipa": "/ˈbeɪsbɔːl/",
       "syllables": "baseball",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>baseball</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>baseball</b>.",
       "jp_word": "野球",
       "jp_reading": "やきゅう",
-      "jp_sentence": "これは<b>野球</b>です。",
+      "jp_sentence": "私は<b>野球</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1379,16 +1380,16 @@
       "word": "basketball",
       "tag": "Starter",
       "emoji": "🏀",
-      "ipa": "/bˈaskɪtbˌɔːl/",
+      "ipa": "/ˈbɑːskɪtbɔːl/",
       "syllables": "basketball",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>basketball</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>basketball</b>.",
       "jp_word": "バスケットボール",
       "jp_reading": "バスケットボール",
-      "jp_sentence": "これは<b>バスケットボール</b>です。",
+      "jp_sentence": "私は<b>バスケットボール</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1396,13 +1397,13 @@
       "word": "cabbage",
       "tag": "Starter",
       "emoji": "🥬",
-      "ipa": "/kˈabɪd‍ʒ/",
+      "ipa": "/ˈkæbədʒ/",
       "syllables": "cabbage",
       "pos": "Noun · Countable",
       "sample": "I see a <b>cabbage</b>.",
       "jp_word": "キャベツ",
       "jp_reading": "キャベツ",
-      "jp_sentence": "これは<b>キャベツ</b>です。",
+      "jp_sentence": "私は<b>キャベツ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1413,13 +1414,13 @@
       "word": "cake",
       "tag": "Starter",
       "emoji": "🍰",
-      "ipa": "/kˈe‍ɪk/",
+      "ipa": "/keɪk/",
       "syllables": "cake",
       "pos": "Noun · Countable",
       "sample": "I see a <b>cake</b>.",
       "jp_word": "ケーキ",
       "jp_reading": "ケーキ",
-      "jp_sentence": "これは<b>ケーキ</b>です。",
+      "jp_sentence": "私は<b>ケーキ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1430,13 +1431,13 @@
       "word": "carrot",
       "tag": "Starter",
       "emoji": "🥕",
-      "ipa": "/kˈaɹət/",
+      "ipa": "/ˈkærət/",
       "syllables": "carrot",
       "pos": "Noun · Countable",
       "sample": "I see a <b>carrot</b>.",
       "jp_word": "ニンジン",
       "jp_reading": "ニンジン",
-      "jp_sentence": "これは<b>ニンジン</b>です。",
+      "jp_sentence": "私は<b>ニンジン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1447,13 +1448,13 @@
       "word": "cherry",
       "tag": "Starter",
       "emoji": "🍒",
-      "ipa": "/t‍ʃˈɛɹi/",
+      "ipa": "/ˈtʃɛriː/",
       "syllables": "cherry",
       "pos": "Noun · Countable",
       "sample": "I see a <b>cherry</b>.",
       "jp_word": "サクランボ",
       "jp_reading": "サクランボ",
-      "jp_sentence": "これは<b>サクランボ</b>です。",
+      "jp_sentence": "私は<b>サクランボ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1464,13 +1465,13 @@
       "word": "chocolate",
       "tag": "Starter",
       "emoji": "🍫",
-      "ipa": "/t‍ʃˈɒklət/",
+      "ipa": "/ˈtʃɒklət/",
       "syllables": "chocolate",
       "pos": "Noun · Countable",
       "sample": "I see a <b>chocolate</b>.",
       "jp_word": "チョコレート",
       "jp_reading": "チョコレート",
-      "jp_sentence": "これは<b>チョコレート</b>です。",
+      "jp_sentence": "私は<b>チョコレート</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1481,16 +1482,16 @@
       "word": "coffee",
       "tag": "Starter",
       "emoji": "☕",
-      "ipa": "/kˈɒfi/",
+      "ipa": "/ˈkɒfi/",
       "syllables": "coffee",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>coffee</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>coffee</b>.",
       "jp_word": "コーヒー",
       "jp_reading": "コーヒー",
-      "jp_sentence": "これは<b>コーヒー</b>です。",
+      "jp_sentence": "私は<b>コーヒー</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1498,13 +1499,13 @@
       "word": "cucumber",
       "tag": "Starter",
       "emoji": "🥒",
-      "ipa": "/kjˈuːkʌmbə/",
+      "ipa": "/ˈkjuːkʌmbər/",
       "syllables": "cucumber",
       "pos": "Noun · Countable",
       "sample": "I see a <b>cucumber</b>.",
       "jp_word": "キュウリ",
       "jp_reading": "キュウリ",
-      "jp_sentence": "これは<b>キュウリ</b>です。",
+      "jp_sentence": "私は<b>キュウリ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1515,13 +1516,13 @@
       "word": "dessert",
       "tag": "Starter",
       "emoji": "🍮",
-      "ipa": "/dɪzˈɜːt/",
+      "ipa": "/dɪˈzɜːrt/",
       "syllables": "dessert",
       "pos": "Noun · Countable",
       "sample": "I see a <b>dessert</b>.",
       "jp_word": "デザート",
       "jp_reading": "デザート",
-      "jp_sentence": "これは<b>デザート</b>です。",
+      "jp_sentence": "私は<b>デザート</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1532,13 +1533,13 @@
       "word": "donut",
       "tag": "Starter",
       "emoji": "🍩",
-      "ipa": "/dˈə‍ʊnʌt/",
+      "ipa": "/ˈdəʊnʌt/",
       "syllables": "donut",
       "pos": "Noun · Countable",
       "sample": "I see a <b>donut</b>.",
       "jp_word": "ドーナツ",
       "jp_reading": "ドーナツ",
-      "jp_sentence": "これは<b>ドーナツ</b>です。",
+      "jp_sentence": "私は<b>ドーナツ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1549,13 +1550,13 @@
       "word": "drink",
       "tag": "Starter",
       "emoji": "🥤",
-      "ipa": "/dɹˈɪŋk/",
+      "ipa": "/drɪŋk/",
       "syllables": "drink",
       "pos": "Noun · Countable",
       "sample": "I see a <b>drink</b>.",
       "jp_word": "飲みもの",
       "jp_reading": "のみもの",
-      "jp_sentence": "これは<b>飲みもの</b>です。",
+      "jp_sentence": "私は<b>飲みもの</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1566,13 +1567,13 @@
       "word": "field",
       "tag": "Starter",
       "emoji": "🏟️",
-      "ipa": "/fˈiːld/",
+      "ipa": "/fiːld/",
       "syllables": "field",
       "pos": "Noun · Countable",
       "sample": "I see a <b>field</b>.",
       "jp_word": "フィールド",
       "jp_reading": "フィールド",
-      "jp_sentence": "これは<b>フィールド</b>です。",
+      "jp_sentence": "私は<b>フィールド</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1583,16 +1584,16 @@
       "word": "fruit",
       "tag": "Starter",
       "emoji": "🍎",
-      "ipa": "/fɹˈuːt/",
+      "ipa": "/fruːt/",
       "syllables": "fruit",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>fruit</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>fruit</b>.",
       "jp_word": "果物、(木の)実",
       "jp_reading": "くだもの、(きの)み",
-      "jp_sentence": "これは<b>果物、(木の)実</b>です。",
+      "jp_sentence": "私は<b>果物</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1600,15 +1601,16 @@
       "word": "green",
       "tag": "Starter",
       "emoji": "🟢",
-      "ipa": "/ɡɹˈiːn/",
+      "ipa": "/ɡriːn/",
       "syllables": "green",
-      "pos": "Adjective",
-      "sample": "This is <b>green</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see a <b>green</b>.",
       "jp_word": "緑色の",
       "jp_reading": "みどりいろの",
-      "jp_sentence": "これは<b>緑色の</b>です。",
+      "jp_sentence": "私は<b>緑色の</b>を見ます。",
       "jp_tags": [
-        "形容詞"
+        "名詞",
+        "可算名詞"
       ]
     },
     {
@@ -1616,13 +1618,13 @@
       "word": "green pepper",
       "tag": "Starter",
       "emoji": "🫑",
-      "ipa": "/ɡɹˈiːn pˈɛpə/",
+      "ipa": "/ɡriːn ˈpepər/",
       "syllables": "green pepper",
       "pos": "Noun · Countable",
       "sample": "I see a <b>green pepper</b>.",
       "jp_word": "ピーマン",
       "jp_reading": "ピーマン",
-      "jp_sentence": "これは<b>ピーマン</b>です。",
+      "jp_sentence": "私は<b>ピーマン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1633,16 +1635,16 @@
       "word": "green tea",
       "tag": "Starter",
       "emoji": "🍵",
-      "ipa": "/ɡɹˈiːn tˈiː/",
+      "ipa": "/ɡriːn tiː/",
       "syllables": "green tea",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>green tea</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>green tea</b>.",
       "jp_word": "緑茶",
       "jp_reading": "緑茶",
-      "jp_sentence": "これは<b>緑茶</b>です。",
+      "jp_sentence": "私は<b>緑茶</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1650,16 +1652,16 @@
       "word": "gymnastics",
       "tag": "Starter",
       "emoji": "🤸",
-      "ipa": "/d‍ʒɪmnˈastɪks/",
+      "ipa": "/dʒɪˈmnæstɪks/",
       "syllables": "gymnastics",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>gymnastics</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>gymnastics</b>.",
       "jp_word": "体操",
       "jp_reading": "たいそう",
-      "jp_sentence": "これは<b>体操</b>です。",
+      "jp_sentence": "私は<b>体操</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1667,16 +1669,16 @@
       "word": "judo",
       "tag": "Starter",
       "emoji": "🥋",
-      "ipa": "/d‍ʒˈuːdə‍ʊ/",
+      "ipa": "/ˈdʒuːdəʊ/",
       "syllables": "judo",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>judo</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>judo</b>.",
       "jp_word": "柔道",
       "jp_reading": "柔道",
-      "jp_sentence": "これは<b>柔道</b>です。",
+      "jp_sentence": "私は<b>柔道</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1684,16 +1686,16 @@
       "word": "juice",
       "tag": "Starter",
       "emoji": "🧃",
-      "ipa": "/d‍ʒˈuːs/",
+      "ipa": "/dʒuːs/",
       "syllables": "juice",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>juice</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>juice</b>.",
       "jp_word": "ジュース",
       "jp_reading": "ジュース",
-      "jp_sentence": "これは<b>ジュース</b>です。",
+      "jp_sentence": "私は<b>ジュース</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1701,13 +1703,13 @@
       "word": "kiwi",
       "tag": "Starter",
       "emoji": "🥝",
-      "ipa": "/kˈiːwiː/",
+      "ipa": "/ˈkiːwi/",
       "syllables": "kiwi",
       "pos": "Noun · Countable",
       "sample": "I see a <b>kiwi</b>.",
       "jp_word": "キウイ",
       "jp_reading": "キウイ",
-      "jp_sentence": "これは<b>キウイ</b>です。",
+      "jp_sentence": "私は<b>キウイ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1718,13 +1720,13 @@
       "word": "kiwi fruit",
       "tag": "Starter",
       "emoji": "🥝",
-      "ipa": "/kˈiːwiː fɹˈuːt/",
+      "ipa": "/ˈkiːwi fruːt/",
       "syllables": "kiwi fruit",
       "pos": "Noun · Countable",
       "sample": "I see a <b>kiwi fruit</b>.",
       "jp_word": "キウイフルーツ",
       "jp_reading": "キウイフルーツ",
-      "jp_sentence": "これは<b>キウイフルーツ</b>です。",
+      "jp_sentence": "私は<b>キウイフルーツ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1735,13 +1737,13 @@
       "word": "lemon",
       "tag": "Starter",
       "emoji": "🍋",
-      "ipa": "/lˈɛmən/",
+      "ipa": "/ˈlɛmən/",
       "syllables": "lemon",
       "pos": "Noun · Countable",
       "sample": "I see a <b>lemon</b>.",
       "jp_word": "レモン",
       "jp_reading": "レモン",
-      "jp_sentence": "これは<b>レモン</b>です。",
+      "jp_sentence": "私は<b>レモン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1752,16 +1754,16 @@
       "word": "lettuce",
       "tag": "Starter",
       "emoji": "🥬",
-      "ipa": "/lˈɛtɪs/",
+      "ipa": "/ˈlɛtəs/",
       "syllables": "lettuce",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>lettuce</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>lettuce</b>.",
       "jp_word": "レタス",
       "jp_reading": "レタス",
-      "jp_sentence": "これは<b>レタス</b>です。",
+      "jp_sentence": "私は<b>レタス</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1769,13 +1771,13 @@
       "word": "melon",
       "tag": "Starter",
       "emoji": "🍈",
-      "ipa": "/mˈɛlən/",
+      "ipa": "/ˈmɛlən/",
       "syllables": "melon",
       "pos": "Noun · Countable",
       "sample": "I see a <b>melon</b>.",
       "jp_word": "メロン",
       "jp_reading": "メロン",
-      "jp_sentence": "これは<b>メロン</b>です。",
+      "jp_sentence": "私は<b>メロン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1786,16 +1788,16 @@
       "word": "milk",
       "tag": "Starter",
       "emoji": "🥛",
-      "ipa": "/mˈɪlk/",
+      "ipa": "/mɪlk/",
       "syllables": "milk",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>milk</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>milk</b>.",
       "jp_word": "牛乳",
       "jp_reading": "牛乳",
-      "jp_sentence": "これは<b>牛乳</b>です。",
+      "jp_sentence": "私は<b>牛乳</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1803,13 +1805,13 @@
       "word": "mushroom",
       "tag": "Starter",
       "emoji": "🍄",
-      "ipa": "/mˈʌʃɹuːm/",
+      "ipa": "/ˈmʌʃruːm/",
       "syllables": "mushroom",
       "pos": "Noun · Countable",
       "sample": "I see a <b>mushroom</b>.",
       "jp_word": "(食用)キノコ",
       "jp_reading": "(食用)キノコ",
-      "jp_sentence": "これは<b>(食用)キノコ</b>です。",
+      "jp_sentence": "私は<b>(食用)キノコ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1820,13 +1822,13 @@
       "word": "onion",
       "tag": "Starter",
       "emoji": "🧅",
-      "ipa": "/ˈʌni‍ən/",
+      "ipa": "/ˈʌnjən/",
       "syllables": "onion",
       "pos": "Noun · Countable",
       "sample": "I see an <b>onion</b>.",
       "jp_word": "タマネギ",
       "jp_reading": "タマネギ",
-      "jp_sentence": "これは<b>タマネギ</b>です。",
+      "jp_sentence": "私は<b>タマネギ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1837,15 +1839,16 @@
       "word": "orange",
       "tag": "Starter",
       "emoji": "🍊",
-      "ipa": "/ˈɒɹɪnd‍ʒ/",
+      "ipa": "/ˈɔːrɪndʒ/",
       "syllables": "orange",
-      "pos": "Adjective",
-      "sample": "This is <b>orange</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see an <b>orange</b>.",
       "jp_word": "オレンジ",
       "jp_reading": "オレンジ",
-      "jp_sentence": "これは<b>オレンジ</b>です。",
+      "jp_sentence": "私は<b>オレンジ</b>を見ます。",
       "jp_tags": [
-        "形容詞"
+        "名詞",
+        "可算名詞"
       ]
     },
     {
@@ -1853,13 +1856,13 @@
       "word": "pancake",
       "tag": "Starter",
       "emoji": "🥞",
-      "ipa": "/pˈanke‍ɪk/",
+      "ipa": "/ˈpæˌnkeɪk/",
       "syllables": "pancake",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pancake</b>.",
       "jp_word": "パンケーキ",
       "jp_reading": "パンケーキ",
-      "jp_sentence": "これは<b>パンケーキ</b>です。",
+      "jp_sentence": "私は<b>パンケーキ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1870,13 +1873,13 @@
       "word": "parfait",
       "tag": "Starter",
       "emoji": "🍨",
-      "ipa": "/pˈɑːfe‍ɪt/",
+      "ipa": "/ˈpɑːrfeɪ/",
       "syllables": "parfait",
       "pos": "Noun · Countable",
       "sample": "I see a <b>parfait</b>.",
       "jp_word": "パフェ",
       "jp_reading": "パフェ",
-      "jp_sentence": "これは<b>パフェ</b>です。",
+      "jp_sentence": "私は<b>パフェ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1887,13 +1890,13 @@
       "word": "peach",
       "tag": "Starter",
       "emoji": "🍑",
-      "ipa": "/pˈiːt‍ʃ/",
+      "ipa": "/piːtʃ/",
       "syllables": "peach",
       "pos": "Noun · Countable",
       "sample": "I see a <b>peach</b>.",
       "jp_word": "モモ",
       "jp_reading": "モモ",
-      "jp_sentence": "これは<b>モモ</b>です。",
+      "jp_sentence": "私は<b>モモ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1904,13 +1907,13 @@
       "word": "pepper",
       "tag": "Starter",
       "emoji": "🌶️",
-      "ipa": "/pˈɛpə/",
+      "ipa": "/ˈpepər/",
       "syllables": "pepper",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pepper</b>.",
       "jp_word": "コショウ；トウガラシの実",
       "jp_reading": "コショウ；トウガラシの実",
-      "jp_sentence": "これは<b>コショウ；トウガラシの実</b>です。",
+      "jp_sentence": "私は<b>コショウ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1921,13 +1924,13 @@
       "word": "pie",
       "tag": "Starter",
       "emoji": "🥧",
-      "ipa": "/pˈa‍ɪ/",
+      "ipa": "/paɪ/",
       "syllables": "pie",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pie</b>.",
       "jp_word": "パイ",
       "jp_reading": "パイ",
-      "jp_sentence": "これは<b>パイ</b>です。",
+      "jp_sentence": "私は<b>パイ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1938,13 +1941,13 @@
       "word": "pineapple",
       "tag": "Starter",
       "emoji": "🍍",
-      "ipa": "/pˈa‍ɪnapə‍l/",
+      "ipa": "/ˈpaɪˌnæpəl/",
       "syllables": "pineapple",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pineapple</b>.",
       "jp_word": "パイナップル",
       "jp_reading": "パイナップル",
-      "jp_sentence": "これは<b>パイナップル</b>です。",
+      "jp_sentence": "私は<b>パイナップル</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1955,16 +1958,16 @@
       "word": "popcorn",
       "tag": "Starter",
       "emoji": "🍿",
-      "ipa": "/pˈɒpkɔːn/",
+      "ipa": "/ˈpɒpkɔːrn/",
       "syllables": "popcorn",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>popcorn</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>popcorn</b>.",
       "jp_word": "ポップコーン",
       "jp_reading": "ポップコーン",
-      "jp_sentence": "これは<b>ポップコーン</b>です。",
+      "jp_sentence": "私は<b>ポップコーン</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -1972,13 +1975,13 @@
       "word": "potato",
       "tag": "Starter",
       "emoji": "🥔",
-      "ipa": "/pətˈe‍ɪtə‍ʊ/",
+      "ipa": "/pəˈteɪtəʊ/",
       "syllables": "potato",
       "pos": "Noun · Countable",
       "sample": "I see a <b>potato</b>.",
       "jp_word": "ジャガイモ",
       "jp_reading": "ジャガイモ",
-      "jp_sentence": "これは<b>ジャガイモ</b>です。",
+      "jp_sentence": "私は<b>ジャガイモ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -1989,16 +1992,16 @@
       "word": "pudding",
       "tag": "Starter",
       "emoji": "🍮",
-      "ipa": "/pˈʊdɪŋ/",
+      "ipa": "/ˈpʊdɪŋ/",
       "syllables": "pudding",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>pudding</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>pudding</b>.",
       "jp_word": "プリン",
       "jp_reading": "プリン",
-      "jp_sentence": "これは<b>プリン</b>です。",
+      "jp_sentence": "私は<b>プリン</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2006,16 +2009,16 @@
       "word": "rugby",
       "tag": "Starter",
       "emoji": "🏉",
-      "ipa": "/ɹˈʌɡbi/",
+      "ipa": "/ˈrʌɡbi/",
       "syllables": "rugby",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>rugby</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>rugby</b>.",
       "jp_word": "ラグビー",
       "jp_reading": "ラグビー",
-      "jp_sentence": "これは<b>ラグビー</b>です。",
+      "jp_sentence": "私は<b>ラグビー</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2023,16 +2026,16 @@
       "word": "shaved ice",
       "tag": "Starter",
       "emoji": "🍧",
-      "ipa": "/ʃˈe‍ɪvd ˈa‍ɪs/",
+      "ipa": "/ʃeɪvd aɪs/",
       "syllables": "shaved ice",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>shaved ice</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>shaved ice</b>.",
       "jp_word": "かき氷",
       "jp_reading": "かき氷",
-      "jp_sentence": "これは<b>かき氷</b>です。",
+      "jp_sentence": "私は<b>かき氷</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2040,16 +2043,16 @@
       "word": "skateboarding",
       "tag": "Starter",
       "emoji": "🛹",
-      "ipa": "/skˈe‍ɪtbɔːdɪŋ/",
+      "ipa": "/ˈskeɪtbɔːrdɪŋ/",
       "syllables": "skateboarding",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>skateboarding</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>skateboarding</b>.",
       "jp_word": "スケートボード(に乗ること)",
       "jp_reading": "スケートボード(に乗ること)",
-      "jp_sentence": "これは<b>スケートボード(に乗ること)</b>です。",
+      "jp_sentence": "私は<b>スケートボード(に乗ること)</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2057,16 +2060,16 @@
       "word": "skating",
       "tag": "Starter",
       "emoji": "⛸️",
-      "ipa": "/skˈe‍ɪtɪŋ/",
+      "ipa": "/ˈskeɪtɪŋ/",
       "syllables": "skating",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>skating</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>skating</b>.",
       "jp_word": "スケート(すること)",
       "jp_reading": "スケート(すること)",
-      "jp_sentence": "これは<b>スケート(すること)</b>です。",
+      "jp_sentence": "私は<b>スケート(すること)</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2074,16 +2077,16 @@
       "word": "skiing",
       "tag": "Starter",
       "emoji": "⛷️",
-      "ipa": "/skˈiːɪŋ/",
+      "ipa": "/ˈskiːɪŋ/",
       "syllables": "skiing",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>skiing</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>skiing</b>.",
       "jp_word": "スキー(ですべること)",
       "jp_reading": "スキー(ですべること)",
-      "jp_sentence": "これは<b>スキー(ですべること)</b>です。",
+      "jp_sentence": "私は<b>スキー(ですべること)</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2091,13 +2094,13 @@
       "word": "snack",
       "tag": "Starter",
       "emoji": "🍪",
-      "ipa": "/snˈak/",
+      "ipa": "/snæk/",
       "syllables": "snack",
       "pos": "Noun · Countable",
       "sample": "I see a <b>snack</b>.",
       "jp_word": "スナック菓子、軽食",
       "jp_reading": "スナック菓子、軽食",
-      "jp_sentence": "これは<b>スナック菓子、軽食</b>です。",
+      "jp_sentence": "私は<b>スナック菓子</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2108,13 +2111,13 @@
       "word": "snack food",
       "tag": "Starter",
       "emoji": "🍪",
-      "ipa": "/snˈak fˈuːd/",
+      "ipa": "/snæk fuːd/",
       "syllables": "snack food",
       "pos": "Noun · Countable",
       "sample": "I see a <b>snack food</b>.",
       "jp_word": "スナック菓子",
       "jp_reading": "スナック菓子",
-      "jp_sentence": "これは<b>スナック菓子</b>です。",
+      "jp_sentence": "私は<b>スナック菓子</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2125,16 +2128,16 @@
       "word": "soccer",
       "tag": "Starter",
       "emoji": "⚽",
-      "ipa": "/sˈɒkə/",
+      "ipa": "/ˈsɒkər/",
       "syllables": "soccer",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>soccer</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>soccer</b>.",
       "jp_word": "サッカー",
       "jp_reading": "サッカー",
-      "jp_sentence": "これは<b>サッカー</b>です。",
+      "jp_sentence": "私は<b>サッカー</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2142,16 +2145,16 @@
       "word": "softball",
       "tag": "Starter",
       "emoji": "🥎",
-      "ipa": "/sˈɒftbɔːl/",
+      "ipa": "/ˈsɒftbɔːl/",
       "syllables": "softball",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>softball</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>softball</b>.",
       "jp_word": "ソフトボール",
       "jp_reading": "ソフトボール",
-      "jp_sentence": "これは<b>ソフトボール</b>です。",
+      "jp_sentence": "私は<b>ソフトボール</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2159,13 +2162,13 @@
       "word": "sport",
       "tag": "Starter",
       "emoji": "🏅",
-      "ipa": "/spˈɔːt/",
+      "ipa": "/spɔːrt/",
       "syllables": "sport",
       "pos": "Noun · Countable",
       "sample": "I see a <b>sport</b>.",
       "jp_word": "スポーツ、運動、競技",
       "jp_reading": "スポーツ、運動、競技",
-      "jp_sentence": "これは<b>スポーツ、運動、競技</b>です。",
+      "jp_sentence": "私は<b>スポーツ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2176,13 +2179,13 @@
       "word": "strawberry",
       "tag": "Starter",
       "emoji": "🍓",
-      "ipa": "/stɹˈɔːbəɹi/",
+      "ipa": "/ˈstrɔːberi/",
       "syllables": "strawberry",
       "pos": "Noun · Countable",
       "sample": "I see a <b>strawberry</b>.",
       "jp_word": "イチゴ",
       "jp_reading": "イチゴ",
-      "jp_sentence": "これは<b>イチゴ</b>です。",
+      "jp_sentence": "私は<b>イチゴ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2193,16 +2196,16 @@
       "word": "swimming",
       "tag": "Starter",
       "emoji": "🏊",
-      "ipa": "/swˈɪmɪŋ/",
+      "ipa": "/ˈswɪmɪŋ/",
       "syllables": "swimming",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>swimming</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>swimming</b>.",
       "jp_word": "水泳",
       "jp_reading": "すいえい",
-      "jp_sentence": "これは<b>水泳</b>です。",
+      "jp_sentence": "私は<b>水泳</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2210,13 +2213,13 @@
       "word": "table",
       "tag": "Starter",
       "emoji": "🪑",
-      "ipa": "/tˈe‍ɪbə‍l/",
+      "ipa": "/ˈteɪbəl/",
       "syllables": "table",
       "pos": "Noun · Countable",
       "sample": "I see a <b>table</b>.",
       "jp_word": "テーブル、食卓",
       "jp_reading": "テーブル、食卓",
-      "jp_sentence": "これは<b>テーブル、食卓</b>です。",
+      "jp_sentence": "私は<b>テーブル</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2227,16 +2230,16 @@
       "word": "table tennis",
       "tag": "Starter",
       "emoji": "🏓",
-      "ipa": "/tˈe‍ɪbə‍l tˈɛnɪs/",
+      "ipa": "/ˈteɪbəl ˈtɛnəs/",
       "syllables": "table tennis",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>table tennis</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>table tennis</b>.",
       "jp_word": "卓球",
       "jp_reading": "卓球",
-      "jp_sentence": "これは<b>卓球</b>です。",
+      "jp_sentence": "私は<b>卓球</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2244,16 +2247,16 @@
       "word": "tea",
       "tag": "Starter",
       "emoji": "🍵",
-      "ipa": "/tˈiː/",
+      "ipa": "/tiː/",
       "syllables": "tea",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>tea</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>tea</b>.",
       "jp_word": "茶；(特に)紅茶",
       "jp_reading": "ちゃ；(とくに)こうちゃ",
-      "jp_sentence": "これは<b>茶；(特に)紅茶</b>です。",
+      "jp_sentence": "私は<b>茶</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2261,16 +2264,16 @@
       "word": "tennis",
       "tag": "Starter",
       "emoji": "🎾",
-      "ipa": "/tˈɛnɪs/",
+      "ipa": "/ˈtɛnəs/",
       "syllables": "tennis",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>tennis</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>tennis</b>.",
       "jp_word": "テニス",
       "jp_reading": "テニス",
-      "jp_sentence": "これは<b>テニス</b>です。",
+      "jp_sentence": "私は<b>テニス</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2278,13 +2281,13 @@
       "word": "tomato",
       "tag": "Starter",
       "emoji": "🍅",
-      "ipa": "/təmˈɑːtə‍ʊ/",
+      "ipa": "/təˈmeɪtəʊ/",
       "syllables": "tomato",
       "pos": "Noun · Countable",
       "sample": "I see a <b>tomato</b>.",
       "jp_word": "トマト",
       "jp_reading": "トマト",
-      "jp_sentence": "これは<b>トマト</b>です。",
+      "jp_sentence": "私は<b>トマト</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2295,13 +2298,13 @@
       "word": "track",
       "tag": "Starter",
       "emoji": "🏃",
-      "ipa": "/tɹˈak/",
+      "ipa": "/træk/",
       "syllables": "track",
       "pos": "Noun · Countable",
       "sample": "I see a <b>track</b>.",
       "jp_word": "走路、トラック",
       "jp_reading": "そうろ、トラック",
-      "jp_sentence": "これは<b>走路、トラック</b>です。",
+      "jp_sentence": "私は<b>走路</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2312,16 +2315,16 @@
       "word": "track and field",
       "tag": "Starter",
       "emoji": "🏃",
-      "ipa": "/tɹˈak and fˈiːld/",
+      "ipa": "/træk ənd fiːld/",
       "syllables": "track and field",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>track and field</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>track and field</b>.",
       "jp_word": "陸上競技",
       "jp_reading": "りくじょうきょうぎ",
-      "jp_sentence": "これは<b>陸上競技</b>です。",
+      "jp_sentence": "私は<b>陸上競技</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2329,13 +2332,13 @@
       "word": "vegetable",
       "tag": "Starter",
       "emoji": "🥦",
-      "ipa": "/vˈɛd‍ʒɪtəbə‍l/",
+      "ipa": "/ˈvɛdʒtəbəl/",
       "syllables": "veg·e·ta·ble",
       "pos": "Noun · Countable",
       "sample": "I see a <b>vegetable</b>.",
       "jp_word": "野菜",
       "jp_reading": "やさい",
-      "jp_sentence": "これは<b>野菜</b>です。",
+      "jp_sentence": "私は<b>野菜</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2346,16 +2349,16 @@
       "word": "volleyball",
       "tag": "Starter",
       "emoji": "🏐",
-      "ipa": "/vˈɒlɪbˌɔːl/",
+      "ipa": "/ˈvɒlibɔːl/",
       "syllables": "volleyball",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>volleyball</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>volleyball</b>.",
       "jp_word": "バレーボール",
       "jp_reading": "バレーボール",
-      "jp_sentence": "これは<b>バレーボール</b>です。",
+      "jp_sentence": "私は<b>バレーボール</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2363,16 +2366,16 @@
       "word": "water",
       "tag": "Starter",
       "emoji": "💧",
-      "ipa": "/wˈɔːtə/",
+      "ipa": "/ˈwɔːtər/",
       "syllables": "water",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>water</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>water</b>.",
       "jp_word": "水",
       "jp_reading": "みず",
-      "jp_sentence": "これは<b>水</b>です。",
+      "jp_sentence": "私は<b>水</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2380,13 +2383,13 @@
       "word": "watermelon",
       "tag": "Starter",
       "emoji": "🍉",
-      "ipa": "/wˈɔːtəmˌɛlən/",
+      "ipa": "/ˈwɔːtərˌmelən/",
       "syllables": "watermelon",
       "pos": "Noun · Countable",
       "sample": "I see a <b>watermelon</b>.",
       "jp_word": "スイカ",
       "jp_reading": "スイカ",
-      "jp_sentence": "これは<b>スイカ</b>です。",
+      "jp_sentence": "私は<b>スイカ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2397,13 +2400,13 @@
       "word": "wheelchair",
       "tag": "Starter",
       "emoji": "♿",
-      "ipa": "/wˈiːlt‍ʃe‍ə/",
+      "ipa": "/ˈwiːltʃeər/",
       "syllables": "wheelchair",
       "pos": "Noun · Countable",
       "sample": "I see a <b>wheelchair</b>.",
       "jp_word": "車いす",
       "jp_reading": "くるまいす",
-      "jp_sentence": "これは<b>車いす</b>です。",
+      "jp_sentence": "私は<b>車いす</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2414,16 +2417,16 @@
       "word": "yogurt",
       "tag": "Starter",
       "emoji": "🥣",
-      "ipa": "/jˈɒɡɜːt/",
+      "ipa": "/ˈjɒɡərt/",
       "syllables": "yogurt",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>yogurt</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>yogurt</b>.",
       "jp_word": "ヨーグルト",
       "jp_reading": "ヨーグルト",
-      "jp_sentence": "これは<b>ヨーグルト</b>です。",
+      "jp_sentence": "私は<b>ヨーグルト</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -2431,13 +2434,13 @@
       "word": "animal",
       "tag": "Starter",
       "emoji": "🐾",
-      "ipa": "/ˈanɪmə‍l/",
+      "ipa": "/ˈænəməl/",
       "syllables": "animal",
       "pos": "Noun · Countable",
       "sample": "I see an <b>animal</b>.",
       "jp_word": "動物",
       "jp_reading": "どうぶつ",
-      "jp_sentence": "これは<b>動物</b>です。",
+      "jp_sentence": "私は<b>動物</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2448,13 +2451,13 @@
       "word": "bear",
       "tag": "Starter",
       "emoji": "🐻",
-      "ipa": "/bˈe‍ə/",
+      "ipa": "/beər/",
       "syllables": "bear",
       "pos": "Noun · Countable",
       "sample": "I see a <b>bear</b>.",
       "jp_word": "クマ",
       "jp_reading": "クマ",
-      "jp_sentence": "これは<b>クマ</b>です。",
+      "jp_sentence": "私は<b>クマ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2465,13 +2468,13 @@
       "word": "beautiful",
       "tag": "Starter",
       "emoji": "✨",
-      "ipa": "/bjˈuːtifə‍l/",
+      "ipa": "/ˈbjuːtəfəl/",
       "syllables": "beautiful",
       "pos": "Adjective",
       "sample": "This is <b>beautiful</b>.",
       "jp_word": "美しい、きれいな",
       "jp_reading": "うつくしい、きれいな",
-      "jp_sentence": "これは<b>美しい、きれいな</b>です。",
+      "jp_sentence": "それは<b>美しい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2481,13 +2484,13 @@
       "word": "big",
       "tag": "Starter",
       "emoji": "🔷",
-      "ipa": "/bˈɪɡ/",
+      "ipa": "/bɪɡ/",
       "syllables": "big",
       "pos": "Adjective",
       "sample": "This is <b>big</b>.",
       "jp_word": "大きい",
       "jp_reading": "おおきい",
-      "jp_sentence": "これは<b>大きい</b>です。",
+      "jp_sentence": "それは<b>大きい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2497,13 +2500,13 @@
       "word": "bird",
       "tag": "Starter",
       "emoji": "🐦",
-      "ipa": "/bˈɜːd/",
+      "ipa": "/bɜːrd/",
       "syllables": "bird",
       "pos": "Noun · Countable",
       "sample": "I see a <b>bird</b>.",
       "jp_word": "鳥",
       "jp_reading": "とり",
-      "jp_sentence": "これは<b>鳥</b>です。",
+      "jp_sentence": "私は<b>鳥</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2514,13 +2517,13 @@
       "word": "black",
       "tag": "Starter",
       "emoji": "⚫",
-      "ipa": "/blˈak/",
+      "ipa": "/blæk/",
       "syllables": "black",
       "pos": "Adjective",
       "sample": "This is <b>black</b>.",
       "jp_word": "黒色",
       "jp_reading": "くろいろ",
-      "jp_sentence": "これは<b>黒色</b>です。",
+      "jp_sentence": "それは<b>黒色</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2530,13 +2533,13 @@
       "word": "blue",
       "tag": "Starter",
       "emoji": "🔵",
-      "ipa": "/blˈuː/",
+      "ipa": "/bluː/",
       "syllables": "blue",
       "pos": "Adjective",
       "sample": "This is <b>blue</b>.",
       "jp_word": "青色",
       "jp_reading": "あおいろ",
-      "jp_sentence": "これは<b>青色</b>です。",
+      "jp_sentence": "それは<b>青色</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2546,13 +2549,13 @@
       "word": "brown",
       "tag": "Starter",
       "emoji": "🟤",
-      "ipa": "/bɹˈa‍ʊn/",
+      "ipa": "/braʊn/",
       "syllables": "brown",
       "pos": "Adjective",
       "sample": "This is <b>brown</b>.",
       "jp_word": "茶色(の)",
       "jp_reading": "ちゃいろ(の)",
-      "jp_sentence": "これは<b>茶色(の)</b>です。",
+      "jp_sentence": "それは<b>茶色(の)</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2562,13 +2565,13 @@
       "word": "color",
       "tag": "Starter",
       "emoji": "🎨",
-      "ipa": "/kˈʌlə/",
+      "ipa": "/ˈkʌlər/",
       "syllables": "color",
       "pos": "Noun · Countable",
       "sample": "I see a <b>color</b>.",
       "jp_word": "色、色彩",
       "jp_reading": "いろ、しきさい",
-      "jp_sentence": "これは<b>色、色彩</b>です。",
+      "jp_sentence": "私は<b>色</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2579,13 +2582,13 @@
       "word": "cool",
       "tag": "Starter",
       "emoji": "😎",
-      "ipa": "/kˈuːl/",
+      "ipa": "/kuːl/",
       "syllables": "cool",
       "pos": "Adjective",
       "sample": "This is <b>cool</b>.",
       "jp_word": "かっこいい、すばらしい",
       "jp_reading": "かっこいい、すばらしい",
-      "jp_sentence": "これは<b>かっこいい、すばらしい</b>です。",
+      "jp_sentence": "それは<b>かっこいい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2595,13 +2598,13 @@
       "word": "cow",
       "tag": "Starter",
       "emoji": "🐄",
-      "ipa": "/kˈa‍ʊ/",
+      "ipa": "/kaʊ/",
       "syllables": "cow",
       "pos": "Noun · Countable",
       "sample": "I see a <b>cow</b>.",
       "jp_word": "雌牛、乳牛；牛",
       "jp_reading": "めうし、にゅうぎゅう；うし",
-      "jp_sentence": "これは<b>雌牛、乳牛；牛</b>です。",
+      "jp_sentence": "私は<b>雌牛</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2612,13 +2615,13 @@
       "word": "dolphin",
       "tag": "Starter",
       "emoji": "🐬",
-      "ipa": "/dˈɒlfɪn/",
+      "ipa": "/ˈdɒlfɪn/",
       "syllables": "dolphin",
       "pos": "Noun · Countable",
       "sample": "I see a <b>dolphin</b>.",
       "jp_word": "イルカ",
       "jp_reading": "イルカ",
-      "jp_sentence": "これは<b>イルカ</b>です。",
+      "jp_sentence": "私は<b>イルカ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2629,13 +2632,13 @@
       "word": "elephant",
       "tag": "Starter",
       "emoji": "🐘",
-      "ipa": "/ˈɛlɪfənt/",
+      "ipa": "/ˈɛləfənt/",
       "syllables": "elephant",
       "pos": "Noun · Countable",
       "sample": "I see an <b>elephant</b>.",
       "jp_word": "象",
       "jp_reading": "ぞう",
-      "jp_sentence": "これは<b>象</b>です。",
+      "jp_sentence": "私は<b>象</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2646,13 +2649,13 @@
       "word": "fast",
       "tag": "Starter",
       "emoji": "💨",
-      "ipa": "/fˈast/",
+      "ipa": "/fæst/",
       "syllables": "fast",
       "pos": "Adjective",
       "sample": "This is <b>fast</b>.",
       "jp_word": "速い、すばやい",
       "jp_reading": "はやい、すばやい",
-      "jp_sentence": "これは<b>速い、すばやい</b>です。",
+      "jp_sentence": "それは<b>速い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2662,13 +2665,13 @@
       "word": "fox",
       "tag": "Starter",
       "emoji": "🦊",
-      "ipa": "/fˈɒks/",
+      "ipa": "/fɒks/",
       "syllables": "fox",
       "pos": "Noun · Countable",
       "sample": "I see a <b>fox</b>.",
       "jp_word": "キツネ",
       "jp_reading": "キツネ",
-      "jp_sentence": "これは<b>キツネ</b>です。",
+      "jp_sentence": "私は<b>キツネ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2679,13 +2682,13 @@
       "word": "gorilla",
       "tag": "Starter",
       "emoji": "🦍",
-      "ipa": "/ɡəɹˈɪlə/",
+      "ipa": "/ɡəˈrɪlə/",
       "syllables": "gorilla",
       "pos": "Noun · Countable",
       "sample": "I see a <b>gorilla</b>.",
       "jp_word": "ゴリラ",
       "jp_reading": "ゴリラ",
-      "jp_sentence": "これは<b>ゴリラ</b>です。",
+      "jp_sentence": "私は<b>ゴリラ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2696,13 +2699,13 @@
       "word": "great",
       "tag": "Starter",
       "emoji": "🌟",
-      "ipa": "/ɡɹˈe‍ɪt/",
+      "ipa": "/ɡreɪt/",
       "syllables": "great",
       "pos": "Adjective",
       "sample": "This is <b>great</b>.",
       "jp_word": "すてきな、すばらしい",
       "jp_reading": "すてきな、すばらしい",
-      "jp_sentence": "これは<b>すてきな、すばらしい</b>です。",
+      "jp_sentence": "それは<b>すてきな</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2712,13 +2715,13 @@
       "word": "hard",
       "tag": "Starter",
       "emoji": "🪨",
-      "ipa": "/hˈɑːd/",
+      "ipa": "/hɑːrd/",
       "syllables": "hard",
       "pos": "Adjective",
       "sample": "This is <b>hard</b>.",
       "jp_word": "かたい",
       "jp_reading": "かたい",
-      "jp_sentence": "これは<b>かたい</b>です。",
+      "jp_sentence": "それは<b>かたい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2728,13 +2731,13 @@
       "word": "heart",
       "tag": "Starter",
       "emoji": "❤️",
-      "ipa": "/hˈɑːt/",
+      "ipa": "/hɑːrt/",
       "syllables": "heart",
       "pos": "Noun · Countable",
       "sample": "I see a <b>heart</b>.",
       "jp_word": "ハート型",
       "jp_reading": "ハート型",
-      "jp_sentence": "これは<b>ハート型</b>です。",
+      "jp_sentence": "私は<b>ハート型</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2745,13 +2748,13 @@
       "word": "koala",
       "tag": "Starter",
       "emoji": "🐨",
-      "ipa": "/kə‍ʊˈɑːlə/",
+      "ipa": "/kəʊˈɑːlə/",
       "syllables": "koala",
       "pos": "Noun · Countable",
       "sample": "I see a <b>koala</b>.",
       "jp_word": "コアラ",
       "jp_reading": "コアラ",
-      "jp_sentence": "これは<b>コアラ</b>です。",
+      "jp_sentence": "私は<b>コアラ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2762,13 +2765,13 @@
       "word": "lion",
       "tag": "Starter",
       "emoji": "🦁",
-      "ipa": "/lˈa‍ɪ‍ən/",
+      "ipa": "/ˈlaɪən/",
       "syllables": "lion",
       "pos": "Noun · Countable",
       "sample": "I see a <b>lion</b>.",
       "jp_word": "ライオン",
       "jp_reading": "ライオン",
-      "jp_sentence": "これは<b>ライオン</b>です。",
+      "jp_sentence": "私は<b>ライオン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2779,13 +2782,13 @@
       "word": "long",
       "tag": "Starter",
       "emoji": "📏",
-      "ipa": "/lˈɒŋ/",
+      "ipa": "/lɔŋ/",
       "syllables": "long",
       "pos": "Adjective",
       "sample": "This is <b>long</b>.",
       "jp_word": "(距離・長さが)長い",
       "jp_reading": "(距離・長さが)長い",
-      "jp_sentence": "これは<b>(距離・長さが)長い</b>です。",
+      "jp_sentence": "それは<b>(距離・長さが)長い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2795,13 +2798,13 @@
       "word": "monkey",
       "tag": "Starter",
       "emoji": "🐵",
-      "ipa": "/mˈʌnki/",
+      "ipa": "/ˈmʌŋkiː/",
       "syllables": "monkey",
       "pos": "Noun · Countable",
       "sample": "I see a <b>monkey</b>.",
       "jp_word": "サル",
       "jp_reading": "サル",
-      "jp_sentence": "これは<b>サル</b>です。",
+      "jp_sentence": "私は<b>サル</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2812,13 +2815,13 @@
       "word": "mouse",
       "tag": "Starter",
       "emoji": "🐭",
-      "ipa": "/mˈa‍ʊs/",
+      "ipa": "/maʊs/",
       "syllables": "mouse",
       "pos": "Noun · Countable",
       "sample": "I see a <b>mouse</b>.",
       "jp_word": "ネズミ",
       "jp_reading": "ネズミ",
-      "jp_sentence": "これは<b>ネズミ</b>です。",
+      "jp_sentence": "私は<b>ネズミ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2829,13 +2832,13 @@
       "word": "new",
       "tag": "Starter",
       "emoji": "🆕",
-      "ipa": "/njˈuː/",
+      "ipa": "/nuː/",
       "syllables": "new",
       "pos": "Adjective",
       "sample": "This is <b>new</b>.",
       "jp_word": "新しい",
       "jp_reading": "あたらしい",
-      "jp_sentence": "これは<b>新しい</b>です。",
+      "jp_sentence": "それは<b>新しい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2845,13 +2848,13 @@
       "word": "nice",
       "tag": "Starter",
       "emoji": "😊",
-      "ipa": "/nˈa‍ɪs/",
+      "ipa": "/naɪs/",
       "syllables": "nice",
       "pos": "Adjective",
       "sample": "This is <b>nice</b>.",
       "jp_word": "すてきな、すばらしい；おいしい",
       "jp_reading": "すてきな、すばらしい；おいしい",
-      "jp_sentence": "これは<b>すてきな、すばらしい；おいしい</b>です。",
+      "jp_sentence": "それは<b>すてきな</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2861,16 +2864,16 @@
       "word": "no",
       "tag": "Starter",
       "emoji": "🙅",
-      "ipa": "/nˈə‍ʊ/",
+      "ipa": "/noʊ/",
       "syllables": "no",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>no</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "<b>no</b>, thank you.",
       "jp_word": "まさか、うそだろう？",
       "jp_reading": "まさか、うそだろう？",
-      "jp_sentence": "これは<b>まさか、うそだろう？</b>です。",
+      "jp_sentence": "私は<b>まさか</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -2878,16 +2881,16 @@
       "word": "oh",
       "tag": "Starter",
       "emoji": "😮",
-      "ipa": "/ˈə‍ʊ/",
+      "ipa": "/oʊ/",
       "syllables": "oh",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>oh</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "<b>oh</b>! That is nice.",
       "jp_word": "おお、まあ！",
       "jp_reading": "おお、まあ！",
-      "jp_sentence": "これは<b>おお、まあ！</b>です。",
+      "jp_sentence": "私は<b>おお</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -2895,13 +2898,13 @@
       "word": "old",
       "tag": "Starter",
       "emoji": "🕰️",
-      "ipa": "/ˈə‍ʊld/",
+      "ipa": "/oʊld/",
       "syllables": "old",
       "pos": "Adjective",
       "sample": "This is <b>old</b>.",
       "jp_word": "古い；昔の",
       "jp_reading": "ふるい；むかしの",
-      "jp_sentence": "これは<b>古い；昔の</b>です。",
+      "jp_sentence": "それは<b>古い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2911,13 +2914,13 @@
       "word": "orange",
       "tag": "Starter",
       "emoji": "🍊",
-      "ipa": "/ˈɒɹɪnd‍ʒ/",
+      "ipa": "/ˈɔːrɪndʒ/",
       "syllables": "orange",
       "pos": "Adjective",
       "sample": "This is <b>orange</b>.",
       "jp_word": "オレンジ色",
       "jp_reading": "オレンジいろ",
-      "jp_sentence": "これは<b>オレンジ色</b>です。",
+      "jp_sentence": "それは<b>オレンジ色</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2927,13 +2930,13 @@
       "word": "panda",
       "tag": "Starter",
       "emoji": "🐼",
-      "ipa": "/pˈandə/",
+      "ipa": "/ˈpændə/",
       "syllables": "panda",
       "pos": "Noun · Countable",
       "sample": "I see a <b>panda</b>.",
       "jp_word": "パンダ",
       "jp_reading": "パンダ",
-      "jp_sentence": "これは<b>パンダ</b>です。",
+      "jp_sentence": "私は<b>パンダ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2944,13 +2947,13 @@
       "word": "penguin",
       "tag": "Starter",
       "emoji": "🐧",
-      "ipa": "/pˈɛŋɡwɪn/",
+      "ipa": "/ˈpɛŋɡwən/",
       "syllables": "penguin",
       "pos": "Noun · Countable",
       "sample": "I see a <b>penguin</b>.",
       "jp_word": "ペンギン",
       "jp_reading": "ペンギン",
-      "jp_sentence": "これは<b>ペンギン</b>です。",
+      "jp_sentence": "私は<b>ペンギン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2961,13 +2964,13 @@
       "word": "pig",
       "tag": "Starter",
       "emoji": "🐷",
-      "ipa": "/pˈɪɡ/",
+      "ipa": "/pɪɡ/",
       "syllables": "pig",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pig</b>.",
       "jp_word": "ブタ",
       "jp_reading": "ブタ",
-      "jp_sentence": "これは<b>ブタ</b>です。",
+      "jp_sentence": "私は<b>ブタ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -2978,13 +2981,13 @@
       "word": "pink",
       "tag": "Starter",
       "emoji": "🩷",
-      "ipa": "/pˈɪŋk/",
+      "ipa": "/pɪŋk/",
       "syllables": "pink",
       "pos": "Adjective",
       "sample": "This is <b>pink</b>.",
       "jp_word": "ピンク色(の)",
       "jp_reading": "ピンク色(の)",
-      "jp_sentence": "これは<b>ピンク色(の)</b>です。",
+      "jp_sentence": "それは<b>ピンク色(の)</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -2994,13 +2997,13 @@
       "word": "purple",
       "tag": "Starter",
       "emoji": "🟣",
-      "ipa": "/pˈɜːpə‍l/",
+      "ipa": "/ˈpɜːrpəl/",
       "syllables": "purple",
       "pos": "Adjective",
       "sample": "This is <b>purple</b>.",
       "jp_word": "紫色(の)",
       "jp_reading": "紫色(の)",
-      "jp_sentence": "これは<b>紫色(の)</b>です。",
+      "jp_sentence": "それは<b>紫色(の)</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3010,16 +3013,16 @@
       "word": "really",
       "tag": "Starter",
       "emoji": "❓",
-      "ipa": "/ɹˈi‍əlɪ/",
+      "ipa": "/ˈrɪliː/",
       "syllables": "really",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>really</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>really</b> study English.",
       "jp_word": "ほんと、へえー",
       "jp_reading": "ほんと、へえー",
-      "jp_sentence": "これは<b>ほんと、へえー</b>です。",
+      "jp_sentence": "私は<b>ほんと</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -3027,13 +3030,13 @@
       "word": "rectangle",
       "tag": "Starter",
       "emoji": "▭",
-      "ipa": "/ɹˈɛktaŋɡə‍l/",
+      "ipa": "/ˈrɛktæŋɡəl/",
       "syllables": "rectangle",
       "pos": "Noun · Countable",
       "sample": "I see a <b>rectangle</b>.",
       "jp_word": "長方形",
       "jp_reading": "長方形",
-      "jp_sentence": "これは<b>長方形</b>です。",
+      "jp_sentence": "私は<b>長方形</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3044,13 +3047,13 @@
       "word": "red",
       "tag": "Starter",
       "emoji": "🔴",
-      "ipa": "/ɹˈɛd/",
+      "ipa": "/rɛd/",
       "syllables": "red",
       "pos": "Adjective",
       "sample": "This is <b>red</b>.",
       "jp_word": "赤色(の)",
       "jp_reading": "あかいろ(の)",
-      "jp_sentence": "これは<b>赤色(の)</b>です。",
+      "jp_sentence": "それは<b>赤色(の)</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3060,13 +3063,13 @@
       "word": "shape",
       "tag": "Starter",
       "emoji": "🔷",
-      "ipa": "/ʃˈe‍ɪp/",
+      "ipa": "/ʃeɪp/",
       "syllables": "shape",
       "pos": "Noun · Countable",
       "sample": "I see a <b>shape</b>.",
       "jp_word": "形、姿",
       "jp_reading": "かたち、すがた",
-      "jp_sentence": "これは<b>形、姿</b>です。",
+      "jp_sentence": "私は<b>形</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3077,13 +3080,13 @@
       "word": "short",
       "tag": "Starter",
       "emoji": "📏",
-      "ipa": "/ʃˈɔːt/",
+      "ipa": "/ʃɔːrt/",
       "syllables": "short",
       "pos": "Adjective",
       "sample": "This is <b>short</b>.",
       "jp_word": "(寸法・距離が)短い",
       "jp_reading": "(寸法・距離が)短い",
-      "jp_sentence": "これは<b>(寸法・距離が)短い</b>です。",
+      "jp_sentence": "それは<b>(寸法・距離が)短い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3093,13 +3096,13 @@
       "word": "slow",
       "tag": "Starter",
       "emoji": "🐢",
-      "ipa": "/slˈə‍ʊ/",
+      "ipa": "/sloʊ/",
       "syllables": "slow",
       "pos": "Adjective",
       "sample": "This is <b>slow</b>.",
       "jp_word": "遅い；ゆっくりとした",
       "jp_reading": "おそい；ゆっくりとした",
-      "jp_sentence": "これは<b>遅い；ゆっくりとした</b>です。",
+      "jp_sentence": "それは<b>遅い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3109,13 +3112,13 @@
       "word": "small",
       "tag": "Starter",
       "emoji": "🔹",
-      "ipa": "/smˈɔːl/",
+      "ipa": "/smɔːl/",
       "syllables": "small",
       "pos": "Adjective",
       "sample": "This is <b>small</b>.",
       "jp_word": "小さい",
       "jp_reading": "ちいさい",
-      "jp_sentence": "これは<b>小さい</b>です。",
+      "jp_sentence": "それは<b>小さい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3125,13 +3128,13 @@
       "word": "snake",
       "tag": "Starter",
       "emoji": "🐍",
-      "ipa": "/snˈe‍ɪk/",
+      "ipa": "/sneɪk/",
       "syllables": "snake",
       "pos": "Noun · Countable",
       "sample": "I see a <b>snake</b>.",
       "jp_word": "ヘビ",
       "jp_reading": "ヘビ",
-      "jp_sentence": "これは<b>ヘビ</b>です。",
+      "jp_sentence": "私は<b>ヘビ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3142,13 +3145,13 @@
       "word": "soft",
       "tag": "Starter",
       "emoji": "🧸",
-      "ipa": "/sˈɒft/",
+      "ipa": "/sɒft/",
       "syllables": "soft",
       "pos": "Adjective",
       "sample": "This is <b>soft</b>.",
       "jp_word": "やわらかい",
       "jp_reading": "やわらかい",
-      "jp_sentence": "これは<b>やわらかい</b>です。",
+      "jp_sentence": "それは<b>やわらかい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3158,13 +3161,13 @@
       "word": "square",
       "tag": "Starter",
       "emoji": "◼️",
-      "ipa": "/skwˈe‍ə/",
+      "ipa": "/skweər/",
       "syllables": "square",
       "pos": "Noun · Countable",
       "sample": "I see a <b>square</b>.",
       "jp_word": "正方形、四角形",
       "jp_reading": "せいほうけい、しかくけい",
-      "jp_sentence": "これは<b>正方形、四角形</b>です。",
+      "jp_sentence": "私は<b>正方形</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3175,13 +3178,13 @@
       "word": "star",
       "tag": "Starter",
       "emoji": "⭐",
-      "ipa": "/stˈɑː/",
+      "ipa": "/stɑːr/",
       "syllables": "star",
       "pos": "Noun · Countable",
       "sample": "I see a <b>star</b>.",
       "jp_word": "星形のもの、星印",
       "jp_reading": "ほしがたのもの、ほしじるし",
-      "jp_sentence": "これは<b>星形のもの、星印</b>です。",
+      "jp_sentence": "私は<b>星形のもの</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3192,13 +3195,13 @@
       "word": "triangle",
       "tag": "Starter",
       "emoji": "🔺",
-      "ipa": "/tɹˈa‍ɪaŋɡə‍l/",
+      "ipa": "/ˈtraɪˌæŋɡəl/",
       "syllables": "triangle",
       "pos": "Noun · Countable",
       "sample": "I see a <b>triangle</b>.",
       "jp_word": "三角形",
       "jp_reading": "三角形",
-      "jp_sentence": "これは<b>三角形</b>です。",
+      "jp_sentence": "私は<b>三角形</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3209,13 +3212,13 @@
       "word": "white",
       "tag": "Starter",
       "emoji": "⚪",
-      "ipa": "/wˈa‍ɪt/",
+      "ipa": "/waɪt/",
       "syllables": "white",
       "pos": "Adjective",
       "sample": "This is <b>white</b>.",
       "jp_word": "白色",
       "jp_reading": "しろいろ",
-      "jp_sentence": "これは<b>白色</b>です。",
+      "jp_sentence": "それは<b>白色</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3225,16 +3228,16 @@
       "word": "wow",
       "tag": "Starter",
       "emoji": "😲",
-      "ipa": "/wˈa‍ʊ/",
+      "ipa": "/waʊ/",
       "syllables": "wow",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>wow</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "<b>wow</b>! That is nice.",
       "jp_word": "うわー！、まあ！",
       "jp_reading": "うわー！、まあ！",
-      "jp_sentence": "これは<b>うわー！、まあ！</b>です。",
+      "jp_sentence": "私は<b>うわー！</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -3242,13 +3245,13 @@
       "word": "yellow",
       "tag": "Starter",
       "emoji": "🟡",
-      "ipa": "/jˈɛlə‍ʊ/",
+      "ipa": "/ˈjɛloʊ/",
       "syllables": "yellow",
       "pos": "Adjective",
       "sample": "This is <b>yellow</b>.",
       "jp_word": "黄色(の)",
       "jp_reading": "きいろ(の)",
-      "jp_sentence": "これは<b>黄色(の)</b>です。",
+      "jp_sentence": "それは<b>黄色(の)</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3258,13 +3261,13 @@
       "word": "zebra",
       "tag": "Starter",
       "emoji": "🦓",
-      "ipa": "/zˈɛbɹə/",
+      "ipa": "/ˈziːbrə/",
       "syllables": "zebra",
       "pos": "Noun · Countable",
       "sample": "I see a <b>zebra</b>.",
       "jp_word": "シマウマ",
       "jp_reading": "シマウマ",
-      "jp_sentence": "これは<b>シマウマ</b>です。",
+      "jp_sentence": "私は<b>シマウマ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3275,13 +3278,13 @@
       "word": "afternoon",
       "tag": "Starter",
       "emoji": "🌤️",
-      "ipa": "/ˌaftənˈuːn/",
+      "ipa": "/ˌæftɚˈnuːn/",
       "syllables": "afternoon",
       "pos": "Noun · Countable",
       "sample": "I see an <b>afternoon</b>.",
       "jp_word": "午後",
       "jp_reading": "ごご",
-      "jp_sentence": "これは<b>午後</b>です。",
+      "jp_sentence": "私は<b>午後</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3292,16 +3295,16 @@
       "word": "always",
       "tag": "Starter",
       "emoji": "🔁",
-      "ipa": "/ˈɔːlwe‍ɪz/",
+      "ipa": "/ˈɔˌlweɪz/",
       "syllables": "always",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>always</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>always</b> study English.",
       "jp_word": "いつも、常に",
       "jp_reading": "いつも、つねに",
-      "jp_sentence": "これは<b>いつも、常に</b>です。",
+      "jp_sentence": "私は<b>いつも</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -3309,13 +3312,13 @@
       "word": "angry",
       "tag": "Starter",
       "emoji": "😠",
-      "ipa": "/ˈaŋɡɹi/",
+      "ipa": "/ˈæŋɡriː/",
       "syllables": "angry",
       "pos": "Adjective",
       "sample": "This is <b>angry</b>.",
       "jp_word": "怒った",
       "jp_reading": "おこった",
-      "jp_sentence": "これは<b>怒った</b>です。",
+      "jp_sentence": "それは<b>怒った</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3325,13 +3328,13 @@
       "word": "autumn",
       "tag": "Starter",
       "emoji": "🍂",
-      "ipa": "/ˈɔːtʌm/",
+      "ipa": "/ˈɔtəm/",
       "syllables": "autumn",
       "pos": "Noun · Countable",
       "sample": "I see an <b>autumn</b>.",
       "jp_word": "秋",
       "jp_reading": "あき",
-      "jp_sentence": "これは<b>秋</b>です。",
+      "jp_sentence": "私は<b>秋</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3342,13 +3345,13 @@
       "word": "bitter",
       "tag": "Starter",
       "emoji": "😖",
-      "ipa": "/bˈɪtə/",
+      "ipa": "/ˈbɪtɚ/",
       "syllables": "bitter",
       "pos": "Adjective",
       "sample": "This is <b>bitter</b>.",
       "jp_word": "にがい",
       "jp_reading": "にがい",
-      "jp_sentence": "これは<b>にがい</b>です。",
+      "jp_sentence": "それは<b>にがい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3358,13 +3361,13 @@
       "word": "brave",
       "tag": "Starter",
       "emoji": "🦁",
-      "ipa": "/bɹˈe‍ɪv/",
+      "ipa": "/breɪv/",
       "syllables": "brave",
       "pos": "Adjective",
       "sample": "This is <b>brave</b>.",
       "jp_word": "勇敢な",
       "jp_reading": "ゆうかんな",
-      "jp_sentence": "これは<b>勇敢な</b>です。",
+      "jp_sentence": "それは<b>勇敢な</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3374,13 +3377,13 @@
       "word": "cold",
       "tag": "Starter",
       "emoji": "❄️",
-      "ipa": "/kˈə‍ʊld/",
+      "ipa": "/koʊld/",
       "syllables": "cold",
       "pos": "Adjective",
       "sample": "This is <b>cold</b>.",
       "jp_word": "寒い；冷たい",
       "jp_reading": "さむい；つめたい",
-      "jp_sentence": "これは<b>寒い；冷たい</b>です。",
+      "jp_sentence": "それは<b>寒い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3390,13 +3393,13 @@
       "word": "cute",
       "tag": "Starter",
       "emoji": "😊",
-      "ipa": "/kjˈuːt/",
+      "ipa": "/kjuːt/",
       "syllables": "cute",
       "pos": "Adjective",
       "sample": "This is <b>cute</b>.",
       "jp_word": "かわいい",
       "jp_reading": "かわいい",
-      "jp_sentence": "これは<b>かわいい</b>です。",
+      "jp_sentence": "それは<b>かわいい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3406,13 +3409,13 @@
       "word": "delicious",
       "tag": "Starter",
       "emoji": "😋",
-      "ipa": "/dɪlˈɪʃəs/",
+      "ipa": "/dɪˈlɪʃəs/",
       "syllables": "delicious",
       "pos": "Adjective",
       "sample": "This is <b>delicious</b>.",
       "jp_word": "(とても)おいしい",
       "jp_reading": "(とても)おいしい",
-      "jp_sentence": "これは<b>(とても)おいしい</b>です。",
+      "jp_sentence": "それは<b>(とても)おいしい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3428,7 +3431,7 @@
       "sample": "I see an <b>evening</b>.",
       "jp_word": "夕方、晩",
       "jp_reading": "ゆうがた、ばん",
-      "jp_sentence": "これは<b>夕方、晩</b>です。",
+      "jp_sentence": "私は<b>夕方</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3439,13 +3442,13 @@
       "word": "exciting",
       "tag": "Starter",
       "emoji": "🎢",
-      "ipa": "/ɛksˈa‍ɪtɪŋ/",
+      "ipa": "/ɪˈksaɪtɪŋ/",
       "syllables": "exciting",
       "pos": "Adjective",
       "sample": "This is <b>exciting</b>.",
       "jp_word": "興奮させる",
       "jp_reading": "こうふんさせる",
-      "jp_sentence": "これは<b>興奮させる</b>です。",
+      "jp_sentence": "それは<b>興奮させる</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3455,13 +3458,13 @@
       "word": "fall",
       "tag": "Starter",
       "emoji": "🍂",
-      "ipa": "/fˈɔːl/",
+      "ipa": "/fɔl/",
       "syllables": "fall",
       "pos": "Noun · Countable",
       "sample": "I see a <b>fall</b>.",
       "jp_word": "秋",
       "jp_reading": "あき",
-      "jp_sentence": "これは<b>秋</b>です。",
+      "jp_sentence": "私は<b>秋</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3472,13 +3475,13 @@
       "word": "famous",
       "tag": "Starter",
       "emoji": "🌟",
-      "ipa": "/fˈe‍ɪməs/",
+      "ipa": "/ˈfeɪməs/",
       "syllables": "famous",
       "pos": "Adjective",
       "sample": "This is <b>famous</b>.",
       "jp_word": "有名な",
       "jp_reading": "ゆうめいな",
-      "jp_sentence": "これは<b>有名な</b>です。",
+      "jp_sentence": "それは<b>有名な</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3488,13 +3491,13 @@
       "word": "fine",
       "tag": "Starter",
       "emoji": "🙂",
-      "ipa": "/fˈa‍ɪn/",
+      "ipa": "/faɪn/",
       "syllables": "fine",
       "pos": "Adjective",
       "sample": "This is <b>fine</b>.",
       "jp_word": "健康な、元気な",
       "jp_reading": "けんこうな、げんきな",
-      "jp_sentence": "これは<b>健康な、元気な</b>です。",
+      "jp_sentence": "それは<b>健康な</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3504,13 +3507,13 @@
       "word": "fresh",
       "tag": "Starter",
       "emoji": "🌱",
-      "ipa": "/fɹˈɛʃ/",
+      "ipa": "/frɛʃ/",
       "syllables": "fresh",
       "pos": "Adjective",
       "sample": "This is <b>fresh</b>.",
       "jp_word": "新しい、新鮮な",
       "jp_reading": "あたらしい、しんせんな",
-      "jp_sentence": "これは<b>新しい、新鮮な</b>です。",
+      "jp_sentence": "それは<b>新しい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3520,13 +3523,13 @@
       "word": "friendly",
       "tag": "Starter",
       "emoji": "🤝",
-      "ipa": "/fɹˈɛndli/",
+      "ipa": "/ˈfrɛndliː/",
       "syllables": "friendly",
       "pos": "Adjective",
       "sample": "This is <b>friendly</b>.",
       "jp_word": "親しみのある；親切な",
       "jp_reading": "したしみのある；しんせつな",
-      "jp_sentence": "これは<b>親しみのある；親切な</b>です。",
+      "jp_sentence": "それは<b>親しみのある</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3536,15 +3539,16 @@
       "word": "fun",
       "tag": "Starter",
       "emoji": "🎉",
-      "ipa": "/fˈʌn/",
+      "ipa": "/fʌn/",
       "syllables": "fun",
-      "pos": "Adjective",
-      "sample": "This is <b>fun</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see a <b>fun</b>.",
       "jp_word": "おもしろいこと；楽しさ",
       "jp_reading": "おもしろいこと；たのしさ",
-      "jp_sentence": "これは<b>おもしろいこと；楽しさ</b>です。",
+      "jp_sentence": "私は<b>おもしろいこと</b>を見ます。",
       "jp_tags": [
-        "形容詞"
+        "名詞",
+        "可算名詞"
       ]
     },
     {
@@ -3552,13 +3556,13 @@
       "word": "funny",
       "tag": "Starter",
       "emoji": "😂",
-      "ipa": "/fˈʌni/",
+      "ipa": "/ˈfʌniː/",
       "syllables": "funny",
       "pos": "Adjective",
       "sample": "This is <b>funny</b>.",
       "jp_word": "こっけいな",
       "jp_reading": "こっけいな",
-      "jp_sentence": "これは<b>こっけいな</b>です。",
+      "jp_sentence": "それは<b>こっけいな</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3568,13 +3572,13 @@
       "word": "good",
       "tag": "Starter",
       "emoji": "👍",
-      "ipa": "/ɡˈʊd/",
+      "ipa": "/ɡʊd/",
       "syllables": "good",
       "pos": "Adjective",
       "sample": "This is <b>good</b>.",
       "jp_word": "よい、すぐれた",
       "jp_reading": "よい、すぐれた",
-      "jp_sentence": "これは<b>よい、すぐれた</b>です。",
+      "jp_sentence": "それは<b>よい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3584,13 +3588,13 @@
       "word": "happy",
       "tag": "Starter",
       "emoji": "😊",
-      "ipa": "/hˈapi/",
+      "ipa": "/ˈhæpiː/",
       "syllables": "happy",
       "pos": "Adjective",
       "sample": "This is <b>happy</b>.",
       "jp_word": "幸せな、うれしい",
       "jp_reading": "しあわせな、うれしい",
-      "jp_sentence": "これは<b>幸せな、うれしい</b>です。",
+      "jp_sentence": "それは<b>幸せな</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3600,13 +3604,13 @@
       "word": "hungry",
       "tag": "Starter",
       "emoji": "🍽️",
-      "ipa": "/hˈʌŋɡɹi/",
+      "ipa": "/ˈhʌŋɡriː/",
       "syllables": "hungry",
       "pos": "Adjective",
       "sample": "This is <b>hungry</b>.",
       "jp_word": "空腹の",
       "jp_reading": "くうふくの",
-      "jp_sentence": "これは<b>空腹の</b>です。",
+      "jp_sentence": "それは<b>空腹の</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3616,13 +3620,13 @@
       "word": "interesting",
       "tag": "Starter",
       "emoji": "💡",
-      "ipa": "/ˈɪntɹəstɪŋ/",
+      "ipa": "/ˈɪntrəstɪŋ/",
       "syllables": "in·ter·est·ing",
       "pos": "Adjective",
       "sample": "This is <b>interesting</b>.",
       "jp_word": "おもしろい、興味深い",
       "jp_reading": "おもしろい、きょうみぶかい",
-      "jp_sentence": "これは<b>おもしろい、興味深い</b>です。",
+      "jp_sentence": "それは<b>おもしろい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3632,13 +3636,13 @@
       "word": "kind",
       "tag": "Starter",
       "emoji": "🤝",
-      "ipa": "/kˈa‍ɪnd/",
+      "ipa": "/kaɪnd/",
       "syllables": "kind",
       "pos": "Adjective",
       "sample": "This is <b>kind</b>.",
       "jp_word": "親切な、やさしい",
       "jp_reading": "しんせつな、やさしい",
-      "jp_sentence": "これは<b>親切な、やさしい</b>です。",
+      "jp_sentence": "それは<b>親切な</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3648,13 +3652,13 @@
       "word": "morning",
       "tag": "Starter",
       "emoji": "🌅",
-      "ipa": "/mˈɔːnɪŋ/",
+      "ipa": "/ˈmɔːrnɪŋ/",
       "syllables": "morning",
       "pos": "Noun · Countable",
       "sample": "I see a <b>morning</b>.",
       "jp_word": "朝；午前",
       "jp_reading": "あさ；ごぜん",
-      "jp_sentence": "これは<b>朝；午前</b>です。",
+      "jp_sentence": "私は<b>朝</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3665,16 +3669,16 @@
       "word": "never",
       "tag": "Starter",
       "emoji": "🚫",
-      "ipa": "/nˈɛvə/",
+      "ipa": "/ˈnɛvɚ/",
       "syllables": "never",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>never</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>never</b> study English.",
       "jp_word": "決して…でない",
       "jp_reading": "けっして…でない",
-      "jp_sentence": "これは<b>決して…でない</b>です。",
+      "jp_sentence": "私は<b>決して…でない</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -3682,13 +3686,13 @@
       "word": "night",
       "tag": "Starter",
       "emoji": "🌙",
-      "ipa": "/nˈa‍ɪt/",
+      "ipa": "/naɪt/",
       "syllables": "night",
       "pos": "Noun · Countable",
       "sample": "I see a <b>night</b>.",
       "jp_word": "夜；晩",
       "jp_reading": "よる；ばん",
-      "jp_sentence": "これは<b>夜；晩</b>です。",
+      "jp_sentence": "私は<b>夜</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3699,16 +3703,15 @@
       "word": "sad",
       "tag": "Starter",
       "emoji": "😢",
-      "ipa": "/sˈad/",
+      "ipa": "/sæd/",
       "syllables": "sad",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>sad</b>.",
+      "pos": "Adjective",
+      "sample": "This is <b>sad</b>.",
       "jp_word": "悲しい",
       "jp_reading": "かなしい",
-      "jp_sentence": "これは<b>悲しい</b>です。",
+      "jp_sentence": "それは<b>悲しい</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "形容詞"
       ]
     },
     {
@@ -3716,13 +3719,13 @@
       "word": "salty",
       "tag": "Starter",
       "emoji": "🧂",
-      "ipa": "/sˈɒlti/",
+      "ipa": "/ˈsɔːlti/",
       "syllables": "salty",
       "pos": "Adjective",
       "sample": "This is <b>salty</b>.",
       "jp_word": "塩からい",
       "jp_reading": "しおからい",
-      "jp_sentence": "これは<b>塩からい</b>です。",
+      "jp_sentence": "それは<b>塩からい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3732,13 +3735,13 @@
       "word": "season",
       "tag": "Starter",
       "emoji": "🍁",
-      "ipa": "/sˈiːzən/",
+      "ipa": "/ˈsiːzən/",
       "syllables": "season",
       "pos": "Noun · Countable",
       "sample": "I see a <b>season</b>.",
       "jp_word": "季節",
       "jp_reading": "きせつ",
-      "jp_sentence": "これは<b>季節</b>です。",
+      "jp_sentence": "私は<b>季節</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3749,13 +3752,13 @@
       "word": "sleepy",
       "tag": "Starter",
       "emoji": "😴",
-      "ipa": "/slˈiːpi/",
+      "ipa": "/ˈsliːpiː/",
       "syllables": "sleepy",
       "pos": "Adjective",
       "sample": "This is <b>sleepy</b>.",
       "jp_word": "眠い",
       "jp_reading": "ねむい",
-      "jp_sentence": "これは<b>眠い</b>です。",
+      "jp_sentence": "それは<b>眠い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3765,13 +3768,13 @@
       "word": "smart",
       "tag": "Starter",
       "emoji": "🧠",
-      "ipa": "/smˈɑːt/",
+      "ipa": "/smɑːrt/",
       "syllables": "smart",
       "pos": "Adjective",
       "sample": "This is <b>smart</b>.",
       "jp_word": "頭の良い",
       "jp_reading": "あたまのよい",
-      "jp_sentence": "これは<b>頭の良い</b>です。",
+      "jp_sentence": "それは<b>頭の良い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3781,16 +3784,16 @@
       "word": "sometimes",
       "tag": "Starter",
       "emoji": "🔁",
-      "ipa": "/sˈʌmta‍ɪmz/",
+      "ipa": "/səˈmtaɪmz/",
       "syllables": "sometimes",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>sometimes</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>sometimes</b> study English.",
       "jp_word": "ときどき",
       "jp_reading": "ときどき",
-      "jp_sentence": "これは<b>ときどき</b>です。",
+      "jp_sentence": "私は<b>ときどき</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -3798,13 +3801,13 @@
       "word": "sour",
       "tag": "Starter",
       "emoji": "🍋",
-      "ipa": "/sˈa‍ʊ‍ə/",
+      "ipa": "/ˈsaʊər/",
       "syllables": "sour",
       "pos": "Adjective",
       "sample": "This is <b>sour</b>.",
       "jp_word": "すっぱい",
       "jp_reading": "すっぱい",
-      "jp_sentence": "これは<b>すっぱい</b>です。",
+      "jp_sentence": "それは<b>すっぱい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3814,13 +3817,13 @@
       "word": "spicy",
       "tag": "Starter",
       "emoji": "🌶️",
-      "ipa": "/spˈa‍ɪsi/",
+      "ipa": "/ˈspaɪsiː/",
       "syllables": "spicy",
       "pos": "Adjective",
       "sample": "This is <b>spicy</b>.",
       "jp_word": "香辛料のきいた",
       "jp_reading": "こうしんりょうのきいた",
-      "jp_sentence": "これは<b>香辛料のきいた</b>です。",
+      "jp_sentence": "それは<b>香辛料のきいた</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3830,13 +3833,13 @@
       "word": "spring",
       "tag": "Starter",
       "emoji": "🌸",
-      "ipa": "/spɹˈɪŋ/",
+      "ipa": "/sprɪŋ/",
       "syllables": "spring",
       "pos": "Noun · Countable",
       "sample": "I see a <b>spring</b>.",
       "jp_word": "春",
       "jp_reading": "はる",
-      "jp_sentence": "これは<b>春</b>です。",
+      "jp_sentence": "私は<b>春</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3847,13 +3850,13 @@
       "word": "strong",
       "tag": "Starter",
       "emoji": "💪",
-      "ipa": "/stɹˈɒŋ/",
+      "ipa": "/strɔŋ/",
       "syllables": "strong",
       "pos": "Adjective",
       "sample": "This is <b>strong</b>.",
       "jp_word": "強い",
       "jp_reading": "つよい",
-      "jp_sentence": "これは<b>強い</b>です。",
+      "jp_sentence": "それは<b>強い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3863,13 +3866,13 @@
       "word": "summer",
       "tag": "Starter",
       "emoji": "☀️",
-      "ipa": "/sˈʌmə/",
+      "ipa": "/ˈsʌmər/",
       "syllables": "summer",
       "pos": "Noun · Countable",
       "sample": "I see a <b>summer</b>.",
       "jp_word": "夏",
       "jp_reading": "なつ",
-      "jp_sentence": "これは<b>夏</b>です。",
+      "jp_sentence": "私は<b>夏</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3880,13 +3883,13 @@
       "word": "sweet",
       "tag": "Starter",
       "emoji": "🍬",
-      "ipa": "/swˈiːt/",
+      "ipa": "/swiːt/",
       "syllables": "sweet",
       "pos": "Adjective",
       "sample": "This is <b>sweet</b>.",
       "jp_word": "甘い",
       "jp_reading": "あまい",
-      "jp_sentence": "これは<b>甘い</b>です。",
+      "jp_sentence": "それは<b>甘い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3896,13 +3899,13 @@
       "word": "thirsty",
       "tag": "Starter",
       "emoji": "🥤",
-      "ipa": "/θˈɜːsti/",
+      "ipa": "/ˈθɜːrsti/",
       "syllables": "thirsty",
       "pos": "Adjective",
       "sample": "This is <b>thirsty</b>.",
       "jp_word": "のどがかわいて",
       "jp_reading": "のどがかわいて",
-      "jp_sentence": "これは<b>のどがかわいて</b>です。",
+      "jp_sentence": "それは<b>のどがかわいて</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -3912,16 +3915,16 @@
       "word": "usually",
       "tag": "Starter",
       "emoji": "🔁",
-      "ipa": "/jˈuːʒuːə‍li/",
+      "ipa": "/ˈjuːʒuəli/",
       "syllables": "usually",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>usually</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>usually</b> study English.",
       "jp_word": "たいてい、ふつう",
       "jp_reading": "たいてい、ふつう",
-      "jp_sentence": "これは<b>たいてい、ふつう</b>です。",
+      "jp_sentence": "私は<b>たいてい</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -3929,13 +3932,13 @@
       "word": "winter",
       "tag": "Starter",
       "emoji": "⛄",
-      "ipa": "/wˈɪntə/",
+      "ipa": "/ˈwɪntər/",
       "syllables": "winter",
       "pos": "Noun · Countable",
       "sample": "I see a <b>winter</b>.",
       "jp_word": "冬",
       "jp_reading": "ふゆ",
-      "jp_sentence": "これは<b>冬</b>です。",
+      "jp_sentence": "私は<b>冬</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3946,15 +3949,15 @@
       "word": "a",
       "tag": "Starter",
       "emoji": "🔤",
-      "ipa": "/ˈe‍ɪ/",
+      "ipa": "/ə/",
       "syllables": "a",
-      "pos": "Adverb",
-      "sample": "I <b>a</b> study English.",
+      "pos": "Function word",
+      "sample": "This word is <b>a</b>.",
       "jp_word": "1つの、1人の",
       "jp_reading": "1つの、1人の",
-      "jp_sentence": "私は<b>1つの、1人の</b>英語を勉強します。",
+      "jp_sentence": "<b>1つの</b>という意味です。",
       "jp_tags": [
-        "副詞"
+        "機能語"
       ]
     },
     {
@@ -3962,13 +3965,13 @@
       "word": "bath",
       "tag": "Starter",
       "emoji": "🛁",
-      "ipa": "/bˈaθ/",
+      "ipa": "/bæθ/",
       "syllables": "bath",
       "pos": "Noun · Countable",
       "sample": "I see a <b>bath</b>.",
       "jp_word": "浴そう、入浴",
       "jp_reading": "よくそう、にゅうよく",
-      "jp_sentence": "これは<b>浴そう、入浴</b>です。",
+      "jp_sentence": "私は<b>浴そう</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3979,13 +3982,13 @@
       "word": "bed",
       "tag": "Starter",
       "emoji": "🛏️",
-      "ipa": "/bˈɛd/",
+      "ipa": "/bɛd/",
       "syllables": "bed",
       "pos": "Noun · Countable",
       "sample": "I see a <b>bed</b>.",
       "jp_word": "ベッド、寝床",
       "jp_reading": "ベッド、寝床",
-      "jp_sentence": "これは<b>ベッド、寝床</b>です。",
+      "jp_sentence": "私は<b>ベッド</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -3996,13 +3999,13 @@
       "word": "bike",
       "tag": "Starter",
       "emoji": "🚲",
-      "ipa": "/bˈa‍ɪk/",
+      "ipa": "/baɪk/",
       "syllables": "bike",
       "pos": "Noun · Countable",
       "sample": "I see a <b>bike</b>.",
       "jp_word": "自転車",
       "jp_reading": "自転車",
-      "jp_sentence": "これは<b>自転車</b>です。",
+      "jp_sentence": "私は<b>自転車</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4013,16 +4016,16 @@
       "word": "breakfast",
       "tag": "Starter",
       "emoji": "🍳",
-      "ipa": "/bɹˈɛkfəst/",
+      "ipa": "/ˈbrɛkfəst/",
       "syllables": "breakfast",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>breakfast</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>breakfast</b>.",
       "jp_word": "朝食、朝ご飯",
       "jp_reading": "ちょうしょく、あさごはん",
-      "jp_sentence": "これは<b>朝食、朝ご飯</b>です。",
+      "jp_sentence": "私は<b>朝食</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4030,16 +4033,15 @@
       "word": "brush",
       "tag": "Starter",
       "emoji": "🪥",
-      "ipa": "/bɹˈʌʃ/",
+      "ipa": "/brʌʃ/",
       "syllables": "brush",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>brush</b>.",
+      "pos": "Verb",
+      "sample": "I <b>brush</b> my teeth.",
       "jp_word": "ブラシでみがく",
       "jp_reading": "ブラシでみがく",
-      "jp_sentence": "これは<b>ブラシでみがく</b>です。",
+      "jp_sentence": "私は<b>ブラシでみがく</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4047,16 +4049,16 @@
       "word": "camping",
       "tag": "Starter",
       "emoji": "🏕️",
-      "ipa": "/kˈampɪŋ/",
+      "ipa": "/ˈkæmpɪŋ/",
       "syllables": "camping",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>camping</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>camping</b>.",
       "jp_word": "キャンプすること",
       "jp_reading": "キャンプすること",
-      "jp_sentence": "これは<b>キャンプすること</b>です。",
+      "jp_sentence": "私は<b>キャンプすること</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4064,13 +4066,13 @@
       "word": "card",
       "tag": "Starter",
       "emoji": "🃏",
-      "ipa": "/kˈɑːd/",
+      "ipa": "/kɑːrd/",
       "syllables": "card",
       "pos": "Noun · Countable",
       "sample": "I see a <b>card</b>.",
       "jp_word": "トランプの札；トランプ遊び",
       "jp_reading": "トランプの札；トランプ遊び",
-      "jp_sentence": "これは<b>トランプの札；トランプ遊び</b>です。",
+      "jp_sentence": "私は<b>トランプの札</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4081,13 +4083,13 @@
       "word": "classroom",
       "tag": "Starter",
       "emoji": "🏫",
-      "ipa": "/klˈasɹuːm/",
+      "ipa": "/ˈklɑːsruːm/",
       "syllables": "classroom",
       "pos": "Noun · Countable",
       "sample": "I see a <b>classroom</b>.",
       "jp_word": "教室",
       "jp_reading": "きょうしつ",
-      "jp_sentence": "これは<b>教室</b>です。",
+      "jp_sentence": "私は<b>教室</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4098,16 +4100,15 @@
       "word": "clean",
       "tag": "Starter",
       "emoji": "🧼",
-      "ipa": "/klˈiːn/",
+      "ipa": "/kliːn/",
       "syllables": "clean",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>clean</b>.",
+      "pos": "Verb",
+      "sample": "I <b>clean</b> my room.",
       "jp_word": "きれいにする",
       "jp_reading": "きれいにする",
-      "jp_sentence": "これは<b>きれいにする</b>です。",
+      "jp_sentence": "私は<b>きれいにする</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4115,13 +4116,13 @@
       "word": "computer",
       "tag": "Starter",
       "emoji": "💻",
-      "ipa": "/kəmpjˈuːtə/",
+      "ipa": "/kəmˈpjuːtər/",
       "syllables": "computer",
       "pos": "Noun · Countable",
       "sample": "I see a <b>computer</b>.",
       "jp_word": "コンピュータ",
       "jp_reading": "コンピュータ",
-      "jp_sentence": "これは<b>コンピュータ</b>です。",
+      "jp_sentence": "私は<b>コンピュータ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4132,16 +4133,15 @@
       "word": "cook",
       "tag": "Starter",
       "emoji": "🍳",
-      "ipa": "/kˈʊk/",
+      "ipa": "/kʊk/",
       "syllables": "cook",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>cook</b>.",
+      "pos": "Verb",
+      "sample": "I <b>cook</b> dinner.",
       "jp_word": "(熱を使って)料理する",
       "jp_reading": "(熱を使って)料理する",
-      "jp_sentence": "これは<b>(熱を使って)料理する</b>です。",
+      "jp_sentence": "私は<b>(熱を使って)料理する</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4149,16 +4149,16 @@
       "word": "dinner",
       "tag": "Starter",
       "emoji": "🍽️",
-      "ipa": "/dˈɪnə/",
+      "ipa": "/ˈdɪnər/",
       "syllables": "dinner",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>dinner</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>dinner</b>.",
       "jp_word": "ディナー、夕食",
       "jp_reading": "ディナー、夕食",
-      "jp_sentence": "これは<b>ディナー、夕食</b>です。",
+      "jp_sentence": "私は<b>ディナー</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4166,13 +4166,13 @@
       "word": "dish",
       "tag": "Starter",
       "emoji": "🍽️",
-      "ipa": "/dˈɪʃ/",
+      "ipa": "/dɪʃ/",
       "syllables": "dish",
       "pos": "Noun · Countable",
       "sample": "I see a <b>dish</b>.",
       "jp_word": "皿；食器類",
       "jp_reading": "さら；しょっきるい",
-      "jp_sentence": "これは<b>皿；食器類</b>です。",
+      "jp_sentence": "私は<b>皿</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4183,16 +4183,15 @@
       "word": "do",
       "tag": "Starter",
       "emoji": "✅",
-      "ipa": "/dˈuː/",
+      "ipa": "/duː/",
       "syllables": "do",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>do</b>.",
+      "pos": "Verb",
+      "sample": "I <b>do</b> my homework.",
       "jp_word": "する、行う",
       "jp_reading": "する、おこなう",
-      "jp_sentence": "これは<b>する、行う</b>です。",
+      "jp_sentence": "私は<b>する</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4200,16 +4199,15 @@
       "word": "draw",
       "tag": "Starter",
       "emoji": "✏️",
-      "ipa": "/dɹˈɔː/",
+      "ipa": "/drɔː/",
       "syllables": "draw",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>draw</b>.",
+      "pos": "Verb",
+      "sample": "I <b>draw</b> a picture.",
       "jp_word": "(絵などを)かく",
       "jp_reading": "(絵などを)かく",
-      "jp_sentence": "これは<b>(絵などを)かく</b>です。",
+      "jp_sentence": "私は<b>(絵などを)かく</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4217,16 +4215,15 @@
       "word": "drink",
       "tag": "Starter",
       "emoji": "🥤",
-      "ipa": "/dɹˈɪŋk/",
+      "ipa": "/drɪŋk/",
       "syllables": "drink",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>drink</b>.",
+      "pos": "Verb",
+      "sample": "I <b>drink</b> water.",
       "jp_word": "(水・酒などを)飲む",
       "jp_reading": "(水・酒などを)飲む",
-      "jp_sentence": "これは<b>(水・酒などを)飲む</b>です。",
+      "jp_sentence": "私は<b>(水・酒などを)飲む</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4234,16 +4231,15 @@
       "word": "eat",
       "tag": "Starter",
       "emoji": "🍽️",
-      "ipa": "/ˈiːt/",
+      "ipa": "/iːt/",
       "syllables": "eat",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>eat</b>.",
+      "pos": "Verb",
+      "sample": "I <b>eat</b> breakfast.",
       "jp_word": "食べる",
       "jp_reading": "たべる",
-      "jp_sentence": "これは<b>食べる</b>です。",
+      "jp_sentence": "私は<b>食べる</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4251,16 +4247,15 @@
       "word": "enjoy",
       "tag": "Starter",
       "emoji": "😊",
-      "ipa": "/ɛnd‍ʒˈɔ‍ɪ/",
+      "ipa": "/ɪnˈdʒɔɪ/",
       "syllables": "enjoy",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>enjoy</b>.",
+      "pos": "Verb",
+      "sample": "I <b>enjoy</b> music.",
       "jp_word": "(…を)楽しむ",
       "jp_reading": "(…を)楽しむ",
-      "jp_sentence": "これは<b>(…を)楽しむ</b>です。",
+      "jp_sentence": "私は<b>(…を)楽しむ</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4268,13 +4263,13 @@
       "word": "face",
       "tag": "Starter",
       "emoji": "🙂",
-      "ipa": "/fˈe‍ɪs/",
+      "ipa": "/feɪs/",
       "syllables": "face",
       "pos": "Noun · Countable",
       "sample": "I see a <b>face</b>.",
       "jp_word": "顔；表情",
       "jp_reading": "かお；ひょうじょう",
-      "jp_sentence": "これは<b>顔；表情</b>です。",
+      "jp_sentence": "私は<b>顔</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4285,16 +4280,16 @@
       "word": "fishing",
       "tag": "Starter",
       "emoji": "🎣",
-      "ipa": "/fˈɪʃɪŋ/",
+      "ipa": "/ˈfɪʃɪŋ/",
       "syllables": "fishing",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>fishing</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>fishing</b>.",
       "jp_word": "魚釣り",
       "jp_reading": "さかなつり",
-      "jp_sentence": "これは<b>魚釣り</b>です。",
+      "jp_sentence": "私は<b>魚釣り</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4302,13 +4297,13 @@
       "word": "friend",
       "tag": "Starter",
       "emoji": "🧑‍🤝‍🧑",
-      "ipa": "/fɹˈɛnd/",
+      "ipa": "/frɛnd/",
       "syllables": "friend",
       "pos": "Noun · Countable",
       "sample": "I see a <b>friend</b>.",
       "jp_word": "友人、友達",
       "jp_reading": "ゆうじん、ともだち",
-      "jp_sentence": "これは<b>友人、友達</b>です。",
+      "jp_sentence": "私は<b>友人</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4319,13 +4314,13 @@
       "word": "fun",
       "tag": "Starter",
       "emoji": "🎉",
-      "ipa": "/fˈʌn/",
+      "ipa": "/fʌn/",
       "syllables": "fun",
       "pos": "Adjective",
       "sample": "This is <b>fun</b>.",
       "jp_word": "楽しい、おもしろい",
       "jp_reading": "たのしい、おもしろい",
-      "jp_sentence": "これは<b>楽しい、おもしろい</b>です。",
+      "jp_sentence": "それは<b>楽しい</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -4335,16 +4330,16 @@
       "word": "garbage",
       "tag": "Starter",
       "emoji": "🗑️",
-      "ipa": "/ɡˈɑːbɪd‍ʒ/",
+      "ipa": "/ˈɡɑːrbɪdʒ/",
       "syllables": "garbage",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>garbage</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>garbage</b>.",
       "jp_word": "ごみ",
       "jp_reading": "ごみ",
-      "jp_sentence": "これは<b>ごみ</b>です。",
+      "jp_sentence": "私は<b>ごみ</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4352,16 +4347,15 @@
       "word": "get",
       "tag": "Starter",
       "emoji": "➡️",
-      "ipa": "/ɡˈɛt/",
+      "ipa": "/ɡɛt/",
       "syllables": "get",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>get</b>.",
+      "pos": "Verb",
+      "sample": "I <b>get</b> up early.",
       "jp_word": "(ある状態に)なる",
       "jp_reading": "(ある状態に)なる",
-      "jp_sentence": "これは<b>(ある状態に)なる</b>です。",
+      "jp_sentence": "私は<b>(ある状態に)なる</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4369,16 +4363,15 @@
       "word": "go",
       "tag": "Starter",
       "emoji": "➡️",
-      "ipa": "/ɡˈə‍ʊ/",
+      "ipa": "/ɡoʊ/",
       "syllables": "go",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>go</b>.",
+      "pos": "Verb",
+      "sample": "I <b>go</b> to school.",
       "jp_word": "行く",
       "jp_reading": "いく",
-      "jp_sentence": "これは<b>行く</b>です。",
+      "jp_sentence": "私は<b>行く</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4386,13 +4379,13 @@
       "word": "guitar",
       "tag": "Starter",
       "emoji": "🎸",
-      "ipa": "/ɡɪtˈɑː/",
+      "ipa": "/ɡɪˈtɑːr/",
       "syllables": "guitar",
       "pos": "Noun · Countable",
       "sample": "I see a <b>guitar</b>.",
       "jp_word": "ギター",
       "jp_reading": "ギター",
-      "jp_sentence": "これは<b>ギター</b>です。",
+      "jp_sentence": "私は<b>ギター</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4403,16 +4396,16 @@
       "word": "hiking",
       "tag": "Starter",
       "emoji": "🥾",
-      "ipa": "/hˈa‍ɪkɪŋ/",
+      "ipa": "/ˈhaɪkɪŋ/",
       "syllables": "hiking",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>hiking</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>hiking</b>.",
       "jp_word": "ハイキング",
       "jp_reading": "ハイキング",
-      "jp_sentence": "これは<b>ハイキング</b>です。",
+      "jp_sentence": "私は<b>ハイキング</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4420,15 +4413,16 @@
       "word": "home",
       "tag": "Starter",
       "emoji": "🏠",
-      "ipa": "/hˈə‍ʊm/",
+      "ipa": "/hoʊm/",
       "syllables": "home",
-      "pos": "Adjective",
-      "sample": "This is <b>home</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>home</b> study English.",
       "jp_word": "わが家へ[に]",
       "jp_reading": "わがやへ[に]",
-      "jp_sentence": "これは<b>わが家へ[に]</b>です。",
+      "jp_sentence": "私は<b>わが家へ[に]</b>です。",
       "jp_tags": [
-        "形容詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -4436,16 +4430,16 @@
       "word": "homework",
       "tag": "Starter",
       "emoji": "📓",
-      "ipa": "/hˈə‍ʊmwɜːk/",
+      "ipa": "/ˈhəʊmwɜːrk/",
       "syllables": "homework",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>homework</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>homework</b>.",
       "jp_word": "宿題",
       "jp_reading": "しゅくだい",
-      "jp_sentence": "これは<b>宿題</b>です。",
+      "jp_sentence": "私は<b>宿題</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4453,16 +4447,16 @@
       "word": "jogging",
       "tag": "Starter",
       "emoji": "🏃",
-      "ipa": "/d‍ʒˈɒɡɪŋ/",
+      "ipa": "/ˈdʒɑɡɪŋ/",
       "syllables": "jogging",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>jogging</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>jogging</b>.",
       "jp_word": "ジョギング",
       "jp_reading": "ジョギング",
-      "jp_sentence": "これは<b>ジョギング</b>です。",
+      "jp_sentence": "私は<b>ジョギング</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4470,16 +4464,15 @@
       "word": "jump",
       "tag": "Starter",
       "emoji": "🦘",
-      "ipa": "/d‍ʒˈʌmp/",
+      "ipa": "/dʒʌmp/",
       "syllables": "jump",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>jump</b>.",
+      "pos": "Verb",
+      "sample": "I can <b>jump</b> high.",
       "jp_word": "とぶ、はねる",
       "jp_reading": "とぶ、はねる",
-      "jp_sentence": "これは<b>とぶ、はねる</b>です。",
+      "jp_sentence": "私は<b>とぶ</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4487,16 +4480,15 @@
       "word": "leave",
       "tag": "Starter",
       "emoji": "🚪",
-      "ipa": "/lˈiːv/",
+      "ipa": "/liːv/",
       "syllables": "leave",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>leave</b>.",
+      "pos": "Verb",
+      "sample": "I <b>leave</b> home at eight.",
       "jp_word": "去る、離れる",
       "jp_reading": "さる、はなれる",
-      "jp_sentence": "これは<b>去る、離れる</b>です。",
+      "jp_sentence": "私は<b>去る</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4504,13 +4496,13 @@
       "word": "letter",
       "tag": "Starter",
       "emoji": "✉️",
-      "ipa": "/lˈɛtə/",
+      "ipa": "/ˈletər/",
       "syllables": "letter",
       "pos": "Noun · Countable",
       "sample": "I see a <b>letter</b>.",
       "jp_word": "(封筒に入った)手紙",
       "jp_reading": "(封筒に入った)手紙",
-      "jp_sentence": "これは<b>(封筒に入った)手紙</b>です。",
+      "jp_sentence": "私は<b>(封筒に入った)手紙</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4521,13 +4513,13 @@
       "word": "library",
       "tag": "Starter",
       "emoji": "📚",
-      "ipa": "/lˈa‍ɪbɹəɹi/",
+      "ipa": "/ˈlaɪbrəri/",
       "syllables": "library",
       "pos": "Noun · Countable",
       "sample": "I see a <b>library</b>.",
       "jp_word": "図書館、図書室",
       "jp_reading": "としょかん、としょしつ",
-      "jp_sentence": "これは<b>図書館、図書室</b>です。",
+      "jp_sentence": "私は<b>図書館</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4538,16 +4530,15 @@
       "word": "listen",
       "tag": "Starter",
       "emoji": "👂",
-      "ipa": "/lˈɪsən/",
+      "ipa": "/ˈlɪsən/",
       "syllables": "listen",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>listen</b>.",
+      "pos": "Verb",
+      "sample": "I <b>listen</b> to music.",
       "jp_word": "(じっと)聞く",
       "jp_reading": "(じっと)聞く",
-      "jp_sentence": "これは<b>(じっと)聞く</b>です。",
+      "jp_sentence": "私は<b>(じっと)聞く</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4555,16 +4546,15 @@
       "word": "make",
       "tag": "Starter",
       "emoji": "🛠️",
-      "ipa": "/mˈe‍ɪk/",
+      "ipa": "/meɪk/",
       "syllables": "make",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>make</b>.",
+      "pos": "Verb",
+      "sample": "I <b>make</b> lunch.",
       "jp_word": "作る",
       "jp_reading": "つくる",
-      "jp_sentence": "これは<b>作る</b>です。",
+      "jp_sentence": "私は<b>作る</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4572,13 +4562,13 @@
       "word": "movie",
       "tag": "Starter",
       "emoji": "🎬",
-      "ipa": "/mˈuːvi/",
+      "ipa": "/ˈmuːviː/",
       "syllables": "movie",
       "pos": "Noun · Countable",
       "sample": "I see a <b>movie</b>.",
       "jp_word": "映画",
       "jp_reading": "えいが",
-      "jp_sentence": "これは<b>映画</b>です。",
+      "jp_sentence": "私は<b>映画</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4589,16 +4579,15 @@
       "word": "my",
       "tag": "Starter",
       "emoji": "🙋",
-      "ipa": "/mˈa‍ɪ/",
+      "ipa": "/maɪ/",
       "syllables": "my",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>my</b>.",
+      "pos": "Function word",
+      "sample": "This word is <b>my</b>.",
       "jp_word": "私の",
       "jp_reading": "わたしの",
-      "jp_sentence": "これは<b>私の</b>です。",
+      "jp_sentence": "<b>私の</b>という意味です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "機能語"
       ]
     },
     {
@@ -4606,16 +4595,16 @@
       "word": "out",
       "tag": "Starter",
       "emoji": "↗️",
-      "ipa": "/ˈa‍ʊt/",
+      "ipa": "/aʊt/",
       "syllables": "out",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>out</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>out</b> study English.",
       "jp_word": "外へ、外に",
       "jp_reading": "そとへ、そとに",
-      "jp_sentence": "これは<b>外へ、外に</b>です。",
+      "jp_sentence": "私は<b>外へ</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -4623,13 +4612,13 @@
       "word": "picture",
       "tag": "Starter",
       "emoji": "🖼️",
-      "ipa": "/pˈɪkt‍ʃə/",
+      "ipa": "/ˈpɪktʃər/",
       "syllables": "picture",
       "pos": "Noun · Countable",
       "sample": "I see a <b>picture</b>.",
       "jp_word": "絵、絵画",
       "jp_reading": "え、かいが",
-      "jp_sentence": "これは<b>絵、絵画</b>です。",
+      "jp_sentence": "私は<b>絵</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4640,16 +4629,15 @@
       "word": "play",
       "tag": "Starter",
       "emoji": "🎮",
-      "ipa": "/plˈe‍ɪ/",
+      "ipa": "/pleɪ/",
       "syllables": "play",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>play</b>.",
+      "pos": "Verb",
+      "sample": "I <b>play</b> soccer.",
       "jp_word": "(スポーツを)する",
       "jp_reading": "(スポーツを)する",
-      "jp_sentence": "これは<b>(スポーツを)する</b>です。",
+      "jp_sentence": "私は<b>(スポーツを)する</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4657,16 +4645,15 @@
       "word": "play",
       "tag": "Starter",
       "emoji": "🎮",
-      "ipa": "/plˈe‍ɪ/",
+      "ipa": "/pleɪ/",
       "syllables": "play",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>play</b>.",
+      "pos": "Verb",
+      "sample": "I <b>play</b> the piano.",
       "jp_word": "(楽器を)演奏する",
       "jp_reading": "(楽器を)演奏する",
-      "jp_sentence": "これは<b>(楽器を)演奏する</b>です。",
+      "jp_sentence": "私は<b>(楽器を)演奏する</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4674,16 +4661,15 @@
       "word": "practice",
       "tag": "Starter",
       "emoji": "🏋️",
-      "ipa": "/pɹˈaktɪs/",
+      "ipa": "/ˈpræktəs/",
       "syllables": "practice",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>practice</b>.",
+      "pos": "Verb",
+      "sample": "I <b>practice</b> every day.",
       "jp_word": "練習する",
       "jp_reading": "練習する",
-      "jp_sentence": "これは<b>練習する</b>です。",
+      "jp_sentence": "私は<b>練習する</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4691,13 +4677,13 @@
       "word": "quiz",
       "tag": "Starter",
       "emoji": "❓",
-      "ipa": "/kwˈɪz/",
+      "ipa": "/kwɪz/",
       "syllables": "quiz",
       "pos": "Noun · Countable",
       "sample": "I see a <b>quiz</b>.",
       "jp_word": "クイズ",
       "jp_reading": "クイズ",
-      "jp_sentence": "これは<b>クイズ</b>です。",
+      "jp_sentence": "私は<b>クイズ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4708,16 +4694,15 @@
       "word": "read",
       "tag": "Starter",
       "emoji": "📖",
-      "ipa": "/ɹˈiːd/",
+      "ipa": "/riːd/",
       "syllables": "read",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>read</b>.",
+      "pos": "Verb",
+      "sample": "I <b>read</b> a book.",
       "jp_word": "読む",
       "jp_reading": "よむ",
-      "jp_sentence": "これは<b>読む</b>です。",
+      "jp_sentence": "私は<b>読む</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4725,16 +4710,15 @@
       "word": "ride",
       "tag": "Starter",
       "emoji": "🚲",
-      "ipa": "/ɹˈa‍ɪd/",
+      "ipa": "/raɪd/",
       "syllables": "ride",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>ride</b>.",
+      "pos": "Verb",
+      "sample": "I <b>ride</b> a bike.",
       "jp_word": "乗る",
       "jp_reading": "のる",
-      "jp_sentence": "これは<b>乗る</b>です。",
+      "jp_sentence": "私は<b>乗る</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4742,13 +4726,13 @@
       "word": "rope",
       "tag": "Starter",
       "emoji": "🪢",
-      "ipa": "/ɹˈə‍ʊp/",
+      "ipa": "/roʊp/",
       "syllables": "rope",
       "pos": "Noun · Countable",
       "sample": "I see a <b>rope</b>.",
       "jp_word": "(太い)綱、なわ",
       "jp_reading": "(太い)綱、なわ",
-      "jp_sentence": "これは<b>(太い)綱、なわ</b>です。",
+      "jp_sentence": "私は<b>(太い)綱</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4759,16 +4743,15 @@
       "word": "run",
       "tag": "Starter",
       "emoji": "🏃",
-      "ipa": "/ɹˈʌn/",
+      "ipa": "/rʌn/",
       "syllables": "run",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>run</b>.",
+      "pos": "Verb",
+      "sample": "I <b>run</b> in the park.",
       "jp_word": "走る",
       "jp_reading": "はしる",
-      "jp_sentence": "これは<b>走る</b>です。",
+      "jp_sentence": "私は<b>走る</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4776,13 +4759,13 @@
       "word": "school",
       "tag": "Starter",
       "emoji": "🏫",
-      "ipa": "/skˈuːl/",
+      "ipa": "/skuːl/",
       "syllables": "school",
       "pos": "Noun · Countable",
       "sample": "I see a <b>school</b>.",
       "jp_word": "学校",
       "jp_reading": "がっこう",
-      "jp_sentence": "これは<b>学校</b>です。",
+      "jp_sentence": "私は<b>学校</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4793,16 +4776,15 @@
       "word": "see",
       "tag": "Starter",
       "emoji": "👀",
-      "ipa": "/sˈiː/",
+      "ipa": "/siː/",
       "syllables": "see",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>see</b>.",
+      "pos": "Verb",
+      "sample": "I <b>see</b> a dog.",
       "jp_word": "見る",
       "jp_reading": "みる",
-      "jp_sentence": "これは<b>見る</b>です。",
+      "jp_sentence": "私は<b>見る</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4810,16 +4792,16 @@
       "word": "shopping",
       "tag": "Starter",
       "emoji": "🛍️",
-      "ipa": "/ʃˈɒpɪŋ/",
+      "ipa": "/ˈʃɑpɪŋ/",
       "syllables": "shopping",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>shopping</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>shopping</b>.",
       "jp_word": "買い物",
       "jp_reading": "かいもの",
-      "jp_sentence": "これは<b>買い物</b>です。",
+      "jp_sentence": "私は<b>買い物</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4827,16 +4809,15 @@
       "word": "sing",
       "tag": "Starter",
       "emoji": "🎤",
-      "ipa": "/sˈɪŋ/",
+      "ipa": "/sɪŋ/",
       "syllables": "sing",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>sing</b>.",
+      "pos": "Verb",
+      "sample": "I <b>sing</b> a song.",
       "jp_word": "歌う",
       "jp_reading": "うたう",
-      "jp_sentence": "これは<b>歌う</b>です。",
+      "jp_sentence": "私は<b>歌う</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4844,16 +4825,16 @@
       "word": "surfing",
       "tag": "Starter",
       "emoji": "🏄",
-      "ipa": "/sˈɜːfɪŋ/",
+      "ipa": "/ˈsɜːrfɪŋ/",
       "syllables": "surfing",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>surfing</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>surfing</b>.",
       "jp_word": "サーフィン",
       "jp_reading": "サーフィン",
-      "jp_sentence": "これは<b>サーフィン</b>です。",
+      "jp_sentence": "私は<b>サーフィン</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -4861,16 +4842,15 @@
       "word": "swim",
       "tag": "Starter",
       "emoji": "🏊",
-      "ipa": "/swˈɪm/",
+      "ipa": "/swɪm/",
       "syllables": "swim",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>swim</b>.",
+      "pos": "Verb",
+      "sample": "I can <b>swim</b>.",
       "jp_word": "泳ぐ",
       "jp_reading": "泳ぐ",
-      "jp_sentence": "これは<b>泳ぐ</b>です。",
+      "jp_sentence": "私は<b>泳ぐ</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4878,16 +4858,15 @@
       "word": "take",
       "tag": "Starter",
       "emoji": "🤲",
-      "ipa": "/tˈe‍ɪk/",
+      "ipa": "/teɪk/",
       "syllables": "take",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>take</b>.",
+      "pos": "Verb",
+      "sample": "I <b>take</b> a picture.",
       "jp_word": "持って行く；〜をとる",
       "jp_reading": "もっていく；〜をとる",
-      "jp_sentence": "これは<b>持って行く；〜をとる</b>です。",
+      "jp_sentence": "私は<b>持って行く</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4895,16 +4874,15 @@
       "word": "talk",
       "tag": "Starter",
       "emoji": "💬",
-      "ipa": "/tˈɔːk/",
+      "ipa": "/tɔːk/",
       "syllables": "talk",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>talk</b>.",
+      "pos": "Verb",
+      "sample": "I <b>talk</b> with my friend.",
       "jp_word": "話す",
       "jp_reading": "はなす",
-      "jp_sentence": "これは<b>話す</b>です。",
+      "jp_sentence": "私は<b>話す</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -4912,16 +4890,16 @@
       "word": "teeth",
       "tag": "Starter",
       "emoji": "🦷",
-      "ipa": "/tˈiːθ/",
+      "ipa": "/tiːθ/",
       "syllables": "teeth",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>teeth</b>.",
+      "pos": "Noun · Plural",
+      "sample": "I see some <b>teeth</b>.",
       "jp_word": "歯(複数)",
       "jp_reading": "は(ふくすう)",
-      "jp_sentence": "これは<b>歯(複数)</b>です。",
+      "jp_sentence": "私は<b>歯(複数)</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "複数名詞"
       ]
     },
     {
@@ -4929,16 +4907,15 @@
       "word": "the",
       "tag": "Starter",
       "emoji": "🔤",
-      "ipa": "/ðˈə/",
+      "ipa": "/ðə/",
       "syllables": "the",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>the</b>.",
+      "pos": "Function word",
+      "sample": "This word is <b>the</b>.",
       "jp_word": "その、あの",
       "jp_reading": "その、あの",
-      "jp_sentence": "これは<b>その、あの</b>です。",
+      "jp_sentence": "<b>その</b>という意味です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "機能語"
       ]
     },
     {
@@ -4946,16 +4923,15 @@
       "word": "to",
       "tag": "Starter",
       "emoji": "➡️",
-      "ipa": "/tˈuː/",
+      "ipa": "/tuː/",
       "syllables": "to",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>to</b>.",
+      "pos": "Function word",
+      "sample": "This word is <b>to</b>.",
       "jp_word": "〜へ、〜に",
       "jp_reading": "〜へ、〜に",
-      "jp_sentence": "これは<b>〜へ、〜に</b>です。",
+      "jp_sentence": "<b>〜へ</b>という意味です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "機能語"
       ]
     },
     {
@@ -4963,13 +4939,13 @@
       "word": "tooth",
       "tag": "Starter",
       "emoji": "🦷",
-      "ipa": "/tˈuːθ/",
+      "ipa": "/tuːθ/",
       "syllables": "tooth",
       "pos": "Noun · Countable",
       "sample": "I see a <b>tooth</b>.",
       "jp_word": "歯",
       "jp_reading": "は",
-      "jp_sentence": "これは<b>歯</b>です。",
+      "jp_sentence": "私は<b>歯</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -4980,16 +4956,16 @@
       "word": "TV",
       "tag": "Starter",
       "emoji": "📺",
-      "ipa": "/tˌiːvˈiː/",
+      "ipa": "/ˌtiː ˈviː/",
       "syllables": "TV",
-      "pos": "Noun · Proper",
-      "sample": "I know <b>TV</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see a <b>TV</b>.",
       "jp_word": "テレビ",
       "jp_reading": "テレビ",
-      "jp_sentence": "これは<b>テレビ</b>です。",
+      "jp_sentence": "私は<b>テレビ</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "固有名詞"
+        "可算名詞"
       ]
     },
     {
@@ -4997,16 +4973,16 @@
       "word": "up",
       "tag": "Starter",
       "emoji": "⬆️",
-      "ipa": "/ˈʌp/",
+      "ipa": "/ʌp/",
       "syllables": "up",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>up</b>.",
+      "pos": "Adverb / Interjection",
+      "sample": "I <b>up</b> study English.",
       "jp_word": "起きて、目が覚めて",
       "jp_reading": "おきて、めがさめて",
-      "jp_sentence": "これは<b>起きて、目が覚めて</b>です。",
+      "jp_sentence": "私は<b>起きて</b>です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "副詞",
+        "間投詞"
       ]
     },
     {
@@ -5014,16 +4990,15 @@
       "word": "use",
       "tag": "Starter",
       "emoji": "🛠️",
-      "ipa": "/jˈuːs/",
+      "ipa": "/juːz/",
       "syllables": "use",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>use</b>.",
+      "pos": "Verb",
+      "sample": "I <b>use</b> a computer.",
       "jp_word": "使う",
       "jp_reading": "つかう",
-      "jp_sentence": "これは<b>使う</b>です。",
+      "jp_sentence": "私は<b>使う</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -5031,16 +5006,15 @@
       "word": "walk",
       "tag": "Starter",
       "emoji": "🚶",
-      "ipa": "/wˈɔːk/",
+      "ipa": "/wɔːk/",
       "syllables": "walk",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>walk</b>.",
+      "pos": "Verb",
+      "sample": "I <b>walk</b> my dog.",
       "jp_word": "(犬などを)散歩させる",
       "jp_reading": "(犬などを)散歩させる",
-      "jp_sentence": "これは<b>(犬などを)散歩させる</b>です。",
+      "jp_sentence": "私は<b>(犬などを)散歩させる</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -5048,16 +5022,15 @@
       "word": "wash",
       "tag": "Starter",
       "emoji": "🧼",
-      "ipa": "/wˈɒʃ/",
+      "ipa": "/wɒʃ/",
       "syllables": "wash",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>wash</b>.",
+      "pos": "Verb",
+      "sample": "I <b>wash</b> my hands.",
       "jp_word": "洗う",
       "jp_reading": "あらう",
-      "jp_sentence": "これは<b>洗う</b>です。",
+      "jp_sentence": "私は<b>洗う</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -5065,16 +5038,15 @@
       "word": "watch",
       "tag": "Starter",
       "emoji": "⌚",
-      "ipa": "/wˈɒt‍ʃ/",
+      "ipa": "/wɒtʃ/",
       "syllables": "watch",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>watch</b>.",
+      "pos": "Verb",
+      "sample": "I <b>watch</b> TV.",
       "jp_word": "注意して見る",
       "jp_reading": "ちゅういしてみる",
-      "jp_sentence": "これは<b>注意して見る</b>です。",
+      "jp_sentence": "私は<b>注意して見る</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -5082,16 +5054,15 @@
       "word": "with",
       "tag": "Starter",
       "emoji": "🔤",
-      "ipa": "/wˈɪð/",
+      "ipa": "/wɪð/",
       "syllables": "with",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>with</b>.",
+      "pos": "Function word",
+      "sample": "This word is <b>with</b>.",
       "jp_word": "〜と",
       "jp_reading": "〜と",
-      "jp_sentence": "これは<b>〜と</b>です。",
+      "jp_sentence": "<b>〜と</b>という意味です。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "機能語"
       ]
     },
     {
@@ -5099,16 +5070,15 @@
       "word": "write",
       "tag": "Starter",
       "emoji": "✍️",
-      "ipa": "/ɹˈa‍ɪt/",
+      "ipa": "/raɪt/",
       "syllables": "write",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>write</b>.",
+      "pos": "Verb",
+      "sample": "I <b>write</b> a letter.",
       "jp_word": "書く",
       "jp_reading": "かく",
-      "jp_sentence": "これは<b>書く</b>です。",
+      "jp_sentence": "私は<b>書く</b>ことができます。",
       "jp_tags": [
-        "名詞",
-        "可算名詞"
+        "動詞"
       ]
     },
     {
@@ -5116,16 +5086,16 @@
       "word": "a.m.",
       "tag": "Starter",
       "emoji": "🌅",
-      "ipa": "/ˌe‍ɪˈɛm/",
+      "ipa": "/ˌeɪ ˈɛm/",
       "syllables": "a.m.",
-      "pos": "Noun · Proper",
-      "sample": "I know <b>a.m.</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see an <b>a.m.</b>.",
       "jp_word": "午前",
       "jp_reading": "ごぜん",
-      "jp_sentence": "これは<b>午前</b>です。",
+      "jp_sentence": "私は<b>午前</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "固有名詞"
+        "可算名詞"
       ]
     },
     {
@@ -5133,13 +5103,13 @@
       "word": "band",
       "tag": "Starter",
       "emoji": "🎺",
-      "ipa": "/bˈand/",
+      "ipa": "/bænd/",
       "syllables": "band",
       "pos": "Noun · Countable",
       "sample": "I see a <b>band</b>.",
       "jp_word": "バンド、楽団",
       "jp_reading": "バンド、楽団",
-      "jp_sentence": "これは<b>バンド、楽団</b>です。",
+      "jp_sentence": "私は<b>バンド</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5150,13 +5120,13 @@
       "word": "beach",
       "tag": "Starter",
       "emoji": "🏖️",
-      "ipa": "/bˈiːt‍ʃ/",
+      "ipa": "/biːtʃ/",
       "syllables": "beach",
       "pos": "Noun · Countable",
       "sample": "I see a <b>beach</b>.",
       "jp_word": "浜、砂浜",
       "jp_reading": "はま、すなはま",
-      "jp_sentence": "これは<b>浜、砂浜</b>です。",
+      "jp_sentence": "私は<b>浜</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5167,16 +5137,16 @@
       "word": "brass",
       "tag": "Starter",
       "emoji": "🎺",
-      "ipa": "/bɹˈas/",
+      "ipa": "/bræs/",
       "syllables": "brass",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>brass</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>brass</b>.",
       "jp_word": "金管楽器",
       "jp_reading": "きんかんがっき",
-      "jp_sentence": "これは<b>金管楽器</b>です。",
+      "jp_sentence": "私は<b>金管楽器</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -5184,13 +5154,13 @@
       "word": "brass band",
       "tag": "Starter",
       "emoji": "🎺",
-      "ipa": "/bɹˈas bˈand/",
+      "ipa": "/bræs bænd/",
       "syllables": "brass band",
       "pos": "Noun · Countable",
       "sample": "I see a <b>brass band</b>.",
       "jp_word": "ブラスバンド、吹奏楽団",
       "jp_reading": "ブラスバンド、吹奏楽団",
-      "jp_sentence": "これは<b>ブラスバンド、吹奏楽団</b>です。",
+      "jp_sentence": "私は<b>ブラスバンド</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5201,16 +5171,16 @@
       "word": "calligraphy",
       "tag": "Starter",
       "emoji": "🖌️",
-      "ipa": "/kalˈɪɡɹəfi/",
+      "ipa": "/kəˈlɪɡrəfiː/",
       "syllables": "calligraphy",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>calligraphy</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>calligraphy</b>.",
       "jp_word": "書道",
       "jp_reading": "しょどう",
-      "jp_sentence": "これは<b>書道</b>です。",
+      "jp_sentence": "私は<b>書道</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -5218,13 +5188,13 @@
       "word": "chorus",
       "tag": "Starter",
       "emoji": "🎶",
-      "ipa": "/kˈɔːɹəs/",
+      "ipa": "/ˈkɔːrəs/",
       "syllables": "chorus",
       "pos": "Noun · Countable",
       "sample": "I see a <b>chorus</b>.",
       "jp_word": "合唱、コーラス",
       "jp_reading": "がっしょう、コーラス",
-      "jp_sentence": "これは<b>合唱、コーラス</b>です。",
+      "jp_sentence": "私は<b>合唱</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5235,13 +5205,13 @@
       "word": "club",
       "tag": "Starter",
       "emoji": "🏫",
-      "ipa": "/klˈʌb/",
+      "ipa": "/klʌb/",
       "syllables": "club",
       "pos": "Noun · Countable",
       "sample": "I see a <b>club</b>.",
       "jp_word": "クラブ、部",
       "jp_reading": "クラブ、ぶ",
-      "jp_sentence": "これは<b>クラブ、部</b>です。",
+      "jp_sentence": "私は<b>クラブ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5252,16 +5222,16 @@
       "word": "cooking",
       "tag": "Starter",
       "emoji": "🍳",
-      "ipa": "/kˈʊkɪŋ/",
+      "ipa": "/ˈkʊkɪŋ/",
       "syllables": "cooking",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>cooking</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>cooking</b>.",
       "jp_word": "料理",
       "jp_reading": "料理",
-      "jp_sentence": "これは<b>料理</b>です。",
+      "jp_sentence": "私は<b>料理</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -5269,16 +5239,16 @@
       "word": "dance",
       "tag": "Starter",
       "emoji": "💃",
-      "ipa": "/dˈans/",
+      "ipa": "/dæns/",
       "syllables": "dance",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>dance</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>dance</b>.",
       "jp_word": "踊り、ダンス",
       "jp_reading": "おどり、ダンス",
-      "jp_sentence": "これは<b>踊り、ダンス</b>です。",
+      "jp_sentence": "私は<b>踊り</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -5286,16 +5256,16 @@
       "word": "drama",
       "tag": "Starter",
       "emoji": "🎭",
-      "ipa": "/dɹˈɑːmə/",
+      "ipa": "/ˈdrɑːmə/",
       "syllables": "drama",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>drama</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>drama</b>.",
       "jp_word": "ドラマ、劇",
       "jp_reading": "ドラマ、劇",
-      "jp_sentence": "これは<b>ドラマ、劇</b>です。",
+      "jp_sentence": "私は<b>ドラマ</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -5303,13 +5273,13 @@
       "word": "drum",
       "tag": "Starter",
       "emoji": "🥁",
-      "ipa": "/dɹˈʌm/",
+      "ipa": "/drʌm/",
       "syllables": "drum",
       "pos": "Noun · Countable",
       "sample": "I see a <b>drum</b>.",
       "jp_word": "太鼓、ドラム",
       "jp_reading": "太鼓、ドラム",
-      "jp_sentence": "これは<b>太鼓、ドラム</b>です。",
+      "jp_sentence": "私は<b>太鼓</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5322,13 +5292,14 @@
       "emoji": "🇬🇧",
       "ipa": "/ˈɪŋɡlɪʃ/",
       "syllables": "English",
-      "pos": "Adjective",
-      "sample": "This is <b>English</b>.",
+      "pos": "Noun · Proper",
+      "sample": "I know <b>English</b>.",
       "jp_word": "英語の",
       "jp_reading": "英語の",
-      "jp_sentence": "これは<b>英語の</b>です。",
+      "jp_sentence": "私は<b>英語の</b>を知っています。",
       "jp_tags": [
-        "形容詞"
+        "名詞",
+        "固有名詞"
       ]
     },
     {
@@ -5336,13 +5307,13 @@
       "word": "flower",
       "tag": "Starter",
       "emoji": "🌼",
-      "ipa": "/flˈa‍ʊə/",
+      "ipa": "/ˈflaʊər/",
       "syllables": "flower",
       "pos": "Noun · Countable",
       "sample": "I see a <b>flower</b>.",
       "jp_word": "花",
       "jp_reading": "はな",
-      "jp_sentence": "これは<b>花</b>です。",
+      "jp_sentence": "私は<b>花</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5353,13 +5324,13 @@
       "word": "lake",
       "tag": "Starter",
       "emoji": "🏞️",
-      "ipa": "/lˈe‍ɪk/",
+      "ipa": "/leɪk/",
       "syllables": "lake",
       "pos": "Noun · Countable",
       "sample": "I see a <b>lake</b>.",
       "jp_word": "湖、湖水",
       "jp_reading": "みずうみ、こすい",
-      "jp_sentence": "これは<b>湖、湖水</b>です。",
+      "jp_sentence": "私は<b>湖</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5370,13 +5341,13 @@
       "word": "lesson",
       "tag": "Starter",
       "emoji": "📘",
-      "ipa": "/lˈɛsən/",
+      "ipa": "/ˈlɛsən/",
       "syllables": "lesson",
       "pos": "Noun · Countable",
       "sample": "I see a <b>lesson</b>.",
       "jp_word": "(学校の)授業、レッスン",
       "jp_reading": "(学校の)授業、レッスン",
-      "jp_sentence": "これは<b>(学校の)授業、レッスン</b>です。",
+      "jp_sentence": "私は<b>(学校の)授業</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5387,13 +5358,13 @@
       "word": "mountain",
       "tag": "Starter",
       "emoji": "⛰️",
-      "ipa": "/mˈa‍ʊntɪn/",
+      "ipa": "/ˈmaʊntən/",
       "syllables": "mountain",
       "pos": "Noun · Countable",
       "sample": "I see a <b>mountain</b>.",
       "jp_word": "山",
       "jp_reading": "やま",
-      "jp_sentence": "これは<b>山</b>です。",
+      "jp_sentence": "私は<b>山</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5404,13 +5375,13 @@
       "word": "newspaper",
       "tag": "Starter",
       "emoji": "📰",
-      "ipa": "/njˈuːzpe‍ɪpə/",
+      "ipa": "/ˈnjuːzˌpeɪpər/",
       "syllables": "newspaper",
       "pos": "Noun · Countable",
       "sample": "I see a <b>newspaper</b>.",
       "jp_word": "新聞",
       "jp_reading": "しんぶん",
-      "jp_sentence": "これは<b>新聞</b>です。",
+      "jp_sentence": "私は<b>新聞</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5421,16 +5392,16 @@
       "word": "p.m.",
       "tag": "Starter",
       "emoji": "🌆",
-      "ipa": "/pˌiːˈɛm/",
+      "ipa": "/ˌpiː ˈɛm/",
       "syllables": "p.m.",
-      "pos": "Noun · Proper",
-      "sample": "I know <b>p.m.</b>.",
+      "pos": "Noun · Countable",
+      "sample": "I see a <b>p.m.</b>.",
       "jp_word": "午後",
       "jp_reading": "ごご",
-      "jp_sentence": "これは<b>午後</b>です。",
+      "jp_sentence": "私は<b>午後</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "固有名詞"
+        "可算名詞"
       ]
     },
     {
@@ -5438,13 +5409,13 @@
       "word": "piano",
       "tag": "Starter",
       "emoji": "🎹",
-      "ipa": "/pɪˈanə‍ʊ/",
+      "ipa": "/piːˈænoʊ/",
       "syllables": "piano",
       "pos": "Noun · Countable",
       "sample": "I see a <b>piano</b>.",
       "jp_word": "ピアノ",
       "jp_reading": "ピアノ",
-      "jp_sentence": "これは<b>ピアノ</b>です。",
+      "jp_sentence": "私は<b>ピアノ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5455,13 +5426,13 @@
       "word": "recorder",
       "tag": "Starter",
       "emoji": "🎶",
-      "ipa": "/ɹɪkˈɔːdə/",
+      "ipa": "/rɪˈkɔːrdər/",
       "syllables": "recorder",
       "pos": "Noun · Countable",
       "sample": "I see a <b>recorder</b>.",
       "jp_word": "リコーダー",
       "jp_reading": "リコーダー",
-      "jp_sentence": "これは<b>リコーダー</b>です。",
+      "jp_sentence": "私は<b>リコーダー</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5472,13 +5443,13 @@
       "word": "river",
       "tag": "Starter",
       "emoji": "🏞️",
-      "ipa": "/ɹˈɪvə/",
+      "ipa": "/ˈrɪvər/",
       "syllables": "river",
       "pos": "Noun · Countable",
       "sample": "I see a <b>river</b>.",
       "jp_word": "川、河",
       "jp_reading": "かわ、かわ",
-      "jp_sentence": "これは<b>川、河</b>です。",
+      "jp_sentence": "私は<b>川</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5489,13 +5460,13 @@
       "word": "sea",
       "tag": "Starter",
       "emoji": "🌊",
-      "ipa": "/sˈiː/",
+      "ipa": "/siː/",
       "syllables": "sea",
       "pos": "Noun · Countable",
       "sample": "I see a <b>sea</b>.",
       "jp_word": "海",
       "jp_reading": "うみ",
-      "jp_sentence": "これは<b>海</b>です。",
+      "jp_sentence": "私は<b>海</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5506,16 +5477,16 @@
       "word": "time",
       "tag": "Starter",
       "emoji": "⏰",
-      "ipa": "/tˈa‍ɪm/",
+      "ipa": "/taɪm/",
       "syllables": "time",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>time</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>time</b>.",
       "jp_word": "時刻、時間",
       "jp_reading": "じこく、じかん",
-      "jp_sentence": "これは<b>時刻、時間</b>です。",
+      "jp_sentence": "私は<b>時刻</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -5523,13 +5494,13 @@
       "word": "trumpet",
       "tag": "Starter",
       "emoji": "🎺",
-      "ipa": "/tɹˈʌmpɪt/",
+      "ipa": "/ˈtrʌmpət/",
       "syllables": "trumpet",
       "pos": "Noun · Countable",
       "sample": "I see a <b>trumpet</b>.",
       "jp_word": "トランペット",
       "jp_reading": "トランペット",
-      "jp_sentence": "これは<b>トランペット</b>です。",
+      "jp_sentence": "私は<b>トランペット</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5540,13 +5511,13 @@
       "word": "violin",
       "tag": "Starter",
       "emoji": "🎻",
-      "ipa": "/va‍ɪ‍əlˈɪn/",
+      "ipa": "/vaɪəˈlɪn/",
       "syllables": "violin",
       "pos": "Noun · Countable",
       "sample": "I see a <b>violin</b>.",
       "jp_word": "バイオリン",
       "jp_reading": "バイオリン",
-      "jp_sentence": "これは<b>バイオリン</b>です。",
+      "jp_sentence": "私は<b>バイオリン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5557,16 +5528,16 @@
       "word": "amusement",
       "tag": "Starter",
       "emoji": "🎡",
-      "ipa": "/ɐmjˈuːsmənt/",
+      "ipa": "/əˈmjuːzmənt/",
       "syllables": "amusement",
-      "pos": "Noun · Countable",
-      "sample": "I see an <b>amusement</b>.",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>amusement</b>.",
       "jp_word": "楽しみ、娯楽",
       "jp_reading": "たのしみ、ごらく",
-      "jp_sentence": "これは<b>楽しみ、娯楽</b>です。",
+      "jp_sentence": "私は<b>楽しみ</b>が好きです。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "不可算名詞"
       ]
     },
     {
@@ -5574,13 +5545,13 @@
       "word": "amusement park",
       "tag": "Starter",
       "emoji": "🎡",
-      "ipa": "/ɐmjˈuːsmənt pˈɑːk/",
+      "ipa": "/əˈmjuːzmənt pɑːrk/",
       "syllables": "amusement park",
       "pos": "Noun · Countable",
       "sample": "I see an <b>amusement park</b>.",
       "jp_word": "遊園地",
       "jp_reading": "ゆうえんち",
-      "jp_sentence": "これは<b>遊園地</b>です。",
+      "jp_sentence": "私は<b>遊園地</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5591,13 +5562,13 @@
       "word": "aquarium",
       "tag": "Starter",
       "emoji": "🐠",
-      "ipa": "/ɐkwˈe‍əɹi‍əm/",
+      "ipa": "/əˈkweəriəm/",
       "syllables": "aquarium",
       "pos": "Noun · Countable",
       "sample": "I see an <b>aquarium</b>.",
       "jp_word": "水族館",
       "jp_reading": "すいぞくかん",
-      "jp_sentence": "これは<b>水族館</b>です。",
+      "jp_sentence": "私は<b>水族館</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5608,13 +5579,13 @@
       "word": "Australia",
       "tag": "Starter",
       "emoji": "🇦🇺",
-      "ipa": "/ɒstɹˈe‍ɪli‍ə/",
+      "ipa": "/ɒˈstreɪliə/",
       "syllables": "Australia",
       "pos": "Noun · Proper",
       "sample": "I know <b>Australia</b>.",
       "jp_word": "オーストラリア",
       "jp_reading": "オーストラリア",
-      "jp_sentence": "これは<b>オーストラリア</b>です。",
+      "jp_sentence": "私は<b>オーストラリア</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5625,13 +5596,13 @@
       "word": "bag",
       "tag": "Starter",
       "emoji": "👜",
-      "ipa": "/bˈaɡ/",
+      "ipa": "/bæɡ/",
       "syllables": "bag",
       "pos": "Noun · Countable",
       "sample": "I see a <b>bag</b>.",
       "jp_word": "袋、カバン",
       "jp_reading": "ふくろ、カバン",
-      "jp_sentence": "これは<b>袋、カバン</b>です。",
+      "jp_sentence": "私は<b>袋</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5642,13 +5613,13 @@
       "word": "Brazil",
       "tag": "Starter",
       "emoji": "🇧🇷",
-      "ipa": "/bɹɐzˈɪl/",
+      "ipa": "/brəˈzɪl/",
       "syllables": "Brazil",
       "pos": "Noun · Proper",
       "sample": "I know <b>Brazil</b>.",
       "jp_word": "ブラジル",
       "jp_reading": "ブラジル",
-      "jp_sentence": "これは<b>ブラジル</b>です。",
+      "jp_sentence": "私は<b>ブラジル</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5659,13 +5630,13 @@
       "word": "Canada",
       "tag": "Starter",
       "emoji": "🇨🇦",
-      "ipa": "/kˈanədə/",
+      "ipa": "/ˈkænədə/",
       "syllables": "Canada",
       "pos": "Noun · Proper",
       "sample": "I know <b>Canada</b>.",
       "jp_word": "カナダ",
       "jp_reading": "カナダ",
-      "jp_sentence": "これは<b>カナダ</b>です。",
+      "jp_sentence": "私は<b>カナダ</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5676,13 +5647,13 @@
       "word": "cap",
       "tag": "Starter",
       "emoji": "🧢",
-      "ipa": "/kˈap/",
+      "ipa": "/kæp/",
       "syllables": "cap",
       "pos": "Noun · Countable",
       "sample": "I see a <b>cap</b>.",
       "jp_word": "(ふちのない)帽子",
       "jp_reading": "(ふちのない)帽子",
-      "jp_sentence": "これは<b>(ふちのない)帽子</b>です。",
+      "jp_sentence": "私は<b>(ふちのない)帽子</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5693,13 +5664,13 @@
       "word": "case",
       "tag": "Starter",
       "emoji": "🧰",
-      "ipa": "/kˈe‍ɪs/",
+      "ipa": "/keɪs/",
       "syllables": "case",
       "pos": "Noun · Countable",
       "sample": "I see a <b>case</b>.",
       "jp_word": "ケース、箱",
       "jp_reading": "ケース、箱",
-      "jp_sentence": "これは<b>ケース、箱</b>です。",
+      "jp_sentence": "私は<b>ケース</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5710,13 +5681,13 @@
       "word": "castle",
       "tag": "Starter",
       "emoji": "🏰",
-      "ipa": "/kˈasə‍l/",
+      "ipa": "/ˈkæsəl/",
       "syllables": "castle",
       "pos": "Noun · Countable",
       "sample": "I see a <b>castle</b>.",
       "jp_word": "城",
       "jp_reading": "しろ",
-      "jp_sentence": "これは<b>城</b>です。",
+      "jp_sentence": "私は<b>城</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5727,13 +5698,13 @@
       "word": "China",
       "tag": "Starter",
       "emoji": "🇨🇳",
-      "ipa": "/t‍ʃˈa‍ɪnə/",
+      "ipa": "/ˈtʃaɪnə/",
       "syllables": "China",
       "pos": "Noun · Proper",
       "sample": "I know <b>China</b>.",
       "jp_word": "中国",
       "jp_reading": "中国",
-      "jp_sentence": "これは<b>中国</b>です。",
+      "jp_sentence": "私は<b>中国</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5744,13 +5715,13 @@
       "word": "clock",
       "tag": "Starter",
       "emoji": "🕒",
-      "ipa": "/klˈɒk/",
+      "ipa": "/klɒk/",
       "syllables": "clock",
       "pos": "Noun · Countable",
       "sample": "I see a <b>clock</b>.",
       "jp_word": "時計",
       "jp_reading": "とけい",
-      "jp_sentence": "これは<b>時計</b>です。",
+      "jp_sentence": "私は<b>時計</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5761,13 +5732,13 @@
       "word": "country",
       "tag": "Starter",
       "emoji": "🌏",
-      "ipa": "/kˈʌntɹi/",
+      "ipa": "/ˈkʌntriː/",
       "syllables": "country",
       "pos": "Noun · Countable",
       "sample": "I see a <b>country</b>.",
       "jp_word": "国；国土",
       "jp_reading": "くに；こくど",
-      "jp_sentence": "これは<b>国；国土</b>です。",
+      "jp_sentence": "私は<b>国</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5778,13 +5749,13 @@
       "word": "cup",
       "tag": "Starter",
       "emoji": "☕",
-      "ipa": "/kˈʌp/",
+      "ipa": "/kʌp/",
       "syllables": "cup",
       "pos": "Noun · Countable",
       "sample": "I see a <b>cup</b>.",
       "jp_word": "茶わん、カップ",
       "jp_reading": "ちゃわん、カップ",
-      "jp_sentence": "これは<b>茶わん、カップ</b>です。",
+      "jp_sentence": "私は<b>茶わん</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5795,13 +5766,13 @@
       "word": "elementary",
       "tag": "Starter",
       "emoji": "🏫",
-      "ipa": "/ˌɛlɪmˈɛntəɹi/",
+      "ipa": "/ˌelɪˈmentəri/",
       "syllables": "el·e·men·ta·ry",
       "pos": "Adjective",
       "sample": "This is <b>elementary</b>.",
       "jp_word": "初歩的な、初級の",
       "jp_reading": "しょほてきな、しょきゅうの",
-      "jp_sentence": "これは<b>初歩的な、初級の</b>です。",
+      "jp_sentence": "それは<b>初歩的な</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -5811,13 +5782,13 @@
       "word": "elementary school",
       "tag": "Starter",
       "emoji": "🏫",
-      "ipa": "/ˌɛlɪmˈɛntəɹi skˈuːl/",
+      "ipa": "/ˌelɪˈmentəri skuːl/",
       "syllables": "el·e·men·ta·ry school",
       "pos": "Noun · Countable",
       "sample": "I see an <b>elementary school</b>.",
       "jp_word": "小学校",
       "jp_reading": "しょうがっこう",
-      "jp_sentence": "これは<b>小学校</b>です。",
+      "jp_sentence": "私は<b>小学校</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5828,13 +5799,13 @@
       "word": "eraser",
       "tag": "Starter",
       "emoji": "🧽",
-      "ipa": "/ɪɹˈe‍ɪzə/",
+      "ipa": "/ɪˈreɪzər/",
       "syllables": "eraser",
       "pos": "Noun · Countable",
       "sample": "I see an <b>eraser</b>.",
       "jp_word": "消しゴム",
       "jp_reading": "けしゴム",
-      "jp_sentence": "これは<b>消しゴム</b>です。",
+      "jp_sentence": "私は<b>消しゴム</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5845,13 +5816,13 @@
       "word": "France",
       "tag": "Starter",
       "emoji": "🇫🇷",
-      "ipa": "/fɹˈans/",
+      "ipa": "/frɑːns/",
       "syllables": "France",
       "pos": "Noun · Proper",
       "sample": "I know <b>France</b>.",
       "jp_word": "フランス",
       "jp_reading": "フランス",
-      "jp_sentence": "これは<b>フランス</b>です。",
+      "jp_sentence": "私は<b>フランス</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5862,13 +5833,13 @@
       "word": "Germany",
       "tag": "Starter",
       "emoji": "🇩🇪",
-      "ipa": "/d‍ʒˈɜːməni/",
+      "ipa": "/ˈdʒɜːrməni/",
       "syllables": "Germany",
       "pos": "Noun · Proper",
       "sample": "I know <b>Germany</b>.",
       "jp_word": "ドイツ",
       "jp_reading": "ドイツ",
-      "jp_sentence": "これは<b>ドイツ</b>です。",
+      "jp_sentence": "私は<b>ドイツ</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5879,13 +5850,13 @@
       "word": "Ghana",
       "tag": "Starter",
       "emoji": "🇬🇭",
-      "ipa": "/ɡˈɑːnə/",
+      "ipa": "/ˈɡænə/",
       "syllables": "Ghana",
       "pos": "Noun · Proper",
       "sample": "I know <b>Ghana</b>.",
       "jp_word": "ガーナ",
       "jp_reading": "ガーナ",
-      "jp_sentence": "これは<b>ガーナ</b>です。",
+      "jp_sentence": "私は<b>ガーナ</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5896,13 +5867,13 @@
       "word": "hat",
       "tag": "Starter",
       "emoji": "👒",
-      "ipa": "/hˈat/",
+      "ipa": "/hæt/",
       "syllables": "hat",
       "pos": "Noun · Countable",
       "sample": "I see a <b>hat</b>.",
       "jp_word": "(ふちのある)帽子",
       "jp_reading": "(ふちのある)帽子",
-      "jp_sentence": "これは<b>(ふちのある)帽子</b>です。",
+      "jp_sentence": "私は<b>(ふちのある)帽子</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5913,13 +5884,13 @@
       "word": "high",
       "tag": "Starter",
       "emoji": "⬆️",
-      "ipa": "/hˈa‍ɪ/",
+      "ipa": "/haɪ/",
       "syllables": "high",
       "pos": "Adjective",
       "sample": "This is <b>high</b>.",
       "jp_word": "(高さが)高い",
       "jp_reading": "(高さが)高い",
-      "jp_sentence": "これは<b>(高さが)高い</b>です。",
+      "jp_sentence": "それは<b>(高さが)高い</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -5929,13 +5900,13 @@
       "word": "hospital",
       "tag": "Starter",
       "emoji": "🏥",
-      "ipa": "/hˈɒspɪtə‍l/",
+      "ipa": "/ˈhɒspɪtəl/",
       "syllables": "hospital",
       "pos": "Noun · Countable",
       "sample": "I see a <b>hospital</b>.",
       "jp_word": "病院",
       "jp_reading": "びょういん",
-      "jp_sentence": "これは<b>病院</b>です。",
+      "jp_sentence": "私は<b>病院</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5946,13 +5917,13 @@
       "word": "house",
       "tag": "Starter",
       "emoji": "🏠",
-      "ipa": "/hˈa‍ʊs/",
+      "ipa": "/haʊs/",
       "syllables": "house",
       "pos": "Noun · Countable",
       "sample": "I see a <b>house</b>.",
       "jp_word": "家、住宅",
       "jp_reading": "いえ、じゅうたく",
-      "jp_sentence": "これは<b>家、住宅</b>です。",
+      "jp_sentence": "私は<b>家</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -5969,7 +5940,7 @@
       "sample": "I know <b>India</b>.",
       "jp_word": "インド",
       "jp_reading": "インド",
-      "jp_sentence": "これは<b>インド</b>です。",
+      "jp_sentence": "私は<b>インド</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5986,7 +5957,7 @@
       "sample": "I know <b>Italy</b>.",
       "jp_word": "イタリア",
       "jp_reading": "イタリア",
-      "jp_sentence": "これは<b>イタリア</b>です。",
+      "jp_sentence": "私は<b>イタリア</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -5997,13 +5968,13 @@
       "word": "Japan",
       "tag": "Starter",
       "emoji": "🇯🇵",
-      "ipa": "/d‍ʒəpˈan/",
+      "ipa": "/dʒəˈpæn/",
       "syllables": "Japan",
       "pos": "Noun · Proper",
       "sample": "I know <b>Japan</b>.",
       "jp_word": "日本",
       "jp_reading": "日本",
-      "jp_sentence": "これは<b>日本</b>です。",
+      "jp_sentence": "私は<b>日本</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6014,13 +5985,13 @@
       "word": "junior",
       "tag": "Starter",
       "emoji": "🏫",
-      "ipa": "/d‍ʒˈuːnjə/",
+      "ipa": "/ˈdʒuːniər/",
       "syllables": "junior",
       "pos": "Adjective",
       "sample": "This is <b>junior</b>.",
       "jp_word": "年下の、後輩の",
       "jp_reading": "とししたの、こうはいの",
-      "jp_sentence": "これは<b>年下の、後輩の</b>です。",
+      "jp_sentence": "それは<b>年下の</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -6030,13 +6001,13 @@
       "word": "junior high school",
       "tag": "Starter",
       "emoji": "🏫",
-      "ipa": "/d‍ʒˈuːnjə hˈa‍ɪ skˈuːl/",
+      "ipa": "/ˈdʒuːniər haɪ skuːl/",
       "syllables": "junior high school",
       "pos": "Noun · Countable",
       "sample": "I see a <b>junior high school</b>.",
       "jp_word": "中学校",
       "jp_reading": "ちゅうがっこう",
-      "jp_sentence": "これは<b>中学校</b>です。",
+      "jp_sentence": "私は<b>中学校</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6047,13 +6018,13 @@
       "word": "Kenya",
       "tag": "Starter",
       "emoji": "🇰🇪",
-      "ipa": "/kˈɛnjə/",
+      "ipa": "/ˈkɛnjə/",
       "syllables": "Kenya",
       "pos": "Noun · Proper",
       "sample": "I know <b>Kenya</b>.",
       "jp_word": "ケニア",
       "jp_reading": "ケニア",
-      "jp_sentence": "これは<b>ケニア</b>です。",
+      "jp_sentence": "私は<b>ケニア</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6064,13 +6035,13 @@
       "word": "Korea",
       "tag": "Starter",
       "emoji": "🇰🇷",
-      "ipa": "/kɔɹˈiːə/",
+      "ipa": "/kɔːˈriːə/",
       "syllables": "Korea",
       "pos": "Noun · Proper",
       "sample": "I know <b>Korea</b>.",
       "jp_word": "韓国・朝鮮",
       "jp_reading": "韓国・朝鮮",
-      "jp_sentence": "これは<b>韓国・朝鮮</b>です。",
+      "jp_sentence": "私は<b>韓国・朝鮮</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6081,13 +6052,13 @@
       "word": "museum",
       "tag": "Starter",
       "emoji": "🏛️",
-      "ipa": "/mjuːzˈi‍əm/",
+      "ipa": "/mjuːˈziːəm/",
       "syllables": "museum",
       "pos": "Noun · Countable",
       "sample": "I see a <b>museum</b>.",
       "jp_word": "博物館、美術館",
       "jp_reading": "はくぶつかん、びじゅつかん",
-      "jp_sentence": "これは<b>博物館、美術館</b>です。",
+      "jp_sentence": "私は<b>博物館</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6098,13 +6069,13 @@
       "word": "notebook",
       "tag": "Starter",
       "emoji": "📓",
-      "ipa": "/nˈə‍ʊtbʊk/",
+      "ipa": "/ˈnoʊˌtbʊk/",
       "syllables": "notebook",
       "pos": "Noun · Countable",
       "sample": "I see a <b>notebook</b>.",
       "jp_word": "ノート",
       "jp_reading": "ノート",
-      "jp_sentence": "これは<b>ノート</b>です。",
+      "jp_sentence": "私は<b>ノート</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6115,16 +6086,16 @@
       "word": "pants",
       "tag": "Starter",
       "emoji": "👖",
-      "ipa": "/pˈants/",
+      "ipa": "/pænts/",
       "syllables": "pants",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>pants</b>.",
+      "pos": "Noun · Plural",
+      "sample": "I see some <b>pants</b>.",
       "jp_word": "ズボン",
       "jp_reading": "ズボン",
-      "jp_sentence": "これは<b>ズボン</b>です。",
+      "jp_sentence": "私は<b>ズボン</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "複数名詞"
       ]
     },
     {
@@ -6132,13 +6103,13 @@
       "word": "pen",
       "tag": "Starter",
       "emoji": "🖊️",
-      "ipa": "/pˈɛn/",
+      "ipa": "/pɛn/",
       "syllables": "pen",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pen</b>.",
       "jp_word": "ペン",
       "jp_reading": "ペン",
-      "jp_sentence": "これは<b>ペン</b>です。",
+      "jp_sentence": "私は<b>ペン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6149,13 +6120,13 @@
       "word": "pencil",
       "tag": "Starter",
       "emoji": "✏️",
-      "ipa": "/pˈɛnsə‍l/",
+      "ipa": "/ˈpɛnsəl/",
       "syllables": "pencil",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pencil</b>.",
       "jp_word": "鉛筆",
       "jp_reading": "鉛筆",
-      "jp_sentence": "これは<b>鉛筆</b>です。",
+      "jp_sentence": "私は<b>鉛筆</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6166,13 +6137,13 @@
       "word": "pencil case",
       "tag": "Starter",
       "emoji": "✏️",
-      "ipa": "/pˈɛnsə‍l kˈe‍ɪs/",
+      "ipa": "/ˈpɛnsəl keɪs/",
       "syllables": "pencil case",
       "pos": "Noun · Countable",
       "sample": "I see a <b>pencil case</b>.",
       "jp_word": "筆箱",
       "jp_reading": "筆箱",
-      "jp_sentence": "これは<b>筆箱</b>です。",
+      "jp_sentence": "私は<b>筆箱</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6183,13 +6154,13 @@
       "word": "Peru",
       "tag": "Starter",
       "emoji": "🇵🇪",
-      "ipa": "/pəɹˈuː/",
+      "ipa": "/pəˈruː/",
       "syllables": "Peru",
       "pos": "Noun · Proper",
       "sample": "I know <b>Peru</b>.",
       "jp_word": "ペルー",
       "jp_reading": "ペルー",
-      "jp_sentence": "これは<b>ペルー</b>です。",
+      "jp_sentence": "私は<b>ペルー</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6200,13 +6171,13 @@
       "word": "restaurant",
       "tag": "Starter",
       "emoji": "🍽️",
-      "ipa": "/ɹˈɛstɹɒnt/",
+      "ipa": "/ˈrestərɑːnt/",
       "syllables": "restaurant",
       "pos": "Noun · Countable",
       "sample": "I see a <b>restaurant</b>.",
       "jp_word": "レストラン",
       "jp_reading": "レストラン",
-      "jp_sentence": "これは<b>レストラン</b>です。",
+      "jp_sentence": "私は<b>レストラン</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6217,13 +6188,13 @@
       "word": "ruler",
       "tag": "Starter",
       "emoji": "📏",
-      "ipa": "/ɹˈuːlə/",
+      "ipa": "/ˈruːlər/",
       "syllables": "ruler",
       "pos": "Noun · Countable",
       "sample": "I see a <b>ruler</b>.",
       "jp_word": "ものさし、定規",
       "jp_reading": "ものさし、じょうぎ",
-      "jp_sentence": "これは<b>ものさし、定規</b>です。",
+      "jp_sentence": "私は<b>ものさし</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6234,13 +6205,13 @@
       "word": "Russia",
       "tag": "Starter",
       "emoji": "🇷🇺",
-      "ipa": "/ɹˈʌʃə/",
+      "ipa": "/ˈrʌʃə/",
       "syllables": "Russia",
       "pos": "Noun · Proper",
       "sample": "I know <b>Russia</b>.",
       "jp_word": "ロシア連邦",
       "jp_reading": "ロシア連邦",
-      "jp_sentence": "これは<b>ロシア連邦</b>です。",
+      "jp_sentence": "私は<b>ロシア連邦</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6251,16 +6222,16 @@
       "word": "scissors",
       "tag": "Starter",
       "emoji": "✂️",
-      "ipa": "/sˈɪsəz/",
+      "ipa": "/ˈsɪzərz/",
       "syllables": "scissors",
-      "pos": "Noun · Countable",
-      "sample": "I see a <b>scissors</b>.",
+      "pos": "Noun · Plural",
+      "sample": "I see some <b>scissors</b>.",
       "jp_word": "はさみ",
       "jp_reading": "はさみ",
-      "jp_sentence": "これは<b>はさみ</b>です。",
+      "jp_sentence": "私は<b>はさみ</b>を見ます。",
       "jp_tags": [
         "名詞",
-        "可算名詞"
+        "複数名詞"
       ]
     },
     {
@@ -6268,13 +6239,13 @@
       "word": "shoe",
       "tag": "Starter",
       "emoji": "👟",
-      "ipa": "/ʃˈuː/",
+      "ipa": "/ʃuː/",
       "syllables": "shoe",
       "pos": "Noun · Countable",
       "sample": "I see a <b>shoe</b>.",
       "jp_word": "靴",
       "jp_reading": "くつ",
-      "jp_sentence": "これは<b>靴</b>です。",
+      "jp_sentence": "私は<b>靴</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6285,13 +6256,13 @@
       "word": "shrine",
       "tag": "Starter",
       "emoji": "⛩️",
-      "ipa": "/ʃɹˈa‍ɪn/",
+      "ipa": "/ʃraɪn/",
       "syllables": "shrine",
       "pos": "Noun · Countable",
       "sample": "I see a <b>shrine</b>.",
       "jp_word": "(日本の)神社",
       "jp_reading": "(日本の)神社",
-      "jp_sentence": "これは<b>(日本の)神社</b>です。",
+      "jp_sentence": "私は<b>(日本の)神社</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6302,13 +6273,13 @@
       "word": "Singapore",
       "tag": "Starter",
       "emoji": "🇸🇬",
-      "ipa": "/sˈɪŋɡɐpˌɔː/",
+      "ipa": "/ˈsɪŋəpɔːr/",
       "syllables": "Singapore",
       "pos": "Noun · Proper",
       "sample": "I know <b>Singapore</b>.",
       "jp_word": "シンガポール",
       "jp_reading": "シンガポール",
-      "jp_sentence": "これは<b>シンガポール</b>です。",
+      "jp_sentence": "私は<b>シンガポール</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6319,13 +6290,13 @@
       "word": "south",
       "tag": "Starter",
       "emoji": "⬇️",
-      "ipa": "/sˈa‍ʊθ/",
+      "ipa": "/saʊθ/",
       "syllables": "south",
       "pos": "Adjective",
       "sample": "This is <b>south</b>.",
       "jp_word": "南(の)",
       "jp_reading": "みなみ(の)",
-      "jp_sentence": "これは<b>南(の)</b>です。",
+      "jp_sentence": "それは<b>南(の)</b>です。",
       "jp_tags": [
         "形容詞"
       ]
@@ -6335,13 +6306,13 @@
       "word": "South Korea",
       "tag": "Starter",
       "emoji": "🇰🇷",
-      "ipa": "/sˈa‍ʊθ kɔɹˈiːə/",
+      "ipa": "/saʊθ kɔːˈriːə/",
       "syllables": "South Korea",
       "pos": "Noun · Proper",
       "sample": "I know <b>South Korea</b>.",
       "jp_word": "韓国",
       "jp_reading": "韓国",
-      "jp_sentence": "これは<b>韓国</b>です。",
+      "jp_sentence": "私は<b>韓国</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6352,13 +6323,13 @@
       "word": "Spain",
       "tag": "Starter",
       "emoji": "🇪🇸",
-      "ipa": "/spˈe‍ɪn/",
+      "ipa": "/speɪn/",
       "syllables": "Spain",
       "pos": "Noun · Proper",
       "sample": "I know <b>Spain</b>.",
       "jp_word": "スペイン",
       "jp_reading": "スペイン",
-      "jp_sentence": "これは<b>スペイン</b>です。",
+      "jp_sentence": "私は<b>スペイン</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6369,13 +6340,13 @@
       "word": "stadium",
       "tag": "Starter",
       "emoji": "🏟️",
-      "ipa": "/stˈe‍ɪdi‍əm/",
+      "ipa": "/ˈsteɪdiːəm/",
       "syllables": "stadium",
       "pos": "Noun · Countable",
       "sample": "I see a <b>stadium</b>.",
       "jp_word": "競技場、スタジアム",
       "jp_reading": "きょうぎじょう、スタジアム",
-      "jp_sentence": "これは<b>競技場、スタジアム</b>です。",
+      "jp_sentence": "私は<b>競技場</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6386,13 +6357,13 @@
       "word": "temple",
       "tag": "Starter",
       "emoji": "🏯",
-      "ipa": "/tˈɛmpə‍l/",
+      "ipa": "/ˈtɛmpəl/",
       "syllables": "temple",
       "pos": "Noun · Countable",
       "sample": "I see a <b>temple</b>.",
       "jp_word": "神殿；寺院",
       "jp_reading": "しんでん；じいん",
-      "jp_sentence": "これは<b>神殿；寺院</b>です。",
+      "jp_sentence": "私は<b>神殿</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6403,13 +6374,13 @@
       "word": "Thailand",
       "tag": "Starter",
       "emoji": "🇹🇭",
-      "ipa": "/tˈa‍ɪlənd/",
+      "ipa": "/ˈtaɪˌlænd/",
       "syllables": "Thailand",
       "pos": "Noun · Proper",
       "sample": "I know <b>Thailand</b>.",
       "jp_word": "タイ",
       "jp_reading": "タイ",
-      "jp_sentence": "これは<b>タイ</b>です。",
+      "jp_sentence": "私は<b>タイ</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6420,13 +6391,13 @@
       "word": "T-shirt",
       "tag": "Starter",
       "emoji": "👕",
-      "ipa": "/tˈiːʃˈɜːt/",
+      "ipa": "/ˈtiː ʃɜːrt/",
       "syllables": "T-shirt",
       "pos": "Noun · Countable",
       "sample": "I see a <b>T-shirt</b>.",
       "jp_word": "Tシャツ",
       "jp_reading": "Tシャツ",
-      "jp_sentence": "これは<b>Tシャツ</b>です。",
+      "jp_sentence": "私は<b>Tシャツ</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
@@ -6437,13 +6408,13 @@
       "word": "Turkey",
       "tag": "Starter",
       "emoji": "🇹🇷",
-      "ipa": "/tˈɜːki/",
+      "ipa": "/ˈtɜːrki/",
       "syllables": "Turkey",
       "pos": "Noun · Proper",
       "sample": "I know <b>Turkey</b>.",
       "jp_word": "トルコ",
       "jp_reading": "トルコ",
-      "jp_sentence": "これは<b>トルコ</b>です。",
+      "jp_sentence": "私は<b>トルコ</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6454,13 +6425,13 @@
       "word": "U.K.",
       "tag": "Starter",
       "emoji": "🇬🇧",
-      "ipa": "/jˌuːkˈe‍ɪ/",
+      "ipa": "/ˌjuː ˈkeɪ/",
       "syllables": "U.K.",
       "pos": "Noun · Proper",
       "sample": "I know <b>U.K.</b>.",
       "jp_word": "英国、連合王国",
       "jp_reading": "えいこく、れんごうおうこく",
-      "jp_sentence": "これは<b>英国、連合王国</b>です。",
+      "jp_sentence": "私は<b>英国</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6471,13 +6442,13 @@
       "word": "U.S.A.",
       "tag": "Starter",
       "emoji": "🇺🇸",
-      "ipa": "/jˌuːˌɛsˈe‍ɪ/",
+      "ipa": "/ˌjuː ɛs ˈeɪ/",
       "syllables": "U.S.A.",
       "pos": "Noun · Proper",
       "sample": "I know <b>U.S.A.</b>.",
       "jp_word": "アメリカ合衆国",
       "jp_reading": "アメリカがっしゅうこく",
-      "jp_sentence": "これは<b>アメリカ合衆国</b>です。",
+      "jp_sentence": "私は<b>アメリカ合衆国</b>を知っています。",
       "jp_tags": [
         "名詞",
         "固有名詞"
@@ -6488,13 +6459,13 @@
       "word": "watch",
       "tag": "Starter",
       "emoji": "⌚",
-      "ipa": "/wˈɒt‍ʃ/",
+      "ipa": "/wɒtʃ/",
       "syllables": "watch",
       "pos": "Noun · Countable",
       "sample": "I see a <b>watch</b>.",
       "jp_word": "(携帯用の)腕時計",
       "jp_reading": "(携帯用の)腕時計",
-      "jp_sentence": "これは<b>(携帯用の)腕時計</b>です。",
+      "jp_sentence": "私は<b>(携帯用の)腕時計</b>を見ます。",
       "jp_tags": [
         "名詞",
         "可算名詞"
