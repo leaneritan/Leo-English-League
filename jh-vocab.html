@@ -124,6 +124,7 @@
     .card-emoji { font-size: 32px; margin-bottom: 6px; }
     .card-word { font-family: 'Baloo 2',cursive; font-size: 18px; font-weight: 800; color: var(--nc-navy); }
     .card-ipa { font-size: 11px; color: var(--text-light); font-weight: 600; margin: 2px 0; }
+    .card-syllables { font-size: 11px; color: var(--text-mid); font-weight: 600; letter-spacing: 1px; margin: 1px 0; }
     .card-pos { font-size: 11px; color: var(--nc-green); font-weight: 700; margin-top: 2px; }
     .card-sample { font-size: 11px; color: var(--text-mid); margin-top: 4px; line-height: 1.4; }
     .card-sample b { color: var(--nc-green); font-weight: 900; }
@@ -278,6 +279,7 @@ function renderGrid(words) {
           <div class="card-emoji">${w.emoji || '📝'}</div>
           <div class="card-word">${w.word}</div>
           <div class="card-ipa">${w.ipa || ''}</div>
+          <div class="card-syllables">${w.syllables || ''}</div>
           <div class="card-pos">${w.pos || ''}</div>
           <div class="card-sample">${w.sample || ''}</div>
           <div class="card-flip-hint">tap to flip</div>
