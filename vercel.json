@@ -19,6 +19,7 @@
     { "source": "/grammar-tab4-master", "destination": "/grammar-tab4-master.html" },
     { "source": "/relatives", "destination": "/relatives.html" },
     { "source": "/vocab", "destination": "/vocab.html" },
-    { "source": "/grammar", "destination": "/grammar.html" }
+    { "source": "/grammar", "destination": "/grammar.html" },
+    { "source": "/jh-grammar", "destination": "/jh-grammar.html" }
   ]
 }
