@@ -1,144 +1,122 @@
 {
-  "level": "JH1",
-  "unit": "review",
-  "set": 1,
-  "unit_name": "Review",
-  "title": "Writing Rules",
-  "tag": "Review",
-  "chart": {
-    "title": "English Writing Rules",
-    "intro_examples": [
-      { "text": "i like soccer .", "continuation": "❌ Wrong" },
-      { "text": "I like soccer.", "continuation": "✅ Correct" }
-    ],
-    "rows": [
-      { "rule": "1. Capital letter", "example": "I like soccer.", "jp": "文の最初の文字は大文字" },
-      { "rule": "2. Proper nouns", "example": "My name is Leo.", "jp": "人名・地名なども大文字で始める" },
-      { "rule": "3. Space between words", "example": "I like music.", "jp": "単語と単語の間に1つスペース" },
-      { "rule": "4. Period at the end", "example": "I am a student.", "jp": "文の終わりにピリオド" },
-      { "rule": "5. Question mark", "example": "Do you like music?", "jp": "疑問文の終わりは？" },
-      { "rule": "6. Comma after Yes / No", "example": "Yes, I do. / No, I don't.", "jp": "Yes・Noの後にカンマ" },
-      { "rule": "7. Apostrophe", "example": "I'm = I am", "jp": "短縮形のアポストロフィ" }
-    ],
-    "note_rule": "Always start a sentence with a CAPITAL letter and end with a period (.) or question mark (?).",
-    "note_exception": "The word 'I' is always written as a capital letter.",
-    "note_exception_detail": "I like soccer. ✅　　i like soccer. ❌"
-  },
-  "tab1_samples": [
-    { "text": "I like soccer.", "jp": "私はサッカーが好きです。" },
-    { "text": "My name is Leo.", "jp": "私の名前はレオです。" },
-    { "text": "I like music.", "jp": "私は音楽が好きです。" },
-    { "text": "Do you like soccer?", "jp": "あなたはサッカーが好きですか？" },
-    { "text": "Yes, I do.", "jp": "はい、好きです。" },
-    { "text": "No, I don't.", "jp": "いいえ、好きではありません。" },
-    { "text": "I'm a student.", "jp": "私は学生です。（短縮形）" },
-    { "text": "She likes J-pop.", "jp": "彼女はJポップが好きです。" }
+  "lesson": 0,
+  "cando_num": "復習1",
+  "cando_jp": "英語で文を書くときのルールを確認する。",
+  "cando_en": "Review the rules for writing English sentences.",
+  "textbook_pages": "p.7〜24",
+
+  "kihon_bun": [
+    { "en": "Are you Emi? Yes, I am.", "jp": "あなたはエミですか？ はい、そうです。" }
   ],
-  "tab2_levelup": {
-    "rules": [
+
+  "point": {
+    "title_jp": "英語で文を書くときに、必ず守らなければならないルールがいくつかあるよ。中学校では「英文を書く」ことが増えるから、ここでしっかり確認しよう！",
+    "title_en": "There are important rules to follow when writing English. Let's review them carefully.",
+    "items": [
       {
-        "num": "01",
-        "title": "Capital Letters",
-        "jp_title": "大文字のルール",
-        "subtitle": "Sentence starts + Proper nouns",
-        "jp_subtitle": "文の最初と固有名詞",
-        "transforms": [
-          { "from": "my name is leo.", "to": "My name is Leo." },
-          { "from": "i live in japan.", "to": "I live in Japan." }
-        ],
-        "examples": [
-          { "text": "I like English.", "jp": "私は英語が好きです。" },
-          { "text": "She is from Canada.", "jp": "彼女はカナダ出身です。" }
-        ]
+        "num": "1",
+        "title_jp": "文の最初は大文字で書こう。",
+        "title_en": "Start every sentence with a capital letter.",
+        "body_jp": "文の最初の文字は必ず大文字で書く。",
+        "body_en": "The first letter of every sentence must be a capital."
       },
       {
-        "num": "02",
-        "title": "Punctuation Marks",
-        "jp_title": "句読点のルール",
-        "subtitle": ". , ? ' — know when to use each",
-        "jp_subtitle": "ピリオド・カンマ・？・アポストロフィの使い方",
-        "transforms": [
-          { "from": "I like soccer", "to": "I like soccer." },
-          { "from": "Yes I do", "to": "Yes, I do." },
-          { "from": "I am Leo", "to": "I'm Leo." }
-        ],
-        "examples": [
-          { "text": "Do you like math?", "jp": "あなたは数学が好きですか？" },
-          { "text": "Yes, I do.", "jp": "はい、好きです。" },
-          { "text": "I'm in first grade.", "jp": "私は1年生です。" }
-        ]
+        "num": "2",
+        "title_jp": "人名、国名、地名の最初は大文字で書こう。",
+        "title_en": "Capitalize the first letter of names, countries, and places.",
+        "body_jp": "人の名前、国の名前、地名などの固有名詞は最初を大文字で書く。",
+        "body_en": "Proper nouns like names, countries, and places start with a capital."
       },
       {
-        "num": "03",
-        "title": "Spaces Between Words",
-        "jp_title": "スペースのルール",
-        "subtitle": "One space between words",
-        "jp_subtitle": "単語と単語の間には1つスペース",
-        "transforms": [
-          { "from": "Ilikesoccer.", "to": "I like soccer." },
-          { "from": "Myname isLeo.", "to": "My name is Leo." }
-        ],
-        "examples": [
-          { "text": "I play soccer.", "jp": "私はサッカーをします。" },
-          { "text": "She likes music.", "jp": "彼女は音楽が好きです。" }
-        ]
-      }
-    ],
-    "mixed_samples": [
-      { "text": "I like basketball.", "kind": "statement", "jp": "私はバスケットボールが好きです。" },
-      { "text": "Do you like anime?", "kind": "question", "jp": "あなたはアニメが好きですか？" },
-      { "text": "Yes, I do.", "kind": "answer", "jp": "はい、好きです。" },
-      { "text": "I'm Leo.", "kind": "contraction", "jp": "私はレオです。（短縮形）" },
-      { "text": "My name is Leo Tanaka.", "kind": "proper noun", "jp": "私の名前は田中レオです。" }
-    ]
-  },
-  "tab3_quiz": {
-    "questions": [
-      {
-        "stem": ["Which sentence is correct?"],
-        "answers": ["i like soccer.", "I like soccer.", "I Like Soccer.", "i Like soccer."],
-        "correct": 1,
-        "explanation": { "title": "Capital letter rule", "body": "Always start a sentence with a capital letter. 'I' is always capital." },
-        "jp": "正しい文はどれですか？"
+        "num": "3",
+        "title_jp": "単語と単語の間は小文字1文字分くらいあけよう。",
+        "title_en": "Leave one letter-width space between words.",
+        "body_jp": "単語と単語の間には適切なスペースを入れる。くっつけて書かない。",
+        "body_en": "Put a space between words. Don't write them joined together."
       },
       {
-        "stem": ["Which sentence has correct punctuation?"],
-        "answers": ["yes I do", "Yes I do.", "Yes, I do.", "yes, I do"],
-        "correct": 2,
-        "explanation": { "title": "Comma after Yes/No", "body": "After Yes and No, always add a comma: Yes, I do." },
-        "jp": "句読点が正しい文はどれですか？"
+        "num": "4",
+        "title_jp": "たずねる文の終わりにはクエスチョンマーク(?)をつけよう。",
+        "title_en": "End questions with a question mark (?).",
+        "body_jp": "疑問文の終わりには必ず ? をつける。",
+        "body_en": "Always put ? at the end of a question."
       },
       {
-        "stem": ["I am a student. → What is the contraction?"],
-        "answers": ["Im a student.", "I'm a student.", "Im' a student.", "I am' a student."],
-        "correct": 1,
-        "explanation": { "title": "Apostrophe rule", "body": "I am → I'm. The apostrophe replaces the missing letter 'a'." },
-        "jp": "短縮形はどれですか？"
+        "num": "5",
+        "title_jp": "文と文の間は小文字2文字分くらいあけよう。",
+        "title_en": "Leave two letter-widths between sentences.",
+        "body_jp": "文と文の間には少し広めのスペースを入れる。",
+        "body_en": "Leave a slightly wider space between sentences."
       },
       {
-        "stem": ["Which name is written correctly?"],
-        "answers": ["my name is leo.", "My name is Leo.", "my Name is leo.", "MY name is LEO."],
-        "correct": 1,
-        "explanation": { "title": "Proper nouns", "body": "People's names are proper nouns — always capitalize them: Leo, Japan, April." },
-        "jp": "正しく書かれた名前はどれですか？"
-      },
-      {
-        "stem": ["Which sentence ends correctly?"],
-        "answers": ["Do you like music", "Do you like music.", "Do you like music?", "do you like music?"],
-        "correct": 2,
-        "explanation": { "title": "Question mark", "body": "Questions end with a question mark (?). Statements end with a period (.)." },
-        "jp": "正しく終わっている文はどれですか？"
+        "num": "6",
+        "title_jp": "文の終わりにはピリオド(.)をつけよう。",
+        "title_en": "End statements with a period (.).",
+        "body_jp": "文の終わりには必ず . をつける。（疑問文は ? をつける）",
+        "body_en": "Put . at the end of a statement. (Questions use ?)"
       }
     ]
   },
-  "tab4_master": {
-    "questions": [
-      { "type": "fill", "stem": "___ like soccer. (I / i)", "answers": ["I", "i"], "correct": 0, "jp": "私はサッカーが好きです。" },
-      { "type": "fill", "stem": "My name is ___. (leo / Leo)", "answers": ["leo", "Leo"], "correct": 1, "jp": "私の名前はレオです。" },
-      { "type": "fill", "stem": "Yes___ I do. (, / .)", "answers": [",", "."], "correct": 0, "jp": "はい、そうです。" },
-      { "type": "build", "cue": "Put the words in the right order: soccer / I / like", "bank": ["I", "like", "soccer", "."], "correct": "I like soccer.", "jp": "私はサッカーが好きです。" },
-      { "type": "build", "cue": "Fix the sentence: my name is leo", "bank": ["My", "name", "is", "Leo", "."], "correct": "My name is Leo.", "jp": "私の名前はレオです。" },
-      { "type": "mcq", "stem": "I am a student. → Short form?", "answers": ["I'am a student.", "Im a student.", "I'm a student.", "I a'm student."], "correct": 2, "jp": "短縮形はどれですか？" }
-    ]
-  }
+
+  "section_a": {
+    "instruction_jp": "英文を下の解答らんに書き写そう。",
+    "instruction_en": "Copy each English sentence into the answer box below.",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "正しく書かれた英文はどれ？",
+      "instruction_en": "Which sentence is written correctly?",
+      "scenes": [
+        { "id": 1, "context_jp": "文1", "context_en": "Sentence 1" },
+        { "id": 2, "context_jp": "文2", "context_en": "Sentence 2" },
+        { "id": 3, "context_jp": "文3", "context_en": "Sentence 3" },
+        { "id": 4, "context_jp": "文4", "context_en": "Sentence 4" }
+      ],
+      "choices": [
+        { "en": "I like English.", "jp": "私は英語が好きです。", "correct_scene": 1 },
+        { "en": "Do you like English?", "jp": "あなたは英語が好きですか。", "correct_scene": 2 },
+        { "en": "Yes, I do.", "jp": "はい、好きです。", "correct_scene": 3 },
+        { "en": "No, I don't.", "jp": "いいえ、好きではありません。", "correct_scene": 4 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "次の文を正しい英文になるように書き直そう。",
+      "instruction_en": "Rewrite these sentences correctly.",
+      "items": [
+        {
+          "jp": "私はエミです。(大文字・ピリオドに注意)",
+          "en_template": "___ am Emi.",
+          "bank": ["i", "I", "am", "Am"],
+          "answer": ["I"]
+        },
+        {
+          "jp": "あなたはエミですか。(クエスチョンマークに注意)",
+          "en_template": "Are you Emi ___",
+          "bank": [".", "?", "!", ","],
+          "answer": ["?"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "記号の名前と使い方を確認しよう。",
+      "instruction_en": "Match each punctuation mark with its use.",
+      "items": [
+        {
+          "jp": "文の終わりにつける記号は？",
+          "bank": [".", "?", "!", ",", "'"],
+          "answer": ["."]
+        },
+        {
+          "jp": "Yes や No などのあとにつける記号は？",
+          "bank": [".", "?", "!", ",", "'"],
+          "answer": [","]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": null,
+
+  "section_b": null
 }
