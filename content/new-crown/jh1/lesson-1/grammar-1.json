@@ -1,0 +1,149 @@
+{
+  "level": "JH1",
+  "unit": "lesson-1",
+  "set": 1,
+  "unit_name": "Lesson 1",
+  "title": "I am / I like",
+  "tag": "Lesson 1",
+  "chart": {
+    "title": "I am · I like · I'm",
+    "intro_examples": [
+      { "text": "I am Kato Riku.", "continuation": "私は加藤陸です。" },
+      { "text": "I like music.", "continuation": "私は音楽が好きです。" },
+      { "text": "I'm a soccer fan.", "continuation": "私はサッカーファンです。（短縮形）" }
+    ],
+    "rows": [
+      { "type": "be", "full": "I am Leo.", "short": "I'm Leo.", "jp": "私はレオです。" },
+      { "type": "be", "full": "I am a student.", "short": "I'm a student.", "jp": "私は学生です。" },
+      { "type": "be", "full": "I am a soccer fan.", "short": "I'm a soccer fan.", "jp": "私はサッカーファンです。" },
+      { "type": "general", "full": "I like music.", "short": "—", "jp": "私は音楽が好きです。" },
+      { "type": "general", "full": "I play soccer.", "short": "—", "jp": "私はサッカーをします。" },
+      { "type": "general", "full": "I eat sushi.", "short": "—", "jp": "私は寿司を食べます。" },
+      { "type": "general", "full": "I study English.", "short": "—", "jp": "私は英語を勉強します。" },
+      { "type": "general", "full": "I drink milk.", "short": "—", "jp": "私は牛乳を飲みます。" }
+    ],
+    "note_rule": "Use 'I am' with nouns and adjectives. Use 'I like/play/eat...' with general actions. I am → I'm (contraction).",
+    "note_exception": "General verbs: like, play, eat, drink, study, watch, read, listen",
+    "note_exception_detail": "I am + noun/adjective ✅　　I like + noun ✅　　I am + verb ❌"
+  },
+  "tab1_samples": [
+    { "text": "I am Leo.", "jp": "私はレオです。" },
+    { "text": "I'm a student.", "jp": "私は学生です。" },
+    { "text": "I'm from Japan.", "jp": "私は日本出身です。" },
+    { "text": "I like J-pop.", "jp": "私はJポップが好きです。" },
+    { "text": "I play basketball.", "jp": "私はバスケットボールをします。" },
+    { "text": "I eat sushi.", "jp": "私は寿司を食べます。" },
+    { "text": "I drink green tea.", "jp": "私は緑茶を飲みます。" },
+    { "text": "I study English.", "jp": "私は英語を勉強します。" },
+    { "text": "I watch anime.", "jp": "私はアニメを見ます。" },
+    { "text": "I read manga every day.", "jp": "私は毎日マンガを読みます。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "I am + noun / adjective",
+        "jp_title": "I am ＋ 名詞・形容詞",
+        "subtitle": "Use 'am' with the be verb",
+        "jp_subtitle": "be動詞（am）は名詞・形容詞の前に使う",
+        "transforms": [
+          { "from": "私は　学生　です。", "to": "I am a student." },
+          { "from": "私は　13歳　です。", "to": "I am 13 years old." }
+        ],
+        "examples": [
+          { "text": "I am Leo.", "jp": "私はレオです。" },
+          { "text": "I am a junior high student.", "jp": "私は中学生です。" },
+          { "text": "I am 13 years old.", "jp": "私は13歳です。" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "I'm = I am (contraction)",
+        "jp_title": "I'm = I am（短縮形）",
+        "subtitle": "Drop the 'a' and add an apostrophe",
+        "jp_subtitle": "「a」を消してアポストロフィをつける",
+        "transforms": [
+          { "from": "I am Leo.", "to": "I'm Leo." },
+          { "from": "I am a student.", "to": "I'm a student." }
+        ],
+        "examples": [
+          { "text": "I'm Leo.", "jp": "私はレオです。" },
+          { "text": "I'm a soccer fan.", "jp": "私はサッカーファンです。" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "I + general verb + object",
+        "jp_title": "I ＋ 一般動詞 ＋ 目的語",
+        "subtitle": "like, play, eat, drink, study, watch, read",
+        "jp_subtitle": "一般動詞は「する動作」を表す",
+        "transforms": [
+          { "from": "私は　音楽を　好きです。", "to": "I like music." },
+          { "from": "私は　サッカーを　します。", "to": "I play soccer." }
+        ],
+        "examples": [
+          { "text": "I like anime.", "jp": "私はアニメが好きです。" },
+          { "text": "I play tennis.", "jp": "私はテニスをします。" },
+          { "text": "I eat ramen.", "jp": "私はラーメンを食べます。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "I am Yamada Hana.", "kind": "I am + name", "jp": "私は山田ハナです。" },
+      { "text": "I'm a big soccer fan.", "kind": "I'm + noun", "jp": "私はサッカーの大ファンです。" },
+      { "text": "I like rock music.", "kind": "I like + noun", "jp": "私はロック音楽が好きです。" },
+      { "text": "I play basketball after school.", "kind": "I play + noun", "jp": "私は放課後バスケットボールをします。" },
+      { "text": "I study English every day.", "kind": "I study + noun", "jp": "私は毎日英語を勉強します。" },
+      { "text": "I eat sushi and ramen.", "kind": "I eat + noun", "jp": "私は寿司とラーメンを食べます。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["Choose the correct sentence:"],
+        "answers": ["I am like music.", "I like music.", "I am music.", "Like I music."],
+        "correct": 1,
+        "explanation": { "title": "I like + noun", "body": "Use 'I like' with things you enjoy. 'I am' is NOT used with verbs." },
+        "jp": "正しい文はどれですか？"
+      },
+      {
+        "stem": ["I am a student. → Short form?"],
+        "answers": ["I'am a student.", "I' a student.", "I'm a student.", "Am I a student."],
+        "correct": 2,
+        "explanation": { "title": "Contraction", "body": "I am → I'm. Remove the 'a' and add an apostrophe (')." },
+        "jp": "短縮形はどれですか？"
+      },
+      {
+        "stem": ["Which verb goes with 'I am'?"],
+        "answers": ["I am play soccer.", "I am like music.", "I am a soccer fan.", "I am eat sushi."],
+        "correct": 2,
+        "explanation": { "title": "I am + noun", "body": "I am is followed by a noun or adjective, NOT a verb. I am a soccer fan. ✅" },
+        "jp": "「I am」の後に来るのはどれですか？"
+      },
+      {
+        "stem": ["私は寿司を食べます。→ English?"],
+        "answers": ["I am eat sushi.", "I eating sushi.", "I eat sushi.", "I eats sushi."],
+        "correct": 2,
+        "explanation": { "title": "General verb", "body": "Use I + verb (eat, drink, play, study...) to describe actions." },
+        "jp": "正しい英語はどれですか？"
+      },
+      {
+        "stem": ["Which is correct?"],
+        "answers": ["I'm play soccer.", "I'm soccer player.", "I'm a soccer player.", "I'm like soccer."],
+        "correct": 2,
+        "explanation": { "title": "I'm + a + noun", "body": "I'm (I am) + a + noun. We need 'a' before a singular noun: I'm a soccer player." },
+        "jp": "正しい文はどれですか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      { "type": "mcq", "stem": "私はレオです。", "answers": ["I like Leo.", "I am Leo.", "I'm Leo Tanaka.", "I play Leo."], "correct": 1, "jp": "正しい英語はどれですか？" },
+      { "type": "mcq", "stem": "私は音楽が好きです。", "answers": ["I am music.", "I'm like music.", "I like music.", "I am like music."], "correct": 2, "jp": "正しい英語はどれですか？" },
+      { "type": "fill", "stem": "I ___ a soccer fan. (am / is / like)", "answers": ["am", "is", "like"], "correct": 0, "jp": "私はサッカーファンです。" },
+      { "type": "fill", "stem": "I ___ sushi every day. (am / eat / is)", "answers": ["am", "eat", "is"], "correct": 1, "jp": "私は毎日寿司を食べます。" },
+      { "type": "build", "cue": "日本語→英語: 私は野球が好きです。", "bank": ["I", "like", "baseball", "."], "correct": "I like baseball.", "jp": "私は野球が好きです。" },
+      { "type": "build", "cue": "短縮形に: I am a student.", "bank": ["I'm", "a", "student", "."], "correct": "I'm a student.", "jp": "短縮形にしましょう。" }
+    ]
+  }
+}
