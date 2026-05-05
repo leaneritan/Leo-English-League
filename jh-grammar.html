@@ -540,7 +540,7 @@ function renderMaster(g) {
     }
 
     else if (q.type === 'build') {
-      const bank = q.bank.map((w,i) => `<span class="word-chip" onclick="addWord('${qi}','${w.replace(/'/g,"\\'")}',this)">${w}</span>`).join('');
+      const bank = [...q.bank].sort(() => Math.random() - 0.5).map((w,i) => `<span class="word-chip" onclick="addWord('${qi}','${w.replace(/'/g,"\\'")}',this)">${w}</span>`).join('');
       html += `<div style="margin-bottom:6px;font-size:12px;color:var(--text-light);font-weight:700">Tap words to build the sentence:</div>
         <div class="bank-area" id="bank-${qi}">${bank}</div>
         <div class="answer-area" id="ans-${qi}"></div>
