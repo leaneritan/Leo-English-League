@@ -1,0 +1,767 @@
+{
+  "level": "JH1",
+  "unit": "lesson-3",
+  "set": 1,
+  "unit_name": "Lesson 3",
+  "words": [
+    {
+      "id": "camera_lesson_3",
+      "word": "camera",
+      "tag": "Lesson 3 ①",
+      "emoji": "📷",
+      "ipa": "/ˈkæmərə/",
+      "syllables": "cam·er·a",
+      "pos": "Noun · Countable",
+      "sample": "This is my <b>camera</b>.",
+      "jp_word": "カメラ",
+      "jp_reading": "カメラ",
+      "jp_sentence": "これは私の<b>カメラ</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "treasure_lesson_3",
+      "word": "treasure",
+      "tag": "Lesson 3 ①",
+      "emoji": "💎",
+      "ipa": "/ˈtreʒər/",
+      "syllables": "treas·ure",
+      "pos": "Noun",
+      "sample": "This box has a <b>treasure</b>.",
+      "jp_word": "財宝；貴重品、宝物",
+      "jp_reading": "ざいほう、きちょうひん、たからもの",
+      "jp_sentence": "この箱には<b>宝物</b>があります。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "from_time_lesson_3",
+      "word": "from",
+      "tag": "Lesson 3 ①",
+      "emoji": "⏰",
+      "ipa": "/frəm/",
+      "syllables": "from",
+      "pos": "Preposition",
+      "sample": "The shop is open <b>from</b> ten.",
+      "jp_word": "(時間)…から(の)",
+      "jp_reading": "…から",
+      "jp_sentence": "その店は10時<b>から</b>開いています。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "japanese_style_lesson_3",
+      "word": "Japanese-style",
+      "tag": "Lesson 3 ①",
+      "emoji": "🏯",
+      "ipa": "/ˌdʒæpəˈniːz staɪl/",
+      "syllables": "Jap·a·nese-style",
+      "pos": "Adjective",
+      "sample": "This is a <b>Japanese-style</b> room.",
+      "jp_word": "日本式の",
+      "jp_reading": "にほんしきの",
+      "jp_sentence": "これは<b>日本式の</b>部屋です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "oclock_lesson_3",
+      "word": "o'clock",
+      "tag": "Lesson 3 ①",
+      "emoji": "🕙",
+      "ipa": "/əˈklɑːk/",
+      "syllables": "o'clock",
+      "pos": "Adverb",
+      "sample": "It is ten <b>o'clock</b>.",
+      "jp_word": "…時",
+      "jp_reading": "…じ",
+      "jp_sentence": "10<b>時</b>です。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "open_adjective_lesson_3",
+      "word": "open",
+      "tag": "Lesson 3 ①",
+      "emoji": "🟢",
+      "ipa": "/ˈoʊpən/",
+      "syllables": "o·pen",
+      "pos": "Adjective",
+      "sample": "The shop is <b>open</b> now.",
+      "jp_word": "あいている、営業中で",
+      "jp_reading": "あいている、えいぎょうちゅうで",
+      "jp_sentence": "その店は今<b>開いています</b>。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "shop_lesson_3",
+      "word": "shop",
+      "tag": "Lesson 3 ①",
+      "emoji": "🏪",
+      "ipa": "/ʃɑːp/",
+      "syllables": "shop",
+      "pos": "Noun · Countable",
+      "sample": "That <b>shop</b> is open.",
+      "jp_word": "小売店、店",
+      "jp_reading": "こうりてん、みせ",
+      "jp_sentence": "あの<b>店</b>は開いています。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "that_pronoun_lesson_3",
+      "word": "that",
+      "tag": "Lesson 3 ①",
+      "emoji": "👉",
+      "ipa": "/ðæt/",
+      "syllables": "that",
+      "pos": "Pronoun",
+      "sample": "<b>That</b> is a camera.",
+      "jp_word": "それは[が]、あれは[が]",
+      "jp_reading": "それは、あれは",
+      "jp_sentence": "<b>あれは</b>カメラです。",
+      "jp_tags": [
+        "代名詞"
+      ]
+    },
+    {
+      "id": "this_pronoun_lesson_3",
+      "word": "this",
+      "tag": "Lesson 3 ①",
+      "emoji": "👇",
+      "ipa": "/ðɪs/",
+      "syllables": "this",
+      "pos": "Pronoun",
+      "sample": "<b>This</b> is a treasure.",
+      "jp_word": "これは[が]、この人は[が]",
+      "jp_reading": "これは、このひとは",
+      "jp_sentence": "<b>これは</b>宝物です。",
+      "jp_tags": [
+        "代名詞"
+      ]
+    },
+    {
+      "id": "zucchini_lesson_3",
+      "word": "zucchini",
+      "tag": "Lesson 3 ①",
+      "emoji": "🥒",
+      "ipa": "/zuːˈkiːni/",
+      "syllables": "zuc·chi·ni",
+      "pos": "Noun",
+      "sample": "This is a <b>zucchini</b>.",
+      "jp_word": "ズッキーニ",
+      "jp_reading": "ズッキーニ",
+      "jp_sentence": "これは<b>ズッキーニ</b>です。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "gate_lesson_3",
+      "word": "gate",
+      "tag": "Lesson 3 ①",
+      "emoji": "⛩️",
+      "ipa": "/ɡeɪt/",
+      "syllables": "gate",
+      "pos": "Noun · Countable",
+      "sample": "Look at that <b>gate</b>.",
+      "jp_word": "門",
+      "jp_reading": "もん",
+      "jp_sentence": "あの<b>門</b>を見てください。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "look_interjection_lesson_3",
+      "word": "look",
+      "tag": "Lesson 3 ①",
+      "emoji": "👀",
+      "ipa": "/lʊk/",
+      "syllables": "look",
+      "pos": "Interjection",
+      "sample": "<b>Look</b>, that statue is scary.",
+      "jp_word": "ごらん、ほら、ちょっといいですか",
+      "jp_reading": "ごらん、ほら",
+      "jp_sentence": "<b>ほら</b>、あの像は怖いです。",
+      "jp_tags": [
+        "間投詞"
+      ]
+    },
+    {
+      "id": "scary_lesson_3",
+      "word": "scary",
+      "tag": "Lesson 3 ①",
+      "emoji": "😱",
+      "ipa": "/ˈskeri/",
+      "syllables": "scar·y",
+      "pos": "Adjective",
+      "sample": "That statue is <b>scary</b>.",
+      "jp_word": "恐ろしい、怖い",
+      "jp_reading": "おそろしい、こわい",
+      "jp_sentence": "あの像は<b>怖い</b>です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "statue_lesson_3",
+      "word": "statue",
+      "tag": "Lesson 3 ①",
+      "emoji": "🗿",
+      "ipa": "/ˈstætʃuː/",
+      "syllables": "stat·ue",
+      "pos": "Noun · Countable",
+      "sample": "This is a famous <b>statue</b>.",
+      "jp_word": "像、彫像",
+      "jp_reading": "ぞう、ちょうぞう",
+      "jp_sentence": "これは有名な<b>像</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "that_determiner_lesson_3",
+      "word": "that",
+      "tag": "Lesson 3 ①",
+      "emoji": "👉",
+      "ipa": "/ðæt/",
+      "syllables": "that",
+      "pos": "Determiner",
+      "sample": "I like <b>that</b> shop.",
+      "jp_word": "その、あの",
+      "jp_reading": "その、あの",
+      "jp_sentence": "私は<b>あの</b>店が好きです。",
+      "jp_tags": [
+        "限定詞"
+      ]
+    },
+    {
+      "id": "we_lesson_3",
+      "word": "we",
+      "tag": "Lesson 3 ①",
+      "emoji": "👥",
+      "ipa": "/wiː/",
+      "syllables": "we",
+      "pos": "Pronoun · Subject",
+      "sample": "<b>We</b> are students.",
+      "jp_word": "私たちは[が]、人は",
+      "jp_reading": "わたしたちは、ひとは",
+      "jp_sentence": "<b>私たちは</b>生徒です。",
+      "jp_tags": [
+        "代名詞",
+        "主格"
+      ]
+    },
+    {
+      "id": "almost_lesson_3",
+      "word": "almost",
+      "tag": "Lesson 3 ②",
+      "emoji": "👌",
+      "ipa": "/ˈɔːlmoʊst/",
+      "syllables": "al·most",
+      "pos": "Adverb",
+      "sample": "That is <b>almost</b> correct.",
+      "jp_word": "ほとんど、おおかた；もう少しで",
+      "jp_reading": "ほとんど、おおかた",
+      "jp_sentence": "それは<b>ほとんど</b>正しいです。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "blackboard_lesson_3",
+      "word": "blackboard",
+      "tag": "Lesson 3 ②",
+      "emoji": "🧑‍🏫",
+      "ipa": "/ˈblækˌbɔːrd/",
+      "syllables": "black·board",
+      "pos": "Noun · Countable",
+      "sample": "Look at the <b>blackboard</b>.",
+      "jp_word": "黒板",
+      "jp_reading": "こくばん",
+      "jp_sentence": "<b>黒板</b>を見てください。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "chai_lesson_3",
+      "word": "chai",
+      "tag": "Lesson 3 ②",
+      "emoji": "☕",
+      "ipa": "/tʃaɪ/",
+      "syllables": "chai",
+      "pos": "Noun",
+      "sample": "This is <b>chai</b>.",
+      "jp_word": "チャイ(牛乳・砂糖を入れて煮出した茶)",
+      "jp_reading": "チャイ",
+      "jp_sentence": "これは<b>チャイ</b>です。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "correct_lesson_3",
+      "word": "correct",
+      "tag": "Lesson 3 ②",
+      "emoji": "✅",
+      "ipa": "/kəˈrekt/",
+      "syllables": "cor·rect",
+      "pos": "Adjective",
+      "sample": "Your answer is <b>correct</b>.",
+      "jp_word": "正しい、正確な",
+      "jp_reading": "ただしい、せいかくな",
+      "jp_sentence": "あなたの答えは<b>正しい</b>です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "dictionary_lesson_3",
+      "word": "dictionary",
+      "tag": "Lesson 3 ②",
+      "emoji": "📖",
+      "ipa": "/ˈdɪkʃəneri/",
+      "syllables": "dic·tion·ar·y",
+      "pos": "Noun · Countable",
+      "sample": "This is my <b>dictionary</b>.",
+      "jp_word": "辞書、辞典",
+      "jp_reading": "じしょ、じてん",
+      "jp_sentence": "これは私の<b>辞書</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "ganesha_lesson_3",
+      "word": "Ganesha",
+      "tag": "Lesson 3 ②",
+      "emoji": "🐘",
+      "ipa": "/ɡəˈneɪʃə/",
+      "syllables": "Ga·ne·sha",
+      "pos": "Proper Noun",
+      "sample": "This is <b>Ganesha</b>.",
+      "jp_word": "ガネーシャ(ヒンドゥー教の神)",
+      "jp_reading": "ガネーシャ",
+      "jp_sentence": "これは<b>ガネーシャ</b>です。",
+      "jp_tags": [
+        "固有名詞"
+      ]
+    },
+    {
+      "id": "indian_lesson_3",
+      "word": "Indian",
+      "tag": "Lesson 3 ②",
+      "emoji": "🇮🇳",
+      "ipa": "/ˈɪndiən/",
+      "syllables": "In·di·an",
+      "pos": "Adjective · Noun",
+      "sample": "This is an <b>Indian</b> instrument.",
+      "jp_word": "インドの；インド人の",
+      "jp_reading": "インドの、インドじんの",
+      "jp_sentence": "これは<b>インドの</b>楽器です。",
+      "jp_tags": [
+        "形容詞",
+        "名詞"
+      ]
+    },
+    {
+      "id": "is_exist_lesson_3",
+      "word": "is",
+      "tag": "Lesson 3 ②",
+      "emoji": "📍",
+      "ipa": "/ɪz/",
+      "syllables": "is",
+      "pos": "Verb · Be",
+      "sample": "The shop <b>is</b> near the gate.",
+      "jp_word": "(…に)いる、(…に)ある",
+      "jp_reading": "…にいる、…にある",
+      "jp_sentence": "その店は門の近くに<b>あります</b>。",
+      "jp_tags": [
+        "動詞",
+        "be動詞"
+      ]
+    },
+    {
+      "id": "right_correct_lesson_3",
+      "word": "right",
+      "tag": "Lesson 3 ②",
+      "emoji": "⭕",
+      "ipa": "/raɪt/",
+      "syllables": "right",
+      "pos": "Adjective",
+      "sample": "That is the <b>right</b> answer.",
+      "jp_word": "正しい、まちがっていない",
+      "jp_reading": "ただしい、まちがっていない",
+      "jp_sentence": "それは<b>正しい</b>答えです。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "what_lesson_3",
+      "word": "what",
+      "tag": "Lesson 3 ②",
+      "emoji": "❓",
+      "ipa": "/wʌt/",
+      "syllables": "what",
+      "pos": "Pronoun · Question",
+      "sample": "<b>What</b> is this?",
+      "jp_word": "何、どんなもの[こと]",
+      "jp_reading": "なに、どんなもの",
+      "jp_sentence": "<b>これは何</b>ですか。",
+      "jp_tags": [
+        "代名詞",
+        "疑問詞"
+      ]
+    },
+    {
+      "id": "wrong_lesson_3",
+      "word": "wrong",
+      "tag": "Lesson 3 ②",
+      "emoji": "❌",
+      "ipa": "/rɔːŋ/",
+      "syllables": "wrong",
+      "pos": "Adjective",
+      "sample": "That answer is <b>wrong</b>.",
+      "jp_word": "間違った[ている]",
+      "jp_reading": "まちがった、まちがっている",
+      "jp_sentence": "その答えは<b>間違っています</b>。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "a_generic_lesson_3",
+      "word": "a",
+      "tag": "Lesson 3 ②",
+      "emoji": "🔤",
+      "ipa": "/ə/",
+      "syllables": "a",
+      "pos": "Article",
+      "sample": "This is <b>a</b> dictionary.",
+      "jp_word": "(その種類全体を示して)…というもの",
+      "jp_reading": "…というもの",
+      "jp_sentence": "これは辞書<b>というもの</b>です。",
+      "jp_tags": [
+        "冠詞"
+      ]
+    },
+    {
+      "id": "aunt_lesson_3",
+      "word": "aunt",
+      "tag": "Lesson 3 ②",
+      "emoji": "👩",
+      "ipa": "/ænt/",
+      "syllables": "aunt",
+      "pos": "Noun · Countable",
+      "sample": "My <b>aunt</b> is kind.",
+      "jp_word": "おば",
+      "jp_reading": "おば",
+      "jp_sentence": "私の<b>おば</b>は親切です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "gift_lesson_3",
+      "word": "gift",
+      "tag": "Lesson 3 ②",
+      "emoji": "🎁",
+      "ipa": "/ɡɪft/",
+      "syllables": "gift",
+      "pos": "Noun · Countable",
+      "sample": "This is a <b>gift</b> from my aunt.",
+      "jp_word": "贈り物",
+      "jp_reading": "おくりもの",
+      "jp_sentence": "これはおばからの<b>贈り物</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "instrument_lesson_3",
+      "word": "instrument",
+      "tag": "Lesson 3 ②",
+      "emoji": "🎻",
+      "ipa": "/ˈɪnstrəmənt/",
+      "syllables": "in·stru·ment",
+      "pos": "Noun · Countable",
+      "sample": "The sitar is an <b>instrument</b>.",
+      "jp_word": "楽器",
+      "jp_reading": "がっき",
+      "jp_sentence": "シタールは<b>楽器</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "white_lesson_3",
+      "word": "white",
+      "tag": "Lesson 3 ②",
+      "emoji": "⚪",
+      "ipa": "/waɪt/",
+      "syllables": "white",
+      "pos": "Noun · Adjective",
+      "sample": "That statue is <b>white</b>.",
+      "jp_word": "白色の",
+      "jp_reading": "しろいろの",
+      "jp_sentence": "あの像は<b>白色</b>です。",
+      "jp_tags": [
+        "名詞",
+        "形容詞"
+      ]
+    },
+    {
+      "id": "little_a_little_lesson_3",
+      "word": "little",
+      "tag": "Goal Activity",
+      "emoji": "🤏",
+      "ipa": "/ˈlɪtəl/",
+      "syllables": "lit·tle",
+      "pos": "Adjective · Adverb",
+      "sample": "I know <b>a little</b> English.",
+      "jp_word": "《a little》少し(は…する)",
+      "jp_reading": "すこし",
+      "jp_sentence": "私は英語を<b>少し</b>知っています。",
+      "jp_tags": [
+        "形容詞",
+        "副詞"
+      ]
+    },
+    {
+      "id": "musical_lesson_3",
+      "word": "musical",
+      "tag": "Goal Activity",
+      "emoji": "🎶",
+      "ipa": "/ˈmjuːzɪkəl/",
+      "syllables": "mu·si·cal",
+      "pos": "Adjective",
+      "sample": "This is a <b>musical</b> instrument.",
+      "jp_word": "音楽の",
+      "jp_reading": "おんがくの",
+      "jp_sentence": "これは<b>音楽の</b>楽器です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "online_lesson_3",
+      "word": "online",
+      "tag": "Goal Activity",
+      "emoji": "💻",
+      "ipa": "/ˌɑːnˈlaɪn/",
+      "syllables": "on·line",
+      "pos": "Adjective · Adverb",
+      "sample": "We study <b>online</b>.",
+      "jp_word": "(コンピュータ)オンラインの[で]",
+      "jp_reading": "オンラインの、オンラインで",
+      "jp_sentence": "私たちは<b>オンラインで</b>勉強します。",
+      "jp_tags": [
+        "形容詞",
+        "副詞"
+      ]
+    },
+    {
+      "id": "sitar_lesson_3",
+      "word": "sitar",
+      "tag": "Goal Activity",
+      "emoji": "🪕",
+      "ipa": "/sɪˈtɑːr/",
+      "syllables": "si·tar",
+      "pos": "Noun · Countable",
+      "sample": "This is a <b>sitar</b>.",
+      "jp_word": "シタール(インドの弦楽器)",
+      "jp_reading": "シタール",
+      "jp_sentence": "これは<b>シタール</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "traditional_lesson_3",
+      "word": "traditional",
+      "tag": "Goal Activity",
+      "emoji": "🏺",
+      "ipa": "/trəˈdɪʃənəl/",
+      "syllables": "tra·di·tion·al",
+      "pos": "Adjective",
+      "sample": "This is a <b>traditional</b> instrument.",
+      "jp_word": "伝統的な",
+      "jp_reading": "でんとうてきな",
+      "jp_sentence": "これは<b>伝統的な</b>楽器です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "character_lesson_3",
+      "word": "character",
+      "tag": "Lesson 3 ③",
+      "emoji": "🎭",
+      "ipa": "/ˈkærəktər/",
+      "syllables": "char·ac·ter",
+      "pos": "Noun · Countable",
+      "sample": "This <b>character</b> is famous.",
+      "jp_word": "人物；登場人物",
+      "jp_reading": "じんぶつ、とうじょうじんぶつ",
+      "jp_sentence": "この<b>登場人物</b>は有名です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "him_lesson_3",
+      "word": "him",
+      "tag": "Lesson 3 ③",
+      "emoji": "👦",
+      "ipa": "/hɪm/",
+      "syllables": "him",
+      "pos": "Pronoun · Object",
+      "sample": "I know <b>him</b>.",
+      "jp_word": "彼を、彼に；彼(he の目的格)",
+      "jp_reading": "かれを、かれに",
+      "jp_sentence": "私は<b>彼を</b>知っています。",
+      "jp_tags": [
+        "代名詞",
+        "目的格"
+      ]
+    },
+    {
+      "id": "much_lesson_3",
+      "word": "much",
+      "tag": "Lesson 3 ③",
+      "emoji": "💯",
+      "ipa": "/mʌtʃ/",
+      "syllables": "much",
+      "pos": "Adverb",
+      "sample": "Thank you very <b>much</b>.",
+      "jp_word": "たいへん、大いに、とても",
+      "jp_reading": "たいへん、おおいに、とても",
+      "jp_sentence": "どうも<b>たいへん</b>ありがとう。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "who_lesson_3",
+      "word": "who",
+      "tag": "Lesson 3 ③",
+      "emoji": "❓",
+      "ipa": "/huː/",
+      "syllables": "who",
+      "pos": "Pronoun · Question",
+      "sample": "<b>Who</b> is that?",
+      "jp_word": "だれが",
+      "jp_reading": "だれが",
+      "jp_sentence": "<b>だれが</b>そこにいますか。",
+      "jp_tags": [
+        "代名詞",
+        "疑問詞"
+      ]
+    },
+    {
+      "id": "her_object_lesson_3",
+      "word": "her",
+      "tag": "Lesson 3 ③",
+      "emoji": "👧",
+      "ipa": "/hɜːr/",
+      "syllables": "her",
+      "pos": "Pronoun · Object",
+      "sample": "I know <b>her</b>.",
+      "jp_word": "彼女を、彼女に；彼女(she の目的格)",
+      "jp_reading": "かのじょを、かのじょに",
+      "jp_sentence": "私は<b>彼女を</b>知っています。",
+      "jp_tags": [
+        "代名詞",
+        "目的格"
+      ]
+    },
+    {
+      "id": "idea_lesson_3",
+      "word": "idea",
+      "tag": "Lesson 3 ③",
+      "emoji": "💡",
+      "ipa": "/aɪˈdiːə/",
+      "syllables": "i·de·a",
+      "pos": "Noun · Countable",
+      "sample": "That is a good <b>idea</b>.",
+      "jp_word": "考え、アイデア；知り合いである、見知っている",
+      "jp_reading": "かんがえ、アイデア",
+      "jp_sentence": "それはよい<b>アイデア</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "know_lesson_3",
+      "word": "know",
+      "tag": "Lesson 3 ③",
+      "emoji": "🧠",
+      "ipa": "/noʊ/",
+      "syllables": "know",
+      "pos": "Verb",
+      "sample": "I <b>know</b> that character.",
+      "jp_word": "知っている、知る",
+      "jp_reading": "しっている、しる",
+      "jp_sentence": "私はその登場人物を<b>知っています</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "nickname_lesson_3",
+      "word": "nickname",
+      "tag": "Lesson 3 ③",
+      "emoji": "🏷️",
+      "ipa": "/ˈnɪkˌneɪm/",
+      "syllables": "nick·name",
+      "pos": "Noun · Countable",
+      "sample": "His <b>nickname</b> is Leo.",
+      "jp_word": "あだな",
+      "jp_reading": "あだな",
+      "jp_sentence": "彼の<b>あだな</b>はレオです。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "with_means_lesson_3",
+      "word": "with",
+      "tag": "Lesson 3 ③",
+      "emoji": "🛠️",
+      "ipa": "/wɪð/",
+      "syllables": "with",
+      "pos": "Preposition",
+      "sample": "I write <b>with</b> a pencil.",
+      "jp_word": "(手段・道具・材料・内容)…で",
+      "jp_reading": "…で",
+      "jp_sentence": "私は鉛筆<b>で</b>書きます。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    }
+  ]
+}
