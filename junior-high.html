@@ -189,6 +189,7 @@
     .section-icon.starter { background: var(--nc-green-pale); }
     .section-icon.review { background: #FFF8E1; }
     .section-icon.lesson1 { background: #E3F2FD; }
+    .section-icon.lesson2 { background: #F3E5F5; }
     .section-label {
       font-family: 'Baloo 2', cursive;
       font-size: 20px;
@@ -597,6 +598,38 @@
     </div>
   </div>
 
+  <!-- LESSON 2 -->
+  <div class="section-header">
+    <div class="section-icon lesson2">📗</div>
+    <div>
+      <div class="section-label">Lesson 2</div>
+      <div class="section-sublabel">My Family</div>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="unit-card">
+    <div class="unit-card-top">
+      <div class="unit-emoji">👨‍👩‍👧</div>
+      <div class="unit-info">
+        <div class="unit-title">Lesson 2 Vocabulary</div>
+        <div class="unit-desc">Family members, personality adjectives, hobbies, and describing people.</div>
+        <div class="unit-tags">
+          <span class="unit-tag">Lesson 2</span>
+        </div>
+      </div>
+      <div class="unit-count">
+        <span class="n" id="lesson2WordCount">—</span>
+        words
+      </div>
+    </div>
+    <div class="unit-btns">
+      <a href="jh-vocab.html?unit=lesson-2" class="unit-btn vocab">
+        <span class="btn-icon">📚</span> Vocabulary
+      </a>
+    </div>
+  </div>
+
   <!-- COMING SOON -->
   <div class="section-header" style="margin-top:36px;">
     <div class="section-icon" style="background:#F3E5F5;">📅</div>
@@ -618,16 +651,29 @@
 
 <script>
 async function loadCounts() {
+  const lesson1Count = 63;
+  let starterCount = 0;
+  let lesson2Count = 0;
+
   try {
     const res = await fetch('content/new-crown/jh1/starter/vocab.json');
     const data = await res.json();
-    const count = (data.words || []).length;
-    document.getElementById('starterWordCount').textContent = count;
-    document.getElementById('totalWordCount').textContent = count;
+    starterCount = (data.words || []).length;
+    document.getElementById('starterWordCount').textContent = starterCount;
   } catch(e) {
     document.getElementById('starterWordCount').textContent = '—';
-    document.getElementById('totalWordCount').textContent = '—';
   }
+
+  try {
+    const res = await fetch('content/new-crown/jh1/lesson-2/vocab.json');
+    const data = await res.json();
+    lesson2Count = (data.words || []).length;
+    document.getElementById('lesson2WordCount').textContent = lesson2Count;
+  } catch(e) {
+    document.getElementById('lesson2WordCount').textContent = '—';
+  }
+
+  document.getElementById('totalWordCount').textContent = starterCount + lesson1Count + lesson2Count;
 }
 loadCounts();
 </script>
