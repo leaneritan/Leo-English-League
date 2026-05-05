@@ -1,0 +1,1041 @@
+{
+  "level": "JH1",
+  "unit": "lesson-2",
+  "set": 1,
+  "unit_name": "Lesson 2",
+  "words": [
+    {
+      "id": "firefighter_lesson_2",
+      "word": "firefighter",
+      "tag": "Lesson 2 ①",
+      "emoji": "🧑‍🚒",
+      "ipa": "/ˈfaɪərˌfaɪtər/",
+      "syllables": "fire·fight·er",
+      "pos": "Noun · Countable",
+      "sample": "A <b>firefighter</b> helps people.",
+      "jp_word": "消防士",
+      "jp_reading": "しょうぼうし",
+      "jp_sentence": "<b>消防士</b>は人々を助けます。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "hero_lesson_2",
+      "word": "hero",
+      "tag": "Lesson 2 ①",
+      "emoji": "🦸",
+      "ipa": "/ˈhɪəroʊ/",
+      "syllables": "he·ro",
+      "pos": "Noun · Countable",
+      "sample": "He is my <b>hero</b>.",
+      "jp_word": "英雄、ヒーロー",
+      "jp_reading": "えいゆう、ヒーロー",
+      "jp_sentence": "彼は私の<b>ヒーロー</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "can_ability_lesson_2",
+      "word": "can",
+      "tag": "Lesson 2 ①",
+      "emoji": "✅",
+      "ipa": "/kæn/",
+      "syllables": "can",
+      "pos": "Modal Verb",
+      "sample": "I <b>can</b> swim.",
+      "jp_word": "…することができる",
+      "jp_reading": "…することができる",
+      "jp_sentence": "私は泳ぐことが<b>できます</b>。",
+      "jp_tags": [
+        "助動詞"
+      ]
+    },
+    {
+      "id": "fast_adverb_lesson_2",
+      "word": "fast",
+      "tag": "Lesson 2 ①",
+      "emoji": "⚡",
+      "ipa": "/fæst/",
+      "syllables": "fast",
+      "pos": "Adverb",
+      "sample": "She can run <b>fast</b>.",
+      "jp_word": "(速度が)速く",
+      "jp_reading": "はやく",
+      "jp_sentence": "彼女は<b>速く</b>走ることができます。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "he_lesson_2",
+      "word": "he",
+      "tag": "Lesson 2 ①",
+      "emoji": "👦",
+      "ipa": "/hiː/",
+      "syllables": "he",
+      "pos": "Pronoun · Subject",
+      "sample": "<b>He</b> is kind.",
+      "jp_word": "彼は、彼が",
+      "jp_reading": "かれは、かれが",
+      "jp_sentence": "<b>彼は</b>親切です。",
+      "jp_tags": [
+        "代名詞",
+        "主格"
+      ]
+    },
+    {
+      "id": "she_lesson_2",
+      "word": "she",
+      "tag": "Lesson 2 ①",
+      "emoji": "👧",
+      "ipa": "/ʃiː/",
+      "syllables": "she",
+      "pos": "Pronoun · Subject",
+      "sample": "<b>She</b> is a singer.",
+      "jp_word": "彼女は、彼女が",
+      "jp_reading": "かのじょは、かのじょが",
+      "jp_sentence": "<b>彼女は</b>歌手です。",
+      "jp_tags": [
+        "代名詞",
+        "主格"
+      ]
+    },
+    {
+      "id": "skateboard_verb_lesson_2",
+      "word": "skateboard",
+      "tag": "Lesson 2 ①",
+      "emoji": "🛹",
+      "ipa": "/ˈskeɪtˌbɔːrd/",
+      "syllables": "skate·board",
+      "pos": "Verb",
+      "sample": "I <b>skateboard</b> after school.",
+      "jp_word": "スケートボードをする",
+      "jp_reading": "スケートボードをする",
+      "jp_sentence": "私は放課後に<b>スケートボードをします</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "smile_lesson_2",
+      "word": "smile",
+      "tag": "Lesson 2 ①",
+      "emoji": "😊",
+      "ipa": "/smaɪl/",
+      "syllables": "smile",
+      "pos": "Noun · Countable",
+      "sample": "I like her <b>smile</b>.",
+      "jp_word": "ほほえみ；微笑",
+      "jp_reading": "ほほえみ、びしょう",
+      "jp_sentence": "私は彼女の<b>ほほえみ</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "very_lesson_2",
+      "word": "very",
+      "tag": "Lesson 2 ①",
+      "emoji": "🌟",
+      "ipa": "/ˈvɛri/",
+      "syllables": "ver·y",
+      "pos": "Adverb",
+      "sample": "This song is <b>very</b> popular.",
+      "jp_word": "とても、非常に、たいへん",
+      "jp_reading": "とても、ひじょうに、たいへん",
+      "jp_sentence": "この歌は<b>とても</b>人気があります。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "well_lesson_2",
+      "word": "well",
+      "tag": "Lesson 2 ①",
+      "emoji": "👍",
+      "ipa": "/wɛl/",
+      "syllables": "well",
+      "pos": "Adverb",
+      "sample": "He sings <b>well</b>.",
+      "jp_word": "うまく、上手に",
+      "jp_reading": "うまく、じょうずに",
+      "jp_sentence": "彼は<b>上手に</b>歌います。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "favorite_lesson_2",
+      "word": "favorite",
+      "tag": "Lesson 2 ①",
+      "emoji": "⭐",
+      "ipa": "/ˈfeɪvərɪt/",
+      "syllables": "fa·vor·ite",
+      "pos": "Adjective",
+      "sample": "This is my <b>favorite</b> game.",
+      "jp_word": "お気に入りの、大好きな",
+      "jp_reading": "お気に入りの、だいすきな",
+      "jp_sentence": "これは私の<b>お気に入りの</b>ゲームです。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "her_possessive_lesson_2",
+      "word": "her",
+      "tag": "Lesson 2 ①",
+      "emoji": "👧",
+      "ipa": "/hɜːr/",
+      "syllables": "her",
+      "pos": "Determiner · Possessive",
+      "sample": "This is <b>her</b> tablet.",
+      "jp_word": "彼女の(she の所有格)",
+      "jp_reading": "かのじょの",
+      "jp_sentence": "これは<b>彼女の</b>タブレットです。",
+      "jp_tags": [
+        "限定詞",
+        "所有格"
+      ]
+    },
+    {
+      "id": "in_place_lesson_2",
+      "word": "in",
+      "tag": "Lesson 2 ①",
+      "emoji": "📍",
+      "ipa": "/ɪn/",
+      "syllables": "in",
+      "pos": "Preposition",
+      "sample": "The ball is <b>in</b> the box.",
+      "jp_word": "(場所)…の中で[を]；(状況)…の中で[を]；(内部への動き)…の中へ[に]",
+      "jp_reading": "…のなかで、…のなかへ",
+      "jp_sentence": "ボールは箱の<b>中に</b>あります。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "is_lesson_2",
+      "word": "is",
+      "tag": "Lesson 2 ①",
+      "emoji": "🟰",
+      "ipa": "/ɪz/",
+      "syllables": "is",
+      "pos": "Verb · Be",
+      "sample": "It <b>is</b> popular.",
+      "jp_word": "(…で)ある",
+      "jp_reading": "…である",
+      "jp_sentence": "それは人気が<b>あります</b>。",
+      "jp_tags": [
+        "動詞",
+        "be動詞"
+      ]
+    },
+    {
+      "id": "it_subject_lesson_2",
+      "word": "it",
+      "tag": "Lesson 2 ①",
+      "emoji": "👉",
+      "ipa": "/ɪt/",
+      "syllables": "it",
+      "pos": "Pronoun · Subject",
+      "sample": "<b>It</b> is my favorite song.",
+      "jp_word": "それは、それが(三人称・単数の主格)",
+      "jp_reading": "それは、それが",
+      "jp_sentence": "<b>それは</b>私のお気に入りの歌です。",
+      "jp_tags": [
+        "代名詞",
+        "主格"
+      ]
+    },
+    {
+      "id": "love_noun_lesson_2",
+      "word": "love",
+      "tag": "Lesson 2 ①",
+      "emoji": "❤️",
+      "ipa": "/lʌv/",
+      "syllables": "love",
+      "pos": "Noun · Uncountable",
+      "sample": "This song is about <b>love</b>.",
+      "jp_word": "愛、愛情",
+      "jp_reading": "あい、あいじょう",
+      "jp_sentence": "この歌は<b>愛</b>についてです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "please_lesson_2",
+      "word": "please",
+      "tag": "Lesson 2 ①",
+      "emoji": "🙏",
+      "ipa": "/pliːz/",
+      "syllables": "please",
+      "pos": "Interjection",
+      "sample": "Sing a song, <b>please</b>.",
+      "jp_word": "どうぞ、すみませんが；お願いします",
+      "jp_reading": "どうぞ、おねがいします",
+      "jp_sentence": "歌を歌ってください、<b>お願いします</b>。",
+      "jp_tags": [
+        "間投詞"
+      ]
+    },
+    {
+      "id": "popular_lesson_2",
+      "word": "popular",
+      "tag": "Lesson 2 ①",
+      "emoji": "🔥",
+      "ipa": "/ˈpɑːpjələr/",
+      "syllables": "pop·u·lar",
+      "pos": "Adjective",
+      "sample": "J-pop is <b>popular</b>.",
+      "jp_word": "人気のある；流行の",
+      "jp_reading": "にんきのある、りゅうこうの",
+      "jp_sentence": "J-popは<b>人気があります</b>。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "powerful_lesson_2",
+      "word": "powerful",
+      "tag": "Lesson 2 ①",
+      "emoji": "💪",
+      "ipa": "/ˈpaʊərfəl/",
+      "syllables": "pow·er·ful",
+      "pos": "Adjective",
+      "sample": "She has a <b>powerful</b> voice.",
+      "jp_word": "力の強い、強力な",
+      "jp_reading": "ちからのつよい、きょうりょくな",
+      "jp_sentence": "彼女は<b>力強い</b>声を持っています。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "singer_lesson_2",
+      "word": "singer",
+      "tag": "Lesson 2 ①",
+      "emoji": "🎤",
+      "ipa": "/ˈsɪŋər/",
+      "syllables": "sing·er",
+      "pos": "Noun · Countable",
+      "sample": "He is a famous <b>singer</b>.",
+      "jp_word": "歌手",
+      "jp_reading": "かしゅ",
+      "jp_sentence": "彼は有名な<b>歌手</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "song_lesson_2",
+      "word": "song",
+      "tag": "Lesson 2 ①",
+      "emoji": "🎵",
+      "ipa": "/sɔːŋ/",
+      "syllables": "song",
+      "pos": "Noun · Countable",
+      "sample": "I like this <b>song</b>.",
+      "jp_word": "歌",
+      "jp_reading": "うた",
+      "jp_sentence": "私はこの<b>歌</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "voice_lesson_2",
+      "word": "voice",
+      "tag": "Lesson 2 ①",
+      "emoji": "🗣️",
+      "ipa": "/vɔɪs/",
+      "syllables": "voice",
+      "pos": "Noun · Countable",
+      "sample": "Her <b>voice</b> is beautiful.",
+      "jp_word": "声",
+      "jp_reading": "こえ",
+      "jp_sentence": "彼女の<b>声</b>は美しいです。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "cannot_lesson_2",
+      "word": "cannot",
+      "tag": "Lesson 2 ②",
+      "emoji": "🚫",
+      "ipa": "/ˈkænɑːt/",
+      "syllables": "can·not",
+      "pos": "Modal Verb · Negative",
+      "sample": "I <b>cannot</b> move it.",
+      "jp_word": "canの否定形",
+      "jp_reading": "キャンのひていけい",
+      "jp_sentence": "私はそれを動かすことが<b>できません</b>。",
+      "jp_tags": [
+        "助動詞",
+        "否定形"
+      ]
+    },
+    {
+      "id": "can_request_lesson_2",
+      "word": "can",
+      "tag": "Lesson 2 ②",
+      "emoji": "🙏",
+      "ipa": "/kæn/",
+      "syllables": "can",
+      "pos": "Modal Verb",
+      "sample": "<b>Can</b> you teach me?",
+      "jp_word": "(Can you…?)…してもらえませんか",
+      "jp_reading": "…してもらえませんか",
+      "jp_sentence": "私に教えて<b>もらえませんか</b>。",
+      "jp_tags": [
+        "助動詞"
+      ]
+    },
+    {
+      "id": "forward_lesson_2",
+      "word": "forward",
+      "tag": "Lesson 2 ②",
+      "emoji": "➡️",
+      "ipa": "/ˈfɔːrwərd/",
+      "syllables": "for·ward",
+      "pos": "Adverb",
+      "sample": "Move the piece <b>forward</b>.",
+      "jp_word": "前へ、前方へ",
+      "jp_reading": "まえへ、ぜんぽうへ",
+      "jp_sentence": "駒を<b>前へ</b>動かしてください。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "it_object_lesson_2",
+      "word": "it",
+      "tag": "Lesson 2 ②",
+      "emoji": "👉",
+      "ipa": "/ɪt/",
+      "syllables": "it",
+      "pos": "Pronoun · Object",
+      "sample": "Please move <b>it</b>.",
+      "jp_word": "それを、それに、それ(三人称・単数の目的格)",
+      "jp_reading": "それを、それに",
+      "jp_sentence": "それを動かしてください。",
+      "jp_tags": [
+        "代名詞",
+        "目的格"
+      ]
+    },
+    {
+      "id": "move_lesson_2",
+      "word": "move",
+      "tag": "Lesson 2 ②",
+      "emoji": "↔️",
+      "ipa": "/muːv/",
+      "syllables": "move",
+      "pos": "Verb",
+      "sample": "Move the piece to this space.",
+      "jp_word": "動かす；移動させる",
+      "jp_reading": "うごかす、いどうさせる",
+      "jp_sentence": "駒をこの場所に<b>動かしてください</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "on_contact_lesson_2",
+      "word": "on",
+      "tag": "Lesson 2 ②",
+      "emoji": "⬆️",
+      "ipa": "/ɑːn/",
+      "syllables": "on",
+      "pos": "Preposition",
+      "sample": "Put it <b>on</b> the table.",
+      "jp_word": "(接触・固定)…の上に；…に(乗って)",
+      "jp_reading": "…のうえに、…にのって",
+      "jp_sentence": "それをテーブルの<b>上に</b>置いてください。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "piece_lesson_2",
+      "word": "piece",
+      "tag": "Lesson 2 ②",
+      "emoji": "♟️",
+      "ipa": "/piːs/",
+      "syllables": "piece",
+      "pos": "Noun · Countable",
+      "sample": "Move this <b>piece</b> forward.",
+      "jp_word": "(チェス・将棋などの)駒",
+      "jp_reading": "こま",
+      "jp_sentence": "この<b>駒</b>を前へ動かしてください。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "space_lesson_2",
+      "word": "space",
+      "tag": "Lesson 2 ②",
+      "emoji": "⬜",
+      "ipa": "/speɪs/",
+      "syllables": "space",
+      "pos": "Noun · Countable",
+      "sample": "Move it to this <b>space</b>.",
+      "jp_word": "場所、空間",
+      "jp_reading": "ばしょ、くうかん",
+      "jp_sentence": "それをこの<b>場所</b>に動かしてください。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "sure_lesson_2",
+      "word": "sure",
+      "tag": "Lesson 2 ②",
+      "emoji": "👌",
+      "ipa": "/ʃʊər/",
+      "syllables": "sure",
+      "pos": "Interjection",
+      "sample": "<b>Sure</b>, I can help you.",
+      "jp_word": "(返事で)もちろん、はい、いいですとも",
+      "jp_reading": "もちろん、はい",
+      "jp_sentence": "<b>もちろん</b>、手伝えます。",
+      "jp_tags": [
+        "間投詞"
+      ]
+    },
+    {
+      "id": "teach_lesson_2",
+      "word": "teach",
+      "tag": "Lesson 2 ②",
+      "emoji": "👩‍🏫",
+      "ipa": "/tiːtʃ/",
+      "syllables": "teach",
+      "pos": "Verb",
+      "sample": "Can you <b>teach</b> me?",
+      "jp_word": "(人に知識・技術・教科などを)教える",
+      "jp_reading": "おしえる",
+      "jp_sentence": "私に<b>教えて</b>もらえませんか。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "chinese_lesson_2",
+      "word": "Chinese",
+      "tag": "Goal Activity",
+      "emoji": "🇨🇳",
+      "ipa": "/ˌtʃaɪˈniːz/",
+      "syllables": "Chi·nese",
+      "pos": "Noun · Language",
+      "sample": "My uncle can speak <b>Chinese</b>.",
+      "jp_word": "中国語",
+      "jp_reading": "ちゅうごくご",
+      "jp_sentence": "私のおじは<b>中国語</b>を話せます。",
+      "jp_tags": [
+        "名詞",
+        "言語"
+      ]
+    },
+    {
+      "id": "his_lesson_2",
+      "word": "his",
+      "tag": "Goal Activity",
+      "emoji": "👦",
+      "ipa": "/hɪz/",
+      "syllables": "his",
+      "pos": "Determiner · Possessive",
+      "sample": "This is <b>his</b> language book.",
+      "jp_word": "彼の(he の所有格)",
+      "jp_reading": "かれの",
+      "jp_sentence": "これは<b>彼の</b>語学の本です。",
+      "jp_tags": [
+        "限定詞",
+        "所有格"
+      ]
+    },
+    {
+      "id": "language_lesson_2",
+      "word": "language",
+      "tag": "Goal Activity",
+      "emoji": "🗣️",
+      "ipa": "/ˈlæŋɡwɪdʒ/",
+      "syllables": "lan·guage",
+      "pos": "Noun · Countable",
+      "sample": "English is a <b>language</b>.",
+      "jp_word": "(ある国・民族の)ことば、国語",
+      "jp_reading": "ことば、こくご",
+      "jp_sentence": "英語は<b>ことば</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "speak_lesson_2",
+      "word": "speak",
+      "tag": "Goal Activity",
+      "emoji": "💬",
+      "ipa": "/spiːk/",
+      "syllables": "speak",
+      "pos": "Verb",
+      "sample": "I can <b>speak</b> English.",
+      "jp_word": "(ある言語を)話す、話す能力がある",
+      "jp_reading": "はなす",
+      "jp_sentence": "私は英語を<b>話す</b>ことができます。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "uncle_lesson_2",
+      "word": "uncle",
+      "tag": "Goal Activity",
+      "emoji": "👨",
+      "ipa": "/ˈʌŋkəl/",
+      "syllables": "un·cle",
+      "pos": "Noun · Countable",
+      "sample": "My <b>uncle</b> can speak Chinese.",
+      "jp_word": "おじ",
+      "jp_reading": "おじ",
+      "jp_sentence": "私の<b>おじ</b>は中国語を話せます。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "birthday_lesson_2",
+      "word": "birthday",
+      "tag": "Words & Sounds 2",
+      "emoji": "🎂",
+      "ipa": "/ˈbɜːrθdeɪ/",
+      "syllables": "birth·day",
+      "pos": "Noun · Countable",
+      "sample": "When is your <b>birthday</b>?",
+      "jp_word": "誕生日、(形容詞的)誕生日の",
+      "jp_reading": "たんじょうび",
+      "jp_sentence": "あなたの<b>誕生日</b>はいつですか。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "date_lesson_2",
+      "word": "date",
+      "tag": "Words & Sounds 2",
+      "emoji": "📅",
+      "ipa": "/deɪt/",
+      "syllables": "date",
+      "pos": "Noun · Countable",
+      "sample": "What is the <b>date</b> today?",
+      "jp_word": "日付；日、(年)月日",
+      "jp_reading": "ひづけ、ひ",
+      "jp_sentence": "今日の<b>日付</b>は何ですか。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "month_lesson_2",
+      "word": "month",
+      "tag": "Words & Sounds 2",
+      "emoji": "🗓️",
+      "ipa": "/mʌnθ/",
+      "syllables": "month",
+      "pos": "Noun · Countable",
+      "sample": "May is a <b>month</b>.",
+      "jp_word": "月；ひと月(間)",
+      "jp_reading": "つき、ひとつき",
+      "jp_sentence": "5月は<b>月</b>の名前です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "when_lesson_2",
+      "word": "when",
+      "tag": "Words & Sounds 2",
+      "emoji": "❓",
+      "ipa": "/wɛn/",
+      "syllables": "when",
+      "pos": "Adverb · Question",
+      "sample": "<b>When</b> is your birthday?",
+      "jp_word": "いつ",
+      "jp_reading": "いつ",
+      "jp_sentence": "あなたの誕生日は<b>いつ</b>ですか。",
+      "jp_tags": [
+        "副詞",
+        "疑問詞"
+      ]
+    },
+    {
+      "id": "your_lesson_2",
+      "word": "your",
+      "tag": "Words & Sounds 2",
+      "emoji": "👉",
+      "ipa": "/jʊər/",
+      "syllables": "your",
+      "pos": "Determiner · Possessive",
+      "sample": "What is <b>your</b> name?",
+      "jp_word": "あなたの；あなたたちの",
+      "jp_reading": "あなたの、あなたたちの",
+      "jp_sentence": "<b>あなたの</b>名前は何ですか。",
+      "jp_tags": [
+        "限定詞",
+        "所有格"
+      ]
+    },
+    {
+      "id": "first_lesson_2",
+      "word": "first",
+      "tag": "Words & Sounds 2",
+      "emoji": "1️⃣",
+      "ipa": "/fɜːrst/",
+      "syllables": "first",
+      "pos": "Ordinal Number",
+      "sample": "My birthday is May <b>first</b>.",
+      "jp_word": "1番目の；最初の",
+      "jp_reading": "いちばんめの、さいしょの",
+      "jp_sentence": "私の誕生日は5月<b>1日</b>です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "second_lesson_2",
+      "word": "second",
+      "tag": "Words & Sounds 2",
+      "emoji": "2️⃣",
+      "ipa": "/ˈsɛkənd/",
+      "syllables": "sec·ond",
+      "pos": "Ordinal Number",
+      "sample": "June <b>second</b> is my birthday.",
+      "jp_word": "2番目の",
+      "jp_reading": "にばんめの",
+      "jp_sentence": "6月<b>2日</b>は私の誕生日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "third_lesson_2",
+      "word": "third",
+      "tag": "Words & Sounds 2",
+      "emoji": "3️⃣",
+      "ipa": "/θɜːrd/",
+      "syllables": "third",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>third</b> lesson.",
+      "jp_word": "3番目の",
+      "jp_reading": "さんばんめの",
+      "jp_sentence": "これは<b>3番目の</b>レッスンです。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "fourth_lesson_2",
+      "word": "fourth",
+      "tag": "Words & Sounds 2",
+      "emoji": "4️⃣",
+      "ipa": "/fɔːrθ/",
+      "syllables": "fourth",
+      "pos": "Ordinal Number",
+      "sample": "April <b>fourth</b> is her birthday.",
+      "jp_word": "4番目の",
+      "jp_reading": "よんばんめの",
+      "jp_sentence": "4月<b>4日</b>は彼女の誕生日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "fifth_lesson_2",
+      "word": "fifth",
+      "tag": "Words & Sounds 2",
+      "emoji": "5️⃣",
+      "ipa": "/fɪfθ/",
+      "syllables": "fifth",
+      "pos": "Ordinal Number",
+      "sample": "May <b>fifth</b> is a holiday.",
+      "jp_word": "5番目の",
+      "jp_reading": "ごばんめの",
+      "jp_sentence": "5月<b>5日</b>は祝日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "sixth_lesson_2",
+      "word": "sixth",
+      "tag": "Words & Sounds 2",
+      "emoji": "6️⃣",
+      "ipa": "/sɪksθ/",
+      "syllables": "sixth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>sixth</b> question.",
+      "jp_word": "6番目の",
+      "jp_reading": "ろくばんめの",
+      "jp_sentence": "これは<b>6番目の</b>質問です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "seventh_lesson_2",
+      "word": "seventh",
+      "tag": "Words & Sounds 2",
+      "emoji": "7️⃣",
+      "ipa": "/ˈsɛvənθ/",
+      "syllables": "sev·enth",
+      "pos": "Ordinal Number",
+      "sample": "My birthday is July <b>seventh</b>.",
+      "jp_word": "7番目の",
+      "jp_reading": "ななばんめの",
+      "jp_sentence": "私の誕生日は7月<b>7日</b>です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "eighth_lesson_2",
+      "word": "eighth",
+      "tag": "Words & Sounds 2",
+      "emoji": "8️⃣",
+      "ipa": "/eɪtθ/",
+      "syllables": "eighth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>eighth</b> month.",
+      "jp_word": "8番目の",
+      "jp_reading": "はちばんめの",
+      "jp_sentence": "これは<b>8番目の</b>月です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "ninth_lesson_2",
+      "word": "ninth",
+      "tag": "Words & Sounds 2",
+      "emoji": "9️⃣",
+      "ipa": "/naɪnθ/",
+      "syllables": "ninth",
+      "pos": "Ordinal Number",
+      "sample": "September is the <b>ninth</b> month.",
+      "jp_word": "9番目の",
+      "jp_reading": "きゅうばんめの",
+      "jp_sentence": "9月は<b>9番目の</b>月です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "tenth_lesson_2",
+      "word": "tenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "🔟",
+      "ipa": "/tɛnθ/",
+      "syllables": "tenth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>tenth</b> page.",
+      "jp_word": "10番目の",
+      "jp_reading": "じゅうばんめの",
+      "jp_sentence": "これは<b>10番目の</b>ページです。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "eleventh_lesson_2",
+      "word": "eleventh",
+      "tag": "Words & Sounds 2",
+      "emoji": "11",
+      "ipa": "/ɪˈlɛvənθ/",
+      "syllables": "e·lev·enth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>eleventh</b> day.",
+      "jp_word": "11番目の",
+      "jp_reading": "じゅういちばんめの",
+      "jp_sentence": "これは<b>11番目の</b>日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "twelfth_lesson_2",
+      "word": "twelfth",
+      "tag": "Words & Sounds 2",
+      "emoji": "12",
+      "ipa": "/twɛlfθ/",
+      "syllables": "twelfth",
+      "pos": "Ordinal Number",
+      "sample": "December is the <b>twelfth</b> month.",
+      "jp_word": "12番目の",
+      "jp_reading": "じゅうにばんめの",
+      "jp_sentence": "12月は<b>12番目の</b>月です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "thirteenth_lesson_2",
+      "word": "thirteenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "13",
+      "ipa": "/ˌθɜːrˈtiːnθ/",
+      "syllables": "thir·teenth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>thirteenth</b> day.",
+      "jp_word": "13番目の",
+      "jp_reading": "じゅうさんばんめの",
+      "jp_sentence": "これは<b>13番目の</b>日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "fourteenth_lesson_2",
+      "word": "fourteenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "14",
+      "ipa": "/ˌfɔːrˈtiːnθ/",
+      "syllables": "four·teenth",
+      "pos": "Ordinal Number",
+      "sample": "February <b>fourteenth</b> is a special date.",
+      "jp_word": "14番目の",
+      "jp_reading": "じゅうよんばんめの",
+      "jp_sentence": "2月<b>14日</b>は特別な日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "fifteenth_lesson_2",
+      "word": "fifteenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "15",
+      "ipa": "/ˌfɪfˈtiːnθ/",
+      "syllables": "fif·teenth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>fifteenth</b> lesson.",
+      "jp_word": "15番目の",
+      "jp_reading": "じゅうごばんめの",
+      "jp_sentence": "これは<b>15番目の</b>レッスンです。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "sixteenth_lesson_2",
+      "word": "sixteenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "16",
+      "ipa": "/ˌsɪksˈtiːnθ/",
+      "syllables": "six·teenth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>sixteenth</b> question.",
+      "jp_word": "16番目の",
+      "jp_reading": "じゅうろくばんめの",
+      "jp_sentence": "これは<b>16番目の</b>質問です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "seventeenth_lesson_2",
+      "word": "seventeenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "17",
+      "ipa": "/ˌsɛvənˈtiːnθ/",
+      "syllables": "sev·en·teenth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>seventeenth</b> day.",
+      "jp_word": "17番目の",
+      "jp_reading": "じゅうななばんめの",
+      "jp_sentence": "これは<b>17番目の</b>日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "eighteenth_lesson_2",
+      "word": "eighteenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "18",
+      "ipa": "/ˌeɪˈtiːnθ/",
+      "syllables": "eight·eenth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>eighteenth</b> page.",
+      "jp_word": "18番目の",
+      "jp_reading": "じゅうはちばんめの",
+      "jp_sentence": "これは<b>18番目の</b>ページです。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "nineteenth_lesson_2",
+      "word": "nineteenth",
+      "tag": "Words & Sounds 2",
+      "emoji": "19",
+      "ipa": "/ˌnaɪnˈtiːnθ/",
+      "syllables": "nine·teenth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>nineteenth</b> day.",
+      "jp_word": "19番目の",
+      "jp_reading": "じゅうきゅうばんめの",
+      "jp_sentence": "これは<b>19番目の</b>日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "twentieth_lesson_2",
+      "word": "twentieth",
+      "tag": "Words & Sounds 2",
+      "emoji": "20",
+      "ipa": "/ˈtwɛntiəθ/",
+      "syllables": "twen·ti·eth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>twentieth</b> lesson.",
+      "jp_word": "20番目の",
+      "jp_reading": "にじゅうばんめの",
+      "jp_sentence": "これは<b>20番目の</b>レッスンです。",
+      "jp_tags": [
+        "序数"
+      ]
+    },
+    {
+      "id": "thirtieth_lesson_2",
+      "word": "thirtieth",
+      "tag": "Words & Sounds 2",
+      "emoji": "30",
+      "ipa": "/ˈθɜːrtiəθ/",
+      "syllables": "thir·ti·eth",
+      "pos": "Ordinal Number",
+      "sample": "This is the <b>thirtieth</b> day.",
+      "jp_word": "30番目の",
+      "jp_reading": "さんじゅうばんめの",
+      "jp_sentence": "これは<b>30番目の</b>日です。",
+      "jp_tags": [
+        "序数"
+      ]
+    }
+  ]
+}
