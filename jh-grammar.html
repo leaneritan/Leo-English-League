@@ -241,6 +241,7 @@
       padding: 9px 20px; font-family: 'Nunito',sans-serif; font-weight: 800; font-size: 14px;
       cursor: pointer;
     }
+    .build-check:disabled { background: #B0BEC5; cursor: not-allowed; }
 
     .result-banner {
       border-radius: 10px; padding: 10px 16px; margin-top: 10px;
@@ -539,11 +540,11 @@ function renderMaster(g) {
     }
 
     else if (q.type === 'build') {
-      const bank = q.bank.map((w,i) => `<span class="word-chip" onclick="addWord('${qi}','${w}',this)">${w}</span>`).join('');
+      const bank = q.bank.map((w,i) => `<span class="word-chip" onclick="addWord('${qi}','${w.replace(/'/g,"\\'")}',this)">${w}</span>`).join('');
       html += `<div style="margin-bottom:6px;font-size:12px;color:var(--text-light);font-weight:700">Tap words to build the sentence:</div>
         <div class="bank-area" id="bank-${qi}">${bank}</div>
         <div class="answer-area" id="ans-${qi}"></div>
-        <button class="build-check" onclick="checkBuild('${qi}','${q.correct.replace(/'/g,"\\'")}')">Check ✓</button>
+        <button class="build-check" id="build-check-${qi}" onclick="checkBuild('${qi}','${q.correct.replace(/'/g,"\\'")}')">Check ✓</button>
         <button onclick="resetBuild('${qi}')" style="margin-left:8px;background:#E0E0E0;border:none;border-radius:8px;padding:9px 14px;font-family:Nunito,sans-serif;font-weight:800;cursor:pointer">Reset</button>`;
     }
 
@@ -604,8 +605,11 @@ function resetBuild(qi) {
 function checkBuild(qi, correct) {
   if (checkedMaster.has('b' + qi)) return;
   checkedMaster.add('b' + qi);
+  const btn = document.getElementById('build-check-' + qi);
+  if (btn) btn.disabled = true;
   const answer = (buildAnswers[qi] || []).join(' ');
-  const isOk = answer.trim() === correct.trim();
+  const normalize = s => s.trim().replace(/\s+([?.!,])/g, '$1');
+  const isOk = normalize(answer) === normalize(correct);
   showResult(qi, isOk, isOk ? '✅ Perfect!' : `❌ Correct: ${correct}`);
 }
 
