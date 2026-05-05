@@ -175,18 +175,33 @@ async function fetchJson(s) {
   return await res.json();
 }
 
+async function fileExists(s) {
+  try {
+    let res = await fetch(pathFor(s), { method: 'HEAD' });
+    if (res.ok) return true;
+
+    // Some static hosts do not handle HEAD reliably, so fall back to GET.
+    res = await fetch(pathFor(s), { cache: 'no-store' });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 async function countSets() {
   let n = 0;
   for (let i = 1; i <= 20; i++) {
-    try {
-      const res = await fetch(pathFor(i), { method: 'HEAD' });
-      if (res.ok) n = i;
-      else if (i > set) break;
-    } catch {
-      break;
-    }
+    if (await fileExists(i)) n = i;
+    else if (i > 1) break;
   }
-  return n || '?';
+  return n;
+}
+
+function updateUrlSet(newSet) {
+  const url = new URL(location.href);
+  url.searchParams.set('unit', unit);
+  url.searchParams.set('set', newSet);
+  history.replaceState(null, '', url);
 }
 
 async function load() {
@@ -194,10 +209,35 @@ async function load() {
   $('#enBtn').textContent = enOn ? 'EN' : 'JP';
   $('#enBtn').classList.toggle('on', enOn);
 
+  const maxSet = await countSets();
+
+  if (!maxSet) {
+    $('#hdrSub').textContent = `${unit} · set ${set}`;
+    $('#app').innerHTML = `<div class="err">❌ No grammar JSON files found for ${esc(unit)}.<br><br>Expected files like ${esc(pathFor(1))}</div>`;
+    return;
+  }
+
+  if (set < 1) set = 1;
+  if (set > maxSet) {
+    set = maxSet;
+    updateUrlSet(set);
+  }
+
   try {
     data = await fetchJson(set);
-    render(await countSets());
+    render(maxSet);
   } catch {
+    // If the requested set is missing in the middle, fall back to the nearest previous available set.
+    for (let fallback = Math.min(set - 1, maxSet); fallback >= 1; fallback--) {
+      if (await fileExists(fallback)) {
+        set = fallback;
+        updateUrlSet(set);
+        data = await fetchJson(set);
+        render(maxSet);
+        return;
+      }
+    }
+
     $('#hdrSub').textContent = `${unit} · set ${set}`;
     $('#app').innerHTML = `<div class="err">❌ Could not load ${esc(pathFor(set))}<br><br>Check the file path and JSON name.</div>`;
   }
@@ -560,8 +600,23 @@ function bindKotoba() {
 }
 
 async function goSet(d) {
+  const maxSet = await countSets();
   const next = set + d;
+
   if (next < 1) return;
+
+  if (maxSet && next > maxSet) {
+    set = maxSet;
+    updateUrlSet(set);
+    await load();
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  if (!(await fileExists(next))) {
+    return;
+  }
+
   set = next;
   const url = new URL(location.href);
   url.searchParams.set('unit', unit);
