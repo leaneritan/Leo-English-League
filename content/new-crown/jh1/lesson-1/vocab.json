@@ -1,0 +1,680 @@
+{
+  "level": "JH1",
+  "unit": "lesson-1",
+  "set": 1,
+  "unit_name": "Lesson 1",
+  "words": [
+    {
+      "id": "about_lesson_1",
+      "word": "about",
+      "tag": "Lesson 1 ①",
+      "emoji": "💬",
+      "ipa": "/əˈbaʊt/",
+      "syllables": "a·bout",
+      "pos": "Preposition",
+      "sample": "This book is <b>about</b> animals.",
+      "jp_word": "…について(の)；…に関して(の)",
+      "jp_reading": "…について、…にかんして",
+      "jp_sentence": "この本は動物<b>について</b>です。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "me_lesson_1",
+      "word": "me",
+      "tag": "Lesson 1 ①",
+      "emoji": "🙋",
+      "ipa": "/miː/",
+      "syllables": "me",
+      "pos": "Pronoun · Object",
+      "sample": "Please look at <b>me</b>.",
+      "jp_word": "私を、私に",
+      "jp_reading": "わたしを、わたしに",
+      "jp_sentence": "私を見てください。",
+      "jp_tags": [
+        "代名詞",
+        "目的格"
+      ]
+    },
+    {
+      "id": "am_lesson_1",
+      "word": "am",
+      "tag": "Lesson 1 ①",
+      "emoji": "🟰",
+      "ipa": "/æm/",
+      "syllables": "am",
+      "pos": "Verb · Be",
+      "sample": "I <b>am</b> a student.",
+      "jp_word": "(…で)ある",
+      "jp_reading": "…である",
+      "jp_sentence": "私は生徒<b>です</b>。",
+      "jp_tags": [
+        "動詞",
+        "be動詞"
+      ]
+    },
+    {
+      "id": "i_lesson_1",
+      "word": "I",
+      "tag": "Lesson 1 ①",
+      "emoji": "🙋‍♂️",
+      "ipa": "/aɪ/",
+      "syllables": "I",
+      "pos": "Pronoun · Subject",
+      "sample": "<b>I</b> like music.",
+      "jp_word": "私は、私が",
+      "jp_reading": "わたしは、わたしが",
+      "jp_sentence": "<b>私は</b>音楽が好きです。",
+      "jp_tags": [
+        "代名詞",
+        "主格"
+      ]
+    },
+    {
+      "id": "like_lesson_1",
+      "word": "like",
+      "tag": "Lesson 1 ①",
+      "emoji": "💗",
+      "ipa": "/laɪk/",
+      "syllables": "like",
+      "pos": "Verb",
+      "sample": "I <b>like</b> soccer.",
+      "jp_word": "…を好む、…が好きである",
+      "jp_reading": "…をこのむ、…がすきである",
+      "jp_sentence": "私はサッカーが<b>好きです</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "ms_lesson_1",
+      "word": "Ms.",
+      "tag": "Lesson 1 ①",
+      "emoji": "👩‍🏫",
+      "ipa": "/mɪz/",
+      "syllables": "Ms.",
+      "pos": "Noun · Title",
+      "sample": "This is <b>Ms.</b> Sato.",
+      "jp_word": "…さん、…先生(女性への敬称)",
+      "jp_reading": "…さん、…せんせい",
+      "jp_sentence": "こちらは佐藤<b>先生</b>です。",
+      "jp_tags": [
+        "名詞",
+        "敬称"
+      ]
+    },
+    {
+      "id": "see_lesson_1",
+      "word": "see",
+      "tag": "Lesson 1 ①",
+      "emoji": "👀",
+      "ipa": "/siː/",
+      "syllables": "see",
+      "pos": "Verb",
+      "sample": "I <b>see</b>.",
+      "jp_word": "わかる；理解する",
+      "jp_reading": "わかる、りかいする",
+      "jp_sentence": "<b>わかりました</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "too_lesson_1",
+      "word": "too",
+      "tag": "Lesson 1 ①",
+      "emoji": "➕",
+      "ipa": "/tuː/",
+      "syllables": "too",
+      "pos": "Adverb",
+      "sample": "I like tennis, <b>too</b>.",
+      "jp_word": "(…も)また",
+      "jp_reading": "…もまた",
+      "jp_sentence": "私<b>も</b>テニスが好きです。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "uh_huh_lesson_1",
+      "word": "uh-huh",
+      "tag": "Lesson 1 ①",
+      "emoji": "👍",
+      "ipa": "/ˈʌ hʌ/",
+      "syllables": "uh-huh",
+      "pos": "Interjection",
+      "sample": "<b>Uh-huh</b>, I see.",
+      "jp_word": "うんうん、なるほど",
+      "jp_reading": "うんうん、なるほど",
+      "jp_sentence": "<b>うんうん</b>、わかりました。",
+      "jp_tags": [
+        "間投詞"
+      ]
+    },
+    {
+      "id": "at_lesson_1",
+      "word": "at",
+      "tag": "Lesson 1 ①",
+      "emoji": "🎯",
+      "ipa": "/æt/",
+      "syllables": "at",
+      "pos": "Preposition",
+      "sample": "I am good <b>at</b> math.",
+      "jp_word": "…の心において；…に関して(は)",
+      "jp_reading": "…において、…にかんしては",
+      "jp_sentence": "私は数学<b>が</b>得意です。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "game_lesson_1",
+      "word": "game",
+      "tag": "Lesson 1 ①",
+      "emoji": "🎮",
+      "ipa": "/ɡeɪm/",
+      "syllables": "game",
+      "pos": "Noun · Countable",
+      "sample": "I like this <b>game</b>.",
+      "jp_word": "試合、競技",
+      "jp_reading": "しあい、きょうぎ",
+      "jp_sentence": "私はこの<b>試合</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "good_lesson_1",
+      "word": "good",
+      "tag": "Lesson 1 ①",
+      "emoji": "🌟",
+      "ipa": "/ɡʊd/",
+      "syllables": "good",
+      "pos": "Adjective",
+      "sample": "She is <b>good</b> at dance.",
+      "jp_word": "じょうずな、うまい",
+      "jp_reading": "じょうずな、うまい",
+      "jp_sentence": "彼女はダンスが<b>じょうず</b>です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "hi_lesson_1",
+      "word": "hi",
+      "tag": "Lesson 1 ①",
+      "emoji": "👋",
+      "ipa": "/haɪ/",
+      "syllables": "hi",
+      "pos": "Interjection",
+      "sample": "<b>Hi</b>, I am Ken.",
+      "jp_word": "こんにちは、やあ",
+      "jp_reading": "こんにちは、やあ",
+      "jp_sentence": "<b>こんにちは</b>、私はケンです。",
+      "jp_tags": [
+        "間投詞"
+      ]
+    },
+    {
+      "id": "in_lesson_1",
+      "word": "in",
+      "tag": "Lesson 1 ①",
+      "emoji": "🧩",
+      "ipa": "/ɪn/",
+      "syllables": "in",
+      "pos": "Preposition",
+      "sample": "This bag is <b>in</b> blue.",
+      "jp_word": "(状態・材料)…で；(材料)…で",
+      "jp_reading": "…で",
+      "jp_sentence": "このバッグは青<b>で</b>できています。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "meet_lesson_1",
+      "word": "meet",
+      "tag": "Lesson 1 ②",
+      "emoji": "🤝",
+      "ipa": "/miːt/",
+      "syllables": "meet",
+      "pos": "Verb",
+      "sample": "Nice to <b>meet</b> you.",
+      "jp_word": "会う、出会う；(人と)知り合う",
+      "jp_reading": "あう、であう、しりあう",
+      "jp_sentence": "あなたに<b>会えて</b>うれしいです。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "often_lesson_1",
+      "word": "often",
+      "tag": "Lesson 1 ②",
+      "emoji": "🔁",
+      "ipa": "/ˈɔːfən/",
+      "syllables": "of·ten",
+      "pos": "Adverb",
+      "sample": "I <b>often</b> play soccer.",
+      "jp_word": "たびたび、よく",
+      "jp_reading": "たびたび、よく",
+      "jp_sentence": "私は<b>よく</b>サッカーをします。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "on_lesson_1",
+      "word": "on",
+      "tag": "Lesson 1 ②",
+      "emoji": "🛠️",
+      "ipa": "/ɒn/",
+      "syllables": "on",
+      "pos": "Preposition",
+      "sample": "I watch videos <b>on</b> a tablet.",
+      "jp_word": "(手段・道具)…で；…によって；…して(するのに(は))",
+      "jp_reading": "…で、…によって",
+      "jp_sentence": "私はタブレット<b>で</b>動画を見ます。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "to_lesson_1",
+      "word": "to",
+      "tag": "Lesson 1 ②",
+      "emoji": "➡️",
+      "ipa": "/tuː/",
+      "syllables": "to",
+      "pos": "Particle",
+      "sample": "I like <b>to</b> dance.",
+      "jp_word": "…してすること(に(は))",
+      "jp_reading": "…すること",
+      "jp_sentence": "私は踊る<b>こと</b>が好きです。",
+      "jp_tags": [
+        "不定詞",
+        "助詞"
+      ]
+    },
+    {
+      "id": "you_lesson_1",
+      "word": "you",
+      "tag": "Lesson 1 ②",
+      "emoji": "🫵",
+      "ipa": "/juː/",
+      "syllables": "you",
+      "pos": "Pronoun · Object",
+      "sample": "Nice to meet <b>you</b>.",
+      "jp_word": "あなたを[に]、あなたたちを[に]",
+      "jp_reading": "あなたを、あなたに",
+      "jp_sentence": "<b>あなたに</b>会えてうれしいです。",
+      "jp_tags": [
+        "代名詞",
+        "目的格"
+      ]
+    },
+    {
+      "id": "are_lesson_1",
+      "word": "are",
+      "tag": "Lesson 1 ②",
+      "emoji": "🟰",
+      "ipa": "/ɑːr/",
+      "syllables": "are",
+      "pos": "Verb · Be",
+      "sample": "You <b>are</b> a dancer.",
+      "jp_word": "(…に)いる、(…に)ある",
+      "jp_reading": "…にいる、…にある",
+      "jp_sentence": "あなたはダンサー<b>です</b>。",
+      "jp_tags": [
+        "動詞",
+        "be動詞"
+      ]
+    },
+    {
+      "id": "at_lesson_1_2",
+      "word": "at",
+      "tag": "Lesson 1 ②",
+      "emoji": "📍",
+      "ipa": "/æt/",
+      "syllables": "at",
+      "pos": "Preposition",
+      "sample": "I am <b>at</b> school.",
+      "jp_word": "(場所)(一点を指して)…に、…で",
+      "jp_reading": "…に、…で",
+      "jp_sentence": "私は学校<b>に</b>います。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "dance_lesson_1",
+      "word": "dance",
+      "tag": "Lesson 1 ②",
+      "emoji": "💃",
+      "ipa": "/dæns/",
+      "syllables": "dance",
+      "pos": "Verb",
+      "sample": "I <b>dance</b> after school.",
+      "jp_word": "踊る、ダンスをする",
+      "jp_reading": "おどる、ダンスをする",
+      "jp_sentence": "私は放課後に<b>踊ります</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "dancer_lesson_1",
+      "word": "dancer",
+      "tag": "Lesson 1 ②",
+      "emoji": "🕺",
+      "ipa": "/ˈdænsər/",
+      "syllables": "dan·cer",
+      "pos": "Noun · Countable",
+      "sample": "She is a <b>dancer</b>.",
+      "jp_word": "ダンサー",
+      "jp_reading": "だんさー",
+      "jp_sentence": "彼女は<b>ダンサー</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "hip_hop_lesson_1",
+      "word": "hip-hop",
+      "tag": "Lesson 1 ②",
+      "emoji": "🎧",
+      "ipa": "/ˈhɪp hɒp/",
+      "syllables": "hip-hop",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>hip-hop</b>.",
+      "jp_word": "ヒップホップ",
+      "jp_reading": "ひっぷほっぷ",
+      "jp_sentence": "私は<b>ヒップホップ</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "in_lesson_1_2",
+      "word": "in",
+      "tag": "Lesson 1 ②",
+      "emoji": "🏫",
+      "ipa": "/ɪn/",
+      "syllables": "in",
+      "pos": "Preposition",
+      "sample": "I am <b>in</b> the dance club.",
+      "jp_word": "(日)に；(月)…の属員として；(所属)…の一員",
+      "jp_reading": "…に、…のいちいん",
+      "jp_sentence": "私はダンス部<b>に</b>入っています。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "on_lesson_1_2",
+      "word": "on",
+      "tag": "Lesson 1 ②",
+      "emoji": "📅",
+      "ipa": "/ɒn/",
+      "syllables": "on",
+      "pos": "Preposition",
+      "sample": "I have a lesson <b>on</b> Monday.",
+      "jp_word": "(期日)…(日)に",
+      "jp_reading": "…に",
+      "jp_sentence": "私は月曜日<b>に</b>授業があります。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "take_lesson_1",
+      "word": "take",
+      "tag": "Lesson 1 ②",
+      "emoji": "📝",
+      "ipa": "/teɪk/",
+      "syllables": "take",
+      "pos": "Verb",
+      "sample": "I <b>take</b> English lessons.",
+      "jp_word": "(授業・試験などを)受ける",
+      "jp_reading": "うける",
+      "jp_sentence": "私は英語の授業を<b>受けます</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "action_lesson_1",
+      "word": "action",
+      "tag": "Lesson 1 ③",
+      "emoji": "🎬",
+      "ipa": "/ˈækʃən/",
+      "syllables": "ac·tion",
+      "pos": "Noun · Uncountable",
+      "sample": "The <b>action</b> is exciting.",
+      "jp_word": "(俳優などの)動き、演技、動作",
+      "jp_reading": "うごき、えんぎ、どうさ",
+      "jp_sentence": "その<b>動き</b>はわくわくします。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "anime_lesson_1",
+      "word": "anime",
+      "tag": "Lesson 1 ③",
+      "emoji": "📺",
+      "ipa": "/ˈænɪmeɪ/",
+      "syllables": "a·ni·me",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>anime</b>.",
+      "jp_word": "(日本の)アニメ",
+      "jp_reading": "あにめ",
+      "jp_sentence": "私は<b>アニメ</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "j_pop_lesson_1",
+      "word": "J-pop",
+      "tag": "Lesson 1 ③",
+      "emoji": "🎤",
+      "ipa": "/ˈdʒeɪ pɒp/",
+      "syllables": "J-pop",
+      "pos": "Noun · Uncountable",
+      "sample": "I listen to <b>J-pop</b>.",
+      "jp_word": "日本のポピュラー音楽",
+      "jp_reading": "じぇいぽっぷ",
+      "jp_sentence": "私は<b>J-pop</b>を聞きます。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "many_lesson_1",
+      "word": "many",
+      "tag": "Lesson 1 ③",
+      "emoji": "🔢",
+      "ipa": "/ˈmeni/",
+      "syllables": "ma·ny",
+      "pos": "Adjective",
+      "sample": "I have <b>many</b> books.",
+      "jp_word": "多くの、たくさんの",
+      "jp_reading": "おおくの、たくさんの",
+      "jp_sentence": "私は<b>たくさんの</b>本を持っています。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "tablet_lesson_1",
+      "word": "tablet",
+      "tag": "Lesson 1 ③",
+      "emoji": "📱",
+      "ipa": "/ˈtæblət/",
+      "syllables": "tab·let",
+      "pos": "Noun · Countable",
+      "sample": "I use a <b>tablet</b>.",
+      "jp_word": "タブレット",
+      "jp_reading": "たぶれっと",
+      "jp_sentence": "私は<b>タブレット</b>を使います。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "about_goal_activity",
+      "word": "about",
+      "tag": "Goal Activity",
+      "emoji": "≈",
+      "ipa": "/əˈbaʊt/",
+      "syllables": "a·bout",
+      "pos": "Adverb",
+      "sample": "It is <b>about</b> three kilometers.",
+      "jp_word": "だいたい、約…、ほぼ",
+      "jp_reading": "だいたい、やく、ほぼ",
+      "jp_sentence": "それは<b>約</b>3キロメートルです。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "flavor_goal_activity",
+      "word": "flavor",
+      "tag": "Goal Activity",
+      "emoji": "🍦",
+      "ipa": "/ˈfleɪvər/",
+      "syllables": "fla·vor",
+      "pos": "Noun · Countable",
+      "sample": "What <b>flavor</b> do you like?",
+      "jp_word": "味、風味",
+      "jp_reading": "あじ、ふうみ",
+      "jp_sentence": "どんな<b>味</b>が好きですか。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "love_goal_activity",
+      "word": "love",
+      "tag": "Goal Activity",
+      "emoji": "❤️",
+      "ipa": "/lʌv/",
+      "syllables": "love",
+      "pos": "Verb",
+      "sample": "I <b>love</b> curry and rice.",
+      "jp_word": "愛する、大好きである",
+      "jp_reading": "あいする、だいすきである",
+      "jp_sentence": "私はカレーライスが<b>大好きです</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "how_words_and_sounds_1",
+      "word": "how",
+      "tag": "Words & Sounds 1",
+      "emoji": "❓",
+      "ipa": "/haʊ/",
+      "syllables": "how",
+      "pos": "Adverb",
+      "sample": "<b>How</b> old are you?",
+      "jp_word": "どれくらい、どれほど",
+      "jp_reading": "どれくらい、どれほど",
+      "jp_sentence": "あなたは<b>どれくらい</b>の年齢ですか。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "number_words_and_sounds_1",
+      "word": "number",
+      "tag": "Words & Sounds 1",
+      "emoji": "🔢",
+      "ipa": "/ˈnʌmbər/",
+      "syllables": "num·ber",
+      "pos": "Noun · Countable",
+      "sample": "What is your favorite <b>number</b>?",
+      "jp_word": "数",
+      "jp_reading": "かず",
+      "jp_sentence": "あなたの好きな<b>数</b>は何ですか。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "zero_words_and_sounds_1",
+      "word": "zero",
+      "tag": "Words & Sounds 1",
+      "emoji": "0️⃣",
+      "ipa": "/ˈzɪərəʊ/",
+      "syllables": "ze·ro",
+      "pos": "Number",
+      "sample": "The answer is <b>zero</b>.",
+      "jp_word": "ゼロ(の)、0",
+      "jp_reading": "ぜろ",
+      "jp_sentence": "答えは<b>ゼロ</b>です。",
+      "jp_tags": [
+        "数詞"
+      ]
+    },
+    {
+      "id": "one_words_and_sounds_1",
+      "word": "one",
+      "tag": "Words & Sounds 1",
+      "emoji": "1️⃣",
+      "ipa": "/wʌn/",
+      "syllables": "one",
+      "pos": "Number",
+      "sample": "I have <b>one</b> pencil.",
+      "jp_word": "1つの、1人の",
+      "jp_reading": "ひとつの、ひとりの",
+      "jp_sentence": "私は鉛筆を<b>1本</b>持っています。",
+      "jp_tags": [
+        "数詞"
+      ]
+    },
+    {
+      "id": "hundred_words_and_sounds_1",
+      "word": "hundred",
+      "tag": "Words & Sounds 1",
+      "emoji": "💯",
+      "ipa": "/ˈhʌndrəd/",
+      "syllables": "hun·dred",
+      "pos": "Number",
+      "sample": "I can count to one <b>hundred</b>.",
+      "jp_word": "100(の)",
+      "jp_reading": "ひゃく",
+      "jp_sentence": "私は<b>100</b>まで数えられます。",
+      "jp_tags": [
+        "数詞"
+      ]
+    },
+    {
+      "id": "thousand_words_and_sounds_1",
+      "word": "thousand",
+      "tag": "Words & Sounds 1",
+      "emoji": "🔢",
+      "ipa": "/ˈθaʊzənd/",
+      "syllables": "thou·sand",
+      "pos": "Number",
+      "sample": "One <b>thousand</b> is a big number.",
+      "jp_word": "1,000(の)",
+      "jp_reading": "せん",
+      "jp_sentence": "<b>1,000</b>は大きな数です。",
+      "jp_tags": [
+        "数詞"
+      ]
+    }
+  ]
+}
