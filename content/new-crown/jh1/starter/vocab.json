@@ -6470,6 +6470,192 @@
         "名詞",
         "可算名詞"
       ]
+    },
+    {
+      "id": "and",
+      "word": "and",
+      "tag": "My Dictionary",
+      "emoji": "➕",
+      "ipa": "/ænd/",
+      "syllables": "and",
+      "pos": "Conjunction",
+      "sample": "I like apples <b>and</b> bananas.",
+      "jp_word": "…と〜、…そして〜",
+      "jp_reading": "…と〜、…そして〜",
+      "jp_sentence": "私はりんご<b>と</b>バナナが好きです。",
+      "jp_tags": [
+        "接続詞"
+      ]
+    },
+    {
+      "id": "art",
+      "word": "art",
+      "tag": "My Dictionary",
+      "emoji": "🎨",
+      "ipa": "/ɑːrt/",
+      "syllables": "art",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>art</b>.",
+      "jp_word": "芸術、美術；芸術作品",
+      "jp_reading": "げいじゅつ、びじゅつ；げいじゅつさくひん",
+      "jp_sentence": "私は<b>芸術</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "bacon",
+      "word": "bacon",
+      "tag": "My Dictionary",
+      "emoji": "🥓",
+      "ipa": "/ˈbeɪkən/",
+      "syllables": "ba·con",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>bacon</b>.",
+      "jp_word": "ベーコン",
+      "jp_reading": "ベーコン",
+      "jp_sentence": "私は<b>ベーコン</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "ball",
+      "word": "ball",
+      "tag": "My Dictionary",
+      "emoji": "⚽",
+      "ipa": "/bɔːl/",
+      "syllables": "ball",
+      "pos": "Noun · Countable",
+      "sample": "I see a <b>ball</b>.",
+      "jp_word": "ボール、球、玉",
+      "jp_reading": "ボール、たま、たま",
+      "jp_sentence": "私は<b>ボール</b>を見ます。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "beef",
+      "word": "beef",
+      "tag": "My Dictionary",
+      "emoji": "🥩",
+      "ipa": "/biːf/",
+      "syllables": "beef",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>beef</b>.",
+      "jp_word": "牛肉",
+      "jp_reading": "ぎゅうにく",
+      "jp_sentence": "私は<b>牛肉</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "bread",
+      "word": "bread",
+      "tag": "My Dictionary",
+      "emoji": "🍞",
+      "ipa": "/brɛd/",
+      "syllables": "bread",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>bread</b>.",
+      "jp_word": "パン、食パン",
+      "jp_reading": "パン、しょくパン",
+      "jp_sentence": "私は<b>パン</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "cheese",
+      "word": "cheese",
+      "tag": "My Dictionary",
+      "emoji": "🧀",
+      "ipa": "/tʃiːz/",
+      "syllables": "cheese",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>cheese</b>.",
+      "jp_word": "チーズ",
+      "jp_reading": "チーズ",
+      "jp_sentence": "私は<b>チーズ</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "chicken_food",
+      "word": "chicken",
+      "tag": "My Dictionary",
+      "emoji": "🍗",
+      "ipa": "/ˈtʃɪkən/",
+      "syllables": "chick·en",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>chicken</b>.",
+      "jp_word": "とり肉、チキン",
+      "jp_reading": "とりにく、チキン",
+      "jp_sentence": "私は<b>とり肉</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "corn",
+      "word": "corn",
+      "tag": "My Dictionary",
+      "emoji": "🌽",
+      "ipa": "/kɔːrn/",
+      "syllables": "corn",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>corn</b>.",
+      "jp_word": "トウモロコシ",
+      "jp_reading": "トウモロコシ",
+      "jp_sentence": "私は<b>トウモロコシ</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "curry",
+      "word": "curry",
+      "tag": "My Dictionary",
+      "emoji": "🍛",
+      "ipa": "/ˈkʌri/",
+      "syllables": "cur·ry",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>curry</b>.",
+      "jp_word": "カレー料理",
+      "jp_reading": "カレーりょうり",
+      "jp_sentence": "私は<b>カレー料理</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
+    },
+    {
+      "id": "curry_and_rice",
+      "word": "curry and rice",
+      "tag": "My Dictionary",
+      "emoji": "🍛🍚",
+      "ipa": "/ˈkʌri ænd raɪs/",
+      "syllables": "cur·ry and rice",
+      "pos": "Noun · Uncountable",
+      "sample": "I like <b>curry and rice</b>.",
+      "jp_word": "カレーライス",
+      "jp_reading": "カレーライス",
+      "jp_sentence": "私は<b>カレーライス</b>が好きです。",
+      "jp_tags": [
+        "名詞",
+        "不可算名詞"
+      ]
     }
   ]
 }
