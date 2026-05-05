@@ -423,7 +423,7 @@
     </div>
     <div class="header-stats">
       <div class="stat-chip">
-        <span class="n">244</span>
+        <span class="n" id="totalWordCount">—</span>
         <span class="l">Words</span>
       </div>
       <div class="stat-chip">
@@ -463,7 +463,7 @@
         </div>
       </div>
       <div class="unit-count">
-        <span class="n">244</span>
+        <span class="n" id="starterWordCount">—</span>
         words
       </div>
     </div>
@@ -616,5 +616,20 @@
   Leo's English Lab · New Crown 1 · <a href="index.html">Back to Home</a>
 </footer>
 
+<script>
+async function loadCounts() {
+  try {
+    const res = await fetch('content/new-crown/jh1/starter/vocab.json');
+    const data = await res.json();
+    const count = (data.words || []).length;
+    document.getElementById('starterWordCount').textContent = count;
+    document.getElementById('totalWordCount').textContent = count;
+  } catch(e) {
+    document.getElementById('starterWordCount').textContent = '—';
+    document.getElementById('totalWordCount').textContent = '—';
+  }
+}
+loadCounts();
+</script>
 </body>
 </html>
