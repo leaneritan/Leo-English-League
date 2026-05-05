@@ -1,0 +1,146 @@
+{
+  "level": "JH1",
+  "unit": "lesson-1",
+  "set": 4,
+  "unit_name": "Lesson 1",
+  "title": "What do you...?",
+  "tag": "Lesson 1",
+  "chart": {
+    "title": "What do you...? / What + noun + do you...?",
+    "intro_examples": [
+      { "text": "What do you do on weekends?", "continuation": "あなたは週末に何をしますか？" },
+      { "text": "What music do you like?", "continuation": "あなたはどんな音楽が好きですか？" }
+    ],
+    "rows": [
+      { "pattern": "What do you + verb?", "example": "What do you do on weekends?", "answer": "I often watch movies.", "jp": "週末は何をしますか？よく映画を見ます。" },
+      { "pattern": "What do you + verb?", "example": "What do you eat for breakfast?", "answer": "I eat rice.", "jp": "朝食に何を食べますか？ご飯を食べます。" },
+      { "pattern": "What + noun + do you + verb?", "example": "What music do you like?", "answer": "I like J-pop.", "jp": "どんな音楽が好きですか？Jポップが好きです。" },
+      { "pattern": "What + noun + do you + verb?", "example": "What sport do you play?", "answer": "I play soccer.", "jp": "どんなスポーツをしますか？サッカーをします。" },
+      { "pattern": "What + noun + do you + verb?", "example": "What food do you like?", "answer": "I like sushi.", "jp": "どんな食べ物が好きですか？寿司が好きです。" }
+    ],
+    "note_rule": "What do you + verb? → asks about an action.   What + noun + do you + verb? → asks about a specific type.",
+    "note_exception": "The verb after 'What' or the noun is always the BASE form.",
+    "note_exception_detail": "What do you like? ✅　　What do you likes? ❌"
+  },
+  "tab1_samples": [
+    { "text": "What do you do on weekends?", "jp": "あなたは週末に何をしますか？" },
+    { "text": "I often watch movies at home.", "jp": "私はよく家で映画を見ます。" },
+    { "text": "What do you eat for lunch?", "jp": "あなたは昼食に何を食べますか？" },
+    { "text": "I eat rice and soup.", "jp": "私はご飯とスープを食べます。" },
+    { "text": "What music do you like?", "jp": "あなたはどんな音楽が好きですか？" },
+    { "text": "I like J-pop and rock.", "jp": "私はJポップとロックが好きです。" },
+    { "text": "What sport do you play?", "jp": "あなたはどんなスポーツをしますか？" },
+    { "text": "I play soccer and tennis.", "jp": "私はサッカーとテニスをします。" },
+    { "text": "What anime do you watch?", "jp": "あなたはどんなアニメを見ますか？" },
+    { "text": "What food do you like?", "jp": "あなたはどんな食べ物が好きですか？" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "What do you + verb?",
+        "jp_title": "What do you ＋ 動詞？",
+        "subtitle": "Ask about an action",
+        "jp_subtitle": "行動について質問する",
+        "transforms": [
+          { "from": "Do you do something?", "to": "What do you do?" },
+          { "from": "Do you eat something?", "to": "What do you eat?" }
+        ],
+        "examples": [
+          { "text": "What do you do after school?", "jp": "放課後に何をしますか？" },
+          { "text": "What do you drink in the morning?", "jp": "朝に何を飲みますか？" },
+          { "text": "What do you study?", "jp": "何を勉強しますか？" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "What + noun + do you + verb?",
+        "jp_title": "What ＋ 名詞 ＋ do you ＋ 動詞？",
+        "subtitle": "Add a noun to ask about a specific type",
+        "jp_subtitle": "名詞を加えて「どんな～」と質問する",
+        "transforms": [
+          { "from": "What do you like?", "to": "What music do you like?" },
+          { "from": "What do you play?", "to": "What sport do you play?" }
+        ],
+        "examples": [
+          { "text": "What subject do you like?", "jp": "どんな教科が好きですか？" },
+          { "text": "What food do you eat?", "jp": "どんな食べ物を食べますか？" },
+          { "text": "What movie do you watch?", "jp": "どんな映画を見ますか？" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Answering What questions",
+        "jp_title": "What の質問への答え方",
+        "subtitle": "Answer with I + verb + noun",
+        "jp_subtitle": "I ＋ 動詞 ＋ 名詞で答える",
+        "transforms": [
+          { "from": "What do you like? →", "to": "I like J-pop." },
+          { "from": "What sport do you play? →", "to": "I play soccer." }
+        ],
+        "examples": [
+          { "text": "What do you eat? — I eat sushi.", "jp": "何を食べますか？ — 寿司を食べます。" },
+          { "text": "What music do you like? — I like rock.", "jp": "どんな音楽が好き？ — ロックが好きです。" },
+          { "text": "What do you do on weekends? — I often play soccer.", "jp": "週末は何をする？ — よくサッカーをします。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "What do you do after school?", "kind": "What do you", "jp": "放課後に何をしますか？" },
+      { "text": "I often play soccer with my friends.", "kind": "answer", "jp": "私はよく友達とサッカーをします。" },
+      { "text": "What manga do you read?", "kind": "What + noun", "jp": "どんなマンガを読みますか？" },
+      { "text": "I read action manga.", "kind": "answer", "jp": "私はアクションマンガを読みます。" },
+      { "text": "What language do you study?", "kind": "What + noun", "jp": "どんな言語を勉強しますか？" },
+      { "text": "I study English and Chinese.", "kind": "answer", "jp": "私は英語と中国語を勉強します。" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["Choose the correct question:", "あなたはどんな音楽が好きですか？"],
+        "answers": ["What music you like?", "What music do you like?", "Do you what music like?", "What do like music you?"],
+        "correct": 1,
+        "explanation": { "title": "What + noun + do you + verb?", "body": "What (music) do you like? = What + noun + do you + base verb?" },
+        "jp": "正しい疑問文はどれですか？"
+      },
+      {
+        "stem": ["What do you do on weekends?", "→ Choose the best answer:"],
+        "answers": ["Yes, I do.", "I often watch movies.", "No, I don't.", "I am weekends."],
+        "correct": 1,
+        "explanation": { "title": "Answering What questions", "body": "What questions need a real answer, not Yes/No. I often watch movies." },
+        "jp": "最もよい答えはどれですか？"
+      },
+      {
+        "stem": ["週末は何をしますか？ → English?"],
+        "answers": ["What you do on weekends?", "What do you on weekends?", "What do you do on weekends?", "Do you what weekends?"],
+        "correct": 2,
+        "explanation": { "title": "What do you do?", "body": "What do you do on weekends? The verb 'do' appears twice: one as auxiliary, one as main verb." },
+        "jp": "正しい英語はどれですか？"
+      },
+      {
+        "stem": ["What ___ do you play?", "どんなスポーツをしますか？"],
+        "answers": ["music", "sport", "food", "movie"],
+        "correct": 1,
+        "explanation": { "title": "What sport", "body": "What sport do you play? → I play soccer." },
+        "jp": "空欄に入るのはどれですか？"
+      },
+      {
+        "stem": ["What food do you like? → Answer:"],
+        "answers": ["Yes, I like food.", "I like am sushi.", "I like sushi.", "I food sushi."],
+        "correct": 2,
+        "explanation": { "title": "I like + noun", "body": "Answer with: I + verb + noun. I like sushi." },
+        "jp": "正しい答えはどれですか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      { "type": "build", "cue": "疑問文を作れ: あなたはどんな音楽が好きですか？", "bank": ["What", "music", "do", "you", "like", "?"], "correct": "What music do you like?", "jp": "あなたはどんな音楽が好きですか？" },
+      { "type": "build", "cue": "疑問文を作れ: あなたは週末に何をしますか？", "bank": ["What", "do", "you", "do", "on", "weekends", "?"], "correct": "What do you do on weekends?", "jp": "あなたは週末に何をしますか？" },
+      { "type": "mcq", "stem": "What ___ do you like?（どんな食べ物）", "answers": ["sport", "music", "food", "movie"], "correct": 2, "jp": "空欄に入るのはどれですか？" },
+      { "type": "mcq", "stem": "What ___ do you play?（どんなスポーツ）", "answers": ["food", "sport", "music", "subject"], "correct": 1, "jp": "空欄に入るのはどれですか？" },
+      { "type": "fill", "stem": "What music ___ you like? (do / are / am)", "answers": ["do", "are", "am"], "correct": 0, "jp": "あなたはどんな音楽が好きですか？" },
+      { "type": "mcq", "stem": "What do you eat for breakfast? → 答えは？", "answers": ["Yes, I eat.", "I eat rice and miso soup.", "No, I don't.", "I am eat rice."], "correct": 1, "jp": "正しい答えはどれですか？" }
+    ]
+  }
+}

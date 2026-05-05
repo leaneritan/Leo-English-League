@@ -1,0 +1,143 @@
+{
+  "level": "JH1",
+  "unit": "lesson-1",
+  "set": 5,
+  "unit_name": "Lesson 1",
+  "title": "How many...?",
+  "tag": "Words & Sounds 1",
+  "chart": {
+    "title": "How many + plural noun?",
+    "intro_examples": [
+      { "text": "How many pandas do you see?", "continuation": "あなたはパンダが何匹見えますか？" },
+      { "text": "I see two pandas.", "continuation": "私はパンダが2匹見えます。" }
+    ],
+    "rows": [
+      { "question": "How many pandas do you see?", "answer": "I see two pandas.", "jp_q": "パンダが何匹見えますか？", "jp_a": "2匹見えます。" },
+      { "question": "How many students are in your class?", "answer": "There are thirty students.", "jp_q": "クラスに生徒は何人いますか？", "jp_a": "30人います。" },
+      { "question": "How many books do you have?", "answer": "I have five books.", "jp_q": "本は何冊持っていますか？", "jp_a": "5冊持っています。" },
+      { "question": "How many languages do you speak?", "answer": "I speak two languages.", "jp_q": "何ヶ国語話せますか？", "jp_a": "2ヶ国語話せます。" },
+      { "question": "How many sports do you play?", "answer": "I play three sports.", "jp_q": "何つのスポーツをしますか？", "jp_a": "3つのスポーツをします。" }
+    ],
+    "note_rule": "How many + PLURAL noun + do you + verb? Answer with a NUMBER — not Yes or No!",
+    "note_exception": "The noun after 'How many' must be PLURAL (add -s or -es).",
+    "note_exception_detail": "How many panda do you see? ❌   How many pandas do you see? ✅"
+  },
+  "tab1_samples": [
+    { "text": "How many pandas do you see?", "jp": "パンダが何匹見えますか？" },
+    { "text": "I see two pandas.", "jp": "パンダが2匹見えます。" },
+    { "text": "How many books do you have?", "jp": "本は何冊持っていますか？" },
+    { "text": "I have ten books.", "jp": "10冊持っています。" },
+    { "text": "How many students are in your class?", "jp": "クラスに何人の生徒がいますか？" },
+    { "text": "There are thirty students.", "jp": "30人います。" },
+    { "text": "How many languages do you speak?", "jp": "何ヶ国語話せますか？" },
+    { "text": "I speak one language.", "jp": "1ヶ国語話せます。" },
+    { "text": "How many apples do you eat?", "jp": "何個のリンゴを食べますか？" },
+    { "text": "I eat one apple a day.", "jp": "1日1個食べます。" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "How many + PLURAL noun",
+        "jp_title": "How many ＋ 複数形の名詞",
+        "subtitle": "The noun must be plural (-s)",
+        "jp_subtitle": "名詞は複数形にする（sをつける）",
+        "transforms": [
+          { "from": "How many panda", "to": "How many panda＋s = pandas" },
+          { "from": "How many book", "to": "How many book＋s = books" }
+        ],
+        "examples": [
+          { "text": "How many cats do you have?", "jp": "ネコを何匹飼っていますか？" },
+          { "text": "How many oranges do you eat?", "jp": "オレンジを何個食べますか？" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Full question structure",
+        "jp_title": "質問の完全な構造",
+        "subtitle": "How many + noun(pl) + do you + verb?",
+        "jp_subtitle": "How many ＋ 複数名詞 ＋ do you ＋ 動詞？",
+        "transforms": [
+          { "from": "see + how many + pandas", "to": "How many pandas do you see?" },
+          { "from": "have + how many + books", "to": "How many books do you have?" }
+        ],
+        "examples": [
+          { "text": "How many sports do you play?", "jp": "何つのスポーツをしますか？" },
+          { "text": "How many subjects do you study?", "jp": "何つの教科を勉強しますか？" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Answering with a number",
+        "jp_title": "数字で答える",
+        "subtitle": "Answer: I + verb + NUMBER + noun(pl)",
+        "jp_subtitle": "I ＋ 動詞 ＋ 数字 ＋ 名詞（複数）で答える",
+        "transforms": [
+          { "from": "How many cats → ?", "to": "I have three cats." },
+          { "from": "How many pandas → ?", "to": "I see two pandas." }
+        ],
+        "examples": [
+          { "text": "I see five pandas.", "jp": "5匹のパンダが見えます。" },
+          { "text": "I have two cats.", "jp": "ネコを2匹飼っています。" },
+          { "text": "I play three sports.", "jp": "3つのスポーツをします。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "How many brothers do you have?", "kind": "How many + noun(pl)", "jp": "兄弟は何人いますか？" },
+      { "text": "I have one brother.", "kind": "answer", "jp": "兄弟が1人います。" },
+      { "text": "How many pets do you have?", "kind": "How many + noun(pl)", "jp": "ペットは何匹いますか？" },
+      { "text": "I have two pets — a cat and a dog.", "kind": "answer", "jp": "ペットが2匹います。ネコとイヌです。" },
+      { "text": "How many English books do you read?", "kind": "How many + noun(pl)", "jp": "英語の本は何冊読みますか？" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["Choose the correct question:"],
+        "answers": ["How many panda do you see?", "How many pandas do you see?", "How much pandas do you see?", "How many pandas are you see?"],
+        "correct": 1,
+        "explanation": { "title": "How many + plural noun", "body": "pandas (plural) ✅. Use 'do you see' (general verb question)." },
+        "jp": "正しい疑問文はどれですか？"
+      },
+      {
+        "stem": ["How many books do you have?", "→ Choose the best answer:"],
+        "answers": ["Yes, I do.", "I have much books.", "I have five books.", "No, I don't."],
+        "correct": 2,
+        "explanation": { "title": "Answer with a number", "body": "How many questions need a NUMBER answer. I have five books." },
+        "jp": "最もよい答えはどれですか？"
+      },
+      {
+        "stem": ["How ___ cats do you have?"],
+        "answers": ["much", "many", "any", "some"],
+        "correct": 1,
+        "explanation": { "title": "How many", "body": "Use 'How many' for countable nouns. 'How much' is for uncountable nouns." },
+        "jp": "空欄に入るのはどれですか？"
+      },
+      {
+        "stem": ["The noun after 'How many' must be..."],
+        "answers": ["singular", "plural", "adjective", "verb"],
+        "correct": 1,
+        "explanation": { "title": "Plural noun", "body": "How many + PLURAL noun. Add -s: How many cats, books, languages, sports." },
+        "jp": "「How many」の後の名詞は？"
+      },
+      {
+        "stem": ["How many sports do you play?", "→ Leo plays soccer, tennis and basketball."],
+        "answers": ["I play one sport.", "I play two sports.", "I play three sports.", "I play four sports."],
+        "correct": 2,
+        "explanation": { "title": "Count and answer", "body": "Soccer + Tennis + Basketball = 3 sports. I play three sports." },
+        "jp": "正しい答えはどれですか？" 
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      { "type": "build", "cue": "疑問文を作れ: あなたはパンダが何匹見えますか？", "bank": ["How", "many", "pandas", "do", "you", "see", "?"], "correct": "How many pandas do you see?", "jp": "あなたはパンダが何匹見えますか？" },
+      { "type": "build", "cue": "疑問文を作れ: あなたは本を何冊持っていますか？", "bank": ["How", "many", "books", "do", "you", "have", "?"], "correct": "How many books do you have?", "jp": "あなたは本を何冊持っていますか？" },
+      { "type": "mcq", "stem": "How many ___ do you play? (sport / sports / sporting)", "answers": ["sport", "sports", "sporting"], "correct": 1, "jp": "複数形はどれですか？" },
+      { "type": "mcq", "stem": "How many pets do you have? → Correct answer?", "answers": ["Yes, I have.", "I have much pets.", "I have three pets.", "No, I don't."], "correct": 2, "jp": "正しい答えはどれですか？" },
+      { "type": "fill", "stem": "How ___ apples do you eat? (many / much / some)", "answers": ["many", "much", "some"], "correct": 0, "jp": "リンゴを何個食べますか？" },
+      { "type": "mcq", "stem": "I see ___ pandas. (完成させよ)", "answers": ["How many", "three", "much", "some"], "correct": 1, "jp": "3匹のパンダが見えます。" }
+    ]
+  }
+}

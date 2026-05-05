@@ -1,0 +1,145 @@
+{
+  "level": "JH1",
+  "unit": "lesson-1",
+  "set": 2,
+  "unit_name": "Lesson 1",
+  "title": "Are you...? / Do you...?",
+  "tag": "Lesson 1",
+  "chart": {
+    "title": "Questions & Short Answers",
+    "intro_examples": [
+      { "text": "Are you a basketball fan?", "continuation": "あなたはバスケットボールファンですか？" },
+      { "text": "Do you practice soccer every day?", "continuation": "あなたは毎日サッカーを練習しますか？" }
+    ],
+    "rows": [
+      { "question": "Are you a soccer fan?", "yes": "Yes, I am.", "no": "No, I'm not.", "jp_q": "あなたはサッカーファンですか？" },
+      { "question": "Are you a student?", "yes": "Yes, I am.", "no": "No, I'm not.", "jp_q": "あなたは学生ですか？" },
+      { "question": "Do you like music?", "yes": "Yes, I do.", "no": "No, I don't.", "jp_q": "あなたは音楽が好きですか？" },
+      { "question": "Do you play soccer?", "yes": "Yes, I do.", "no": "No, I don't.", "jp_q": "あなたはサッカーをしますか？" },
+      { "question": "Do you study English?", "yes": "Yes, I do.", "no": "No, I don't.", "jp_q": "あなたは英語を勉強しますか？" }
+    ],
+    "note_rule": "Use 'Are you' for be verb questions. Use 'Do you' for general verb questions.",
+    "note_exception": "Short answers: Are you...? → Yes, I am. / No, I'm not.   Do you...? → Yes, I do. / No, I don't.",
+    "note_exception_detail": "Never say 'Yes, I do.' for 'Are you' questions. Never say 'Yes, I am.' for 'Do you' questions."
+  },
+  "tab1_samples": [
+    { "text": "Are you a soccer fan?", "jp": "あなたはサッカーファンですか？" },
+    { "text": "Yes, I am.", "jp": "はい、そうです。" },
+    { "text": "No, I'm not.", "jp": "いいえ、違います。" },
+    { "text": "Do you like anime?", "jp": "あなたはアニメが好きですか？" },
+    { "text": "Yes, I do.", "jp": "はい、好きです。" },
+    { "text": "No, I don't.", "jp": "いいえ、好きではありません。" },
+    { "text": "Are you from Japan?", "jp": "あなたは日本出身ですか？" },
+    { "text": "Do you play basketball every day?", "jp": "あなたは毎日バスケットボールをしますか？" },
+    { "text": "Do you eat sushi?", "jp": "あなたは寿司を食べますか？" },
+    { "text": "Are you a junior high student?", "jp": "あなたは中学生ですか？" }
+  ],
+  "tab2_levelup": {
+    "rules": [
+      {
+        "num": "01",
+        "title": "Are you...? (be verb)",
+        "jp_title": "Are you...?（be動詞の疑問文）",
+        "subtitle": "Move 'am' to the front → 'Are'",
+        "jp_subtitle": "「am」を文頭に出して「Are」にする",
+        "transforms": [
+          { "from": "I am a soccer fan.", "to": "Are you a soccer fan?" },
+          { "from": "I am a student.", "to": "Are you a student?" }
+        ],
+        "examples": [
+          { "text": "Are you a basketball fan?", "jp": "あなたはバスケットボールファンですか？" },
+          { "text": "Are you from Osaka?", "jp": "あなたは大阪出身ですか？" }
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Do you...? (general verb)",
+        "jp_title": "Do you...?（一般動詞の疑問文）",
+        "subtitle": "Add 'Do' at the front",
+        "jp_subtitle": "文頭に「Do」を加える",
+        "transforms": [
+          { "from": "You like music.", "to": "Do you like music?" },
+          { "from": "You play soccer.", "to": "Do you play soccer?" }
+        ],
+        "examples": [
+          { "text": "Do you like J-pop?", "jp": "あなたはJポップが好きですか？" },
+          { "text": "Do you study English every day?", "jp": "あなたは毎日英語を勉強しますか？" }
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Short Answers",
+        "jp_title": "短い答え方",
+        "subtitle": "Match your answer to the question type",
+        "jp_subtitle": "質問の種類に合わせて答える",
+        "transforms": [
+          { "from": "Are you...? → Yes, I am. / No, I'm not.", "to": "be verb answers" },
+          { "from": "Do you...? → Yes, I do. / No, I don't.", "to": "general verb answers" }
+        ],
+        "examples": [
+          { "text": "Are you a fan? — Yes, I am.", "jp": "ファンですか？ — はい、そうです。" },
+          { "text": "Do you like it? — Yes, I do.", "jp": "好きですか？ — はい、好きです。" },
+          { "text": "Are you from Tokyo? — No, I'm not.", "jp": "東京出身ですか？ — いいえ、違います。" },
+          { "text": "Do you eat fish? — No, I don't.", "jp": "魚を食べますか？ — いいえ、食べません。" }
+        ]
+      }
+    ],
+    "mixed_samples": [
+      { "text": "Are you a manga fan?", "kind": "Are you", "jp": "あなたはマンガファンですか？" },
+      { "text": "Yes, I am!", "kind": "short answer", "jp": "はい、そうです！" },
+      { "text": "Do you watch anime?", "kind": "Do you", "jp": "あなたはアニメを見ますか？" },
+      { "text": "Yes, I do. I love anime!", "kind": "short answer", "jp": "はい、見ます。アニメが大好きです！" },
+      { "text": "Are you good at English?", "kind": "Are you", "jp": "あなたは英語が得意ですか？" },
+      { "text": "No, I'm not. But I study hard!", "kind": "short answer", "jp": "いいえ、得意ではありません。でも頑張って勉強しています！" }
+    ]
+  },
+  "tab3_quiz": {
+    "questions": [
+      {
+        "stem": ["Are you a soccer fan?", "→ How do you answer YES?"],
+        "answers": ["Yes, I do.", "Yes, I am.", "Yes, you are.", "Yes, am I."],
+        "correct": 1,
+        "explanation": { "title": "Are you → Yes, I am.", "body": "For 'Are you' questions, answer with 'Yes, I am.' (be verb)" },
+        "jp": "「Are you」の質問にYesで答えるのはどれですか？"
+      },
+      {
+        "stem": ["Do you like music?", "→ How do you answer YES?"],
+        "answers": ["Yes, I am.", "Yes, you do.", "Yes, I do.", "Yes, do I."],
+        "correct": 2,
+        "explanation": { "title": "Do you → Yes, I do.", "body": "For 'Do you' questions, answer with 'Yes, I do.' (general verb)" },
+        "jp": "「Do you」の質問にYesで答えるのはどれですか？"
+      },
+      {
+        "stem": ["I am a student. → Question form?"],
+        "answers": ["Do you a student?", "Are you a student?", "You are a student?", "Am you a student?"],
+        "correct": 1,
+        "explanation": { "title": "Are you (be verb)", "body": "I am → Are you? Move the be verb to the front." },
+        "jp": "疑問文はどれですか？"
+      },
+      {
+        "stem": ["You like soccer. → Question form?"],
+        "answers": ["Are you like soccer?", "You do like soccer?", "Do you like soccer?", "Like you soccer?"],
+        "correct": 2,
+        "explanation": { "title": "Do you (general verb)", "body": "Add 'Do' at the beginning for general verb questions: Do you like soccer?" },
+        "jp": "疑問文はどれですか？"
+      },
+      {
+        "stem": ["Are you from Tokyo? → NO answer"],
+        "answers": ["No, I don't.", "No, I'm not.", "No, I not.", "No, I amn't."],
+        "correct": 1,
+        "explanation": { "title": "No, I'm not.", "body": "For 'Are you' questions: No, I'm not. (= No, I am not.)" },
+        "jp": "Noの答えはどれですか？"
+      }
+    ]
+  },
+  "tab4_master": {
+    "questions": [
+      { "type": "mcq", "stem": "I am a basketball fan. → 疑問文は？", "answers": ["Do you a basketball fan?", "Are you a basketball fan?", "You are basketball fan?", "Am you a basketball fan?"], "correct": 1, "jp": "疑問文はどれですか？" },
+      { "type": "mcq", "stem": "I like J-pop. → 疑問文は？", "answers": ["Are you like J-pop?", "Do you likes J-pop?", "Do you like J-pop?", "You do like J-pop?"], "correct": 2, "jp": "疑問文はどれですか？" },
+      { "type": "fill", "stem": "___ you a soccer fan? Yes, I am. (Are / Do / Is)", "answers": ["Are", "Do", "Is"], "correct": 0, "jp": "あなたはサッカーファンですか？はい、そうです。" },
+      { "type": "fill", "stem": "___ you like sushi? Yes, I do. (Are / Do / Am)", "answers": ["Are", "Do", "Am"], "correct": 1, "jp": "あなたは寿司が好きですか？はい、好きです。" },
+      { "type": "build", "cue": "疑問文を作れ: Do / you / play / soccer", "bank": ["Do", "you", "play", "soccer", "?"], "correct": "Do you play soccer?", "jp": "あなたはサッカーをしますか？" },
+      { "type": "mcq", "stem": "Do you eat sushi? → NO answer?", "answers": ["No, I'm not.", "No, I not.", "No, I don't.", "No, I doesn't."], "correct": 2, "jp": "Noの答えはどれですか？" }
+    ]
+  }
+}
