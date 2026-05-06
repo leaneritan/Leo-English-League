@@ -1,0 +1,149 @@
+{
+  "lesson": 3,
+  "cando_num": "2",
+  "cando_jp": "身の回りのものについてたずねたり、答えたりできる。",
+  "cando_en": "I can ask and answer questions about things around me.",
+  "textbook_pages": "p.46〜47",
+
+  "kihon_bun": [
+    { "en": "Is this Indian tea? — Yes, it is. / No, it is not.", "jp": "これはインドのお茶ですか。―はい、そうです。／いいえ、そうではありません。" },
+    { "en": "What is this? — It is an old dictionary.", "jp": "これは何ですか。―それは古い辞書です。" }
+  ],
+
+  "point": {
+    "title_jp": "「これ[あれ]は…ですか」は Is this[that] ...?、「これ[あれ]は何ですか」は What is this[that]? で表す！",
+    "title_en": "'Is this/that...?' = これ[あれ]は…ですか / 'What is this/that?' = これ[あれ]は何ですか",
+    "items": [
+      {
+        "num": "1",
+        "title_jp": "疑問文",
+        "title_en": "Questions",
+        "body_jp": "・「これ[あれ]は…ですか」は、Is this[that] ...? で表す。\n答え方\n・this[that] は it にかえて答える。\n・「はい、そうです」は Yes, it is.、「いいえ、ちがいます」は No, it is not. と言う。",
+        "body_en": "・Use 'Is this[that]...?' to ask questions.\nAnswers:\n・Replace this/that with 'it'.\n・Yes: 'Yes, it is.' / No: 'No, it is not.'"
+      },
+      {
+        "num": "2",
+        "title_jp": "What is this[that]? の文",
+        "title_en": "Sentences with 'What is this/that?'",
+        "body_jp": "・「何」とたずねるときは what で表す。\nwhat は文の最初に置き、あとに疑問文の語順を続ける。\n答え方\n・It is .... で具体的にものの名前などを答える。\n短縮形　what is → what's、it is → it's",
+        "body_en": "・Use 'what' to ask 'what is it'.\nPut 'what' first, then follow with question word order.\nAnswer with 'It is...' to name the thing specifically.\nContractions: what is → what's / it is → it's"
+      }
+    ]
+  },
+
+  "section_a": {
+    "instruction_jp": "基本を確認する！",
+    "instruction_en": "Check the basics!",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "絵の中の□に入るセリフとなるように、適する語(句)を選んで書こう。",
+      "instruction_en": "Choose the correct word or phrase to complete each speech bubble.",
+      "scenes": [
+        { "id": 1, "context_jp": "教室で", "context_en": "In the classroom" },
+        { "id": 2, "context_jp": "街で", "context_en": "On the street" },
+        { "id": 3, "context_jp": "道の真ん中で", "context_en": "In the middle of the road" }
+      ],
+      "choices": [
+        { "en": "Is this your pen?", "jp": "これはあなたのペンですか。", "correct_scene": 1 },
+        { "en": "Is that a restaurant?", "jp": "あれはレストランですか。", "correct_scene": 2 },
+        { "en": "What is that?", "jp": "あれは何ですか。", "correct_scene": 3 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本文にあう英文になるように、＿に適する語を書こう。",
+      "instruction_en": "Fill in the blank to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "これは何ですか。",
+          "en_template": "___ ___ this?",
+          "bank": ["What", "Is", "is", "are", "this"],
+          "answer": ["What", "is"]
+        },
+        {
+          "jp": "それは扇子です。((1)の答え)",
+          "en_template": "___ ___ a sensu.",
+          "bank": ["It", "is", "This", "That", "are"],
+          "answer": ["It", "is"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語(句)や符号を並べかえて、正しく書こう。",
+      "instruction_en": "Rearrange the words to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "これは定規ですか。",
+          "bank": ["a", "is", "ruler", "this", "?"],
+          "answer": ["Is", "this", "a", "ruler", "?"]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": {
+    "instruction_jp": "日本文にあうように、＿に適する語を書こう。",
+    "instruction_en": "Write the English word that matches the Japanese.",
+    "items": [
+      { "jp": "贈り物", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "gift" },
+      { "jp": "辞書", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "dictionary" },
+      { "jp": "私のおば", "pos_jp": "名", "pos_en": "noun", "hint": "my ___", "answer": "aunt" },
+      { "jp": "伝統料理", "pos_jp": "形", "pos_en": "adjective", "hint": "___ food", "answer": "traditional" },
+      { "jp": "正しい", "pos_jp": "形", "pos_en": "adjective", "hint": "", "answer": "correct" },
+      { "jp": "間違った", "pos_jp": "形", "pos_en": "adjective", "hint": "", "answer": "wrong" },
+      { "jp": "私は少しピアノを弾ける。", "pos_jp": "連語", "pos_en": "phrase", "hint": "I can play the piano ___ ___.", "answer": "a little" }
+    ]
+  },
+
+  "section_b": {
+    "instruction_jp": "伝える練習をする！",
+    "instruction_en": "Practice expressing yourself!",
+    "ex1": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、全文を書こう。",
+      "instruction_en": "Rearrange all the words to write the full sentence.",
+      "items": [
+        {
+          "jp": "これはあなたの筆箱ですか。",
+          "bank": ["pencil", "case", "is", "your", "this", "?"],
+          "answer": ["Is", "this", "your", "pencil", "case", "?"]
+        },
+        {
+          "jp": "あれは新しいテーブルですか。",
+          "bank": ["that", "new", "a", "table", "is", "?"],
+          "answer": ["Is", "that", "a", "new", "table", "?"]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "build",
+      "instruction_jp": "（）内の語や符号に1語つけ足し、町の建物についての会話全文を完成させよう。",
+      "instruction_en": "Add one word to complete the full dialogue about a building in town.",
+      "context_jp": "Ted(テッド)とすずが町を歩いていると、Tedが見慣れない建物を見つけました。",
+      "context_en": "Ted and Suzu are walking in town when Ted spots an unfamiliar building.",
+      "items": [
+        {
+          "label_jp": "Ted：あれは何？",
+          "label_en": "Ted: What is that?",
+          "bank": ["that", "is", "what", "?"],
+          "answer": ["What", "is", "that", "?"]
+        },
+        {
+          "label_jp": "Suzu：それは銭湯だよ。",
+          "label_en": "Suzu: It is a sento.",
+          "bank": ["sento", "a", "is", "it", "."],
+          "answer": ["It", "is", "a", "sento", "."]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "free_write",
+      "instruction_jp": "日本の文化を知ってもらうために、あなたはAlex(アレックス)と工芸品店に来ています。右の①②のものについて、Alexがあなたに「What's this?」とたずねています。それに対して、「それは…です」と英語で答える文を書こう。",
+      "instruction_en": "Alex asks 'What's this?' about ①ふろしき and ②箸置き. Answer in English using 'It is...'.",
+      "example_jp": "①ふろしき ②箸置き について英語で説明しよう。",
+      "example_en": "Explain ①furoshiki and ②hashioki in English.",
+      "example_text": "It is a furoshiki. It is a traditional Japanese cloth.\nIt is a hashioki. It is a chopstick rest."
+    }
+  }
+}
