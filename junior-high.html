@@ -7,389 +7,76 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --nc-green: #2E7D32;
-      --nc-green-mid: #388E3C;
-      --nc-green-light: #4CAF50;
-      --nc-green-pale: #E8F5E9;
-      --nc-green-xpale: #F1F8F1;
-      --nc-navy: #1B5E20;
-      --vocab-coral: #E8735A;
-      --vocab-coral-dark: #C4573F;
-      --grammar-blue: #1976D2;
-      --grammar-blue-dark: #1256A0;
-      --gold: #F9A825;
-      --text-dark: #1A1A2E;
-      --text-mid: #4A4A6A;
-      --text-light: #7A7A9A;
-      --card-bg: #FFFFFF;
-      --page-bg: #F4FBF4;
-      --shadow: 0 4px 16px rgba(46,125,50,0.10);
-      --shadow-hover: 0 8px 32px rgba(46,125,50,0.18);
-      --radius: 16px;
-      --radius-sm: 10px;
+      --nc-green: #2E7D32; --nc-green-mid: #388E3C; --nc-green-light: #4CAF50;
+      --nc-green-pale: #E8F5E9; --nc-green-xpale: #F1F8F1; --nc-navy: #1B5E20;
+      --vocab-coral: #E8735A; --vocab-coral-dark: #C4573F;
+      --grammar-blue: #1976D2; --grammar-blue-dark: #1256A0;
+      --gold: #F9A825; --text-dark: #1A1A2E; --text-mid: #4A4A6A; --text-light: #7A7A9A;
+      --card-bg: #FFFFFF; --page-bg: #F4FBF4;
+      --shadow: 0 4px 16px rgba(46,125,50,0.10); --shadow-hover: 0 8px 32px rgba(46,125,50,0.18);
+      --radius: 16px; --radius-sm: 10px;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; background: var(--page-bg); color: var(--text-dark); min-height: 100vh; }
 
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--page-bg);
-      color: var(--text-dark);
-      min-height: 100vh;
-    }
-
-    .header {
-      background: linear-gradient(135deg, var(--nc-navy) 0%, var(--nc-green) 60%, var(--nc-green-light) 100%);
-      color: white;
-      padding: 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .header::before {
-      content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 240px; height: 240px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 50%;
-    }
-    .header::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: 10%;
-      width: 180px; height: 180px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-    }
-    .header-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 28px 24px 22px;
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .back-btn {
-      background: rgba(255,255,255,0.15);
-      border: 2px solid rgba(255,255,255,0.3);
-      color: white;
-      border-radius: 50px;
-      padding: 7px 18px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .header { background: linear-gradient(135deg, var(--nc-navy) 0%, var(--nc-green) 60%, var(--nc-green-light) 100%); color: white; padding: 0; position: relative; overflow: hidden; }
+    .header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 240px; height: 240px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+    .header::after { content: ''; position: absolute; bottom: -60px; left: 10%; width: 180px; height: 180px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+    .header-inner { max-width: 1000px; margin: 0 auto; padding: 28px 24px 22px; position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .back-btn { background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); color: white; border-radius: 50px; padding: 7px 18px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 14px; cursor: pointer; text-decoration: none; transition: background 0.2s; display: flex; align-items: center; gap: 6px; }
     .back-btn:hover { background: rgba(255,255,255,0.25); }
-    .header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 50px;
-      padding: 4px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-    }
-    .header-title {
-      font-family: 'Baloo 2', cursive;
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 4px;
-    }
-    .header-subtitle {
-      font-size: 14px;
-      opacity: 0.82;
-      font-weight: 600;
-    }
-    .header-stats {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .stat-chip {
-      background: rgba(255,255,255,0.15);
-      border-radius: 50px;
-      padding: 7px 16px;
-      text-align: center;
-    }
+    .header-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 50px; padding: 4px 12px; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+    .header-title { font-family: 'Baloo 2', cursive; font-size: 28px; font-weight: 800; line-height: 1.1; margin-bottom: 4px; }
+    .header-subtitle { font-size: 14px; opacity: 0.82; font-weight: 600; }
+    .header-stats { display: flex; gap: 16px; flex-wrap: wrap; }
+    .stat-chip { background: rgba(255,255,255,0.15); border-radius: 50px; padding: 7px 16px; text-align: center; }
     .stat-chip .n { font-size: 18px; font-weight: 900; display: block; }
     .stat-chip .l { font-size: 11px; opacity: 0.8; font-weight: 700; letter-spacing: 0.5px; }
 
-    .search-wrap {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px 24px 0;
-    }
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: white;
-      border: 2px solid #D4EDDA;
-      border-radius: 50px;
-      padding: 10px 18px;
-      gap: 10px;
-      box-shadow: 0 2px 8px rgba(46,125,50,0.08);
-    }
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-family: 'Nunito', sans-serif;
-      font-size: 15px;
-      color: var(--text-dark);
-      background: transparent;
-    }
-    .search-box input::placeholder { color: var(--text-light); }
-    .search-icon { color: var(--nc-green); font-size: 18px; }
-
-    .main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 24px 24px 60px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 28px 0 14px;
-    }
-    .section-icon {
-      width: 36px; height: 36px;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
+    .main { max-width: 1000px; margin: 0 auto; padding: 24px 24px 60px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin: 28px 0 14px; }
+    .section-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     .section-icon.starter { background: var(--nc-green-pale); }
     .section-icon.review { background: #FFF8E1; }
     .section-icon.lesson1 { background: #E3F2FD; }
     .section-icon.lesson2 { background: #F3E5F5; }
     .section-icon.lesson3 { background: #E0F2F1; }
-    .section-label {
-      font-family: 'Baloo 2', cursive;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--nc-navy);
-    }
-    .section-sublabel {
-      font-size: 13px;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-    .section-divider {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--nc-green-pale), transparent);
-      border-radius: 2px;
-    }
+    .section-label { font-family: 'Baloo 2', cursive; font-size: 20px; font-weight: 700; color: var(--nc-navy); }
+    .section-sublabel { font-size: 13px; color: var(--text-light); font-weight: 600; }
+    .section-divider { flex: 1; height: 2px; background: linear-gradient(to right, var(--nc-green-pale), transparent); border-radius: 2px; }
 
-    .unit-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      box-shadow: var(--shadow);
-      margin-bottom: 14px;
-      border: 1.5px solid var(--nc-green-pale);
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .unit-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-    .unit-card-top {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .unit-emoji {
-      font-size: 28px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
+    .unit-card { background: var(--card-bg); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); margin-bottom: 14px; border: 1.5px solid var(--nc-green-pale); transition: box-shadow 0.2s, transform 0.2s; }
+    .unit-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .unit-card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .unit-emoji { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
     .unit-info { flex: 1; }
-    .unit-title {
-      font-family: 'Baloo 2', cursive;
-      font-weight: 700;
-      font-size: 17px;
-      color: var(--nc-navy);
-      margin-bottom: 3px;
-    }
-    .unit-desc {
-      font-size: 13px;
-      color: var(--text-mid);
-      font-weight: 600;
-      line-height: 1.5;
-    }
-    .unit-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-    }
-    .unit-tag {
-      background: var(--nc-green-pale);
-      color: var(--nc-green);
-      border-radius: 50px;
-      padding: 2px 10px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-    .unit-count {
-      text-align: right;
-      font-size: 13px;
-      color: var(--text-light);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .unit-count .n {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--nc-green);
-      display: block;
-    }
+    .unit-title { font-family: 'Baloo 2', cursive; font-weight: 700; font-size: 17px; color: var(--nc-navy); margin-bottom: 3px; }
+    .unit-desc { font-size: 13px; color: var(--text-mid); font-weight: 600; line-height: 1.5; }
+    .unit-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .unit-tag { background: var(--nc-green-pale); color: var(--nc-green); border-radius: 50px; padding: 2px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
+    .unit-count { text-align: right; font-size: 13px; color: var(--text-light); font-weight: 700; flex-shrink: 0; }
+    .unit-count .n { font-size: 22px; font-weight: 900; color: var(--nc-green); display: block; }
 
-    .unit-btns {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-    }
-    .unit-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 12px;
-      padding: 11px 16px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 800;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      border: none;
-      transition: all 0.2s;
-      justify-content: center;
-    }
-    .unit-btn.vocab {
-      background: linear-gradient(135deg, var(--vocab-coral), #F4825F);
-      color: white;
-      box-shadow: 0 3px 10px rgba(232,115,90,0.35);
-    }
-    .unit-btn.vocab:hover {
-      background: linear-gradient(135deg, var(--vocab-coral-dark), var(--vocab-coral));
-      box-shadow: 0 5px 18px rgba(232,115,90,0.45);
-      transform: translateY(-1px);
-    }
-    .unit-btn.grammar {
-      background: linear-gradient(135deg, var(--grammar-blue), #2196F3);
-      color: white;
-      box-shadow: 0 3px 10px rgba(25,118,210,0.30);
-    }
-    .unit-btn.grammar:hover {
-      background: linear-gradient(135deg, var(--grammar-blue-dark), var(--grammar-blue));
-      box-shadow: 0 5px 18px rgba(25,118,210,0.40);
-      transform: translateY(-1px);
-    }
-    .unit-btn.locked {
-      background: #F5F5F5;
-      color: #BDBDBD;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
+    .unit-btns { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+    .unit-btn { display: flex; align-items: center; gap: 8px; border-radius: 12px; padding: 11px 16px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; cursor: pointer; text-decoration: none; border: none; transition: all 0.2s; justify-content: center; }
+    .unit-btn.vocab { background: linear-gradient(135deg, var(--vocab-coral), #F4825F); color: white; box-shadow: 0 3px 10px rgba(232,115,90,0.35); }
+    .unit-btn.vocab:hover { background: linear-gradient(135deg, var(--vocab-coral-dark), var(--vocab-coral)); box-shadow: 0 5px 18px rgba(232,115,90,0.45); transform: translateY(-1px); }
+    .unit-btn.grammar { background: linear-gradient(135deg, var(--grammar-blue), #2196F3); color: white; box-shadow: 0 3px 10px rgba(25,118,210,0.30); }
+    .unit-btn.grammar:hover { background: linear-gradient(135deg, var(--grammar-blue-dark), var(--grammar-blue)); box-shadow: 0 5px 18px rgba(25,118,210,0.40); transform: translateY(-1px); }
     .btn-icon { font-size: 16px; }
 
-    .grammar-set-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .grammar-set-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--nc-green-xpale);
-      border: 1.5px solid var(--nc-green-pale);
-      border-radius: 12px;
-      padding: 10px 14px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .grammar-set-item:hover {
-      background: var(--nc-green-pale);
-      border-color: #C8E6C9;
-      transform: translateX(4px);
-    }
-    .grammar-set-num {
-      width: 28px; height: 28px;
-      background: var(--nc-green);
-      color: white;
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900;
-      font-size: 13px;
-      flex-shrink: 0;
-    }
-    .grammar-set-title {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--nc-navy);
-      flex: 1;
-    }
-    .grammar-set-tag {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-light);
-      background: white;
-      border-radius: 50px;
-      padding: 2px 8px;
-      border: 1px solid #E0E0E0;
-    }
-    .grammar-arrow {
-      color: var(--nc-green);
-      font-size: 14px;
-    }
+    .grammar-set-list { display: flex; flex-direction: column; gap: 8px; }
+    .grammar-set-item { display: flex; align-items: center; gap: 10px; background: var(--nc-green-xpale); border: 1.5px solid var(--nc-green-pale); border-radius: 12px; padding: 10px 14px; text-decoration: none; transition: all 0.2s; }
+    .grammar-set-item:hover { background: var(--nc-green-pale); border-color: #C8E6C9; transform: translateX(4px); }
+    .grammar-set-num { width: 28px; height: 28px; background: var(--nc-green); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; flex-shrink: 0; }
+    .grammar-set-title { font-weight: 700; font-size: 14px; color: var(--nc-navy); flex: 1; }
+    .grammar-set-tag { font-size: 11px; font-weight: 700; color: var(--text-light); background: white; border-radius: 50px; padding: 2px 8px; border: 1px solid #E0E0E0; }
+    .grammar-arrow { color: var(--nc-green); font-size: 14px; }
 
-    .coming-soon {
-      background: #FAFAFA;
-      border: 2px dashed #E0E0E0;
-      border-radius: var(--radius);
-      padding: 20px;
-      text-align: center;
-      color: var(--text-light);
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
+    .coming-soon { background: #FAFAFA; border: 2px dashed #E0E0E0; border-radius: var(--radius); padding: 20px; text-align: center; color: var(--text-light); font-weight: 700; font-size: 14px; margin-bottom: 14px; }
     .coming-soon span { font-size: 22px; display: block; margin-bottom: 6px; }
-
-    .footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 12px;
-      color: var(--text-light);
-      font-weight: 600;
-    }
+    .footer { text-align: center; padding: 20px; font-size: 12px; color: var(--text-light); font-weight: 600; }
     .footer a { color: var(--nc-green); text-decoration: none; }
 
     @media (max-width: 600px) {
@@ -413,231 +100,39 @@
       </div>
     </div>
     <div class="header-stats">
-      <div class="stat-chip">
-        <span class="n" id="totalWordCount">—</span>
-        <span class="l">Words</span>
-      </div>
-      <div class="stat-chip">
-        <span class="n">7</span>
-        <span class="l">Grammar</span>
-      </div>
-      <div class="stat-chip">
-        <span class="n">JH1</span>
-        <span class="l">Level</span>
-      </div>
+      <div class="stat-chip"><span class="n" id="totalWordCount">—</span><span class="l">Words</span></div>
+      <div class="stat-chip"><span class="n">13</span><span class="l">Grammar</span></div>
+      <div class="stat-chip"><span class="n">JH1</span><span class="l">Level</span></div>
     </div>
   </div>
 </header>
 
 <main class="main">
 
-  <div class="section-header">
-    <div class="section-icon starter">🌱</div>
-    <div>
-      <div class="section-label">Starter</div>
-      <div class="section-sublabel">スターター — Elementary Review</div>
-    </div>
-    <div class="section-divider"></div>
-  </div>
+  <div class="section-header"><div class="section-icon starter">🌱</div><div><div class="section-label">Starter</div><div class="section-sublabel">スターター — Elementary Review</div></div><div class="section-divider"></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">📖</div><div class="unit-info"><div class="unit-title">Starter Vocabulary</div><div class="unit-desc">Food, sports, animals, school subjects, shapes, colors, adjectives, seasons, and more.</div><div class="unit-tags"><span class="unit-tag">Starter</span><span class="unit-tag">My Dictionary</span></div></div><div class="unit-count"><span class="n" id="starterWordCount">—</span>words</div></div><div class="unit-btns"><a href="jh-vocab.html?unit=starter" class="unit-btn vocab"><span class="btn-icon">📚</span> Vocabulary</a></div></div>
 
-  <div class="unit-card">
-    <div class="unit-card-top">
-      <div class="unit-emoji">📖</div>
-      <div class="unit-info">
-        <div class="unit-title">Starter Vocabulary</div>
-        <div class="unit-desc">Food, sports, animals, school subjects, shapes, colors, adjectives, seasons, and more.</div>
-        <div class="unit-tags">
-          <span class="unit-tag">Starter</span>
-          <span class="unit-tag">My Dictionary</span>
-        </div>
-      </div>
-      <div class="unit-count">
-        <span class="n" id="starterWordCount">—</span>
-        words
-      </div>
-    </div>
-    <div class="unit-btns">
-      <a href="jh-vocab.html?unit=starter" class="unit-btn vocab">
-        <span class="btn-icon">📚</span> Vocabulary
-      </a>
-    </div>
-  </div>
+  <div class="section-header"><div class="section-icon review">🔁</div><div><div class="section-label">Review</div><div class="section-sublabel">小学校の復習 — Elementary Review</div></div><div class="section-divider"></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">✏️</div><div class="unit-info"><div class="unit-title">Grammar — Writing & Word Order</div><div class="unit-desc">English writing rules (capital letters, punctuation, spaces) and Subject-Verb-Object word order.</div><div class="unit-tags"><span class="unit-tag">Review</span></div></div><div class="unit-count"><span class="n">2</span>sets</div></div><div class="grammar-set-list"><a href="jh-grammar.html?unit=review&set=1" class="grammar-set-item"><div class="grammar-set-num">1</div><div class="grammar-set-title">Writing Rules</div><div class="grammar-set-tag">Review</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=review&set=2" class="grammar-set-item"><div class="grammar-set-num">2</div><div class="grammar-set-title">Word Order: S + V + O</div><div class="grammar-set-tag">Review</div><div class="grammar-arrow">›</div></a></div></div>
 
-  <div class="section-header">
-    <div class="section-icon review">🔁</div>
-    <div>
-      <div class="section-label">Review</div>
-      <div class="section-sublabel">小学校の復習 — Elementary Review</div>
-    </div>
-    <div class="section-divider"></div>
-  </div>
+  <div class="section-header"><div class="section-icon lesson1">📘</div><div><div class="section-label">Lesson 1</div><div class="section-sublabel">Nice to Meet You!</div></div><div class="section-divider"></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">💬</div><div class="unit-info"><div class="unit-title">Lesson 1 Vocabulary</div><div class="unit-desc">Greetings, verbs, question words, numbers, ordinals, months and more.</div><div class="unit-tags"><span class="unit-tag">Lesson 1</span></div></div><div class="unit-count"><span class="n">63</span>words</div></div><div class="unit-btns"><a href="jh-vocab.html?unit=lesson-1" class="unit-btn vocab"><span class="btn-icon">📚</span> Vocabulary</a></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">📐</div><div class="unit-info"><div class="unit-title">Lesson 1 Grammar</div><div class="unit-desc">I am / I like, yes/no questions, negatives, what questions, and how many.</div><div class="unit-tags"><span class="unit-tag">Lesson 1</span><span class="unit-tag">Words &amp; Sounds</span></div></div><div class="unit-count"><span class="n">5</span>sets</div></div><div class="grammar-set-list"><a href="jh-grammar.html?unit=lesson-1&set=1" class="grammar-set-item"><div class="grammar-set-num">1</div><div class="grammar-set-title">I am / I like / I'm</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-1&set=2" class="grammar-set-item"><div class="grammar-set-num">2</div><div class="grammar-set-title">Are you...? / Do you...?</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-1&set=3" class="grammar-set-item"><div class="grammar-set-num">3</div><div class="grammar-set-title">I am not / I don't</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-1&set=4" class="grammar-set-item"><div class="grammar-set-num">4</div><div class="grammar-set-title">What do you...?</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-1&set=5" class="grammar-set-item"><div class="grammar-set-num">5</div><div class="grammar-set-title">How many + plural noun?</div><div class="grammar-set-tag">Words &amp; Sounds 1</div><div class="grammar-arrow">›</div></a></div></div>
 
-  <div class="unit-card">
-    <div class="unit-card-top">
-      <div class="unit-emoji">✏️</div>
-      <div class="unit-info">
-        <div class="unit-title">Grammar — Writing & Word Order</div>
-        <div class="unit-desc">English writing rules (capital letters, punctuation, spaces) and Subject-Verb-Object word order.</div>
-        <div class="unit-tags">
-          <span class="unit-tag">Review</span>
-        </div>
-      </div>
-      <div class="unit-count">
-        <span class="n">2</span>
-        sets
-      </div>
-    </div>
-    <div class="grammar-set-list">
-      <a href="jh-grammar.html?unit=review&set=1" class="grammar-set-item">
-        <div class="grammar-set-num">1</div>
-        <div class="grammar-set-title">Writing Rules</div>
-        <div class="grammar-set-tag">Review</div>
-        <div class="grammar-arrow">›</div>
-      </a>
-      <a href="jh-grammar.html?unit=review&set=2" class="grammar-set-item">
-        <div class="grammar-set-num">2</div>
-        <div class="grammar-set-title">Word Order: S + V + O</div>
-        <div class="grammar-set-tag">Review</div>
-        <div class="grammar-arrow">›</div>
-      </a>
-    </div>
-  </div>
+  <div class="section-header"><div class="section-icon lesson2">📗</div><div><div class="section-label">Lesson 2</div><div class="section-sublabel">My Family</div></div><div class="section-divider"></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">👨‍👩‍👧</div><div class="unit-info"><div class="unit-title">Lesson 2 Vocabulary</div><div class="unit-desc">Family members, personality adjectives, hobbies, and describing people.</div><div class="unit-tags"><span class="unit-tag">Lesson 2</span></div></div><div class="unit-count"><span class="n" id="lesson2WordCount">—</span>words</div></div><div class="unit-btns"><a href="jh-vocab.html?unit=lesson-2" class="unit-btn vocab"><span class="btn-icon">📚</span> Vocabulary</a></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">📐</div><div class="unit-info"><div class="unit-title">Lesson 2 Grammar</div><div class="unit-desc">Can-do grammar practice for Lesson 2.</div><div class="unit-tags"><span class="unit-tag">Lesson 2</span></div></div><div class="unit-count"><span class="n">2</span>sets</div></div><div class="grammar-set-list"><a href="jh-grammar.html?unit=lesson-2&set=1" class="grammar-set-item"><div class="grammar-set-num">1</div><div class="grammar-set-title">Grammar Set 1</div><div class="grammar-set-tag">Lesson 2</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-2&set=2" class="grammar-set-item"><div class="grammar-set-num">2</div><div class="grammar-set-title">Grammar Set 2</div><div class="grammar-set-tag">Lesson 2</div><div class="grammar-arrow">›</div></a></div></div>
 
-  <div class="section-header">
-    <div class="section-icon lesson1">📘</div>
-    <div>
-      <div class="section-label">Lesson 1</div>
-      <div class="section-sublabel">Nice to Meet You!</div>
-    </div>
-    <div class="section-divider"></div>
-  </div>
+  <div class="section-header"><div class="section-icon lesson3">📙</div><div><div class="section-label">Lesson 3</div><div class="section-sublabel">My Treasure</div></div><div class="section-divider"></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">💎</div><div class="unit-info"><div class="unit-title">Lesson 3 Vocabulary</div><div class="unit-desc">Treasures, shops, places, Indian culture, instruments, and describing people.</div><div class="unit-tags"><span class="unit-tag">Lesson 3</span></div></div><div class="unit-count"><span class="n" id="lesson3WordCount">—</span>words</div></div><div class="unit-btns"><a href="jh-vocab.html?unit=lesson-3" class="unit-btn vocab"><span class="btn-icon">📚</span> Vocabulary</a></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">📐</div><div class="unit-info"><div class="unit-title">Lesson 3 Grammar</div><div class="unit-desc">Can-do grammar practice and drill for Lesson 3.</div><div class="unit-tags"><span class="unit-tag">Lesson 3</span><span class="unit-tag">Drill</span></div></div><div class="unit-count"><span class="n">4</span>sets</div></div><div class="grammar-set-list"><a href="jh-grammar.html?unit=lesson-3&set=1" class="grammar-set-item"><div class="grammar-set-num">1</div><div class="grammar-set-title">Grammar Set 1</div><div class="grammar-set-tag">Lesson 3</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-3&set=2" class="grammar-set-item"><div class="grammar-set-num">2</div><div class="grammar-set-title">Grammar Set 2</div><div class="grammar-set-tag">Lesson 3</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-3&set=3" class="grammar-set-item"><div class="grammar-set-num">3</div><div class="grammar-set-title">Grammar Set 3</div><div class="grammar-set-tag">Lesson 3</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-3&set=drill" class="grammar-set-item"><div class="grammar-set-num">D</div><div class="grammar-set-title">Drill</div><div class="grammar-set-tag">drill.json</div><div class="grammar-arrow">›</div></a></div></div>
 
-  <div class="unit-card">
-    <div class="unit-card-top">
-      <div class="unit-emoji">💬</div>
-      <div class="unit-info">
-        <div class="unit-title">Lesson 1 Vocabulary</div>
-        <div class="unit-desc">Greetings, verbs, question words, numbers, ordinals, months and more.</div>
-        <div class="unit-tags">
-          <span class="unit-tag">Lesson 1</span>
-        </div>
-      </div>
-      <div class="unit-count">
-        <span class="n">63</span>
-        words
-      </div>
-    </div>
-    <div class="unit-btns">
-      <a href="jh-vocab.html?unit=lesson-1" class="unit-btn vocab">
-        <span class="btn-icon">📚</span> Vocabulary
-      </a>
-    </div>
-  </div>
-
-  <div class="unit-card">
-    <div class="unit-card-top">
-      <div class="unit-emoji">📐</div>
-      <div class="unit-info">
-        <div class="unit-title">Lesson 1 Grammar</div>
-        <div class="unit-desc">I am / I like, yes/no questions, negatives, what questions, and how many.</div>
-        <div class="unit-tags">
-          <span class="unit-tag">Lesson 1</span>
-          <span class="unit-tag">Words &amp; Sounds</span>
-        </div>
-      </div>
-      <div class="unit-count">
-        <span class="n">5</span>
-        sets
-      </div>
-    </div>
-    <div class="grammar-set-list">
-      <a href="jh-grammar.html?unit=lesson-1&set=1" class="grammar-set-item"><div class="grammar-set-num">1</div><div class="grammar-set-title">I am / I like / I'm</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a>
-      <a href="jh-grammar.html?unit=lesson-1&set=2" class="grammar-set-item"><div class="grammar-set-num">2</div><div class="grammar-set-title">Are you...? / Do you...?</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a>
-      <a href="jh-grammar.html?unit=lesson-1&set=3" class="grammar-set-item"><div class="grammar-set-num">3</div><div class="grammar-set-title">I am not / I don't</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a>
-      <a href="jh-grammar.html?unit=lesson-1&set=4" class="grammar-set-item"><div class="grammar-set-num">4</div><div class="grammar-set-title">What do you...?</div><div class="grammar-set-tag">Lesson 1</div><div class="grammar-arrow">›</div></a>
-      <a href="jh-grammar.html?unit=lesson-1&set=5" class="grammar-set-item"><div class="grammar-set-num">5</div><div class="grammar-set-title">How many + plural noun?</div><div class="grammar-set-tag">Words &amp; Sounds 1</div><div class="grammar-arrow">›</div></a>
-    </div>
-  </div>
-
-  <div class="section-header">
-    <div class="section-icon lesson2">📗</div>
-    <div>
-      <div class="section-label">Lesson 2</div>
-      <div class="section-sublabel">My Family</div>
-    </div>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="unit-card">
-    <div class="unit-card-top">
-      <div class="unit-emoji">👨‍👩‍👧</div>
-      <div class="unit-info">
-        <div class="unit-title">Lesson 2 Vocabulary</div>
-        <div class="unit-desc">Family members, personality adjectives, hobbies, and describing people.</div>
-        <div class="unit-tags">
-          <span class="unit-tag">Lesson 2</span>
-        </div>
-      </div>
-      <div class="unit-count">
-        <span class="n" id="lesson2WordCount">—</span>
-        words
-      </div>
-    </div>
-    <div class="unit-btns">
-      <a href="jh-vocab.html?unit=lesson-2" class="unit-btn vocab">
-        <span class="btn-icon">📚</span> Vocabulary
-      </a>
-    </div>
-  </div>
-
-  <div class="section-header">
-    <div class="section-icon lesson3">📙</div>
-    <div>
-      <div class="section-label">Lesson 3</div>
-      <div class="section-sublabel">My Treasure</div>
-    </div>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="unit-card">
-    <div class="unit-card-top">
-      <div class="unit-emoji">💎</div>
-      <div class="unit-info">
-        <div class="unit-title">Lesson 3 Vocabulary</div>
-        <div class="unit-desc">Treasures, shops, places, Indian culture, instruments, and describing people.</div>
-        <div class="unit-tags">
-          <span class="unit-tag">Lesson 3</span>
-        </div>
-      </div>
-      <div class="unit-count">
-        <span class="n" id="lesson3WordCount">—</span>
-        words
-      </div>
-    </div>
-    <div class="unit-btns">
-      <a href="jh-vocab.html?unit=lesson-3" class="unit-btn vocab">
-        <span class="btn-icon">📚</span> Vocabulary
-      </a>
-    </div>
-  </div>
-
-  <div class="section-header" style="margin-top:36px;">
-    <div class="section-icon" style="background:#F3E5F5;">📅</div>
-    <div>
-      <div class="section-label" style="color:#7B1FA2;">Coming Soon</div>
-    </div>
-    <div class="section-divider" style="background:linear-gradient(to right,#F3E5F5,transparent)"></div>
-  </div>
-  <div class="coming-soon">
-    <span>🚧</span>
-    Lessons 4–9 are being built.<br>Check back soon!
-  </div>
+  <div class="section-header" style="margin-top:36px;"><div class="section-icon" style="background:#F3E5F5;">📅</div><div><div class="section-label" style="color:#7B1FA2;">Coming Soon</div></div><div class="section-divider" style="background:linear-gradient(to right,#F3E5F5,transparent)"></div></div>
+  <div class="coming-soon"><span>🚧</span>Lessons 4–9 are being built.<br>Check back soon!</div>
 
 </main>
 
-<footer class="footer">
-  Leo's English Lab · New Crown 1 · <a href="index.html">Back to Home</a>
-</footer>
+<footer class="footer">Leo's English Lab · New Crown 1 · <a href="index.html">Back to Home</a></footer>
 
 <script>
 async function fetchWordCount(path, elementId) {
@@ -659,7 +154,6 @@ async function loadCounts() {
   const starterCount = await fetchWordCount('content/new-crown/jh1/starter/vocab.json', 'starterWordCount');
   const lesson2Count = await fetchWordCount('content/new-crown/jh1/lesson-2/vocab.json', 'lesson2WordCount');
   const lesson3Count = await fetchWordCount('content/new-crown/jh1/lesson-3/vocab.json', 'lesson3WordCount');
-
   document.getElementById('totalWordCount').textContent = starterCount + lesson1Count + lesson2Count + lesson3Count;
 }
 loadCounts();
