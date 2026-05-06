@@ -135,6 +135,40 @@ const answerString = o => {
 const hEN = t => t ? `<div class="en">${esc(t)}</div>` : '';
 const nums = i => ['①','②','③','④','⑤','⑥','⑦','⑧','⑨'][i] || String(i + 1);
 
+
+function shuffleArray(arr) {
+  const out = arr.slice();
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+function shuffledBank(words, correctSentence = '') {
+  const original = words.slice();
+  let shuffled = shuffleArray(original);
+  const correct = norm(correctSentence);
+  if (original.length > 1 && norm(shuffled.join(' ')) === correct) {
+    shuffled = shuffleArray(original);
+    if (norm(shuffled.join(' ')) === correct) {
+      shuffled.push(shuffled.shift());
+    }
+  }
+  return shuffled;
+}
+
+function exLabel(num, kind) {
+  const map = {
+    scene: '場面チェック',
+    blank: '空欄を埋めよう',
+    build: '並べかえよう',
+    write: '自分で書いてみよう'
+  };
+  return `${nums(num - 1)} ${map[kind] || kind}`;
+}
+
+
 function makeSlots(n) {
   return Array.from({ length: Math.max(1, n) }, () => '<span class="slot"></span>').join(' ');
 }
@@ -275,7 +309,8 @@ function render(setCount) {
   const cando = field(data, 'cando_num', 'cando_number', 'can_do_number', 'cando_no') || set;
 
   $('#hdrTitle').textContent = `Lesson ${lesson} Grammar`;
-  $('#hdrSub').textContent = `CAN-DO ${cando} · ${setCount} set${setCount === 1 ? '' : 's'} available`;
+  const pages = field(data, 'textbook_pages');
+  $('#hdrSub').textContent = `CAN-DO ${cando} · ${setCount} set${setCount === 1 ? '' : 's'} available${pages ? ` · 教科書 ${pages}` : ''}`;
 
   let html = `
     <section class="card banner">
@@ -360,22 +395,22 @@ function exCard(id, title, body, total, instructionJp = '', instructionEn = '') 
 function sectionA() {
   const a = data.section_a || data.a || {};
   let html = '<div class="section-bar section-a">A — 基本を確認する！</div>';
-  if (a.ex1) html += sceneCheck('a1', a.ex1);
-  if (a.ex2) html += fillBlank('a2', a.ex2);
-  if (a.ex3) html += buildEx('a3', a.ex3, 'ex3 — build');
+  if (a.ex1) html += sceneCheck('a1', a.ex1, exLabel(1, 'scene'));
+  if (a.ex2) html += fillBlank('a2', a.ex2, exLabel(2, 'blank'));
+  if (a.ex3) html += buildEx('a3', a.ex3, exLabel(3, 'build'));
   return html;
 }
 
 function sectionB() {
   const b = data.section_b || {};
   let html = '<div class="section-bar section-b">B — 伝える練習をする！</div>';
-  if (b.ex1) html += buildEx('b1', b.ex1, 'ex1 — build');
-  if (b.ex2) html += multiBuild('b2', b.ex2);
-  if (b.ex3) html += freeWrite('b3', b.ex3);
+  if (b.ex1) html += buildEx('b1', b.ex1, exLabel(1, 'build'));
+  if (b.ex2) html += multiBuild('b2', b.ex2, exLabel(2, 'build'));
+  if (b.ex3) html += freeWrite('b3', b.ex3, exLabel(3, 'write'));
   return html;
 }
 
-function sceneCheck(id, ex) {
+function sceneCheck(id, ex, title = exLabel(1, 'scene')) {
   const scenes = A(field(ex, 'scenes', 'labels')).slice(0, 3);
   const choices = A(field(ex, 'choices', 'sentences')).slice(0, 3);
   const body = `
@@ -396,10 +431,10 @@ function sceneCheck(id, ex) {
       `).join('')}
     </div>
   `;
-  return exCard(id, 'ex1 — scene_check', body, Math.min(scenes.length, choices.length), field(ex,'instruction_jp'), field(ex,'instruction_en'));
+  return exCard(id, title, body, Math.min(scenes.length, choices.length), field(ex,'instruction_jp'), field(ex,'instruction_en'));
 }
 
-function fillBlank(id, ex) {
+function fillBlank(id, ex, title = exLabel(2, 'blank')) {
   const items = A(field(ex, 'items', 'questions')).length ? A(field(ex, 'items', 'questions')) : [ex];
   const body = items.map((it, i) => {
     const bank = bankWords(it);
@@ -416,7 +451,7 @@ function fillBlank(id, ex) {
       </div>
     `;
   }).join('<hr style="border:0;border-top:1px solid var(--nc-pale);margin:14px 0">');
-  return exCard(id, 'ex2 — fill_blank', body, items.length, field(ex,'instruction_jp'), field(ex,'instruction_en'));
+  return exCard(id, title, body, items.length, field(ex,'instruction_jp'), field(ex,'instruction_en'));
 }
 
 function buildEx(id, ex, title) {
@@ -438,7 +473,7 @@ function oneBuild(id, it) {
     <div class="build-item" data-build-item="${id}" data-correct="${esc(answerString(it))}">
       <div class="jp">${esc(field(it, 'jp', 'sentence_jp', 'cue_jp'))}</div>
       <div class="answer"></div>
-      <div class="bank">${bank.slice().sort(() => Math.random() - .5).map(w => `<button class="tile" data-build-tile>${esc(w)}</button>`).join('')}</div>
+      <div class="bank">${shuffledBank(bank, answerString(it)).map(w => `<button class="tile" data-build-tile>${esc(w)}</button>`).join('')}</div>
       <button class="btn" data-build-check>Check ✓</button>
       <button class="btn alt" data-build-reset>Reset</button>
       <div class="result"></div>
@@ -456,7 +491,7 @@ function hitsuyou() {
     ${exCard('kotoba', '語句チェック', `
       ${hk.instruction_jp ? `<div class="muted">${esc(hk.instruction_jp)}${hEN(hk.instruction_en)}</div>` : ''}
       ${items.map((it, i) => {
-        const bank = bankWords(it, answers).slice().sort(() => Math.random() - .5);
+        const bank = shuffledBank(bankWords(it, answers));
         return `
           <div class="kotoba-card" data-kotoba-item="${i}" data-correct="${esc(field(it, 'answer', 'en', 'word'))}">
             <div><b>${esc(field(it, 'jp', 'ja'))}</b> <span class="badge">${esc(field(it, 'pos_jp', 'pos'))}</span></div>
@@ -470,7 +505,7 @@ function hitsuyou() {
   `;
 }
 
-function multiBuild(id, ex) {
+function multiBuild(id, ex, title = exLabel(2, 'build')) {
   const items = A(field(ex, 'items', 'questions'));
   const body = `
     <div class="context">
@@ -484,15 +519,15 @@ function multiBuild(id, ex) {
       </div>
     `).join('<hr style="border:0;border-top:1px solid var(--nc-pale);margin:14px 0">')}
   `;
-  return exCard(id, 'ex2 — build', body, items.length, field(ex,'instruction_jp'), field(ex,'instruction_en'));
+  return exCard(id, title, body, items.length, field(ex,'instruction_jp'), field(ex,'instruction_en'));
 }
 
-function freeWrite(id, ex) {
+function freeWrite(id, ex, title = exLabel(3, 'write')) {
   initScore(id, 1);
   return `
     <section class="card ex" id="${id}">
       <div class="ex-head">
-        <div class="ex-title">ex3 — free_write</div>
+        <div class="ex-title">${title}</div>
         <div class="track" data-track="${id}">✓ 0/1</div>
       </div>
       <div class="jp"><b>${esc(field(ex, 'instruction_jp'))}</b></div>
