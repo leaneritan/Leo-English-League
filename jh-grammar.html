@@ -323,10 +323,13 @@ function render(setCount) {
   scores = {};
   const lesson = field(data, 'lesson') || unit.replace('-', ' ');
   const cando = field(data, 'cando_num', 'cando_number', 'can_do_number', 'cando_no') || set;
+  const isDrill = field(data, 'lesson') === 'drill' || field(data, 'cando_num') === 'ドリル';
 
-  $('#hdrTitle').textContent = `Lesson ${lesson} Grammar`;
   const pages = field(data, 'textbook_pages');
-  $('#hdrSub').textContent = `CAN-DO ${cando} · ${setCount} set${setCount === 1 ? '' : 's'} available${pages ? ` · 教科書 ${pages}` : ''}`;
+  $('#hdrTitle').textContent = isDrill ? '場面別ドリル' : `Lesson ${lesson} Grammar`;
+  $('#hdrSub').textContent = isDrill
+    ? 'Lessons 1〜3 · 自己紹介の表現'
+    : `CAN-DO ${cando} · ${setCount} set${setCount === 1 ? '' : 's'} available${pages ? ` · 教科書 ${pages}` : ''}`;
 
   let html = `
     <section class="card banner">
