@@ -1,0 +1,152 @@
+{
+  "lesson": 3,
+  "cando_num": "3",
+  "cando_jp": "人についてたずねたり、答えたりできる。",
+  "cando_en": "I can ask and answer questions about people.",
+  "textbook_pages": "p.48〜49",
+
+  "kihon_bun": [
+    { "en": "Who is your favorite character?", "jp": "あなたの好きなキャラクターはだれですか。" },
+    { "en": "— Harry. He is smart. I like him very much.", "jp": "―ハリーです。彼は頭がよいです。私は彼がとても好きです。" }
+  ],
+
+  "point": {
+    "title_jp": "「…はだれですか」とたずねるときは Who is ...?、「彼を」は him、「彼女を」は her で表す！",
+    "title_en": "Use 'Who is...?' to ask who someone is. Use 'him' for 'him' and 'her' for 'her'.",
+    "items": [
+      {
+        "num": "1",
+        "title_jp": "Who is ...? の文",
+        "title_en": "Sentences with 'Who is...?'",
+        "body_jp": "・人について「だれ」とたずねるときは who で表す。\nwho は文の最初に置き、あとに疑問文の語順を続ける。\n・答えるときは、She[He / This / That / It] is .... で「彼女は／あちらは／それは」などと言い、名前や自分との関係(友達、兄、姉など)などを答える。",
+        "body_en": "・Use 'who' to ask about a person.\nPut 'who' first, then question word order.\n・Answer with She/He/This/That/It + is... and give the name or relationship."
+      },
+      {
+        "num": "2",
+        "title_jp": "代名詞",
+        "title_en": "Pronouns",
+        "body_jp": "・すでに話題に出た人やものを表す語を代名詞という。「彼女を[に]」は her、「彼を[に]」は him で表す。\n\n単数　…は[が]　…を[に]\n私　　I　　　me\nあなた　you　　you\n彼　　he　　　him\n彼女　she　　her\nそれ　it　　　it",
+        "body_en": "・Pronouns replace nouns already mentioned.\n'her' = her (object) / 'him' = him (object)\n\nSubject → Object:\nI → me / you → you / he → him / she → her / it → it"
+      }
+    ]
+  },
+
+  "section_a": {
+    "instruction_jp": "基本を確認する！",
+    "instruction_en": "Check the basics!",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "絵の中の□に入るセリフとなるように、適する語を選んで書こう。",
+      "instruction_en": "Choose the correct word to complete each speech bubble.",
+      "scenes": [
+        { "id": 1, "context_jp": "下校途中に", "context_en": "On the way home from school" },
+        { "id": 2, "context_jp": "友達との会話", "context_en": "Talking with a friend" },
+        { "id": 3, "context_jp": "町で", "context_en": "In town" }
+      ],
+      "choices": [
+        { "en": "Who is she?", "jp": "彼女はだれですか。", "correct_scene": 1 },
+        { "en": "I like him.", "jp": "私は彼が好きです。", "correct_scene": 2 },
+        { "en": "Do you know her?", "jp": "あなたは彼女を知っていますか。", "correct_scene": 3 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本文にあう英文になるように、＿に適する語を書こう。",
+      "instruction_en": "Fill in the blank to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "こちらはだれですか。",
+          "en_template": "___ is ___?",
+          "bank": ["Who", "What", "this", "that", "he"],
+          "answer": ["Who", "this"]
+        },
+        {
+          "jp": "彼は私の友達です。",
+          "en_template": "___ is my ___.",
+          "bank": ["He", "She", "friend", "sister", "brother"],
+          "answer": ["He", "friend"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、正しく書こう。",
+      "instruction_en": "Rearrange the words to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "あちらはだれですか。",
+          "bank": ["that", "who", "is", "?"],
+          "answer": ["Who", "is", "that", "?"]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": {
+    "instruction_jp": "英語は日本語に、日本語は英語にかえて書こう。",
+    "instruction_en": "Translate: English to Japanese, Japanese to English.",
+    "items": [
+      { "jp": "character 圏", "pos_jp": "名", "pos_en": "noun", "hint": "(　　　　)", "answer": "人物；登場人物" },
+      { "jp": "考え、アイデア", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "idea" },
+      { "jp": "芸術について知っている", "pos_jp": "動", "pos_en": "verb", "hint": "___ about art", "answer": "know" },
+      { "jp": "私は買い物が大好きだ。", "pos_jp": "連語", "pos_en": "phrase", "hint": "I like shopping ___ ___.", "answer": "very much" }
+    ]
+  },
+
+  "section_b": {
+    "instruction_jp": "伝える練習をする！",
+    "instruction_en": "Practice expressing yourself!",
+    "ex1": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、全文を書こう。",
+      "instruction_en": "Rearrange all the words to write the full sentence.",
+      "items": [
+        {
+          "jp": "私は彼女がとても大好きです。",
+          "bank": ["very", "her", "like", "I", "much", "."],
+          "answer": ["I", "like", "her", "very", "much", "."]
+        },
+        {
+          "jp": "あなたのお気に入りの歌手はだれですか。",
+          "bank": ["your", "singer", "who", "favorite", "is", "?"],
+          "answer": ["Who", "is", "your", "favorite", "singer", "?"]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "build",
+      "instruction_jp": "下のメモの(1)〜(3)の内容をNickに伝える英文を完成させよう。",
+      "instruction_en": "Complete the sentences to tell Nick about Ken using the notes (1)-(3).",
+      "context_jp": "あなたは、となりのクラスのNick(ニック)に、友達の健を紹介したいと思っています。",
+      "context_en": "You want to introduce your friend Ken to Nick from the next class.",
+      "items": [
+        {
+          "label_jp": "(1) 健を知っているか？",
+          "label_en": "(1) Do you know him?",
+          "bank": ["This", "is", "Ken", ".", "Do", "you", "know", "him", "?"],
+          "answer": ["This", "is", "Ken", ".", "Do", "you", "know", "him", "?"]
+        },
+        {
+          "label_jp": "(2) 彼はとても親切。",
+          "label_en": "(2) He is very kind.",
+          "bank": ["He", "is", "very", "kind", "."],
+          "answer": ["He", "is", "very", "kind", "."]
+        },
+        {
+          "label_jp": "(3) 私は彼のことが好き。",
+          "label_en": "(3) I like him.",
+          "bank": ["I", "like", "him", "."],
+          "answer": ["I", "like", "him", "."]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "free_write",
+      "instruction_jp": "Ann(アン)は日本のマンガやアニメ、小説などに出てくるキャラクターが好きです。①あなたが好きなキャラクターを1人選び、「こちらは…です。私は彼[彼女]が好きです」とAnnに紹介する英文を書こう。②別のキャラクターをもう1人選び、「こちらは…です。あなたは彼[彼女]を知っていますか」とAnnにたずねる英文を書こう。",
+      "instruction_en": "①Introduce a character you like to Ann. ②Ask Ann if she knows another character.",
+      "example_jp": "「こちらは…です」「私は彼[彼女]が好きです」「あなたは彼[彼女]を知っていますか」を使おう。",
+      "example_en": "Use: 'This is...' / 'I like him/her.' / 'Do you know him/her?'",
+      "example_text": "This is Luffy. I like him very much.\nThis is Nami. Do you know her?"
+    }
+  }
+}
