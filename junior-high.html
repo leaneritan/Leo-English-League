@@ -42,6 +42,7 @@
     .section-icon.lesson1 { background: #E3F2FD; }
     .section-icon.lesson2 { background: #F3E5F5; }
     .section-icon.lesson3 { background: #E0F2F1; }
+    .section-icon.lesson4 { background: #FFF3E0; }
     .section-label { font-family: 'Baloo 2', cursive; font-size: 20px; font-weight: 700; color: var(--nc-navy); }
     .section-sublabel { font-size: 13px; color: var(--text-light); font-weight: 600; }
     .section-divider { flex: 1; height: 2px; background: linear-gradient(to right, var(--nc-green-pale), transparent); border-radius: 2px; }
@@ -127,8 +128,11 @@
   <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">💎</div><div class="unit-info"><div class="unit-title">Lesson 3 Vocabulary</div><div class="unit-desc">Treasures, shops, places, Indian culture, instruments, and describing people.</div><div class="unit-tags"><span class="unit-tag">Lesson 3</span></div></div><div class="unit-count"><span class="n" id="lesson3WordCount">—</span>words</div></div><div class="unit-btns"><a href="jh-vocab.html?unit=lesson-3" class="unit-btn vocab"><span class="btn-icon">📚</span> Vocabulary</a></div></div>
   <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">📐</div><div class="unit-info"><div class="unit-title">Lesson 3 Grammar</div><div class="unit-desc">Can-do grammar practice and drill for Lesson 3.</div><div class="unit-tags"><span class="unit-tag">Lesson 3</span><span class="unit-tag">Drill</span></div></div><div class="unit-count"><span class="n">4</span>sets</div></div><div class="grammar-set-list"><a href="jh-grammar.html?unit=lesson-3&set=1" class="grammar-set-item"><div class="grammar-set-num">1</div><div class="grammar-set-title">Grammar Set 1</div><div class="grammar-set-tag">Lesson 3</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-3&set=2" class="grammar-set-item"><div class="grammar-set-num">2</div><div class="grammar-set-title">Grammar Set 2</div><div class="grammar-set-tag">Lesson 3</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-3&set=3" class="grammar-set-item"><div class="grammar-set-num">3</div><div class="grammar-set-title">Grammar Set 3</div><div class="grammar-set-tag">Lesson 3</div><div class="grammar-arrow">›</div></a><a href="jh-grammar.html?unit=lesson-3&set=drill" class="grammar-set-item"><div class="grammar-set-num">D</div><div class="grammar-set-title">Drill</div><div class="grammar-set-tag">drill.json</div><div class="grammar-arrow">›</div></a></div></div>
 
+  <div class="section-header"><div class="section-icon lesson4">📒</div><div><div class="section-label">Lesson 4</div><div class="section-sublabel">Lesson 4</div></div><div class="section-divider"></div></div>
+  <div class="unit-card"><div class="unit-card-top"><div class="unit-emoji">📚</div><div class="unit-info"><div class="unit-title">Lesson 4 Vocabulary</div><div class="unit-desc">Vocabulary practice for Lesson 4.</div><div class="unit-tags"><span class="unit-tag">Lesson 4</span></div></div><div class="unit-count"><span class="n" id="lesson4WordCount">—</span>words</div></div><div class="unit-btns"><a href="jh-vocab.html?unit=lesson-4" class="unit-btn vocab"><span class="btn-icon">📚</span> Vocabulary</a></div></div>
+
   <div class="section-header" style="margin-top:36px;"><div class="section-icon" style="background:#F3E5F5;">📅</div><div><div class="section-label" style="color:#7B1FA2;">Coming Soon</div></div><div class="section-divider" style="background:linear-gradient(to right,#F3E5F5,transparent)"></div></div>
-  <div class="coming-soon"><span>🚧</span>Lessons 4–9 are being built.<br>Check back soon!</div>
+  <div class="coming-soon"><span>🚧</span>Lessons 5–9 are being built.<br>Check back soon!</div>
 
 </main>
 
@@ -154,7 +158,8 @@ async function loadCounts() {
   const starterCount = await fetchWordCount('content/new-crown/jh1/starter/vocab.json', 'starterWordCount');
   const lesson2Count = await fetchWordCount('content/new-crown/jh1/lesson-2/vocab.json', 'lesson2WordCount');
   const lesson3Count = await fetchWordCount('content/new-crown/jh1/lesson-3/vocab.json', 'lesson3WordCount');
-  document.getElementById('totalWordCount').textContent = starterCount + lesson1Count + lesson2Count + lesson3Count;
+  const lesson4Count = await fetchWordCount('content/new-crown/jh1/lesson-4/vocab.json', 'lesson4WordCount');
+  document.getElementById('totalWordCount').textContent = starterCount + lesson1Count + lesson2Count + lesson3Count + lesson4Count;
 }
 loadCounts();
 </script>
