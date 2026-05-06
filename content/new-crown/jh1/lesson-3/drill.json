@@ -1,0 +1,273 @@
+{
+  "lesson": 0,
+  "cando_num": "ドリル",
+  "cando_jp": "自己紹介でよく使う表現を確認しよう！",
+  "cando_en": "Let's review expressions often used in self-introductions!",
+  "textbook_pages": "p.25〜52",
+
+  "kihon_bun": [
+    { "en": "I am Suzuki Kana.", "jp": "私は鈴木香奈です。" },
+    { "en": "I can play tennis well.", "jp": "私は上手にテニスをすることができます。" },
+    { "en": "This is my favorite song.", "jp": "これは私のお気に入りの曲です。" }
+  ],
+
+  "point": {
+    "title_jp": "場面別ドリル：＿に適する英語を書き、自己紹介で使える表現を練習しよう！",
+    "title_en": "Situational Drill: Fill in the blanks and practice expressions for self-introductions!",
+    "items": [
+      {
+        "num": "1",
+        "title_jp": "名前・年齢・出身地",
+        "title_en": "Name / Age / Hometown",
+        "body_jp": "自分の名前、年齢、出身地を英語で伝える練習をしよう。",
+        "body_en": "Practice introducing your name, age, and hometown in English."
+      },
+      {
+        "num": "2",
+        "title_jp": "学校",
+        "title_en": "School",
+        "body_jp": "学校での活動や好きな教科を英語で伝える練習をしよう。",
+        "body_en": "Practice talking about school activities and favorite subjects in English."
+      },
+      {
+        "num": "3",
+        "title_jp": "スポーツ",
+        "title_en": "Sports",
+        "body_jp": "スポーツについて英語で伝える練習をしよう。",
+        "body_en": "Practice talking about sports in English."
+      },
+      {
+        "num": "4",
+        "title_jp": "楽器・音楽",
+        "title_en": "Music / Instruments",
+        "body_jp": "音楽や楽器について英語で伝える練習をしよう。",
+        "body_en": "Practice talking about music and instruments in English."
+      },
+      {
+        "num": "5",
+        "title_jp": "ペット",
+        "title_en": "Pets",
+        "body_jp": "ペットについて英語で伝える練習をしよう。",
+        "body_en": "Practice talking about pets in English."
+      }
+    ]
+  },
+
+  "section_a": {
+    "instruction_jp": "場面別ドリル",
+    "instruction_en": "Situational Drill",
+    "ex1": {
+      "type": "fill_blank",
+      "instruction_jp": "＿に適する英語を書き、自己紹介で使える表現を練習しよう！",
+      "instruction_en": "Fill in the blanks to practice self-introduction expressions.",
+      "items": [
+        {
+          "jp": "①私は鈴木香奈です。",
+          "en_template": "___ am Suzuki Kana.",
+          "bank": ["I", "My", "She", "We"],
+          "answer": ["I"]
+        },
+        {
+          "jp": "②ぼくの名前は佐藤隆です。",
+          "en_template": "___ name ___ Sato Takashi.",
+          "bank": ["My", "I", "is", "am", "are"],
+          "answer": ["My", "is"]
+        },
+        {
+          "jp": "③私は12歳です。",
+          "en_template": "I'm ___.",
+          "bank": ["twelve", "ten", "thirteen", "eleven"],
+          "answer": ["twelve"]
+        },
+        {
+          "jp": "④私は長野出身です。",
+          "en_template": "___ ___ Nagano.",
+          "bank": ["I'm", "I", "from", "in", "am"],
+          "answer": ["I'm", "from"]
+        },
+        {
+          "jp": "⑤私は音楽部に入っています。",
+          "en_template": "I'm ___ the music ___.",
+          "bank": ["in", "on", "club", "team", "class"],
+          "answer": ["in", "club"]
+        },
+        {
+          "jp": "⑥私は音楽が好きです。",
+          "en_template": "I ___ music.",
+          "bank": ["like", "play", "am", "can"],
+          "answer": ["like"]
+        },
+        {
+          "jp": "⑦私は毎日社会を勉強します。",
+          "en_template": "I ___ ___ social studies every day.",
+          "bank": ["study", "like", "play", "can", "do", "the"],
+          "answer": ["study"]
+        },
+        {
+          "jp": "⑧私は数学が得意です。",
+          "en_template": "I'm ___ ___ math.",
+          "bank": ["good", "at", "in", "well", "great"],
+          "answer": ["good", "at"]
+        },
+        {
+          "jp": "⑨私は理科が好きではありません。",
+          "en_template": "I ___ like science.",
+          "bank": ["don't", "am", "not", "can't", "isn't"],
+          "answer": ["don't"]
+        },
+        {
+          "jp": "⑩私は夕食後に宿題をします。",
+          "en_template": "I do my homework ___ dinner.",
+          "bank": ["after", "before", "in", "at", "on"],
+          "answer": ["after"]
+        },
+        {
+          "jp": "⑪私は上手にテニスをすることができます。",
+          "en_template": "I ___ play tennis well.",
+          "bank": ["can", "do", "am", "like", "have"],
+          "answer": ["can"]
+        },
+        {
+          "jp": "⑫私は放課後バスケットボールを練習します。",
+          "en_template": "I ___ basketball after ___.",
+          "bank": ["practice", "play", "can", "school", "class", "lunch"],
+          "answer": ["practice", "school"]
+        },
+        {
+          "jp": "⑬私はサッカーファンです。",
+          "en_template": "___ a soccer ___.",
+          "bank": ["I'm", "She's", "fan", "team", "club"],
+          "answer": ["I'm", "fan"]
+        },
+        {
+          "jp": "⑭私は毎週日曜日にテニスのレッスンを受けます。",
+          "en_template": "I ___ tennis lessons ___ Sundays.",
+          "bank": ["take", "play", "have", "on", "in", "at"],
+          "answer": ["take", "on"]
+        },
+        {
+          "jp": "⑮私は音楽が大好きです。",
+          "en_template": "I ___ music.",
+          "bank": ["love", "like", "play", "can"],
+          "answer": ["love"]
+        },
+        {
+          "jp": "⑯私はピアノを弾きます。",
+          "en_template": "I play ___.",
+          "bank": ["the piano", "guitar", "violin", "piano"],
+          "answer": ["the piano"]
+        },
+        {
+          "jp": "⑰私はギターを弾くことができません。",
+          "en_template": "I ___ ___ the guitar.",
+          "bank": ["cannot", "can", "play", "don't", "like"],
+          "answer": ["cannot", "play"]
+        },
+        {
+          "jp": "⑱これは私のお気に入りの曲です。",
+          "en_template": "This is my ___ song.",
+          "bank": ["favorite", "good", "popular", "best"],
+          "answer": ["favorite"]
+        },
+        {
+          "jp": "⑲私はイヌを飼っています。",
+          "en_template": "I ___ a dog.",
+          "bank": ["have", "like", "play", "can"],
+          "answer": ["have"]
+        },
+        {
+          "jp": "⑳私はネコを2匹飼っています。",
+          "en_template": "I have ___ ___.",
+          "bank": ["two", "three", "cats", "dogs", "one"],
+          "answer": ["two", "cats"]
+        },
+        {
+          "jp": "㉑私のペットはかわいいです。",
+          "en_template": "My pet is ___.",
+          "bank": ["cute", "nice", "cool", "good"],
+          "answer": ["cute"]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本語パラフレーズ：英語にしにくそうな日本語を、英語にしやすい日本語に言いかえてみよう！次の日本語を英語にするとき、＿に適する語を書こう。",
+      "instruction_en": "Japanese paraphrase: Rewrite tricky Japanese into easier English. Fill in the blanks.",
+      "items": [
+        {
+          "jp": "イヌが好き。→「私はイヌが好き。」と主語をおぎなって書いてみよう。",
+          "en_template": "___ ___ dogs.",
+          "bank": ["I", "like", "love", "have"],
+          "answer": ["I", "like"]
+        },
+        {
+          "jp": "バスケットボールが上手にできます。→「私はバスケットボールを上手にできます。」と主語をおぎなって書いてみよう。",
+          "en_template": "___ ___ play basketball well.",
+          "bank": ["I", "can", "She", "cannot", "like"],
+          "answer": ["I", "can"]
+        },
+        {
+          "jp": "小林美保です。→「私は小林美保です。」と主語をおぎなおう。",
+          "en_template": "___ Kobayashi Miho.",
+          "bank": ["I'm", "She's", "He's", "It's"],
+          "answer": ["I'm"]
+        },
+        {
+          "jp": "毎日サッカーを練習します。→「ぼくは毎日サッカーを練習します。」と考えよう。",
+          "en_template": "___ ___ soccer every day.",
+          "bank": ["I", "practice", "play", "can", "like"],
+          "answer": ["I", "practice"]
+        },
+        {
+          "jp": "日曜日には読書をします。→「私は日曜日に本を読みます。」と考えられるね！",
+          "en_template": "___ ___ books on Sunday.",
+          "bank": ["I", "read", "play", "study", "like"],
+          "answer": ["I", "read"]
+        },
+        {
+          "jp": "数学が嫌いです。→「私は数学が好きではない。」と主語をおぎなおう。「嫌い」は「好きではない」と言いかえてみよう。",
+          "en_template": "___ ___ like math.",
+          "bank": ["I", "don't", "can't", "like", "not"],
+          "answer": ["I", "don't"]
+        },
+        {
+          "jp": "泳ぎが苦手です。→「私は泳ぎが苦手です。」と主語をおぎなおう。「苦手」は「上手にできない」と言いかえては？",
+          "en_template": "___ ___ ___ swim well.",
+          "bank": ["I", "cannot", "can", "don't", "play"],
+          "answer": ["I", "cannot"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "いろいろな have の使い方：have にはいろいろな意味があるよ！",
+      "instruction_en": "Many uses of 'have': 'have' has many meanings!",
+      "items": [
+        {
+          "jp": "①「…を持っている、…がいる」: 私はよいカバンを持っています。",
+          "bank": ["I", "have", "a", "nice", "bag", "."],
+          "answer": ["I", "have", "a", "nice", "bag", "."]
+        },
+        {
+          "jp": "②「…を開く」: 私たちはきょう、パーティーを開きます。",
+          "bank": ["We", "have", "a", "party", "today", "."],
+          "answer": ["We", "have", "a", "party", "today", "."]
+        },
+        {
+          "jp": "③「…を食べる」: 私は7時に朝食を食べます。",
+          "bank": ["I", "have", "breakfast", "at", "seven", "."],
+          "answer": ["I", "have", "breakfast", "at", "seven", "."]
+        },
+        {
+          "jp": "④「…を過ごす」: 楽しい時を過ごしましょう。",
+          "bank": ["Let's", "have", "a", "good", "time", "."],
+          "answer": ["Let's", "have", "a", "good", "time", "."]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": null,
+
+  "section_b": null
+}
