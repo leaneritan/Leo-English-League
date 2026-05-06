@@ -115,8 +115,12 @@
 <script>
 const params = new URLSearchParams(location.search);
 const unit = params.get('unit') || 'lesson-1';
-let set = parseInt(params.get('set') || '1', 10);
-const pathFor = s => `content/new-crown/jh1/${unit}/grammar-${s}.json`;
+const rawSet = params.get('set') || '1';
+let set = rawSet === 'drill' ? 'drill' : parseInt(rawSet, 10);
+const pathFor = s => {
+  const filename = s === 'drill' ? 'drill.json' : `grammar-${s}.json`;
+  return `content/new-crown/jh1/${unit}/${filename}`;
+};
 
 let data = null;
 let enOn = localStorage.getItem('jh-grammar-en') === '1';
@@ -271,6 +275,18 @@ async function load() {
   $('#enBtn').classList.toggle('on', enOn);
 
   const maxSet = await countSets();
+
+  if (set === 'drill') {
+    try {
+      data = await fetchJson(set);
+      render(maxSet || 0);
+      return;
+    } catch {
+      $('#hdrSub').textContent = `${unit} · drill`;
+      $('#app').innerHTML = `<div class="err">❌ Could not load ${esc(pathFor('drill'))}<br><br>Check the file path and JSON name.</div>`;
+      return;
+    }
+  }
 
   if (!maxSet) {
     $('#hdrSub').textContent = `${unit} · set ${set}`;
@@ -672,6 +688,16 @@ function bindKotoba() {
 
 async function goSet(d) {
   const maxSet = await countSets();
+  if (set === 'drill') {
+    if (d < 0 && maxSet) {
+      set = maxSet;
+      updateUrlSet(set);
+      await load();
+      window.scrollTo(0, 0);
+    }
+    return;
+  }
+
   const next = set + d;
 
   if (next < 1) return;
