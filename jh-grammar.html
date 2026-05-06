@@ -135,6 +135,34 @@ const answerString = o => {
 const hEN = t => t ? `<div class="en">${esc(t)}</div>` : '';
 const nums = i => ['①','②','③','④','⑤','⑥','⑦','⑧','⑨'][i] || String(i + 1);
 
+function makeSlots(n) {
+  return Array.from({ length: Math.max(1, n) }, () => '<span class="slot"></span>').join(' ');
+}
+
+function fillTemplate(rawTemplate, answerCount) {
+  const template = esc(rawTemplate);
+  const blanks = template.match(/_{2,}|\[blank\]/gi) || [];
+
+  if (!blanks.length) {
+    return `${makeSlots(answerCount)} ${template}`;
+  }
+
+  if (blanks.length === 1 && answerCount > 1) {
+    return template.replace(/_{2,}|\[blank\]/i, makeSlots(answerCount));
+  }
+
+  return template.replace(/_{2,}|\[blank\]/gi, () => '<span class="slot"></span>');
+}
+
+function sectionCorrectCount(sec) {
+  return sec.querySelectorAll('.result.ok').length;
+}
+
+function refreshSectionScore(item) {
+  const sec = item.closest('.ex');
+  if (sec && scores[sec.id]) setScore(sec.id, sectionCorrectCount(sec), scores[sec.id].total);
+}
+
 function bankWords(o, fallbackAnswers = []) {
   let b = field(o, 'bank', 'word_bank', 'words', 'choices');
   if (!Array.isArray(b) || !b.length) b = fallbackAnswers;
@@ -180,7 +208,6 @@ async function fileExists(s) {
     let res = await fetch(pathFor(s), { method: 'HEAD' });
     if (res.ok) return true;
 
-    // Some static hosts do not handle HEAD reliably, so fall back to GET.
     res = await fetch(pathFor(s), { cache: 'no-store' });
     return res.ok;
   } catch {
@@ -227,7 +254,6 @@ async function load() {
     data = await fetchJson(set);
     render(maxSet);
   } catch {
-    // If the requested set is missing in the middle, fall back to the nearest previous available set.
     for (let fallback = Math.min(set - 1, maxSet); fallback >= 1; fallback--) {
       if (await fileExists(fallback)) {
         set = fallback;
@@ -378,7 +404,7 @@ function fillBlank(id, ex) {
   const body = items.map((it, i) => {
     const bank = bankWords(it);
     const answers = A(field(it, 'answer', 'answers', 'blanks')).length ? A(field(it, 'answer', 'answers', 'blanks')) : [answerString(it)];
-    const template = esc(field(it, 'en_template', 'template_en', 'template', 'en')).replace(/_{2,}|\[blank\]/gi, () => '<span class="slot"></span>');
+    const template = fillTemplate(field(it, 'en_template', 'template_en', 'template', 'en'), answers.length);
     return `
       <div class="fill-item" data-fill-item="${id}-${i}" data-answers="${esc(JSON.stringify(answers))}">
         <div class="jp">${esc(field(it, 'jp', 'sentence_jp'))}</div>
@@ -524,22 +550,27 @@ function bindFill() {
 
     item.querySelectorAll('[data-fill-tile]').forEach(t => t.onclick = () => {
       if (chosen.length >= slots().length) return;
+      item.querySelector('.result').className = 'result';
+      slots().forEach(x => x.classList.remove('ok', 'no'));
       t.classList.add('used');
       chosen.push(t.textContent.trim());
       const slot = slots()[chosen.length - 1];
       slot.textContent = t.textContent.trim();
       slot.dataset.word = t.textContent.trim();
+      refreshSectionScore(item);
     });
 
     item.querySelector('[data-fill-check]').onclick = () => {
       const answers = JSON.parse(item.dataset.answers || '[]').map(norm);
       const ok = JSON.stringify(chosen.map(norm)) === JSON.stringify(answers);
-      slots().forEach(x => x.classList.add(ok ? 'ok' : 'no'));
+      slots().forEach(x => {
+        x.classList.remove('ok', 'no');
+        x.classList.add(ok ? 'ok' : 'no');
+      });
       const r = item.querySelector('.result');
       r.className = 'result ' + (ok ? 'ok' : 'no');
-      r.textContent = ok ? '✅ Correct!' : '❌ Try again.';
-      const sec = item.closest('.ex').id;
-      setScore(sec, item.closest('.ex').querySelectorAll('.result.ok').length, scores[sec].total);
+      r.textContent = ok ? '✅ Correct!' : `❌ Try again. Answer: ${JSON.parse(item.dataset.answers || '[]').join(' ')}`;
+      refreshSectionScore(item);
     };
 
     item.querySelector('[data-fill-reset]').onclick = () => {
@@ -547,6 +578,7 @@ function bindFill() {
       slots().forEach(s => { s.textContent = ''; s.className = 'slot'; });
       item.querySelectorAll('[data-fill-tile]').forEach(t => t.classList.remove('used'));
       item.querySelector('.result').className = 'result';
+      refreshSectionScore(item);
     };
   });
 }
@@ -556,6 +588,8 @@ function bindBuild() {
     const answer = item.querySelector('.answer');
 
     item.querySelectorAll('[data-build-tile]').forEach(t => t.onclick = () => {
+      item.querySelector('.result').className = 'result';
+      refreshSectionScore(item);
       t.classList.add('used');
       const a = document.createElement('button');
       a.className = 'answer-tile';
@@ -563,6 +597,8 @@ function bindBuild() {
       a.onclick = () => {
         t.classList.remove('used');
         a.remove();
+        item.querySelector('.result').className = 'result';
+        refreshSectionScore(item);
       };
       answer.appendChild(a);
     });
@@ -573,14 +609,14 @@ function bindBuild() {
       const r = item.querySelector('.result');
       r.className = 'result ' + (ok ? 'ok' : 'no');
       r.textContent = ok ? '✅ Correct!' : `❌ Answer: ${item.dataset.correct}`;
-      const sec = item.closest('.ex').id;
-      setScore(sec, item.closest('.ex').querySelectorAll('.result.ok').length, scores[sec].total);
+      refreshSectionScore(item);
     };
 
     item.querySelector('[data-build-reset]').onclick = () => {
       answer.innerHTML = '';
       item.querySelectorAll('[data-build-tile]').forEach(t => t.classList.remove('used'));
       item.querySelector('.result').className = 'result';
+      refreshSectionScore(item);
     };
   });
 }
@@ -593,7 +629,7 @@ function bindKotoba() {
       t.classList.add(ok ? 'ok' : 'no');
       const r = item.querySelector('.result');
       r.className = 'result ' + (ok ? 'ok' : 'no');
-      r.textContent = ok ? '✅ Correct!' : '❌ Try again.';
+      r.textContent = ok ? '✅ Correct!' : `❌ Try again. Answer: ${item.dataset.correct}`;
       setScore('kotoba', $$('#kotoba .result.ok').length, scores.kotoba.total);
     });
   });
