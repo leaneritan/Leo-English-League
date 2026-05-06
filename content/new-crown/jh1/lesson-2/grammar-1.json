@@ -1,0 +1,155 @@
+{
+  "lesson": 2,
+  "cando_num": "1",
+  "cando_jp": "身近な人のことを英語で紹介できる。",
+  "cando_en": "I can introduce people I know in English.",
+  "textbook_pages": "p.36〜37",
+
+  "kihon_bun": [
+    { "en": "I like Sakura. She can skateboard very well.", "jp": "私はさくらが好きです。彼女はとても上手にスケートボードをすることができます。" },
+    { "en": "I like Sota. He can play shogi very well.", "jp": "私は颯太が好きです。彼はとても上手に将棋をすることができます。" }
+  ],
+
+  "point": {
+    "title_jp": "「…できます」は can で表す！ すでに話題に出た人物は she / he で表す！",
+    "title_en": "Use 'can' for ability! Use 'she' or 'he' for someone already mentioned.",
+    "items": [
+      {
+        "num": "1",
+        "title_jp": "〈can＋動詞〉の文",
+        "title_en": "Sentences with 'can + verb'",
+        "body_jp": "・「主語は…できます」は、〈主語＋can＋動詞 ....〉で表す。",
+        "body_en": "・Use 'Subject + can + verb...' to say someone can do something."
+      },
+      {
+        "num": "2",
+        "title_jp": "he と she",
+        "title_en": "'he' and 'she'",
+        "body_jp": "・すでに話題に出た男性を指して「彼は」→ he、女性を指して「彼女は」→ she で表す。",
+        "body_en": "・Use 'he' for a male already mentioned, 'she' for a female already mentioned."
+      }
+    ]
+  },
+
+  "section_a": {
+    "instruction_jp": "基本を確認する！",
+    "instruction_en": "Check the basics!",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "絵の中の□にあう英文を選び、線で結ぼう。",
+      "instruction_en": "Choose the correct English sentence for each picture.",
+      "scenes": [
+        { "id": 1, "context_jp": "自己紹介", "context_en": "Self-introduction" },
+        { "id": 2, "context_jp": "公園で", "context_en": "In the park" },
+        { "id": 3, "context_jp": "図書館で", "context_en": "In the library" }
+      ],
+      "choices": [
+        { "en": "He can use a computer.", "jp": "彼はコンピュータを使うことができます。", "correct_scene": 3 },
+        { "en": "You can play tennis.", "jp": "あなたはテニスをすることができます。", "correct_scene": 2 },
+        { "en": "I can swim well.", "jp": "私は上手に泳ぐことができます。", "correct_scene": 1 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本文にあう英文になるように、＿に適する語を書こう。",
+      "instruction_en": "Fill in the blank to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "彼女は速く走ることができます。",
+          "en_template": "She ___ run fast.",
+          "bank": ["can", "is", "does", "do"],
+          "answer": ["can"]
+        },
+        {
+          "jp": "私は上手にサッカーをすることができます。",
+          "en_template": "I ___ ___ soccer well.",
+          "bank": ["can", "play", "do", "like", "am"],
+          "answer": ["can", "play"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、正しく書こう。",
+      "instruction_en": "Rearrange the words to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "彼は上手に歌うことができます。",
+          "bank": ["can", "he", "sing", "well", "."],
+          "answer": ["He", "can", "sing", "well", "."]
+        },
+        {
+          "jp": "私は英語の本を読むことができます。",
+          "bank": ["read", "can", "I", "English", "books", "."],
+          "answer": ["I", "can", "read", "English", "books", "."]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": {
+    "instruction_jp": "日本文にあうように、＿に適する語を書こう。",
+    "instruction_en": "Write the English word that matches the Japanese.",
+    "items": [
+      { "jp": "ほほえみ、微笑", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "smile" },
+      { "jp": "声", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "voice" },
+      { "jp": "歌", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "song" },
+      { "jp": "彼女のイヌ", "pos_jp": "代", "pos_en": "pronoun", "hint": "___ dog", "answer": "her" },
+      { "jp": "人気のある映画", "pos_jp": "形", "pos_en": "adjective", "hint": "a ___ movie", "answer": "popular" },
+      { "jp": "it is の短縮形", "pos_jp": "短", "pos_en": "contraction", "hint": "", "answer": "it's" },
+      { "jp": "私のお気に入りの歌手", "pos_jp": "形", "pos_en": "adjective", "hint": "my ___ singer", "answer": "favorite" },
+      { "jp": "とても上手にピアノを演奏する", "pos_jp": "副", "pos_en": "adverb", "hint": "play the piano ___", "answer": "very well" }
+    ]
+  },
+
+  "section_b": {
+    "instruction_jp": "伝える練習をする！",
+    "instruction_en": "Practice expressing yourself!",
+    "ex1": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、全文を書こう。",
+      "instruction_en": "Rearrange all the words to write the full sentence.",
+      "items": [
+        {
+          "jp": "彼女は上手に踊ることができます。",
+          "bank": ["can", "she", "well", "dance", "."],
+          "answer": ["She", "can", "dance", "well", "."]
+        },
+        {
+          "jp": "あなたはパンダを見ることができます。",
+          "bank": ["can", "pandas", "you", "see", "."],
+          "answer": ["You", "can", "see", "pandas", "."]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "build",
+      "instruction_jp": "（）内の語や符号に1語つけ足し、弾ける楽器について伝える英文全文を完成させよう。",
+      "instruction_en": "Add one word to complete each sentence about what instrument can be played.",
+      "context_jp": "志保が留学生のEllen(エレン)に、クラスメイトのことを紹介しています。",
+      "context_en": "Shiho is introducing classmates to exchange student Ellen.",
+      "items": [
+        {
+          "label_jp": "リオは三味線を弾けるよ。",
+          "label_en": "Rio can play the shamisen.",
+          "bank": ["the", "Rio", "shamisen", "play", "can", "."],
+          "answer": ["Rio", "can", "play", "the", "shamisen", "."]
+        },
+        {
+          "label_jp": "ケンジは琴を弾けるよ。",
+          "label_en": "Kenji can play the koto.",
+          "bank": ["play", "koto", "the", "Kenji", "can", "."],
+          "answer": ["Kenji", "can", "play", "the", "koto", "."]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "free_write",
+      "instruction_jp": "廉が来週遊びにくるSam(サム)に、家族を紹介することになりました。左のメモを参考に、廉になったつもりで①には弟、②にはお母さんのできることを英語で書こう。また、あなたができることについて、Samに伝える英文を書こう。",
+      "instruction_en": "Write what Ren's brother and mother can do using the memo. Then write what you yourself can do.",
+      "example_jp": "弟のできること：スキー・ケーキを作る / 母のできること：すしを作る・絵をかく",
+      "example_en": "Brother: ski, make a cake / Mother: make sushi, draw pictures",
+      "example_text": "He can ski.\nHe can make a cake.\nShe can make sushi.\nShe can draw pictures."
+    }
+  }
+}
