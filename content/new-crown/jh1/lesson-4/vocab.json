@@ -1,0 +1,949 @@
+{
+  "level": "JH1",
+  "unit": "lesson-4",
+  "set": 1,
+  "unit_name": "Lesson 4",
+  "words": [
+    {
+      "id": "festival_lesson_4",
+      "word": "festival",
+      "tag": "Lesson 4 ①",
+      "emoji": "🎉",
+      "ipa": "/ˈfestɪvəl/",
+      "syllables": "fes·ti·val",
+      "pos": "Noun · Countable",
+      "sample": "We went to a summer <b>festival</b>.",
+      "jp_word": "お祭り、祭典",
+      "jp_reading": "おまつり、さいてん",
+      "jp_sentence": "私たちは夏の<b>お祭り</b>に行きました。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "firework_lesson_4",
+      "word": "firework",
+      "tag": "Lesson 4 ①",
+      "emoji": "🎆",
+      "ipa": "/ˈfaɪərwɜːrk/",
+      "syllables": "fire·work",
+      "pos": "Noun · Countable",
+      "sample": "I saw a beautiful <b>firework</b>.",
+      "jp_word": "(fireworks) 花火；花火大会",
+      "jp_reading": "はなび、はなびたいかい",
+      "jp_sentence": "私は美しい<b>花火</b>を見ました。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "plan_lesson_4",
+      "word": "plan",
+      "tag": "Lesson 4 ①",
+      "emoji": "📝",
+      "ipa": "/plæn/",
+      "syllables": "plan",
+      "pos": "Noun · Countable",
+      "sample": "My summer <b>plan</b> is simple.",
+      "jp_word": "計画、案、考え、予定",
+      "jp_reading": "けいかく、あん、かんがえ、よてい",
+      "jp_sentence": "私の夏の<b>予定</b>は簡単です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "by_agent_lesson_4",
+      "word": "by",
+      "tag": "Lesson 4 ①",
+      "emoji": "👤",
+      "ipa": "/baɪ/",
+      "syllables": "by",
+      "pos": "Preposition",
+      "sample": "This cake was made <b>by</b> my sister.",
+      "jp_word": "(行為をする人・原因)…によって",
+      "jp_reading": "…によって",
+      "jp_sentence": "このケーキは姉<b>によって</b>作られました。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "family_lesson_4",
+      "word": "family",
+      "tag": "Lesson 4 ①",
+      "emoji": "👨‍👩‍👧",
+      "ipa": "/ˈfæməli/",
+      "syllables": "fam·i·ly",
+      "pos": "Noun",
+      "sample": "I went there with my <b>family</b>.",
+      "jp_word": "家族；一家",
+      "jp_reading": "かぞく、いっか",
+      "jp_sentence": "私は<b>家族</b>とそこへ行きました。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "last_lesson_4",
+      "word": "last",
+      "tag": "Lesson 4 ①",
+      "emoji": "🗓️",
+      "ipa": "/læst/",
+      "syllables": "last",
+      "pos": "Adjective",
+      "sample": "I went hiking <b>last</b> Sunday.",
+      "jp_word": "(時間的に)この前の",
+      "jp_reading": "このまえの",
+      "jp_sentence": "私は<b>この前の</b>日曜日にハイキングに行きました。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "myself_lesson_4",
+      "word": "myself",
+      "tag": "Lesson 4 ①",
+      "emoji": "🙋",
+      "ipa": "/maɪˈself/",
+      "syllables": "my·self",
+      "pos": "Pronoun",
+      "sample": "I made this cake <b>myself</b>.",
+      "jp_word": "私自身で、自分で",
+      "jp_reading": "わたしじしんで、じぶんで",
+      "jp_sentence": "私はこのケーキを<b>自分で</b>作りました。",
+      "jp_tags": [
+        "代名詞"
+      ]
+    },
+    {
+      "id": "went_lesson_4",
+      "word": "went",
+      "tag": "Lesson 4 ①",
+      "emoji": "🚶",
+      "ipa": "/went/",
+      "syllables": "went",
+      "pos": "Verb · Past",
+      "sample": "We <b>went</b> to the festival.",
+      "jp_word": "go の過去形",
+      "jp_reading": "ゴーのかこけい",
+      "jp_sentence": "私たちはお祭りに<b>行きました</b>。",
+      "jp_tags": [
+        "動詞",
+        "過去形"
+      ]
+    },
+    {
+      "id": "with_together_lesson_4",
+      "word": "with",
+      "tag": "Lesson 4 ①",
+      "emoji": "🤝",
+      "ipa": "/wɪð/",
+      "syllables": "with",
+      "pos": "Preposition",
+      "sample": "I went there <b>with</b> my cousin.",
+      "jp_word": "(共同)…といっしょに；…とともに",
+      "jp_reading": "…といっしょに、…とともに",
+      "jp_sentence": "私はいとこ<b>といっしょに</b>そこへ行きました。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "year_lesson_4",
+      "word": "year",
+      "tag": "Lesson 4 ①",
+      "emoji": "📅",
+      "ipa": "/jɪr/",
+      "syllables": "year",
+      "pos": "Noun · Countable",
+      "sample": "One <b>year</b> has twelve months.",
+      "jp_word": "年、1年(間)",
+      "jp_reading": "とし、いちねんかん",
+      "jp_sentence": "1<b>年</b>には12か月あります。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "also_lesson_4",
+      "word": "also",
+      "tag": "Lesson 4 ①",
+      "emoji": "➕",
+      "ipa": "/ˈɔːlsoʊ/",
+      "syllables": "al·so",
+      "pos": "Adverb",
+      "sample": "I <b>also</b> ate cheesecake.",
+      "jp_word": "…もまた；さらに；そのうえ",
+      "jp_reading": "…もまた、さらに、そのうえ",
+      "jp_sentence": "私は<b>さらに</b>チーズケーキも食べました。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "ate_lesson_4",
+      "word": "ate",
+      "tag": "Lesson 4 ①",
+      "emoji": "🍽️",
+      "ipa": "/eɪt/",
+      "syllables": "ate",
+      "pos": "Verb · Past",
+      "sample": "We <b>ate</b> cheesecake after lunch.",
+      "jp_word": "eat の過去形",
+      "jp_reading": "イートのかこけい",
+      "jp_sentence": "私たちは昼食後にチーズケーキを<b>食べました</b>。",
+      "jp_tags": [
+        "動詞",
+        "過去形"
+      ]
+    },
+    {
+      "id": "cheesecake_lesson_4",
+      "word": "cheesecake",
+      "tag": "Lesson 4 ①",
+      "emoji": "🍰",
+      "ipa": "/ˈtʃiːzkeɪk/",
+      "syllables": "cheese·cake",
+      "pos": "Noun",
+      "sample": "This <b>cheesecake</b> is very good.",
+      "jp_word": "チーズケーキ",
+      "jp_reading": "チーズケーキ",
+      "jp_sentence": "この<b>チーズケーキ</b>はとてもおいしいです。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "for_meaning_lesson_4",
+      "word": "for",
+      "tag": "Lesson 4 ①",
+      "emoji": "💬",
+      "ipa": "/fɔːr/",
+      "syllables": "for",
+      "pos": "Preposition",
+      "sample": "\"Seattle Dog\" is a name <b>for</b> a hot dog with cream cheese.",
+      "jp_word": "(同等)…として；…を意味する",
+      "jp_reading": "…として、…をいみする",
+      "jp_sentence": "「Seattle Dog」はクリームチーズ入りのホットドッグ<b>を意味する</b>名前です。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "good_taste_lesson_4",
+      "word": "good",
+      "tag": "Lesson 4 ①",
+      "emoji": "😋",
+      "ipa": "/ɡʊd/",
+      "syllables": "good",
+      "pos": "Adjective",
+      "sample": "The cheesecake was <b>good</b>.",
+      "jp_word": "おいしい、(味の)いい",
+      "jp_reading": "おいしい、あじのいい",
+      "jp_sentence": "そのチーズケーキは<b>おいしかった</b>です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "hike_lesson_4",
+      "word": "hike",
+      "tag": "Lesson 4 ①",
+      "emoji": "🥾",
+      "ipa": "/haɪk/",
+      "syllables": "hike",
+      "pos": "Verb",
+      "sample": "We <b>hike</b> in the mountains.",
+      "jp_word": "ハイキングをする",
+      "jp_reading": "ハイキングをする",
+      "jp_sentence": "私たちは山で<b>ハイキングをします</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "mt_lesson_4",
+      "word": "Mt.",
+      "tag": "Lesson 4 ①",
+      "emoji": "⛰️",
+      "ipa": "/maʊnt/",
+      "syllables": "Mt.",
+      "pos": "Abbreviation · Noun",
+      "sample": "We climbed <b>Mt.</b> Fuji.",
+      "jp_word": "山",
+      "jp_reading": "やま",
+      "jp_sentence": "私たちは<b>富士山</b>に登りました。",
+      "jp_tags": [
+        "名詞",
+        "略語"
+      ]
+    },
+    {
+      "id": "saw_lesson_4",
+      "word": "saw",
+      "tag": "Lesson 4 ①",
+      "emoji": "👀",
+      "ipa": "/sɔː/",
+      "syllables": "saw",
+      "pos": "Verb · Past",
+      "sample": "I <b>saw</b> a great view.",
+      "jp_word": "see の過去形",
+      "jp_reading": "シーのかこけい",
+      "jp_sentence": "私はすばらしい景色を<b>見ました</b>。",
+      "jp_tags": [
+        "動詞",
+        "過去形"
+      ]
+    },
+    {
+      "id": "so_lesson_4",
+      "word": "so",
+      "tag": "Lesson 4 ①",
+      "emoji": "✨",
+      "ipa": "/soʊ/",
+      "syllables": "so",
+      "pos": "Adverb",
+      "sample": "The view was <b>so</b> beautiful.",
+      "jp_word": "非常に、とても、ずいぶん",
+      "jp_reading": "ひじょうに、とても、ずいぶん",
+      "jp_sentence": "その景色は<b>とても</b>美しかったです。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "thick_lesson_4",
+      "word": "thick",
+      "tag": "Lesson 4 ①",
+      "emoji": "📚",
+      "ipa": "/θɪk/",
+      "syllables": "thick",
+      "pos": "Adjective",
+      "sample": "This book is <b>thick</b>.",
+      "jp_word": "分厚い",
+      "jp_reading": "ぶあつい",
+      "jp_sentence": "この本は<b>分厚い</b>です。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "top_lesson_4",
+      "word": "top",
+      "tag": "Lesson 4 ①",
+      "emoji": "🔝",
+      "ipa": "/tɑːp/",
+      "syllables": "top",
+      "pos": "Noun · Countable",
+      "sample": "We stood at the <b>top</b> of the mountain.",
+      "jp_word": "いちばん上の部分、頂上；上部",
+      "jp_reading": "いちばんうえのぶぶん、ちょうじょう、じょうぶ",
+      "jp_sentence": "私たちは山の<b>頂上</b>に立ちました。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "view_lesson_4",
+      "word": "view",
+      "tag": "Lesson 4 ①",
+      "emoji": "🏞️",
+      "ipa": "/vjuː/",
+      "syllables": "view",
+      "pos": "Noun · Countable",
+      "sample": "The <b>view</b> from the top was nice.",
+      "jp_word": "景色、ながめ",
+      "jp_reading": "けしき、ながめ",
+      "jp_sentence": "頂上からの<b>景色</b>はすてきでした。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "was_lesson_4",
+      "word": "was",
+      "tag": "Lesson 4 ①",
+      "emoji": "⏪",
+      "ipa": "/wəz/",
+      "syllables": "was",
+      "pos": "Verb · Be · Past",
+      "sample": "The festival <b>was</b> fun.",
+      "jp_word": "(…で)あった、…でした；…だった",
+      "jp_reading": "…であった、…でした、…だった",
+      "jp_sentence": "そのお祭りは楽しかった<b>です</b>。",
+      "jp_tags": [
+        "動詞",
+        "be動詞",
+        "過去形"
+      ]
+    },
+    {
+      "id": "kabuki_lesson_4",
+      "word": "kabuki",
+      "tag": "Lesson 4 ②",
+      "emoji": "🎭",
+      "ipa": "/kəˈbuːki/",
+      "syllables": "ka·bu·ki",
+      "pos": "Noun",
+      "sample": "I want to see <b>kabuki</b>.",
+      "jp_word": "歌舞伎",
+      "jp_reading": "かぶき",
+      "jp_sentence": "私は<b>歌舞伎</b>を見たいです。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "korean_lesson_4",
+      "word": "Korean",
+      "tag": "Lesson 4 ②",
+      "emoji": "🇰🇷",
+      "ipa": "/kəˈriːən/",
+      "syllables": "Ko·re·an",
+      "pos": "Adjective · Noun",
+      "sample": "I like <b>Korean</b> food.",
+      "jp_word": "韓国の；韓国人[語]の",
+      "jp_reading": "かんこくの、かんこくじんの、かんこくごの",
+      "jp_sentence": "私は<b>韓国の</b>食べ物が好きです。",
+      "jp_tags": [
+        "形容詞",
+        "名詞"
+      ]
+    },
+    {
+      "id": "mr_lesson_4",
+      "word": "Mr.",
+      "tag": "Lesson 4 ②",
+      "emoji": "👨‍🏫",
+      "ipa": "/ˈmɪstər/",
+      "syllables": "Mr.",
+      "pos": "Title",
+      "sample": "<b>Mr.</b> Tanaka is my teacher.",
+      "jp_word": "…氏、…さん、…先生(男性への敬称)",
+      "jp_reading": "…し、…さん、…せんせい",
+      "jp_sentence": "<b>田中先生</b>は私の先生です。",
+      "jp_tags": [
+        "敬称"
+      ]
+    },
+    {
+      "id": "to_infinitive_lesson_4",
+      "word": "to",
+      "tag": "Lesson 4 ②",
+      "emoji": "➡️",
+      "ipa": "/tuː/",
+      "syllables": "to",
+      "pos": "Particle · Infinitive",
+      "sample": "I want <b>to</b> visit Seattle.",
+      "jp_word": "…すること(不定詞の名詞用法)；(want to …)…することを望む；…したい",
+      "jp_reading": "…すること、…したい",
+      "jp_sentence": "私はシアトルを訪れ<b>たい</b>です。",
+      "jp_tags": [
+        "不定詞"
+      ]
+    },
+    {
+      "id": "want_to_lesson_4",
+      "word": "want",
+      "tag": "Lesson 4 ②",
+      "emoji": "🙋",
+      "ipa": "/wɑːnt/",
+      "syllables": "want",
+      "pos": "Verb",
+      "sample": "I <b>want</b> to see kabuki.",
+      "jp_word": "(want to …)…したい、望む",
+      "jp_reading": "…したい、のぞむ",
+      "jp_sentence": "私は歌舞伎を見<b>たい</b>です。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "baby_lesson_4",
+      "word": "baby",
+      "tag": "Lesson 4 ②",
+      "emoji": "👶",
+      "ipa": "/ˈbeɪbi/",
+      "syllables": "ba·by",
+      "pos": "Noun · Countable · Adjective",
+      "sample": "My cousin has a <b>baby</b> sister.",
+      "jp_word": "赤ちゃん；(形容詞的)赤ちゃんの",
+      "jp_reading": "あかちゃん、あかちゃんの",
+      "jp_sentence": "私のいとこには<b>赤ちゃんの</b>妹がいます。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞",
+        "形容詞"
+      ]
+    },
+    {
+      "id": "cousin_lesson_4",
+      "word": "cousin",
+      "tag": "Lesson 4 ②",
+      "emoji": "🧑",
+      "ipa": "/ˈkʌzən/",
+      "syllables": "cous·in",
+      "pos": "Noun · Countable",
+      "sample": "I visited my <b>cousin</b> last year.",
+      "jp_word": "いとこ",
+      "jp_reading": "いとこ",
+      "jp_sentence": "私は去年<b>いとこ</b>を訪ねました。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "cream_cheese_lesson_4",
+      "word": "cream cheese",
+      "tag": "Lesson 4 ②",
+      "emoji": "🧀",
+      "ipa": "/ˌkriːm ˈtʃiːz/",
+      "syllables": "cream cheese",
+      "pos": "Noun",
+      "sample": "A Seattle Dog has <b>cream cheese</b>.",
+      "jp_word": "クリームチーズ",
+      "jp_reading": "クリームチーズ",
+      "jp_sentence": "シアトルドッグには<b>クリームチーズ</b>が入っています。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "hometown_lesson_4",
+      "word": "hometown",
+      "tag": "Lesson 4 ②",
+      "emoji": "🏠",
+      "ipa": "/ˈhoʊmtaʊn/",
+      "syllables": "home·town",
+      "pos": "Noun · Countable",
+      "sample": "Seattle is my <b>hometown</b>.",
+      "jp_word": "ふるさと、故郷",
+      "jp_reading": "ふるさと、こきょう",
+      "jp_sentence": "シアトルは私の<b>ふるさと</b>です。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "seattle_lesson_4",
+      "word": "Seattle",
+      "tag": "Lesson 4 ②",
+      "emoji": "🌆",
+      "ipa": "/siˈætəl/",
+      "syllables": "Se·at·tle",
+      "pos": "Proper Noun",
+      "sample": "I went to <b>Seattle</b> with my family.",
+      "jp_word": "シアトル(米国の最北西部ワシントン州にある港湾都市)",
+      "jp_reading": "シアトル",
+      "jp_sentence": "私は家族と<b>シアトル</b>へ行きました。",
+      "jp_tags": [
+        "固有名詞"
+      ]
+    },
+    {
+      "id": "seattle_dog_lesson_4",
+      "word": "Seattle Dog",
+      "tag": "Lesson 4 ②",
+      "emoji": "🌭",
+      "ipa": "/siˈætəl dɔːɡ/",
+      "syllables": "Se·at·tle Dog",
+      "pos": "Proper Noun",
+      "sample": "I ate a <b>Seattle Dog</b> for lunch.",
+      "jp_word": "シアトルドッグ(料理)",
+      "jp_reading": "シアトルドッグ",
+      "jp_sentence": "私は昼食に<b>シアトルドッグ</b>を食べました。",
+      "jp_tags": [
+        "固有名詞",
+        "料理"
+      ]
+    },
+    {
+      "id": "see_visit_lesson_4",
+      "word": "see",
+      "tag": "Lesson 4 ②",
+      "emoji": "👋",
+      "ipa": "/siː/",
+      "syllables": "see",
+      "pos": "Verb",
+      "sample": "I want to <b>see</b> my cousin.",
+      "jp_word": "会う；たずねて行く",
+      "jp_reading": "あう、たずねていく",
+      "jp_sentence": "私はいとこに<b>会い</b>たいです。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "with_possession_lesson_4",
+      "word": "with",
+      "tag": "Lesson 4 ②",
+      "emoji": "📎",
+      "ipa": "/wɪð/",
+      "syllables": "with",
+      "pos": "Preposition",
+      "sample": "This is a hot dog <b>with</b> cream cheese.",
+      "jp_word": "(所有・付属)…を持っている；…の付いている",
+      "jp_reading": "…をもっている、…のついている",
+      "jp_sentence": "これはクリームチーズ<b>の付いた</b>ホットドッグです。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "different_lesson_4",
+      "word": "different",
+      "tag": "Lesson 4 ②",
+      "emoji": "🔀",
+      "ipa": "/ˈdɪfərənt/",
+      "syllables": "dif·fer·ent",
+      "pos": "Adjective",
+      "sample": "We tried <b>different</b> foods.",
+      "jp_word": "いろいろな、さまざまな；別々の",
+      "jp_reading": "いろいろな、さまざまな、べつべつの",
+      "jp_sentence": "私たちは<b>いろいろな</b>食べ物を試しました。",
+      "jp_tags": [
+        "形容詞"
+      ]
+    },
+    {
+      "id": "of_lesson_4",
+      "word": "of",
+      "tag": "Lesson 4 ②",
+      "emoji": "🔗",
+      "ipa": "/əv/",
+      "syllables": "of",
+      "pos": "Preposition",
+      "sample": "This is a picture <b>of</b> my family.",
+      "jp_word": "(所有者・所属・範囲)…の",
+      "jp_reading": "…の",
+      "jp_sentence": "これは私の家族<b>の</b>写真です。",
+      "jp_tags": [
+        "前置詞"
+      ]
+    },
+    {
+      "id": "clerk_lesson_4",
+      "word": "clerk",
+      "tag": "Goal Activity",
+      "emoji": "🧑‍💼",
+      "ipa": "/klɜːrk/",
+      "syllables": "clerk",
+      "pos": "Noun · Countable",
+      "sample": "The <b>clerk</b> was kind.",
+      "jp_word": "店員、従業員",
+      "jp_reading": "てんいん、じゅうぎょういん",
+      "jp_sentence": "その<b>店員</b>は親切でした。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "counter_lesson_4",
+      "word": "counter",
+      "tag": "Goal Activity",
+      "emoji": "🏪",
+      "ipa": "/ˈkaʊntər/",
+      "syllables": "count·er",
+      "pos": "Noun · Countable",
+      "sample": "Please go to the <b>counter</b>.",
+      "jp_word": "(銀行・商店などの)カウンター、勘定台",
+      "jp_reading": "カウンター、かんじょうだい",
+      "jp_sentence": "<b>カウンター</b>へ行ってください。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "much_lesson_4",
+      "word": "much",
+      "tag": "Goal Activity",
+      "emoji": "📦",
+      "ipa": "/mʌtʃ/",
+      "syllables": "much",
+      "pos": "Adjective · Adverb",
+      "sample": "I don't have <b>much</b> money.",
+      "jp_word": "多量の、たくさんの、多くの",
+      "jp_reading": "たりょうの、たくさんの、おおくの",
+      "jp_sentence": "私はお金を<b>たくさん</b>持っていません。",
+      "jp_tags": [
+        "形容詞",
+        "副詞"
+      ]
+    },
+    {
+      "id": "orange_lesson_4",
+      "word": "orange",
+      "tag": "Goal Activity",
+      "emoji": "🟧",
+      "ipa": "/ˈɔːrɪndʒ/",
+      "syllables": "or·ange",
+      "pos": "Adjective · Noun",
+      "sample": "I want the <b>orange</b> shirt.",
+      "jp_word": "オレンジの；オレンジ色の",
+      "jp_reading": "オレンジの、オレンジいろの",
+      "jp_sentence": "私は<b>オレンジ色の</b>シャツがほしいです。",
+      "jp_tags": [
+        "形容詞",
+        "名詞"
+      ]
+    },
+    {
+      "id": "order_lesson_4",
+      "word": "order",
+      "tag": "Goal Activity",
+      "emoji": "🧾",
+      "ipa": "/ˈɔːrdər/",
+      "syllables": "or·der",
+      "pos": "Noun · Countable",
+      "sample": "Your <b>order</b> is ready.",
+      "jp_word": "注文、注文の品",
+      "jp_reading": "ちゅうもん、ちゅうもんのしな",
+      "jp_sentence": "あなたの<b>注文</b>ができました。",
+      "jp_tags": [
+        "名詞",
+        "可算名詞"
+      ]
+    },
+    {
+      "id": "pick_lesson_4",
+      "word": "pick",
+      "tag": "Goal Activity",
+      "emoji": "🍓",
+      "ipa": "/pɪk/",
+      "syllables": "pick",
+      "pos": "Verb",
+      "sample": "We <b>pick</b> oranges in the garden.",
+      "jp_word": "摘む",
+      "jp_reading": "つむ",
+      "jp_sentence": "私たちは庭でオレンジを<b>摘みます</b>。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "total_lesson_4",
+      "word": "total",
+      "tag": "Goal Activity",
+      "emoji": "💰",
+      "ipa": "/ˈtoʊtəl/",
+      "syllables": "to·tal",
+      "pos": "Noun · Adjective",
+      "sample": "The <b>total</b> is five dollars.",
+      "jp_word": "合計",
+      "jp_reading": "ごうけい",
+      "jp_sentence": "<b>合計</b>は5ドルです。",
+      "jp_tags": [
+        "名詞",
+        "形容詞"
+      ]
+    },
+    {
+      "id": "tuna_lesson_4",
+      "word": "tuna",
+      "tag": "Goal Activity",
+      "emoji": "🐟",
+      "ipa": "/ˈtuːnə/",
+      "syllables": "tu·na",
+      "pos": "Noun",
+      "sample": "I want a <b>tuna</b> sandwich.",
+      "jp_word": "マグロ",
+      "jp_reading": "マグロ",
+      "jp_sentence": "私は<b>マグロ</b>のサンドイッチがほしいです。",
+      "jp_tags": [
+        "名詞"
+      ]
+    },
+    {
+      "id": "up_lesson_4",
+      "word": "up",
+      "tag": "Goal Activity",
+      "emoji": "⬆️",
+      "ipa": "/ʌp/",
+      "syllables": "up",
+      "pos": "Adverb",
+      "sample": "The balloon goes <b>up</b>.",
+      "jp_word": "(方向)上へ、上の方へ",
+      "jp_reading": "うえへ、うえのほうへ",
+      "jp_sentence": "風船は<b>上へ</b>上がります。",
+      "jp_tags": [
+        "副詞"
+      ]
+    },
+    {
+      "id": "want_desire_lesson_4",
+      "word": "want",
+      "tag": "Goal Activity",
+      "emoji": "🛒",
+      "ipa": "/wɑːnt/",
+      "syllables": "want",
+      "pos": "Verb",
+      "sample": "I <b>want</b> a tuna sandwich.",
+      "jp_word": "(…が)ほしい、望む",
+      "jp_reading": "ほしい、のぞむ",
+      "jp_sentence": "私はツナサンドが<b>ほしい</b>です。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "would_lesson_4",
+      "word": "would",
+      "tag": "Goal Activity",
+      "emoji": "🙇",
+      "ipa": "/wʊd/",
+      "syllables": "would",
+      "pos": "Auxiliary Verb",
+      "sample": "I <b>would</b> like an orange juice.",
+      "jp_word": "(…する)だろう；(…する)つもりだ",
+      "jp_reading": "…するだろう、…するつもりだ",
+      "jp_sentence": "私はオレンジジュースをいただき<b>たい</b>です。",
+      "jp_tags": [
+        "助動詞"
+      ]
+    },
+    {
+      "id": "fireworks_lesson_4",
+      "word": "fireworks",
+      "tag": "Lesson 4 ①",
+      "emoji": "🎇",
+      "ipa": "/ˈfaɪərwɜːrks/",
+      "syllables": "fire·works",
+      "pos": "Noun · Plural",
+      "sample": "The <b>fireworks</b> were beautiful.",
+      "jp_word": "花火；花火大会",
+      "jp_reading": "はなび、はなびたいかい",
+      "jp_sentence": "その<b>花火</b>は美しかったです。",
+      "jp_tags": [
+        "名詞",
+        "複数形"
+      ]
+    },
+    {
+      "id": "go_lesson_4",
+      "word": "go",
+      "tag": "Lesson 4 ①",
+      "emoji": "🚶",
+      "ipa": "/ɡoʊ/",
+      "syllables": "go",
+      "pos": "Verb",
+      "sample": "I want to <b>go</b> to the festival.",
+      "jp_word": "行く",
+      "jp_reading": "いく",
+      "jp_sentence": "私はお祭りに<b>行き</b>たいです。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "eat_lesson_4",
+      "word": "eat",
+      "tag": "Lesson 4 ①",
+      "emoji": "🍽️",
+      "ipa": "/iːt/",
+      "syllables": "eat",
+      "pos": "Verb",
+      "sample": "I want to <b>eat</b> cheesecake.",
+      "jp_word": "食べる",
+      "jp_reading": "たべる",
+      "jp_sentence": "私はチーズケーキを<b>食べ</b>たいです。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "last_year_lesson_4",
+      "word": "last year",
+      "tag": "Lesson 4 ①",
+      "emoji": "📆",
+      "ipa": "/læst jɪr/",
+      "syllables": "last year",
+      "pos": "Phrase",
+      "sample": "I went to Seattle <b>last year</b>.",
+      "jp_word": "去年、昨年",
+      "jp_reading": "きょねん、さくねん",
+      "jp_sentence": "私は<b>去年</b>シアトルへ行きました。",
+      "jp_tags": [
+        "熟語",
+        "時の表現"
+      ]
+    },
+    {
+      "id": "see_look_lesson_4",
+      "word": "see",
+      "tag": "Lesson 4 ①",
+      "emoji": "👀",
+      "ipa": "/siː/",
+      "syllables": "see",
+      "pos": "Verb",
+      "sample": "I want to <b>see</b> the fireworks.",
+      "jp_word": "見る",
+      "jp_reading": "みる",
+      "jp_sentence": "私は花火を<b>見</b>たいです。",
+      "jp_tags": [
+        "動詞"
+      ]
+    },
+    {
+      "id": "want_to_lesson_4_phrase",
+      "word": "want to",
+      "tag": "Lesson 4 ②",
+      "emoji": "🙋",
+      "ipa": "/wɑːnt tuː/",
+      "syllables": "want to",
+      "pos": "Phrase",
+      "sample": "I <b>want to</b> visit my hometown.",
+      "jp_word": "…したい",
+      "jp_reading": "…したい",
+      "jp_sentence": "私はふるさとを訪れ<b>たい</b>です。",
+      "jp_tags": [
+        "熟語",
+        "不定詞"
+      ]
+    },
+    {
+      "id": "how_much_lesson_4",
+      "word": "how much",
+      "tag": "Goal Activity",
+      "emoji": "💴",
+      "ipa": "/haʊ mʌtʃ/",
+      "syllables": "how much",
+      "pos": "Phrase",
+      "sample": "<b>How much</b> is this tuna sandwich?",
+      "jp_word": "いくら、どのくらい",
+      "jp_reading": "いくら、どのくらい",
+      "jp_sentence": "このツナサンドは<b>いくら</b>ですか。",
+      "jp_tags": [
+        "熟語",
+        "疑問表現"
+      ]
+    },
+    {
+      "id": "pick_up_lesson_4",
+      "word": "pick up",
+      "tag": "Goal Activity",
+      "emoji": "📦",
+      "ipa": "/pɪk ʌp/",
+      "syllables": "pick up",
+      "pos": "Phrasal Verb",
+      "sample": "Please <b>pick up</b> your order at the counter.",
+      "jp_word": "受け取る、拾い上げる",
+      "jp_reading": "うけとる、ひろいあげる",
+      "jp_sentence": "カウンターで注文の品を<b>受け取って</b>ください。",
+      "jp_tags": [
+        "句動詞",
+        "動詞"
+      ]
+    }
+  ]
+}
