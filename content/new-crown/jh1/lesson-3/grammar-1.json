@@ -1,0 +1,168 @@
+{
+  "lesson": 3,
+  "cando_num": "1",
+  "cando_jp": "身近な人やものを紹介することができる。",
+  "cando_en": "I can introduce people and things around me.",
+  "textbook_pages": "p.43〜45",
+
+  "kihon_bun": [
+    { "en": "This is an ice cream shop.", "jp": "これはアイスクリームのお店です。" },
+    { "en": "That is chocolate ice cream.", "jp": "あれはチョコレートアイスクリームです。" },
+    { "en": "This is not an ice cream shop.", "jp": "これはアイスクリームのお店ではありません。" },
+    { "en": "That is not chocolate ice cream.", "jp": "あれはチョコレートアイスクリームではありません。" }
+  ],
+
+  "point": {
+    "title_jp": "「これ[あれ]は…です」は This[That] is .... で表す！ 否定文は be 動詞のあとに not をつける！",
+    "title_en": "Use 'This/That is...' for 'This/That is...'. Add 'not' after the be verb for negatives.",
+    "items": [
+      {
+        "num": "1",
+        "title_jp": "this と that",
+        "title_en": "'this' and 'that'",
+        "body_jp": "・近くのものなどを指して「これ(は)」→ this\n・遠くのものなどを指して「あれ(は)」→ that",
+        "body_en": "・'this' = something near (これ)\n・'that' = something far (あれ)"
+      },
+      {
+        "num": "2",
+        "title_jp": "否定文",
+        "title_en": "Negative sentences",
+        "body_jp": "・「…ではありません」は be 動詞のあとに not を書く。",
+        "body_en": "・For negatives, put 'not' after the be verb."
+      },
+      {
+        "num": "3",
+        "title_jp": "am、are、is の使い分け",
+        "title_en": "Using 'am', 'are', and 'is'",
+        "body_jp": "・am、are、is を be 動詞という。\n・be 動詞は主語によって使い分ける。\n　私 → am / you、we → are / he、she、this、that、it → is",
+        "body_en": "・am, are, is are called be verbs.\n・Choose based on the subject:\n  I → am / you, we → are / he, she, this, that, it → is"
+      },
+      {
+        "num": "4",
+        "title_jp": "短縮形",
+        "title_en": "Contractions",
+        "body_jp": "that is → that's / it is → it's / he is → he's / she is → she's / is not → isn't",
+        "body_en": "that is → that's / it is → it's / he is → he's / she is → she's / is not → isn't"
+      }
+    ]
+  },
+
+  "section_a": {
+    "instruction_jp": "基本を確認する！",
+    "instruction_en": "Check the basics!",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "絵の中の□に入るセリフとなるように、適する語(句)を選んで書こう。",
+      "instruction_en": "Choose the correct word or phrase to complete each speech bubble.",
+      "scenes": [
+        { "id": 1, "context_jp": "友達が家に来て", "context_en": "A friend visits your home" },
+        { "id": 2, "context_jp": "サッカースタジアムの外で", "context_en": "Outside a soccer stadium" },
+        { "id": 3, "context_jp": "通り", "context_en": "On the street" }
+      ],
+      "choices": [
+        { "en": "This is my notebook.", "jp": "これは私のノートです。", "correct_scene": 1 },
+        { "en": "That is a stadium. It's popular.", "jp": "あれはスタジアムです。それは人気があります。", "correct_scene": 2 },
+        { "en": "That is not a library.", "jp": "あれは図書館ではありません。", "correct_scene": 3 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本文にあう英文になるように、＿に適する語を書こう。",
+      "instruction_en": "Fill in the blank to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "あちらは斎藤先生です。",
+          "en_template": "___ ___ Ms. Saito.",
+          "bank": ["That", "This", "is", "are", "am"],
+          "answer": ["That", "is"]
+        },
+        {
+          "jp": "これは私の腕時計です。",
+          "en_template": "___ ___ ___ my watch.",
+          "bank": ["This", "That", "is", "are", "not", "my"],
+          "answer": ["This", "is", "my"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語(句)や符号を並べかえて、正しく書こう。",
+      "instruction_en": "Rearrange the words to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "あれは駅ではありません。",
+          "bank": ["is", "a", "station", "not", "that", "."],
+          "answer": ["That", "is", "not", "a", "station", "."]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": {
+    "instruction_jp": "日本文にあうように、＿に適する語を書こう。",
+    "instruction_en": "Write the English word that matches the Japanese.",
+    "items": [
+      { "jp": "店", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "shop" },
+      { "jp": "カメラ", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "camera" },
+      { "jp": "私の宝物", "pos_jp": "名", "pos_en": "noun", "hint": "my ___", "answer": "treasure" },
+      { "jp": "友達からの手紙", "pos_jp": "前", "pos_en": "preposition", "hint": "a letter ___ my friend", "answer": "from" },
+      { "jp": "私たちは7時に起きる。", "pos_jp": "代", "pos_en": "pronoun", "hint": "___ get up at seven ___.", "answer": "We / a.m." }
+    ]
+  },
+
+  "section_b": {
+    "instruction_jp": "伝える練習をする！",
+    "instruction_en": "Practice expressing yourself!",
+    "ex1": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、全文を書こう。",
+      "instruction_en": "Rearrange all the words to write the full sentence.",
+      "items": [
+        {
+          "jp": "彼女はサッカーファンです。",
+          "bank": ["fan", "she", "a", "is", "soccer", "."],
+          "answer": ["She", "is", "a", "soccer", "fan", "."]
+        },
+        {
+          "jp": "これはキツネではありません。",
+          "bank": ["not", "fox", "is", "a", "this", "."],
+          "answer": ["This", "is", "not", "a", "fox", "."]
+        },
+        {
+          "jp": "彼は私のおじではありません。",
+          "bank": ["my", "he", "not", "uncle", "is", "."],
+          "answer": ["He", "is", "not", "my", "uncle", "."]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "build",
+      "instruction_jp": "（）内の語に1語つけ足し、会話全文を完成させよう。",
+      "instruction_en": "Add one word to complete the full dialogue.",
+      "context_jp": "潤が公園で散歩していると、クラスメイトのChloe(クロエ)と会いました。",
+      "context_en": "Jun meets classmate Chloe while walking in the park.",
+      "items": [
+        {
+          "label_jp": "Chloe：これは私のイヌじゃないよ。",
+          "label_en": "Chloe: This is not my dog.",
+          "bank": ["My", "is", "dog", "not", "this", "."],
+          "answer": ["This", "is", "not", "my", "dog", "."]
+        },
+        {
+          "label_jp": "あれが私のイヌだよ。",
+          "label_en": "That is my dog.",
+          "bank": ["is", "dog", "my", "that", "."],
+          "answer": ["That", "is", "my", "dog", "."]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "free_write",
+      "instruction_jp": "Alex(アレックス)は、家に来た友達に部屋にあるものを紹介しています。Alexになったつもりで、部屋にあるものを「これは私の…です」「あれは私の…です」と紹介する英文をできるだけ多く書こう。",
+      "instruction_en": "Pretend you are Alex and introduce things in your room using 'This is my...' and 'That is my...'.",
+      "example_jp": "部屋のものを「This is...」「That is...」で紹介しよう。",
+      "example_en": "Introduce things in the room with 'This is...' and 'That is...'",
+      "example_text": "This is my guitar.\nThat is my notebook.\nThis is my favorite book."
+    }
+  }
+}
