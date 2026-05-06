@@ -1,0 +1,148 @@
+{
+  "lesson": 2,
+  "cando_num": "2",
+  "cando_jp": "相手にできるかどうかたずねたり、できないことについて説明したりすることができる。",
+  "cando_en": "I can ask if someone can do something and explain what I cannot do.",
+  "textbook_pages": "p.38〜39",
+
+  "kihon_bun": [
+    { "en": "Can you play the guitar? — Yes, I can. / No, I cannot.", "jp": "あなたはギターを弾くことができますか。―はい、できます。／いいえ、できません。" },
+    { "en": "I cannot play the guitar.", "jp": "私はギターを弾くことができません。" }
+  ],
+
+  "point": {
+    "title_jp": "「…できますか」とたずねるときは〈Can＋主語＋動詞 ...?〉、「…できません」は cannot で表す！",
+    "title_en": "Use 'Can + subject + verb...?' to ask. Use 'cannot' for negatives.",
+    "items": [
+      {
+        "num": "1",
+        "title_jp": "can の疑問文",
+        "title_en": "Questions with 'can'",
+        "body_jp": "・「主語は…できますか」とたずねるときは、〈Can＋主語＋動詞 ...?〉で表す。\n答え方　can を使って、Yes, ... can. / No, ... cannot[can't]. と答える。\n短縮形　cannot → can't",
+        "body_en": "・Use 'Can + subject + verb...?' to ask if someone can do something.\nAnswer: Yes, ... can. / No, ... cannot [can't].\nContraction: cannot → can't"
+      },
+      {
+        "num": "2",
+        "title_jp": "否定文",
+        "title_en": "Negative sentences",
+        "body_jp": "・「主語は…できません」と否定するときは、〈主語＋cannot＋動詞 ....〉で表す。",
+        "body_en": "・Use 'Subject + cannot + verb...' to say someone cannot do something."
+      }
+    ]
+  },
+
+  "section_a": {
+    "instruction_jp": "基本を確認する！",
+    "instruction_en": "Check the basics!",
+    "ex1": {
+      "type": "scene_check",
+      "instruction_jp": "絵の中の□に入るセリフとなるように、適する語を選んで書こう。",
+      "instruction_en": "Choose the correct word to complete each speech bubble.",
+      "scenes": [
+        { "id": 1, "context_jp": "合唱祭のパート決め", "context_en": "Deciding parts for chorus festival" },
+        { "id": 2, "context_jp": "体育館で", "context_en": "In the gym" },
+        { "id": 3, "context_jp": "できないスポーツ", "context_en": "A sport I cannot do" }
+      ],
+      "choices": [
+        { "en": "Can you play the piano?", "jp": "あなたはピアノを弾くことができますか。", "correct_scene": 1 },
+        { "en": "Can you play volleyball?", "jp": "あなたはバレーボールをすることができますか。", "correct_scene": 2 },
+        { "en": "I cannot play tennis.", "jp": "私はテニスをすることができません。", "correct_scene": 3 }
+      ]
+    },
+    "ex2": {
+      "type": "fill_blank",
+      "instruction_jp": "日本文にあう英文になるように、＿に適する語を書こう。",
+      "instruction_en": "Fill in the blank to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "彼女は速く泳ぐことができますか。",
+          "en_template": "___ she swim fast?",
+          "bank": ["Can", "Does", "Is", "Do"],
+          "answer": ["Can"]
+        },
+        {
+          "jp": "はい、泳げます。((1)の答え)",
+          "en_template": "Yes, she ___.",
+          "bank": ["can", "is", "does", "cannot"],
+          "answer": ["can"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、正しく書こう。",
+      "instruction_en": "Rearrange the words to match the Japanese sentence.",
+      "items": [
+        {
+          "jp": "私は納豆を食べることができません。",
+          "bank": ["I", "natto", "cannot", "eat", "."],
+          "answer": ["I", "cannot", "eat", "natto", "."]
+        }
+      ]
+    }
+  },
+
+  "hitsuyou_kotoba": {
+    "instruction_jp": "英語は日本語に、日本語は英語にかえて書こう。",
+    "instruction_en": "Translate: English to Japanese, Japanese to English.",
+    "items": [
+      { "jp": "Sure. 圏", "pos_jp": "間", "pos_en": "interjection", "hint": "(　　　)", "answer": "Sure." },
+      { "jp": "(チェス・将棋などの)駒", "pos_jp": "名", "pos_en": "noun", "hint": "", "answer": "piece" },
+      { "jp": "動かす、動く", "pos_jp": "動", "pos_en": "verb", "hint": "", "answer": "move" },
+      { "jp": "英語を教える", "pos_jp": "動", "pos_en": "verb", "hint": "___ English", "answer": "teach" },
+      { "jp": "前へ、前方へ", "pos_jp": "副", "pos_en": "adverb", "hint": "", "answer": "forward" },
+      { "jp": "たくさんのクマ", "pos_jp": "形", "pos_en": "adjective", "hint": "___ bears", "answer": "many" }
+    ]
+  },
+
+  "section_b": {
+    "instruction_jp": "伝える練習をする！",
+    "instruction_en": "Practice expressing yourself!",
+    "ex1": {
+      "type": "build",
+      "instruction_jp": "日本文にあう英文になるように、（）内の語や符号を並べかえて、全文を書こう。",
+      "instruction_en": "Rearrange all the words to write the full sentence.",
+      "items": [
+        {
+          "jp": "あなたはカレーを作ることができますか。",
+          "bank": ["curry", "you", "make", "can", "?"],
+          "answer": ["Can", "you", "make", "curry", "?"]
+        },
+        {
+          "jp": "マサキは速く走ることができません。",
+          "bank": ["fast", "cannot", "Masaki", "run", "."],
+          "answer": ["Masaki", "cannot", "run", "fast", "."]
+        }
+      ]
+    },
+    "ex2": {
+      "type": "build",
+      "instruction_jp": "下のメモを参考に、Johnにできることをたずねる英文を完成させよう。",
+      "instruction_en": "Complete the questions asking John what he can do, using the notes below.",
+      "context_jp": "あなたは、転入生のJohn(ジョン)が何の部活に入るのがよいか、いっしょに考えています。",
+      "context_en": "You are helping new student John decide which club to join.",
+      "items": [
+        {
+          "label_jp": "(1) ギターを弾けるか？",
+          "label_en": "(1) Can he play the guitar?",
+          "bank": ["Can", "you", "play", "the", "guitar", "?"],
+          "answer": ["Can", "you", "play", "the", "guitar", "?"]
+        },
+        {
+          "label_jp": "(2) 料理ができるか？",
+          "label_en": "(2) Can he cook?",
+          "bank": ["Can", "you", "cook", "?"],
+          "answer": ["Can", "you", "cook", "?"]
+        }
+      ]
+    },
+    "ex3": {
+      "type": "free_write",
+      "instruction_jp": "英語新聞でクラスメイトの紹介記事を書くために、Jane(ジェーン)とアンケート結果を見ています。右の表を見て、由美(女子)または亮(男子)についてのJaneからの質問に英語で答えよう。また、表内の？の箇所は不明です。「由美[亮]は…できますか」とたずねる文を英語で書こう。",
+      "instruction_en": "Answer Jane's questions about Yumi and Ryo using the survey results. Also write questions about the unknown (?) entries.",
+      "example_jp": "○…できること ×…できないこと / テニス：由美○ 亮○ / 野球：由美× 亮？ / 歌う：由美○ 亮× / 英語を読む：由美？ 亮○",
+      "example_en": "○=can ×=cannot / Tennis: Yumi○ Ryo○ / Baseball: Yumi× Ryo? / Sing: Yumi○ Ryo× / Read English: Yumi? Ryo○",
+      "example_text": "Jane: Can Yumi play tennis?\nYes, she can.\nCan Yumi read English?"
+    }
+  }
+}
