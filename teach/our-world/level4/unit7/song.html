@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 · Song — Inventions</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange:#F97316; --yellow:#FDE047; --blue:#3B82F6;
+  --dark:#431407; --amber:#EA580C;
+  --bg:#FFF7ED; --card:#FFEDD5; --text:#1C1917; --muted:#78716C;
+  --green:#16A34A; --red:#DC2626; --purple:#7C3AED;
+  --font-h:'Luckiest Guy',cursive; --font-b:'Nunito',sans-serif;
+  --radius:16px;
+}
+body { font-family:var(--font-b); background:#1C1917; display:flex; flex-direction:column; align-items:center; min-height:100vh; }
+
+/* TOP BAR */
+.topbar { width:100%; max-width:1400px; display:flex; align-items:center; padding:10px 16px; gap:12px; }
+.unit-chip { background:var(--purple); color:#fff; font-family:var(--font-h); font-size:0.82rem; letter-spacing:1px; padding:5px 14px; border-radius:20px; white-space:nowrap; }
+.progress-wrap { flex:1; background:rgba(255,255,255,0.1); border-radius:20px; height:8px; overflow:hidden; }
+.progress-fill { background:linear-gradient(90deg,var(--purple),var(--orange),var(--yellow)); height:100%; border-radius:20px; transition:width 0.4s; }
+.slide-counter { color:#D6D3D1; font-size:0.82rem; font-weight:800; white-space:nowrap; }
+.icon-btn { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:1rem; width:34px; height:34px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s; flex-shrink:0; }
+.icon-btn:hover { background:rgba(255,255,255,0.2); }
+
+/* NOTES */
+.slide-wrap { width:100%; max-width:1400px; position:relative; }
+.notes-panel { display:none; background:#292524; border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius); padding:14px 18px; margin:0 0 10px; color:#D6D3D1; font-size:0.84rem; line-height:1.6; }
+.notes-panel.open { display:block; }
+.notes-panel strong { color:var(--yellow); }
+
+/* SLIDES */
+.slide { display:none; background:var(--bg); border-radius:20px; overflow:hidden; min-height:calc(100vh - 130px); animation:fadeIn 0.3s ease; }
+.slide.active { display:flex; flex-direction:column; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+/* HEADERS */
+.slide-header { padding:14px 28px; display:flex; align-items:center; gap:10px; font-family:var(--font-h); font-size:0.82rem; letter-spacing:1.5px; color:#fff; }
+.sh-purple { background:var(--purple); }
+.sh-orange { background:var(--orange); }
+.sh-green  { background:#16A34A; }
+.sh-blue   { background:#1D4ED8; }
+.sh-amber  { background:var(--amber); }
+.sh-dark   { background:var(--dark); }
+.sh-teal   { background:#0F766E; }
+
+/* SLIDE BODY */
+.slide-body { flex:1; padding:28px 36px; display:flex; flex-direction:column; gap:16px; overflow-y:auto; }
+
+/* TITLE */
+.title-slide { background:linear-gradient(135deg,#2E1065,#5B21B6,#7C3AED); min-height:calc(100vh - 130px); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; gap:16px; }
+.title-slide .unit-label { background:rgba(255,255,255,0.15); color:var(--yellow); font-family:var(--font-h); font-size:0.9rem; letter-spacing:3px; padding:6px 20px; border-radius:20px; }
+.title-slide h1 { font-family:var(--font-h); font-size:3rem; color:#fff; letter-spacing:2px; line-height:1.1; }
+.title-slide h1 span { color:var(--yellow); }
+.title-slide .sub { color:rgba(255,255,255,0.75); font-size:0.95rem; font-weight:700; }
+.title-slide .song-chip { background:var(--orange); color:#fff; font-weight:800; font-size:0.9rem; padding:8px 24px; border-radius:20px; margin-top:8px; }
+
+/* SECTION SLIDES */
+.section-slide { min-height:calc(100vh - 130px); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; gap:14px; }
+.section-slide .sec-emoji { font-size:4rem; }
+.section-slide h2 { font-family:var(--font-h); font-size:2.2rem; letter-spacing:2px; }
+.section-slide p { font-size:1rem; font-weight:600; max-width:520px; }
+.sec-purple { background:linear-gradient(135deg,#2E1065,#4C1D95); color:#EDE9FE; }
+.sec-purple h2 { color:#DDD6FE; }
+.sec-orange { background:linear-gradient(135deg,var(--dark),var(--amber)); color:#FFEDD5; }
+.sec-orange h2 { color:var(--yellow); }
+.sec-green  { background:#14532D; color:#DCFCE7; }
+.sec-green h2 { color:#86EFAC; }
+.sec-blue   { background:#1E3A8A; color:#DBEAFE; }
+.sec-blue h2  { color:#93C5FD; }
+.sec-teal   { background:#134E4A; color:#CCFBF1; }
+.sec-teal h2  { color:#5EEAD4; }
+
+/* COMMON */
+.slide-title { font-family:var(--font-h); font-size:1.7rem; color:var(--amber); letter-spacing:1px; }
+.slide-sub { font-size:0.88rem; font-weight:700; color:var(--muted); }
+.dialogue { display:flex; gap:12px; align-items:flex-start; }
+.dialogue.leo { flex-direction:row-reverse; }
+.avi { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.avi-dad { background:#1D4ED8; } .avi-leo { background:#16A34A; }
+.bubble { max-width:80%; padding:12px 16px; border-radius:16px; font-size:0.88rem; font-weight:700; line-height:1.5; }
+.bubble-dad { background:#1D4ED8; color:#fff; border-radius:4px 16px 16px 16px; }
+.bubble-leo { background:#16A34A; color:#fff; border-radius:16px 4px 16px 16px; }
+.bubble-label { font-size:0.62rem; opacity:0.7; margin-bottom:3px; letter-spacing:0.5px; }
+.info-card { background:var(--card); border-radius:var(--radius); padding:16px 20px; border-left:5px solid var(--orange); }
+.info-card h3 { font-family:var(--font-h); font-size:0.95rem; letter-spacing:1px; color:var(--amber); margin-bottom:6px; }
+.info-card p, .info-card li { font-size:0.85rem; font-weight:600; color:var(--text); line-height:1.6; }
+.info-card ul { padding-left:16px; }
+.highlight { background:var(--yellow); border-radius:12px; padding:14px 18px; color:var(--dark); font-weight:800; font-size:0.9rem; line-height:1.5; }
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+.reveal-btn { background:var(--orange); color:#fff; border:none; font-family:var(--font-b); font-weight:800; font-size:0.82rem; padding:7px 16px; border-radius:20px; cursor:pointer; transition:background 0.2s; }
+.reveal-btn:hover { background:var(--amber); }
+.answer-reveal { background:var(--card); border-radius:10px; padding:10px 16px; font-size:0.88rem; font-weight:700; color:var(--green); display:none; border-left:4px solid var(--green); margin-top:8px; }
+
+/* ── LYRICS DISPLAY ── */
+.lyrics-box { background:#fff; border:2px solid var(--purple); border-radius:var(--radius); padding:20px 24px; font-size:0.92rem; font-weight:700; line-height:2; color:var(--text); }
+.lyrics-box .chorus-label { font-family:var(--font-h); font-size:0.75rem; letter-spacing:2px; color:var(--purple); margin:8px 0 2px; }
+.lyrics-box .verse-label  { font-family:var(--font-h); font-size:0.75rem; letter-spacing:2px; color:var(--orange); margin:8px 0 2px; }
+
+/* vocab words in lyrics — clickable */
+.lyric-vocab {
+  background:rgba(249,115,22,0.12);
+  border:2px solid rgba(249,115,22,0.3);
+  color:var(--amber);
+  border-radius:6px;
+  padding:1px 6px;
+  cursor:pointer;
+  transition:all 0.2s;
+  display:inline-block;
+  font-weight:900;
+}
+.lyric-vocab:hover, .lyric-vocab.lit { background:var(--orange); color:#fff; border-color:var(--orange); transform:scale(1.08); }
+
+/* used-to highlight */
+.lyric-used-to {
+  background:rgba(30,58,138,0.12);
+  border:2px solid rgba(30,58,138,0.3);
+  color:#1D4ED8;
+  border-radius:6px;
+  padding:1px 6px;
+  cursor:pointer;
+  transition:all 0.2s;
+  display:inline-block;
+  font-weight:900;
+}
+.lyric-used-to:hover, .lyric-used-to.lit { background:#1D4ED8; color:#fff; border-color:#1D4ED8; }
+
+/* you highlight */
+.lyric-you {
+  border-radius:6px;
+  padding:1px 6px;
+  cursor:pointer;
+  transition:all 0.2s;
+  display:inline-block;
+  font-weight:900;
+  border:2px solid transparent;
+}
+.lyric-you:hover { transform:scale(1.08); }
+.lyric-you.general { background:#DCFCE7; border-color:var(--green); color:var(--green); }
+.lyric-you.direct  { background:#FEE2E2; border-color:var(--red); color:var(--red); }
+
+/* ── USED TO TABLE ── */
+.used-to-table { width:100%; border-collapse:collapse; border-radius:12px; overflow:hidden; }
+.used-to-table th { padding:10px 16px; font-family:var(--font-h); font-size:0.85rem; letter-spacing:1px; text-align:center; }
+.used-to-table th.old { background:#78350F; color:var(--yellow); }
+.used-to-table th.new { background:#16A34A; color:#fff; }
+.used-to-table td { background:#fff; border:1px solid #FFEDD5; padding:10px 16px; font-size:0.85rem; font-weight:700; text-align:center; }
+.used-to-table tr:nth-child(even) td { background:#FFFBEB; }
+.used-to-table .reveal-cell { color:var(--muted); cursor:pointer; transition:all 0.2s; }
+.used-to-table .reveal-cell:hover { color:var(--green); }
+.used-to-table .revealed { color:var(--green); font-weight:900; }
+
+/* ── INVENTION CARDS ── */
+.invention-cards { display:flex; gap:10px; flex-wrap:wrap; }
+.inv-card { background:var(--card); border:2px solid var(--orange); border-radius:var(--radius); padding:14px 18px; flex:1; min-width:140px; text-align:center; cursor:pointer; transition:all 0.2s; }
+.inv-card:hover { background:var(--orange); color:#fff; transform:translateY(-3px); }
+.inv-card .ic-emoji { font-size:2rem; margin-bottom:6px; }
+.inv-card .ic-name  { font-weight:800; font-size:0.85rem; color:var(--text); }
+.inv-card:hover .ic-name { color:#fff; }
+.inv-card.selected { background:var(--green); border-color:var(--green); }
+.inv-card.selected .ic-name { color:#fff; }
+
+/* ── YOU GAME ── */
+.you-game-box { background:#fff; border:2px solid var(--border, #E5E3DC); border-radius:var(--radius); padding:16px 20px; }
+.you-line { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid #F0EEE8; }
+.you-line:last-child { border-bottom:none; }
+.you-line .you-text { flex:1; font-size:0.88rem; font-weight:700; color:var(--text); }
+.you-btns { display:flex; gap:6px; }
+.you-btn { border:2px solid transparent; border-radius:10px; padding:5px 12px; font-family:var(--font-b); font-weight:800; font-size:0.72rem; cursor:pointer; transition:all 0.2s; }
+.you-btn.gen-btn { background:#E8F5E9; border-color:var(--green); color:var(--green); }
+.you-btn.gen-btn:hover { background:var(--green); color:#fff; }
+.you-btn.dir-btn { background:#FEE2E2; border-color:var(--red); color:var(--red); }
+.you-btn.dir-btn:hover { background:var(--red); color:#fff; }
+.you-btn.selected-correct { background:var(--green); border-color:var(--green); color:#fff; }
+.you-btn.selected-wrong   { background:var(--red); border-color:var(--red); color:#fff; }
+
+/* ── NEW LINES WRITER ── */
+.new-line-box { background:#fff; border:2px solid var(--purple); border-radius:var(--radius); padding:18px; }
+.new-line-box label { display:block; font-weight:800; font-size:0.85rem; color:var(--purple); margin-bottom:8px; letter-spacing:0.5px; }
+.new-line-box .model { background:#F3F0FF; border-left:4px solid var(--purple); padding:8px 12px; border-radius:0 8px 8px 0; font-size:0.82rem; font-weight:600; color:#5B21B6; font-style:italic; margin-bottom:10px; }
+.new-line-box textarea { width:100%; min-height:70px; border:1px solid #D6D3D1; border-radius:10px; padding:10px 14px; font-family:var(--font-b); font-size:0.88rem; font-weight:600; resize:vertical; color:var(--text); background:var(--bg); }
+.new-line-box textarea:focus { outline:2px solid var(--purple); border-color:var(--purple); }
+
+/* ── LION LIGHTS CARD ── */
+.lion-card { background:linear-gradient(135deg,#14532D,#166534); color:#fff; border-radius:var(--radius); padding:22px 26px; }
+.lion-card .lion-title { font-family:var(--font-h); font-size:1.1rem; letter-spacing:1px; color:#86EFAC; margin-bottom:10px; }
+.lion-card p { font-size:0.85rem; font-weight:600; line-height:1.6; color:rgba(255,255,255,0.9); }
+.lion-card .stat { display:inline-block; background:rgba(255,255,255,0.15); border-radius:20px; padding:4px 12px; font-size:0.75rem; font-weight:800; margin:6px 4px 0 0; }
+
+/* ── FORMATIVE ── */
+.assess-items { display:flex; flex-direction:column; gap:10px; }
+.assess-item { background:var(--card); border-radius:12px; padding:14px 18px; display:flex; align-items:center; gap:12px; cursor:pointer; border:2px solid transparent; transition:all 0.2s; }
+.assess-item:hover { border-color:var(--orange); }
+.assess-item.checked { background:#DCFCE7; border-color:var(--green); }
+.assess-check { width:24px; height:24px; border:2px solid var(--orange); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; transition:all 0.2s; }
+.assess-item.checked .assess-check { background:var(--green); border-color:var(--green); color:#fff; }
+.assess-item p { font-size:0.88rem; font-weight:700; color:var(--text); }
+
+/* NAV */
+.nav-bar { width:100%; max-width:1400px; display:flex; align-items:center; justify-content:space-between; padding:10px 0 16px; gap:12px; }
+.nav-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; font-family:var(--font-b); font-weight:800; font-size:0.85rem; padding:10px 22px; border-radius:12px; cursor:pointer; transition:all 0.2s; }
+.nav-btn:hover:not(:disabled) { background:var(--purple); border-color:var(--purple); }
+.nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
+.nav-btn-primary { background:var(--purple); border-color:var(--purple); color:#fff; }
+.nav-btn-primary:hover { background:#6D28D9 !important; }
+.home-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#D6D3D1; font-size:0.8rem; font-weight:700; padding:8px 14px; border-radius:10px; cursor:pointer; transition:all 0.2s; font-family:var(--font-b); }
+.home-btn:hover { background:rgba(255,255,255,0.15); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="unit-chip">🎵 UNIT 7 · SONG</div>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="slide-counter" id="slide-counter">1 / 12</div>
+  <button class="icon-btn" onclick="toggleNotes()">📋</button>
+  <button class="icon-btn" onclick="toggleFS()" id="fs-btn">⛶</button>
+</div>
+
+<div class="slide-wrap">
+<div class="notes-panel" id="notes-panel"></div>
+
+<!-- ══ SLIDE 1: TITLE ══ -->
+<div class="slide active" id="s1" data-notes="<strong>Say:</strong> 'Leo, today we have a special lesson — the Unit 7 song! The song is called Inventions. We are going to listen, sing, and learn with the song. It uses all the vocabulary words we already know plus our two grammar points — are you ready? ⚽'">
+  <div class="title-slide">
+    <div class="unit-label">UNIT 7 · LEVEL 4 · SONG</div>
+    <h1>🎵 <span>INVENTIONS</span></h1>
+    <div class="sub">Use the Song · Use It Again · About the Photo</div>
+    <div class="song-chip">🎤 TR: 7.3 · National Geographic Learning</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 2: SET THE STAGE ══ -->
+<div class="slide" id="s2" data-notes="<strong>Say:</strong> 'Before we listen, let's think about the topic — inventions! The song is about how inventions changed the world. People USED TO do things one way — now they do it differently!' Write on the board: 'People used to only ___, but now ___.' Model with Leo.">
+  <div class="slide-header sh-orange">🎬 USE THE SONG — Set the Stage</div>
+  <div class="slide-body">
+    <div class="slide-title">People used to… but now! ⏳→✨</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — long ago, people used to only WALK to go from place to place. But now? What do we use? Click to reveal! 🚗</div>
+    </div>
+    <table class="used-to-table">
+      <tr><th class="old">⏳ People USED TO…</th><th class="new">✨ But NOW…</th></tr>
+      <tr><td>🚶 only walk</td><td class="reveal-cell" onclick="revealCell(this,'🚗 drive cars / ride bikes')">Click to reveal!</td></tr>
+      <tr><td>🗣️ only talk face to face</td><td class="reveal-cell" onclick="revealCell(this,'📱 use cell phones / video call')">Click to reveal!</td></tr>
+      <tr><td>⛵ only take boats across the sea</td><td class="reveal-cell" onclick="revealCell(this,'✈️ fly across the sky in airplanes')">Click to reveal!</td></tr>
+      <tr><td>🕯️ read by candlelight</td><td class="reveal-cell" onclick="revealCell(this,'💡 use electric lights')">Click to reveal!</td></tr>
+    </table>
+    <div class="highlight">🎵 The song is all about this! <strong>Inventions changed everything!</strong></div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 3: PREDICT ══ -->
+<div class="slide" id="s3" data-notes="<strong>Say:</strong> 'Leo, before we listen, let's predict! What inventions do you think will be in the song? Click on the ones you think will appear. Then we listen and check!' Play TR: 7.3 and check together.">
+  <div class="slide-header sh-purple">🔮 PREDICT — What inventions will be in the song?</div>
+  <div class="slide-body">
+    <div class="slide-title">Predict! 🔮</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — click on the inventions you THINK will be in the song! Then we listen and check!</div>
+    </div>
+    <div class="invention-cards">
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">⭕</div><div class="ic-name">The Wheel</div></div>
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">📱</div><div class="ic-name">Cell phone</div></div>
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">✈️</div><div class="ic-name">Airplane</div></div>
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">💻</div><div class="ic-name">Computer</div></div>
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">🚗</div><div class="ic-name">Car</div></div>
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">⛵</div><div class="ic-name">Boat</div></div>
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">🚂</div><div class="ic-name">Train</div></div>
+      <div class="inv-card" onclick="toggleInv(this)"><div class="ic-emoji">🔬</div><div class="ic-name">Microscope</div></div>
+    </div>
+    <div class="highlight" id="predict-result" style="display:none">✅ In the song: wheel ⭕, cell phone 📱, computers 💻, cars 🚗, airplanes ✈️, boats ⛵ — <strong>6 inventions!</strong></div>
+    <button class="reveal-btn" onclick="document.getElementById('predict-result').style.display='block'">🎵 Listened? Check answers!</button>
+  </div>
+</div>
+
+<!-- ══ SLIDE 4: LYRICS — VERSE 1 + CHORUS ══ -->
+<div class="slide" id="s4" data-notes="<strong>Say:</strong> 'Leo, open your book to pages 118–119. Let's read the lyrics together. Click on any orange word — those are our Vocabulary 1 words! Can you find them all?' Read aloud together. Click each vocab word to highlight it.">
+  <div class="slide-header sh-purple">🎵 LISTEN, READ & SING — Verses 1 + Chorus</div>
+  <div class="slide-body">
+    <div class="slide-title">Click the 🟠 orange words — Vocab 1! ⚽</div>
+    <div class="two-col">
+      <div>
+        <div class="lyrics-box">
+          <div class="verse-label">VERSE 1</div>
+          <span class="lyric-vocab" onclick="litWord(this)">Creativity</span>! <span class="lyric-vocab" onclick="litWord(this)">Electricity</span>!<br>
+          <span class="lyric-vocab" onclick="litWord(this)">Creativity</span> changes the world!<br>
+          <span class="lyric-vocab" onclick="litWord(this)">Inventions</span> solve <span class="lyric-vocab" onclick="litWord(this)">problems</span>.<br>
+          <span class="lyric-vocab" onclick="litWord(this)">Problems</span> that we used to have are gone!<br>
+          The <span class="lyric-vocab" onclick="litWord(this)">wheel</span> and the cell phone<br>
+          help to make our world go around!<br>
+          <span class="lyric-vocab" onclick="litWord(this)">Inventions</span> are <span class="lyric-vocab" onclick="litWord(this)">useful</span>,<br>
+          every day, in every way.<br>
+          Computers, cars, and airplanes<br>
+          help to make our world go around.
+        </div>
+      </div>
+      <div>
+        <div class="lyrics-box">
+          <div class="chorus-label">CHORUS</div>
+          You used to have to walk<br>
+          to get from place to place.<br>
+          Years ago, you could only talk<br>
+          face to face.<br>
+          You could take only boats<br>
+          to get across the sea.<br>
+          Now, we fly across the sky.<br>
+          <span class="lyric-vocab" onclick="litWord(this)">Inventions</span> are the reason why.
+        </div>
+        <div style="height:10px"></div>
+        <div class="info-card">
+          <h3>🟠 Vocab words in the song:</h3>
+          <p>creativity · electricity · invention · problem · wheel · useful · imagination · idea</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 5: LYRICS — VERSE 2 ══ -->
+<div class="slide" id="s5" data-notes="<strong>Say:</strong> 'Leo, now let's read Verse 2 and the final chorus. This verse asks YOU a question — can you solve a problem? Can you help the world? What do YOU think? Could you be an inventor?' Read together, then ask Leo the questions.">
+  <div class="slide-header sh-purple">🎵 LISTEN, READ & SING — Verse 2 + Chorus</div>
+  <div class="slide-body">
+    <div class="slide-title">Can YOU help the world? 🌍</div>
+    <div class="two-col">
+      <div>
+        <div class="lyrics-box">
+          <div class="verse-label">VERSE 2</div>
+          <span class="lyric-vocab" onclick="litWord(this)">Imagination</span> and <span class="lyric-vocab" onclick="litWord(this)">ideas</span><br>
+          can change the world, every day.<br>
+          Can you solve a <span class="lyric-vocab" onclick="litWord(this)">problem</span>?<br>
+          Can you help our world today?
+          <div class="chorus-label" style="margin-top:14px">CHORUS (repeat)</div>
+          You used to have to walk<br>
+          to get from place to place.<br>
+          Years ago, you could only talk<br>
+          face to face.<br>
+          You could take only boats<br>
+          to get across the sea.<br>
+          Now, we fly across the sky.<br>
+          <span class="lyric-vocab" onclick="litWord(this)">Inventions</span> are the reason why.
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="info-card">
+          <h3>🟠 All 8 Vocab 1 words in the song!</h3>
+          <p>creativity ✅ · electricity ✅ · invention ✅ · problem ✅ · wheel ✅ · useful ✅ · imagination ✅ · idea ✅</p>
+        </div>
+        <div class="dialogue">
+          <div class="avi avi-dad">👨</div>
+          <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>"Can you solve a problem? Can you help our world today?" — Leo, what problem would YOU like to solve? ⚽</div>
+        </div>
+        <div class="dialogue leo">
+          <div class="avi avi-leo">🦁</div>
+          <div class="bubble bubble-leo"><div class="bubble-label">LEO 💬</div><em>Leo answers…</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 6: ACTIVITY — TRANSPORT INVENTIONS ══ -->
+<div class="slide" id="s6" data-notes="<strong>Say:</strong> 'Leo — let's play! I'll read each line from the song. RAISE YOUR HAND when you hear an invention that helps people get from place to place! Ready?' Read slowly, pause on each invention. Then reveal the answer.">
+  <div class="slide-header sh-orange">🙋 ACT IT OUT — Raise Your Hand!</div>
+  <div class="slide-body">
+    <div class="slide-title">Which inventions help people travel? ✈️</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — I'll read lines from the song. <strong>Raise your hand</strong> 🙋 when you hear an invention that helps people get from place to place!</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div class="info-card" style="border-color:var(--muted)">
+        <p style="color:var(--muted);font-style:italic">"The <strong>___</strong> and the cell phone help to make our world go around!" → Transport? <button class="reveal-btn" onclick="revealTravel('t1',true,'⭕ WHEEL — yes! You roll it to move things!')">Check</button> <span id="t1" style="display:none;font-weight:800;color:var(--green)"></span></p>
+      </div>
+      <div class="info-card" style="border-color:var(--muted)">
+        <p style="color:var(--muted);font-style:italic">"<strong>Computers</strong>, cars, and airplanes help to make our world go around!" → Transport? <button class="reveal-btn" onclick="revealTravel('t2',true,'🚗 CARS ✅ and ✈️ AIRPLANES ✅ — yes! Computers ❌ — not transport!')">Check</button> <span id="t2" style="display:none;font-weight:800;color:var(--green)"></span></p>
+      </div>
+      <div class="info-card" style="border-color:var(--muted)">
+        <p style="color:var(--muted);font-style:italic">"You could take only <strong>boats</strong> to get across the sea." → Transport? <button class="reveal-btn" onclick="revealTravel('t3',true,'⛵ BOATS — yes! People used to travel by boat across the sea!')">Check</button> <span id="t3" style="display:none;font-weight:800;color:var(--green)"></span></p>
+      </div>
+      <div class="info-card" style="border-color:var(--muted)">
+        <p style="color:var(--muted);font-style:italic">"Now, we <strong>fly</strong> across the sky." → Transport? <button class="reveal-btn" onclick="revealTravel('t4',true,'✈️ Flying = AIRPLANES — yes! Inventions let us fly!')">Check</button> <span id="t4" style="display:none;font-weight:800;color:var(--green)"></span></p>
+      </div>
+    </div>
+    <div class="highlight">⭕ 🚗 ✈️ ⛵ — <strong>4 transport inventions in the song!</strong> The wheel, cars, airplanes, and boats.</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 7: USE IT AGAIN — VOCAB 1 ══ -->
+<div class="slide" id="s7" data-notes="<strong>Say:</strong> 'Now Leo — let's use the vocabulary! I'll sing the first two verses and PAUSE at each vocab word. When I pause, you sing the word! Ready?' Sing slowly, pause at blank spaces and let Leo fill in.">
+  <div class="slide-header sh-green">📚 USE IT AGAIN — Vocabulary 1</div>
+  <div class="slide-body">
+    <div class="slide-title">Sing the Vocab Words! 🎤</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — I sing the song and stop at the orange words. YOU sing the missing word! Like this: <em>"_______ changes the world!"</em> → You sing: <strong>"Creativity!"</strong></div>
+    </div>
+    <div class="lyrics-box">
+      <div class="verse-label">SING ALONG — fill in the blanks!</div>
+      <span class="lyric-vocab">_______</span>! <span class="lyric-vocab">_______</span>!<br>
+      <span class="lyric-vocab">_______</span> changes the world!<br>
+      <span class="lyric-vocab">_______</span> solve <span class="lyric-vocab">_______</span>.<br>
+      <span class="lyric-vocab">_______</span> that we used to have are gone!<br>
+      The <span class="lyric-vocab">_______</span> and the cell phone<br>
+      help to make our world go around!<br>
+      <span class="lyric-vocab">_______</span> are <span class="lyric-vocab">_______</span>,<br>
+      every day, in every way.
+    </div>
+    <button class="reveal-btn" onclick="revealSingAlong()">🎤 Reveal all words</button>
+    <div id="singalong-reveal" class="answer-reveal">Creativity! Electricity! Creativity changes the world! Inventions solve problems. Problems that we used to have are gone! The wheel... Inventions are useful!</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 8: USE IT AGAIN — GRAMMAR 1 ══ -->
+<div class="slide" id="s8" data-notes="<strong>Say:</strong> 'Leo — now let's find Grammar 1 in the song! Our grammar point is USED TO for past habits. Click every time you see USED TO in the lyrics — then let's rephrase the other sentences using USED TO.'">
+  <div class="slide-header sh-blue">✏️ USE IT AGAIN — Grammar 1: used to</div>
+  <div class="slide-body">
+    <div class="slide-title">Find "used to" in the song! 🔍</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — click every <strong style="color:#1D4ED8">blue</strong> phrase in the lyrics. Then we rephrase the other lines using "used to"! ✏️</div>
+    </div>
+    <div class="two-col">
+      <div class="lyrics-box">
+        <div class="chorus-label">CHORUS — find "used to"!</div>
+        <span class="lyric-used-to" onclick="litUsedTo(this)">You used to have to walk</span><br>
+        to get from place to place.<br>
+        Years ago, you could only talk<br>
+        face to face.<br>
+        You could take only boats<br>
+        to get across the sea.<br>
+        Now, we fly across the sky.<br>
+        Inventions are the reason why.<br>
+        <div style="height:8px"></div>
+        <div class="verse-label">VERSE 1</div>
+        <span class="lyric-used-to" onclick="litUsedTo(this)">Problems that we used to have are gone!</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="info-card" style="border-color:#1D4ED8">
+          <h3 style="color:#1D4ED8">NOW REPHRASE! →</h3>
+          <p>"You could only talk face to face"</p>
+          <button class="reveal-btn" onclick="reveal('rep1',this)" style="margin-top:6px">→ used to</button>
+          <div class="answer-reveal" id="rep1">✅ "You <strong>used to</strong> only talk face to face."</div>
+        </div>
+        <div class="info-card" style="border-color:#1D4ED8">
+          <p>"You could take only boats"</p>
+          <button class="reveal-btn" onclick="reveal('rep2',this)" style="margin-top:6px">→ used to</button>
+          <div class="answer-reveal" id="rep2">✅ "You <strong>used to</strong> only take boats."</div>
+        </div>
+        <div class="highlight" style="background:#DBEAFE;color:#1E3A8A">
+          💡 <strong>used to + verb</strong> = past habit that doesn't happen anymore
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 9: USE IT AGAIN — GRAMMAR 2 ══ -->
+<div class="slide" id="s9" data-notes="<strong>Say:</strong> 'Now Grammar 2 — the generalized YOU! In the song, YOU is used in two ways. Sometimes it means YOU personally — sometimes it means EVERYONE IN GENERAL. Let's figure out which is which!' Go through each line together.">
+  <div class="slide-header sh-amber">📝 USE IT AGAIN — Grammar 2: generalized you</div>
+  <div class="slide-body">
+    <div class="slide-title">Which "you" is general? 🤔</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — "you" has two meanings in the song. Click <span style="color:var(--green);font-weight:900">GENERAL</span> if it means everyone — click <span style="color:var(--red);font-weight:900">DIRECT</span> if it means YOU personally! ⚽</div>
+    </div>
+    <div class="you-game-box">
+      <div class="you-line">
+        <div class="you-text">"<strong>You</strong> used to have to walk to get from place to place."</div>
+        <div class="you-btns">
+          <button class="you-btn gen-btn" onclick="youCheck(this,'gen','y1')">🌍 General</button>
+          <button class="you-btn dir-btn" onclick="youCheck(this,'dir','y1')" id="y1-dir">👤 Direct</button>
+        </div>
+      </div>
+      <div class="you-line">
+        <div class="you-text">"Years ago, <strong>you</strong> could only talk face to face."</div>
+        <div class="you-btns">
+          <button class="you-btn gen-btn" onclick="youCheck(this,'gen','y2')">🌍 General</button>
+          <button class="you-btn dir-btn" onclick="youCheck(this,'dir','y2')">👤 Direct</button>
+        </div>
+      </div>
+      <div class="you-line">
+        <div class="you-text">"Can <strong>you</strong> solve a problem?"</div>
+        <div class="you-btns">
+          <button class="you-btn gen-btn" onclick="youCheck(this,'gen','y3')">🌍 General</button>
+          <button class="you-btn dir-btn" onclick="youCheck(this,'dir','y3')">👤 Direct</button>
+        </div>
+      </div>
+      <div class="you-line">
+        <div class="you-text">"Can <strong>you</strong> help our world today?"</div>
+        <div class="you-btns">
+          <button class="you-btn gen-btn" onclick="youCheck(this,'gen','y4')">🌍 General</button>
+          <button class="you-btn dir-btn" onclick="youCheck(this,'dir','y4')">👤 Direct</button>
+        </div>
+      </div>
+    </div>
+    <!-- answers: gen, gen, dir, dir -->
+    <div id="you-result" style="display:none" class="highlight">
+      ✅ <strong>General you:</strong> lines 1 & 2 — talking about everyone in the past.<br>
+      ✅ <strong>Direct you:</strong> lines 3 & 4 — asking LEO personally!
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 10: ABOUT THE PHOTO ══ -->
+<div class="slide" id="s10" data-notes="<strong>Say:</strong> 'Leo, look at the photo on pages 118-119. This is Richard Turere from Kenya. He was 13 years old — same age as you! He invented something amazing called Lion Lights. Let's find out about it!'">
+  <div class="slide-header sh-green">🌍 BE THE EXPERT — About the Photo</div>
+  <div class="slide-body">
+    <div class="slide-title">Lion Lights 🦁💡 — Richard Turere</div>
+    <div class="two-col">
+      <div class="lion-card">
+        <div class="lion-title">🦁 Lion Lights — Nairobi, Kenya</div>
+        <p>Richard Turere was just a <strong>young boy</strong> in Kenya. His father kept livestock — cows, goats, and sheep. But lions from Nairobi National Park attacked the animals at night.</p>
+        <p style="margin-top:8px">The villagers killed the lions to protect their animals. Both the lions AND the livestock were in danger!</p>
+        <p style="margin-top:8px">In <strong>2012</strong>, Richard had an <strong>idea</strong>. He invented <strong>Lion Lights</strong> — solar-powered lights that flash and flicker at night. The lions think someone is moving with a torch — so they stay away! 🦁</p>
+        <div style="margin-top:10px">
+          <span class="stat">✅ Livestock safe</span>
+          <span class="stat">✅ Lions safe</span>
+          <span class="stat">🌍 Used worldwide</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="info-card">
+          <h3>❓ Discussion Questions</h3>
+          <ul>
+            <li>What problems did Richard solve?</li>
+            <li>How old was Richard when he invented Lion Lights?</li>
+            <li>Is Lion Lights a good invention? Why?</li>
+            <li>Where else are Lion Lights used?</li>
+          </ul>
+        </div>
+        <div class="dialogue">
+          <div class="avi avi-dad">👨</div>
+          <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Richard Turere was a teenager — like you Leo! He used his <strong>imagination</strong> and <strong>creativity</strong> to solve a <strong>problem</strong>. What do you think? ⚽</div>
+        </div>
+        <div class="dialogue leo">
+          <div class="avi avi-leo">🦁</div>
+          <div class="bubble bubble-leo"><div class="bubble-label">LEO 💬</div><em>Leo answers in a full sentence…</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 11: DISCUSS + DISCUSS ══ -->
+<div class="slide" id="s11" data-notes="<strong>Say:</strong> 'Leo — now let's discuss! Work with me as your partner. First: what inventions are mentioned in the song? Let's list them. Then: which one do YOU think is the most important? Tell me why!'">
+  <div class="slide-header sh-teal">💬 DISCUSS — Work with a Partner</div>
+  <div class="slide-body">
+    <div class="slide-title">Discuss with a partner! 🗣️</div>
+    <div class="two-col">
+      <div>
+        <div class="info-card">
+          <h3>📋 Question 1 — List them!</h3>
+          <p>What <strong>inventions</strong> are mentioned in the song?</p>
+          <button class="reveal-btn" onclick="reveal('disc1',this)" style="margin-top:8px">Show all inventions</button>
+          <div class="answer-reveal" id="disc1">⭕ Wheel · 📱 Cell phone · 💻 Computers · 🚗 Cars · ✈️ Airplanes · ⛵ Boats · (Lion Lights in the photo!)</div>
+        </div>
+        <div style="height:12px"></div>
+        <div class="info-card">
+          <h3>⭐ Question 2 — Your opinion!</h3>
+          <p>Which invention do YOU think is the most important? Why?</p>
+          <p style="color:var(--muted);font-style:italic;font-size:0.8rem;margin-top:6px">Sample: "I think computers are most important because they make many other things work."</p>
+        </div>
+      </div>
+      <div>
+        <div class="dialogue">
+          <div class="avi avi-dad">👨</div>
+          <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — I think <strong>electricity</strong> is the most important invention because without it, none of the other inventions work! Do you agree? ⚡</div>
+        </div>
+        <div style="height:10px"></div>
+        <div class="dialogue leo">
+          <div class="avi avi-leo">🦁</div>
+          <div class="bubble bubble-leo"><div class="bubble-label">LEO 💬</div><em>Leo gives his opinion: "I think ___ is most important because…"</em></div>
+        </div>
+        <div style="height:10px"></div>
+        <div class="highlight">⚽ <strong>Real connection:</strong> Which soccer invention changed football the most? VAR? Goal-line technology? The ball itself? 🥅</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 12: WRITE NEW LINES ══ -->
+<div class="slide" id="s12" data-notes="<strong>Say:</strong> 'Leo — now YOU are the songwriter! We are going to write NEW lines for the song using USED TO. Model with Leo first, then let him try his own. Use the model from the song: You used to have to walk / to get from place to place.'">
+  <div class="slide-header sh-purple">✍️ WRITE — New Song Lines!</div>
+  <div class="slide-body">
+    <div class="slide-title">Be a Songwriter! 🎤✍️</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — let's write NEW lines for the song! Use the model below. Think of something people USED TO do — then write how it changed! 💡</div>
+    </div>
+    <div class="info-card" style="border-color:var(--purple)">
+      <h3 style="color:var(--purple)">🎵 Song model (use this pattern):</h3>
+      <p style="font-style:italic">"You <strong>used to have to</strong> walk / to get from place to place."<br>"You <strong>used to have to</strong> read by candlelight."<br>"You <strong>used to have to</strong> wash clothes by hand."</p>
+    </div>
+    <div class="new-line-box">
+      <label>✍️ Leo's new song lines (use: "You used to have to…"):</label>
+      <div class="model">"You used to have to ___, / but now ___."</div>
+      <textarea id="song-lines" placeholder="Write your new lines here! Try 2 lines…"></textarea>
+    </div>
+    <div class="assess-items" style="margin-top:4px">
+      <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>🎵 Leo used "used to" correctly in his new lines?</p></div>
+      <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>🌍 Leo can name all 6 inventions from the song?</p></div>
+      <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>💡 Leo explained why Richard Turere's invention was important?</p></div>
+      <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>📝 Leo identified 2 uses of "you" — general vs direct?</p></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end slide-wrap -->
+
+<div class="nav-bar">
+  <button class="nav-btn" id="prev-btn" onclick="changeSlide(-1)" disabled>← Previous</button>
+  <button class="home-btn" onclick="window.location.href='index.html'">🏠 Home</button>
+  <button class="nav-btn nav-btn-primary" id="next-btn" onclick="changeSlide(1)">Next →</button>
+</div>
+
+<script>
+const TOTAL = 12;
+let current = 1, notesOpen = false;
+const notes = {};
+document.querySelectorAll('.slide').forEach(s => { notes[parseInt(s.id.replace('s',''))] = s.dataset.notes||''; });
+
+function updateUI() {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  document.getElementById('s'+current).classList.add('active');
+  document.getElementById('slide-counter').textContent = current+' / '+TOTAL;
+  document.getElementById('progress-fill').style.width = (current/TOTAL*100)+'%';
+  document.getElementById('prev-btn').disabled = current===1;
+  document.getElementById('next-btn').disabled = current===TOTAL;
+  document.getElementById('next-btn').textContent = current===TOTAL?'✅ End':'Next →';
+  if(notesOpen) document.getElementById('notes-panel').innerHTML = notes[current]||'<em>No notes.</em>';
+}
+function changeSlide(d) { const n=current+d; if(n>=1&&n<=TOTAL){current=n;updateUI();window.scrollTo(0,0);} }
+function toggleNotes() { notesOpen=!notesOpen; const p=document.getElementById('notes-panel'); p.classList.toggle('open',notesOpen); if(notesOpen) p.innerHTML=notes[current]||'<em>No notes.</em>'; }
+function toggleFS() { if(!document.fullscreenElement){document.documentElement.requestFullscreen();document.getElementById('fs-btn').textContent='✕';} else{document.exitFullscreen();document.getElementById('fs-btn').textContent='⛶';} }
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)document.getElementById('fs-btn').textContent='⛶';});
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') changeSlide(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') changeSlide(-1);
+});
+
+// ── INTERACTIONS ──
+function revealCell(el, val) { el.textContent=val; el.classList.add('revealed'); el.onclick=null; }
+function litWord(el) { el.classList.toggle('lit'); }
+function litUsedTo(el) { el.classList.toggle('lit'); }
+function toggleInv(el) { el.classList.toggle('selected'); }
+function reveal(id,btn) { document.getElementById(id).style.display='block'; btn.style.display='none'; }
+function revealSingAlong() { document.getElementById('singalong-reveal').style.display='block'; }
+function revealTravel(id, correct, msg) { const el=document.getElementById(id); el.style.display='inline'; el.textContent = msg; }
+
+// YOU game
+const youAnswers = { y1:'gen', y2:'gen', y3:'dir', y4:'dir' };
+let youScore = 0;
+function youCheck(btn, choice, id) {
+  const correct = youAnswers[id];
+  const isCorrect = choice===correct;
+  btn.classList.add(isCorrect?'selected-correct':'selected-wrong');
+  btn.disabled = true;
+  // disable sibling
+  const siblings = btn.parentElement.querySelectorAll('.you-btn');
+  siblings.forEach(b => b.disabled=true);
+  if(isCorrect) youScore++;
+  if(youScore>=2) document.getElementById('you-result').style.display='block';
+}
+
+// Used to highlighting
+function litUsedTo(el) { el.classList.toggle('lit'); }
+
+// Assess
+function toggleAssess(item) { item.classList.toggle('checked'); }
+
+updateUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Unit 7 · Young and Creative · Reading</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #1E0A3C; --p: #7C3AED; --a: #C4B5FD; --lt: #EDE9FE;
+  --wh: #fff; --gn: #22C55E; --rd: #EF4444; --gd: #F59E0B;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #000; font-family: 'Outfit', sans-serif; }
+
+/* ── Slide base ── */
+section {
+  background: var(--bg); color: var(--wh);
+  display: flex; flex-direction: column;
+  padding: 64px 96px; position: relative; overflow: hidden;
+}
+.grad { background: linear-gradient(135deg, #1E0A3C 0%, #4C1D95 60%, #7C3AED 100%); }
+
+/* ── Typography ── */
+.t1 { font-size: 64px; font-weight: 900; color: var(--a); line-height: 1.1; margin-bottom: 28px; }
+.t2 { font-size: 44px; font-weight: 800; color: var(--a); margin-bottom: 20px; }
+.tb { font-size: 34px; line-height: 1.55; }
+.tsm { font-size: 28px; line-height: 1.5; }
+.txs { font-size: 24px; }
+
+/* ── Buttons ── */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px;
+  border-radius: 12px; border: none; cursor: pointer; font-size: 28px;
+  font-weight: 700; font-family: 'Outfit', sans-serif; transition: all .2s; }
+.bp { background: var(--p); color: var(--wh); }
+.bp:hover { background: #6D28D9; transform: translateY(-2px); }
+.ba { background: var(--a); color: var(--bg); }
+.ba:hover { opacity: .9; transform: translateY(-2px); }
+.bg { background: transparent; border: 2px solid var(--a); color: var(--a); }
+.bg:hover { background: rgba(196,181,253,.12); }
+.bgn { background: var(--gn); color: var(--wh); }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(196,181,253,.5); }
+  50% { box-shadow: 0 0 0 22px rgba(196,181,253,0); transform: scale(1.04); } }
+.bpulse { animation: pulse 2s infinite; }
+
+/* ── Teacher note ── */
+.tn-btn { position: absolute; top: 20px; right: 20px; background: rgba(196,181,253,.15);
+  border: 1px solid rgba(196,181,253,.5); border-radius: 8px; padding: 7px 16px;
+  cursor: pointer; font-size: 22px; color: var(--a); font-family: 'Outfit', sans-serif; z-index: 60; }
+.tn-panel { display: none; position: absolute; top: 64px; right: 20px; width: 480px;
+  background: #2D1458; border: 2px solid var(--a); border-radius: 14px;
+  padding: 22px 26px; font-size: 24px; color: var(--lt); line-height: 1.55; z-index: 60;
+  box-shadow: 0 8px 40px rgba(0,0,0,.6); max-height: 380px; overflow-y: auto; }
+.tn-panel.open { display: block; }
+
+/* ── Flip card ── */
+.fc { perspective: 1200px; width: 620px; height: 400px; cursor: pointer; flex-shrink: 0; }
+.fc-inner { position: relative; width: 100%; height: 100%;
+  transition: transform .65s; transform-style: preserve-3d; }
+.fc.flipped .fc-inner { transform: rotateY(180deg); }
+.fc-f, .fc-b { position: absolute; width: 100%; height: 100%;
+  backface-visibility: hidden; border-radius: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 36px; }
+.fc-f { background: var(--p); font-size: 72px; font-weight: 900; color: var(--wh); text-align: center; gap: 10px; }
+.fc-b { background: #2D1458; border: 2px solid var(--a); transform: rotateY(180deg);
+  align-items: flex-start; justify-content: flex-start; gap: 14px; }
+
+/* ── Vocabulary reveal ── */
+.vr-item { font-size: 34px; line-height: 1.55; padding: 12px 0;
+  opacity: 0; transform: translateY(8px); transition: all .4s ease; pointer-events: none; }
+.vr-item.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+/* ── Sentence reveal ── */
+.sent { font-size: 34px; line-height: 1.6; padding: 10px 0;
+  opacity: 0; transform: translateY(8px); transition: all .4s ease; pointer-events: none; }
+.sent.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+/* ── Highlighted vocab ── */
+.hl { background: rgba(196,181,253,.2); color: var(--a); font-weight: 700;
+  border-radius: 6px; padding: 2px 8px; cursor: pointer; position: relative;
+  transition: background .2s; display: inline-block; }
+.hl:hover { background: rgba(196,181,253,.4); }
+.hl-tip { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%); background: #4C1D95; color: var(--wh);
+  padding: 10px 18px; border-radius: 10px; font-size: 24px; white-space: nowrap;
+  z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,.5); pointer-events: none; }
+.hl-tip::after { content: ''; position: absolute; top: 100%; left: 50%;
+  transform: translateX(-50%); border: 7px solid transparent; border-top-color: #4C1D95; }
+.hl:hover .hl-tip { display: block; }
+
+/* ── Fill-in ── */
+.fill-inp { background: rgba(255,255,255,.12); border: none;
+  border-bottom: 2px solid var(--p); color: var(--wh); font-size: 32px;
+  font-family: 'Outfit', sans-serif; outline: none; padding: 4px 8px;
+  width: 200px; transition: border-color .2s; display: inline-block; vertical-align: middle; }
+.fill-inp:focus { border-bottom-color: var(--a); }
+.fill-inp.ok { border-bottom-color: var(--gn); color: var(--gn); }
+.fill-inp.bad { border-bottom-color: var(--rd); animation: shake .4s; }
+
+/* ── Answer textarea ── */
+.ans-area { background: rgba(255,255,255,.1); border: 2px solid var(--p);
+  border-radius: 10px; padding: 14px 20px; font-size: 32px; color: var(--wh);
+  width: 100%; outline: none; font-family: 'Outfit', sans-serif; resize: none;
+  min-height: 100px; transition: border-color .2s; }
+.ans-area:focus { border-color: var(--a); }
+.model-ans { display: none; background: rgba(34,197,94,.15);
+  border: 2px solid var(--gn); border-radius: 12px;
+  padding: 20px 24px; font-size: 30px; margin-top: 14px; line-height: 1.55; }
+.model-ans.show { display: block; animation: fdIn .4s; }
+
+/* ── Blurred objectives ── */
+.blur-card { filter: blur(7px); transition: filter .4s; cursor: pointer; user-select: none; }
+.blur-card.rev { filter: none; border: 2px solid var(--a) !important;
+  box-shadow: 0 0 24px rgba(196,181,253,.35); }
+
+/* ── Step/tip boxes ── */
+.step-box { display: none; background: rgba(124,58,237,.25);
+  border-left: 5px solid var(--a); border-radius: 0 12px 12px 0;
+  padding: 16px 22px; font-size: 34px; margin: 8px 0; }
+.step-box.show { display: block; animation: fdIn .4s; }
+.tip-box { display: none; background: rgba(34,197,94,.15);
+  border: 2px solid var(--gn); border-radius: 14px;
+  padding: 18px 24px; font-size: 34px; margin-top: 12px; }
+.tip-box.show { display: block; animation: fdIn .5s; }
+
+/* ── Year badge ── */
+.yr { display: inline-block; background: var(--p); color: var(--a);
+  font-size: 32px; font-weight: 900; padding: 6px 28px; border-radius: 50px; margin-bottom: 16px; }
+
+/* ── Table ── */
+.tbl { width: 100%; border-collapse: collapse; font-size: 26px; }
+.tbl th { background: var(--p); color: var(--a); padding: 14px 18px; text-align: left; font-size: 28px; }
+.tbl td { padding: 12px 16px; border-bottom: 1px solid rgba(196,181,253,.18); vertical-align: middle; }
+.tbl tr:nth-child(even) td { background: rgba(124,58,237,.1); }
+.tbl td input { background: transparent; border: none;
+  border-bottom: 2px solid rgba(196,181,253,.35); color: var(--wh);
+  font-size: 26px; width: 100%; outline: none; font-family: 'Outfit', sans-serif; padding: 3px 0; }
+.tbl td input.ok { border-bottom-color: var(--gn); color: var(--gn); }
+.tbl td input.bad { border-bottom-color: var(--rd); animation: shake .4s; }
+
+/* ── Checkbox ── */
+.cb-row { display: flex; align-items: center; gap: 20px;
+  padding: 16px 0; border-bottom: 1px solid rgba(196,181,253,.1);
+  cursor: pointer; font-size: 34px; transition: color .2s; }
+.cb-box { width: 44px; height: 44px; border: 3px solid var(--p); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size: 26px;
+  transition: all .2s; flex-shrink: 0; }
+.cb-row.ticked .cb-box { background: var(--gn); border-color: var(--gn); color: var(--wh); }
+
+/* ── Stars ── */
+.star { font-size: 56px; cursor: pointer; background: none; border: none;
+  transition: transform .15s; filter: grayscale(1) opacity(.45); padding: 0 6px; }
+.star:hover, .star.lit { filter: none; transform: scale(1.18); }
+
+/* ── Option cards ── */
+.opt { background: rgba(124,58,237,.2); border: 2px solid var(--p);
+  border-radius: 14px; padding: 24px 28px; cursor: pointer; transition: all .2s;
+  font-size: 30px; text-align: center; }
+.opt:hover { border-color: var(--a); transform: translateY(-3px); }
+.opt.sel { border-color: var(--a); background: rgba(196,181,253,.15); }
+
+/* ── Audio wave ── */
+@keyframes wv { 0%,100% { height: 10px; } 50% { height: 40px; } }
+.wb { width: 8px; background: var(--a); border-radius: 4px; display: inline-block;
+  animation: wv .8s ease infinite; }
+.wb:nth-child(2) { animation-delay: .12s; }
+.wb:nth-child(3) { animation-delay: .24s; }
+.wb:nth-child(4) { animation-delay: .36s; }
+.wb:nth-child(5) { animation-delay: .48s; }
+
+/* ── Animations ── */
+@keyframes flyL { from { transform: translateX(-200px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fdIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
+@keyframes bounce { 0%,100% { transform: scale(1); } 40% { transform: scale(1.3) rotate(-8deg); } 70% { transform: scale(.9) rotate(4deg); } }
+@keyframes cf { 0% { transform: translateY(-10px) rotate(0); opacity: 1; }
+  100% { transform: translateY(500px) rotate(720deg); opacity: 0; } }
+.fly-l { animation: flyL .8s ease forwards; }
+.fd1 { animation: fdIn 1s .5s forwards; opacity: 0; }
+.fd2 { animation: fdIn 1s 1.2s forwards; opacity: 0; }
+.fd3 { animation: fdIn 1s 2s forwards; opacity: 0; }
+.cp { position: fixed; width: 12px; height: 12px; border-radius: 2px;
+  pointer-events: none; z-index: 9999; animation: cf 1.6s ease forwards; }
+</style>
+<meta content="Unit 7 Reading.html + deck-stage(2).js; slides-part1.html verified as duplicate subset of slides 1-19" name="combined-from"/></head>
+<body>
+<script>
+/**
+ * <deck-stage> — reusable web component for HTML decks.
+ *
+ * Handles:
+ *  (a) speaker notes — reads <script type="application/json" id="speaker-notes">
+ *      and posts {slideIndexChanged: N} to the parent window on nav.
+ *  (b) keyboard navigation — ←/→, PgUp/PgDn, Space, Home/End, number keys.
+ *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
+ *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
+ *      scaled with `transform: scale()` to fit the viewport, letterboxed.
+ *      Set the `noscale` attribute to render at authored size (1:1) — the
+ *      PPTX exporter sets this so its DOM capture sees unscaled geometry.
+ *  (f) print — `@media print` lays every slide out as its own page at the
+ *      design size, so the browser's Print → Save as PDF produces a clean
+ *      one-page-per-slide PDF with no extra setup.
+ *
+ * Slides are HIDDEN, not unmounted. Non-active slides stay in the DOM with
+ * `visibility: hidden` + `opacity: 0`, so their state (videos, iframes,
+ * form inputs, React trees) is preserved across navigation.
+ *
+ * Lifecycle event — the component dispatches a `slidechange` CustomEvent on
+ * itself whenever the active slide changes (including the initial mount).
+ * The event bubbles and composes out of shadow DOM, so you can listen on
+ * the <deck-stage> element or on document:
+ *
+ *   document.querySelector('deck-stage').addEventListener('slidechange', (e) => {
+ *     e.detail.index         // new 0-based index
+ *     e.detail.previousIndex // previous index, or -1 on init
+ *     e.detail.total         // total slide count
+ *     e.detail.slide         // the new active slide element
+ *     e.detail.previousSlide // the prior slide element, or null on init
+ *     e.detail.reason        // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+ *   });
+ *
+ * Persistence: none at the deck level. The host app keeps the current slide
+ * in its own URL (?slide=) and re-delivers it via location.hash on load, so a
+ * bare load with no hash always starts at slide 1.
+ *
+ * Usage:
+ *   <deck-stage width="1920" height="1080">
+ *     <section data-label="Title">...</section>
+ *     <section data-label="Agenda">...</section>
+ *   </deck-stage>
+ *
+ * Slides are the direct element children of <deck-stage>. Each slide is
+ * automatically tagged with:
+ *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
+ *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+ */
+
+(() => {
+  const DESIGN_W_DEFAULT = 1920;
+  const DESIGN_H_DEFAULT = 1080;
+  const OVERLAY_HIDE_MS = 1800;
+  const VALIDATE_ATTR = 'no_overflowing_text,no_overlapping_text,slide_sized_text';
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  const stylesheet = `
+    :host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .canvas {
+      position: relative;
+      transform-origin: center center;
+      flex-shrink: 0;
+      background: #fff;
+      will-change: transform;
+    }
+
+    /* Slides live in light DOM (via <slot>) so authored CSS still applies.
+       We absolutely position each slotted child to stack them. */
+    ::slotted(*) {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    ::slotted([data-deck-active]) {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* Tap zones for mobile — back/forward thirds like Stories.
+       Transparent, no visible UI, don't block the overlay. */
+    .tapzones {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      z-index: 2147482000;
+      pointer-events: none;
+    }
+    .tapzone {
+      flex: 1;
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Only activate tap zones on coarse pointers (touch devices). */
+    @media (hover: hover) and (pointer: fine) {
+      .tapzones { display: none; }
+    }
+
+    .overlay {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 6px) scale(0.92);
+      filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin: center bottom;
+      z-index: 2147483000;
+      user-select: none;
+    }
+    .overlay[data-visible] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      transition: background 140ms ease, color 140ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn:active { background: rgba(255,255,255,0.18); }
+    .btn:focus { outline: none; }
+    .btn:focus-visible { outline: none; }
+    .btn::-moz-focus-inner { border: 0; }
+    .btn svg { width: 14px; height: 14px; display: block; }
+    .btn.reset {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0 10px 0 12px;
+      gap: 6px;
+      color: rgba(255,255,255,0.72);
+    }
+    .btn.reset .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 42px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .count .sep { color: rgba(255,255,255,0.45); margin: 0 3px; font-weight: 400; }
+    .count .total { color: rgba(255,255,255,0.55); }
+
+    .divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px;
+    }
+
+    /* ── Print: one page per slide, no chrome ────────────────────────────
+       The screen layout stacks every slide at inset:0 inside a scaled
+       canvas; for print we want them in document flow at the authored
+       design size so the browser paginates one slide per sheet. The
+       @page size is set from the width/height attributes via the inline
+       <style id="deck-stage-print-page"> that connectedCallback injects
+       into <head> (the @page at-rule has no effect inside shadow DOM). */
+    @media print {
+      :host {
+        position: static;
+        inset: auto;
+        background: none;
+        overflow: visible;
+        color: inherit;
+      }
+      .stage { position: static; display: block; }
+      .canvas {
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: none;
+        will-change: auto;
+      }
+      ::slotted(*) {
+        position: relative !important;
+        inset: auto !important;
+        width: var(--deck-design-w) !important;
+        height: var(--deck-design-h) !important;
+        box-sizing: border-box !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      ::slotted(*:last-child) {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .overlay, .tapzones { display: none !important; }
+    }
+  `;
+
+  class DeckStage extends HTMLElement {
+    static get observedAttributes() { return ['width', 'height', 'noscale']; }
+
+    constructor() {
+      super();
+      this._root = this.attachShadow({ mode: 'open' });
+      this._index = 0;
+      this._slides = [];
+      this._notes = [];
+      this._hideTimer = null;
+      this._mouseIdleTimer = null;
+
+      this._onKey = this._onKey.bind(this);
+      this._onResize = this._onResize.bind(this);
+      this._onSlotChange = this._onSlotChange.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onTapBack = this._onTapBack.bind(this);
+      this._onTapForward = this._onTapForward.bind(this);
+    }
+
+    get designWidth() {
+      return parseInt(this.getAttribute('width'), 10) || DESIGN_W_DEFAULT;
+    }
+    get designHeight() {
+      return parseInt(this.getAttribute('height'), 10) || DESIGN_H_DEFAULT;
+    }
+
+    connectedCallback() {
+      this._render();
+      this._loadNotes();
+      this._syncPrintPageRule();
+      window.addEventListener('keydown', this._onKey);
+      window.addEventListener('resize', this._onResize);
+      window.addEventListener('mousemove', this._onMouseMove, { passive: true });
+      // Initial collection + layout happens via slotchange, which fires on mount.
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('keydown', this._onKey);
+      window.removeEventListener('resize', this._onResize);
+      window.removeEventListener('mousemove', this._onMouseMove);
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
+    }
+
+    attributeChangedCallback() {
+      if (this._canvas) {
+        this._canvas.style.width = this.designWidth + 'px';
+        this._canvas.style.height = this.designHeight + 'px';
+        this._canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+        this._canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+        this._fit();
+        this._syncPrintPageRule();
+      }
+    }
+
+    _render() {
+      const style = document.createElement('style');
+      style.textContent = stylesheet;
+
+      const stage = document.createElement('div');
+      stage.className = 'stage';
+
+      const canvas = document.createElement('div');
+      canvas.className = 'canvas';
+      canvas.style.width = this.designWidth + 'px';
+      canvas.style.height = this.designHeight + 'px';
+      canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+      canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+
+      const slot = document.createElement('slot');
+      slot.addEventListener('slotchange', this._onSlotChange);
+      canvas.appendChild(slot);
+      stage.appendChild(canvas);
+
+      // Tap zones (mobile): left third = back, right third = forward.
+      const tapzones = document.createElement('div');
+      tapzones.className = 'tapzones export-hidden';
+      tapzones.setAttribute('aria-hidden', 'true');
+      tapzones.setAttribute('data-noncommentable', '');
+      const tzBack = document.createElement('div');
+      tzBack.className = 'tapzone tapzone--back';
+      const tzMid = document.createElement('div');
+      tzMid.className = 'tapzone tapzone--mid';
+      tzMid.style.pointerEvents = 'none';
+      const tzFwd = document.createElement('div');
+      tzFwd.className = 'tapzone tapzone--fwd';
+      tzBack.addEventListener('click', this._onTapBack);
+      tzFwd.addEventListener('click', this._onTapForward);
+      tapzones.append(tzBack, tzMid, tzFwd);
+
+      // Overlay: compact, solid black, with clickable controls.
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay export-hidden';
+      overlay.setAttribute('role', 'toolbar');
+      overlay.setAttribute('aria-label', 'Deck controls');
+      overlay.setAttribute('data-noncommentable', '');
+      overlay.innerHTML = `
+        <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <span class="count" aria-live="polite"><span class="current">1</span><span class="sep">/</span><span class="total">1</span></span>
+        <button class="btn next" type="button" aria-label="Next slide" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      `;
+
+      overlay.querySelector('.prev').addEventListener('click', () => this._go(this._index - 1, 'click'));
+      overlay.querySelector('.next').addEventListener('click', () => this._go(this._index + 1, 'click'));
+      overlay.querySelector('.reset').addEventListener('click', () => this._go(0, 'click'));
+
+      this._root.append(style, stage, tapzones, overlay);
+      this._canvas = canvas;
+      this._slot = slot;
+      this._overlay = overlay;
+      this._countEl = overlay.querySelector('.current');
+      this._totalEl = overlay.querySelector('.total');
+    }
+
+    /** @page must live in the document stylesheet — it's a no-op inside
+     *  shadow DOM. Inject/update a single <head> style tag so the print
+     *  sheet matches the design size and Save-as-PDF yields one slide per
+     *  page with no margins. */
+    _syncPrintPageRule() {
+      const id = 'deck-stage-print-page';
+      let tag = document.getElementById(id);
+      if (!tag) {
+        tag = document.createElement('style');
+        tag.id = id;
+        document.head.appendChild(tag);
+      }
+      tag.textContent =
+        '@page { size: ' + this.designWidth + 'px ' + this.designHeight + 'px; margin: 0; } ' +
+        '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } ' +
+        '* { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
+    }
+
+    _onSlotChange() {
+      this._collectSlides();
+      this._restoreIndex();
+      this._applyIndex({ showOverlay: false, broadcast: true, reason: 'init' });
+      this._fit();
+    }
+
+    _collectSlides() {
+      const assigned = this._slot.assignedElements({ flatten: true });
+      this._slides = assigned.filter((el) => {
+        // Skip template/style/script nodes even if someone slots them.
+        const tag = el.tagName;
+        return tag !== 'TEMPLATE' && tag !== 'SCRIPT' && tag !== 'STYLE';
+      });
+
+      this._slides.forEach((slide, i) => {
+        const n = i + 1;
+        // Determine a label for comment flow: prefer explicit data-label,
+        // then an existing data-screen-label, then first heading, else "Slide".
+        let label = slide.getAttribute('data-label');
+        if (!label) {
+          const existing = slide.getAttribute('data-screen-label');
+          if (existing) {
+            // Strip any leading number the author may have included.
+            label = existing.replace(/^\s*\d+\s*/, '').trim() || existing;
+          }
+        }
+        if (!label) {
+          const h = slide.querySelector('h1, h2, h3, [data-title]');
+          if (h) label = (h.textContent || '').trim().slice(0, 40);
+        }
+        if (!label) label = 'Slide';
+        slide.setAttribute('data-screen-label', `${pad2(n)} ${label}`);
+
+        // Validation attribute for comment flow / auto-checks.
+        if (!slide.hasAttribute('data-om-validate')) {
+          slide.setAttribute('data-om-validate', VALIDATE_ATTR);
+        }
+
+        slide.setAttribute('data-deck-slide', String(i));
+      });
+
+      if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
+      if (this._index >= this._slides.length) this._index = Math.max(0, this._slides.length - 1);
+    }
+
+    _loadNotes() {
+      const tag = document.getElementById('speaker-notes');
+      if (!tag) { this._notes = []; return; }
+      try {
+        const parsed = JSON.parse(tag.textContent || '[]');
+        if (Array.isArray(parsed)) this._notes = parsed;
+      } catch (e) {
+        console.warn('[deck-stage] Failed to parse #speaker-notes JSON:', e);
+        this._notes = [];
+      }
+    }
+
+    _restoreIndex() {
+      // The host's ?slide= param is delivered as a #<int> hash (1-indexed) on
+      // the iframe src. No hash → slide 1; the deck itself keeps no position
+      // state across loads.
+      const h = (location.hash || '').match(/^#(\d+)$/);
+      if (h) {
+        const n = parseInt(h[1], 10) - 1;
+        if (n >= 0 && n < this._slides.length) this._index = n;
+      }
+    }
+
+    _applyIndex({ showOverlay = true, broadcast = true, reason = 'init' } = {}) {
+      if (!this._slides.length) return;
+      const prev = this._prevIndex == null ? -1 : this._prevIndex;
+      const curr = this._index;
+      // Keep the iframe's own hash in sync so an in-iframe location.reload()
+      // (reload banner path in viewer-handle.ts) lands on the current slide,
+      // not the stale deep-link hash from initial load.
+      try { history.replaceState(null, '', '#' + (curr + 1)); } catch (e) {}
+      this._slides.forEach((s, i) => {
+        if (i === curr) s.setAttribute('data-deck-active', '');
+        else s.removeAttribute('data-deck-active');
+      });
+      if (this._countEl) this._countEl.textContent = String(curr + 1);
+
+      if (broadcast) {
+        // (1) Legacy: host-window postMessage for speaker-notes renderers.
+        try { window.postMessage({ slideIndexChanged: curr }, '*'); } catch (e) {}
+
+        // (2) In-page CustomEvent on the <deck-stage> element itself.
+        //     Bubbles and composes out of shadow DOM so slide code can listen:
+        //       document.querySelector('deck-stage').addEventListener('slidechange', e => {
+        //         e.detail.index, e.detail.previousIndex, e.detail.total, e.detail.slide, e.detail.reason
+        //       });
+        const detail = {
+          index: curr,
+          previousIndex: prev,
+          total: this._slides.length,
+          slide: this._slides[curr] || null,
+          previousSlide: prev >= 0 ? (this._slides[prev] || null) : null,
+          reason: reason, // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+        };
+        this.dispatchEvent(new CustomEvent('slidechange', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }));
+      }
+
+      this._prevIndex = curr;
+      if (showOverlay) this._flashOverlay();
+    }
+
+    _flashOverlay() {
+      if (!this._overlay) return;
+      this._overlay.setAttribute('data-visible', '');
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      this._hideTimer = setTimeout(() => {
+        this._overlay.removeAttribute('data-visible');
+      }, OVERLAY_HIDE_MS);
+    }
+
+    _fit() {
+      if (!this._canvas) return;
+      // PPTX export sets noscale so the DOM capture sees authored-size
+      // geometry — the scaled canvas is in shadow DOM, so the exporter's
+      // resetTransformSelector can't reach .canvas.style.transform directly.
+      if (this.hasAttribute('noscale')) {
+        this._canvas.style.transform = 'none';
+        return;
+      }
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const s = Math.min(vw / this.designWidth, vh / this.designHeight);
+      this._canvas.style.transform = `scale(${s})`;
+    }
+
+    _onResize() { this._fit(); }
+
+    _onMouseMove() {
+      // Keep overlay visible while mouse moves; hide after idle.
+      this._flashOverlay();
+    }
+
+    _onTapBack(e) {
+      e.preventDefault();
+      this._go(this._index - 1, 'tap');
+    }
+
+    _onTapForward(e) {
+      e.preventDefault();
+      this._go(this._index + 1, 'tap');
+    }
+
+    _onKey(e) {
+      // Ignore when the user is typing.
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      const key = e.key;
+      let handled = true;
+
+      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+        this._go(this._index + 1, 'keyboard');
+      } else if (key === 'ArrowLeft' || key === 'PageUp') {
+        this._go(this._index - 1, 'keyboard');
+      } else if (key === 'Home') {
+        this._go(0, 'keyboard');
+      } else if (key === 'End') {
+        this._go(this._slides.length - 1, 'keyboard');
+      } else if (key === 'r' || key === 'R') {
+        this._go(0, 'keyboard');
+      } else if (/^[0-9]$/.test(key)) {
+        // 1..9 jump to that slide; 0 jumps to 10.
+        const n = key === '0' ? 9 : parseInt(key, 10) - 1;
+        if (n < this._slides.length) this._go(n, 'keyboard');
+      } else {
+        handled = false;
+      }
+
+      if (handled) {
+        e.preventDefault();
+        this._flashOverlay();
+      }
+    }
+
+    _go(i, reason = 'api') {
+      if (!this._slides.length) return;
+      const clamped = Math.max(0, Math.min(this._slides.length - 1, i));
+      if (clamped === this._index) {
+        this._flashOverlay();
+        return;
+      }
+      this._index = clamped;
+      this._applyIndex({ showOverlay: true, broadcast: true, reason });
+    }
+
+    // Public API ------------------------------------------------------------
+
+    /** Current slide index (0-based). */
+    get index() { return this._index; }
+    /** Total slide count. */
+    get length() { return this._slides.length; }
+    /** Programmatically navigate. */
+    goTo(i) { this._go(i, 'api'); }
+    next() { this._go(this._index + 1, 'api'); }
+    prev() { this._go(this._index - 1, 'api'); }
+    reset() { this._go(0, 'api'); }
+  }
+
+  if (!customElements.get('deck-stage')) {
+    customElements.define('deck-stage', DeckStage);
+  }
+})();
+
+</script>
+<deck-stage height="1080" width="1920">
+<!-- ═══════════════════════════════════════════════
+     01 TITLE
+═══════════════════════════════════════════════ -->
+<section class="grad" data-label="01 Title" style="align-items:center;justify-content:center;text-align:center;gap:20px">
+<div style="font-size:110px;margin-bottom:4px">🔧💡</div>
+<div style="display:flex;align-items:baseline;gap:20px">
+<span class="fly-l" style="font-size:110px;font-weight:900">YOUNG</span>
+<span class="fd1" style="font-size:74px;font-weight:700;color:var(--a)">and Creative</span>
+</div>
+<div class="fd1" style="font-size:40px;color:rgba(255,255,255,.7)">Unit 7 · Good Idea! · Reading</div>
+<div class="fd2" style="font-size:28px;color:rgba(196,181,253,.6)">National Geographic Learning · TR: 7.9 · pp. 124–125</div>
+<button class="btn ba bpulse fd3" onclick="DS.next()" style="margin-top:24px;font-size:36px;padding:20px 56px">Start Lesson ▶</button>
+</section>
+<!-- ═══════════════════════════════════════════════
+     02 OBJECTIVES
+═══════════════════════════════════════════════ -->
+<section data-label="02 Objectives">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Read each objective aloud after Leo clicks to reveal it.</div>
+<h1 class="t1">Today, Leo will…</h1>
+<div style="display:flex;gap:36px;flex:1;align-items:center">
+<div class="blur-card" id="obj1" onclick="revObj('obj1')" style="flex:1;background:rgba(124,58,237,.3);border:2px solid var(--p);border-radius:20px;padding:44px 32px;text-align:center;cursor:pointer">
+<div style="font-size:64px;margin-bottom:14px">🔧</div>
+<div class="tb" style="font-weight:700">Identify and describe inventions.</div>
+</div>
+<div class="blur-card" id="obj2" onclick="revObj('obj2')" style="flex:1;background:rgba(124,58,237,.3);border:2px solid var(--p);border-radius:20px;padding:44px 32px;text-align:center;cursor:pointer">
+<div style="font-size:64px;margin-bottom:14px">❓</div>
+<div class="tb" style="font-weight:700">Ask questions about a text.</div>
+</div>
+<div class="blur-card" id="obj3" onclick="revObj('obj3')" style="flex:1;background:rgba(124,58,237,.3);border:2px solid var(--p);border-radius:20px;padding:44px 32px;text-align:center;cursor:pointer">
+<div style="font-size:64px;margin-bottom:14px">💭</div>
+<div class="tb" style="font-weight:700">Discuss opinions about inventions.</div>
+</div>
+</div>
+<div style="margin-top:28px;display:flex;align-items:center;gap:16px">
+<span class="tsm" style="color:rgba(196,181,253,.6)">Click each card to reveal ↑</span>
+<button class="btn ba" id="obj-next" onclick="DS.next()" style="display:none">Let's go! ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     03 READING STRATEGY
+═══════════════════════════════════════════════ -->
+<section data-label="03 Reading Strategy">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Encourage Leo to ask questions out loud as he reads each paragraph.</div>
+<h1 class="t1">Reading Strategy: Ask Questions ❓</h1>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1">
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:28px 32px;font-size:32px;line-height:1.7">
+        Good readers ask questions while they read.<br/><br/>
+<span style="color:var(--a);font-weight:700">Before:</span> Who is this about? Why is it important?<br/><br/>
+<span style="color:var(--a);font-weight:700">While reading:</span> Who? What? Where? When? Why? How?<br/><br/>
+<span style="color:var(--a);font-weight:700">After:</span> What did I learn? What was unclear?
+      </div>
+<button class="btn ba" onclick="showStratDemo()">Show me how →</button>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="step-box" id="sd1">📖 You read: <em>"Angad suffered from asthma 😮‍💨."</em></div>
+<div class="step-box" id="sd2">❓ You ask: <em>"What is asthma? Why did he get it?"</em></div>
+<div class="tip-box" id="sd-tip">💡 <strong>Asking questions</strong> helps you understand and remember!</div>
+<button class="btn bp" id="sd-done" onclick="DS.next()" style="display:none;width:fit-content">Got it! ✅</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     04 ACADEMIC: chart
+═══════════════════════════════════════════════ -->
+<section data-label="04 Academic: chart">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">In Activity 3, Leo will complete a Who / When / What / Why chart to organise information about the four inventors.</div>
+<h1 class="t1">Academic Language 📚</h1>
+<div style="display:flex;align-items:center;gap:72px;flex:1">
+<div class="fc" id="fc4" onclick="flipCard('fc4')">
+<div class="fc-inner">
+<div class="fc-f">chart 📊<div style="font-size:26px;margin-top:10px;opacity:.65">Click to flip!</div></div>
+<div class="fc-b">
+<div style="font-size:30px;color:var(--a);font-weight:700">chart 📊</div>
+<div class="tsm">A <strong>table</strong> that organises information in rows and columns.</div>
+<div class="tsm">Dad 💬 <em>"Leo, this chart shows who invented what and why."</em></div>
+<div class="tsm" style="color:var(--a)">Example: <em>"We can use a chart to compare the four inventors."</em></div>
+<div style="display:flex;gap:14px;margin-top:auto">
+<button class="btn bgn" onclick="event.stopPropagation();flipOk('fc4','fc4-next')" style="font-size:22px;padding:10px 22px">Got it ✅</button>
+<button class="btn bg" onclick="event.stopPropagation();flipCard('fc4')" style="font-size:22px;padding:10px 22px">Again 🔄</button>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div class="tb" style="color:rgba(255,255,255,.8);line-height:1.6">Charts help us <strong style="color:var(--a)">organise</strong> information so it's easy to read and compare.</div>
+<div class="tb" style="color:rgba(255,255,255,.8)">Later you'll fill in a chart about all four inventors! 📊</div>
+<button class="btn ba" id="fc4-next" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     05 ACADEMIC: graph
+═══════════════════════════════════════════════ -->
+<section data-label="05 Academic: graph">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">On p. 125 there is a line graph showing patent filings from 2000–2006. Leo will read this graph on Slide 39.</div>
+<h1 class="t1">Academic Language 📚</h1>
+<div style="display:flex;align-items:center;gap:72px;flex:1">
+<div class="fc" id="fc5" onclick="flipCard('fc5')">
+<div class="fc-inner">
+<div class="fc-f">graph 📈<div style="font-size:26px;margin-top:10px;opacity:.65">Click to flip!</div></div>
+<div class="fc-b">
+<div style="font-size:30px;color:var(--a);font-weight:700">graph 📈</div>
+<div class="tsm">A <strong>picture</strong> that shows information using lines, bars, or dots.</div>
+<div class="tsm">Dad 💬 <em>"The graph on p.125 shows how many patents were filed each year."</em></div>
+<div class="tsm" style="color:var(--a)">Example: <em>"The graph shows more patents were filed in 2006 than 2000."</em></div>
+<div style="display:flex;gap:14px;margin-top:auto">
+<button class="btn bgn" onclick="event.stopPropagation();flipOk('fc5','fc5-next')" style="font-size:22px;padding:10px 22px">Got it ✅</button>
+<button class="btn bg" onclick="event.stopPropagation();flipCard('fc5')" style="font-size:22px;padding:10px 22px">Again 🔄</button>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div class="tb" style="color:rgba(255,255,255,.8);line-height:1.6">A graph turns <strong style="color:var(--a)">numbers</strong> into a visual picture — easier to see trends at a glance!</div>
+<div class="tb" style="color:rgba(255,255,255,.8)">You'll read a real graph about patents on Slide 39! 📈</div>
+<button class="btn ba" id="fc5-next" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     06 ACADEMIC: opinion
+═══════════════════════════════════════════════ -->
+<section data-label="06 Academic: opinion">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">In Activity 4, Leo will share his opinion about which invention is best. Model "I think… because…"</div>
+<h1 class="t1">Academic Language 📚</h1>
+<div style="display:flex;align-items:center;gap:72px;flex:1">
+<div class="fc" id="fc6" onclick="flipCard('fc6')">
+<div class="fc-inner">
+<div class="fc-f">opinion 💭<div style="font-size:26px;margin-top:10px;opacity:.65">Click to flip!</div></div>
+<div class="fc-b">
+<div style="font-size:30px;color:var(--a);font-weight:700">opinion 💭</div>
+<div class="tsm">What you <strong>think or believe</strong> — it is not a fact.</div>
+<div class="tsm">Dad 💬 <em>"My opinion is that the Braille alphabet is the most important invention."</em></div>
+<div class="tsm" style="color:var(--a)">Leo 💬 <em>"My opinion is that the flashlight is cooler!"</em></div>
+<div style="display:flex;gap:14px;margin-top:auto">
+<button class="btn bgn" onclick="event.stopPropagation();flipOk('fc6','fc6-next')" style="font-size:22px;padding:10px 22px">Got it ✅</button>
+<button class="btn bg" onclick="event.stopPropagation();flipCard('fc6')" style="font-size:22px;padding:10px 22px">Again 🔄</button>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div class="tb" style="color:rgba(255,255,255,.8);line-height:1.6">Everyone can have a <strong style="color:var(--a)">different opinion</strong> — use "I think… because…"</div>
+<button class="btn ba" id="fc6-next" onclick="DS.next()" style="display:none;width:fit-content">Vocabulary ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     07 CONTENT VOCAB: blind
+═══════════════════════════════════════════════ -->
+<section data-label="07 Vocab: blind">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">"blind" appears in Paragraph 5 (Louis Braille section).</div>
+<h1 class="t1">Content Vocabulary 📖</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px">
+<div style="font-size:90px">👁️</div>
+<div style="font-size:54px;font-weight:900;color:var(--a);margin-top:8px">blind</div>
+</div>
+<div data-step="-1" id="vc7" style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div class="vr-item" data-idx="0"><strong style="color:var(--a)">Definition:</strong> Not able to see. 👁️</div>
+<div class="vr-item" data-idx="1"><strong style="color:var(--a)">From the text:</strong> <em>"The accident left him blind."</em></div>
+<div class="vr-item" data-idx="2">Dad 💬 <em>"Louis Braille became blind when he was only three years old."</em><br/>Leo 💬 <em>"How would you read if you couldn't see?"</em></div>
+<div id="vc7-check" style="display:none;margin-top:8px">
+<div class="tb" style="margin-bottom:14px;color:var(--a)">Do you know what <strong>blind</strong> means? ☑️</div>
+<div style="display:flex;gap:14px">
+<button class="btn bgn" onclick="vcYes('vc7')">Yes ✅</button>
+<button class="btn bg" onclick="vcNo('vc7')">No 🔄</button>
+</div>
+</div>
+<button class="btn ba" id="vc7-next" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+<button class="btn bp" id="vc7-rev" onclick="vcReveal('vc7')" style="width:fit-content">▶ Reveal</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     08 CONTENT VOCAB: design
+═══════════════════════════════════════════════ -->
+<section data-label="08 Vocab: design">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">"design" is a key academic word connected to the invention theme.</div>
+<h1 class="t1">Content Vocabulary 📖</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px">
+<div style="font-size:90px">✏️</div>
+<div style="font-size:54px;font-weight:900;color:var(--a);margin-top:8px">design</div>
+</div>
+<div data-step="-1" id="vc8" style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div class="vr-item" data-idx="0"><strong style="color:var(--a)">Definition:</strong> To plan and make something new. ✏️</div>
+<div class="vr-item" data-idx="1"><strong style="color:var(--a)">Context:</strong> <em>"Inventors design solutions to problems."</em></div>
+<div class="vr-item" data-idx="2">Dad 💬 <em>"Angad had to design a tower that could clean city air."</em><br/>Leo 💬 <em>"I want to design a homework robot!"</em></div>
+<div id="vc8-check" style="display:none;margin-top:8px">
+<div class="tb" style="margin-bottom:14px;color:var(--a)">Do you know what <strong>design</strong> means? ☑️</div>
+<div style="display:flex;gap:14px">
+<button class="btn bgn" onclick="vcYes('vc8')">Yes ✅</button>
+<button class="btn bg" onclick="vcNo('vc8')">No 🔄</button>
+</div>
+</div>
+<button class="btn ba" id="vc8-next" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+<button class="btn bp" id="vc8-rev" onclick="vcReveal('vc8')" style="width:fit-content">▶ Reveal</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     09 CONTENT VOCAB: millions
+═══════════════════════════════════════════════ -->
+<section data-label="09 Vocab: millions">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">"million" appears in Para 2. Also "1.1 billion" in Para 3 — billion is even bigger!</div>
+<h1 class="t1">Content Vocabulary 📖</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px">
+<div style="font-size:90px">🔢</div>
+<div style="font-size:54px;font-weight:900;color:var(--a);margin-top:8px">millions</div>
+</div>
+<div data-step="-1" id="vc9" style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div class="vr-item" data-idx="0"><strong style="color:var(--a)">Definition:</strong> Very large numbers — 1,000,000 or more. 🔢</div>
+<div class="vr-item" data-idx="1"><strong style="color:var(--a)">From the text:</strong> <em>"Three million people die each year."</em></div>
+<div class="vr-item" data-idx="2">Dad 💬 <em>"Three million is written 3,000,000!"</em><br/>Leo 💬 <em>"Ronaldo has millions of fans around the world!"</em></div>
+<div id="vc9-check" style="display:none;margin-top:8px">
+<div class="tb" style="margin-bottom:14px;color:var(--a)">Do you know what <strong>millions</strong> means? ☑️</div>
+<div style="display:flex;gap:14px">
+<button class="btn bgn" onclick="vcYes('vc9')">Yes ✅</button>
+<button class="btn bg" onclick="vcNo('vc9')">No 🔄</button>
+</div>
+</div>
+<button class="btn ba" id="vc9-next" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+<button class="btn bp" id="vc9-rev" onclick="vcReveal('vc9')" style="width:fit-content">▶ Reveal</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     10 CONTENT VOCAB: patent
+═══════════════════════════════════════════════ -->
+<section data-label="10 Vocab: patent">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">"patent" appears on the graph on p. 125 (Number of Patent Filings Around the World).</div>
+<h1 class="t1">Content Vocabulary 📖</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px">
+<div style="font-size:90px">📜</div>
+<div style="font-size:54px;font-weight:900;color:var(--a);margin-top:8px">patent</div>
+</div>
+<div data-step="-1" id="vc10" style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div class="vr-item" data-idx="0"><strong style="color:var(--a)">Definition:</strong> An official document that protects your invention. 📜</div>
+<div class="vr-item" data-idx="1"><strong style="color:var(--a)">Context:</strong> <em>"If you have a patent, nobody else can take your idea."</em></div>
+<div class="vr-item" data-idx="2">Dad 💬 <em>"A patent is like a certificate that says: 'I invented this!'"</em><br/>Leo 💬 <em>"If I invented something cool, I'd want a patent!"</em></div>
+<div id="vc10-check" style="display:none;margin-top:8px">
+<div class="tb" style="margin-bottom:14px;color:var(--a)">Do you know what <strong>patent</strong> means? ☑️</div>
+<div style="display:flex;gap:14px">
+<button class="btn bgn" onclick="vcYes('vc10')">Yes ✅</button>
+<button class="btn bg" onclick="vcNo('vc10')">No 🔄</button>
+</div>
+</div>
+<button class="btn ba" id="vc10-next" onclick="DS.next()" style="display:none;width:fit-content">Related vocabulary ▶</button>
+<button class="btn bp" id="vc10-rev" onclick="vcReveal('vc10')" style="width:fit-content">▶ Reveal</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     11 RELATED VOCAB: creativity
+═══════════════════════════════════════════════ -->
+<section data-label="11 Vocab: creativity">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Answer: creativity. Appears in Paragraph 1.</div>
+<h1 class="t1">Related Vocabulary 💡</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div onclick="bouncePic('rv11ic')" style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px;cursor:pointer">
+<div id="rv11ic" style="font-size:90px;display:inline-block">💡</div>
+<div style="font-size:44px;font-weight:900;color:var(--a);margin-top:8px">creativity</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div id="rv11def" style="font-size:32px;opacity:0;transition:opacity .5s">The ability to think of <strong style="color:var(--a)">new and original ideas</strong>. 💡</div>
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px">
+<div class="tsm" style="margin-bottom:10px;color:var(--a)">Fill in the blank:</div>
+<div style="font-size:32px;line-height:1.9">"Kids and teens are great inventors because they have a lot of <input class="fill-inp" id="rv11" oninput="showDef('rv11def')" placeholder="…"/> and imagination."</div>
+</div>
+<div style="display:flex;gap:14px;align-items:center">
+<button class="btn ba" onclick="chkBlank('rv11',['creativity'],'rv11res','rv11nx')">Check ✅</button>
+<span id="rv11res" style="font-size:26px"></span>
+</div>
+<button class="btn bp" id="rv11nx" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     12 RELATED VOCAB: imagination
+═══════════════════════════════════════════════ -->
+<section data-label="12 Vocab: imagination">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Answer: imagination. Appears in Paragraph 1.</div>
+<h1 class="t1">Related Vocabulary 🌟</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div onclick="bouncePic('rv12ic')" style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px;cursor:pointer">
+<div id="rv12ic" style="font-size:90px;display:inline-block">🌟</div>
+<div style="font-size:44px;font-weight:900;color:var(--a);margin-top:8px">imagination</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div id="rv12def" style="font-size:32px;opacity:0;transition:opacity .5s">The ability to think of things that <strong style="color:var(--a)">are not real or don't exist yet</strong>. 🌟</div>
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px">
+<div class="tsm" style="margin-bottom:10px;color:var(--a)">Fill in the blank:</div>
+<div style="font-size:32px;line-height:1.9">"Kids and teens are great inventors because they have a lot of creativity and <input class="fill-inp" id="rv12" oninput="showDef('rv12def')" placeholder="…"/>."</div>
+</div>
+<div style="display:flex;gap:14px;align-items:center">
+<button class="btn ba" onclick="chkBlank('rv12',['imagination'],'rv12res','rv12nx')">Check ✅</button>
+<span id="rv12res" style="font-size:26px"></span>
+</div>
+<button class="btn bp" id="rv12nx" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     13 RELATED VOCAB: asthma
+═══════════════════════════════════════════════ -->
+<section data-label="13 Vocab: asthma">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Answer: asthma. Appears in Para 2. Used in Think Aloud (Slide 35).</div>
+<h1 class="t1">Related Vocabulary 😮‍💨</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div onclick="bouncePic('rv13ic')" style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px;cursor:pointer">
+<div id="rv13ic" style="font-size:90px;display:inline-block">😮‍💨</div>
+<div style="font-size:44px;font-weight:900;color:var(--a);margin-top:8px">asthma</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div id="rv13def" style="font-size:32px;opacity:0;transition:opacity .5s">A health problem that makes it <strong style="color:var(--a)">hard to breathe</strong>, often caused by dirty air. 😮‍💨</div>
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px">
+<div class="tsm" style="margin-bottom:10px;color:var(--a)">Fill in the blank:</div>
+<div style="font-size:32px;line-height:1.9">"He suffered from <input class="fill-inp" id="rv13" oninput="showDef('rv13def')" placeholder="…"/> caused by the polluted air."</div>
+</div>
+<div style="display:flex;gap:14px;align-items:center">
+<button class="btn ba" onclick="chkBlank('rv13',['asthma'],'rv13res','rv13nx')">Check ✅</button>
+<span id="rv13res" style="font-size:26px"></span>
+</div>
+<button class="btn bp" id="rv13nx" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     14 RELATED VOCAB: pollution
+═══════════════════════════════════════════════ -->
+<section data-label="14 Vocab: pollution">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Answer: pollution. Appears in Para 2.</div>
+<h1 class="t1">Related Vocabulary 🌫️</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div onclick="bouncePic('rv14ic')" style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px;cursor:pointer">
+<div id="rv14ic" style="font-size:90px;display:inline-block">🌫️</div>
+<div style="font-size:44px;font-weight:900;color:var(--a);margin-top:8px">pollution</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div id="rv14def" style="font-size:32px;opacity:0;transition:opacity .5s">Harmful substances in air, water, or land that <strong style="color:var(--a)">damage the environment</strong>. 🌫️</div>
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px">
+<div class="tsm" style="margin-bottom:10px;color:var(--a)">Fill in the blank:</div>
+<div style="font-size:32px;line-height:1.9">"Air <input class="fill-inp" id="rv14" oninput="showDef('rv14def')" placeholder="…"/> is a big problem. Three million people die each year."</div>
+</div>
+<div style="display:flex;gap:14px;align-items:center">
+<button class="btn ba" onclick="chkBlank('rv14',['pollution'],'rv14res','rv14nx')">Check ✅</button>
+<span id="rv14res" style="font-size:26px"></span>
+</div>
+<button class="btn bp" id="rv14nx" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     15 RELATED VOCAB: electricity
+═══════════════════════════════════════════════ -->
+<section data-label="15 Vocab: electricity">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Answer: electrical / electricity. Appears in Para 3 (Ann section).</div>
+<h1 class="t1">Related Vocabulary ⚡</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div onclick="bouncePic('rv15ic')" style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px;cursor:pointer">
+<div id="rv15ic" style="font-size:90px;display:inline-block">⚡</div>
+<div style="font-size:44px;font-weight:900;color:var(--a);margin-top:8px">electricity</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div id="rv15def" style="font-size:32px;opacity:0;transition:opacity .5s">The power that makes <strong style="color:var(--a)">lights and machines</strong> work. ⚡</div>
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px">
+<div class="tsm" style="margin-bottom:10px;color:var(--a)">Fill in the blank:</div>
+<div style="font-size:32px;line-height:1.9">"There was no <input class="fill-inp" id="rv15" oninput="showDef('rv15def')" placeholder="…"/> light in her home."</div>
+</div>
+<div style="display:flex;gap:14px;align-items:center">
+<button class="btn ba" onclick="chkBlank('rv15',['electrical','electricity'],'rv15res','rv15nx')">Check ✅</button>
+<span id="rv15res" style="font-size:26px"></span>
+</div>
+<button class="btn bp" id="rv15nx" onclick="DS.next()" style="display:none;width:fit-content">Next word ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     16 RELATED VOCAB: batteries
+═══════════════════════════════════════════════ -->
+<section data-label="16 Vocab: batteries">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Answer: batteries. Appears in Para 3. Ann's flashlight uses body heat, not batteries.</div>
+<h1 class="t1">Related Vocabulary 🔋</h1>
+<div style="display:flex;gap:56px;flex:1;align-items:center">
+<div onclick="bouncePic('rv16ic')" style="background:var(--p);border-radius:24px;padding:40px 52px;text-align:center;min-width:280px;cursor:pointer">
+<div id="rv16ic" style="font-size:90px;display:inline-block">🔋</div>
+<div style="font-size:44px;font-weight:900;color:var(--a);margin-top:8px">batteries</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div id="rv16def" style="font-size:32px;opacity:0;transition:opacity .5s">Small containers of <strong style="color:var(--a)">stored energy</strong> that power devices. 🔋</div>
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px">
+<div class="tsm" style="margin-bottom:10px;color:var(--a)">Fill in the blank:</div>
+<div style="font-size:32px;line-height:1.9">"The flashlight doesn't need <input class="fill-inp" id="rv16" oninput="showDef('rv16def')" placeholder="…"/>."</div>
+</div>
+<div style="display:flex;gap:14px;align-items:center">
+<button class="btn ba" onclick="chkBlank('rv16',['batteries'],'rv16res','rv16nx')">Check ✅</button>
+<span id="rv16res" style="font-size:26px"></span>
+</div>
+<button class="btn bp" id="rv16nx" onclick="DS.next()" style="display:none;width:fit-content">Warm up ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     17 WARM UP: Prior Knowledge
+═══════════════════════════════════════════════ -->
+<section data-label="17 Warm Up: Prior Knowledge">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Build background before reading. Note Leo's idea — refer to it in Slide 46 Extend activity.</div>
+<h1 class="t1">Warm Up — Young Inventors 🔧</h1>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1">
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:26px 30px;font-size:32px;line-height:1.65">
+        Today we read about <strong style="color:var(--a)">young inventors</strong>. 🔧<br/><br/>
+        Remember <strong>Richard Turere</strong> and "Lion Lights"? He was a young inventor from Kenya who kept lions away with lights!
+      </div>
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:26px 30px;font-size:32px;line-height:1.65">
+        ❓ <strong style="color:var(--a)">Do YOU have an idea for an invention?</strong><br/>What problem would it solve?
+      </div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div id="wu17s" style="display:none;flex-direction:column;gap:10px">
+<div style="background:rgba(124,58,237,.2);border-radius:12px;padding:16px 20px;font-size:28px">Dad 💬 <em>"I'd invent a machine that makes the perfect cup of coffee every morning!"</em></div>
+<div style="background:rgba(124,58,237,.2);border-radius:12px;padding:16px 20px;font-size:28px">Leo 💬 <em>"I'd invent boots that make you run as fast as Ronaldo!"</em></div>
+</div>
+<button class="btn bg" onclick="document.getElementById('wu17s').style.display='flex'">Show sample answer 💬</button>
+<div style="display:flex;gap:14px;align-items:center">
+<button class="btn bp" onclick="startTimer('t17',10,function(){document.getElementById('wu17share').style.display='block'})">🎤 My turn! (10s)</button>
+<span id="t17" style="font-size:56px;font-weight:900;color:var(--a);display:none"></span>
+</div>
+<div id="wu17share" style="display:none;background:rgba(196,181,253,.15);border:2px solid var(--a);border-radius:12px;padding:20px 24px;font-size:32px">🎤 Share your idea!</div>
+<button class="btn ba" onclick="DS.next()" style="margin-top:auto;width:fit-content">Next ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     18 WARM UP: Look at the Pictures
+═══════════════════════════════════════════════ -->
+<section data-label="18 Warm Up: Pictures">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">These pictures are on p. 124. Ask Leo the questions before starting the audio.</div>
+<h1 class="t1">Look at the Pictures 👀</h1>
+<div style="display:flex;gap:36px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div onclick="document.getElementById('ph1').style.display='block'" style="flex:1;background:rgba(124,58,237,.2);border:2px dashed var(--p);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;min-height:220px">
+<div style="font-size:80px">🔦</div>
+<div class="tsm" style="color:rgba(255,255,255,.65);text-align:center">The Hollow Flashlight<br/><span style="font-size:22px;color:rgba(196,181,253,.5)">(Click for a hint!)</span></div>
+<div id="ph1" style="display:none;background:rgba(196,181,253,.2);border-radius:8px;padding:8px 16px;font-size:26px;color:var(--a)">💡 It doesn't use batteries!</div>
+</div>
+<div class="tsm" style="color:rgba(255,255,255,.7)">❓ How might this flashlight be special?</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px">
+<div onclick="document.getElementById('ph2').style.display='block'" style="flex:1;background:rgba(124,58,237,.2);border:2px dashed var(--p);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;min-height:220px">
+<div style="font-size:80px">🧊</div>
+<div class="tsm" style="color:rgba(255,255,255,.65);text-align:center">A Popsicle<br/><span style="font-size:22px;color:rgba(196,181,253,.5)">(Click for a hint!)</span></div>
+<div id="ph2" style="display:none;background:rgba(196,181,253,.2);border-radius:8px;padding:8px 16px;font-size:26px;color:var(--a)">🧊 Invented by accident!</div>
+</div>
+<div class="tsm" style="color:rgba(255,255,255,.7)">❓ Did you know Popsicles were invented by an 11-year-old?</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;min-width:280px">
+<button class="btn bp" onclick="document.getElementById('wu18s').style.display='flex'">Show sample answer 💬</button>
+<div id="wu18s" style="display:none;flex-direction:column;gap:10px">
+<div style="background:rgba(124,58,237,.2);border-radius:12px;padding:14px 18px;font-size:26px">Dad 💬 <em>"Maybe it works without electricity?"</em></div>
+<div style="background:rgba(124,58,237,.2);border-radius:12px;padding:14px 18px;font-size:26px">Leo 💬 <em>"An 11-year-old made the Popsicle?! That's like me!"</em></div>
+</div>
+<button class="btn ba" onclick="DS.next()" style="margin-top:auto">Ready to read! ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     19 AUDIO CUE
+═══════════════════════════════════════════════ -->
+<section data-label="19 Audio Cue" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Play TR: 7.9. After first listen, play again and pause at end of each paragraph.</div>
+<h1 class="t1" style="text-align:center;margin-bottom:0">Listen and Read Along 🎧</h1>
+<div class="bpulse" id="audBtn" onclick="startAudio()" style="background:var(--p);border-radius:50%;width:180px;height:180px;display:flex;align-items:center;justify-content:center;font-size:90px;cursor:pointer;border:4px solid var(--a)">▶️</div>
+<div id="audWave" style="display:none;flex-direction:column;align-items:center;gap:12px">
+<div style="display:flex;align-items:flex-end;gap:6px;height:48px">
+<div class="wb" style="height:10px"></div><div class="wb" style="height:22px"></div><div class="wb" style="height:36px"></div><div class="wb" style="height:22px"></div><div class="wb" style="height:10px"></div>
+</div>
+<div style="font-size:32px;color:var(--a)">Playing... 🎵</div>
+</div>
+<div style="background:var(--p);border-radius:50px;padding:14px 36px;font-size:44px;font-weight:900;color:var(--a)">TR: 7.9</div>
+<div class="tb" style="color:rgba(255,255,255,.75);max-width:860px;line-height:1.6">Press play on the audio. Follow along in your book on <strong style="color:var(--a)">page 124</strong>. After listening, we'll look at each paragraph together.</div>
+<button class="btn ba" id="audDone" onclick="DS.next()" style="display:none;font-size:36px;padding:20px 56px">Done listening ✅</button>
+</section>
+<!-- ═══════════════════════════════════════════════
+     20 PARAGRAPH 1
+═══════════════════════════════════════════════ -->
+<section data-label="20 Paragraph 1">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">After all sentences appear, ask Leo the question before advancing to Slide 21.</div>
+<h1 class="t1">Paragraph 1 — Introduction</h1>
+<div data-step="-1" id="sr20" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">Did you know that a teenager had the first idea for a television?</div>
+<div class="sent" data-idx="1">And a six-year-old boy invented the toy truck?</div>
+<div class="sent" data-idx="2">Kids and teens are great inventors because they have a lot of <span class="hl">creativity 💡<span class="hl-tip">💡 the ability to think of new ideas</span></span> and <span class="hl">imagination 🌟<span class="hl-tip">🌟 the ability to think of things that don't exist yet</span></span>.</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr20')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr20')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Question ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     21 QUESTION: PARAGRAPH 1
+═══════════════════════════════════════════════ -->
+<section data-label="21 Question: Paragraph 1">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Model answer: "because they have a lot of creativity and imagination."</div>
+<h1 class="t1">Question: Paragraph 1 ❓</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;max-width:1440px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:26px 32px;font-size:40px;font-weight:700">Why are kids and teens great inventors?</div>
+<textarea class="ans-area" id="q21" placeholder="Type your answer here..."></textarea>
+<div style="display:flex;gap:14px">
+<button class="btn ba" onclick="showModel('ma21','mn21')">Check ✅</button>
+<button class="btn bg" onclick="document.getElementById('q21').value=''">Try again 🔄</button>
+</div>
+<div class="model-ans" id="ma21">✅ <strong>Model answer:</strong> "Kids and teens are great inventors because they have a lot of creativity 💡 and imagination 🌟."</div>
+<button class="btn ba" id="mn21" onclick="DS.next()" style="display:none;width:fit-content">Paragraph 2 ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     22 PARAGRAPH 2A — Angad
+═══════════════════════════════════════════════ -->
+<section data-label="22 Paragraph 2A: Angad">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">This paragraph introduces asthma — the Think Aloud (Slide 35) is based on this word.</div>
+<h1 class="t1" style="margin-bottom:4px">Paragraph 2 — 2018: Angad Daryani 🔧</h1>
+<div class="yr">2018</div>
+<div data-step="-1" id="sr22" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">At the age of 19, Angad Daryani invented a solution to the problem of air <span class="hl">pollution 🌫️<span class="hl-tip">🌫️ harmful substances in the air that damage health</span></span> in cities.</div>
+<div class="sent" data-idx="1">Growing up in Mumbai, India, he suffered from <span class="hl">asthma 😮‍💨<span class="hl-tip">😮‍💨 a health problem that makes it hard to breathe</span></span> caused by the polluted air.</div>
+<div class="sent" data-idx="2">Air pollution 🌫️ is a big problem.</div>
+<div class="sent" data-idx="3">Three <span class="hl">million 🔢<span class="hl-tip">🔢 a very large number — 1,000,000 or more</span></span> people die each year.</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr22')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr22')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Next ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     23 PARAGRAPH 2B — Angad's Invention
+═══════════════════════════════════════════════ -->
+<section data-label="23 Paragraph 2B: Angad's Invention">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">6.1 meters = about as tall as a basketball hoop + a child on top.</div>
+<h1 class="t1">Paragraph 2 — Angad's Invention 🏗️</h1>
+<div data-step="-1" id="sr23" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">Angad's invention 🔧 is an air pollution cleaning tower that is 6.1 meters (20 ft.) high.</div>
+<div class="sent" data-idx="1">The tower sucks in air and takes out the particles of dust and carbon.</div>
+<div class="sent" data-idx="2">The particles are collected and can even be reused.</div>
+<div class="sent" data-idx="3">Angad's dream is to build thousands of the towers and improve the quality of air in cities.</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr23')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr23')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Question ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     24 QUESTION: PARAGRAPH 2
+═══════════════════════════════════════════════ -->
+<section data-label="24 Question: Paragraph 2">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Model: Angad wanted to solve air pollution. He built a 6.1m tower that sucks in air and removes dust and carbon particles.</div>
+<h1 class="t1">Question: Paragraph 2 ❓</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;max-width:1440px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:26px 32px;font-size:40px;font-weight:700">What problem did Angad want to solve with his invention?</div>
+<textarea class="ans-area" id="q24" placeholder="Type your answer here..."></textarea>
+<div style="display:flex;gap:14px">
+<button class="btn ba" onclick="showModel('ma24','mn24')">Check ✅</button>
+<button class="btn bg" onclick="document.getElementById('q24').value=''">Try again 🔄</button>
+</div>
+<div class="model-ans" id="ma24">✅ <strong>Model answer:</strong> "Angad wanted to solve the problem of air pollution 🌫️ in cities. He built a 6.1 meter tower that sucks in air and removes dust and carbon particles."</div>
+<button class="btn ba" id="mn24" onclick="DS.next()" style="display:none;width:fit-content">Paragraph 3 ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     25 PARAGRAPH 3A — Ann
+═══════════════════════════════════════════════ -->
+<section data-label="25 Paragraph 3A: Ann">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">The flashlight is "hollow" because body heat passes through a hollow tube to generate electricity.</div>
+<h1 class="t1" style="margin-bottom:4px">Paragraph 3 — 2013: Ann Makosinski 🔦</h1>
+<div class="yr">2013</div>
+<div data-step="-1" id="sr25" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">Canadian high school student Ann Makosinski was 15 when she invented the <em>"hollow flashlight."</em></div>
+<div class="sent" data-idx="1">The flashlight uses heat from the human body and changes it into light.</div>
+<div class="sent" data-idx="2">It doesn't need <span class="hl">batteries 🔋<span class="hl-tip">🔋 small containers of stored energy</span></span>.</div>
+<div class="sent" data-idx="3">Ann thought of the idea when she heard about a friend who lived in the Philippines.</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr25')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr25')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Next ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     26 PARAGRAPH 3B — Ann's Mission
+═══════════════════════════════════════════════ -->
+<section data-label="26 Paragraph 3B: Ann's Mission">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">1.1 billion = 1,100,000,000 people — about 14% of the world's population.</div>
+<h1 class="t1">Paragraph 3 — Ann's Mission 🌍</h1>
+<div data-step="-1" id="sr26" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">Her friend was doing badly in school.</div>
+<div class="sent" data-idx="1">She needed to do her homework at night, but there was no electrical light in her home.</div>
+<div class="sent" data-idx="2">Ann's flashlight isn't expensive.</div>
+<div class="sent" data-idx="3">Ann hopes it will help some of the 1.1 billion people in the world who still have no <span class="hl">electricity ⚡<span class="hl-tip">⚡ the power that makes lights and machines work</span></span> in their homes.</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr26')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr26')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Question ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     27 QUESTION: PARAGRAPH 3
+═══════════════════════════════════════════════ -->
+<section data-label="27 Question: Paragraph 3">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Emphasise: Ann's invention was inspired by wanting to help someone else.</div>
+<h1 class="t1">Question: Paragraph 3 ❓</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;max-width:1440px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:26px 32px;font-size:40px;font-weight:700">How did Ann come up with the idea for her invention?</div>
+<textarea class="ans-area" id="q27" placeholder="Type your answer here..."></textarea>
+<div style="display:flex;gap:14px">
+<button class="btn ba" onclick="showModel('ma27','mn27')">Check ✅</button>
+<button class="btn bg" onclick="document.getElementById('q27').value=''">Try again 🔄</button>
+</div>
+<div class="model-ans" id="ma27">✅ <strong>Model answer:</strong> "Ann heard about a friend in the Philippines who couldn't do her homework at night because there was no electricity ⚡ in her home. Ann wanted to help people without electricity."</div>
+<button class="btn ba" id="mn27" onclick="DS.next()" style="display:none;width:fit-content">Paragraph 4 ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     28 PARAGRAPH 4 — Frank Epperson
+═══════════════════════════════════════════════ -->
+<section data-label="28 Paragraph 4: Frank">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Frank was 11 — same age group as Leo! Great connection point.</div>
+<h1 class="t1" style="margin-bottom:4px">Paragraph 4 — 1905: Frank Epperson 🧊</h1>
+<div class="yr">1905</div>
+<div data-step="-1" id="sr28" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">When Frank Epperson was eleven, he left a cup filled with soda and a stick in his yard.</div>
+<div class="sent" data-idx="1">That night he forgot about it.</div>
+<div class="sent" data-idx="2">It was a very cold night.</div>
+<div class="sent" data-idx="3">When he went outside the next morning, he found something amazing: a <strong style="color:var(--a)">"Popsicle"</strong>! 🧊🎉</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr28')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr28')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Question ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     29 QUESTION: PARAGRAPH 4
+═══════════════════════════════════════════════ -->
+<section data-label="29 Question: Paragraph 4">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">The Popsicle was invented by accident — connect to Activity 2 clue: "It happened by accident."</div>
+<h1 class="t1">Question: Paragraph 4 ❓</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;max-width:1440px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:26px 32px;font-size:40px;font-weight:700">How did Frank Epperson invent the "Popsicle"?</div>
+<textarea class="ans-area" id="q29" placeholder="Type your answer here..."></textarea>
+<div style="display:flex;gap:14px">
+<button class="btn ba" onclick="showModel('ma29','mn29')">Check ✅</button>
+<button class="btn bg" onclick="document.getElementById('q29').value=''">Try again 🔄</button>
+</div>
+<div class="model-ans" id="ma29">✅ <strong>Model answer:</strong> "When Frank was eleven, he left a cup of soda with a stick in his yard. It was very cold and he forgot about it. The next morning it had frozen into a Popsicle 🧊!"</div>
+<button class="btn ba" id="mn29" onclick="DS.next()" style="display:none;width:fit-content">Paragraph 5 ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     30 PARAGRAPH 5A — Louis Braille
+═══════════════════════════════════════════════ -->
+<section data-label="30 Paragraph 5A: Louis Braille">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Louis Braille was born in 1809 in France. He became blind at age 3 in an accident in his father's workshop.</div>
+<h1 class="t1" style="margin-bottom:4px">Paragraph 5 — 1824: Louis Braille 📖</h1>
+<div class="yr">1824</div>
+<div data-step="-1" id="sr30" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">Louis Braille had an accident when he was three.</div>
+<div class="sent" data-idx="1">The accident left him <span class="hl">blind 👁️<span class="hl-tip">👁️ not able to see</span></span>.</div>
+<div class="sent" data-idx="2">At that time, it was hard for blind children to read.</div>
+<div class="sent" data-idx="3">They had to touch raised letters.</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr30')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr30')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Next ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     31 PARAGRAPH 5B — The Braille Alphabet
+═══════════════════════════════════════════════ -->
+<section data-label="31 Paragraph 5B: Braille Alphabet">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Braille uses patterns of up to 6 raised dots. Each pattern is a different letter.</div>
+<h1 class="t1">Paragraph 5 — The Braille Alphabet ⠃⠗⠁⠊⠇⠇⠑</h1>
+<div data-step="-1" id="sr31" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+<div class="sent" data-idx="0">But it was easy to confuse a Q with an O, an R with a B, and so on.</div>
+<div class="sent" data-idx="1">When he was fifteen, Louis invented an alphabet that used raised dots.</div>
+<div class="sent" data-idx="2">The Braille alphabet was a big success! 🎉</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:24px">
+<button class="btn ba" onclick="srNext('sr31')">▶ Next sentence</button>
+<button class="btn bg" onclick="srReset('sr31')">🔁 Read again</button>
+<button class="btn bp sr-done" onclick="DS.next()" style="display:none">Question ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     32 QUESTION: PARAGRAPH 5
+═══════════════════════════════════════════════ -->
+<section data-label="32 Question: Paragraph 5">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Two-part question — guide Leo to answer both parts separately.</div>
+<h1 class="t1">Question: Paragraph 5 ❓</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px;max-width:1440px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:22px 28px;font-size:34px">
+<div style="margin-bottom:10px"><strong style="color:var(--a)">a)</strong> What is Braille?</div>
+<div><strong style="color:var(--a)">b)</strong> Why was it hard for blind children to read before Braille?</div>
+</div>
+<textarea class="ans-area" id="q32a" placeholder="a) What is Braille?" style="min-height:80px"></textarea>
+<textarea class="ans-area" id="q32b" placeholder="b) Why was it hard before Braille?" style="min-height:80px"></textarea>
+<div style="display:flex;gap:14px">
+<button class="btn ba" onclick="showModel('ma32','mn32')">Check ✅</button>
+<button class="btn bg" onclick="document.getElementById('q32a').value='';document.getElementById('q32b').value=''">Try again 🔄</button>
+</div>
+<div class="model-ans" id="ma32">
+      ✅ <strong>a)</strong> "Braille is an alphabet that uses raised dots. Blind people read it by touching the dots with their fingers."<br/><br/>
+      ✅ <strong>b)</strong> "They had to touch raised letters and it was easy to confuse letters — for example, Q looks like O and R looks like B."
+    </div>
+<button class="btn ba" id="mn32" onclick="DS.next()" style="display:none;width:fit-content">Weird but True ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     33 WEIRD BUT TRUE
+═══════════════════════════════════════════════ -->
+<section class="grad" data-label="33 Weird but True" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Light fun moment — good energy reset between reading and Think Aloud.</div>
+<h1 class="t1" style="text-align:center;color:var(--wh)">Weird but True! 🤪</h1>
+<div style="background:rgba(124,58,237,.35);border:3px solid var(--a);border-radius:24px;padding:44px 72px;max-width:1200px">
+<div style="font-size:64px;margin-bottom:12px">🍽️😋</div>
+<div style="font-size:40px;line-height:1.55">Diane Bisson invented a series of <strong style="color:var(--a)">healthy and tasty plates and bowls</strong> that you can eat!</div>
+</div>
+<div style="font-size:34px;color:var(--a)">Weird or Amazing?</div>
+<div style="display:flex;gap:24px">
+<button class="btn bp" onclick="showWBT()" style="font-size:36px;padding:18px 50px">Weird! 🤪</button>
+<button class="btn ba" onclick="showWBT()" style="font-size:36px;padding:18px 50px">Amazing! 🤩</button>
+</div>
+<div id="wbt-r" style="display:none;flex-direction:column;gap:10px;text-align:center">
+<div style="font-size:30px">Dad 💬 <em>"Imagine finishing your dinner AND eating your plate!"</em></div>
+<div style="font-size:30px">Leo 💬 <em>"No more washing dishes? I'll take ten!"</em></div>
+<button class="btn ba" onclick="DS.next()" style="margin-top:8px">Think Aloud ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     34 THINK ALOUD: INTRO
+═══════════════════════════════════════════════ -->
+<section data-label="34 Think Aloud: Intro" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">This models the "Ask Questions" reading strategy applied to vocabulary in context.</div>
+<h1 class="t1" style="text-align:center">Think Aloud — Guessing from Context 🧠</h1>
+<div style="font-size:34px;color:rgba(255,255,255,.8);max-width:1100px;line-height:1.7">
+    Good readers <strong style="color:var(--a)">don't stop</strong> when they see an unknown word.<br/>
+    They use clues from the text to <strong style="color:var(--a)">guess the meaning</strong>.<br/><br/>
+    Watch how Dad does it! 👇
+  </div>
+<div style="font-size:80px">💬🧠</div>
+<button class="btn ba bpulse" onclick="DS.next()" style="font-size:36px;padding:20px 52px">See Dad's Think Aloud →</button>
+</section>
+<!-- ═══════════════════════════════════════════════
+     35 THINK ALOUD: STEPS
+═══════════════════════════════════════════════ -->
+<section data-label="35 Think Aloud: Steps">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Exact Think Aloud: "I see the word asthma. I don't know this word. The sentence says 'he suffered from asthma caused by polluted air.' I know that pollution is bad for breathing. So asthma must be a breathing problem. Let me keep reading to check…"</div>
+<h1 class="t1">Think Aloud: Dad reads Paragraph 2 🧠</h1>
+<div data-step="-1" id="ta35" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px;font-size:32px;line-height:1.6;border-left:5px solid var(--a)">
+<em>"Growing up in Mumbai, India, he suffered from <strong style="color:var(--a)">asthma</strong> caused by the polluted air."</em>
+</div>
+<div class="step-box" id="ta-s1">🔍 Dad 💬 <em>"I see the word <strong>asthma</strong>. I don't know this word."</em></div>
+<div class="step-box" id="ta-s2">💭 Dad 💬 <em>"The sentence says 'caused by the polluted air.' I know pollution is bad for breathing."</em></div>
+<div class="step-box" id="ta-s3">💡 Dad 💬 <em>"So asthma must be a <strong>breathing problem</strong>. Let me keep reading to check…"</em></div>
+<div class="tip-box" id="ta-tip">✅ <strong>Strategy Tip:</strong> Use context clues — the other words in the sentence help you guess the meaning!</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:28px;color:rgba(255,255,255,.65);line-height:1.6">Leo 💬 <em>"I can try this too! When I see a hard word, I'll look at the other words around it."</em></div>
+<div id="ta-try" style="display:none;background:rgba(124,58,237,.2);border-radius:14px;padding:22px 28px">
+<div style="font-size:30px;color:var(--a);margin-bottom:12px">Now try it! 🎯</div>
+<div style="font-size:32px;line-height:1.7">From Para 2: <em>"The tower sucks in air and takes out the <strong style="color:var(--a)">particles</strong> of dust and carbon."</em><br/><br/>What do you think <strong>particles</strong> means?</div>
+<textarea class="ans-area" id="ta-ans" placeholder="Type your guess..." style="min-height:80px;margin-top:14px"></textarea>
+<div style="display:flex;gap:14px;margin-top:12px">
+<button class="btn ba" onclick="showModel('ta-model','ta-next')">Check ✅</button>
+</div>
+<div class="model-ans" id="ta-model">✅ <strong>Model:</strong> "Particles means tiny pieces — of dust and carbon."</div>
+<button class="btn bp" id="ta-next" onclick="DS.next()" style="display:none;margin-top:10px">Activities ▶</button>
+</div>
+<button class="btn bp" id="ta-btn" onclick="taNext()" style="width:fit-content">Dad's next thought →</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     36 ACTIVITY 2 INTRO
+═══════════════════════════════════════════════ -->
+<section data-label="36 Activity 2: Intro">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Activity 2: Read and write. Leo reads clues and writes the inventor's name. Answers: 1-Angad, 2-Louis, 3-Frank, 4-Ann. Leo should refer to the text on pp. 124–125.</div>
+<h1 class="t1">Activity 2 — Read and Write ✍️</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px">
+<div class="tb" style="color:rgba(255,255,255,.8)">Read the clues. Write the correct inventor's name.</div>
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:20px 28px;font-size:30px;line-height:1.7">
+<strong style="color:var(--a)">Inventors:</strong> Angad Daryani 🔧 · Ann Makosinski 🔦 · Frank Epperson 🧊 · Louis Braille 📖
+    </div>
+<button class="btn ba bpulse" onclick="DS.next()" style="width:fit-content;font-size:32px;padding:18px 48px">Let's do it! ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     37 ACTIVITY 2: CLUES
+═══════════════════════════════════════════════ -->
+<section data-label="37 Activity 2: Clues">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Answers: 1. Angad Daryani, 2. Louis Braille, 3. Frank Epperson, 4. Ann Makosinski.</div>
+<h1 class="t1">Activity 2 — Who is it? ✍️</h1>
+<div style="flex:1;display:flex;flex-direction:column;gap:18px;justify-content:center">
+<div style="display:flex;align-items:center;gap:16px">
+<span style="font-size:34px;font-weight:700;color:var(--a);min-width:36px">1.</span>
+<span style="font-size:30px;flex:1">"He grew up in Mumbai and made a tower to clean air pollution." 🔧</span>
+<input class="fill-inp" id="a2q1" placeholder="Name..." style="width:300px;font-size:28px"/>
+<button class="btn ba" onclick="chkAct('a2q1',['angad','angad daryani'],'a2r1')" style="font-size:22px;padding:10px 18px">✅</button>
+<span id="a2r1" style="font-size:26px"></span>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<span style="font-size:34px;font-weight:700;color:var(--a);min-width:36px">2.</span>
+<span style="font-size:30px;flex:1">"He was blind and invented an alphabet using raised dots." 📖</span>
+<input class="fill-inp" id="a2q2" placeholder="Name..." style="width:300px;font-size:28px"/>
+<button class="btn ba" onclick="chkAct('a2q2',['louis','louis braille'],'a2r2')" style="font-size:22px;padding:10px 18px">✅</button>
+<span id="a2r2" style="font-size:26px"></span>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<span style="font-size:34px;font-weight:700;color:var(--a);min-width:36px">3.</span>
+<span style="font-size:30px;flex:1">"He was 11 years old. His invention happened by accident on a cold night." 🧊</span>
+<input class="fill-inp" id="a2q3" placeholder="Name..." style="width:300px;font-size:28px"/>
+<button class="btn ba" onclick="chkAct('a2q3',['frank','frank epperson'],'a2r3')" style="font-size:22px;padding:10px 18px">✅</button>
+<span id="a2r3" style="font-size:26px"></span>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<span style="font-size:34px;font-weight:700;color:var(--a);min-width:36px">4.</span>
+<span style="font-size:30px;flex:1">"She was 15. Her flashlight uses body heat, not batteries." 🔦</span>
+<input class="fill-inp" id="a2q4" placeholder="Name..." style="width:300px;font-size:28px"/>
+<button class="btn ba" onclick="chkAct('a2q4',['ann','ann makosinski'],'a2r4')" style="font-size:22px;padding:10px 18px">✅</button>
+<span id="a2r4" style="font-size:26px"></span>
+</div>
+<button class="btn ba" id="a2-next" onclick="DS.next()" style="display:none;width:fit-content;margin-top:8px">Activity 3 ▶</button>
+<button class="btn bp" onclick="checkAllAct2()" style="width:fit-content;margin-top:8px">Check All ✅</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     38 ACTIVITY 3: WHO/WHEN/WHAT/WHY CHART
+═══════════════════════════════════════════════ -->
+<section data-label="38 Activity 3: Chart">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Activity 3: Complete the Who/When/What/Why chart. Answers are pre-filled in the "Who" column. Leo fills in the rest. Refer to pp. 124–125.</div>
+<h1 class="t1">Activity 3 — Complete the Chart 📊</h1>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div style="font-size:28px;color:rgba(255,255,255,.7)">Fill in the chart using information from the text.</div>
+<table class="tbl">
+<thead><tr>
+<th>Who</th><th>When</th><th>What</th><th>Why (Problem they solved)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="font-size:26px">Angad Daryani 🔧</td>
+<td><input data-ans="2018" id="c1w" placeholder="year…"/></td>
+<td><input data-ans="air pollution cleaning tower" id="c1wh" placeholder="invention…"/></td>
+<td><input data-ans="air pollution" id="c1wy" placeholder="why…"/></td>
+</tr>
+<tr>
+<td style="font-size:26px">Ann Makosinski 🔦</td>
+<td><input data-ans="2013" id="c2w" placeholder="year…"/></td>
+<td><input data-ans="hollow flashlight" id="c2wh" placeholder="invention…"/></td>
+<td><input data-ans="no electricity" id="c2wy" placeholder="why…"/></td>
+</tr>
+<tr>
+<td style="font-size:26px">Frank Epperson 🧊</td>
+<td><input data-ans="1905" id="c3w" placeholder="year…"/></td>
+<td><input data-ans="popsicle" id="c3wh" placeholder="invention…"/></td>
+<td><input data-ans="accident" id="c3wy" placeholder="why…"/></td>
+</tr>
+<tr>
+<td style="font-size:26px">Louis Braille 📖</td>
+<td><input data-ans="1824" id="c4w" placeholder="year…"/></td>
+<td><input data-ans="braille alphabet" id="c4wh" placeholder="invention…"/></td>
+<td><input data-ans="blind people" id="c4wy" placeholder="why…"/></td>
+</tr>
+</tbody>
+</table>
+<div style="display:flex;gap:14px;margin-top:8px">
+<button class="btn ba" onclick="checkChart()">Check All ✅</button>
+<button class="btn bg" onclick="showChartAnswers()">Show Answers 🔍</button>
+</div>
+<button class="btn bp" id="chart-next" onclick="DS.next()" style="display:none;width:fit-content">Read the Graph ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     39 READ THE GRAPH
+═══════════════════════════════════════════════ -->
+<section data-label="39 Read the Graph">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">This is the "Number of Patent Filings Around the World" graph from p. 125. The graph shows an increase from about 1.0 million in 2000 to about 1.6 million in 2006.</div>
+<h1 class="t1">Read the Graph 📈</h1>
+<div style="display:flex;gap:56px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;position:relative">
+<div style="font-size:26px;color:var(--a);font-weight:700;margin-bottom:8px;text-align:center">Number of Patent 📜 Filings Around the World</div>
+<svg style="width:100%;max-height:340px;overflow:visible" viewbox="0 0 600 320">
+<!-- Grid lines -->
+<line stroke="rgba(196,181,253,.3)" stroke-width="1" x1="60" x2="60" y1="20" y2="280"></line>
+<line stroke="rgba(196,181,253,.3)" stroke-width="1" x1="60" x2="580" y1="280" y2="280"></line>
+<line stroke="rgba(196,181,253,.1)" stroke-dasharray="4,4" stroke-width="1" x1="60" x2="580" y1="200" y2="200"></line>
+<line stroke="rgba(196,181,253,.1)" stroke-dasharray="4,4" stroke-width="1" x1="60" x2="580" y1="140" y2="140"></line>
+<line stroke="rgba(196,181,253,.1)" stroke-dasharray="4,4" stroke-width="1" x1="60" x2="580" y1="80" y2="80"></line>
+<!-- Y labels -->
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="end" x="50" y="284">1.0M</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="end" x="50" y="204">1.2M</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="end" x="50" y="144">1.4M</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="end" x="50" y="84">1.6M</text>
+<!-- X labels -->
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="middle" x="80" y="300">2000</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="middle" x="160" y="300">2001</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="middle" x="240" y="300">2002</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="middle" x="320" y="300">2003</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="middle" x="400" y="300">2004</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="middle" x="480" y="300">2005</text>
+<text fill="rgba(196,181,253,.7)" font-size="16" text-anchor="middle" x="560" y="300">2006</text>
+<!-- Line -->
+<polyline fill="none" points="80,280 160,255 240,235 320,218 400,190 480,150 560,80" stroke="#C4B5FD" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<!-- Dots -->
+<circle cx="80" cy="280" fill="#7C3AED" r="7" stroke="#C4B5FD" stroke-width="2"></circle>
+<circle cx="160" cy="255" fill="#7C3AED" r="7" stroke="#C4B5FD" stroke-width="2"></circle>
+<circle cx="240" cy="235" fill="#7C3AED" r="7" stroke="#C4B5FD" stroke-width="2"></circle>
+<circle cx="320" cy="218" fill="#7C3AED" r="7" stroke="#C4B5FD" stroke-width="2"></circle>
+<circle cx="400" cy="190" fill="#7C3AED" r="7" stroke="#C4B5FD" stroke-width="2"></circle>
+<circle cx="480" cy="150" fill="#7C3AED" r="7" stroke="#C4B5FD" stroke-width="2"></circle>
+<circle cx="560" cy="80" fill="#7C3AED" r="7" stroke="#C4B5FD" stroke-width="2"></circle>
+</svg>
+</div>
+<div style="width:480px;display:flex;flex-direction:column;gap:16px">
+<div class="tsm" style="color:rgba(255,255,255,.75)">Answer these questions about the graph:</div>
+<div style="background:rgba(124,58,237,.25);border-radius:12px;padding:18px 22px">
+<div style="font-size:28px;margin-bottom:10px;color:var(--a)">1. In which year were the fewest patents filed?</div>
+<div style="display:flex;gap:10px">
+<input class="fill-inp" id="gq1" placeholder="…" style="width:120px"/>
+<button class="btn ba" onclick="chkAct('gq1',['2000'],'gr1')" style="font-size:20px;padding:8px 16px">✅</button>
+<span id="gr1" style="font-size:26px"></span>
+</div>
+</div>
+<div style="background:rgba(124,58,237,.25);border-radius:12px;padding:18px 22px">
+<div style="font-size:28px;margin-bottom:10px;color:var(--a)">2. In which year were the most patents filed?</div>
+<div style="display:flex;gap:10px">
+<input class="fill-inp" id="gq2" placeholder="…" style="width:120px"/>
+<button class="btn ba" onclick="chkAct('gq2',['2006'],'gr2')" style="font-size:20px;padding:8px 16px">✅</button>
+<span id="gr2" style="font-size:26px"></span>
+</div>
+</div>
+<div style="background:rgba(124,58,237,.25);border-radius:12px;padding:18px 22px">
+<div style="font-size:28px;margin-bottom:10px;color:var(--a)">3. Is the number of patents going up or down?</div>
+<div style="display:flex;gap:10px">
+<input class="fill-inp" id="gq3" placeholder="…" style="width:160px"/>
+<button class="btn ba" onclick="chkAct('gq3',['up','going up','increasing'],'gr3')" style="font-size:20px;padding:8px 16px">✅</button>
+<span id="gr3" style="font-size:26px"></span>
+</div>
+</div>
+<button class="btn ba" id="graph-next" onclick="DS.next()" style="display:none;width:fit-content">Opinion Activity ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     40 ACTIVITY 4: OPINION
+═══════════════════════════════════════════════ -->
+<section data-label="40 Activity 4: Opinion">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Activity 4: Share your opinion. Leo chooses his favourite invention and explains why. Model "I think… because…" Encourage full sentences.</div>
+<h1 class="t1">Activity 4 — Share Your Opinion 💭</h1>
+<div style="display:flex;gap:40px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div class="tb" style="color:rgba(255,255,255,.8)">Which invention do <strong style="color:var(--a)">you</strong> think is the most important? Why?</div>
+<div class="tb" style="color:rgba(255,255,255,.6)">Use: <em>"I think the _____ is the most important because _____."</em></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+<div class="opt" id="op1" onclick="selectOpt('op1')">🔧 Angad's Air Tower</div>
+<div class="opt" id="op2" onclick="selectOpt('op2')">🔦 Ann's Hollow Flashlight</div>
+<div class="opt" id="op3" onclick="selectOpt('op3')">🧊 Frank's Popsicle</div>
+<div class="opt" id="op4" onclick="selectOpt('op4')">📖 Louis' Braille Alphabet</div>
+</div>
+<div style="margin-top:8px">
+<div class="tsm" style="color:var(--a);margin-bottom:8px">Type your opinion sentence:</div>
+<textarea class="ans-area" id="opAns" placeholder="I think the _____ is the most important because _____..." style="min-height:90px"></textarea>
+</div>
+</div>
+<div style="width:380px;display:flex;flex-direction:column;gap:14px">
+<button class="btn bp" onclick="document.getElementById('opSample').style.display='flex'">Show sample answer 💬</button>
+<div id="opSample" style="display:none;flex-direction:column;gap:10px">
+<div style="background:rgba(124,58,237,.2);border-radius:12px;padding:16px 20px;font-size:27px">Dad 💬 <em>"I think the Braille alphabet is the most important because it helped millions of blind people read."</em></div>
+<div style="background:rgba(124,58,237,.2);border-radius:12px;padding:16px 20px;font-size:27px">Leo 💬 <em>"I think Ann's flashlight is the most important because 1.1 billion people have no electricity!"</em></div>
+</div>
+<div style="display:flex;gap:12px;align-items:center;margin-top:4px">
+<button class="btn bp" onclick="startTimer('t40',15,function(){document.getElementById('op-share').style.display='block'})">🎤 Share! (15s)</button>
+<span id="t40" style="font-size:52px;font-weight:900;color:var(--a);display:none"></span>
+</div>
+<div id="op-share" style="display:none;background:rgba(196,181,253,.15);border:2px solid var(--a);border-radius:12px;padding:18px 22px;font-size:30px">🎤 Share your opinion!</div>
+<button class="btn ba" onclick="DS.next()" style="margin-top:auto">Be the Expert ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     41 BE THE EXPERT: ABOUT THE PHOTO
+═══════════════════════════════════════════════ -->
+<section data-label="41 Be the Expert: Photo">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">The photo on p. 124 shows Ann Makosinski holding her hollow flashlight. Discuss: What does Ann look like? Where might she be?</div>
+<h1 class="t1">Be the Expert — About the Photo 📸</h1>
+<div style="display:flex;gap:48px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:18px">
+<div style="background:rgba(124,58,237,.2);border:2px dashed var(--p);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:300px">
+<div style="font-size:80px">🔦👩‍🔬</div>
+<div class="tsm" style="color:rgba(255,255,255,.65);text-align:center">[Photo: Ann Makosinski holding<br/>her hollow flashlight]</div>
+</div>
+</div>
+<div data-step="-1" id="exp41" style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div class="vr-item" data-idx="0" style="font-size:32px"><strong style="color:var(--a)">❓ Question 1:</strong> What do you see in the photo?</div>
+<div class="vr-item" data-idx="1" style="font-size:30px">Dad 💬 <em>"I can see Ann holding the hollow flashlight. She looks proud and happy."</em></div>
+<div class="vr-item" data-idx="2" style="font-size:32px"><strong style="color:var(--a)">❓ Question 2:</strong> How do you think Ann feels?</div>
+<div class="vr-item" data-idx="3" style="font-size:30px">Leo 💬 <em>"She looks excited! I'd feel proud too if I invented something to help 1.1 billion people!"</em></div>
+<button class="btn ba" id="exp41-next" onclick="DS.next()" style="display:none;width:fit-content">Our World in Context ▶</button>
+<button class="btn bp" id="exp41-rev" onclick="vcReveal('exp41')" style="width:fit-content">▶ Reveal</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     42 BE THE EXPERT: OUR WORLD IN CONTEXT
+═══════════════════════════════════════════════ -->
+<section data-label="42 Be the Expert: Context">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Fact file: Young inventors have changed the world throughout history. Discussion questions connect to Leo's own experience.</div>
+<h1 class="t1">Be the Expert — Our World in Context 🌍</h1>
+<div style="display:flex;gap:40px;flex:1">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div style="background:rgba(124,58,237,.25);border-radius:14px;padding:22px 28px;font-size:30px;line-height:1.7">
+        ⭐ <strong style="color:var(--a)">Fun Facts about Young Inventors:</strong>
+<ul style="margin-top:12px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+<li>The world's youngest patent holder was just <strong>4 years old</strong>!</li>
+<li>Frank Epperson got his patent for the Popsicle at age <strong>28</strong> — 18 years after inventing it!</li>
+<li>Louis Braille completed his alphabet at <strong>15</strong> and it's still used today by millions of blind people worldwide.</li>
+</ul>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div style="font-size:32px;color:var(--a);font-weight:700">Discussion Questions:</div>
+<div data-step="-1" id="ctx42" style="display:flex;flex-direction:column;gap:14px">
+<div class="vr-item" data-idx="0" style="font-size:30px">❓ <strong>Which invention</strong> in the reading surprised you the most? Why?</div>
+<div class="vr-item" data-idx="1" style="font-size:30px">❓ <strong>Think of a problem</strong> in your life or school. What invention could solve it?</div>
+<div class="vr-item" data-idx="2" style="font-size:30px">❓ <strong>At what age</strong> do you think someone is ready to be an inventor?</div>
+</div>
+<div style="display:flex;gap:14px;align-items:center;margin-top:8px">
+<button class="btn bp" id="ctx42-rev" onclick="vcReveal('ctx42')">▶ Next question</button>
+<button class="btn ba" id="ctx42-next" onclick="DS.next()" style="display:none">Wrap Up ▶</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     43 WRAP UP: MATCH THE INVENTORS
+═══════════════════════════════════════════════ -->
+<section data-label="43 Wrap Up: Match">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Matching activity: Connect each inventor to their invention and the year. This wraps up the lesson by revisiting all four inventors.</div>
+<h1 class="t1">Wrap Up — Match the Inventors 🔗</h1>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center">
+<div class="tsm" style="color:rgba(255,255,255,.75)">Type the correct year and invention for each inventor.</div>
+<table class="tbl">
+<thead><tr><th>Inventor</th><th>Year</th><th>Invention</th></tr></thead>
+<tbody>
+<tr>
+<td style="font-size:28px">Angad Daryani 🔧</td>
+<td><input data-ans="2018" id="wu1y" placeholder="year…"/></td>
+<td><input data-ans="air pollution cleaning tower" id="wu1i" placeholder="invention…"/></td>
+</tr>
+<tr>
+<td style="font-size:28px">Ann Makosinski 🔦</td>
+<td><input data-ans="2013" id="wu2y" placeholder="year…"/></td>
+<td><input data-ans="hollow flashlight" id="wu2i" placeholder="invention…"/></td>
+</tr>
+<tr>
+<td style="font-size:28px">Frank Epperson 🧊</td>
+<td><input data-ans="1905" id="wu3y" placeholder="year…"/></td>
+<td><input data-ans="popsicle" id="wu3i" placeholder="invention…"/></td>
+</tr>
+<tr>
+<td style="font-size:28px">Louis Braille 📖</td>
+<td><input data-ans="1824" id="wu4y" placeholder="year…"/></td>
+<td><input data-ans="braille alphabet" id="wu4i" placeholder="invention…"/></td>
+</tr>
+</tbody>
+</table>
+<div style="display:flex;gap:14px;margin-top:6px">
+<button class="btn ba" onclick="checkWrapUp()">Check All ✅</button>
+<button class="btn bg" onclick="showWrapUpAnswers()">Show Answers 🔍</button>
+</div>
+<button class="btn bp" id="wu-next" onclick="DS.next()" style="display:none;width:fit-content">Assessment ▶</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     44 FORMATIVE ASSESSMENT: CHECKLIST
+═══════════════════════════════════════════════ -->
+<section data-label="44 Assessment: Checklist">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Formative assessment — Leo ticks each objective he feels confident about. This mirrors the lesson objectives on Slide 2.</div>
+<h1 class="t1">Can Leo… ✅</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:4px;max-width:1200px">
+<div class="cb-row" onclick="toggleCb(this)">
+<div class="cb-box"></div>
+<div class="tb">🔧 Identify and describe an invention from the reading?</div>
+</div>
+<div class="cb-row" onclick="toggleCb(this)">
+<div class="cb-box"></div>
+<div class="tb">❓ Ask a question about a sentence in the text?</div>
+</div>
+<div class="cb-row" onclick="toggleCb(this)">
+<div class="cb-box"></div>
+<div class="tb">💭 Share an opinion about which invention is best?</div>
+</div>
+<div class="cb-row" onclick="toggleCb(this)">
+<div class="cb-box"></div>
+<div class="tb">📊 Read information from a chart?</div>
+</div>
+<div class="cb-row" onclick="toggleCb(this)">
+<div class="cb-box"></div>
+<div class="tb">📈 Read information from a graph?</div>
+</div>
+<div class="cb-row" onclick="toggleCb(this)">
+<div class="cb-box"></div>
+<div class="tb">📖 Use context clues to guess the meaning of an unknown word?</div>
+</div>
+<div style="margin-top:24px">
+<button class="btn ba" onclick="DS.next()">Final Question ▶</button>
+</div>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     45 FORMATIVE ASSESSMENT: QUESTION
+═══════════════════════════════════════════════ -->
+<section data-label="45 Assessment: Question">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Final oral assessment. Leo answers without looking at his notes.</div>
+<h1 class="t1">Final Assessment Question 🎯</h1>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;max-width:1440px">
+<div style="background:rgba(124,58,237,.25);border-radius:16px;padding:28px 36px;font-size:40px;font-weight:700;line-height:1.5">
+      Choose <strong style="color:var(--a)">ONE</strong> inventor from the reading.<br/>
+      Tell me: <strong style="color:var(--a)">Who</strong> are they? <strong style="color:var(--a)">When</strong> did they invent? <strong style="color:var(--a)">What</strong> did they invent? <strong style="color:var(--a)">Why</strong>?
+    </div>
+<textarea class="ans-area" id="q45" placeholder="Type your answer here..." style="min-height:120px"></textarea>
+<div style="display:flex;gap:14px">
+<button class="btn ba" onclick="showModel('ma45','mn45')">Show model answer ✅</button>
+</div>
+<div class="model-ans" id="ma45">✅ <strong>Sample:</strong> "Ann Makosinski is a Canadian inventor. In 2013, when she was 15, she invented the hollow flashlight 🔦. She invented it because her friend in the Philippines had no electricity ⚡ and couldn't do her homework at night. Ann's flashlight uses body heat — not batteries 🔋."</div>
+<button class="btn ba" id="mn45" onclick="DS.next()" style="display:none;width:fit-content">Finish! 🎉</button>
+</div>
+</section>
+<!-- ═══════════════════════════════════════════════
+     46 CLOSING SLIDE
+═══════════════════════════════════════════════ -->
+<section class="grad" data-label="46 Closing" id="closingSlide" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+<button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+<div class="tn-panel">Homework: Workbook pp. XX. Ask Leo to rate his confidence with the star rating before closing.</div>
+<div style="font-size:100px">🎉🔧💡</div>
+<h1 class="t1" style="font-size:72px;text-align:center;color:var(--wh)">Great work today, Leo!</h1>
+<div style="font-size:34px;color:rgba(255,255,255,.8);max-width:1000px;line-height:1.65">
+    Today you read about <strong style="color:var(--a)">four amazing young inventors</strong>.<br/>
+    You asked questions, used context clues, completed a chart and graph,<br/>and shared your opinion! 💭
+  </div>
+<div style="font-size:30px;color:rgba(196,181,253,.7);margin-top:8px">📚 Homework: Workbook exercises</div>
+<div style="margin-top:20px">
+<div style="font-size:30px;color:var(--a);margin-bottom:14px">How confident do you feel? Click to rate!</div>
+<div style="display:flex;gap:4px;justify-content:center">
+<button class="star" id="s1" onclick="rateStar(1)">⭐</button>
+<button class="star" id="s2" onclick="rateStar(2)">⭐</button>
+<button class="star" id="s3" onclick="rateStar(3)">⭐</button>
+<button class="star" id="s4" onclick="rateStar(4)">⭐</button>
+<button class="star" id="s5" onclick="rateStar(5)">⭐</button>
+</div>
+<div id="star-msg" style="font-size:34px;margin-top:16px;min-height:40px"></div>
+</div>
+</section>
+</deck-stage>
+<script>
+// ── Helpers ──────────────────────────────────────────────
+const DS = document.querySelector('deck-stage');
+
+function toggleNote(btn) {
+  const panel = btn.nextElementSibling;
+  panel.classList.toggle('open');
+}
+
+// Objectives reveal
+let objCount = 0;
+function revObj(id) {
+  const el = document.getElementById(id);
+  if (!el.classList.contains('rev')) {
+    el.classList.add('rev');
+    objCount++;
+    if (objCount === 3) document.getElementById('obj-next').style.display = 'inline-flex';
+  }
+}
+
+// Flip cards
+function flipCard(id) {
+  document.getElementById(id).classList.toggle('flipped');
+}
+function flipOk(cardId, nextId) {
+  document.getElementById(cardId).classList.add('flipped');
+  document.getElementById(nextId).style.display = 'inline-flex';
+}
+
+// Strategy demo
+let stratStep = 0;
+function showStratDemo() {
+  stratStep++;
+  if (stratStep === 1) { document.getElementById('sd1').classList.add('show'); }
+  if (stratStep === 2) { document.getElementById('sd2').classList.add('show'); }
+  if (stratStep === 3) {
+    document.getElementById('sd-tip').classList.add('show');
+    document.getElementById('sd-done').style.display = 'inline-flex';
+  }
+}
+
+// Content vocab reveal
+function vcReveal(prefix) {
+  const cont = document.getElementById(prefix);
+  const step = parseInt(cont.dataset.step) + 1;
+  const items = cont.querySelectorAll('.vr-item[data-idx]');
+  if (step < items.length) {
+    items[step].classList.add('show');
+    cont.dataset.step = step;
+    if (step === items.length - 1) {
+      const check = document.getElementById(prefix + '-check');
+      if (check) { setTimeout(() => { check.style.display = 'block'; }, 500); }
+      else {
+        const nx = document.getElementById(prefix + '-next');
+        if (nx) { setTimeout(() => { nx.style.display = 'inline-flex'; document.getElementById(prefix + '-rev').style.display = 'none'; }, 500); }
+      }
+    }
+  }
+}
+function vcYes(prefix) {
+  document.getElementById(prefix + '-check').style.display = 'none';
+  document.getElementById(prefix + '-next').style.display = 'inline-flex';
+  document.getElementById(prefix + '-rev').style.display = 'none';
+}
+function vcNo(prefix) {
+  // Reset to show all items again
+  const cont = document.getElementById(prefix);
+  cont.querySelectorAll('.vr-item').forEach(i => { i.classList.remove('show'); });
+  cont.dataset.step = -1;
+  document.getElementById(prefix + '-check').style.display = 'none';
+  document.getElementById(prefix + '-rev').style.display = 'inline-flex';
+}
+
+// Related vocab: show definition on input
+function showDef(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.opacity = '1';
+}
+function bouncePic(id) {
+  const el = document.getElementById(id);
+  el.style.animation = 'bounce .6s ease';
+  setTimeout(() => { el.style.animation = ''; }, 700);
+}
+
+// Fill-in blank check
+function chkBlank(inputId, answers, resId, nextId) {
+  const val = document.getElementById(inputId).value.trim().toLowerCase();
+  const inp = document.getElementById(inputId);
+  const res = document.getElementById(resId);
+  if (answers.some(a => val.includes(a))) {
+    inp.classList.add('ok'); inp.classList.remove('bad');
+    res.textContent = '✅ Correct!'; res.style.color = '#22C55E';
+    document.getElementById(nextId).style.display = 'inline-flex';
+  } else {
+    inp.classList.add('bad'); inp.classList.remove('ok');
+    res.textContent = '❌ Try again!'; res.style.color = '#EF4444';
+    setTimeout(() => inp.classList.remove('bad'), 600);
+  }
+}
+
+// Sentence reveal
+function srNext(id) {
+  const cont = document.getElementById(id);
+  const step = parseInt(cont.dataset.step) + 1;
+  const sents = cont.querySelectorAll('.sent[data-idx]');
+  if (step < sents.length) {
+    sents[step].classList.add('show');
+    cont.dataset.step = step;
+    if (step === sents.length - 1) {
+      cont.querySelector('.sr-done').style.display = 'inline-flex';
+    }
+  }
+}
+function srReset(id) {
+  const cont = document.getElementById(id);
+  cont.querySelectorAll('.sent').forEach(s => s.classList.remove('show'));
+  cont.dataset.step = -1;
+  cont.querySelector('.sr-done').style.display = 'none';
+}
+
+// Model answers
+function showModel(ansId, nextId) {
+  document.getElementById(ansId).classList.add('show');
+  document.getElementById(nextId).style.display = 'inline-flex';
+}
+
+// Weird but True
+function showWBT() {
+  document.getElementById('wbt-r').style.display = 'flex';
+}
+
+// Think Aloud
+let taStep = 0;
+function taNext() {
+  taStep++;
+  const ids = ['ta-s1','ta-s2','ta-s3','ta-tip'];
+  if (taStep <= 4) {
+    document.getElementById(ids[taStep-1]).classList.add('show');
+    if (taStep === 4) {
+      document.getElementById('ta-btn').textContent = 'Now try it! 🎯';
+      document.getElementById('ta-btn').onclick = function() {
+        document.getElementById('ta-try').style.display = 'block';
+        this.style.display = 'none';
+      };
+    }
+  }
+}
+
+// Audio
+let audioPlaying = false;
+function startAudio() {
+  if (audioPlaying) return;
+  audioPlaying = true;
+  document.getElementById('audBtn').style.display = 'none';
+  document.getElementById('audWave').style.display = 'flex';
+  setTimeout(() => {
+    document.getElementById('audWave').style.display = 'none';
+    document.getElementById('audDone').style.display = 'inline-flex';
+    audioPlaying = false;
+  }, 3000);
+}
+
+// Activity 2
+function chkAct(inputId, answers, resId) {
+  const val = document.getElementById(inputId).value.trim().toLowerCase();
+  const inp = document.getElementById(inputId);
+  const res = document.getElementById(resId);
+  if (answers.some(a => val.includes(a))) {
+    inp.classList.add('ok'); inp.classList.remove('bad');
+    res.textContent = '✅'; res.style.color = '#22C55E';
+    checkA2Done();
+  } else {
+    inp.classList.add('bad'); inp.classList.remove('ok');
+    res.textContent = '❌'; res.style.color = '#EF4444';
+    setTimeout(() => inp.classList.remove('bad'), 600);
+  }
+}
+function checkA2Done() {
+  const all = ['a2r1','a2r2','a2r3','a2r4'].every(id => document.getElementById(id).textContent === '✅');
+  if (all) document.getElementById('a2-next').style.display = 'inline-flex';
+}
+function checkAllAct2() {
+  chkAct('a2q1',['angad','angad daryani'],'a2r1');
+  chkAct('a2q2',['louis','louis braille'],'a2r2');
+  chkAct('a2q3',['frank','frank epperson'],'a2r3');
+  chkAct('a2q4',['ann','ann makosinski'],'a2r4');
+}
+
+// Chart check
+function checkChart() {
+  const fields = [
+    {id:'c1w',a:['2018']},{id:'c1wh',a:['tower','air']},{id:'c1wy',a:['pollution','air']},
+    {id:'c2w',a:['2013']},{id:'c2wh',a:['flashlight']},{id:'c2wy',a:['electricity','electric']},
+    {id:'c3w',a:['1905']},{id:'c3wh',a:['popsicle']},{id:'c3wy',a:['accident']},
+    {id:'c4w',a:['1824']},{id:'c4wh',a:['braille','alphabet']},{id:'c4wy',a:['blind']}
+  ];
+  let allOk = true;
+  fields.forEach(f => {
+    const inp = document.getElementById(f.id);
+    const val = inp.value.trim().toLowerCase();
+    if (f.a.some(a => val.includes(a))) { inp.classList.add('ok'); }
+    else { inp.classList.add('bad'); allOk = false; setTimeout(()=>inp.classList.remove('bad'),600); }
+  });
+  if (allOk) {
+    document.getElementById('chart-next').style.display = 'inline-flex';
+    confetti();
+  }
+}
+function showChartAnswers() {
+  const answers = {c1w:'2018',c1wh:'Air Pollution Tower',c1wy:'Air Pollution',
+    c2w:'2013',c2wh:'Hollow Flashlight',c2wy:'No Electricity',
+    c3w:'1905',c3wh:'Popsicle',c3wy:'Accident',
+    c4w:'1824',c4wh:'Braille Alphabet',c4wy:'Blind People'};
+  Object.keys(answers).forEach(id => {
+    const inp = document.getElementById(id);
+    inp.value = answers[id]; inp.classList.add('ok');
+  });
+  document.getElementById('chart-next').style.display = 'inline-flex';
+}
+
+// Graph check - show next when all correct
+document.addEventListener('DOMContentLoaded', function() {
+  ['gr1','gr2','gr3'].forEach(() => {});
+});
+function chkGraphDone() {
+  const all = ['gr1','gr2','gr3'].every(id => document.getElementById(id).textContent === '✅');
+  if (all) { document.getElementById('graph-next').style.display = 'inline-flex'; confetti(); }
+}
+// Override chkAct to also check graph
+const _origChkAct = chkAct;
+
+// Opinion select
+function selectOpt(id) {
+  ['op1','op2','op3','op4'].forEach(i => document.getElementById(i).classList.remove('sel'));
+  document.getElementById(id).classList.add('sel');
+}
+
+// Checkbox
+function toggleCb(row) {
+  row.classList.toggle('ticked');
+  if (row.classList.contains('ticked')) row.querySelector('.cb-box').textContent = '✓';
+  else row.querySelector('.cb-box').textContent = '';
+}
+
+// Wrap up
+function checkWrapUp() {
+  const fields = [
+    {id:'wu1y',a:['2018']},{id:'wu1i',a:['tower','air']},
+    {id:'wu2y',a:['2013']},{id:'wu2i',a:['flashlight']},
+    {id:'wu3y',a:['1905']},{id:'wu3i',a:['popsicle']},
+    {id:'wu4y',a:['1824']},{id:'wu4i',a:['braille','alphabet']}
+  ];
+  let allOk = true;
+  fields.forEach(f => {
+    const inp = document.getElementById(f.id);
+    const val = inp.value.trim().toLowerCase();
+    if (f.a.some(a => val.includes(a))) { inp.classList.add('ok'); }
+    else { inp.classList.add('bad'); allOk = false; setTimeout(()=>inp.classList.remove('bad'),600); }
+  });
+  if (allOk) { document.getElementById('wu-next').style.display = 'inline-flex'; confetti(); }
+}
+function showWrapUpAnswers() {
+  const a = {wu1y:'2018',wu1i:'Air Pollution Tower',wu2y:'2013',wu2i:'Hollow Flashlight',wu3y:'1905',wu3i:'Popsicle',wu4y:'1824',wu4i:'Braille Alphabet'};
+  Object.keys(a).forEach(id => { const inp = document.getElementById(id); inp.value = a[id]; inp.classList.add('ok'); });
+  document.getElementById('wu-next').style.display = 'inline-flex';
+}
+
+// Context reveal
+function ctxReveal() {
+  const cont = document.getElementById('ctx42');
+  const step = parseInt(cont.dataset.step || -1) + 1;
+  const items = cont.querySelectorAll('.vr-item');
+  if (step < items.length) {
+    items[step].classList.add('show');
+    cont.dataset.step = step;
+    if (step === items.length - 1) {
+      document.getElementById('ctx42-rev').style.display = 'none';
+      document.getElementById('ctx42-next').style.display = 'inline-flex';
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.getElementById('ctx42-rev');
+  if (btn) btn.onclick = ctxReveal;
+});
+
+// Stars
+function rateStar(n) {
+  for (let i = 1; i <= 5; i++) {
+    const s = document.getElementById('s' + i);
+    s.classList.toggle('lit', i <= n);
+  }
+  const msgs = ['','Keep trying! You can do it! 💪','Getting there! 👍','Good work! 😊','Really good! 🌟','Amazing! You are a star! 🏆'];
+  document.getElementById('star-msg').textContent = msgs[n];
+  if (n >= 4) confetti();
+}
+
+// Timer
+function startTimer(id, secs, cb) {
+  const el = document.getElementById(id);
+  el.style.display = 'inline-block';
+  let t = secs;
+  el.textContent = t;
+  const iv = setInterval(() => {
+    t--;
+    el.textContent = t;
+    if (t <= 0) {
+      clearInterval(iv);
+      el.style.display = 'none';
+      if (cb) cb();
+    }
+  }, 1000);
+}
+
+// Confetti
+function confetti() {
+  const colors = ['#C4B5FD','#7C3AED','#F59E0B','#22C55E','#EF4444','#ffffff'];
+  for (let i = 0; i < 60; i++) {
+    setTimeout(() => {
+      const d = document.createElement('div');
+      d.className = 'cp';
+      d.style.left = Math.random() * 100 + 'vw';
+      d.style.top = '-20px';
+      d.style.background = colors[Math.floor(Math.random() * colors.length)];
+      d.style.width = (8 + Math.random() * 12) + 'px';
+      d.style.height = d.style.width;
+      d.style.animationDuration = (1.2 + Math.random() * .8) + 's';
+      document.body.appendChild(d);
+      setTimeout(() => d.remove(), 2000);
+    }, i * 30);
+  }
+}
+
+// Closing slide — confetti on enter
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('deck-stage').addEventListener('slidechange', (e) => {
+    if (e.detail.slide && e.detail.slide.dataset.label === '46 Closing') {
+      setTimeout(confetti, 300);
+    }
+  });
+});
+
+// Warm up sample
+function showSampleWarmUp() {
+  document.getElementById('wu17s').style.display = 'flex';
+}
+</script>
+</body>
+</html>

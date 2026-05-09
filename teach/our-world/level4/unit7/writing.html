@@ -1,0 +1,3495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7: Creative Minds ✍️ Writing — Leo's Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+/**
+ * <deck-stage> — reusable web component for HTML decks.
+ *
+ * Handles:
+ *  (a) speaker notes — reads <script type="application/json" id="speaker-notes">
+ *      and posts {slideIndexChanged: N} to the parent window on nav.
+ *  (b) keyboard navigation — ←/→, PgUp/PgDn, Space, Home/End, number keys.
+ *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
+ *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
+ *      scaled with `transform: scale()` to fit the viewport, letterboxed.
+ *      Set the `noscale` attribute to render at authored size (1:1) — the
+ *      PPTX exporter sets this so its DOM capture sees unscaled geometry.
+ *  (f) print — `@media print` lays every slide out as its own page at the
+ *      design size, so the browser's Print → Save as PDF produces a clean
+ *      one-page-per-slide PDF with no extra setup.
+ *
+ * Slides are HIDDEN, not unmounted. Non-active slides stay in the DOM with
+ * `visibility: hidden` + `opacity: 0`, so their state (videos, iframes,
+ * form inputs, React trees) is preserved across navigation.
+ *
+ * Lifecycle event — the component dispatches a `slidechange` CustomEvent on
+ * itself whenever the active slide changes (including the initial mount).
+ * The event bubbles and composes out of shadow DOM, so you can listen on
+ * the <deck-stage> element or on document:
+ *
+ *   document.querySelector('deck-stage').addEventListener('slidechange', (e) => {
+ *     e.detail.index         // new 0-based index
+ *     e.detail.previousIndex // previous index, or -1 on init
+ *     e.detail.total         // total slide count
+ *     e.detail.slide         // the new active slide element
+ *     e.detail.previousSlide // the prior slide element, or null on init
+ *     e.detail.reason        // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+ *   });
+ *
+ * Persistence: none at the deck level. The host app keeps the current slide
+ * in its own URL (?slide=) and re-delivers it via location.hash on load, so a
+ * bare load with no hash always starts at slide 1.
+ *
+ * Usage:
+ *   <deck-stage width="1920" height="1080">
+ *     <section data-label="Title">...</section>
+ *     <section data-label="Agenda">...</section>
+ *   </deck-stage>
+ *
+ * Slides are the direct element children of <deck-stage>. Each slide is
+ * automatically tagged with:
+ *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
+ *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+ */
+
+(() => {
+  const DESIGN_W_DEFAULT = 1920;
+  const DESIGN_H_DEFAULT = 1080;
+  const OVERLAY_HIDE_MS = 1800;
+  const VALIDATE_ATTR = 'no_overflowing_text,no_overlapping_text,slide_sized_text';
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  const stylesheet = `
+    :host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .canvas {
+      position: relative;
+      transform-origin: center center;
+      flex-shrink: 0;
+      background: #fff;
+      will-change: transform;
+    }
+
+    /* Slides live in light DOM (via <slot>) so authored CSS still applies.
+       We absolutely position each slotted child to stack them. */
+    ::slotted(*) {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    ::slotted([data-deck-active]) {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* Tap zones for mobile — back/forward thirds like Stories.
+       Transparent, no visible UI, don't block the overlay. */
+    .tapzones {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      z-index: 2147482000;
+      pointer-events: none;
+    }
+    .tapzone {
+      flex: 1;
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Only activate tap zones on coarse pointers (touch devices). */
+    @media (hover: hover) and (pointer: fine) {
+      .tapzones { display: none; }
+    }
+
+    .overlay {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 6px) scale(0.92);
+      filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin: center bottom;
+      z-index: 2147483000;
+      user-select: none;
+    }
+    .overlay[data-visible] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      transition: background 140ms ease, color 140ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn:active { background: rgba(255,255,255,0.18); }
+    .btn:focus { outline: none; }
+    .btn:focus-visible { outline: none; }
+    .btn::-moz-focus-inner { border: 0; }
+    .btn svg { width: 14px; height: 14px; display: block; }
+    .btn.reset {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0 10px 0 12px;
+      gap: 6px;
+      color: rgba(255,255,255,0.72);
+    }
+    .btn.reset .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 42px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .count .sep { color: rgba(255,255,255,0.45); margin: 0 3px; font-weight: 400; }
+    .count .total { color: rgba(255,255,255,0.55); }
+
+    .divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px;
+    }
+
+    /* ── Print: one page per slide, no chrome ────────────────────────────
+       The screen layout stacks every slide at inset:0 inside a scaled
+       canvas; for print we want them in document flow at the authored
+       design size so the browser paginates one slide per sheet. The
+       @page size is set from the width/height attributes via the inline
+       <style id="deck-stage-print-page"> that connectedCallback injects
+       into <head> (the @page at-rule has no effect inside shadow DOM). */
+    @media print {
+      :host {
+        position: static;
+        inset: auto;
+        background: none;
+        overflow: visible;
+        color: inherit;
+      }
+      .stage { position: static; display: block; }
+      .canvas {
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: none;
+        will-change: auto;
+      }
+      ::slotted(*) {
+        position: relative !important;
+        inset: auto !important;
+        width: var(--deck-design-w) !important;
+        height: var(--deck-design-h) !important;
+        box-sizing: border-box !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      ::slotted(*:last-child) {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .overlay, .tapzones { display: none !important; }
+    }
+  `;
+
+  class DeckStage extends HTMLElement {
+    static get observedAttributes() { return ['width', 'height', 'noscale']; }
+
+    constructor() {
+      super();
+      this._root = this.attachShadow({ mode: 'open' });
+      this._index = 0;
+      this._slides = [];
+      this._notes = [];
+      this._hideTimer = null;
+      this._mouseIdleTimer = null;
+
+      this._onKey = this._onKey.bind(this);
+      this._onResize = this._onResize.bind(this);
+      this._onSlotChange = this._onSlotChange.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onTapBack = this._onTapBack.bind(this);
+      this._onTapForward = this._onTapForward.bind(this);
+    }
+
+    get designWidth() {
+      return parseInt(this.getAttribute('width'), 10) || DESIGN_W_DEFAULT;
+    }
+    get designHeight() {
+      return parseInt(this.getAttribute('height'), 10) || DESIGN_H_DEFAULT;
+    }
+
+    connectedCallback() {
+      this._render();
+      this._loadNotes();
+      this._syncPrintPageRule();
+      window.addEventListener('keydown', this._onKey);
+      window.addEventListener('resize', this._onResize);
+      window.addEventListener('mousemove', this._onMouseMove, { passive: true });
+      // Initial collection + layout happens via slotchange, which fires on mount.
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('keydown', this._onKey);
+      window.removeEventListener('resize', this._onResize);
+      window.removeEventListener('mousemove', this._onMouseMove);
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
+    }
+
+    attributeChangedCallback() {
+      if (this._canvas) {
+        this._canvas.style.width = this.designWidth + 'px';
+        this._canvas.style.height = this.designHeight + 'px';
+        this._canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+        this._canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+        this._fit();
+        this._syncPrintPageRule();
+      }
+    }
+
+    _render() {
+      const style = document.createElement('style');
+      style.textContent = stylesheet;
+
+      const stage = document.createElement('div');
+      stage.className = 'stage';
+
+      const canvas = document.createElement('div');
+      canvas.className = 'canvas';
+      canvas.style.width = this.designWidth + 'px';
+      canvas.style.height = this.designHeight + 'px';
+      canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+      canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+
+      const slot = document.createElement('slot');
+      slot.addEventListener('slotchange', this._onSlotChange);
+      canvas.appendChild(slot);
+      stage.appendChild(canvas);
+
+      // Tap zones (mobile): left third = back, right third = forward.
+      const tapzones = document.createElement('div');
+      tapzones.className = 'tapzones export-hidden';
+      tapzones.setAttribute('aria-hidden', 'true');
+      tapzones.setAttribute('data-noncommentable', '');
+      const tzBack = document.createElement('div');
+      tzBack.className = 'tapzone tapzone--back';
+      const tzMid = document.createElement('div');
+      tzMid.className = 'tapzone tapzone--mid';
+      tzMid.style.pointerEvents = 'none';
+      const tzFwd = document.createElement('div');
+      tzFwd.className = 'tapzone tapzone--fwd';
+      tzBack.addEventListener('click', this._onTapBack);
+      tzFwd.addEventListener('click', this._onTapForward);
+      tapzones.append(tzBack, tzMid, tzFwd);
+
+      // Overlay: compact, solid black, with clickable controls.
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay export-hidden';
+      overlay.setAttribute('role', 'toolbar');
+      overlay.setAttribute('aria-label', 'Deck controls');
+      overlay.setAttribute('data-noncommentable', '');
+      overlay.innerHTML = `
+        <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <span class="count" aria-live="polite"><span class="current">1</span><span class="sep">/</span><span class="total">1</span></span>
+        <button class="btn next" type="button" aria-label="Next slide" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      `;
+
+      overlay.querySelector('.prev').addEventListener('click', () => this._go(this._index - 1, 'click'));
+      overlay.querySelector('.next').addEventListener('click', () => this._go(this._index + 1, 'click'));
+      overlay.querySelector('.reset').addEventListener('click', () => this._go(0, 'click'));
+
+      this._root.append(style, stage, tapzones, overlay);
+      this._canvas = canvas;
+      this._slot = slot;
+      this._overlay = overlay;
+      this._countEl = overlay.querySelector('.current');
+      this._totalEl = overlay.querySelector('.total');
+    }
+
+    /** @page must live in the document stylesheet — it's a no-op inside
+     *  shadow DOM. Inject/update a single <head> style tag so the print
+     *  sheet matches the design size and Save-as-PDF yields one slide per
+     *  page with no margins. */
+    _syncPrintPageRule() {
+      const id = 'deck-stage-print-page';
+      let tag = document.getElementById(id);
+      if (!tag) {
+        tag = document.createElement('style');
+        tag.id = id;
+        document.head.appendChild(tag);
+      }
+      tag.textContent =
+        '@page { size: ' + this.designWidth + 'px ' + this.designHeight + 'px; margin: 0; } ' +
+        '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } ' +
+        '* { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
+    }
+
+    _onSlotChange() {
+      this._collectSlides();
+      this._restoreIndex();
+      this._applyIndex({ showOverlay: false, broadcast: true, reason: 'init' });
+      this._fit();
+    }
+
+    _collectSlides() {
+      const assigned = this._slot.assignedElements({ flatten: true });
+      this._slides = assigned.filter((el) => {
+        // Skip template/style/script nodes even if someone slots them.
+        const tag = el.tagName;
+        return tag !== 'TEMPLATE' && tag !== 'SCRIPT' && tag !== 'STYLE';
+      });
+
+      this._slides.forEach((slide, i) => {
+        const n = i + 1;
+        // Determine a label for comment flow: prefer explicit data-label,
+        // then an existing data-screen-label, then first heading, else "Slide".
+        let label = slide.getAttribute('data-label');
+        if (!label) {
+          const existing = slide.getAttribute('data-screen-label');
+          if (existing) {
+            // Strip any leading number the author may have included.
+            label = existing.replace(/^\s*\d+\s*/, '').trim() || existing;
+          }
+        }
+        if (!label) {
+          const h = slide.querySelector('h1, h2, h3, [data-title]');
+          if (h) label = (h.textContent || '').trim().slice(0, 40);
+        }
+        if (!label) label = 'Slide';
+        slide.setAttribute('data-screen-label', `${pad2(n)} ${label}`);
+
+        // Validation attribute for comment flow / auto-checks.
+        if (!slide.hasAttribute('data-om-validate')) {
+          slide.setAttribute('data-om-validate', VALIDATE_ATTR);
+        }
+
+        slide.setAttribute('data-deck-slide', String(i));
+      });
+
+      if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
+      if (this._index >= this._slides.length) this._index = Math.max(0, this._slides.length - 1);
+    }
+
+    _loadNotes() {
+      const tag = document.getElementById('speaker-notes');
+      if (!tag) { this._notes = []; return; }
+      try {
+        const parsed = JSON.parse(tag.textContent || '[]');
+        if (Array.isArray(parsed)) this._notes = parsed;
+      } catch (e) {
+        console.warn('[deck-stage] Failed to parse #speaker-notes JSON:', e);
+        this._notes = [];
+      }
+    }
+
+    _restoreIndex() {
+      // The host's ?slide= param is delivered as a #<int> hash (1-indexed) on
+      // the iframe src. No hash → slide 1; the deck itself keeps no position
+      // state across loads.
+      const h = (location.hash || '').match(/^#(\d+)$/);
+      if (h) {
+        const n = parseInt(h[1], 10) - 1;
+        if (n >= 0 && n < this._slides.length) this._index = n;
+      }
+    }
+
+    _applyIndex({ showOverlay = true, broadcast = true, reason = 'init' } = {}) {
+      if (!this._slides.length) return;
+      const prev = this._prevIndex == null ? -1 : this._prevIndex;
+      const curr = this._index;
+      // Keep the iframe's own hash in sync so an in-iframe location.reload()
+      // (reload banner path in viewer-handle.ts) lands on the current slide,
+      // not the stale deep-link hash from initial load.
+      try { history.replaceState(null, '', '#' + (curr + 1)); } catch (e) {}
+      this._slides.forEach((s, i) => {
+        if (i === curr) s.setAttribute('data-deck-active', '');
+        else s.removeAttribute('data-deck-active');
+      });
+      if (this._countEl) this._countEl.textContent = String(curr + 1);
+
+      if (broadcast) {
+        // (1) Legacy: host-window postMessage for speaker-notes renderers.
+        try { window.postMessage({ slideIndexChanged: curr }, '*'); } catch (e) {}
+
+        // (2) In-page CustomEvent on the <deck-stage> element itself.
+        //     Bubbles and composes out of shadow DOM so slide code can listen:
+        //       document.querySelector('deck-stage').addEventListener('slidechange', e => {
+        //         e.detail.index, e.detail.previousIndex, e.detail.total, e.detail.slide, e.detail.reason
+        //       });
+        const detail = {
+          index: curr,
+          previousIndex: prev,
+          total: this._slides.length,
+          slide: this._slides[curr] || null,
+          previousSlide: prev >= 0 ? (this._slides[prev] || null) : null,
+          reason: reason, // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+        };
+        this.dispatchEvent(new CustomEvent('slidechange', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }));
+      }
+
+      this._prevIndex = curr;
+      if (showOverlay) this._flashOverlay();
+    }
+
+    _flashOverlay() {
+      if (!this._overlay) return;
+      this._overlay.setAttribute('data-visible', '');
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      this._hideTimer = setTimeout(() => {
+        this._overlay.removeAttribute('data-visible');
+      }, OVERLAY_HIDE_MS);
+    }
+
+    _fit() {
+      if (!this._canvas) return;
+      // PPTX export sets noscale so the DOM capture sees authored-size
+      // geometry — the scaled canvas is in shadow DOM, so the exporter's
+      // resetTransformSelector can't reach .canvas.style.transform directly.
+      if (this.hasAttribute('noscale')) {
+        this._canvas.style.transform = 'none';
+        return;
+      }
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const s = Math.min(vw / this.designWidth, vh / this.designHeight);
+      this._canvas.style.transform = `scale(${s})`;
+    }
+
+    _onResize() { this._fit(); }
+
+    _onMouseMove() {
+      // Keep overlay visible while mouse moves; hide after idle.
+      this._flashOverlay();
+    }
+
+    _onTapBack(e) {
+      e.preventDefault();
+      this._go(this._index - 1, 'tap');
+    }
+
+    _onTapForward(e) {
+      e.preventDefault();
+      this._go(this._index + 1, 'tap');
+    }
+
+    _onKey(e) {
+      // Ignore when the user is typing.
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      const key = e.key;
+      let handled = true;
+
+      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+        this._go(this._index + 1, 'keyboard');
+      } else if (key === 'ArrowLeft' || key === 'PageUp') {
+        this._go(this._index - 1, 'keyboard');
+      } else if (key === 'Home') {
+        this._go(0, 'keyboard');
+      } else if (key === 'End') {
+        this._go(this._slides.length - 1, 'keyboard');
+      } else if (key === 'r' || key === 'R') {
+        this._go(0, 'keyboard');
+      } else if (/^[0-9]$/.test(key)) {
+        // 1..9 jump to that slide; 0 jumps to 10.
+        const n = key === '0' ? 9 : parseInt(key, 10) - 1;
+        if (n < this._slides.length) this._go(n, 'keyboard');
+      } else {
+        handled = false;
+      }
+
+      if (handled) {
+        e.preventDefault();
+        this._flashOverlay();
+      }
+    }
+
+    _go(i, reason = 'api') {
+      if (!this._slides.length) return;
+      const clamped = Math.max(0, Math.min(this._slides.length - 1, i));
+      if (clamped === this._index) {
+        this._flashOverlay();
+        return;
+      }
+      this._index = clamped;
+      this._applyIndex({ showOverlay: true, broadcast: true, reason });
+    }
+
+    // Public API ------------------------------------------------------------
+
+    /** Current slide index (0-based). */
+    get index() { return this._index; }
+    /** Total slide count. */
+    get length() { return this._slides.length; }
+    /** Programmatically navigate. */
+    goTo(i) { this._go(i, 'api'); }
+    next() { this._go(this._index + 1, 'api'); }
+    prev() { this._go(this._index - 1, 'api'); }
+    reset() { this._go(0, 'api'); }
+  }
+
+  if (!customElements.get('deck-stage')) {
+    customElements.define('deck-stage', DeckStage);
+  }
+})();
+
+</script>
+
+<script type="application/json" id="speaker-notes">
+[
+  "",
+  "Read each objective aloud with Leo. Ask: Do you know what an opinion is? Do you know what a fact is? Don't explain yet — just activate curiosity.",
+  "Have Leo tap each card and try to say the definition himself before flipping. Ask: Can you name an invention you use every day?",
+  "These are the three most important words in this lesson. Leo must know them before we go further. Test him: 'What is a fact? What is an opinion?'",
+  "These words appear in today's writing model. Make sure Leo can read and pronounce each word before moving on.",
+  "Section header — get Leo excited!",
+  "Read each sentence aloud with Leo. Ask 'Is this always true for everyone? (fact) OR does it depend on what you think? (opinion)'. Let Leo drag each tile. If he struggles, guide him by asking: Can everyone agree on this? Then it's probably a fact.",
+  "Act this dialogue out with Leo. Encourage him to give his real opinion. Then flip: ask Leo to make up his own fact sentence and his own opinion sentence about a player he likes.",
+  "Section header — Present phase begins.",
+  "Read the definition aloud together. Ask Leo to point to the word 'fact' then 'opinion'. Ask: what is an example of a fact in football? What is an example of an opinion?",
+  "Have Leo click each combination. Then ask him to say his OWN sentence using one of the opinion phrases. Write it down together.",
+  "Section header — Read the Model phase.",
+  "Read this paragraph aloud together — once for comprehension, once for analysis. Say: 'The writer gives her opinion in the first sentence. Can you find it?' Then say: 'Now let's find a fact that supports the opinion that sticky notes are easy to use.' The fact is: 'You write a note and stick it on your notebook.'",
+  "Ask: How many inventors does this story have? (Two.) When was the glue invented? (1970.) Is it interesting that two people invented the same thing? That's an opinion — Leo might disagree! Ask him.",
+  "Ask Leo the questions before revealing the answers. If he struggles, tell him to look back at the model text on the previous slides.",
+  "Point to the model text and show Leo where each step appears. Say: 'When you write YOUR piece, you will follow these same 4 steps.'",
+  "Tell Leo: This is exactly what WE will do in the next section. The writer of 'A Good Idea' planned like this before writing. Planning makes writing easier!",
+  "Section header — Plan phase begins.",
+  "Explain: We keep facts and opinions separate so our writing is clear. Facts go on the left, opinions on the right.",
+  "Read each row aloud. Ask: How do we know the first sentence in the Facts column is a fact? (It has a date and a name.) Why is the first sentence in the Opinions column an opinion? (Not everyone agrees — some people think other inventions are more useful.)",
+  "Guide Leo to choose an invention he knows well. Encourage him to think of at least 2 real facts (with a name or date if he knows it). Remind him: 'I think / I believe / In my opinion' starts an opinion sentence. Help him if he gets stuck but don't write it for him.",
+  "Leo can use these phrase starters in his own writing. Have him choose one from each column and make his own sentence using his chosen invention.",
+  "Section header — Be the Expert phase.",
+  "Explain: 'When you write about an inventor, use he or she — not it. When you write about an invention, use it — not he or she. When two people invented something, use they.' Have Leo check his own chart from Slide 21 for pronoun agreement.",
+  "This is your checklist for the editing phase. Come back to this slide when Leo finishes his draft.",
+  "Section header — Write phase begins.",
+  "Remind Leo to use the phrases from his chart. He does NOT need to write about sticky notes — he writes about HIS invention. Tell him: 'Write 2 paragraphs. Use at least one fact and at least one opinion phrase in each paragraph.'",
+  "Give Leo 10–15 minutes to write. Do not help him write sentences — help him if he asks 'how do I spell...?' or 'what is the word for...?' Remind him to use I think, I believe, In my opinion for opinions, and real facts (names, dates, numbers) to support them.",
+  "Section header — Edit phase begins.",
+  "Go through each checklist item together. Ask Leo to point to the place in his writing where he completed each item. If any item is missing, have him add it now before moving to Share.",
+  "Section header — Share phase begins.",
+  "Have Leo read his writing aloud. You listen as Dad and fill in 2–3 of the feedback frames. Then swap — share the feedback with Leo verbally. Ask him: 'Would you like to change anything in your writing based on this feedback?'",
+  "Section header — Assessment phase begins.",
+  "Ask Leo to explain WHY each one is a fact or opinion, not just tap the button.",
+  "Accept any reasonable sentence from Leo. Check that he uses 'I believe' correctly and that the sentence expresses something he thinks (not just a fact).",
+  "This tests whether Leo understands what 'a fact' looks like — specific, checkable, with names/numbers/dates.",
+  "Remind Leo: the pronoun must match the noun. One person = he/she/it. Two or more people/things = they.",
+  "Celebrate Leo's effort! Tell him something specific you noticed in his writing that was good. Then review his draft one more time and help him make one final improvement if needed."
+]
+</script>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #111;
+    overflow: hidden;
+  }
+
+  /* ─── PROGRESS BAR ─────────────────────────────────────────────── */
+  #progress-bar-wrap {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: rgba(0,0,0,0.3);
+    z-index: 9999;
+  }
+  #progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #F97316, #FDE047);
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* ─── HOME BUTTON ───────────────────────────────────────────────── */
+  #home-btn {
+    position: fixed;
+    bottom: 56px;
+    left: 16px;
+    z-index: 9998;
+    background: #F97316;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background 0.2s;
+  }
+  #home-btn:hover { background: #EA580C; }
+
+  /* ─── NOTES BUTTON ──────────────────────────────────────────────── */
+  #notes-btn {
+    position: fixed;
+    bottom: 56px;
+    right: 16px;
+    z-index: 9998;
+    background: #374151;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: background 0.2s;
+  }
+  #notes-btn:hover { background: #1F2937; }
+
+  /* ─── SPEAKER NOTES PANEL ───────────────────────────────────────── */
+  #notes-panel {
+    position: fixed;
+    bottom: 90px;
+    right: 16px;
+    width: 340px;
+    max-height: 220px;
+    background: #F3F4F6;
+    border: 2px solid #D1D5DB;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-style: italic;
+    color: #374151;
+    line-height: 1.6;
+    overflow-y: auto;
+    z-index: 9997;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  #notes-panel.visible { display: block; }
+  #notes-panel strong { font-style: normal; color: #111827; }
+
+  /* ─── SLIDE BASE STYLES ─────────────────────────────────────────── */
+  deck-stage section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    color: #1F2937;
+    overflow: hidden;
+  }
+
+  /* GRADIENT HEADER slides */
+  .slide-header {
+    background: linear-gradient(135deg, #F97316, #EA580C);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .slide-header-blue {
+    background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* CONTENT slides */
+  .slide-content {
+    background: #FFF7ED;
+  }
+  .slide-content-white {
+    background: #FFFFFF;
+  }
+
+  /* Header bar */
+  .header-bar {
+    padding: 20px 48px;
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+  .hb-orange { background: #F97316; }
+  .hb-blue   { background: #3B82F6; }
+  .hb-green  { background: #16A34A; }
+  .hb-indigo { background: #1D4ED8; }
+  .hb-amber  { background: #D97706; }
+  .hb-red    { background: #DC2626; }
+
+  .slide-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 48px 28px;
+    overflow: hidden;
+  }
+
+  /* ─── TITLE SLIDE ───────────────────────────────────────────────── */
+  #slide-1 {
+    background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #slide-1 .deco {
+    position: absolute;
+    font-size: 80px;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  #slide-1 .main-title {
+    font-size: 72px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    animation: flyLeft 0.9s cubic-bezier(.22,1,.36,1) both;
+    line-height: 1.1;
+  }
+  #slide-1 .subtitle {
+    font-size: 38px;
+    font-weight: 700;
+    color: #FDE047;
+    margin-top: 20px;
+    animation: flyLeft 0.9s 0.2s cubic-bezier(.22,1,.36,1) both;
+  }
+  #slide-1 .brand-line {
+    font-size: 22px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 16px;
+    animation: flyLeft 0.9s 0.4s cubic-bezier(.22,1,.36,1) both;
+  }
+  #slide-1 .float-emoji {
+    font-size: 64px;
+    margin-top: 28px;
+    animation: floatIn 1s 0.5s cubic-bezier(.22,1,.36,1) both;
+    display: block;
+  }
+  @keyframes flyLeft {
+    from { opacity:0; transform: translateX(-80px); }
+    to   { opacity:1; transform: translateX(0); }
+  }
+  @keyframes floatIn {
+    from { opacity:0; transform: translateY(40px) scale(0.7); }
+    to   { opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  /* ─── SECTION HEADER SHARED ─────────────────────────────────────── */
+  .sec-big-text {
+    font-size: 80px;
+    font-weight: 900;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    line-height: 1.1;
+  }
+  .sec-sub {
+    font-size: 34px;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-top: 16px;
+  }
+
+  /* ─── FLIP CARDS ────────────────────────────────────────────────── */
+  .flip-grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+  .flip-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+  .flip-card {
+    perspective: 800px;
+    cursor: pointer;
+    min-height: 150px;
+  }
+  .flip-card-inner {
+    width: 100%; height: 100%;
+    min-height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    border-radius: 18px;
+  }
+  .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%; height: 100%;
+    min-height: 150px;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  .flip-card-front {
+    background: white;
+    border: 3px solid #E5E7EB;
+    font-size: 28px;
+    font-weight: 900;
+    color: #1F2937;
+  }
+  .flip-card-back {
+    background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    transform: rotateY(180deg);
+    line-height: 1.4;
+  }
+  .flip-hint {
+    font-size: 24px;
+    color: #6B7280;
+    text-align: center;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  /* Green vocab cards */
+  .flip-card-front.green { border-color: #16A34A; }
+  .flip-card-back.green {
+    background: linear-gradient(135deg, #16A34A, #15803D);
+  }
+  .flip-card-front.amber { border-color: #D97706; }
+  .flip-card-back.amber {
+    background: linear-gradient(135deg, #D97706, #B45309);
+  }
+
+  /* ─── OBJECTIVES (Slide 2) ──────────────────────────────────────── */
+  .obj-list { display: flex; flex-direction: column; gap: 24px; flex: 1; justify-content: center; }
+  .obj-item {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1F2937;
+    background: white;
+    border-radius: 16px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s, transform 0.4s;
+    border-left: 6px solid #F97316;
+  }
+  .obj-item.visible { opacity: 1; transform: translateY(0); }
+  .obj-reveal-btn {
+    margin-top: 20px;
+    background: #F97316;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+    align-self: center;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(249,115,22,0.4);
+  }
+  .obj-reveal-btn:hover { background: #EA580C; transform: scale(1.04); }
+  .letsgo {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 900;
+    color: #F97316;
+    margin-top: 16px;
+    opacity: 0;
+    transition: opacity 0.6s;
+    animation: bounce 0.6s ease both;
+  }
+  .letsgo.visible { opacity: 1; }
+  @keyframes bounce {
+    0%   { transform: scale(0.5); }
+    60%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  /* ─── DRAG AND DROP (Slide 7) ──────────────────────────────────── */
+  .dnd-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  .dnd-zones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .drop-zone {
+    min-height: 120px;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: flex-start;
+    transition: background 0.2s;
+    border: 3px dashed;
+  }
+  .drop-zone.fact-zone {
+    background: #EFF6FF;
+    border-color: #3B82F6;
+  }
+  .drop-zone.opinion-zone {
+    background: #FFF7ED;
+    border-color: #F97316;
+  }
+  .drop-zone.dragover {
+    background: #E0E7FF;
+    border-style: solid;
+  }
+  .zone-label {
+    font-size: 24px;
+    font-weight: 900;
+    display: block;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  .zone-label.blue { color: #3B82F6; }
+  .zone-label.orange { color: #F97316; }
+  .zone-desc { font-size: 18px; color: #6B7280; display: block; width: 100%; margin-bottom: 8px; }
+
+  .dnd-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .drag-tile {
+    background: white;
+    border: 2px solid #D1D5DB;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: grab;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.15s, box-shadow 0.15s;
+    touch-action: none;
+  }
+  .drag-tile:hover { transform: scale(1.03); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+  .drag-tile.dragging { opacity: 0.5; transform: scale(0.95); }
+  .drag-tile.correct {
+    background: #D1FAE5;
+    border-color: #16A34A;
+    animation: greenFlash 0.4s ease;
+  }
+  .drag-tile.wrong {
+    animation: shake 0.4s ease;
+    border-color: #DC2626;
+    background: #FEE2E2;
+  }
+  @keyframes greenFlash {
+    0% { background: #A7F3D0; transform: scale(1.05); }
+    100% { background: #D1FAE5; transform: scale(1); }
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%,60%  { transform: translateX(-8px); }
+    40%,80%  { transform: translateX(8px); }
+  }
+
+  /* ─── DIALOGUE BUBBLES (Slide 8) ────────────────────────────────── */
+  .dialogue-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    justify-content: center;
+  }
+  .bubble {
+    max-width: 80%;
+    padding: 9px 15px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .bubble.visible { opacity: 1; transform: translateY(0); }
+  .bubble.dad {
+    background: #D1FAE5;
+    border-radius: 20px 20px 20px 4px;
+    align-self: flex-start;
+    color: #065F46;
+    border: 2px solid #A7F3D0;
+  }
+  .bubble.leo {
+    background: #FFF7ED;
+    border-radius: 20px 20px 4px 20px;
+    align-self: flex-end;
+    color: #9A3412;
+    border: 2px solid #FED7AA;
+  }
+  .bubble.summary {
+    background: #FDE047;
+    border-radius: 16px;
+    align-self: center;
+    font-size: 18px;
+    max-width: 90%;
+    text-align: center;
+    font-weight: 900;
+    font-size: 24px;
+    color: #1F2937;
+    border: 2px solid #EAB308;
+  }
+
+  /* ─── HIGHLIGHT (Slides 10, 13, 14) ─────────────────────────────── */
+  .reading-box {
+    background: white;
+    border: 3px solid #BFDBFE;
+    border-radius: 16px;
+    padding: 24px 28px;
+    font-size: 22px;
+    line-height: 1.8;
+    color: #1F2937;
+    flex: 1;
+  }
+  .reading-box.textbook {
+    border-color: #3B82F6;
+    border-left: 6px solid #3B82F6;
+  }
+  .highlight-orange { background: #FED7AA; border-radius: 4px; padding: 0 3px; }
+  .highlight-blue   { background: #BFDBFE; border-radius: 4px; padding: 0 3px; }
+  .highlight-hidden { background: transparent; border-bottom: 2px dashed #9CA3AF; border-radius: 0; }
+
+  .btn-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .action-btn {
+    background: white;
+    border: 2px solid #E5E7EB;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .action-btn.orange:hover { background: #FFF7ED; border-color: #F97316; color: #EA580C; }
+  .action-btn.blue:hover   { background: #EFF6FF; border-color: #3B82F6; color: #1D4ED8; }
+  .action-btn.green:hover  { background: #F0FDF4; border-color: #16A34A; color: #15803D; }
+
+  /* ─── KEY EXPRESSIONS BUILDER (Slide 11) ───────────────────────── */
+  .expr-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+  .expr-col { display: flex; flex-direction: column; gap: 10px; }
+  .expr-col-title { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
+  .phrase-btn {
+    background: white;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  .phrase-btn:hover, .phrase-btn.selected {
+    background: #FFF7ED;
+    border-color: #F97316;
+    color: #EA580C;
+  }
+  .phrase-btn.blue:hover, .phrase-btn.blue.selected {
+    background: #EFF6FF;
+    border-color: #3B82F6;
+    color: #1D4ED8;
+  }
+  .topic-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .topic-btn {
+    background: #FDE047;
+    border: 2px solid #EAB308;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .topic-btn:hover { background: #FCD34D; transform: scale(1.05); }
+  .built-sentence {
+    background: white;
+    border: 3px solid #3B82F6;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1D4ED8;
+    margin-top: 12px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+  }
+
+  /* ─── Q&A REVEAL (Slide 15) ─────────────────────────────────────── */
+  .qa-list { display: flex; flex-direction: column; gap: 18px; flex: 1; }
+  .qa-item {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  }
+  .qa-q {
+    padding: 16px 24px;
+    font-size: 22px;
+    font-weight: 800;
+    background: #EFF6FF;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #BFDBFE;
+    transition: background 0.2s;
+    color: #1D4ED8;
+  }
+  .qa-q:hover { background: #DBEAFE; }
+  .qa-a {
+    padding: 16px 24px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #065F46;
+    background: #F0FDF4;
+    display: none;
+    border-top: 2px solid #A7F3D0;
+  }
+  .qa-a.open { display: block; }
+
+  /* ─── STEPS REVEAL (Slides 16, 17, 27) ──────────────────────────── */
+  .steps-list { display: flex; flex-direction: column; gap: 16px; flex: 1; justify-content: center; }
+  .step-item {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 24px;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.4s, transform 0.4s;
+    border-left: 6px solid #F97316;
+  }
+  .step-item.blue-border { border-left-color: #3B82F6; }
+  .step-item.green-border { border-left-color: #16A34A; }
+  .step-item.visible { opacity: 1; transform: translateX(0); }
+  .step-reveal-btn {
+    background: #3B82F6;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 16px;
+    transition: background 0.2s;
+    box-shadow: 0 4px 16px rgba(59,130,246,0.3);
+  }
+  .step-reveal-btn:hover { background: #1D4ED8; }
+
+  /* ─── TWO-COLUMN CHART ───────────────────────────────────────────── */
+  .chart-wrap {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .chart-header {
+    background: #F97316;
+    color: white;
+    padding: 14px 24px;
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+  }
+  .chart-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+  }
+  .chart-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .chart-col-head {
+    padding: 12px 20px;
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+    color: white;
+  }
+  .chart-col-head.blue { background: #3B82F6; }
+  .chart-col-head.orange { background: #F97316; }
+  .chart-col:first-child { border-right: 2px solid #E5E7EB; }
+  .chart-row {
+    padding: 12px 18px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #F3F4F6;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s, transform 0.35s;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+  }
+  .chart-row.visible { opacity: 1; transform: translateY(0); }
+
+  /* Leo's editable chart */
+  .chart-input {
+    width: 100%;
+    background: #FFFBEB;
+    border: 2px dashed #D97706;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1F2937;
+    resize: none;
+    outline: none;
+    min-height: 48px;
+    transition: border-color 0.2s;
+  }
+  .chart-input:focus { border-color: #F97316; background: #FFF7ED; }
+  .invention-input {
+    width: 100%;
+    background: white;
+    border: 3px solid #F97316;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F2937;
+    outline: none;
+  }
+  .suggestion-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+  .sugg-btn {
+    background: #FDE047;
+    border: 2px solid #EAB308;
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .sugg-btn:hover { background: #FCD34D; transform: scale(1.04); }
+
+  /* ─── PHRASE BANK (Slide 22) ────────────────────────────────────── */
+  .phrase-bank-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+  .phrase-bank-col { display: flex; flex-direction: column; gap: 10px; }
+  .bank-btn {
+    background: white;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+  }
+  .bank-example {
+    background: #F0FDF4;
+    border-left: 4px solid #16A34A;
+    border-radius: 0 10px 10px 0;
+    padding: 10px 14px;
+    font-size: 18px;
+    font-style: italic;
+    color: #065F46;
+    display: none;
+    line-height: 1.4;
+  }
+  .bank-example.shown { display: block; }
+
+  /* ─── PRONOUN ACTIVITY (Slide 24) ───────────────────────────────── */
+  .pronoun-item {
+    background: white;
+    border-radius: 12px;
+    padding: 7px 14px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .pronoun-item select {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border: 2px solid #D1D5DB;
+    border-radius: 8px;
+    background: #F9FAFB;
+    cursor: pointer;
+    color: #1F2937;
+  }
+  .pronoun-item .wrong-word {
+    background: #FEE2E2;
+    border-bottom: 3px solid #DC2626;
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: #DC2626;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .pronoun-item.correct-item { background: #D1FAE5; }
+  .pronoun-item.wrong-item   { animation: shake 0.4s; }
+  .correct-badge {
+    background: #16A34A;
+    color: white;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 18px;
+    font-weight: 800;
+    display: none;
+  }
+  .correct-badge.shown { display: inline; }
+
+  /* ─── DAD TIP (Slide 25) ─────────────────────────────────────────── */
+  .notebook {
+    background: #FFFBEB;
+    border: 2px solid #D97706;
+    border-radius: 16px;
+    padding: 28px 32px;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.8;
+    color: #1F2937;
+    position: relative;
+    flex: 1;
+  }
+  .notebook::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0; bottom: 0;
+    border-left: 2px solid #FCA5A5;
+    opacity: 0.5;
+  }
+  .tip-box {
+    background: #FEF9C3;
+    border: 2px solid #EAB308;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 16px;
+    color: #713F12;
+  }
+
+  /* ─── SENTENCE STARTERS BOX (Slide 27) ──────────────────────────── */
+  .starters-box {
+    background: #FFF7ED;
+    border: 3px solid #F97316;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .starter-chip {
+    background: white;
+    border: 2px solid #FDBA74;
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+    color: #EA580C;
+  }
+  .starter-chip:hover { background: #FFF7ED; border-color: #F97316; }
+
+  /* ─── WRITING AREA (Slide 28) ────────────────────────────────────── */
+  .prompt-card {
+    background: #FFFBEB;
+    border: 3px solid #F97316;
+    border-radius: 18px;
+    padding: 20px 28px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .writing-area {
+    width: 100%;
+    flex: 1;
+    min-height: 220px;
+    background: white;
+    border: 2px solid #D1D5DB;
+    border-radius: 14px;
+    padding: 16px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1F2937;
+    resize: none;
+    outline: none;
+    line-height: 1.7;
+  }
+  .writing-area:focus { border-color: #F97316; }
+  .word-counter {
+    font-size: 20px;
+    font-weight: 700;
+    color: #6B7280;
+    margin-top: 8px;
+  }
+  .word-target {
+    color: #16A34A;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  /* ─── CHECKLIST (Slide 30) ───────────────────────────────────────── */
+  .checklist { display: flex; flex-direction: column; gap: 12px; flex: 1; justify-content: center; }
+  .check-item {
+    background: white;
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: all 0.25s;
+    border: 2px solid #E5E7EB;
+    user-select: none;
+  }
+  .check-item:hover { background: #F9FAFB; }
+  .check-item.checked {
+    background: #D1FAE5;
+    border-color: #16A34A;
+    color: #065F46;
+  }
+  .check-box {
+    width: 32px; height: 32px;
+    border: 3px solid #D1D5DB;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: all 0.2s;
+  }
+  .check-item.checked .check-box {
+    background: #16A34A;
+    border-color: #16A34A;
+    color: white;
+  }
+  .all-checked-banner {
+    background: #16A34A;
+    color: white;
+    border-radius: 14px;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 900;
+    opacity: 0;
+    transition: opacity 0.5s;
+    margin-top: 8px;
+  }
+  .all-checked-banner.visible { opacity: 1; }
+
+  /* ─── FEEDBACK FRAME (Slide 32) ──────────────────────────────────── */
+  .feedback-frames { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .feedback-frame {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border: 2px solid #E5E7EB;
+  }
+  .ff-header {
+    padding: 10px 16px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .ff-header:hover { opacity: 0.9; }
+  .ff-body {
+    padding: 12px 20px;
+    display: none;
+  }
+  .ff-body.open { display: block; }
+  .ff-input {
+    width: 100%;
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1F2937;
+    outline: none;
+    background: #F9FAFB;
+  }
+  .ff-input:focus { border-color: #3B82F6; }
+
+  /* ─── ASSESSMENT Q1 (Slide 34) ───────────────────────────────────── */
+  .assess-sentence {
+    background: white;
+    border-radius: 16px;
+    padding: 22px 28px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1F2937;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border: 3px solid #E5E7EB;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .big-tap-btns { display: flex; gap: 20px; justify-content: center; margin-bottom: 16px; }
+  .tap-btn {
+    padding: 18px 48px;
+    border-radius: 18px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 180px;
+    text-align: center;
+  }
+  .tap-btn.fact-btn { background: #EFF6FF; border-color: #3B82F6; color: #1D4ED8; }
+  .tap-btn.opinion-btn { background: #FFF7ED; border-color: #F97316; color: #EA580C; }
+  .tap-btn:hover { transform: scale(1.05); }
+  .tap-btn.correct-choice { background: #D1FAE5; border-color: #16A34A; color: #065F46; }
+  .tap-btn.wrong-choice { animation: shake 0.4s; border-color: #DC2626; }
+  .assess-explanation {
+    background: white;
+    border-left: 5px solid #16A34A;
+    border-radius: 0 12px 12px 0;
+    padding: 14px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #065F46;
+    display: none;
+    line-height: 1.5;
+  }
+  .assess-explanation.shown { display: block; }
+  .assess-hint {
+    background: #FEF9C3;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #713F12;
+    display: none;
+    margin-top: 10px;
+  }
+  .assess-hint.shown { display: block; }
+
+  /* ─── MC QUESTION (Slide 35) ─────────────────────────────────────── */
+  .mc-options { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
+  .mc-btn {
+    background: white;
+    border: 2px solid #D1D5DB;
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .mc-btn:hover { background: #F9FAFB; border-color: #9CA3AF; }
+  .mc-btn.correct-mc { background: #D1FAE5; border-color: #16A34A; color: #065F46; }
+  .mc-btn.wrong-mc   { background: #FEE2E2; border-color: #DC2626; animation: shake 0.4s; }
+
+  /* ─── MATCH FACTS (Slide 36) ─────────────────────────────────────── */
+  .match-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+  .match-facts { display: flex; flex-direction: column; gap: 14px; }
+  .match-inventions { display: flex; flex-direction: column; gap: 14px; }
+  .match-fact-tile {
+    background: white;
+    border: 2px solid #D1D5DB;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: grab;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.2s;
+    user-select: none;
+    touch-action: none;
+    line-height: 1.4;
+  }
+  .match-fact-tile:hover { transform: scale(1.02); box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+  .match-drop {
+    min-height: 80px;
+    border: 3px dashed #D1D5DB;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 19px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    background: #F9FAFB;
+  }
+  .match-drop.dragover { border-color: #3B82F6; background: #EFF6FF; }
+  .match-drop.matched  { border-color: #16A34A; background: #D1FAE5; border-style: solid; }
+  .match-drop.wrong-match { animation: shake 0.4s; border-color: #DC2626; }
+
+  /* ─── PRONOUN ASSESS (Slide 37) ──────────────────────────────────── */
+  .pron-assess-item {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 24px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border: 2px solid #E5E7EB;
+  }
+  .pron-assessed-correct { border-color: #16A34A; background: #D1FAE5; }
+  .pron-assessed-wrong   { border-color: #DC2626; background: #FEE2E2; }
+  .pron-btns { display: flex; gap: 14px; margin-top: 12px; }
+  .pron-btn {
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .pron-btn.correct-v { background: #D1FAE5; border-color: #16A34A; color: #065F46; }
+  .pron-btn.wrong-v   { background: #FEE2E2; border-color: #DC2626; color: #991B1B; }
+  .pron-btn:hover { transform: scale(1.04); }
+  .fix-select {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    padding: 8px 14px;
+    border: 2px solid #D1D5DB;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    color: #1F2937;
+    margin-left: 12px;
+  }
+  .pron-feedback {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    display: none;
+  }
+  .pron-feedback.ok   { background: #D1FAE5; color: #065F46; display: block; }
+  .pron-feedback.fix  { background: #FEE2E2; color: #991B1B; display: block; }
+
+  /* ─── CELEBRATION (Slide 38) ─────────────────────────────────────── */
+  #slide-38 {
+    background: linear-gradient(135deg, #F97316 0%, #3B82F6 100%);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cel-title {
+    font-size: 80px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    animation: bounceIn 0.8s cubic-bezier(.22,1,.36,1) both;
+    line-height: 1.1;
+  }
+  .cel-sub {
+    font-size: 34px;
+    font-weight: 700;
+    color: #FDE047;
+    margin-top: 16px;
+    animation: bounceIn 0.8s 0.2s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes bounceIn {
+    from { opacity:0; transform: scale(0.5) translateY(30px); }
+    to   { opacity:1; transform: scale(1) translateY(0); }
+  }
+  .cel-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+    animation: bounceIn 0.8s 0.5s cubic-bezier(.22,1,.36,1) both;
+  }
+  .cel-bullet {
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    text-align: left;
+  }
+  .cel-final {
+    margin-top: 24px;
+    font-size: 32px;
+    font-weight: 900;
+    color: #FDE047;
+    animation: bounceIn 0.8s 0.8s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  /* ─── CONFETTI ───────────────────────────────────────────────────── */
+  .confetti-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .confetti-particle {
+    position: absolute;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+  }
+  @keyframes confettiFall {
+    0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(560px) rotate(720deg); opacity: 0; }
+  }
+
+  /* ─── SOCCER BALL ─────────────────────────────────────────────────── */
+  .soccer-ball {
+    position: absolute;
+    font-size: 64px;
+    bottom: 80px;
+    animation: rollAcross 4s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes rollAcross {
+    from { left: -80px; transform: rotate(0deg); }
+    to   { left: 110%; transform: rotate(720deg); }
+  }
+
+  /* ─── EMOJI RAIN (Slide 6) ───────────────────────────────────────── */
+  .emoji-rain { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+  .rain-emoji {
+    position: absolute;
+    font-size: 36px;
+    animation: rainFall linear infinite;
+    opacity: 0.5;
+  }
+  @keyframes rainFall {
+    from { transform: translateY(-50px); opacity: 0.5; }
+    to   { transform: translateY(580px); opacity: 0; }
+  }
+
+  /* ─── DEFINITION BOX ─────────────────────────────────────────────── */
+  .def-box {
+    background: white;
+    border: 3px solid #3B82F6;
+    border-left: 8px solid #3B82F6;
+    border-radius: 4px 16px 16px 4px;
+    padding: 24px 28px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.8;
+    color: #1F2937;
+    flex: 1;
+  }
+  .highlight-btn {
+    background: #F97316;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 26px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background 0.2s;
+    align-self: flex-start;
+    box-shadow: 0 4px 14px rgba(249,115,22,0.35);
+  }
+  .highlight-btn:hover { background: #EA580C; }
+
+  /* ─── EXAMPLE REVEALS (Slide 24) ────────────────────────────────── */
+  .example-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+  .example-item {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 20px;
+    font-weight: 600;
+    border-left: 5px solid #16A34A;
+    opacity: 0;
+    transform: translateX(-14px);
+    transition: opacity 0.35s, transform 0.35s;
+  }
+  .example-item.visible { opacity: 1; transform: translateX(0); }
+
+  /* ─── MISC ───────────────────────────────────────────────────────── */
+  .two-col-expr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+  }
+  .sub-heading {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+  .sub-heading.blue { color: #1D4ED8; }
+  .sub-heading.orange { color: #EA580C; }
+
+  .save-btn, .print-btn {
+    background: #374151;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 26px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.2s;
+  }
+  .save-btn:hover, .print-btn:hover { background: #1F2937; }
+
+  .instr-box {
+    background: #EFF6FF;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1D4ED8;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .instr-box ol { margin-left: 20px; }
+  .instr-box li { margin-bottom: 6px; }
+
+  /* Pronoun explanation box */
+  .pron-def-box {
+    background: #EFF6FF;
+    border: 2px solid #BFDBFE;
+    border-radius: 14px;
+    padding: 16px 22px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1D4ED8;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  @media print {
+    #progress-bar-wrap, #home-btn, #notes-btn, #notes-panel { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+<button id="home-btn" onclick="document.querySelector('deck-stage').goTo(0)">🏠 Home</button>
+<button id="notes-btn" onclick="toggleNotes()">📋 Dad Notes</button>
+<div id="notes-panel"><strong>📋 Speaker Notes</strong><br><span id="notes-text"></span></div>
+
+<deck-stage width="960" height="560">
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 1 — TITLE
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-1" data-screen-label="01 Title">
+    <span class="deco" style="top:40px;left:60px">💡</span>
+    <span class="deco" style="bottom:60px;right:80px">📝</span>
+    <span class="deco" style="top:120px;right:120px">🎯</span>
+    <span class="deco" style="bottom:100px;left:180px">🔧</span>
+    <h1 class="main-title">Unit 7: Creative Minds 💡</h1>
+    <p class="subtitle">✍️ Writing: Fact &amp; Opinion Writing</p>
+    <p class="brand-line">Our World Second Edition Level 4 — National Geographic Learning</p>
+    <span class="float-emoji">💡 🔧 📝 🎯 ✍️</span>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 2 — LEARNING OBJECTIVES
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-2" class="slide-content" data-screen-label="02 Objectives">
+    <div class="header-bar hb-orange">🎯 Today You Will Learn To...</div>
+    <div class="slide-body">
+      <div class="obj-list" id="obj-list">
+        <div class="obj-item" id="obj-1">✅ Analyze a writing model</div>
+        <div class="obj-item" id="obj-2">✅ Express opinions in writing</div>
+        <div class="obj-item" id="obj-3">✅ Support opinions with facts</div>
+      </div>
+      <button class="obj-reveal-btn" id="obj-btn" onclick="revealObjective()">▶ Reveal Next</button>
+      <div class="letsgo" id="letsgo">🎉 Let's go, Leo!</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 3 — RELATED VOCABULARY
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-3" class="slide-content" data-screen-label="03 Related Vocab">
+    <div class="header-bar hb-green">📗 Related Vocabulary</div>
+    <div class="slide-body">
+      <div class="flip-grid-4">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front green"><span style="font-size:40px">💡</span><strong>invention</strong></div>
+            <div class="flip-card-back green">A new thing that someone makes or creates</div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front green"><span style="font-size:40px">🔬</span><strong>inventor</strong></div>
+            <div class="flip-card-back green">A person who creates an invention</div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front green"><span style="font-size:40px">📎</span><strong>sticky note</strong></div>
+            <div class="flip-card-back green">A small piece of paper with glue on one side</div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front green"><span style="font-size:40px">✅</span><strong>useful</strong></div>
+            <div class="flip-card-back green">Something that helps you or makes life easier</div>
+          </div>
+        </div>
+      </div>
+      <p class="flip-hint">Tap each card to see the meaning! 👆</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 4 — ACADEMIC LANGUAGE
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-4" class="slide-content" data-screen-label="04 Academic Language">
+    <div class="header-bar hb-indigo">📘 Academic Language</div>
+    <div class="slide-body">
+      <div class="flip-grid-3">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><span style="font-size:44px">📌</span><strong>fact</strong></div>
+            <div class="flip-card-back">True information — a date, name, or event</div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><span style="font-size:44px">💭</span><strong>opinion</strong></div>
+            <div class="flip-card-back">What a person thinks or believes is true</div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front"><span style="font-size:44px">🤝</span><strong>support</strong></div>
+            <div class="flip-card-back">To give reasons or evidence for an idea</div>
+          </div>
+        </div>
+      </div>
+      <p class="flip-hint">Tap each card to see the meaning! 👆</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 5 — CONTENT VOCABULARY
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-5" class="slide-content" data-screen-label="05 Content Vocab">
+    <div class="header-bar hb-amber">📙 Content Vocabulary</div>
+    <div class="slide-body">
+      <div class="flip-grid-3">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front amber"><span style="font-size:44px">🔬</span><strong>inventor</strong></div>
+            <div class="flip-card-back amber">The person who created something new for the first time</div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front amber"><span style="font-size:44px">📄</span><strong>paragraph</strong></div>
+            <div class="flip-card-back amber">A group of sentences about one main idea</div>
+          </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner">
+            <div class="flip-card-front amber"><span style="font-size:44px">✅</span><strong>useful</strong></div>
+            <div class="flip-card-back amber">Helpful — it makes things easier or better</div>
+          </div>
+        </div>
+      </div>
+      <p class="flip-hint">Tap each card to see the meaning! 👆</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 6 — WARM UP HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-6" class="slide-header" data-screen-label="06 Warm Up Header" style="overflow:hidden">
+    <div class="emoji-rain" id="emoji-rain-6"></div>
+    <div class="sec-big-text">🔥 Warm Up</div>
+    <div class="sec-sub">What do you already know?</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 7 — FACT VS OPINION DRAG & DROP
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-7" class="slide-content-white" data-screen-label="07 Fact or Opinion DnD">
+    <div class="header-bar hb-blue">Fact or Opinion? 📌💭</div>
+    <div class="slide-body" style="padding-top:16px;padding-bottom:16px">
+      <div class="dnd-container">
+        <div class="dnd-zones">
+          <div class="drop-zone fact-zone" id="fact-zone" data-zone="fact">
+            <span class="zone-label blue">📌 FACT</span>
+            <span class="zone-desc">Always true. A date, name, or event.</span>
+          </div>
+          <div class="drop-zone opinion-zone" id="opinion-zone" data-zone="opinion">
+            <span class="zone-label orange">💭 OPINION</span>
+            <span class="zone-desc">What someone thinks or believes.</span>
+          </div>
+        </div>
+        <div class="dnd-tiles" id="dnd-tiles">
+          <div class="drag-tile" draggable="true" data-answer="fact" data-id="t1" id="tile-t1">"Kylian Mbappé scored 15 goals in the 2025–26 Champions League." ⚽</div>
+          <div class="drag-tile" draggable="true" data-answer="opinion" data-id="t2" id="tile-t2">"In my opinion, Mbappé is the most exciting player in the world!" 💭</div>
+          <div class="drag-tile" draggable="true" data-answer="fact" data-id="t3" id="tile-t3">"Harry Kane plays for Bayern Munich in the Bundesliga." 📌</div>
+          <div class="drag-tile" draggable="true" data-answer="opinion" data-id="t4" id="tile-t4">"I think Harry Kane is the best striker in football!" 💭</div>
+        </div>
+        <div id="dnd-success" style="text-align:center;font-size:26px;font-weight:900;color:#16A34A;opacity:0;transition:opacity 0.5s;margin-top:4px">
+          🎉 Great job, Leo! You already know facts and opinions!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 8 — DIALOGUE
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-8" class="slide-content" data-screen-label="08 Dad Leo Dialogue">
+    <div class="header-bar hb-blue">What Do You Think? 💬</div>
+    <div class="slide-body" style="padding-top:6px;padding-bottom:4px;overflow:hidden">
+      <div class="dialogue-wrap" id="dialogue-wrap" style="gap:7px;justify-content:flex-start">
+        <div class="bubble dad" id="bub-1">Dad 💬: "Leo, who do you think is the best Premier League player right now? ⚽"</div>
+        <div class="bubble leo" id="bub-2">Leo 💬: "I think... Anthony Gordon from Newcastle! He scored 10 goals in the Champions League! 🔥"</div>
+        <div class="bubble dad" id="bub-3">Dad 💬: "Is that your opinion or a fact?"</div>
+        <div class="bubble leo" id="bub-4">Leo 💬: "The 10 goals — that's a FACT 📌. But 'he's the best' — that's my OPINION 💭!"</div>
+        <div class="bubble summary" id="bub-5">🎯 A FACT is true for everyone. An OPINION is what YOU think!</div>
+      </div>
+      <button class="obj-reveal-btn" id="bub-btn" onclick="revealBubble()" style="margin-top:6px;padding:8px 24px;font-size:20px">▶ Next</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 9 — PRESENT HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-9" class="slide-header-blue" data-screen-label="09 Present Header">
+    <div class="sec-big-text" style="font-size:56px">📝 Present: What is Fact &amp; Opinion Writing?</div>
+    <div class="sec-sub">Let's discover the writing type 🔍</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 10 — DEFINITION
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-10" class="slide-content-white" data-screen-label="10 Definition">
+    <div class="header-bar hb-blue">📌 Fact &amp; Opinion Writing — What Is It?</div>
+    <div class="slide-body">
+      <div class="def-box" id="def-box-10">
+        In fact and opinion writing, you state your <span id="w-opinion" class="highlight-hidden">opinion</span> and use <span id="w-facts" class="highlight-hidden">facts</span> to support your opinion. An <span id="w-opinion2" class="highlight-hidden">opinion</span> is something you believe to be true. To introduce opinions, use words like <span id="w-inmyopinion" class="highlight-hidden">in my opinion</span>, <span id="w-ithink" class="highlight-hidden">I think</span>, and <span id="w-ibelieve" class="highlight-hidden">I believe</span>. A <span id="w-fact2" class="highlight-hidden">fact</span> is a piece of true information, for example, a date, an event, or a name.
+      </div>
+      <button class="highlight-btn" onclick="highlightDef10()">🖊️ Highlight Key Words</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 11 — KEY EXPRESSIONS
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-11" class="slide-content" data-screen-label="11 Key Expressions">
+    <div class="header-bar hb-blue">💬 Key Expressions for Fact &amp; Opinion Writing</div>
+    <div class="slide-body" style="padding-top:16px">
+      <div style="display:flex;gap:20px;flex:1">
+        <div style="flex:1">
+          <div class="sub-heading orange">Opinion Phrases 💭</div>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px">
+            <button class="phrase-btn" onclick="selectPhrase(this,'I think...')">I think...</button>
+            <button class="phrase-btn" onclick="selectPhrase(this,'I believe...')">I believe...</button>
+            <button class="phrase-btn" onclick="selectPhrase(this,'In my opinion...')">In my opinion...</button>
+          </div>
+          <div class="sub-heading blue" style="margin-top:8px">Fact Phrases 📌</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="phrase-btn blue" onclick="selectPhrase(this,'It\'s true that...')">It's true that...</button>
+            <button class="phrase-btn blue" onclick="selectPhrase(this,'Many people use...')">Many people use...</button>
+            <button class="phrase-btn blue" onclick="selectPhrase(this,'[Name] invented...')">[Name] invented...</button>
+          </div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column">
+          <div style="font-size:20px;font-weight:800;margin-bottom:8px;color:#374151">🔧 Build a sentence!</div>
+          <div class="topic-btns">
+            <button class="topic-btn" onclick="buildSentence('soccer')">⚽ Soccer</button>
+            <button class="topic-btn" onclick="buildSentence('inventions')">💡 Inventions</button>
+            <button class="topic-btn" onclick="buildSentence('movies')">🎬 Movies</button>
+          </div>
+          <div class="built-sentence" id="built-sentence">Choose a phrase and a topic above to build a sentence! ☝️</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 12 — READ THE MODEL HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-12" class="slide-header-blue" data-screen-label="12 Read Model Header">
+    <div style="font-size:100px;animation:floatIn 1s ease both">📎</div>
+    <div class="sec-big-text">📖 Read the Model</div>
+    <div class="sec-sub">A Good Idea ✍️</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 13 — MODEL PARAGRAPH 1
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-13" class="slide-content-white" data-screen-label="13 Model Para 1">
+    <div class="header-bar hb-blue">📖 "A Good Idea" — Paragraph 1</div>
+    <div class="slide-body">
+      <div class="reading-box" id="reading-box-13">
+        <span id="p1-opinion1" class="highlight-hidden">"In my opinion, sticky notes 📎 are a great invention."</span> They're easy to use. <span id="p1-fact1" class="highlight-hidden">You write a note and stick it on your notebook or on your computer.</span> And they come off easily. <span id="p1-opinion2" class="highlight-hidden">"I think most people like them because they help you to remember things."</span>
+      </div>
+      <div class="btn-row">
+        <button class="action-btn orange" onclick="highlightP1Opinion()">🖊️ Underline the OPINION</button>
+        <button class="action-btn blue" onclick="highlightP1Fact()">📌 Find a FACT</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 14 — MODEL PARAGRAPH 2
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-14" class="slide-content-white" data-screen-label="14 Model Para 2">
+    <div class="header-bar hb-blue">📖 "A Good Idea" — Paragraph 2</div>
+    <div class="slide-body">
+      <div class="reading-box" id="reading-box-14" style="font-size:19px;line-height:1.7">
+        <span id="p2-opinion1" class="highlight-hidden">"In my opinion, the story of sticky notes is interesting, too."</span> Sticky notes have two inventors. <span id="p2-fact1" class="highlight-hidden">Spencer Silver invented the glue in 1970.</span> It wasn't strong, so he didn't know how to use it. But four years later, <span id="p2-fact2" class="highlight-hidden">Arthur Fry found a use for it.</span> One day, all his notes fell on the floor. He wasn't happy! Then he remembered Silver's glue! He used the glue on small pieces of paper. It worked! You could stick the notes to almost any surface, and it was easy to remove them. Now we have a cool—and useful ✅—invention!
+      </div>
+      <div class="btn-row">
+        <button class="action-btn orange" onclick="highlightP2Opinion()">💭 Find the OPINION</button>
+        <button class="action-btn blue" onclick="highlightP2Facts()">📌 Find 2 FACTS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 15 — MODEL ANALYSIS
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-15" class="slide-content" data-screen-label="15 Model Analysis">
+    <div class="header-bar hb-blue">🔍 Analyze the Model</div>
+    <div class="slide-body">
+      <div class="qa-list">
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA('qa1')">Q1: What is the writer's main opinion? <span>▼</span></div>
+          <div class="qa-a" id="qa1">💭 "Sticky notes are a great invention and their story is interesting."</div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA('qa2')">Q2: Which words does the writer use to introduce her opinion? <span>▼</span></div>
+          <div class="qa-a" id="qa2">🖊️ <strong>"In my opinion"</strong> and <strong>"I think"</strong></div>
+        </div>
+        <div class="qa-item">
+          <div class="qa-q" onclick="toggleQA('qa3')">Q3: What facts does the writer use to support her opinion? <span>▼</span></div>
+          <div class="qa-a" id="qa3">📌 Spencer Silver invented the glue in 1970. Arthur Fry found a use for it four years later.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 16 — STRUCTURE BREAKDOWN
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-16" class="slide-content" data-screen-label="16 Structure">
+    <div class="header-bar hb-orange">🏗️ How Is the Writing Organized?</div>
+    <div class="slide-body">
+      <div class="steps-list" id="steps-16">
+        <div class="step-item" id="step16-1">📌 <strong>Step 1:</strong> State your opinion of the invention</div>
+        <div class="step-item" id="step16-2">💡 <strong>Step 2:</strong> Describe what the invention is and how to use it</div>
+        <div class="step-item" id="step16-3">📖 <strong>Step 3:</strong> Tell an interesting fact or story about the invention</div>
+        <div class="step-item" id="step16-4">💭 <strong>Step 4:</strong> Finish with your opinion and a fact that supports it</div>
+      </div>
+      <button class="step-reveal-btn" id="step-btn-16" onclick="revealStep16()">▶ Show Next Step</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 17 — PLANNING STEPS
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-17" class="slide-content" data-screen-label="17 Planning Steps">
+    <div class="header-bar hb-orange">📋 How Did the Writer Plan?</div>
+    <div class="slide-body" style="padding-top:10px;padding-bottom:10px;overflow:hidden">
+      <div class="steps-list" id="steps-17" style="gap:10px">
+        <div class="step-item blue-border" id="step17-1">🎯 Choose an invention you like</div>
+        <div class="step-item blue-border" id="step17-2">📌 Write facts about it (date, inventor's name, how it works)</div>
+        <div class="step-item blue-border" id="step17-3">💭 Write YOUR opinions about it (use I think, I believe, In my opinion)</div>
+        <div class="step-item blue-border" id="step17-4">🗂️ Organize: opinion → facts → more opinion</div>
+        <div class="step-item blue-border" id="step17-5">✍️ Write your draft!</div>
+      </div>
+      <button class="step-reveal-btn" id="step-btn-17" onclick="revealStep17()" style="margin-top:8px;padding:9px 24px">▶ Show Next Step</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 18 — PLAN HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-18" class="slide-header" data-screen-label="18 Plan Header">
+    <div class="sec-big-text">📋 Plan Your Writing</div>
+    <div class="sec-sub">Think before you write! 🧠</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 19 — GRAPHIC ORGANIZER INTRO
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-19" class="slide-content-white" data-screen-label="19 Graphic Organizer">
+    <div class="header-bar hb-orange">📊 Our Graphic Organizer: Two-Column Chart</div>
+    <div class="slide-body">
+      <p style="font-size:20px;font-weight:600;color:#374151;margin-bottom:14px">We use a two-column chart to organize our facts and opinions <strong>BEFORE</strong> writing.</p>
+      <div class="chart-wrap">
+        <div class="chart-header">My Favorite Invention: ___________</div>
+        <div class="chart-cols">
+          <div class="chart-col">
+            <div class="chart-col-head blue">📌 FACTS</div>
+            <div style="padding:10px 18px;flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center">
+              <div style="border:2px dashed #93C5FD;border-radius:8px;height:48px"></div>
+              <div style="border:2px dashed #93C5FD;border-radius:8px;height:48px"></div>
+              <div style="border:2px dashed #93C5FD;border-radius:8px;height:48px"></div>
+            </div>
+          </div>
+          <div class="chart-col">
+            <div class="chart-col-head orange">💭 MY OPINIONS</div>
+            <div style="padding:10px 18px;flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center">
+              <div style="border:2px dashed #FDBA74;border-radius:8px;height:48px"></div>
+              <div style="border:2px dashed #FDBA74;border-radius:8px;height:48px"></div>
+              <div style="border:2px dashed #FDBA74;border-radius:8px;height:48px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 20 — MODELED ORGANIZER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-20" class="slide-content-white" data-screen-label="20 Modeled Organizer">
+    <div class="header-bar hb-orange">📊 Example: Smartphone 📱</div>
+    <div class="slide-body" style="padding:16px 32px">
+      <div class="chart-wrap">
+        <div class="chart-cols">
+          <div class="chart-col">
+            <div class="chart-col-head blue">📌 FACTS</div>
+            <div class="chart-row" id="cr-f1" style="font-size:16px">The first smartphone was invented in 1992 by IBM.</div>
+            <div class="chart-row" id="cr-f2" style="font-size:16px">Many people use smartphones to watch videos and play games.</div>
+            <div class="chart-row" id="cr-f3" style="font-size:16px">Harry Kane uses a GPS app on his phone to track his fitness training.</div>
+          </div>
+          <div class="chart-col">
+            <div class="chart-col-head orange">💭 MY OPINIONS</div>
+            <div class="chart-row" id="cr-o1" style="font-size:16px">In my opinion, the smartphone is the most useful ✅ invention ever.</div>
+            <div class="chart-row" id="cr-o2" style="font-size:16px">I think smartphones make life much easier and more fun.</div>
+            <div class="chart-row" id="cr-o3" style="font-size:16px">I believe athletes like Kane need smartphones as much as any other person!</div>
+          </div>
+        </div>
+      </div>
+      <button class="step-reveal-btn" id="chart-btn-20" onclick="revealChartRow()" style="margin-top:12px">▶ Reveal Next Row</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 21 — LEO'S ORGANIZER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-21" class="slide-content" data-screen-label="21 Leo's Organizer">
+    <div class="header-bar hb-orange">✏️ Now YOUR Turn, Leo!</div>
+    <div class="slide-body" style="padding:14px 32px">
+      <div style="margin-bottom:10px">
+        <label style="font-size:20px;font-weight:800;color:#374151">My Favorite Invention: </label>
+        <input type="text" class="invention-input" id="leo-invention" placeholder="Type your invention here..." style="width:360px" oninput="saveInvention()">
+      </div>
+      <div class="suggestion-btns">
+        <button class="sugg-btn" onclick="setInvention('📱 Smartphone')">📱 Smartphone</button>
+        <button class="sugg-btn" onclick="setInvention('⚽ Goal-line technology')">⚽ Goal-line tech</button>
+        <button class="sugg-btn" onclick="setInvention('🎮 Video games')">🎮 Video games</button>
+        <button class="sugg-btn" onclick="setInvention('💡 My own idea!')">💡 My own idea!</button>
+      </div>
+      <div class="chart-wrap" style="margin-top:10px">
+        <div class="chart-cols">
+          <div class="chart-col">
+            <div class="chart-col-head blue">📌 FACTS</div>
+            <div style="padding:8px 14px;display:flex;flex-direction:column;gap:6px">
+              <textarea class="chart-input" id="leo-f1" placeholder="Fact 1..." rows="2" oninput="saveChart()"></textarea>
+              <textarea class="chart-input" id="leo-f2" placeholder="Fact 2..." rows="2" oninput="saveChart()"></textarea>
+              <textarea class="chart-input" id="leo-f3" placeholder="Fact 3..." rows="2" oninput="saveChart()"></textarea>
+            </div>
+          </div>
+          <div class="chart-col">
+            <div class="chart-col-head orange">💭 MY OPINIONS</div>
+            <div style="padding:8px 14px;display:flex;flex-direction:column;gap:6px">
+              <textarea class="chart-input" id="leo-o1" placeholder="Opinion 1 (I think...)" rows="2" oninput="saveChart()"></textarea>
+              <textarea class="chart-input" id="leo-o2" placeholder="Opinion 2 (I believe...)" rows="2" oninput="saveChart()"></textarea>
+              <textarea class="chart-input" id="leo-o3" placeholder="Opinion 3 (In my opinion...)" rows="2" oninput="saveChart()"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="save-btn" onclick="saveToClipboard()">📄 Save My Chart (Copy)</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 22 — PHRASE BANK
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-22" class="slide-content" data-screen-label="22 Phrase Bank">
+    <div class="header-bar hb-orange">💬 More Helpful Phrases</div>
+    <div class="slide-body">
+      <div class="phrase-bank-cols">
+        <div class="phrase-bank-col">
+          <div class="sub-heading orange">OPINION STARTERS 💭</div>
+          <div class="bank-btn" onclick="toggleBank(this)">💭 "I think..."</div>
+          <div class="bank-example">I think goal-line technology is a great invention for football.</div>
+          <div class="bank-btn" onclick="toggleBank(this)">💭 "I believe..."</div>
+          <div class="bank-example">I believe video games help you think faster.</div>
+          <div class="bank-btn" onclick="toggleBank(this)">💭 "In my opinion..."</div>
+          <div class="bank-example">In my opinion, smartphones have changed the world.</div>
+        </div>
+        <div class="phrase-bank-col">
+          <div class="sub-heading blue">FACT STARTERS 📌</div>
+          <div class="bank-btn" onclick="toggleBank(this)">📌 "It's true that..."</div>
+          <div class="bank-example">It's true that Anthony Gordon scored 10 goals for Newcastle in the Champions League.</div>
+          <div class="bank-btn" onclick="toggleBank(this)">📌 "Many people use..."</div>
+          <div class="bank-example">Many people use GPS to find directions every day.</div>
+          <div class="bank-btn" onclick="toggleBank(this)">📌 "[Name] invented..."</div>
+          <div class="bank-example">Spencer Silver invented the glue for sticky notes in 1970.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 23 — BE THE EXPERT HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-23" class="slide-header-blue" data-screen-label="23 Expert Header">
+    <div class="sec-big-text">🧠 Be the Expert</div>
+    <div class="sec-sub">Writing Support + Teaching Tips</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 24 — PRONOUN AGREEMENT
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-24" class="slide-content-white" data-screen-label="24 Pronoun Agreement">
+    <div class="header-bar hb-blue">✅ Writing Support: Pronouns Must Match! 🔤</div>
+    <div class="slide-body" style="padding-top:6px;padding-bottom:4px;overflow:hidden">
+      <div class="pron-def-box" style="padding:6px 14px;margin-bottom:4px;font-size:18px">A pronoun (<strong>he, she, it, they</strong>) replaces a noun. The pronoun must <strong>MATCH</strong> the noun it replaces in number (singular/plural) and gender.</div>
+      <div class="example-list" id="pron-examples" style="margin-bottom:4px">
+        <div class="example-item" id="pex-1">✅ <em>"Jared found <strong>his</strong> book."</em> (Jared = he = his ✅)</div>
+        <div class="example-item" id="pex-2">✅ <em>"Luisa opened <strong>her</strong> backpack."</em> (Luisa = she = her ✅)</div>
+        <div class="example-item" id="pex-3">✅ <em>"Jared and Luisa rode <strong>their</strong> bikes."</em> (Jared + Luisa = they = their ✅)</div>
+      </div>
+      <div style="font-size:20px;font-weight:800;color:#374151;margin-bottom:6px">🔧 Fix the wrong pronoun:</div>
+      <div class="pronoun-item" id="pi-1">
+        <span>Alexander Sørloth scored a goal.</span>
+        <span class="wrong-word" id="pw-1">She</span>
+        <span>is a great striker.</span>
+        <select id="ps-1" onchange="checkPronoun(1,'He')"><option value="">Choose...</option><option>He</option><option>She</option><option>It</option><option>They</option></select>
+        <span class="correct-badge" id="pb-1">✅ He — correct!</span>
+      </div>
+      <div class="pronoun-item" id="pi-2">
+        <span>Mbappé and Kane are stars.</span>
+        <span class="wrong-word" id="pw-2">It</span>
+        <span>plays for European clubs.</span>
+        <select id="ps-2" onchange="checkPronoun(2,'They')"><option value="">Choose...</option><option>He</option><option>She</option><option>It</option><option>They</option></select>
+        <span class="correct-badge" id="pb-2">✅ They — correct!</span>
+      </div>
+      <div class="pronoun-item" id="pi-3">
+        <span>The invention was new.</span>
+        <span class="wrong-word" id="pw-3">They</span>
+        <span>changed everything.</span>
+        <select id="ps-3" onchange="checkPronoun(3,'It')"><option value="">Choose...</option><option>He</option><option>She</option><option>It</option><option>They</option></select>
+        <span class="correct-badge" id="pb-3">✅ It — correct!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 25 — TEACHING TIP
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-25" class="slide-content" data-screen-label="25 Teaching Tip">
+    <div class="header-bar hb-amber">👨‍🏫 Teaching Tip for Dad</div>
+    <div class="slide-body">
+      <div class="notebook">
+        After Leo writes his draft, ask him to <strong>underline every pronoun</strong> (he, she, it, they, his, her, its, their). Then ask: <em>"What noun does this pronoun replace?"</em><br><br>
+        If the noun is singular (one person or thing) — the pronoun must be singular too.<br>
+        If it's plural — the pronoun must be plural.<br><br>
+        This takes 5 minutes and prevents the most common writing error at this level.
+      </div>
+      <div class="tip-box">⭐ Dad Tip: Pronoun errors are easy to miss when reading fast. Slow down and check one sentence at a time.</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 26 — WRITE HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-26" class="slide-header" data-screen-label="26 Write Header">
+    <div style="font-size:90px;animation:floatIn 1s ease both">✍️</div>
+    <div class="sec-big-text">✏️ Time to Write!</div>
+    <div class="sec-sub">Use your plan — write your best! 💪</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 27 — WRITING GUIDE
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-27" class="slide-content" data-screen-label="27 Writing Guide">
+    <div class="header-bar hb-orange">📝 How to Write Your Paragraphs</div>
+    <div class="slide-body" style="padding-top:10px;padding-bottom:6px;overflow:hidden">
+      <div class="steps-list" id="steps-27" style="gap:8px">
+        <div class="step-item green-border" id="step27-1" style="font-size:20px;padding:10px 18px">📋 Look at your two-column chart.</div>
+        <div class="step-item green-border" id="step27-2" style="font-size:20px;padding:10px 18px">💭 Start with your opinion: <em>"In my opinion, [invention] is..."</em></div>
+        <div class="step-item green-border" id="step27-3" style="font-size:20px;padding:10px 18px">📌 Add facts: <em>It's true that... / [Name] invented it in [year]...</em></div>
+        <div class="step-item green-border" id="step27-4" style="font-size:20px;padding:10px 18px">💡 Explain how to use it.</div>
+        <div class="step-item green-border" id="step27-5" style="font-size:20px;padding:10px 18px">✅ Finish with your opinion again.</div>
+      </div>
+      <button class="step-reveal-btn" id="step-btn-27" onclick="revealStep27()" style="background:#16A34A;margin-top:8px;padding:8px 22px;font-size:20px">▶ Show Next Step</button>
+      <div class="starters-box" style="margin-top:8px;padding:10px 14px">
+        <button class="starter-chip">In my opinion, [invention] is...</button>
+        <button class="starter-chip">It's true that...</button>
+        <button class="starter-chip">Many people use [invention] to...</button>
+        <button class="starter-chip">[Name] invented [invention] in [year].</button>
+        <button class="starter-chip">I think [invention] is important because...</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 28 — LEO'S WRITING
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-28" class="slide-content" data-screen-label="28 Leo's Writing">
+    <div class="header-bar hb-orange">📝 Your Writing Task, Leo!</div>
+    <div class="slide-body" style="padding-top:12px;padding-bottom:6px;overflow:hidden">
+      <div class="prompt-card" style="margin-bottom:10px;padding:14px 22px;font-size:22px">⚽ 💡 Describe an invention. Explain how to use it and why you like it. Include facts to support your opinion.</div>
+      <textarea class="writing-area" id="leo-writing" placeholder="Start writing here, Leo! Use your two-column chart from Slide 21 to help you..." oninput="updateWordCount()"></textarea>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:6px;flex-wrap:wrap">
+        <span class="word-counter" id="word-counter" style="margin-top:0">Words: 0</span>
+        <span class="word-target" style="margin-top:0">🎯 Aim for 80–120 words</span>
+        <button class="print-btn" onclick="printWriting()" style="margin-top:0;padding:6px 18px;font-size:17px">🖨️ Print</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 29 — EDIT HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-29" class="slide-header-blue" data-screen-label="29 Edit Header">
+    <div class="sec-big-text">🔍 Edit Your Writing</div>
+    <div class="sec-sub">Check it before you share it! ✅</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 30 — EDIT CHECKLIST
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-30" class="slide-content-white" data-screen-label="30 Edit Checklist">
+    <div class="header-bar hb-green">✅ Edit Checklist</div>
+    <div class="slide-body">
+      <div class="checklist">
+        <div class="check-item" id="ci-1" onclick="toggleCheck('ci-1')">
+          <div class="check-box" id="cb-1"></div>
+          <span>Does my writing describe an invention and how to use it?</span>
+        </div>
+        <div class="check-item" id="ci-2" onclick="toggleCheck('ci-2')">
+          <div class="check-box" id="cb-2"></div>
+          <span>Does my writing say WHY I like the invention?</span>
+        </div>
+        <div class="check-item" id="ci-3" onclick="toggleCheck('ci-3')">
+          <div class="check-box" id="cb-3"></div>
+          <span>Did I use opinion words? (I think / I believe / In my opinion)</span>
+        </div>
+        <div class="check-item" id="ci-4" onclick="toggleCheck('ci-4')">
+          <div class="check-box" id="cb-4"></div>
+          <span>Did I include FACTS to support my opinions?</span>
+        </div>
+      </div>
+      <div class="all-checked-banner" id="all-checked-banner">Great work! ✅ Your writing is ready to share!</div>
+      <div class="tip-box" style="margin-top:8px;padding:10px 16px;font-size:18px">🔤 Remember: Check your pronouns! (he/she/it/they must match the noun they replace)</div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 31 — SHARE HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-31" class="slide-header" data-screen-label="31 Share Header">
+    <div class="sec-big-text">🗣️ Share Your Writing</div>
+    <div class="sec-sub">Read it aloud — you're a writer! 📢</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 32 — FEEDBACK FRAMES
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-32" class="slide-content-white" data-screen-label="32 Feedback Frames">
+    <div class="header-bar hb-blue">📢 Share With Dad — Get Feedback!</div>
+    <div class="slide-body" style="padding-top:10px;padding-bottom:8px;overflow:hidden">
+      <div class="instr-box" style="padding:10px 16px;font-size:18px;margin-bottom:10px">
+        <ol>
+          <li>Leo reads his writing aloud to Dad.</li>
+          <li>Dad fills in the feedback sentences below.</li>
+          <li>Leo listens and takes notes.</li>
+        </ol>
+      </div>
+      <div class="feedback-frames">
+        <div class="feedback-frame">
+          <div class="ff-header" onclick="toggleFF(this)" style="background:#D1FAE5;color:#065F46">💬 One thing I like about your writing is...<span>▼</span></div>
+          <div class="ff-body"><input class="ff-input" type="text" placeholder="Type feedback here..."></div>
+        </div>
+        <div class="feedback-frame">
+          <div class="ff-header" onclick="toggleFF(this)" style="background:#EFF6FF;color:#1D4ED8">🤔 A question I have is...<span>▼</span></div>
+          <div class="ff-body"><input class="ff-input" type="text" placeholder="Type feedback here..."></div>
+        </div>
+        <div class="feedback-frame">
+          <div class="ff-header" onclick="toggleFF(this)" style="background:#FFF7ED;color:#EA580C">🤝 I agree with your opinion that...<span>▼</span></div>
+          <div class="ff-body"><input class="ff-input" type="text" placeholder="Type feedback here..."></div>
+        </div>
+        <div class="feedback-frame">
+          <div class="ff-header" onclick="toggleFF(this)" style="background:#FEF9C3;color:#713F12">❓ I don't understand...<span>▼</span></div>
+          <div class="ff-body"><input class="ff-input" type="text" placeholder="Type feedback here..."></div>
+        </div>
+      </div>
+      <button class="print-btn" onclick="window.print()" style="margin-top:8px;padding:9px 22px;font-size:18px">📄 Print Feedback</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 33 — ASSESSMENT HEADER
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-33" class="slide-header" data-screen-label="33 Assessment Header" style="overflow:hidden">
+    <div class="soccer-ball">⚽</div>
+    <div class="sec-big-text">⚽ Can Leo Score? ✍️ Writing Challenge!</div>
+    <div class="sec-sub">Show what you know! 🏆</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 34 — QUESTION 1: FACT OR OPINION
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-34" class="slide-content-white" data-screen-label="34 Q1 Fact or Opinion">
+    <div class="header-bar hb-orange">❓ Fact or Opinion? Tap the right box!</div>
+    <div class="slide-body" id="q1-body" style="padding-top:14px">
+      <div id="q1-part1">
+        <div class="assess-sentence">"Kylian Mbappé scored 15 goals in the 2025–26 Champions League." ⚽</div>
+        <div class="big-tap-btns">
+          <button class="tap-btn fact-btn" onclick="answerQ1(true,'fact')">📌 FACT</button>
+          <button class="tap-btn opinion-btn" onclick="answerQ1(false,'fact')">💭 OPINION</button>
+        </div>
+        <div class="assess-explanation" id="q1-exp1">✅ This is a fact — it has a specific number and a real competition. Everyone can check it!</div>
+        <div class="assess-hint" id="q1-hint1">💡 Hint: Does it have a number or a name? Can everyone check if it's true?</div>
+      </div>
+      <div id="q1-part2" style="display:none;margin-top:10px">
+        <div class="assess-sentence">"In my opinion, Mbappé is the greatest footballer in the world right now." 💭</div>
+        <div class="big-tap-btns">
+          <button class="tap-btn fact-btn" onclick="answerQ1(false,'opinion')">📌 FACT</button>
+          <button class="tap-btn opinion-btn" onclick="answerQ1(true,'opinion')">💭 OPINION</button>
+        </div>
+        <div class="assess-explanation" id="q1-exp2">✅ This is an opinion — not everyone agrees! It depends on what YOU think.</div>
+        <div class="assess-hint" id="q1-hint2">💡 Hint: Does everyone agree on this? Or does it depend on what you think?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 35 — QUESTION 2: COMPLETE THE SENTENCE
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-35" class="slide-content" data-screen-label="35 Q2 Complete Sentence">
+    <div class="header-bar hb-orange">📝 Complete the Sentence!</div>
+    <div class="slide-body" style="padding-top:16px">
+      <p style="font-size:22px;font-weight:700;margin-bottom:10px">Choose the correct opinion phrase:</p>
+      <div class="assess-sentence">_______ Harry Kane is the best striker in the Bundesliga this season.</div>
+      <div class="mc-options">
+        <button class="mc-btn" onclick="answerQ2(this, false)"><span style="font-weight:900;color:#6B7280">A)</span> "It's true that"</button>
+        <button class="mc-btn" onclick="answerQ2(this, true)"><span style="font-weight:900;color:#16A34A">B)</span> "In my opinion,"</button>
+        <button class="mc-btn" onclick="answerQ2(this, false)"><span style="font-weight:900;color:#6B7280">C)</span> "Spencer Silver invented"</button>
+      </div>
+      <div class="assess-explanation" id="q2-explanation">'In my opinion' introduces an opinion — what YOU think. 'It's true that' introduces a fact.</div>
+      <div style="margin-top:14px;display:none" id="q2-bonus">
+        <p style="font-size:20px;font-weight:700;margin-bottom:8px">✍️ Now write your own sentence using <strong style="color:#3B82F6">'I believe'</strong>:</p>
+        <input type="text" style="width:100%;border:2px solid #D1D5DB;border-radius:10px;padding:10px 16px;font-family:'Nunito',sans-serif;font-size:19px;font-weight:600;color:#1F2937;outline:none;" placeholder="I believe...">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 36 — QUESTION 3: MATCH THE FACT
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-36" class="slide-content-white" data-screen-label="36 Q3 Match Facts">
+    <div class="header-bar hb-orange">🔍 Match the Fact to the Invention!</div>
+    <div class="slide-body" style="padding-top:16px">
+      <div class="match-container">
+        <div class="match-facts" id="match-tiles">
+          <div class="match-fact-tile" draggable="true" data-match="sticky" id="mf-sticky">"Invented by Spencer Silver in 1970." 📎</div>
+          <div class="match-fact-tile" draggable="true" data-match="phone" id="mf-phone">"First created by IBM in 1992." 📱</div>
+          <div class="match-fact-tile" draggable="true" data-match="mbappe" id="mf-mbappe">"Scored 15 goals in the 2025–26 UCL." ⚽</div>
+        </div>
+        <div class="match-inventions">
+          <div class="match-drop" id="md-sticky" data-key="sticky">
+            <span>Sticky notes 📎</span>
+          </div>
+          <div class="match-drop" id="md-phone" data-key="phone">
+            <span>Smartphone 📱</span>
+          </div>
+          <div class="match-drop" id="md-mbappe" data-key="mbappe">
+            <span>Kylian Mbappé ⚽</span>
+          </div>
+        </div>
+      </div>
+      <div id="match-success" style="text-align:center;font-size:24px;font-weight:900;color:#16A34A;opacity:0;transition:opacity 0.5s;margin-top:12px">
+        🎉 You found the facts, Leo! 📌
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 37 — QUESTION 4: FIX THE PRONOUN
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-37" class="slide-content" data-screen-label="37 Q4 Fix Pronoun">
+    <div class="header-bar hb-orange">🔤 Fix the Pronoun! Is it correct?</div>
+    <div class="slide-body" style="padding-top:16px">
+      <!-- Sentence 1 — correct -->
+      <div class="pron-assess-item" id="pa-1">
+        <div>"Anthony Gordon scored a great goal. <u><strong>He</strong></u> celebrated with the fans."</div>
+        <div class="pron-btns">
+          <button class="pron-btn correct-v" onclick="judgePA(1, true)">✅ CORRECT</button>
+          <button class="pron-btn wrong-v" onclick="judgePA(1, false)">❌ WRONG</button>
+        </div>
+        <div class="pron-feedback" id="paf-1"></div>
+      </div>
+      <!-- Sentence 2 — wrong (They → It) -->
+      <div class="pron-assess-item" id="pa-2">
+        <div>"The smartphone is useful. <u><strong>They</strong></u> help me every day."</div>
+        <div class="pron-btns">
+          <button class="pron-btn correct-v" onclick="judgePA(2, false)">✅ CORRECT</button>
+          <button class="pron-btn wrong-v" onclick="judgePA(2, true)">❌ WRONG</button>
+        </div>
+        <div style="display:none" id="pa2-fix">
+          Fix: <select class="fix-select" onchange="checkPAFix(2,'It')"><option value="">Choose...</option><option>He</option><option>She</option><option>It</option><option>They</option></select>
+        </div>
+        <div class="pron-feedback" id="paf-2"></div>
+      </div>
+      <!-- Sentence 3 — wrong (He → They) -->
+      <div class="pron-assess-item" id="pa-3">
+        <div>"Sørloth and Kane are strikers. <u><strong>He</strong></u> both scored in the Champions League."</div>
+        <div class="pron-btns">
+          <button class="pron-btn correct-v" onclick="judgePA(3, false)">✅ CORRECT</button>
+          <button class="pron-btn wrong-v" onclick="judgePA(3, true)">❌ WRONG</button>
+        </div>
+        <div style="display:none" id="pa3-fix">
+          Fix: <select class="fix-select" onchange="checkPAFix(3,'They')"><option value="">Choose...</option><option>He</option><option>She</option><option>It</option><option>They</option></select>
+        </div>
+        <div class="pron-feedback" id="paf-3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SLIDE 38 — FINAL CELEBRATION
+  ══════════════════════════════════════════════════════════════ -->
+  <section id="slide-38" data-screen-label="38 Celebration" style="overflow:hidden">
+    <div class="confetti-container" id="confetti-38"></div>
+    <div class="soccer-ball">⚽</div>
+    <div class="cel-title">🏆 Amazing Work, Leo! ✍️</div>
+    <div class="cel-sub">You are a real Fact &amp; Opinion Writer now!</div>
+    <div class="cel-bullets">
+      <div class="cel-bullet">✅ You know the difference between a fact and an opinion</div>
+      <div class="cel-bullet">✅ You read and analyzed a writing model</div>
+      <div class="cel-bullet">✅ You planned with a two-column chart</div>
+      <div class="cel-bullet">✅ You wrote your own fact &amp; opinion paragraph</div>
+      <div class="cel-bullet">✅ You edited and shared your work</div>
+    </div>
+    <div class="cel-final">Great job today, Leo! ⭐⭐⭐</div>
+  </section>
+
+</deck-stage>
+
+<script>
+// ═══════════════════════════════════════════════
+// PROGRESS BAR + NOTES
+// ═══════════════════════════════════════════════
+const TOTAL_SLIDES = 38;
+let notesVisible = false;
+
+function updateProgress(n) {
+  document.getElementById('progress-bar').style.width = ((n + 1) / TOTAL_SLIDES * 100) + '%';
+  updateNotes(n);
+}
+
+function toggleNotes() {
+  notesVisible = !notesVisible;
+  document.getElementById('notes-panel').classList.toggle('visible', notesVisible);
+}
+
+function updateNotes(n) {
+  try {
+    const notes = JSON.parse(document.getElementById('speaker-notes').textContent);
+    document.getElementById('notes-text').textContent = notes[n] || '(No notes for this slide)';
+  } catch(e) {}
+}
+
+// Listen for slide changes from deck-stage
+window.addEventListener('message', function(e) {
+  if (e.data && typeof e.data.slideIndexChanged === 'number') {
+    updateProgress(e.data.slideIndexChanged);
+  }
+});
+
+// Init
+updateProgress(0);
+
+// ═══════════════════════════════════════════════
+// SLIDE 2 — OBJECTIVES
+// ═══════════════════════════════════════════════
+let objStep = 0;
+function revealObjective() {
+  objStep++;
+  if (objStep <= 3) {
+    document.getElementById('obj-' + objStep).classList.add('visible');
+  }
+  if (objStep >= 3) {
+    document.getElementById('obj-btn').style.display = 'none';
+    document.getElementById('letsgo').classList.add('visible');
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 7 — DRAG AND DROP
+// ═══════════════════════════════════════════════
+let dragTarget = null;
+let dndCorrect = 0;
+
+function initDnD() {
+  const tiles = document.querySelectorAll('.drag-tile');
+  const zones = document.querySelectorAll('.drop-zone');
+
+  tiles.forEach(tile => {
+    tile.addEventListener('dragstart', e => {
+      dragTarget = tile;
+      tile.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    tile.addEventListener('dragend', () => {
+      tile.classList.remove('dragging');
+      dragTarget = null;
+    });
+    // Touch support
+    tile.addEventListener('touchstart', touchStart, {passive:true});
+    tile.addEventListener('touchmove', touchMove, {passive:false});
+    tile.addEventListener('touchend', touchEnd, {passive:true});
+  });
+
+  zones.forEach(zone => {
+    zone.addEventListener('dragover', e => {
+      e.preventDefault();
+      zone.classList.add('dragover');
+    });
+    zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+    zone.addEventListener('drop', e => {
+      e.preventDefault();
+      zone.classList.remove('dragover');
+      if (dragTarget) handleDrop(dragTarget, zone);
+    });
+  });
+}
+
+function handleDrop(tile, zone) {
+  const answer = tile.dataset.answer;
+  const zoneType = zone.dataset.zone;
+  if (answer === zoneType) {
+    tile.classList.add('correct');
+    tile.draggable = false;
+    zone.appendChild(tile);
+    dndCorrect++;
+    if (dndCorrect >= 4) {
+      document.getElementById('dnd-success').style.opacity = '1';
+      launchConfettiIn('slide-7');
+    }
+  } else {
+    tile.classList.add('wrong');
+    setTimeout(() => tile.classList.remove('wrong'), 500);
+  }
+}
+
+// Touch drag helpers
+let touchTile = null, cloneEl = null, startX = 0, startY = 0;
+function touchStart(e) {
+  touchTile = e.currentTarget;
+  const rect = touchTile.getBoundingClientRect();
+  startX = e.touches[0].clientX - rect.left;
+  startY = e.touches[0].clientY - rect.top;
+  cloneEl = touchTile.cloneNode(true);
+  cloneEl.style.cssText = `position:fixed;z-index:9999;opacity:0.85;pointer-events:none;width:${rect.width}px;`;
+  document.body.appendChild(cloneEl);
+}
+function touchMove(e) {
+  e.preventDefault();
+  if (!cloneEl) return;
+  cloneEl.style.left = (e.touches[0].clientX - startX) + 'px';
+  cloneEl.style.top  = (e.touches[0].clientY - startY) + 'px';
+}
+function touchEnd(e) {
+  if (!cloneEl || !touchTile) return;
+  const touch = e.changedTouches[0];
+  document.body.removeChild(cloneEl);
+  cloneEl = null;
+  const el = document.elementFromPoint(touch.clientX, touch.clientY);
+  const zone = el && el.closest('.drop-zone');
+  if (zone) handleDrop(touchTile, zone);
+  touchTile = null;
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 8 — DIALOGUE
+// ═══════════════════════════════════════════════
+let bubStep = 0;
+function revealBubble() {
+  bubStep++;
+  const bub = document.getElementById('bub-' + bubStep);
+  if (bub) bub.classList.add('visible');
+  if (bubStep >= 5) document.getElementById('bub-btn').style.display = 'none';
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 10 — HIGHLIGHT DEFINITION
+// ═══════════════════════════════════════════════
+function highlightDef10() {
+  ['w-opinion','w-facts','w-opinion2','w-inmyopinion','w-ithink','w-ibelieve','w-fact2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.remove('highlight-hidden');
+      el.classList.add('highlight-orange');
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 11 — SENTENCE BUILDER
+// ═══════════════════════════════════════════════
+let selectedPhrase = '';
+const sentenceMap = {
+  'I think...': {
+    soccer: 'I think Kvaratskhelia of PSG is one of the most creative players in Ligue 1.',
+    inventions: 'I think the smartphone is the greatest invention of the 21st century.',
+    movies: 'I think The Dark Knight is the best superhero movie ever made.'
+  },
+  'I believe...': {
+    soccer: 'I believe Anthony Gordon is one of the most exciting wingers in the Premier League.',
+    inventions: 'I believe smartphones have changed the way people communicate forever.',
+    movies: 'I believe animated films can be just as powerful as live-action movies.'
+  },
+  'In my opinion...': {
+    soccer: 'In my opinion, Kvaratskhelia of PSG is one of the most creative players in Ligue 1.',
+    inventions: 'In my opinion, the smartphone is the greatest invention of the 21st century.',
+    movies: 'In my opinion, The Dark Knight is the best superhero movie ever made.'
+  },
+  "It's true that...": {
+    soccer: "It's true that Harry Kane scored 36 Bundesliga goals in his debut season.",
+    inventions: "It's true that the first smartphone was made by IBM in 1992.",
+    movies: "It's true that The Dark Knight earned over $1 billion at the box office."
+  },
+  'Many people use...': {
+    soccer: 'Many people use goal-line technology to check if a goal is scored.',
+    inventions: 'Many people use smartphones to communicate, work and play every day.',
+    movies: 'Many people use streaming apps to watch movies at home.'
+  },
+  '[Name] invented...': {
+    soccer: 'Hawkeye technology was invented to track the ball in sports like cricket and football.',
+    inventions: 'Spencer Silver invented the glue for sticky notes in 1970.',
+    movies: 'George Méliès invented many special effects still used in movies today.'
+  }
+};
+
+function selectPhrase(btn, phrase) {
+  document.querySelectorAll('#slide-11 .phrase-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedPhrase = phrase;
+  updateBuiltSentence();
+}
+
+function buildSentence(topic) {
+  if (!selectedPhrase) {
+    document.getElementById('built-sentence').textContent = '👈 First choose a phrase on the left!';
+    return;
+  }
+  const map = sentenceMap[selectedPhrase];
+  document.getElementById('built-sentence').textContent = map ? map[topic] || '...' : '...';
+}
+
+function updateBuiltSentence() {
+  if (!selectedPhrase) return;
+  document.getElementById('built-sentence').textContent = 'Now choose a topic: ⚽ Soccer / 💡 Inventions / 🎬 Movies';
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 13 — HIGHLIGHT P1
+// ═══════════════════════════════════════════════
+function highlightP1Opinion() {
+  ['p1-opinion1','p1-opinion2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('highlight-hidden'); el.classList.add('highlight-orange'); }
+  });
+}
+function highlightP1Fact() {
+  const el = document.getElementById('p1-fact1');
+  if (el) { el.classList.remove('highlight-hidden'); el.classList.add('highlight-blue'); }
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 14 — HIGHLIGHT P2
+// ═══════════════════════════════════════════════
+function highlightP2Opinion() {
+  const el = document.getElementById('p2-opinion1');
+  if (el) { el.classList.remove('highlight-hidden'); el.classList.add('highlight-orange'); }
+}
+function highlightP2Facts() {
+  ['p2-fact1','p2-fact2'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.classList.remove('highlight-hidden'); el.classList.add('highlight-blue'); }
+  });
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 15 — Q&A
+// ═══════════════════════════════════════════════
+function toggleQA(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════
+// SLIDES 16, 17, 27 — STEP REVEALS
+// ═══════════════════════════════════════════════
+function makeStepRevealer(prefix, total, btnId) {
+  let step = 0;
+  return function() {
+    step++;
+    const el = document.getElementById(prefix + step);
+    if (el) el.classList.add('visible');
+    if (step >= total) document.getElementById(btnId).style.display = 'none';
+  };
+}
+const revealStep16 = makeStepRevealer('step16-', 4, 'step-btn-16');
+const revealStep17 = makeStepRevealer('step17-', 5, 'step-btn-17');
+const revealStep27 = makeStepRevealer('step27-', 5, 'step-btn-27');
+
+// ═══════════════════════════════════════════════
+// SLIDE 20 — CHART ROW REVEAL
+// ═══════════════════════════════════════════════
+const chartRowOrder = ['cr-f1','cr-o1','cr-f2','cr-o2','cr-f3','cr-o3'];
+let chartRowStep = 0;
+function revealChartRow() {
+  if (chartRowStep < chartRowOrder.length) {
+    const el = document.getElementById(chartRowOrder[chartRowStep]);
+    if (el) el.classList.add('visible');
+    chartRowStep++;
+  }
+  if (chartRowStep >= chartRowOrder.length) {
+    document.getElementById('chart-btn-20').style.display = 'none';
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 21 — LEO'S ORGANIZER (sessionStorage)
+// ═══════════════════════════════════════════════
+function saveChart() {
+  ['leo-f1','leo-f2','leo-f3','leo-o1','leo-o2','leo-o3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sessionStorage.setItem(id, el.value);
+  });
+}
+function saveInvention() {
+  const el = document.getElementById('leo-invention');
+  if (el) sessionStorage.setItem('leo-invention', el.value);
+}
+function setInvention(name) {
+  const el = document.getElementById('leo-invention');
+  if (el) { el.value = name; saveInvention(); }
+}
+function loadChart() {
+  ['leo-f1','leo-f2','leo-f3','leo-o1','leo-o2','leo-o3'].forEach(id => {
+    const val = sessionStorage.getItem(id);
+    const el = document.getElementById(id);
+    if (el && val) el.value = val;
+  });
+  const inv = sessionStorage.getItem('leo-invention');
+  const invEl = document.getElementById('leo-invention');
+  if (invEl && inv) invEl.value = inv;
+}
+function saveToClipboard() {
+  const inv = document.getElementById('leo-invention').value || '(not chosen)';
+  const f1 = document.getElementById('leo-f1').value;
+  const f2 = document.getElementById('leo-f2').value;
+  const f3 = document.getElementById('leo-f3').value;
+  const o1 = document.getElementById('leo-o1').value;
+  const o2 = document.getElementById('leo-o2').value;
+  const o3 = document.getElementById('leo-o3').value;
+  const text = `My Favorite Invention: ${inv}\n\nFACTS:\n1. ${f1}\n2. ${f2}\n3. ${f3}\n\nMY OPINIONS:\n1. ${o1}\n2. ${o2}\n3. ${o3}`;
+  navigator.clipboard.writeText(text).then(() => alert('✅ Chart copied to clipboard!')).catch(() => alert('Chart content:\n\n' + text));
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 22 — PHRASE BANK TOGGLE
+// ═══════════════════════════════════════════════
+function toggleBank(btn) {
+  const next = btn.nextElementSibling;
+  if (next && next.classList.contains('bank-example')) {
+    next.classList.toggle('shown');
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 24 — PRONOUN FIX
+// ═══════════════════════════════════════════════
+function checkPronoun(n, correct) {
+  const sel = document.getElementById('ps-' + n);
+  const pi = document.getElementById('pi-' + n);
+  const badge = document.getElementById('pb-' + n);
+  if (sel.value === correct) {
+    pi.classList.add('correct-item');
+    badge.classList.add('shown');
+  } else if (sel.value !== '') {
+    pi.classList.add('wrong-item');
+    setTimeout(() => pi.classList.remove('wrong-item'), 500);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 24 — EXAMPLE REVEAL (on slide enter)
+// ═══════════════════════════════════════════════
+function revealPronounExamples() {
+  ['pex-1','pex-2','pex-3'].forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('visible');
+    }, i * 250);
+  });
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 28 — WRITING AREA
+// ═══════════════════════════════════════════════
+function updateWordCount() {
+  const ta = document.getElementById('leo-writing');
+  if (!ta) return;
+  const words = ta.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+  document.getElementById('word-counter').textContent = 'Words: ' + words;
+  sessionStorage.setItem('leo-writing', ta.value);
+}
+function loadWriting() {
+  const saved = sessionStorage.getItem('leo-writing');
+  const ta = document.getElementById('leo-writing');
+  if (ta && saved) { ta.value = saved; updateWordCount(); }
+}
+function printWriting() {
+  const text = document.getElementById('leo-writing').value;
+  const w = window.open('', '_blank');
+  w.document.write('<html><head><title>Leo\'s Draft</title><style>body{font-family:Georgia,serif;font-size:16pt;line-height:1.8;padding:40px;max-width:700px;margin:auto}h1{font-size:20pt}p{white-space:pre-wrap}</style></head><body><h1>My Writing — Unit 7</h1><p>' + text.replace(/</g,'&lt;') + '</p></body></html>');
+  w.document.close();
+  w.print();
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 30 — CHECKLIST
+// ═══════════════════════════════════════════════
+function toggleCheck(id) {
+  const item = document.getElementById(id);
+  const box  = item.querySelector('.check-box');
+  const isChecked = item.classList.toggle('checked');
+  box.textContent = isChecked ? '✅' : '';
+  checkAllChecked();
+}
+function checkAllChecked() {
+  const all = ['ci-1','ci-2','ci-3','ci-4'].every(id => document.getElementById(id).classList.contains('checked'));
+  document.getElementById('all-checked-banner').classList.toggle('visible', all);
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 32 — FEEDBACK FRAMES
+// ═══════════════════════════════════════════════
+function toggleFF(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+  const arrow = header.querySelector('span');
+  if (arrow) arrow.textContent = body.classList.contains('open') ? '▲' : '▼';
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 34 — Q1 ASSESS
+// ═══════════════════════════════════════════════
+function answerQ1(correct, which) {
+  const exp = document.getElementById('q1-exp' + (which === 'fact' ? '1' : '2'));
+  const hint = document.getElementById('q1-hint' + (which === 'fact' ? '1' : '2'));
+  const part2 = document.getElementById('q1-part2');
+  if (correct) {
+    exp.classList.add('shown');
+    if (which === 'fact') setTimeout(() => { part2.style.display = 'block'; }, 1000);
+  } else {
+    hint.classList.add('shown');
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 35 — MC
+// ═══════════════════════════════════════════════
+function answerQ2(btn, correct) {
+  const allBtns = document.querySelectorAll('#slide-35 .mc-btn');
+  allBtns.forEach(b => b.disabled = true);
+  if (correct) {
+    btn.classList.add('correct-mc');
+    document.getElementById('q2-explanation').classList.add('shown');
+    document.getElementById('q2-bonus').style.display = 'block';
+  } else {
+    btn.classList.add('wrong-mc');
+    setTimeout(() => btn.classList.remove('wrong-mc'), 500);
+    allBtns.forEach(b => b.disabled = false);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 36 — MATCH DRAG & DROP
+// ═══════════════════════════════════════════════
+let matchDragTarget = null;
+let matchCorrect = 0;
+
+function initMatchDnD() {
+  const tiles = document.querySelectorAll('.match-fact-tile');
+  const drops = document.querySelectorAll('.match-drop');
+
+  tiles.forEach(tile => {
+    tile.addEventListener('dragstart', e => {
+      matchDragTarget = tile;
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    tile.addEventListener('touchstart', matchTouchStart, {passive:true});
+    tile.addEventListener('touchmove', matchTouchMove, {passive:false});
+    tile.addEventListener('touchend', matchTouchEnd, {passive:true});
+  });
+  drops.forEach(drop => {
+    drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('dragover'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('dragover'));
+    drop.addEventListener('drop', e => { e.preventDefault(); drop.classList.remove('dragover'); if (matchDragTarget) handleMatchDrop(matchDragTarget, drop); });
+  });
+}
+
+function handleMatchDrop(tile, drop) {
+  const key = drop.dataset.key;
+  const match = tile.dataset.match;
+  if (key === match) {
+    drop.classList.add('matched');
+    tile.draggable = false;
+    tile.style.opacity = '0.5';
+    drop.appendChild(tile);
+    matchCorrect++;
+    if (matchCorrect >= 3) {
+      document.getElementById('match-success').style.opacity = '1';
+      launchConfettiIn('slide-36');
+    }
+  } else {
+    drop.classList.add('wrong-match');
+    setTimeout(() => drop.classList.remove('wrong-match'), 500);
+  }
+}
+
+let matchTouchTile = null, matchCloneEl = null, matchStartX = 0, matchStartY = 0;
+function matchTouchStart(e) {
+  matchTouchTile = e.currentTarget;
+  const rect = matchTouchTile.getBoundingClientRect();
+  matchStartX = e.touches[0].clientX - rect.left;
+  matchStartY = e.touches[0].clientY - rect.top;
+  matchCloneEl = matchTouchTile.cloneNode(true);
+  matchCloneEl.style.cssText = `position:fixed;z-index:9999;opacity:0.85;pointer-events:none;width:${rect.width}px;`;
+  document.body.appendChild(matchCloneEl);
+}
+function matchTouchMove(e) {
+  e.preventDefault();
+  if (!matchCloneEl) return;
+  matchCloneEl.style.left = (e.touches[0].clientX - matchStartX) + 'px';
+  matchCloneEl.style.top  = (e.touches[0].clientY - matchStartY) + 'px';
+}
+function matchTouchEnd(e) {
+  if (!matchCloneEl || !matchTouchTile) return;
+  const touch = e.changedTouches[0];
+  document.body.removeChild(matchCloneEl);
+  matchCloneEl = null;
+  const el = document.elementFromPoint(touch.clientX, touch.clientY);
+  const drop = el && el.closest('.match-drop');
+  if (drop) handleMatchDrop(matchTouchTile, drop);
+  matchTouchTile = null;
+}
+
+// ═══════════════════════════════════════════════
+// SLIDE 37 — PRONOUN ASSESSMENT
+// ═══════════════════════════════════════════════
+// Answers: 1=correct, 2=wrong(fix It), 3=wrong(fix They)
+const paCorrect = {1: true, 2: false, 3: false};
+function judgePA(n, userSaysCorrect) {
+  const isActuallyCorrect = paCorrect[n];
+  const feedback = document.getElementById('paf-' + n);
+  const item = document.getElementById('pa-' + n);
+  if (userSaysCorrect === isActuallyCorrect) {
+    feedback.classList.add('ok');
+    feedback.textContent = isActuallyCorrect ? '✅ Correct! "He" matches Anthony Gordon (singular, male).' : '✅ You spotted the error! Now choose the fix.';
+    if (!isActuallyCorrect) {
+      const fixEl = document.getElementById('pa' + n + '-fix');
+      if (fixEl) fixEl.style.display = 'block';
+    }
+    item.classList.add('pron-assessed-correct');
+  } else {
+    feedback.classList.add('fix');
+    feedback.textContent = isActuallyCorrect ? '❌ Actually, "He" is correct here — Gordon is one person, male.' : '❌ Look again — the pronoun doesn\'t match! Try WRONG.';
+    item.classList.add('pron-assessed-wrong');
+    setTimeout(() => { item.classList.remove('pron-assessed-wrong'); }, 500);
+  }
+}
+function checkPAFix(n, correct) {
+  const sel = document.getElementById('pa' + n + '-fix').querySelector('select');
+  const feedback = document.getElementById('paf-' + n);
+  if (sel.value === correct) {
+    feedback.textContent = '✅ ' + correct + ' is correct! ' + (n===2 ? '"The smartphone" is one thing — use it.' : '"Sørloth and Kane" are two people — use they.');
+  } else if (sel.value) {
+    feedback.textContent = '❌ Try again! Hint: ' + (n===2 ? 'The smartphone is one thing.' : 'Sørloth AND Kane = two people.');
+  }
+}
+
+// ═══════════════════════════════════════════════
+// CONFETTI
+// ═══════════════════════════════════════════════
+function launchConfettiIn(slideId) {
+  const container = document.createElement('div');
+  container.className = 'confetti-container';
+  const colors = ['#F97316','#3B82F6','#FDE047','#16A34A','#EC4899','#8B5CF6'];
+  for (let i = 0; i < 60; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+    p.style.animationDelay = Math.random() * 0.8 + 's';
+    p.style.width = p.style.height = (8 + Math.random() * 8) + 'px';
+    container.appendChild(p);
+  }
+  const slide = document.getElementById(slideId);
+  if (slide) { slide.appendChild(container); setTimeout(() => { if (container.parentNode) container.parentNode.removeChild(container); }, 4000); }
+}
+
+// init slide-38 confetti
+function initCelebration() {
+  const c = document.getElementById('confetti-38');
+  if (!c) return;
+  const colors = ['#F97316','#3B82F6','#FDE047','#EC4899','#8B5CF6','#16A34A'];
+  for (let i = 0; i < 80; i++) {
+    const p = document.createElement('div');
+    p.className = 'confetti-particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (2 + Math.random() * 3) + 's';
+    p.style.animationDelay = Math.random() * 2 + 's';
+    p.style.width = p.style.height = (8 + Math.random() * 10) + 'px';
+    c.appendChild(p);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// EMOJI RAIN (Slide 6)
+// ═══════════════════════════════════════════════
+function initEmojiRain() {
+  const c = document.getElementById('emoji-rain-6');
+  if (!c) return;
+  const emojis = ['🔥','💭','📌','💡','✍️','📝'];
+  for (let i = 0; i < 15; i++) {
+    const e = document.createElement('div');
+    e.className = 'rain-emoji';
+    e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    e.style.left = Math.random() * 100 + '%';
+    e.style.animationDuration = (3 + Math.random() * 4) + 's';
+    e.style.animationDelay = Math.random() * 3 + 's';
+    e.style.fontSize = (24 + Math.random() * 24) + 'px';
+    c.appendChild(e);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', function() {
+  loadChart();
+  loadWriting();
+  initDnD();
+  initMatchDnD();
+  initCelebration();
+  initEmojiRain();
+  revealPronounExamples();
+});
+</script>
+
+</body>
+</html>
