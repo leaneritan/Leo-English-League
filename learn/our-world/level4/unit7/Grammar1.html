@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 Grammar 1 - Used to for Past Habits</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 50%, #DBEAFE 100%);
+    min-height: 100vh;
+    color: #1F2937;
+    padding-bottom: 40px;
+  }
+
+  /* Header */
+  .app-header {
+    background: linear-gradient(135deg, #F97316 0%, #FB923C 50%, #3B82F6 100%);
+    color: white;
+    padding: 18px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(249,115,22,0.35);
+  }
+  .app-header h1 {
+    font-size: 22px;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .app-header .sub {
+    font-size: 13px;
+    opacity: 0.95;
+    margin-bottom: 8px;
+  }
+  .stats {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .stats .chip {
+    background: rgba(255,255,255,0.25);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Tabs */
+  .tabs {
+    background: white;
+    border-bottom: 3px solid #F97316;
+    padding: 10px 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: sticky;
+    top: 98px;
+    z-index: 99;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .tabs::-webkit-scrollbar { height: 6px; }
+  .tabs::-webkit-scrollbar-thumb { background: #F97316; border-radius: 3px; }
+  .tab {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 0 4px;
+    background: #FEF3C7;
+    color: #92400E;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .tab:hover { background: #FDE68A; }
+  .tab.active {
+    background: #F97316;
+    color: white;
+    border-color: #FDE047;
+    transform: scale(1.05);
+  }
+
+  /* Module Container */
+  .module {
+    display: none;
+    max-width: 820px;
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+  .module.active { display: block; animation: fadeIn 0.4s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    border: 2px solid #FED7AA;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    color: #F97316;
+    font-size: 22px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 3px solid #FDE047;
+    padding-bottom: 8px;
+  }
+  .card h3 {
+    color: #3B82F6;
+    font-size: 17px;
+    margin: 14px 0 8px;
+  }
+  .card p { margin-bottom: 10px; line-height: 1.55; font-size: 15px; }
+  .hl { background: #FDE047; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #78350F; }
+  .hl-blue { background: #DBEAFE; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #1E40AF; }
+  .hl-red { background: #FEE2E2; padding: 2px 6px; border-radius: 4px; font-weight: 700; color: #991B1B; }
+
+  /* Flashcards */
+  .sub-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .sub-tab {
+    flex: 1;
+    min-width: 100px;
+    padding: 8px;
+    background: #EFF6FF;
+    border: 2px solid #BFDBFE;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: #1E40AF;
+  }
+  .sub-tab.active { background: #3B82F6; color: white; border-color: #1D4ED8; }
+  .flashcard {
+    width: 100%;
+    min-height: 180px;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FED7AA 100%);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    cursor: pointer;
+    border: 3px solid #F97316;
+    box-shadow: 0 4px 12px rgba(249,115,22,0.2);
+    margin: 12px 0;
+    transition: transform 0.2s;
+  }
+  .flashcard:hover { transform: scale(1.02); }
+  .flashcard .word { font-size: 32px; font-weight: 800; color: #9A3412; margin-bottom: 10px; }
+  .flashcard .emoji-big { font-size: 50px; margin-bottom: 8px; }
+  .flashcard .def { font-size: 15px; color: #78350F; text-align: center; line-height: 1.4; }
+  .flashcard .ex { font-size: 14px; color: #1E40AF; font-style: italic; margin-top: 8px; text-align: center; }
+  .card-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .btn {
+    padding: 9px 18px;
+    background: #F97316;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .btn:hover { background: #EA580C; transform: translateY(-2px); }
+  .btn:disabled { background: #D1D5DB; cursor: not-allowed; transform: none; }
+  .btn-blue { background: #3B82F6; }
+  .btn-blue:hover { background: #2563EB; }
+  .btn-green { background: #10B981; }
+  .btn-green:hover { background: #059669; }
+  .counter { font-weight: 600; color: #6B7280; font-size: 14px; }
+
+  /* Quiz */
+  .q-box {
+    background: #F0F9FF;
+    padding: 14px;
+    border-radius: 12px;
+    margin: 10px 0;
+    border-left: 5px solid #3B82F6;
+  }
+  .q-text { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media (max-width: 480px) { .options { grid-template-columns: 1fr; } }
+  .opt {
+    padding: 10px;
+    background: white;
+    border: 2px solid #BFDBFE;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .opt:hover { background: #EFF6FF; border-color: #3B82F6; }
+  .opt.correct { background: #D1FAE5; border-color: #10B981; color: #065F46; }
+  .opt.wrong { background: #FEE2E2; border-color: #EF4444; color: #991B1B; }
+  .opt.disabled { cursor: not-allowed; }
+  .feedback {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .feedback.correct { background: #D1FAE5; color: #065F46; }
+  .feedback.wrong { background: #FEE2E2; color: #991B1B; }
+
+  /* Fill-in */
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid #F97316;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    width: 140px;
+  }
+  .fill-input:focus { outline: none; border-color: #EA580C; background: #FEF3C7; }
+
+  /* Progress */
+  .progress {
+    width: 100%;
+    height: 10px;
+    background: #E5E7EB;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #F97316, #FDE047);
+    transition: width 0.3s;
+  }
+
+  /* Grammar Box */
+  .grammar-box {
+    background: linear-gradient(135deg, #FDE047 0%, #FCD34D 100%);
+    border: 3px solid #F97316;
+    border-radius: 14px;
+    padding: 16px;
+    margin: 12px 0;
+  }
+  .grammar-box h3 { color: #92400E; margin-top: 0; }
+  .grammar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  .grammar-table th, .grammar-table td {
+    padding: 8px;
+    border: 2px solid #F97316;
+    text-align: left;
+    font-size: 14px;
+    background: white;
+  }
+  .grammar-table th {
+    background: #F97316;
+    color: white;
+    font-weight: 700;
+  }
+
+  /* Example sentences */
+  .ex-list {
+    background: #EFF6FF;
+    padding: 12px;
+    border-radius: 10px;
+    border-left: 4px solid #3B82F6;
+    margin: 10px 0;
+  }
+  .ex-list p {
+    padding: 6px 0;
+    border-bottom: 1px dashed #BFDBFE;
+    margin: 0;
+  }
+  .ex-list p:last-child { border-bottom: none; }
+
+  /* Player card */
+  .player-card {
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+    border: 2px solid #3B82F6;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 10px 0;
+  }
+  .player-card .name {
+    font-weight: 700;
+    color: #1E40AF;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  /* Soccer Goal Animation */
+  .soccer-goal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 100px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  .soccer-goal.show { animation: goalPop 1s ease-out; }
+  @keyframes goalPop {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.3) rotate(360deg); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); opacity: 0; }
+  }
+
+  /* Results */
+  .results {
+    padding: 18px;
+    border-radius: 14px;
+    text-align: center;
+    margin: 14px 0;
+    border: 3px solid;
+  }
+  .results.pass { background: #D1FAE5; border-color: #10B981; color: #065F46; }
+  .results.fail { background: #FEE2E2; border-color: #EF4444; color: #991B1B; }
+  .results h2 { font-size: 26px; margin-bottom: 8px; }
+  .results .score-big { font-size: 40px; font-weight: 800; margin: 8px 0; }
+
+  /* Word Bank */
+  .word-bank {
+    background: #FEF3C7;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px dashed #F97316;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .word-chip {
+    background: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 2px solid #F97316;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: #9A3412;
+    transition: all 0.2s;
+  }
+  .word-chip:hover { background: #F97316; color: white; }
+  .word-chip.used { opacity: 0.4; cursor: not-allowed; }
+
+  /* Sort Activity */
+  .sort-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  @media (max-width: 600px) { .sort-area { grid-template-columns: 1fr; } }
+  .sort-box {
+    background: #F0F9FF;
+    min-height: 120px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px dashed #3B82F6;
+  }
+  .sort-box h4 { color: #1E40AF; text-align: center; margin-bottom: 6px; font-size: 14px; }
+  .sort-box .dropped {
+    background: white;
+    padding: 5px 8px;
+    margin: 4px 0;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid #BFDBFE;
+  }
+
+  /* Tip box */
+  .tip {
+    background: #FEF3C7;
+    border-left: 5px solid #F59E0B;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .tip strong { color: #92400E; }
+
+  /* Warning box */
+  .warn {
+    background: #FEE2E2;
+    border-left: 5px solid #EF4444;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  .warn strong { color: #991B1B; }
+
+  /* Dialogue */
+  .dialogue {
+    background: #F0F9FF;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 10px 0;
+  }
+  .dialogue .line { margin: 8px 0; font-size: 15px; }
+  .dialogue .dad { color: #9A3412; font-weight: 700; }
+  .dialogue .leo { color: #1E40AF; font-weight: 700; }
+
+  /* Bottom nav */
+  .bottom-nav {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 3px solid #F97316;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+  }
+  .nav-btn {
+    background: #F97316;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .nav-btn:disabled { background: #D1D5DB; cursor: not-allowed; }
+  .nav-label {
+    font-size: 13px;
+    color: #6B7280;
+    text-align: center;
+    flex: 1;
+    font-weight: 600;
+  }
+
+  .emoji { font-size: 22px; margin-right: 4px; }
+
+  /* Transform box (for conversion exercises) */
+  .transform-box {
+    background: white;
+    border: 2px solid #F97316;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 10px 0;
+  }
+  .transform-box .original {
+    background: #FEF3C7;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .transform-box .arrow { text-align: center; font-size: 22px; margin: 6px 0; }
+  .transform-box .answer-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <h1>⚙️ Unit 7 Grammar 1 — Used to</h1>
+  <div class="sub">Past habits • Great Inventions • Our World 4 <span style="opacity:0.8; font-size:11px;">[v2.1 fixed]</span></div>
+  <div class="stats">
+    <div class="chip">🏆 Score: <span id="score">0</span></div>
+    <div class="chip">⚡ Streak: <span id="streak">0</span></div>
+    <div class="chip">⚽ Goals: <span id="goals">0</span></div>
+  </div>
+</div>
+
+<div class="tabs" id="tabBar"></div>
+
+<div id="modules"></div>
+
+<div class="bottom-nav">
+  <button class="nav-btn" id="prevBtn" onclick="prevTab()">◀ Prev</button>
+  <div class="nav-label" id="navLabel">Module 1 of 12</div>
+  <button class="nav-btn" id="nextBtn" onclick="nextTab()">Next ▶</button>
+</div>
+
+<div class="soccer-goal" id="goalEl">⚽🎉</div>
+
+<script>
+/* ========== GLOBAL STATE ========== */
+let score = 0, streak = 0, goals = 0;
+let currentTab = 0;
+const TABS = [
+  {id:'related',     name:'📚 Vocab',       full:'Related Vocabulary'},
+  {id:'academic',    name:'🎓 Academic',    full:'Academic Language'},
+  {id:'content',     name:'📖 Content',     full:'Content Vocabulary'},
+  {id:'warmup',      name:'🔥 Warm Up',     full:'Warm Up'},
+  {id:'present',     name:'💡 Present',     full:'Present'},
+  {id:'depth',       name:'🔍 In Depth',    full:'Grammar in Depth'},
+  {id:'chart',       name:'📊 Chart',       full:'Reference Chart'},
+  {id:'practice',    name:'✏️ Practice',    full:'Practice'},
+  {id:'recap',       name:'🔄 Recap',       full:'Recap'},
+  {id:'apply',       name:'🎯 Apply',       full:'Apply'},
+  {id:'extend',      name:'🚀 Extend',      full:'Extend'},
+  {id:'assessment',  name:'✅ Assess',      full:'Formative Assessment'}
+];
+
+function addScore(n){ score += n; document.getElementById('score').textContent = score; }
+function addStreak(){ streak++; document.getElementById('streak').textContent = streak; }
+function resetStreak(){ streak = 0; document.getElementById('streak').textContent = streak; }
+function scoreGoal(){
+  goals++;
+  document.getElementById('goals').textContent = goals;
+  const g = document.getElementById('goalEl');
+  g.classList.remove('show');
+  void g.offsetWidth;
+  g.classList.add('show');
+}
+
+/* ========== TAB SYSTEM ========== */
+function buildTabs(){
+  const bar = document.getElementById('tabBar');
+  TABS.forEach((t, i) => {
+    const el = document.createElement('div');
+    el.className = 'tab' + (i===0?' active':'');
+    el.textContent = t.name;
+    el.onclick = () => goTab(i);
+    bar.appendChild(el);
+  });
+}
+function goTab(i){
+  currentTab = i;
+  document.querySelectorAll('.tab').forEach((t, idx) => t.classList.toggle('active', idx===i));
+  document.querySelectorAll('.module').forEach((m, idx) => m.classList.toggle('active', idx===i));
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===TABS.length-1;
+  const curName = TABS[i].full;
+  const nextName = i < TABS.length-1 ? TABS[i+1].full : '';
+  document.getElementById('navLabel').textContent = `${i+1}/12 · ${curName}${nextName ? ' → ' + nextName : ''}`;
+  // scroll active tab into view
+  document.querySelectorAll('.tab')[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function nextTab(){ if (currentTab < TABS.length-1) goTab(currentTab+1); }
+function prevTab(){ if (currentTab > 0) goTab(currentTab-1); }
+
+/* ========== DATA ========== */
+// Related Vocabulary (from Unit 7 Vocab 1 + habit)
+const relatedVocab = [
+  {w:"habit",       e:"🔁", d:"Something you do regularly, often without thinking", ex:"Brushing your teeth every morning is a good habit."},
+  {w:"invention",   e:"💡", d:"A new thing someone made or thought of",              ex:"The wheel is a famous invention."},
+  {w:"useful",      e:"🛠️", d:"Helpful; can be used for something good",             ex:"A map is very useful when you travel."},
+  {w:"problem",     e:"❓", d:"Something difficult that needs a solution",            ex:"The broken door is a big problem."},
+  {w:"solution",    e:"✅", d:"A way to fix a problem",                                ex:"The solution was to buy a new door."},
+  {w:"wheel",       e:"🛞", d:"A round object that turns",                           ex:"A car has four wheels."},
+  {w:"battery",     e:"🔋", d:"A thing that stores power for machines",              ex:"My remote needs a new battery."},
+  {w:"electricity", e:"⚡", d:"Power that runs lights, TVs, and computers",          ex:"Our house uses electricity."},
+  {w:"imagination", e:"🌈", d:"The power to picture new ideas in your mind",         ex:"Leo has a big imagination."},
+  {w:"creativity",  e:"🎨", d:"Making new and different things",                     ex:"Art class builds creativity."},
+  {w:"idea",        e:"💭", d:"A thought or plan",                                    ex:"I have a great idea!"},
+  {w:"try",         e:"💪", d:"To attempt to do something",                          ex:"Cherki will try to score again."},
+  {w:"fail",        e:"❌", d:"To not succeed",                                       ex:"Sometimes inventors fail many times."},
+  {w:"succeed",     e:"🏆", d:"To do something well; to win",                        ex:"PSG succeeded and won the Champions League."},
+  {w:"invent",      e:"🔧", d:"To make something new for the first time",            ex:"Mary Anderson invented the windshield wiper."}
+];
+
+// Academic Language
+const academicLang = [
+  {w:"habit", e:"🔁", d:"Something you do often or regularly", ex:"Drinking water every day is a healthy habit."}
+];
+
+// Content Vocabulary
+const contentVocab = [
+  {w:"past habit",   e:"🕰️", d:"Something someone did regularly in the past", ex:"Riding horses was a past habit before cars."},
+  {w:"affirmative",  e:"✅", d:"A positive sentence (not negative)",            ex:"'I used to play' is affirmative."},
+  {w:"negative",     e:"🚫", d:"A sentence that says NO or NOT",                ex:"'I didn't use to play' is negative."},
+  {w:"question",     e:"❓", d:"A sentence that asks something",                ex:"'Did you use to play?' is a question."},
+  {w:"contrast",     e:"⚖️", d:"Showing a difference between two things",      ex:"'Used to' shows contrast between past and now."}
+];
+
+/* ============================================================
+   BUILD ALL MODULES
+============================================================ */
+
+const modulesDiv = document.getElementById('modules');
+
+/* ---------- MODULE 1: Related Vocabulary ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module active" id="m0">
+  <div class="card">
+    <h2>📚 Related Vocabulary</h2>
+    <p>These are words from Unit 7 you already know. Let's warm up before the grammar!</p>
+    <div class="sub-tabs">
+      <div class="sub-tab active" onclick="switchVocabMode(0, 'practice')">🃏 Practice</div>
+      <div class="sub-tab" onclick="switchVocabMode(0, 'quiz')">🎮 Quiz</div>
+    </div>
+    <div id="vocabPracticeArea">
+      <div class="flashcard" onclick="flipCard(0)" id="card0">
+        <div class="emoji-big" id="card0emoji"></div>
+        <div class="word" id="card0word"></div>
+        <div class="def" id="card0def"></div>
+        <div class="ex" id="card0ex"></div>
+      </div>
+      <div class="card-nav">
+        <button class="btn" onclick="prevCard(0)">◀ Prev</button>
+        <div class="counter"><span id="card0idx">1</span> / ${relatedVocab.length}</div>
+        <button class="btn" onclick="nextCard(0)">Next ▶</button>
+      </div>
+    </div>
+    <div id="vocabQuizArea" style="display:none;"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 2: Academic Language ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m1">
+  <div class="card">
+    <h2>🎓 Academic Language</h2>
+    <p>Today's key word for grammar class:</p>
+    <div class="flashcard" style="min-height:220px;">
+      <div class="emoji-big">🔁</div>
+      <div class="word">HABIT</div>
+      <div class="def">Something you do regularly or often, sometimes without thinking</div>
+    </div>
+    <div class="tip"><strong>💡 Think about it:</strong> Brushing your teeth is a habit. Watching soccer every weekend is a habit too! A <span class="hl">past habit</span> is something you USED TO do — but maybe don't do anymore.</div>
+    <h3>Examples of past habits:</h3>
+    <div class="ex-list">
+      <p>🚴 Leo <span class="hl">used to</span> ride his bike to school every day.</p>
+      <p>📺 Dad <span class="hl">used to</span> watch cartoons on Saturday mornings.</p>
+      <p>⚽ Kvaratskhelia <span class="hl">used to</span> play for Napoli in Italy.</p>
+      <p>🇫🇷 Cherki <span class="hl">used to</span> play for Lyon in France.</p>
+    </div>
+    <button class="btn btn-green" onclick="quickCheck(this, 'Good job!')">✓ I understand "habit"</button>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 3: Content Vocabulary ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m2">
+  <div class="card">
+    <h2>📖 Content Vocabulary</h2>
+    <p>Grammar words we'll use today. Flip each card to learn!</p>
+    <div class="sub-tabs">
+      <div class="sub-tab active" onclick="switchContentMode('practice')">🃏 Practice</div>
+      <div class="sub-tab" onclick="switchContentMode('quiz')">🎮 Quiz</div>
+    </div>
+    <div id="contentPracticeArea">
+      <div class="flashcard" onclick="flipContentCard()" id="contentCard">
+        <div class="emoji-big" id="cCardEmoji"></div>
+        <div class="word" id="cCardWord"></div>
+        <div class="def" id="cCardDef"></div>
+        <div class="ex" id="cCardEx"></div>
+      </div>
+      <div class="card-nav">
+        <button class="btn" onclick="prevContentCard()">◀ Prev</button>
+        <div class="counter"><span id="cCardIdx">1</span> / ${contentVocab.length}</div>
+        <button class="btn" onclick="nextContentCard()">Next ▶</button>
+      </div>
+    </div>
+    <div id="contentQuizArea" style="display:none;"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 4: Warm Up ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m3">
+  <div class="card">
+    <h2>🔥 Warm Up — Dad's Past Habits</h2>
+    <p>Dad is telling Leo about things he <span class="hl">used to do</span> when he was a kid. Read along!</p>
+    <div class="dialogue">
+      <div class="line"><span class="dad">Dad 💬</span> When I was your age, I <span class="hl">used to walk</span> home from school every day. There was no bus!</div>
+      <div class="line"><span class="leo">Leo 💬</span> Really? Every day?</div>
+      <div class="line"><span class="dad">Dad 💬</span> Yes! And I <span class="hl">used to call</span> my best friend on a telephone with a cord. No cell phones back then!</div>
+      <div class="line"><span class="leo">Leo 💬</span> Wow, that's so different from now.</div>
+      <div class="line"><span class="dad">Dad 💬</span> I <span class="hl">used to wash</span> the dishes after dinner. My sister <span class="hl">used to dry</span> them.</div>
+      <div class="line"><span class="leo">Leo 💬</span> So you used to do lots of chores!</div>
+    </div>
+    <div class="tip"><strong>🎭 Act it out:</strong> Can you guess the habits? Click each one to see the answer!</div>
+    <div id="actOutArea"></div>
+    <h3>Now the other side: things Dad <span class="hl-red">didn't use to</span> do</h3>
+    <div class="ex-list">
+      <p>📱 Dad <span class="hl-red">didn't use to have</span> a cell phone.</p>
+      <p>🚗 Dad <span class="hl-red">didn't use to have</span> a car.</p>
+      <p>🍽️ Dad <span class="hl-red">didn't use to have</span> a dishwasher — we washed dishes by hand!</p>
+      <p>💻 Dad <span class="hl-red">didn't use to have</span> a computer at home.</p>
+      <p>🎮 Dad <span class="hl-red">didn't use to play</span> video games — they weren't so common.</p>
+    </div>
+    <h3>⚽ Football Connection — Things That Changed!</h3>
+    <div class="player-card">
+      <div class="name">🇬🇪 Khvicha Kvaratskhelia (PSG)</div>
+      <p>• He <span class="hl">used to play</span> for Napoli in Italy (Serie A).</p>
+      <p>• He <span class="hl-red">didn't use to play</span> in France. Now he plays for PSG in Ligue 1!</p>
+      <p>• In January 2025, he moved to PSG for €70 million. He even scored in the Champions League final vs Inter Milan (5-0 win)!</p>
+    </div>
+    <div class="player-card">
+      <div class="name">🇫🇷 Rayan Cherki (Manchester City)</div>
+      <p>• He <span class="hl">used to play</span> for Lyon in Ligue 1 (France).</p>
+      <p>• He <span class="hl-red">didn't use to play</span> in England. Now he plays for Man City in the Premier League!</p>
+      <p>• He moved to Manchester City in June 2025 for €36 million. This season he has 10+ assists!</p>
+    </div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 5: Present ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m4">
+  <div class="card">
+    <h2>💡 Present — The Grammar Box (TR: 7.4)</h2>
+    <p>This is the Grammar Box from page 120 of your book. Study it carefully!</p>
+    <div class="grammar-box">
+      <h3>🎯 Used to for past habits</h3>
+      <table class="grammar-table">
+        <tr>
+          <td>People <strong>used to</strong> travel across the sea in boats.</td>
+          <td>We <strong>didn't use to</strong> have airplanes.</td>
+        </tr>
+        <tr>
+          <td>Why did people <strong>use to</strong> read by candlelight?</td>
+          <td>They <strong>didn't use to</strong> have electricity.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="tip"><strong>💡 Explain:</strong> When we say "used to" we are talking about things people did in the <span class="hl">past</span> — but they don't do them anymore!</div>
+
+    <h3>More examples from long ago</h3>
+    <div class="ex-list">
+      <p>🕯️ People <span class="hl">used to light</span> candles to see at night.</p>
+      <p>⚡ People <span class="hl-red">didn't use to have</span> electricity.</p>
+      <p>🐎 People <span class="hl">used to ride</span> horses to go everywhere.</p>
+      <p>✈️ People <span class="hl-red">didn't use to have</span> airplanes.</p>
+      <p>📻 People <span class="hl">used to listen</span> to the radio for news.</p>
+      <p>📺 People <span class="hl-red">didn't use to watch</span> TV — it wasn't invented yet!</p>
+    </div>
+
+    <h3>⚽ Football examples — past habits of current stars</h3>
+    <div class="ex-list">
+      <p>🇫🇷 Cherki <span class="hl">used to play</span> for Olympique Lyon in France.</p>
+      <p>🇫🇷 Cherki <span class="hl-red">didn't use to play</span> in England. Now he plays at the Etihad Stadium!</p>
+      <p>🇬🇪 Kvaratskhelia <span class="hl">used to wear</span> the number 77 at Napoli. Now he wears number 7 at PSG.</p>
+      <p>🇫🇷 Mbappé <span class="hl">used to play</span> for PSG. Now he plays for Real Madrid in La Liga.</p>
+      <p>🇪🇸 Lamine Yamal <span class="hl-red">didn't use to start</span> for Barcelona. Now he is one of their best players at just 18 years old!</p>
+      <p>🏆 PSG <span class="hl-red">didn't use to win</span> the Champions League. They finally won it in 2025 — beating Inter Milan 5-0!</p>
+    </div>
+
+    <h3>✍️ Your turn — Read and repeat aloud</h3>
+    <div id="repeatArea"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 6: Grammar in Depth ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m5">
+  <div class="card">
+    <h2>🔍 Grammar in Depth</h2>
+    <p>Let's look at ALL the rules for <span class="hl">used to</span>. This is the tricky part — read carefully!</p>
+
+    <h3>Rule 1 — Two Ways We Use It</h3>
+    <div class="ex-list">
+      <p><strong>A) Past situation different from now:</strong></p>
+      <p>👧 I <span class="hl">used to have</span> long hair. Now I have short hair.</p>
+      <p>⚽ PSG <span class="hl">used to be</span> a smaller European team. Now they are Champions League winners!</p>
+      <p><strong>B) Past regular actions that don't happen anymore:</strong></p>
+      <p>🚶 I <span class="hl">used to walk</span> to school. Now I ride my bike.</p>
+      <p>🎬 People <span class="hl">used to go</span> to the cinema more often. These days, they watch movies at home.</p>
+    </div>
+
+    <h3>Rule 2 — Affirmative Form ✅</h3>
+    <div class="grammar-box">
+      <p style="font-size:17px; font-weight:700; text-align:center;">Subject + <span class="hl">used to</span> + base verb</p>
+      <p style="text-align:center; margin-top:8px; color:#78350F;">Same form for ALL persons!</p>
+      <div class="ex-list" style="margin-top:10px;">
+        <p>I / You / He / She / We / They <strong>used to</strong> play.</p>
+        <p>⚽ Kvaratskhelia <strong>used to play</strong> in Italy.</p>
+        <p>⚽ Cherki <strong>used to play</strong> in Lyon.</p>
+        <p>⚽ Mbappé and Dembélé <strong>used to play</strong> together at PSG.</p>
+      </div>
+    </div>
+
+    <h3>Rule 3 — Negative Form 🚫</h3>
+    <div class="grammar-box">
+      <p style="font-size:17px; font-weight:700; text-align:center;">Subject + <span class="hl-red">didn't use to</span> + base verb</p>
+      <div class="warn"><strong>⚠️ Watch out!</strong> In the negative, we say <span class="hl-red">didn't USE to</span> — NO 'd' at the end of "use"!</div>
+      <div class="ex-list">
+        <p>❌ Wrong: Cherki didn't us<u>ed</u> to play in England.</p>
+        <p>✅ Right: Cherki <strong>didn't use to</strong> play in England.</p>
+        <p>✅ Right: Kvaratskhelia <strong>didn't use to</strong> live in France.</p>
+        <p>✅ Right: People <strong>didn't use to</strong> have cell phones.</p>
+      </div>
+    </div>
+
+    <h3>Rule 4 — Question Form ❓</h3>
+    <div class="grammar-box">
+      <p style="font-size:17px; font-weight:700; text-align:center;">Did + subject + <span class="hl">use to</span> + base verb?</p>
+      <p style="font-size:17px; font-weight:700; text-align:center; margin-top:6px;">Wh- + did + subject + <span class="hl">use to</span> + base verb?</p>
+      <div class="ex-list">
+        <p>❓ <strong>Did</strong> you <strong>use to</strong> ride a bike?</p>
+        <p>❓ <strong>Did</strong> Cherki <strong>use to</strong> play for Lyon? — Yes, he did!</p>
+        <p>❓ <strong>Where did</strong> Kvaratskhelia <strong>use to</strong> live? — In Italy.</p>
+        <p>❓ <strong>What did</strong> people <strong>use to do</strong> before TV? — They used to read books and listen to the radio.</p>
+      </div>
+    </div>
+
+    <h3>Rule 5 — Joining Sentences with BUT</h3>
+    <div class="grammar-box">
+      <p>It is common to join two sentences with <span class="hl-blue">but</span> to show a contrast:</p>
+      <div class="ex-list">
+        <p>🚴 I <strong>used to walk</strong> to school, <span class="hl-blue">but now</span> I ride my bike.</p>
+        <p>⚽ Kvaratskhelia <strong>used to play</strong> for Napoli, <span class="hl-blue">but now</span> he plays for PSG.</p>
+        <p>⚽ Cherki <strong>used to play</strong> in France, <span class="hl-blue">but now</span> he plays in England.</p>
+      </div>
+    </div>
+
+    <h3>🎯 Quick Check — Spot the Mistake!</h3>
+    <div id="depthQuizArea"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 7: Reference Chart ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m6">
+  <div class="card">
+    <h2>📊 Reference Chart — All Forms of USED TO</h2>
+    <p>Your quick reference! Save this chart in your head 🧠</p>
+    <table class="grammar-table">
+      <tr>
+        <th>Form</th>
+        <th>Structure</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td><strong>Affirmative</strong><br>✅</td>
+        <td>subject + <span class="hl">used to</span> + verb</td>
+        <td>Kvaratskhelia <strong>used to play</strong> for Napoli.</td>
+      </tr>
+      <tr>
+        <td><strong>Negative</strong><br>🚫</td>
+        <td>subject + <span class="hl-red">didn't use to</span> + verb</td>
+        <td>Cherki <strong>didn't use to play</strong> in England.</td>
+      </tr>
+      <tr>
+        <td><strong>Yes/No Question</strong><br>❓</td>
+        <td><strong>Did</strong> + subject + <span class="hl">use to</span> + verb?</td>
+        <td><strong>Did</strong> Kvaratskhelia <strong>use to play</strong> for Napoli?</td>
+      </tr>
+      <tr>
+        <td><strong>Short Answer</strong><br>✓</td>
+        <td>Yes, subject + did. / No, subject + didn't.</td>
+        <td>Yes, he <strong>did</strong>. / No, he <strong>didn't</strong>.</td>
+      </tr>
+      <tr>
+        <td><strong>Wh- Question</strong><br>🤔</td>
+        <td>Wh- + <strong>did</strong> + subject + <span class="hl">use to</span> + verb?</td>
+        <td><strong>Where did</strong> Cherki <strong>use to play</strong>?</td>
+      </tr>
+    </table>
+    <div class="tip"><strong>🌟 Memory trick:</strong> 
+    <br>• "USE<u>D</u> to" → only in the <span class="hl">affirmative</span> (has 'd')
+    <br>• "USE to" (no 'd') → in <span class="hl-red">negatives</span> AND <span class="hl-blue">questions</span> (because "did" already shows the past!)</div>
+
+    <h3>⚽ All forms with Cherki (Man City)</h3>
+    <div class="ex-list">
+      <p>✅ Cherki <strong>used to play</strong> for Lyon.</p>
+      <p>🚫 Cherki <strong>didn't use to play</strong> in the Premier League.</p>
+      <p>❓ <strong>Did</strong> Cherki <strong>use to play</strong> in France? — Yes, he did.</p>
+      <p>🤔 <strong>Where did</strong> Cherki <strong>use to play</strong>? — In Lyon, France.</p>
+    </div>
+
+    <h3>⚽ All forms with Kvaratskhelia (PSG)</h3>
+    <div class="ex-list">
+      <p>✅ Kvaratskhelia <strong>used to wear</strong> number 77 at Napoli.</p>
+      <p>🚫 Kvaratskhelia <strong>didn't use to wear</strong> number 7.</p>
+      <p>❓ <strong>Did</strong> Kvaratskhelia <strong>use to play</strong> in Italy? — Yes, he did.</p>
+      <p>🤔 <strong>What number did</strong> Kvaratskhelia <strong>use to wear</strong> at Napoli? — He used to wear 77.</p>
+    </div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 8: Practice ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m7">
+  <div class="card">
+    <h2>✏️ Practice — Activity 1 (Book page 120)</h2>
+    <p>Complete each sentence with <span class="hl">used to</span> or <span class="hl-red">didn't use to</span>.</p>
+    <div id="practice1Area"></div>
+  </div>
+  <div class="card">
+    <h2>✏️ Practice — Activity 1 Bonus (Football!)</h2>
+    <p>Same rules, but with current players you know 🏆</p>
+    <div id="practice1bArea"></div>
+  </div>
+  <div class="card">
+    <h2>✏️ Practice — Activity 2: Answer the Questions</h2>
+    <p>Answer using <span class="hl">used to</span> or <span class="hl-red">didn't use to</span>. Choose the best answer!</p>
+    <div id="practice2Area"></div>
+  </div>
+  <div class="card">
+    <h2>✏️ Practice — Transform the Sentences</h2>
+    <p>Change each sentence from <span class="hl">affirmative → negative → question</span>.</p>
+    <div id="transformArea"></div>
+  </div>
+  <div class="card">
+    <h2>✏️ Practice — Sort the Sentences</h2>
+    <p>Is each sentence <span class="hl">affirmative</span>, <span class="hl-red">negative</span>, or a <span class="hl-blue">question</span>? Click to sort!</p>
+    <div id="sortArea"></div>
+  </div>
+  <div class="card">
+    <h2>⚽ Soccer Match-Up — Past Clubs</h2>
+    <p>These stars all moved clubs! Click a <strong>player</strong>, then click their <strong>past club</strong> to match them.</p>
+    <div id="matchupArea"></div>
+  </div>
+  <div class="card">
+    <h2>⚽ Soccer True or False</h2>
+    <p>Read each sentence. Is it <span class="hl">TRUE</span> or <span class="hl-red">FALSE</span>? Click to check!</p>
+    <div id="socTfArea"></div>
+  </div>
+  <div class="card">
+    <h2>⚽ Unscramble the Soccer Sentence</h2>
+    <p>The word chips are in the wrong order! Click them in the right order to build the sentence.</p>
+    <div id="unscrambleArea"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 9: Recap ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m8">
+  <div class="card">
+    <h2>🔄 Recap — What We Learned</h2>
+    <p>Let's review the important points!</p>
+    <div class="grammar-box">
+      <h3>📝 The 5 Key Rules</h3>
+      <ol style="padding-left: 20px; line-height: 1.8;">
+        <li>We use <span class="hl">used to</span> to talk about past habits or past situations that are different now.</li>
+        <li>Affirmative: subject + <span class="hl">used to</span> + verb (same for ALL persons).</li>
+        <li>Negative: subject + <span class="hl-red">didn't use to</span> + verb (NO 'd' on "use"!).</li>
+        <li>Question: <span class="hl-blue">Did</span> + subject + <span class="hl">use to</span> + verb?</li>
+        <li>We often join sentences with "<span class="hl-blue">but now</span>": <em>Cherki used to play for Lyon, but now he plays for Man City.</em></li>
+      </ol>
+    </div>
+    <h3>🎯 Quick recap quiz</h3>
+    <div id="recapArea"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 10: Apply ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m9">
+  <div class="card">
+    <h2>🎯 Apply — Build Your Own Sentences!</h2>
+    <p>Click the word chips to build correct sentences. You decide the order!</p>
+    <div id="builderArea"></div>
+  </div>
+  <div class="card">
+    <h2>🎯 Apply — Write About YOU, Leo!</h2>
+    <p>Answer these questions about when you were younger. Use <span class="hl">used to</span> or <span class="hl-red">didn't use to</span>!</p>
+    <div id="aboutLeoArea"></div>
+  </div>
+  <div class="card">
+    <h2>⚽ Apply — Commentator Challenge!</h2>
+    <p>You are the commentator! Complete each soccer story with the right form.</p>
+    <div id="commentatorArea"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 11: Extend ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m10">
+  <div class="card">
+    <h2>🚀 Extend — Inventions Change the World!</h2>
+    <p>Inventions solve problems. Let's see what people used to do <span class="hl-red">before</span> each invention!</p>
+    <div class="tip"><strong>🧠 Sentence pattern:</strong> 
+    <br>People <span class="hl">used to</span> ______ <span class="hl-red">before</span> the ______.
+    <br>Now they ______ with the ______!</div>
+    <div id="extendArea"></div>
+  </div>
+  <div class="card">
+    <h2>🚀 Extend — Football Transfers & Changes</h2>
+    <p>Read these facts and complete the sentences with <span class="hl">used to</span> / <span class="hl-red">didn't use to</span>!</p>
+    <div id="footballExtendArea"></div>
+  </div>
+  <div class="card">
+    <h2>⚽ Build the Wh- Question</h2>
+    <p>Read the soccer fact. Then choose the correct <strong>question</strong> that matches!</p>
+    <div id="whQArea"></div>
+  </div>
+  <div class="card">
+    <h2>⚽ "But Now..." — Complete the Contrast</h2>
+    <p>Each sentence starts with a past fact. Complete it with what's true <strong>NOW</strong>!</p>
+    <div id="butNowArea"></div>
+  </div>
+</div>
+`);
+
+/* ---------- MODULE 12: Formative Assessment ---------- */
+modulesDiv.insertAdjacentHTML('beforeend', `
+<div class="module" id="m11">
+  <div class="card">
+    <h2>✅ Formative Assessment — Final Challenge!</h2>
+    <p>Can Leo do it? This is the big test — 28 questions to score a hat-trick! ⚽⚽⚽</p>
+    <div class="progress"><div class="progress-fill" id="assessProgress" style="width:0%"></div></div>
+    <div id="assessArea"></div>
+    <div id="assessResults"></div>
+  </div>
+</div>
+`);
+
+/* ============================================================
+   MODULE LOGIC
+============================================================ */
+
+/* ---------- MODULE 1: Related Vocabulary flashcards ---------- */
+let vocabIdx = [0, 0]; // [related, content]
+let vocabMode = { related: 'practice', content: 'practice' };
+
+function renderCard(which) {
+  const arr = which === 0 ? relatedVocab : academicLang;
+  const w = arr[vocabIdx[which]];
+  if (which === 0) {
+    document.getElementById('card0emoji').textContent = w.e;
+    document.getElementById('card0word').textContent = w.w;
+    document.getElementById('card0def').textContent = w.d;
+    document.getElementById('card0ex').textContent = '💡 ' + w.ex;
+    document.getElementById('card0idx').textContent = vocabIdx[0] + 1;
+  }
+}
+function nextCard(which) {
+  const arr = which === 0 ? relatedVocab : academicLang;
+  vocabIdx[which] = (vocabIdx[which] + 1) % arr.length;
+  renderCard(which);
+}
+function prevCard(which) {
+  const arr = which === 0 ? relatedVocab : academicLang;
+  vocabIdx[which] = (vocabIdx[which] - 1 + arr.length) % arr.length;
+  renderCard(which);
+}
+function flipCard(which) { nextCard(which); }
+renderCard(0);
+
+function switchVocabMode(which, mode) {
+  vocabMode.related = mode;
+  const subTabs = document.querySelectorAll('#m0 .sub-tab');
+  subTabs.forEach((t, i) => t.classList.toggle('active', (i === 0 && mode === 'practice') || (i === 1 && mode === 'quiz')));
+  document.getElementById('vocabPracticeArea').style.display = mode === 'practice' ? 'block' : 'none';
+  document.getElementById('vocabQuizArea').style.display = mode === 'quiz' ? 'block' : 'none';
+  if (mode === 'quiz') buildVocabQuiz();
+}
+
+function buildVocabQuiz() {
+  const area = document.getElementById('vocabQuizArea');
+  const qs = relatedVocab.map((v, i) => {
+    const others = relatedVocab.filter((_, j) => j !== i);
+    const shuffled = others.sort(() => Math.random() - 0.5).slice(0, 3);
+    const options = [v.d, ...shuffled.map(o => o.d)].sort(() => Math.random() - 0.5);
+    return {
+      q: `What does "${v.w}" mean? ${v.e}`,
+      opts: options,
+      ans: options.indexOf(v.d)
+    };
+  });
+  area.innerHTML = qs.map((q, i) => `
+    <div class="q-box">
+      <div class="q-text">Q${i+1}: ${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o, j) => `<div class="opt" onclick="checkOpt(this, ${j}, ${q.ans}, 2)">${o}</div>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ---------- MODULE 3: Content Vocabulary ---------- */
+let contentIdx = 0;
+function renderContentCard() {
+  const w = contentVocab[contentIdx];
+  document.getElementById('cCardEmoji').textContent = w.e;
+  document.getElementById('cCardWord').textContent = w.w;
+  document.getElementById('cCardDef').textContent = w.d;
+  document.getElementById('cCardEx').textContent = '💡 ' + w.ex;
+  document.getElementById('cCardIdx').textContent = contentIdx + 1;
+}
+function nextContentCard() {
+  contentIdx = (contentIdx + 1) % contentVocab.length;
+  renderContentCard();
+}
+function prevContentCard() {
+  contentIdx = (contentIdx - 1 + contentVocab.length) % contentVocab.length;
+  renderContentCard();
+}
+function flipContentCard() { nextContentCard(); }
+renderContentCard();
+
+function switchContentMode(mode) {
+  const subTabs = document.querySelectorAll('#m2 .sub-tab');
+  subTabs.forEach((t, i) => t.classList.toggle('active', (i === 0 && mode === 'practice') || (i === 1 && mode === 'quiz')));
+  document.getElementById('contentPracticeArea').style.display = mode === 'practice' ? 'block' : 'none';
+  document.getElementById('contentQuizArea').style.display = mode === 'quiz' ? 'block' : 'none';
+  if (mode === 'quiz') buildContentQuiz();
+}
+
+function buildContentQuiz() {
+  const area = document.getElementById('contentQuizArea');
+  const qs = contentVocab.map((v, i) => {
+    const others = contentVocab.filter((_, j) => j !== i);
+    const options = [v.d, ...others.map(o => o.d)].slice(0, 4).sort(() => Math.random() - 0.5);
+    return {
+      q: `What does "${v.w}" mean? ${v.e}`,
+      opts: options,
+      ans: options.indexOf(v.d)
+    };
+  });
+  area.innerHTML = qs.map((q, i) => `
+    <div class="q-box">
+      <div class="q-text">Q${i+1}: ${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o, j) => `<div class="opt" onclick="checkOpt(this, ${j}, ${q.ans}, 2)">${o}</div>`).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ---------- MODULE 4: Warm Up Act Out ---------- */
+const actOut = [
+  {clue:"📞 Pretend you're pressing buttons on a phone", ans:"Dad used to call his friend on the telephone."},
+  {clue:"🚶 Pretend you're walking home from school", ans:"Dad used to walk home from school every day."},
+  {clue:"🧼 Pretend you're washing dishes by hand", ans:"Dad used to wash the dishes after dinner."},
+  {clue:"📖 Pretend you're reading by candlelight", ans:"People used to read books by candlelight."},
+  {clue:"🐎 Pretend you're riding a horse", ans:"People used to ride horses everywhere."}
+];
+const actOutDiv = document.getElementById('actOutArea');
+actOut.forEach((a, i) => {
+  actOutDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">${i+1}. ${a.clue}</div>
+      <button class="btn btn-blue" onclick="revealAct(this, '${a.ans.replace(/'/g, '&apos;')}')">Show the sentence</button>
+    </div>
+  `);
+});
+function revealAct(btn, ans) {
+  btn.outerHTML = `<div class="feedback correct">✅ ${ans.replace(/&apos;/g, "'")}</div>`;
+  addScore(1); addStreak();
+}
+
+/* ---------- MODULE 5: Repeat sentences ---------- */
+const repeatSentences = [
+  "Cherki used to play for Lyon in France.",
+  "Kvaratskhelia used to score goals for Napoli.",
+  "Mbappé used to play for PSG, but now he plays for Real Madrid.",
+  "People didn't use to have cell phones 40 years ago.",
+  "Children used to play with wooden toys before video games.",
+  "Families used to write letters before email.",
+  "People didn't use to fly in airplanes 200 years ago.",
+  "Did you use to ride a bike to school?"
+];
+const repeatDiv = document.getElementById('repeatArea');
+repeatSentences.forEach((s, i) => {
+  repeatDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box" style="display:flex; align-items:center; gap:10px;">
+      <div style="flex:1;"><strong>${i+1}.</strong> ${s}</div>
+      <button class="btn btn-green" onclick="markRead(this)">✓ I read it aloud</button>
+    </div>
+  `);
+});
+function markRead(btn) {
+  btn.outerHTML = '<span class="feedback correct" style="padding:6px 10px;">✅ Read!</span>';
+  addScore(1); addStreak();
+}
+
+/* ---------- MODULE 6: Grammar in Depth Quiz ---------- */
+const depthQuiz = [
+  {q:"Which sentence is CORRECT?", opts:["Cherki didn't used to play in England.", "Cherki didn't use to play in England."], a:1, why:"In the negative, we drop the 'd' → didn't USE to (not USED to)."},
+  {q:"Which sentence is CORRECT?", opts:["Kvaratskhelia used to play for Napoli.", "Kvaratskhelia use to play for Napoli."], a:0, why:"In the affirmative we say USED to (with 'd')."},
+  {q:"Which is the correct question?", opts:["Did you used to walk to school?", "Did you use to walk to school?"], a:1, why:"With 'did', we use 'use to' (no 'd')."},
+  {q:"Which sentence shows a past habit correctly?", opts:["People used to traveled by horse.", "People used to travel by horse."], a:1, why:"After 'used to', we use the BASE form of the verb (travel, not traveled)."},
+  {q:"Choose the correct NEGATIVE form:", opts:["Haaland didn't use to score for Man City — he used to score for Dortmund.", "Haaland didn't used to scored for Man City."], a:0, why:"Negative = didn't USE to + base verb (score, not scored)."},
+  {q:"Which is the right structure?", opts:["I used to be like my bike.", "I used to ride my bike."], a:1, why:"'Used to' needs a verb in the base form. 'Ride' is a verb; 'like my bike' is not a verb phrase here."}
+];
+const depthDiv = document.getElementById('depthQuizArea');
+depthQuiz.forEach((q, i) => {
+  depthDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">Q${i+1}: ${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o, j) => `<div class="opt" onclick="checkDepthOpt(this, ${j}, ${q.a}, ${i})">${o}</div>`).join('')}
+      </div>
+      <div class="feedback" id="depthFb${i}" style="display:none;">${q.why}</div>
+    </div>
+  `);
+});
+function checkDepthOpt(el, picked, correct, idx) {
+  const opts = el.parentElement.querySelectorAll('.opt');
+  opts.forEach(o => o.classList.add('disabled'));
+  const fb = document.getElementById('depthFb' + idx);
+  if (picked === correct) {
+    el.classList.add('correct');
+    fb.className = 'feedback correct';
+    fb.innerHTML = '✅ Correct! ' + depthQuiz[idx].why;
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    el.classList.add('wrong');
+    opts[correct].classList.add('correct');
+    fb.className = 'feedback wrong';
+    fb.innerHTML = '❌ Not quite. ' + depthQuiz[idx].why;
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+
+/* ---------- MODULE 8: Practice ---------- */
+// Activity 1 — from the book (page 120)
+const practice1 = [
+  {q:"1. In the 1980s, people ______ (read) by candlelight.", ans:"used to read", tf:false, hint:"false — people had electricity by the 1980s!"},
+  {q:"2. Before the invention of cars, people ______ (ride) horses in the city.", ans:"used to ride", tf:true, hint:"true — horses were the main way to travel."},
+  {q:"3. Before the invention of the plane, people ______ (not/travel) by air.", ans:"didn't use to travel", tf:true, hint:"true — airplanes were invented in 1903."},
+  {q:"4. In the 1950s, people ______ (not/make) calls with a cell phone.", ans:"didn't use to make", tf:true, hint:"true — cell phones came much later."},
+  {q:"5. We ______ (not/have) computers before there was electricity.", ans:"didn't use to have", tf:true, hint:"true — computers need electricity!"}
+];
+buildFillInActivity('practice1Area', practice1);
+
+// Activity 1b — Football bonus
+const practice1b = [
+  {q:"1. Kvaratskhelia ______ (play) for Napoli in Serie A.", ans:"used to play", tf:true, hint:"✅ true — he moved to PSG in January 2025."},
+  {q:"2. Cherki ______ (not/play) in the Premier League.", ans:"didn't use to play", tf:true, hint:"✅ true — he was at Lyon in France until June 2025."},
+  {q:"3. Mbappé ______ (play) for Real Madrid when he was young.", ans:"didn't use to play", tf:true, hint:"✅ true — he grew up at Monaco, then moved to PSG, now Real Madrid."},
+  {q:"4. PSG ______ (win) the Champions League every year.", ans:"didn't use to win", tf:true, hint:"✅ true — they won it for the first time in 2025!"},
+  {q:"5. Kvaratskhelia ______ (wear) number 7 at Napoli.", ans:"didn't use to wear", tf:true, hint:"✅ true — he wore number 77 at Napoli. Now he wears 7 at PSG."},
+  {q:"6. Lamine Yamal ______ (start) for Barcelona when he was 10 years old.", ans:"didn't use to start", tf:true, hint:"✅ true — he was too young! Now at 18, he is a star."}
+];
+buildFillInActivity('practice1bArea', practice1b);
+
+function buildFillInActivity(divId, arr) {
+  const div = document.getElementById(divId);
+  arr.forEach((p, i) => {
+    const box = document.createElement('div');
+    box.className = 'q-box';
+    box.innerHTML = `
+      <div class="q-text">${p.q}</div>
+      <input type="text" class="fill-input" id="${divId}_in${i}" placeholder="type here..." style="width:180px;">
+      <button class="btn" id="${divId}_btn${i}">Check</button>
+      <div class="feedback" id="${divId}_fb${i}" style="display:none;"></div>
+    `;
+    div.appendChild(box);
+    document.getElementById(`${divId}_btn${i}`).onclick = () => checkFill(divId, i, p.ans, p.hint);
+  });
+}
+
+function checkFill(divId, i, ans, hint) {
+  const input = document.getElementById(`${divId}_in${i}`);
+  const fb = document.getElementById(`${divId}_fb${i}`);
+  const v = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+  const a = ans.toLowerCase();
+  if (v === a) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = `✅ Correct! <em>${hint}</em>`;
+    input.style.background = '#D1FAE5';
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ Not quite. The answer is: <strong>${ans}</strong>. ${hint}`;
+    input.style.background = '#FEE2E2';
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+
+// Activity 2 — Answer questions
+const practice2 = [
+  {
+    q:"1. What did people use to do for fun before TV?",
+    opts:[
+      "They used to watch Netflix.",
+      "They used to read books and play board games.",
+      "They didn't use to do anything."
+    ],
+    a:1
+  },
+  {
+    q:"2. How did people use to travel before airplanes?",
+    opts:[
+      "They used to fly in helicopters.",
+      "They used to travel in cars only.",
+      "They used to travel in boats and on horses."
+    ],
+    a:2
+  },
+  {
+    q:"3. What did children use to play with before video games?",
+    opts:[
+      "They used to play with Xbox.",
+      "They used to play with toys like dolls, balls, and board games.",
+      "They didn't use to play."
+    ],
+    a:1
+  },
+  {
+    q:"4. Where did Kvaratskhelia use to play before PSG?",
+    opts:[
+      "He used to play for Manchester City.",
+      "He used to play for Napoli in Italy.",
+      "He used to play for Real Madrid."
+    ],
+    a:1
+  },
+  {
+    q:"5. What club did Cherki use to play for before Man City?",
+    opts:[
+      "He used to play for Arsenal.",
+      "He used to play for Olympique Lyon.",
+      "He used to play for Barcelona."
+    ],
+    a:1
+  },
+  {
+    q:"6. How did people use to tell the time before clocks?",
+    opts:[
+      "They used to look at the sun.",
+      "They used to use smartphones.",
+      "They didn't use to know the time ever."
+    ],
+    a:0
+  }
+];
+const p2Div = document.getElementById('practice2Area');
+practice2.forEach((q, i) => {
+  p2Div.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o, j) => `<div class="opt" onclick="checkOpt(this, ${j}, ${q.a}, 2)">${o}</div>`).join('')}
+      </div>
+    </div>
+  `);
+});
+
+// Transform the sentences
+const transforms = [
+  {
+    base:"Kvaratskhelia used to play for Napoli.",
+    neg:"Kvaratskhelia didn't use to play for Napoli.",
+    qs:"Did Kvaratskhelia use to play for Napoli?"
+  },
+  {
+    base:"Cherki used to live in France.",
+    neg:"Cherki didn't use to live in France.",
+    qs:"Did Cherki use to live in France?"
+  },
+  {
+    base:"People used to ride horses.",
+    neg:"People didn't use to ride horses.",
+    qs:"Did people use to ride horses?"
+  },
+  {
+    base:"Leo used to eat pasta every day.",
+    neg:"Leo didn't use to eat pasta every day.",
+    qs:"Did Leo use to eat pasta every day?"
+  }
+];
+const tDiv = document.getElementById('transformArea');
+transforms.forEach((t, i) => {
+  tDiv.insertAdjacentHTML('beforeend', `
+    <div class="transform-box">
+      <div class="original">✅ Affirmative: <em>${t.base}</em></div>
+      <div class="arrow">⬇️ Make it negative</div>
+      <div class="answer-line">
+        <input type="text" class="fill-input" id="tNeg${i}" style="width:90%; min-width:200px;" placeholder="Start with the name..." />
+        <button class="btn" onclick="checkTransform(${i}, 'neg')">Check</button>
+      </div>
+      <div class="feedback" id="tNegFb${i}" style="display:none; margin-top:6px;"></div>
+      <div class="arrow">⬇️ Make a yes/no question</div>
+      <div class="answer-line">
+        <input type="text" class="fill-input" id="tQs${i}" style="width:90%; min-width:200px;" placeholder="Start with 'Did'..." />
+        <button class="btn" onclick="checkTransform(${i}, 'qs')">Check</button>
+      </div>
+      <div class="feedback" id="tQsFb${i}" style="display:none; margin-top:6px;"></div>
+    </div>
+  `);
+});
+
+function checkTransform(i, type) {
+  const input = document.getElementById(`t${type === 'neg' ? 'Neg' : 'Qs'}${i}`);
+  const fb = document.getElementById(`t${type === 'neg' ? 'Neg' : 'Qs'}Fb${i}`);
+  const correct = type === 'neg' ? transforms[i].neg : transforms[i].qs;
+  const norm = s => s.trim().toLowerCase().replace(/\s+/g, ' ').replace(/[.?]$/, '');
+  if (norm(input.value) === norm(correct)) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = `✅ Perfect! <strong>${correct}</strong>`;
+    input.style.background = '#D1FAE5';
+    addScore(3); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ The answer is: <strong>${correct}</strong>`;
+    input.style.background = '#FEE2E2';
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+
+// Sort sentences — affirmative / negative / question
+const sortSentences = [
+  {s:"Cherki used to play for Lyon.", t:"aff"},
+  {s:"Did you use to have long hair?", t:"qs"},
+  {s:"Kvaratskhelia didn't use to live in France.", t:"neg"},
+  {s:"People used to read by candlelight.", t:"aff"},
+  {s:"Where did people use to travel?", t:"qs"},
+  {s:"PSG didn't use to win the Champions League.", t:"neg"},
+  {s:"Leo used to watch Ice Age when he was 6.", t:"aff"},
+  {s:"Did Haaland use to play for Dortmund?", t:"qs"},
+  {s:"Mbappé didn't use to score in La Liga.", t:"neg"}
+];
+const sortDiv = document.getElementById('sortArea');
+sortDiv.innerHTML = `
+  <div class="word-bank" id="sortBank"></div>
+  <div class="sort-area">
+    <div class="sort-box" id="sortAff">
+      <h4>✅ Affirmative</h4>
+    </div>
+    <div class="sort-box" id="sortNeg">
+      <h4>🚫 Negative</h4>
+    </div>
+    <div class="sort-box" id="sortQs">
+      <h4>❓ Question</h4>
+    </div>
+  </div>
+  <div class="feedback" id="sortFb" style="display:none; margin-top:10px;"></div>
+`;
+const sortBank = document.getElementById('sortBank');
+let sortSelected = null;
+sortSentences.forEach((s, i) => {
+  const chip = document.createElement('div');
+  chip.className = 'word-chip';
+  chip.textContent = s.s;
+  chip.style.fontSize = '12px';
+  chip.style.maxWidth = '100%';
+  chip.onclick = () => {
+    document.querySelectorAll('#sortBank .word-chip').forEach(c => c.style.background = 'white');
+    chip.style.background = '#FDE047';
+    sortSelected = { idx: i, el: chip };
+  };
+  sortBank.appendChild(chip);
+});
+
+function sortTo(type) {
+  if (!sortSelected) return;
+  const correct = sortSentences[sortSelected.idx].t;
+  const fb = document.getElementById('sortFb');
+  if (correct === type) {
+    const target = document.getElementById('sort' + type.charAt(0).toUpperCase() + type.slice(1));
+    const dropped = document.createElement('div');
+    dropped.className = 'dropped';
+    dropped.textContent = sortSelected.el.textContent;
+    target.appendChild(dropped);
+    sortSelected.el.classList.add('used');
+    sortSelected.el.onclick = null;
+    fb.className = 'feedback correct';
+    fb.innerHTML = '✅ Correct!';
+    addScore(2); addStreak();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ Try again! That's a ${correct === 'aff' ? 'affirmative' : correct === 'neg' ? 'negative' : 'question'}.`;
+    resetStreak();
+  }
+  fb.style.display = 'block';
+  sortSelected = null;
+}
+document.getElementById('sortAff').onclick = () => sortTo('aff');
+document.getElementById('sortNeg').onclick = () => sortTo('neg');
+document.getElementById('sortQs').onclick = () => sortTo('qs');
+
+/* ---------- MODULE 9: Recap Quiz ---------- */
+const recapQ = [
+  {q:"We use 'used to' for...", opts:["Things happening right now", "Past habits that are different now", "Plans for tomorrow", "Orders and commands"], a:1},
+  {q:"In the negative form, we say...", opts:["didn't used to", "didn't use to", "don't use to", "isn't used to"], a:1},
+  {q:"In questions, we start with...", opts:["Are", "Do", "Did", "Is"], a:2},
+  {q:"Choose the correct sentence:", opts:["Cherki used to play for Lyon.", "Cherki used play for Lyon.", "Cherki used to played for Lyon."], a:0},
+  {q:"Which word joins two contrasting 'used to' sentences?", opts:["and", "but", "or", "because"], a:1}
+];
+const recapDiv = document.getElementById('recapArea');
+recapQ.forEach((q, i) => {
+  recapDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">Q${i+1}: ${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o, j) => `<div class="opt" onclick="checkOpt(this, ${j}, ${q.a}, 2)">${o}</div>`).join('')}
+      </div>
+    </div>
+  `);
+});
+
+/* ---------- MODULE 10: Apply — Sentence Builder ---------- */
+const builderTargets = [
+  {
+    target:"Cherki used to play for Lyon.",
+    words:["Cherki", "used to", "play", "for", "Lyon", "."]
+  },
+  {
+    target:"Kvaratskhelia didn't use to live in France.",
+    words:["Kvaratskhelia", "didn't use to", "live", "in", "France", "."]
+  },
+  {
+    target:"Did you use to watch cartoons?",
+    words:["Did", "you", "use to", "watch", "cartoons", "?"]
+  },
+  {
+    target:"People didn't use to have airplanes.",
+    words:["People", "didn't use to", "have", "airplanes", "."]
+  },
+  {
+    target:"Where did Mbappé use to play?",
+    words:["Where", "did", "Mbappé", "use to", "play", "?"]
+  },
+  {
+    target:"Leo used to watch Ice Age.",
+    words:["Leo", "used to", "watch", "Ice Age", "."]
+  }
+];
+const builderDiv = document.getElementById('builderArea');
+builderTargets.forEach((b, i) => {
+  const shuffled = [...b.words].sort(() => Math.random() - 0.5);
+  builderDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">🎯 Goal: ${b.target}</div>
+      <div class="word-bank" id="builderBank${i}"></div>
+      <div style="background:white; padding:10px; border:2px dashed #3B82F6; border-radius:8px; min-height:40px; margin-top:6px;" id="builderZone${i}"></div>
+      <div style="margin-top:8px; display:flex; gap:6px;">
+        <button class="btn" onclick="checkBuilder(${i}, '${b.target.replace(/'/g, "&apos;").replace(/"/g, '&quot;')}')">Check</button>
+        <button class="btn btn-blue" onclick="resetBuilder(${i})">🔄 Reset</button>
+      </div>
+      <div class="feedback" id="builderFb${i}" style="display:none; margin-top:6px;"></div>
+    </div>
+  `);
+  const bank = document.getElementById(`builderBank${i}`);
+  shuffled.forEach(w => {
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    chip.textContent = w;
+    chip.onclick = () => {
+      if (chip.classList.contains('used')) return;
+      const zone = document.getElementById(`builderZone${i}`);
+      const picked = document.createElement('span');
+      picked.className = 'word-chip';
+      picked.textContent = w;
+      picked.style.margin = '3px';
+      picked.onclick = () => {
+        chip.classList.remove('used');
+        picked.remove();
+      };
+      zone.appendChild(picked);
+      chip.classList.add('used');
+    };
+    bank.appendChild(chip);
+  });
+});
+
+function checkBuilder(i, target) {
+  const zone = document.getElementById(`builderZone${i}`);
+  const fb = document.getElementById(`builderFb${i}`);
+  const built = Array.from(zone.querySelectorAll('.word-chip'))
+    .map(c => c.textContent)
+    .join(' ')
+    .replace(/ \./g, '.')
+    .replace(/ \?/g, '?');
+  const t = target.replace(/&apos;/g, "'").replace(/&quot;/g, '"');
+  if (built === t) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '✅ GOAL! Perfect sentence!';
+    addScore(3); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ Not quite. You built: "${built}". Goal: "${t}"`;
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+function resetBuilder(i) {
+  const zone = document.getElementById(`builderZone${i}`);
+  zone.innerHTML = '';
+  document.querySelectorAll(`#builderBank${i} .word-chip`).forEach(c => c.classList.remove('used'));
+  document.getElementById(`builderFb${i}`).style.display = 'none';
+}
+
+/* About Leo — open-ended */
+const aboutLeo = [
+  {q:"🍕 What food did you use to eat every day when you were 6?", hint:"Example: I used to eat pasta every day."},
+  {q:"🎬 What movie did you use to watch a lot?", hint:"Example: I used to watch Ice Age five times a week!"},
+  {q:"🧸 What toy did you use to play with?", hint:"Example: I used to play with LEGO a lot."},
+  {q:"⚽ Did you use to know Cherki when you were younger?", hint:"Example: No, I didn't use to know him — he was at Lyon."},
+  {q:"🏫 How did you use to go to school?", hint:"Example: I used to walk to school with Dad."},
+  {q:"📱 Did you use to have a tablet or phone when you were 5?", hint:"Example: No, I didn't use to have a phone when I was 5."}
+];
+const aboutDiv = document.getElementById('aboutLeoArea');
+aboutLeo.forEach((a, i) => {
+  aboutDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">${i+1}. ${a.q}</div>
+      <textarea style="width:100%; min-height:60px; padding:8px; border:2px solid #F97316; border-radius:6px; font-family:inherit; font-size:14px;" placeholder="Write your answer..." id="aboutInp${i}"></textarea>
+      <div class="tip" style="margin-top:6px; font-size:12px;"><strong>💡 Sample answer:</strong> ${a.hint}</div>
+      <button class="btn btn-green" onclick="markWritten(this)">✓ I wrote my answer</button>
+    </div>
+  `);
+});
+function markWritten(btn) {
+  btn.outerHTML = '<span class="feedback correct" style="padding:6px 10px;">✅ Written!</span>';
+  addScore(2); addStreak();
+}
+
+/* ---------- MODULE 11: Extend ---------- */
+const extendItems = [
+  {inv:"✈️ the airplane", before:"travel by boat (for long trips)", after:"fly across the sky"},
+  {inv:"📱 the cell phone", before:"only talk face to face", after:"call or text anyone, anywhere"},
+  {inv:"🚗 the car", before:"walk or ride horses", after:"drive to places fast"},
+  {inv:"💡 the light bulb", before:"read by candlelight", after:"turn on a light switch"},
+  {inv:"🖥️ the computer", before:"write letters by hand", after:"type and send emails"},
+  {inv:"📺 the television", before:"listen to the radio", after:"watch shows and movies"},
+  {inv:"🧊 the refrigerator", before:"use ice blocks to keep food cold", after:"keep food cold for days"},
+  {inv:"📷 the camera", before:"paint pictures of people", after:"take photos in one second"}
+];
+const extDiv = document.getElementById('extendArea');
+extendItems.forEach((e, i) => {
+  extDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">${i+1}. Before ${e.inv}, people...</div>
+      <div style="margin:8px 0;">
+        <strong>✅ Sentence:</strong> People <span class="hl">used to</span> <em>${e.before}</em> before ${e.inv}. Now they can <em>${e.after}</em>!
+      </div>
+      <button class="btn btn-green" onclick="markRead(this)">✓ I read it aloud</button>
+    </div>
+  `);
+});
+
+const footExt = [
+  {
+    fact:"🇬🇪 Kvaratskhelia joined PSG in January 2025 from Napoli (€70M). Before that, he was in Italy for 2.5 years.",
+    q:"Kvaratskhelia ______ (play) for Napoli before PSG.",
+    ans:"used to play"
+  },
+  {
+    fact:"🇫🇷 Cherki joined Manchester City in June 2025 from Lyon (€36M). He grew up in Lyon's academy.",
+    q:"Cherki ______ (not/play) in the Premier League before 2025.",
+    ans:"didn't use to play"
+  },
+  {
+    fact:"🏆 PSG won the Champions League in May 2025 — 5-0 vs Inter Milan. It was their FIRST ever CL title!",
+    q:"Before 2025, PSG ______ (not/win) the Champions League.",
+    ans:"didn't use to win"
+  },
+  {
+    fact:"🇫🇷 Mbappé played for PSG from 2017 to 2024. Then he moved to Real Madrid in La Liga.",
+    q:"Mbappé ______ (play) for PSG in Ligue 1.",
+    ans:"used to play"
+  },
+  {
+    fact:"⚽ Erling Haaland (Man City) started his career at Salzburg, then Dortmund, then joined Man City in 2022.",
+    q:"Haaland ______ (score) goals for Dortmund before joining Man City.",
+    ans:"used to score"
+  },
+  {
+    fact:"🇪🇸 Lamine Yamal made his first-team Barcelona debut at 15 years old. He is now 18.",
+    q:"Lamine Yamal ______ (not/play) for Barcelona's first team when he was 10.",
+    ans:"didn't use to play"
+  }
+];
+const fxDiv = document.getElementById('footballExtendArea');
+footExt.forEach((f, i) => {
+  const box = document.createElement('div');
+  box.className = 'q-box';
+  box.innerHTML = `
+    <div style="background:#EFF6FF; padding:8px; border-radius:6px; margin-bottom:8px; font-size:14px;">${f.fact}</div>
+    <div class="q-text">${f.q}</div>
+    <input type="text" class="fill-input" id="fxIn${i}" style="width:200px;" placeholder="used to / didn't use to...">
+    <button class="btn" id="fxBtn${i}">Check</button>
+    <div class="feedback" id="fxFb${i}" style="display:none; margin-top:6px;"></div>
+  `;
+  fxDiv.appendChild(box);
+  document.getElementById(`fxBtn${i}`).onclick = () => checkFx(i, f.ans);
+});
+function checkFx(i, ans) {
+  const input = document.getElementById(`fxIn${i}`);
+  const fb = document.getElementById(`fxFb${i}`);
+  const v = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+  if (v === ans.toLowerCase()) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = `✅ Correct! <strong>${ans}</strong>`;
+    input.style.background = '#D1FAE5';
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ The answer is: <strong>${ans}</strong>`;
+    input.style.background = '#FEE2E2';
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+
+/* ---------- MODULE 12: Formative Assessment ---------- */
+const assessQuestions = [
+  {type:'mc', q:"Which is correct?", opts:["Kvaratskhelia used to plays for Napoli.", "Kvaratskhelia used to play for Napoli."], a:1},
+  {type:'mc', q:"Which is correct?", opts:["Cherki didn't used to play in England.", "Cherki didn't use to play in England."], a:1},
+  {type:'mc', q:"How do we start a yes/no question?", opts:["Is...", "Did...", "Was...", "Used..."], a:1},
+  {type:'fill', q:"Before cars, people ______ (ride) horses.", ans:"used to ride"},
+  {type:'fill', q:"People ______ (not/have) cell phones 50 years ago.", ans:"didn't use to have"},
+  {type:'mc', q:"Which sentence is correct?", opts:["Where did people used to live?", "Where did people use to live?"], a:1},
+  {type:'fill', q:"Mbappé ______ (play) for PSG. Now he plays for Real Madrid.", ans:"used to play"},
+  {type:'mc', q:"What is the base form of the verb after 'used to'?", opts:["The -ed past form", "The -ing form", "The base (infinitive) form", "The 3rd person form"], a:2},
+  {type:'fill', q:"PSG ______ (not/win) the Champions League before 2025.", ans:"didn't use to win"},
+  {type:'mc', q:"Choose the correct question:", opts:["Did Cherki use to play for Lyon?", "Did Cherki used to play for Lyon?"], a:0},
+  {type:'fill', q:"Kvaratskhelia ______ (wear) number 77 at Napoli.", ans:"used to wear"},
+  {type:'mc', q:"Which joins two 'used to' sentences to show contrast?", opts:["and", "but", "so", "because"], a:1},
+  {type:'fill', q:"I ______ (walk) to school when I was 6. Now I ride a bike.", ans:"used to walk"},
+  {type:'mc', q:"Which is correct?", opts:["Haaland used to scores for Dortmund.", "Haaland used to score for Dortmund."], a:1},
+  {type:'fill', q:"Leo ______ (not/know) English very well 2 years ago.", ans:"didn't use to know"},
+  {type:'mc', q:"'Used to' is used for...", opts:["Actions happening now", "Past habits different from now", "Future plans", "Orders"], a:1},
+  {type:'fill', q:"______ you ______ (watch) cartoons on Saturday mornings? (make a yes/no question)", ans:"did use to watch"},
+  {type:'mc', q:"Which is a correct negative?", opts:["Cherki didn't use to played in England.", "Cherki didn't use to play in England.", "Cherki don't use to play in England."], a:1},
+  {type:'fill', q:"Lamine Yamal ______ (not/start) for Barcelona when he was 10. (negative form)", ans:"didn't use to start"},
+  {type:'mc', q:"'Used to' + the verb is the same for...", opts:["Only 'I'", "Only plural subjects", "All persons (I, you, he, she, we, they)", "Only 'you'"], a:2},
+  {type:'mc', q:"⚽ Which sentence is correct about Cherki?", opts:["Cherki used to play for Lyon, but now he plays for Man City.", "Cherki used to plays for Lyon, but now he plays for Man City.", "Cherki use to play for Lyon, but now he play for Man City."], a:0},
+  {type:'fill', q:"⚽ Kvaratskhelia ______ (play) for Napoli before moving to PSG in 2025.", ans:"used to play"},
+  {type:'mc', q:"⚽ What's the correct question form about Haaland?", opts:["Did Haaland used to play for Dortmund?", "Did Haaland use to play for Dortmund?", "Did Haaland use played for Dortmund?"], a:1},
+  {type:'fill', q:"⚽ PSG ______ (not/have) a Champions League trophy before 2025.", ans:"didn't use to have"},
+  {type:'mc', q:"⚽ Choose the correct sentence:", opts:["Mbappé used to played for PSG.", "Mbappé used to play for PSG.", "Mbappé was used to play for PSG."], a:1},
+  {type:'fill', q:"⚽ Where ______ Cherki ______ (play) before Man City? (make a Wh- question — use 'did' + 'use to')", ans:"did use to play"},
+  {type:'mc', q:"⚽ 'Vinicius Jr used to play for Flamengo, but now he plays for Real Madrid.' What does 'but now' show?", opts:["A similarity", "A contrast between past and present", "A cause", "A time order"], a:1},
+  {type:'fill', q:"⚽ Cole Palmer ______ (play) for Manchester City before moving to Chelsea.", ans:"used to play"}
+];
+
+let assessIdx = 0, assessScore = 0;
+const assessDiv = document.getElementById('assessArea');
+renderAssess();
+
+function renderAssess() {
+  if (assessIdx >= assessQuestions.length) {
+    showAssessResults();
+    return;
+  }
+  const q = assessQuestions[assessIdx];
+  document.getElementById('assessProgress').style.width = `${(assessIdx / assessQuestions.length) * 100}%`;
+  if (q.type === 'mc') {
+    assessDiv.innerHTML = `
+      <div class="q-box">
+        <div class="q-text">Q${assessIdx+1} of ${assessQuestions.length}: ${q.q}</div>
+        <div class="options">
+          ${q.opts.map((o, j) => `<div class="opt" onclick="assessAnswer(${j}, ${q.a}, 'mc')">${o}</div>`).join('')}
+        </div>
+      </div>
+    `;
+  } else {
+    assessDiv.innerHTML = `
+      <div class="q-box">
+        <div class="q-text">Q${assessIdx+1} of ${assessQuestions.length}: ${q.q}</div>
+        <input type="text" class="fill-input" id="assessInp" style="width:260px;" placeholder="type here...">
+        <button class="btn" id="assessFillBtn">Check</button>
+      </div>
+    `;
+    document.getElementById('assessFillBtn').onclick = () => assessCheckFill(q.ans);
+    setTimeout(() => document.getElementById('assessInp').focus(), 50);
+  }
+}
+
+function assessAnswer(picked, correct, type) {
+  const opts = assessDiv.querySelectorAll('.opt');
+  opts.forEach(o => o.classList.add('disabled'));
+  if (picked === correct) {
+    opts[picked].classList.add('correct');
+    assessScore++;
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    opts[picked].classList.add('wrong');
+    opts[correct].classList.add('correct');
+    resetStreak();
+  }
+  setTimeout(() => {
+    assessIdx++;
+    renderAssess();
+  }, 1200);
+}
+
+function assessCheckFill(ans) {
+  const input = document.getElementById('assessInp');
+  const v = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+  if (v === ans.toLowerCase()) {
+    input.style.background = '#D1FAE5';
+    assessScore++;
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    input.style.background = '#FEE2E2';
+    resetStreak();
+  }
+  assessDiv.insertAdjacentHTML('beforeend', `
+    <div class="feedback ${v === ans.toLowerCase() ? 'correct' : 'wrong'}">
+      ${v === ans.toLowerCase() ? '✅ Correct! ' : '❌ The answer is: '}<strong>${ans}</strong>
+    </div>
+  `);
+  setTimeout(() => {
+    assessIdx++;
+    renderAssess();
+  }, 1500);
+}
+
+function showAssessResults() {
+  document.getElementById('assessProgress').style.width = '100%';
+  const pct = Math.round((assessScore / assessQuestions.length) * 100);
+  const pass = pct >= 70;
+  assessDiv.innerHTML = '';
+  document.getElementById('assessResults').innerHTML = `
+    <div class="results ${pass ? 'pass' : 'fail'}">
+      <h2>${pass ? '⚽ GOOOAAAL! HAT-TRICK!' : '💪 Keep trying, Leo!'}</h2>
+      <div class="score-big">${assessScore} / ${assessQuestions.length}</div>
+      <div style="font-size:20px; font-weight:700;">${pct}%</div>
+      <p style="margin-top:10px;">${pass ? 'You mastered "used to" — just like Cherki mastered Premier League assists! 🔥' : 'Review the rules and try again. You are getting there!'}</p>
+      <button class="btn btn-blue" onclick="restartAssess()" style="margin-top:10px;">🔄 Try Again</button>
+    </div>
+  `;
+}
+
+function restartAssess() {
+  assessIdx = 0;
+  assessScore = 0;
+  document.getElementById('assessResults').innerHTML = '';
+  renderAssess();
+}
+
+/* ---------- Generic MC checker ---------- */
+function checkOpt(el, picked, correct, pts) {
+  const opts = el.parentElement.querySelectorAll('.opt');
+  opts.forEach(o => o.classList.add('disabled'));
+  if (picked === correct) {
+    el.classList.add('correct');
+    addScore(pts); addStreak(); scoreGoal();
+  } else {
+    el.classList.add('wrong');
+    opts[correct].classList.add('correct');
+    resetStreak();
+  }
+}
+
+/* ---------- Quick check (single button) ---------- */
+function quickCheck(btn, msg) {
+  btn.outerHTML = `<span class="feedback correct" style="padding:8px 12px; display:inline-block;">✅ ${msg}</span>`;
+  addScore(1); addStreak();
+}
+
+/* ============================================================
+   SOCCER BONUS EXERCISES
+============================================================ */
+
+/* ---------- Soccer Match-Up (Player → Past Club) ---------- */
+const matchups = [
+  {player:"🇬🇪 Kvaratskhelia", pastClub:"Napoli (Italy)"},
+  {player:"🇫🇷 Cherki",        pastClub:"Olympique Lyon (France)"},
+  {player:"🇫🇷 Mbappé",        pastClub:"PSG (France)"},
+  {player:"🇳🇴 Haaland",       pastClub:"Borussia Dortmund (Germany)"},
+  {player:"🇧🇷 Vinicius Jr",   pastClub:"Flamengo (Brazil)"},
+  {player:"🇬🇧 Cole Palmer",   pastClub:"Manchester City"}
+];
+
+const matchupDiv = document.getElementById('matchupArea');
+let matchSelectedPlayer = null;
+let matchMatchedCount = 0;
+
+(function buildMatchup() {
+  // Shuffle the past clubs so they don't line up
+  const clubsShuffled = matchups.map((m, i) => ({idx: i, text: m.pastClub})).sort(() => Math.random() - 0.5);
+  matchupDiv.innerHTML = `
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+      <div>
+        <h4 style="color:#F97316; text-align:center; margin-bottom:6px;">⚽ Player (now)</h4>
+        <div id="matchPlayers"></div>
+      </div>
+      <div>
+        <h4 style="color:#3B82F6; text-align:center; margin-bottom:6px;">🏟️ Past Club</h4>
+        <div id="matchClubs"></div>
+      </div>
+    </div>
+    <div class="feedback" id="matchupFb" style="display:none; margin-top:10px;"></div>
+  `;
+  const playersDiv = document.getElementById('matchPlayers');
+  const clubsDiv = document.getElementById('matchClubs');
+  matchups.forEach((m, i) => {
+    const p = document.createElement('div');
+    p.className = 'word-chip';
+    p.style.display = 'block';
+    p.style.margin = '6px 0';
+    p.style.textAlign = 'center';
+    p.textContent = m.player;
+    p.dataset.idx = i;
+    p.onclick = () => selectMatchPlayer(p, i);
+    playersDiv.appendChild(p);
+  });
+  clubsShuffled.forEach(c => {
+    const cEl = document.createElement('div');
+    cEl.className = 'word-chip';
+    cEl.style.display = 'block';
+    cEl.style.margin = '6px 0';
+    cEl.style.textAlign = 'center';
+    cEl.style.background = '#DBEAFE';
+    cEl.style.borderColor = '#3B82F6';
+    cEl.style.color = '#1E40AF';
+    cEl.textContent = c.text;
+    cEl.dataset.idx = c.idx;
+    cEl.onclick = () => selectMatchClub(cEl, c.idx);
+    clubsDiv.appendChild(cEl);
+  });
+})();
+
+function selectMatchPlayer(el, idx) {
+  if (el.classList.contains('used')) return;
+  document.querySelectorAll('#matchPlayers .word-chip').forEach(c => {
+    if (!c.classList.contains('used')) c.style.background = 'white';
+  });
+  el.style.background = '#FDE047';
+  matchSelectedPlayer = { el, idx };
+}
+
+function selectMatchClub(el, clubIdx) {
+  if (el.classList.contains('used')) return;
+  const fb = document.getElementById('matchupFb');
+  if (!matchSelectedPlayer) {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = '👆 First click a PLAYER on the left!';
+    fb.style.display = 'block';
+    return;
+  }
+  if (matchSelectedPlayer.idx === clubIdx) {
+    matchSelectedPlayer.el.classList.add('used');
+    matchSelectedPlayer.el.style.background = '#D1FAE5';
+    matchSelectedPlayer.el.style.borderColor = '#10B981';
+    el.classList.add('used');
+    el.style.background = '#D1FAE5';
+    el.style.borderColor = '#10B981';
+    matchSelectedPlayer.el.onclick = null;
+    el.onclick = null;
+    fb.className = 'feedback correct';
+    matchMatchedCount++;
+    fb.innerHTML = `✅ Match! ${matchups[clubIdx].player} used to play for ${matchups[clubIdx].pastClub}. (${matchMatchedCount}/${matchups.length})`;
+    addScore(2); addStreak(); scoreGoal();
+    if (matchMatchedCount === matchups.length) {
+      fb.innerHTML += '<br>🏆 All matched! GOOOAAAL!';
+    }
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ Not a match. ${matchSelectedPlayer.el.textContent} didn't use to play for ${matchups[clubIdx].pastClub}.`;
+    resetStreak();
+  }
+  fb.style.display = 'block';
+  if (matchSelectedPlayer && !matchSelectedPlayer.el.classList.contains('used')) {
+    matchSelectedPlayer.el.style.background = 'white';
+  }
+  matchSelectedPlayer = null;
+}
+
+/* ---------- Soccer True or False ---------- */
+const socTf = [
+  {s:"Kvaratskhelia used to wear number 77 at Napoli.", t:true,  why:"✅ True! He wore #77 at Napoli and now wears #7 at PSG."},
+  {s:"Cherki used to play for Arsenal before Man City.", t:false, why:"❌ False! He used to play for Olympique Lyon in France."},
+  {s:"Haaland used to play for Real Madrid.", t:false, why:"❌ False! He used to play for Salzburg, then Borussia Dortmund, now Man City."},
+  {s:"Mbappé used to play for Monaco when he was a teenager.", t:true,  why:"✅ True! He started at Monaco, then PSG, now Real Madrid."},
+  {s:"PSG used to win the Champions League every year.", t:false, why:"❌ False! They won it for the FIRST time in May 2025 (5-0 vs Inter Milan)."},
+  {s:"Vinicius Jr used to play in Brazil before Real Madrid.", t:true,  why:"✅ True! He used to play for Flamengo in Brazil."},
+  {s:"Cole Palmer used to play for Manchester City before Chelsea.", t:true,  why:"✅ True! He came through City's academy and left for Chelsea in 2023."},
+  {s:"Lamine Yamal used to start for Barcelona's first team at age 10.", t:false, why:"❌ False! He was way too young — he made his first-team debut at 15."}
+];
+const socTfDiv = document.getElementById('socTfArea');
+socTf.forEach((t, i) => {
+  socTfDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">${i+1}. ${t.s}</div>
+      <div style="display:flex; gap:8px; margin-top:6px;">
+        <button class="btn btn-green" onclick="checkTf(${i}, true)">✅ TRUE</button>
+        <button class="btn" style="background:#EF4444;" onclick="checkTf(${i}, false)">❌ FALSE</button>
+      </div>
+      <div class="feedback" id="socTfFb${i}" style="display:none; margin-top:6px;"></div>
+    </div>
+  `);
+});
+function checkTf(i, picked) {
+  const fb = document.getElementById('socTfFb' + i);
+  const correct = socTf[i].t;
+  // disable buttons
+  const btns = fb.previousElementSibling.querySelectorAll('button');
+  btns.forEach(b => b.disabled = true);
+  if (picked === correct) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = socTf[i].why;
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = '⚠️ Wrong answer. ' + socTf[i].why;
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+
+/* ---------- Unscramble the Soccer Sentence ---------- */
+const unscrambles = [
+  {target:"Cherki used to play for Lyon.",             words:["Cherki", "used to", "play", "for", "Lyon", "."]},
+  {target:"Kvaratskhelia didn't use to live in France.", words:["Kvaratskhelia", "didn't use to", "live", "in", "France", "."]},
+  {target:"Did Haaland use to play for Dortmund?",      words:["Did", "Haaland", "use to", "play", "for", "Dortmund", "?"]},
+  {target:"Where did Mbappé use to play?",              words:["Where", "did", "Mbappé", "use to", "play", "?"]},
+  {target:"PSG didn't use to win the Champions League.", words:["PSG", "didn't use to", "win", "the", "Champions League", "."]}
+];
+const unDiv = document.getElementById('unscrambleArea');
+unscrambles.forEach((u, i) => {
+  unDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">🎯 Unscramble: <em>${u.target}</em></div>
+      <div class="word-bank" id="unBank${i}"></div>
+      <div style="background:white; padding:10px; border:2px dashed #3B82F6; border-radius:8px; min-height:40px; margin-top:6px;" id="unZone${i}"></div>
+      <div style="margin-top:8px; display:flex; gap:6px;">
+        <button class="btn" onclick="checkUn(${i})">Check</button>
+        <button class="btn btn-blue" onclick="resetUn(${i})">🔄 Reset</button>
+      </div>
+      <div class="feedback" id="unFb${i}" style="display:none; margin-top:6px;"></div>
+    </div>
+  `);
+  const bank = document.getElementById(`unBank${i}`);
+  const shuffled = [...u.words].sort(() => Math.random() - 0.5);
+  shuffled.forEach(w => {
+    const chip = document.createElement('div');
+    chip.className = 'word-chip';
+    chip.textContent = w;
+    chip.onclick = () => {
+      if (chip.classList.contains('used')) return;
+      const zone = document.getElementById(`unZone${i}`);
+      const picked = document.createElement('span');
+      picked.className = 'word-chip';
+      picked.textContent = w;
+      picked.style.margin = '3px';
+      picked.onclick = () => {
+        chip.classList.remove('used');
+        picked.remove();
+      };
+      zone.appendChild(picked);
+      chip.classList.add('used');
+    };
+    bank.appendChild(chip);
+  });
+});
+function checkUn(i) {
+  const zone = document.getElementById(`unZone${i}`);
+  const fb = document.getElementById(`unFb${i}`);
+  const built = Array.from(zone.querySelectorAll('.word-chip'))
+    .map(c => c.textContent)
+    .join(' ')
+    .replace(/ \./g, '.')
+    .replace(/ \?/g, '?');
+  if (built === unscrambles[i].target) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '✅ GOAL! Perfect!';
+    addScore(3); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ Not quite. You built: "${built}". Try again!`;
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+function resetUn(i) {
+  document.getElementById(`unZone${i}`).innerHTML = '';
+  document.querySelectorAll(`#unBank${i} .word-chip`).forEach(c => c.classList.remove('used'));
+  document.getElementById(`unFb${i}`).style.display = 'none';
+}
+
+/* ---------- Commentator Challenge (Module 10 bonus) ---------- */
+const commentator = [
+  {
+    story:"🎙️ 'Look at Cherki go! What a player! He ______ (play) for Lyon in France, but now he is lighting up the Premier League with Manchester City!'",
+    ans:"used to play"
+  },
+  {
+    story:"🎙️ 'Kvaratskhelia scores again for PSG! Remember, he ______ (not/play) for PSG at the start of 2024 — he was at Napoli. Now he is their star!'",
+    ans:"didn't use to play"
+  },
+  {
+    story:"🎙️ 'Haaland is unstoppable! Fun fact: he ______ (score) goals for Dortmund before joining Man City — and now he keeps scoring!'",
+    ans:"used to score"
+  },
+  {
+    story:"🎙️ 'PSG lift the trophy! This is amazing — they ______ (not/win) the Champions League before 2025. Now, finally, they are European champions!'",
+    ans:"didn't use to win"
+  },
+  {
+    story:"🎙️ 'Mbappé with a brilliant goal for Real Madrid! He ______ (play) for PSG in Ligue 1 before his big move to La Liga.'",
+    ans:"used to play"
+  }
+];
+const commDiv = document.getElementById('commentatorArea');
+commentator.forEach((c, i) => {
+  const box = document.createElement('div');
+  box.className = 'q-box';
+  box.innerHTML = `
+    <div style="background:#FEF3C7; padding:10px; border-radius:8px; margin-bottom:8px; font-style:italic;">${c.story}</div>
+    <input type="text" class="fill-input" id="commIn${i}" style="width:220px;" placeholder="used to / didn't use to...">
+    <button class="btn" id="commBtn${i}">Check</button>
+    <div class="feedback" id="commFb${i}" style="display:none; margin-top:6px;"></div>
+  `;
+  commDiv.appendChild(box);
+  document.getElementById(`commBtn${i}`).onclick = () => checkComm(i, c.ans);
+});
+function checkComm(i, ans) {
+  const input = document.getElementById(`commIn${i}`);
+  const fb = document.getElementById(`commFb${i}`);
+  const v = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+  if (v === ans.toLowerCase()) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = `✅ Great call, commentator! <strong>${ans}</strong>`;
+    input.style.background = '#D1FAE5';
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ The answer is: <strong>${ans}</strong>`;
+    input.style.background = '#FEE2E2';
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+
+/* ---------- Wh- Question Builder (Module 11 bonus) ---------- */
+const whQ = [
+  {
+    fact:"Cherki used to play for Lyon.",
+    q:"Which question asks about the PLACE?",
+    opts:["When did Cherki use to play?", "Where did Cherki use to play?", "Who did Cherki use to play?"],
+    a:1
+  },
+  {
+    fact:"Kvaratskhelia used to wear number 77 at Napoli.",
+    q:"Which question asks about the NUMBER?",
+    opts:["What number did Kvaratskhelia use to wear at Napoli?", "Where did Kvaratskhelia use to wear a number?", "Why did Kvaratskhelia use to wear a number?"],
+    a:0
+  },
+  {
+    fact:"Haaland used to play for Dortmund.",
+    q:"Which question asks about the CLUB?",
+    opts:["When did Haaland use to play?", "Which club did Haaland use to play for?", "Who did Haaland use to play?"],
+    a:1
+  },
+  {
+    fact:"People used to travel in boats across the sea.",
+    q:"Which question asks HOW people traveled?",
+    opts:["Where did people use to travel?", "How did people use to travel across the sea?", "When did people use to travel?"],
+    a:1
+  },
+  {
+    fact:"Mbappé used to play for PSG from 2017 to 2024.",
+    q:"Which question asks WHEN?",
+    opts:["Where did Mbappé use to play?", "Who did Mbappé use to play?", "When did Mbappé use to play for PSG?"],
+    a:2
+  }
+];
+const whDiv = document.getElementById('whQArea');
+whQ.forEach((w, i) => {
+  whDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div style="background:#EFF6FF; padding:8px; border-radius:6px; margin-bottom:8px; font-size:14px;"><strong>Fact:</strong> ${w.fact}</div>
+      <div class="q-text">${w.q}</div>
+      <div class="options">
+        ${w.opts.map((o, j) => `<div class="opt" onclick="checkOpt(this, ${j}, ${w.a}, 2)">${o}</div>`).join('')}
+      </div>
+    </div>
+  `);
+});
+
+/* ---------- "But Now..." Contrast Completion (Module 11 bonus) ---------- */
+const butNow = [
+  {
+    half:"Cherki used to play for Lyon, but now he plays for ______",
+    ans:"Manchester City",
+    alts:["man city", "manchester city", "city", "man. city"]
+  },
+  {
+    half:"Mbappé used to play for PSG, but now he plays for ______",
+    ans:"Real Madrid",
+    alts:["real madrid", "madrid", "real"]
+  },
+  {
+    half:"Kvaratskhelia used to wear number 77, but now he wears number ______",
+    ans:"7",
+    alts:["7", "seven"]
+  },
+  {
+    half:"Haaland used to play in Germany, but now he plays in ______",
+    ans:"England",
+    alts:["england", "the premier league", "premier league", "the epl"]
+  },
+  {
+    half:"Cole Palmer used to play for Man City, but now he plays for ______",
+    ans:"Chelsea",
+    alts:["chelsea"]
+  },
+  {
+    half:"PSG didn't use to be Champions League winners, but now they are ______",
+    ans:"European champions",
+    alts:["european champions", "champions of europe", "champions", "the champions", "champions league winners", "cl winners"]
+  }
+];
+const bnDiv = document.getElementById('butNowArea');
+butNow.forEach((b, i) => {
+  bnDiv.insertAdjacentHTML('beforeend', `
+    <div class="q-box">
+      <div class="q-text">${i+1}. ${b.half}</div>
+      <input type="text" class="fill-input" id="bnIn${i}" style="width:260px;" placeholder="Complete with today's fact...">
+      <button class="btn" onclick="checkBn(${i})">Check</button>
+      <div class="feedback" id="bnFb${i}" style="display:none; margin-top:6px;"></div>
+    </div>
+  `);
+});
+function checkBn(i) {
+  const input = document.getElementById(`bnIn${i}`);
+  const fb = document.getElementById(`bnFb${i}`);
+  const v = input.value.trim().toLowerCase().replace(/\s+/g, ' ').replace(/[.!?]$/, '');
+  const item = butNow[i];
+  const ok = item.alts.some(a => a.toLowerCase() === v);
+  if (ok) {
+    fb.className = 'feedback correct';
+    fb.innerHTML = `✅ Exactly! <strong>${item.ans}</strong>`;
+    input.style.background = '#D1FAE5';
+    addScore(2); addStreak(); scoreGoal();
+  } else {
+    fb.className = 'feedback wrong';
+    fb.innerHTML = `❌ The answer is: <strong>${item.ans}</strong>`;
+    input.style.background = '#FEE2E2';
+    resetStreak();
+  }
+  fb.style.display = 'block';
+}
+
+/* ---------- INIT ---------- */
+buildTabs();
+goTab(0);
+</script>
+</body>
+</html>

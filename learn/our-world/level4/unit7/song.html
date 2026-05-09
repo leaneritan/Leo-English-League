@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 7 Song: Inventions - Interactive App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f97316 0%, #7c3aed 100%);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* ── MAIN MENU ── */
+    .main-menu {
+      background: white;
+      border-radius: 24px;
+      padding: 32px 24px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      margin: auto;
+    }
+
+    .main-menu h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1e293b;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+
+    .main-menu .subtitle {
+      text-align: center;
+      color: #64748b;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .unit-badge {
+      background: linear-gradient(135deg, #f97316, #7c3aed);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+      display: inline-block;
+      margin: 0 auto 24px;
+      display: block;
+      text-align: center;
+      width: fit-content;
+      margin: 0 auto 24px;
+    }
+
+    .menu-btn {
+      display: block;
+      width: 100%;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      border: none;
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .menu-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .menu-btn:active { transform: translateY(0); }
+
+    .menu-btn.vocab   { background: linear-gradient(135deg, #10b981, #059669); }
+    .menu-btn.song    { background: linear-gradient(135deg, #f97316, #ea580c); }
+    .menu-btn.grammar { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+    .menu-btn.theme   { background: linear-gradient(135deg, #ec4899, #db2777); }
+    .menu-btn.final   { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1e293b; }
+
+    /* ── MODALS ── */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    .modal.active { display: block; }
+
+    .modal-box {
+      background: white;
+      border-radius: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .modal-header {
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+    .modal-header h2 { font-size: 1.1rem; font-weight: 800; }
+    .close-btn {
+      background: rgba(255,255,255,0.25);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .close-btn:hover { background: rgba(255,255,255,0.4); }
+
+    .modal-body { padding: 20px; }
+
+    /* Header colors */
+    .vocab-header   { background: linear-gradient(135deg, #10b981, #059669); }
+    .song-header    { background: linear-gradient(135deg, #f97316, #ea580c); }
+    .grammar-header { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+    .theme-header   { background: linear-gradient(135deg, #ec4899, #db2777); }
+    .final-header   { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+    .final-header h2 { color: #1e293b; }
+    .final-header .close-btn { color: #1e293b; background: rgba(0,0,0,0.1); }
+
+    /* ── INTERNAL TABS (vocab modal) ── */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .internal-tab {
+      flex: 1;
+      padding: 10px;
+      border: 2px solid #e2e8f0;
+      background: #f8fafc;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #64748b;
+      cursor: pointer;
+    }
+    .internal-tab.active {
+      background: #10b981;
+      border-color: #10b981;
+      color: white;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── FLASHCARDS ── */
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .flashcard {
+      height: 140px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+    .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .flashcard-front {
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border: 2px solid #10b981;
+    }
+    .flashcard-front .fc-emoji { font-size: 2rem; margin-bottom: 6px; }
+    .flashcard-front .fc-word { font-size: 0.85rem; font-weight: 800; color: #1e293b; }
+    .flashcard-front .fc-tap { font-size: 0.65rem; color: #64748b; margin-top: 4px; }
+    .flashcard-back {
+      background: linear-gradient(135deg, #065f46, #047857);
+      color: white;
+      transform: rotateY(180deg);
+    }
+    .flashcard-back .fc-def { font-size: 0.75rem; font-weight: 600; margin-bottom: 4px; }
+    .flashcard-back .fc-ex { font-size: 0.68rem; color: #a7f3d0; font-style: italic; }
+
+    /* ── VOCAB QUIZ ── */
+    .quiz-progress { font-size: 0.8rem; color: #64748b; text-align: center; margin-bottom: 12px; }
+    .quiz-prompt {
+      background: #f0fdf4;
+      border: 2px solid #10b981;
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .quiz-prompt .q-emoji { font-size: 2.5rem; }
+    .quiz-prompt .q-def { font-size: 0.9rem; color: #475569; margin-top: 6px; font-style: italic; }
+    .quiz-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      outline: none;
+      margin-bottom: 10px;
+    }
+    .quiz-input:focus { border-color: #10b981; }
+    .quiz-input.correct { border-color: #10b981; background: #f0fdf4; }
+    .quiz-input.wrong { border-color: #ef4444; background: #fef2f2; }
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .submit-btn:hover { background: #059669; }
+    .quiz-result { text-align: center; margin-top: 10px; font-weight: 700; }
+    .quiz-trophy { text-align: center; padding: 20px; }
+    .quiz-trophy .trophy-emoji { font-size: 4rem; }
+    .quiz-trophy .trophy-score { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin-top: 8px; }
+    .retry-btn {
+      margin-top: 12px;
+      padding: 10px 24px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+    .shake { animation: shake 0.4s; }
+
+    /* ── WORD BANK ── */
+    .word-bank {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fbbf24;
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .draggable {
+      background: white;
+      border: 2px solid #f97316;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: grab;
+      user-select: none;
+      transition: opacity 0.2s;
+    }
+    .draggable.placed { opacity: 0.3; cursor: default; }
+    .draggable.dragging { opacity: 0.5; }
+
+    /* ── SONG MATCHING ── */
+    .song-modal-inner { max-height: 70vh; overflow-y: auto; }
+    .verse-block {
+      background: #fff7ed;
+      border: 2px solid #fed7aa;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .verse-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ea580c;
+      margin-bottom: 8px;
+    }
+    .verse-line {
+      font-size: 0.85rem;
+      color: #374151;
+      line-height: 1.7;
+    }
+    .drop-target {
+      display: inline-block;
+      min-width: 90px;
+      border-bottom: 2px dashed #f97316;
+      color: #f97316;
+      font-weight: 700;
+      padding: 0 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .drop-target.over { background: #fff7ed; border-radius: 4px; }
+    .drop-target.filled { color: #1e293b; border-bottom-style: solid; border-bottom-color: #10b981; }
+    .drop-target.correct-ans { border-bottom-color: #10b981; color: #059669; }
+    .drop-target.wrong-ans   { border-bottom-color: #ef4444; color: #ef4444; }
+    .check-btn {
+      width: 100%;
+      padding: 12px;
+      background: #f97316;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .check-btn:hover { background: #ea580c; }
+    .reset-btn {
+      width: 100%;
+      padding: 10px;
+      background: #e2e8f0;
+      color: #475569;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* ── GRAMMAR QUIZ ── */
+    .grammar-score {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #7c3aed;
+      margin-bottom: 14px;
+      background: #f5f3ff;
+      padding: 10px;
+      border-radius: 12px;
+    }
+    .grammar-q-block { margin-bottom: 16px; }
+    .grammar-q-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+    .mc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .mc-option {
+      padding: 10px;
+      background: #f5f3ff;
+      border: 2px solid #ddd6fe;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.15s;
+    }
+    .mc-option:hover:not([disabled]) { background: #ede9fe; border-color: #8b5cf6; }
+    .mc-option.correct { background: #dcfce7; border-color: #10b981; color: #059669; }
+    .mc-option.wrong   { background: #fef2f2; border-color: #ef4444; color: #ef4444; }
+    .mc-option[disabled] { cursor: default; }
+
+    /* ── THEME MATCH (Inventions) ── */
+    .theme-modal-inner { max-height: 70vh; overflow-y: auto; }
+    .invention-item {
+      background: #fdf2f8;
+      border: 2px solid #fbcfe8;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .invention-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #db2777;
+      margin-bottom: 6px;
+    }
+    .invention-desc { font-size: 0.85rem; color: #374151; margin-bottom: 8px; }
+    .theme-drop {
+      background: white;
+      border: 2px dashed #ec4899;
+      border-radius: 10px;
+      padding: 10px;
+      min-height: 42px;
+      font-size: 0.85rem;
+      color: #ec4899;
+      text-align: center;
+      font-style: italic;
+    }
+    .theme-drop.filled { color: #1e293b; border-style: solid; border-color: #10b981; font-style: normal; font-weight: 700; }
+    .theme-drop.correct-ans { border-color: #10b981; color: #059669; }
+    .theme-drop.wrong-ans   { border-color: #ef4444; color: #ef4444; }
+    .theme-word-bank {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fce7f3;
+      padding: 12px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .theme-draggable {
+      background: white;
+      border: 2px solid #ec4899;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: grab;
+      user-select: none;
+    }
+    .theme-draggable.placed { opacity: 0.3; }
+    .check-theme-btn {
+      width: 100%;
+      padding: 12px;
+      background: #ec4899;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* ── FINAL QUIZ ── */
+    .soccer-header {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-bottom: 16px;
+      color: white;
+    }
+    .goal-icon {
+      font-size: 2.5rem;
+      margin-bottom: 6px;
+      display: block;
+    }
+    @keyframes goalCelebrate {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+    .goal-icon.scored { animation: goalCelebrate 0.5s ease-out; }
+    .final-score-display { font-size: 1.3rem; font-weight: 800; }
+    .final-q-block { margin-bottom: 16px; }
+    .final-q-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+      background: #f8fafc;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .result-banner {
+      text-align: center;
+      padding: 20px;
+      border-radius: 16px;
+      margin-top: 12px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      display: none;
+    }
+    .result-banner.show { display: block; }
+    .result-amazing { background: #dcfce7; color: #059669; }
+    .result-great   { background: #fef9c3; color: #854d0e; }
+    .result-good    { background: #f0f9ff; color: #0369a1; }
+    .result-retry   { background: #fef2f2; color: #dc2626; }
+
+    @keyframes confetti {
+      0%   { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(-60px) rotate(360deg); opacity: 0; }
+    }
+    .confetti-piece {
+      position: fixed;
+      font-size: 1.5rem;
+      animation: confetti 1s ease-out forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     MAIN MENU
+══════════════════════════════════════════ -->
+<div class="main-menu" id="mainMenu">
+  <h1>🎤 Unit 7 Song</h1>
+  <p class="subtitle">"Inventions"</p>
+  <span class="unit-badge">📘 Good Idea! · TR: 7.3 · WB p. 84</span>
+
+  <button class="menu-btn vocab"   onclick="openModal('vocabModal')">🔤 Vocabulary Flashcards &amp; Quiz</button>
+  <button class="menu-btn song"    onclick="openModal('songModal')">🎵 Song Matching</button>
+  <button class="menu-btn grammar" onclick="openModal('grammarModal')">📐 Used To Quiz</button>
+  <button class="menu-btn theme"   onclick="openModal('themeModal')">🚀 Inventions Match</button>
+  <button class="menu-btn final"   onclick="openModal('finalModal')">🏆 Can Leo Score?</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL 1: VOCABULARY FLASHCARDS & QUIZ
+══════════════════════════════════════════ -->
+<div class="modal" id="vocabModal">
+  <div class="modal-box">
+    <div class="modal-header vocab-header">
+      <h2>🔤 Vocabulary Flashcards &amp; Quiz</h2>
+      <button class="close-btn" onclick="closeModal('vocabModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="tab-bar">
+        <button class="internal-tab active" onclick="switchVocabTab('flashcards', this)">📇 Flashcards</button>
+        <button class="internal-tab" onclick="switchVocabTab('quiz', this)">✏️ Quiz</button>
+      </div>
+
+      <!-- Flashcards -->
+      <div class="tab-content active" id="vocab-flashcards">
+        <div class="flashcard-grid" id="flashcardGrid"></div>
+      </div>
+
+      <!-- Quiz -->
+      <div class="tab-content" id="vocab-quiz">
+        <div class="quiz-progress" id="quizProgress">Question 1 of 8</div>
+        <div class="quiz-prompt" id="quizPrompt"></div>
+        <input class="quiz-input" id="quizInput" type="text" placeholder="Type the word..." oninput="this.value = this.value" onkeydown="if(event.key==='Enter') checkVocabAnswer()">
+        <button class="submit-btn" onclick="checkVocabAnswer()">Check ✓</button>
+        <div class="quiz-result" id="quizResult"></div>
+        <div class="quiz-trophy" id="quizTrophy" style="display:none">
+          <div class="trophy-emoji">🏆</div>
+          <div class="trophy-score" id="trophyScore"></div>
+          <button class="retry-btn" onclick="initVocabQuiz()">Try Again 🔄</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL 2: SONG MATCHING
+══════════════════════════════════════════ -->
+<div class="modal" id="songModal">
+  <div class="modal-box">
+    <div class="modal-header song-header">
+      <h2>🎵 Song Matching — Inventions</h2>
+      <button class="close-btn" onclick="closeModal('songModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:0.8rem;color:#64748b;margin-bottom:12px;">Drag the words to complete the song! 🎶</p>
+      <div class="word-bank" id="songWordBank"></div>
+      <div class="song-modal-inner" id="songVerseContainer"></div>
+      <button class="check-btn" onclick="checkSongAnswers()">Check Answers ✓</button>
+      <button class="reset-btn" onclick="resetSong()">Try Again 🔄</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL 3: GRAMMAR QUIZ (used to)
+══════════════════════════════════════════ -->
+<div class="modal" id="grammarModal">
+  <div class="modal-box">
+    <div class="modal-header grammar-header">
+      <h2>📐 Used To Quiz</h2>
+      <button class="close-btn" onclick="closeModal('grammarModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="grammar-score">Score: <span id="grammarScore">0</span> / 8 🟣</div>
+      <div id="grammarQContainer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL 4: INVENTIONS MATCH
+══════════════════════════════════════════ -->
+<div class="modal" id="themeModal">
+  <div class="modal-box">
+    <div class="modal-header theme-header">
+      <h2>🚀 Inventions Match</h2>
+      <button class="close-btn" onclick="closeModal('themeModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:0.8rem;color:#64748b;margin-bottom:12px;">Drag each invention to the correct description! 🔧</p>
+      <div class="theme-word-bank" id="themeWordBank"></div>
+      <div class="theme-modal-inner" id="themeContainer"></div>
+      <button class="check-theme-btn" onclick="checkThemeAnswers()">Check Answers ✓</button>
+      <button class="reset-btn" onclick="resetTheme()">Try Again 🔄</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MODAL 5: CAN LEO SCORE?
+══════════════════════════════════════════ -->
+<div class="modal" id="finalModal">
+  <div class="modal-box">
+    <div class="modal-header final-header">
+      <h2>🏆 Can Leo Score?</h2>
+      <button class="close-btn" onclick="closeModal('finalModal')" style="color:#1e293b;background:rgba(0,0,0,0.1)">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="soccer-header">
+        <span class="goal-icon" id="goalIcon">🥅</span>
+        <div class="final-score-display">⚽ <span id="finalScore">0</span> / 11</div>
+      </div>
+      <div id="finalQContainer"></div>
+      <div class="result-banner" id="resultBanner"></div>
+      <button class="reset-btn" id="finalRetryBtn" style="display:none" onclick="initFinalQuiz()">Try Again 🔄</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════
+
+const vocabData = [
+  { word: "creativity",   emoji: "💡", definition: "The ability to make new things or have new ideas", example: "You need creativity to invent things." },
+  { word: "electricity",  emoji: "⚡", definition: "A type of energy we use for lights and machines",   example: "Electricity makes lights work." },
+  { word: "an invention", emoji: "🚀", definition: "A new thing that someone makes for the first time",  example: "The wheel was a great invention." },
+  { word: "a problem",    emoji: "❓", definition: "Something that is difficult and needs a solution",    example: "Inventions solve problems." },
+  { word: "a wheel",      emoji: "⚙️", definition: "A round object that turns and helps things move",    example: "The wheel changed the world." },
+  { word: "useful",       emoji: "👍", definition: "Helpful; good for doing things",                     example: "Inventions are useful every day." },
+  { word: "imagination",  emoji: "🌈", definition: "The ability to think of new ideas and pictures",    example: "Imagination can change the world." },
+  { word: "an idea",      emoji: "🧠", definition: "A thought or plan that comes into your mind",       example: "She had an idea for a new invention." },
+];
+
+const songFills = [
+  { id: "s1", answer: "invention",   display: "an invention 🚀" },
+  { id: "s2", answer: "problems",    display: "a problem ❓" },
+  { id: "s3", answer: "wheel",       display: "a wheel ⚙️" },
+  { id: "s4", answer: "useful",      display: "useful 👍" },
+  { id: "s5", answer: "walk",        display: "walk" },
+  { id: "s6", answer: "imagination", display: "imagination 🌈" },
+  { id: "s7", answer: "idea",        display: "an idea 🧠" },
+];
+
+// Song verses with blanks — answers stored in data-answer
+const songHTML = `
+<div class="verse-block">
+  <div class="verse-title">🎵 Intro</div>
+  <div class="verse-line">💡 Creativity! ⚡ Electricity!<br>Creativity changes the world!</div>
+</div>
+<div class="verse-block">
+  <div class="verse-title">⚙️ Verse 1</div>
+  <div class="verse-line">
+    <span class="drop-target" data-answer="invention" id="dt-s1">___</span>s solve
+    <span class="drop-target" data-answer="problems" id="dt-s2">___</span>.<br>
+    Problems that we used to have are gone!<br>
+    The <span class="drop-target" data-answer="wheel" id="dt-s3">___</span> and the cell phone<br>
+    help to make our world go around!<br><br>
+    Inventions are <span class="drop-target" data-answer="useful" id="dt-s4">___</span>, every day, in every way.<br>
+    Computers, cars, and airplanes<br>
+    help to make our world go around.
+  </div>
+</div>
+<div class="verse-block">
+  <div class="verse-title">🎶 Chorus</div>
+  <div class="verse-line">
+    You used to have to <span class="drop-target" data-answer="walk" id="dt-s5">___</span> to get from place to place.<br>
+    Years ago, you could only talk face to face.<br>
+    You could take only boats to get across the sea.<br>
+    Now, we fly across the sky. Inventions are the reason why.
+  </div>
+</div>
+<div class="verse-block">
+  <div class="verse-title">🌈 Final Verse</div>
+  <div class="verse-line">
+    <span class="drop-target" data-answer="imagination" id="dt-s6">___</span> and
+    <span class="drop-target" data-answer="idea" id="dt-s7">___</span>s<br>
+    can change the world, every day.<br>
+    Can you solve a problem?<br>
+    Can you help our world today?
+  </div>
+</div>`;
+
+const wordBankItems = [
+  { word: "invention",   label: "🚀 invention" },
+  { word: "problems",    label: "❓ problems" },
+  { word: "wheel",       label: "⚙️ wheel" },
+  { word: "useful",      label: "👍 useful" },
+  { word: "walk",        label: "🚶 walk" },
+  { word: "imagination", label: "🌈 imagination" },
+  { word: "idea",        label: "🧠 idea" },
+];
+
+const grammarQuestions = [
+  { q: "⚽ Ronaldo ___ play for Manchester United, but now he plays in Saudi Arabia.", options: ["used to", "use to", "was use to", "uses to"], answer: 0 },
+  { q: "🌍 People ___ travel by horse, but now they travel by car.", options: ["use to", "used to", "were used to", "using"], answer: 1 },
+  { q: "📱 ___ you have to write letters? Now we send messages!", options: ["Used to", "Did you use to", "You used to", "Were you used to"], answer: 1 },
+  { q: "✈️ Complete: 'You could ___ take boats to cross the sea.'", options: ["only", "used to only", "just used to", "only used to"], answer: 0 },
+  { q: "🎬 In old movies, actors ___ speak. Movies were silent!", options: ["didn't used to", "used to not", "didn't use to", "not used to"], answer: 2 },
+  { q: "⚙️ The wheel is one of the most important inventions because ___.", options: ["you use it to move things", "you used it to move things", "it used to move things", "people used move things"], answer: 0 },
+  { q: "🧠 Choose the correct sentence:", options: ["I used to liked soccer.", "I used to like soccer.", "I use to like soccer.", "I used like soccer."], answer: 1 },
+  { q: "💡 In the song: 'Problems that we ___ have are gone!'", options: ["used to", "use to", "were using to", "had used to"], answer: 0 },
+];
+
+const themeItems = [
+  { name: "⚙️ The Wheel",        answer: "wheel",    description: "One of the first inventions. It helps things move — cars, bicycles, and carts use it." },
+  { name: "⚡ Electricity",       answer: "electric", description: "Not an invention, but scientists learned how to use it. It powers lights, phones, and computers." },
+  { name: "✈️ The Airplane",      answer: "airplane", description: "The Wright brothers invented it. Now you can fly across the sky!" },
+  { name: "📱 The Cell Phone",    answer: "phone",    description: "People used to only talk face to face. Now you can call anyone in the world!" },
+  { name: "💡 The Light Bulb",    answer: "bulb",     description: "Long ago, people used candles at night. This invention changed everything." },
+  { name: "🌞 Lion Lights",       answer: "lights",   description: "Richard Turere's invention in Kenya — solar-powered lights that protect animals from lions." },
+];
+
+const themeWordItems = [
+  { word: "wheel",    label: "⚙️ Wheel" },
+  { word: "electric", label: "⚡ Electricity" },
+  { word: "airplane", label: "✈️ Airplane" },
+  { word: "phone",    label: "📱 Cell Phone" },
+  { word: "bulb",     label: "💡 Light Bulb" },
+  { word: "lights",   label: "🌞 Lion Lights" },
+];
+
+const finalQuestions = [
+  // Vocabulary meaning (4)
+  { q: "💡 What does 'creativity' mean?",      options: ["Ability to make new ideas", "A type of invention", "Something useful", "A round object"],          answer: 0 },
+  { q: "⚡ What is 'electricity'?",             options: ["A tool", "Energy for lights and machines", "A new idea", "A round wheel"],                          answer: 1 },
+  { q: "🌈 What is 'imagination'?",             options: ["A solution to a problem", "Something useful", "Ability to think of new ideas", "A type of energy"], answer: 2 },
+  { q: "❓ What is 'a problem'?",               options: ["Something helpful", "A new invention", "Something difficult that needs a solution", "A thought"],    answer: 2 },
+  // Grammar: used to (3)
+  { q: "⚽ Haaland ___ play for Man City, but now he still does!", options: ["used to", "uses to", "use to", "is used to"],                                     answer: 0 },
+  { q: "🎬 In the song: 'You ___ have to walk to get from place to place.'", options: ["used to", "use to", "were use to", "is used to"],                      answer: 0 },
+  { q: "🧠 Which sentence is CORRECT?", options: ["People use to ride horses.", "People used to ride horses.", "People used ride horses.", "People uses to ride horses."], answer: 1 },
+  // Song content (2)
+  { q: "🎵 In the song, which THREE inventions help 'make our world go around'?", options: ["wheel, cell phone, lightbulb", "wheel, cell phone, computers/cars/airplanes", "electricity, boats, airplanes", "creativity, electricity, imagination"], answer: 1 },
+  { q: "🌍 In the song, what did people USED TO take to cross the sea?", options: ["Airplanes", "Cars", "Boats", "Horses"],                                     answer: 2 },
+  // Theme: inventions (2)
+  { q: "🌞 Who invented 'Lion Lights' in Kenya?", options: ["The Wright Brothers", "Louis Braille", "Richard Turere", "Mary Anderson"],                        answer: 2 },
+  { q: "🚀 An invention is ___.",                 options: ["A problem you can't solve", "A new thing someone makes for the first time", "An old way of doing things", "A type of electricity"], answer: 1 },
+];
+
+// ════════════════════════════════════════════
+// MODAL CONTROL
+// ════════════════════════════════════════════
+
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  if (id === 'vocabModal')   initFlashcards();
+  if (id === 'songModal')    initSong();
+  if (id === 'grammarModal') initGrammarQuiz();
+  if (id === 'themeModal')   initTheme();
+  if (id === 'finalModal')   initFinalQuiz();
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+}
+
+// ════════════════════════════════════════════
+// MODULE 1: VOCABULARY
+// ════════════════════════════════════════════
+
+function initFlashcards() {
+  const grid = document.getElementById('flashcardGrid');
+  grid.innerHTML = '';
+  vocabData.forEach((v, i) => {
+    const card = document.createElement('div');
+    card.className = 'flashcard';
+    card.innerHTML = `
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <div class="fc-emoji">${v.emoji}</div>
+          <div class="fc-word">${v.word}</div>
+          <div class="fc-tap">tap to flip</div>
+        </div>
+        <div class="flashcard-back">
+          <div class="fc-def">${v.definition}</div>
+          <div class="fc-ex">"${v.example}"</div>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    grid.appendChild(card);
+  });
+}
+
+let vocabQIndex = 0, vocabCorrect = 0, vocabOrder = [];
+
+function initVocabQuiz() {
+  vocabQIndex = 0; vocabCorrect = 0;
+  vocabOrder = [...vocabData].sort(() => Math.random() - 0.5);
+  document.getElementById('quizTrophy').style.display = 'none';
+  document.getElementById('quizResult').textContent = '';
+  document.getElementById('quizInput').disabled = false;
+  showVocabQuestion();
+}
+
+function showVocabQuestion() {
+  const q = vocabOrder[vocabQIndex];
+  document.getElementById('quizProgress').textContent = `Question ${vocabQIndex + 1} of ${vocabOrder.length}`;
+  document.getElementById('quizPrompt').innerHTML = `<div class="q-emoji">${q.emoji}</div><div class="q-def">${q.definition}</div>`;
+  const input = document.getElementById('quizInput');
+  input.value = '';
+  input.className = 'quiz-input';
+  input.disabled = false;
+  input.focus();
+  document.getElementById('quizResult').textContent = '';
+}
+
+function checkVocabAnswer() {
+  const input = document.getElementById('quizInput');
+  const result = document.getElementById('quizResult');
+  const q = vocabOrder[vocabQIndex];
+  const userVal = input.value.trim().toLowerCase().replace(/^(a|an)\s+/, '');
+  const correctVal = q.word.toLowerCase().replace(/^(a|an)\s+/, '');
+
+  if (userVal === correctVal) {
+    input.className = 'quiz-input correct';
+    result.innerHTML = `<span style="color:#10b981">✅ Correct! ${q.emoji} ${q.word}</span>`;
+    vocabCorrect++;
+    input.disabled = true;
+    setTimeout(() => {
+      vocabQIndex++;
+      if (vocabQIndex < vocabOrder.length) showVocabQuestion();
+      else showVocabTrophy();
+    }, 900);
+  } else {
+    input.className = 'quiz-input wrong';
+    input.classList.add('shake');
+    result.innerHTML = `<span style="color:#ef4444">❌ Try again!</span>`;
+    setTimeout(() => input.classList.remove('shake'), 400);
+  }
+}
+
+function showVocabTrophy() {
+  document.getElementById('quizTrophy').style.display = 'block';
+  document.getElementById('quizPrompt').innerHTML = '';
+  document.getElementById('quizProgress').textContent = '';
+  document.getElementById('quizResult').textContent = '';
+  document.getElementById('quizInput').style.display = 'none';
+  document.querySelector('.submit-btn').style.display = 'none';
+  document.getElementById('trophyScore').textContent = `${vocabCorrect} / ${vocabOrder.length} 🎉`;
+}
+
+function switchVocabTab(tab, btn) {
+  document.querySelectorAll('#vocabModal .internal-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('#vocabModal .tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(`vocab-${tab}`).classList.add('active');
+  if (tab === 'quiz') {
+    document.getElementById('quizInput').style.display = '';
+    document.querySelector('.submit-btn').style.display = '';
+    initVocabQuiz();
+  }
+}
+
+// ════════════════════════════════════════════
+// MODULE 2: SONG MATCHING
+// ════════════════════════════════════════════
+
+let songDraggedEl = null;
+
+function initSong() {
+  document.getElementById('songVerseContainer').innerHTML = songHTML;
+  const bank = document.getElementById('songWordBank');
+  bank.innerHTML = '';
+
+  const shuffled = [...wordBankItems].sort(() => Math.random() - 0.5);
+  shuffled.forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'draggable';
+    el.textContent = item.label;
+    el.dataset.word = item.word;
+
+    // Desktop drag
+    el.draggable = true;
+    el.addEventListener('dragstart', e => {
+      el.classList.add('dragging');
+      e.dataTransfer.setData('text/plain', item.word);
+    });
+    el.addEventListener('dragend', () => el.classList.remove('dragging'));
+
+    // Touch
+    el.addEventListener('touchstart', handleSongTouchStart, { passive: true });
+    el.addEventListener('touchmove', handleSongTouchMove, { passive: false });
+    el.addEventListener('touchend', handleSongTouchEnd);
+
+    bank.appendChild(el);
+  });
+
+  document.querySelectorAll('#songModal .drop-target').forEach(dt => {
+    dt.addEventListener('dragover', e => { e.preventDefault(); dt.classList.add('over'); });
+    dt.addEventListener('dragleave', () => dt.classList.remove('over'));
+    dt.addEventListener('drop', e => {
+      e.preventDefault();
+      dt.classList.remove('over');
+      const word = e.dataTransfer.getData('text/plain');
+      placeSongWord(dt, word);
+    });
+    dt.addEventListener('click', () => {
+      if (dt.classList.contains('filled')) {
+        const word = dt.dataset.placed;
+        const orig = document.querySelector(`#songWordBank .draggable[data-word="${word}"]`);
+        if (orig) orig.classList.remove('placed');
+        dt.textContent = '___';
+        dt.classList.remove('filled', 'correct-ans', 'wrong-ans');
+        dt.dataset.placed = '';
+      }
+    });
+  });
+}
+
+function placeSongWord(target, word) {
+  if (target.classList.contains('filled')) return;
+  const src = document.querySelector(`#songWordBank .draggable[data-word="${word}"]`);
+  if (src) src.classList.add('placed');
+  const item = wordBankItems.find(i => i.word === word);
+  target.textContent = item ? item.label : word;
+  target.dataset.placed = word;
+  target.classList.add('filled');
+}
+
+function handleSongTouchStart(e) {
+  songDraggedEl = e.currentTarget;
+  songDraggedEl.classList.add('dragging');
+}
+function handleSongTouchMove(e) {
+  e.preventDefault();
+  if (!songDraggedEl) return;
+  const t = e.touches[0];
+  songDraggedEl.style.position = 'fixed';
+  songDraggedEl.style.left = (t.clientX - 50) + 'px';
+  songDraggedEl.style.top  = (t.clientY - 20) + 'px';
+  songDraggedEl.style.zIndex = 9999;
+}
+function handleSongTouchEnd(e) {
+  if (!songDraggedEl) return;
+  const t = e.changedTouches[0];
+  const el = document.elementFromPoint(t.clientX, t.clientY);
+  const target = el?.closest('.drop-target');
+  if (target && !target.classList.contains('filled')) {
+    placeSongWord(target, songDraggedEl.dataset.word);
+  }
+  songDraggedEl.style.position = '';
+  songDraggedEl.style.left = '';
+  songDraggedEl.style.top = '';
+  songDraggedEl.style.zIndex = '';
+  songDraggedEl.classList.remove('dragging');
+  songDraggedEl = null;
+}
+
+function checkSongAnswers() {
+  document.querySelectorAll('#songModal .drop-target').forEach(dt => {
+    if (!dt.classList.contains('filled')) return;
+    const correct = dt.dataset.answer;
+    const placed  = dt.dataset.placed;
+    dt.classList.remove('correct-ans', 'wrong-ans');
+    dt.classList.add(placed === correct ? 'correct-ans' : 'wrong-ans');
+  });
+}
+
+function resetSong() { initSong(); }
+
+// ════════════════════════════════════════════
+// MODULE 3: GRAMMAR QUIZ
+// ════════════════════════════════════════════
+
+let grammarScore = 0;
+
+function initGrammarQuiz() {
+  grammarScore = 0;
+  document.getElementById('grammarScore').textContent = '0';
+  const c = document.getElementById('grammarQContainer');
+  c.innerHTML = '';
+  grammarQuestions.forEach((q, i) => {
+    const block = document.createElement('div');
+    block.className = 'grammar-q-block';
+    block.innerHTML = `<div class="grammar-q-text">${i+1}. ${q.q}</div><div class="mc-grid" id="gmc-${i}"></div>`;
+    c.appendChild(block);
+    const grid = document.getElementById(`gmc-${i}`);
+    q.options.forEach((opt, j) => {
+      const btn = document.createElement('button');
+      btn.className = 'mc-option';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => selectGrammarAnswer(i, j, q.answer));
+      grid.appendChild(btn);
+    });
+  });
+}
+
+function selectGrammarAnswer(qi, optIdx, correct) {
+  const grid = document.getElementById(`gmc-${qi}`);
+  const btns = grid.querySelectorAll('.mc-option');
+  if (btns[0].disabled) return;
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === correct) b.classList.add('correct');
+    if (i === optIdx && i !== correct) b.classList.add('wrong');
+  });
+  if (optIdx === correct) {
+    grammarScore++;
+    document.getElementById('grammarScore').textContent = grammarScore;
+  }
+}
+
+// ════════════════════════════════════════════
+// MODULE 4: INVENTIONS MATCH
+// ════════════════════════════════════════════
+
+let themeDraggedEl = null;
+
+function initTheme() {
+  const bank = document.getElementById('themeWordBank');
+  bank.innerHTML = '';
+  const container = document.getElementById('themeContainer');
+  container.innerHTML = '';
+
+  const shuffled = [...themeWordItems].sort(() => Math.random() - 0.5);
+  shuffled.forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'theme-draggable';
+    el.textContent = item.label;
+    el.dataset.word = item.word;
+    el.draggable = true;
+    el.addEventListener('dragstart', e => {
+      el.classList.add('dragging');
+      e.dataTransfer.setData('text/plain', item.word);
+    });
+    el.addEventListener('dragend', () => el.classList.remove('dragging'));
+    el.addEventListener('touchstart', handleThemeTouchStart, { passive: true });
+    el.addEventListener('touchmove', handleThemeTouchMove, { passive: false });
+    el.addEventListener('touchend', handleThemeTouchEnd);
+    bank.appendChild(el);
+  });
+
+  themeItems.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'invention-item';
+    div.innerHTML = `
+      <div class="invention-name">${item.name}</div>
+      <div class="invention-desc">${item.description}</div>
+      <div class="theme-drop" data-answer="${item.answer}" id="td-${item.answer}">Drop the invention name here...</div>`;
+    const drop = div.querySelector('.theme-drop');
+    drop.addEventListener('dragover', e => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', e => {
+      e.preventDefault();
+      const word = e.dataTransfer.getData('text/plain');
+      placeThemeWord(drop, word);
+    });
+    drop.addEventListener('click', () => {
+      if (drop.classList.contains('filled')) {
+        const word = drop.dataset.placed;
+        const orig = document.querySelector(`#themeWordBank .theme-draggable[data-word="${word}"]`);
+        if (orig) orig.classList.remove('placed');
+        drop.textContent = 'Drop the invention name here...';
+        drop.classList.remove('filled', 'correct-ans', 'wrong-ans');
+        drop.dataset.placed = '';
+      }
+    });
+    container.appendChild(div);
+  });
+}
+
+function placeThemeWord(target, word) {
+  if (target.classList.contains('filled')) return;
+  const src = document.querySelector(`#themeWordBank .theme-draggable[data-word="${word}"]`);
+  if (src) src.classList.add('placed');
+  const item = themeWordItems.find(i => i.word === word);
+  target.textContent = item ? item.label : word;
+  target.dataset.placed = word;
+  target.classList.add('filled');
+}
+
+function handleThemeTouchStart(e) { themeDraggedEl = e.currentTarget; }
+function handleThemeTouchMove(e) {
+  e.preventDefault();
+  if (!themeDraggedEl) return;
+  const t = e.touches[0];
+  themeDraggedEl.style.position = 'fixed';
+  themeDraggedEl.style.left = (t.clientX - 50) + 'px';
+  themeDraggedEl.style.top  = (t.clientY - 20) + 'px';
+  themeDraggedEl.style.zIndex = 9999;
+}
+function handleThemeTouchEnd(e) {
+  if (!themeDraggedEl) return;
+  const t = e.changedTouches[0];
+  const el = document.elementFromPoint(t.clientX, t.clientY);
+  const target = el?.closest('.theme-drop');
+  if (target && !target.classList.contains('filled')) placeThemeWord(target, themeDraggedEl.dataset.word);
+  themeDraggedEl.style.position = '';
+  themeDraggedEl.style.left = '';
+  themeDraggedEl.style.top = '';
+  themeDraggedEl.style.zIndex = '';
+  themeDraggedEl = null;
+}
+
+function checkThemeAnswers() {
+  document.querySelectorAll('#themeModal .theme-drop').forEach(dt => {
+    if (!dt.classList.contains('filled')) return;
+    dt.classList.remove('correct-ans', 'wrong-ans');
+    dt.classList.add(dt.dataset.placed === dt.dataset.answer ? 'correct-ans' : 'wrong-ans');
+  });
+}
+function resetTheme() { initTheme(); }
+
+// ════════════════════════════════════════════
+// MODULE 5: CAN LEO SCORE?
+// ════════════════════════════════════════════
+
+let finalScore = 0;
+
+function initFinalQuiz() {
+  finalScore = 0;
+  document.getElementById('finalScore').textContent = '0';
+  document.getElementById('goalIcon').textContent = '🥅';
+  document.getElementById('resultBanner').className = 'result-banner';
+  document.getElementById('finalRetryBtn').style.display = 'none';
+  const c = document.getElementById('finalQContainer');
+  c.innerHTML = '';
+  const shuffled = [...finalQuestions].sort(() => Math.random() - 0.5);
+  shuffled.forEach((q, i) => {
+    const block = document.createElement('div');
+    block.className = 'final-q-block';
+    block.innerHTML = `<div class="final-q-text">${i+1}. ${q.q}</div><div class="mc-grid" id="fmc-${i}"></div>`;
+    c.appendChild(block);
+    const grid = document.getElementById(`fmc-${i}`);
+    q.options.forEach((opt, j) => {
+      const btn = document.createElement('button');
+      btn.className = 'mc-option';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => selectFinalAnswer(i, j, q.answer, shuffled.length));
+      grid.appendChild(btn);
+    });
+  });
+}
+
+let finalAnswered = 0;
+function selectFinalAnswer(qi, optIdx, correct, total) {
+  const grid = document.getElementById(`fmc-${qi}`);
+  const btns = grid.querySelectorAll('.mc-option');
+  if (btns[0].disabled) return;
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === correct) b.classList.add('correct');
+    if (i === optIdx && i !== correct) b.classList.add('wrong');
+  });
+  if (optIdx === correct) {
+    finalScore++;
+    document.getElementById('finalScore').textContent = finalScore;
+    const goal = document.getElementById('goalIcon');
+    goal.textContent = '⚽🥅';
+    goal.classList.add('scored');
+    setTimeout(() => { goal.textContent = '🥅'; goal.classList.remove('scored'); }, 800);
+  }
+  finalAnswered++;
+  if (finalAnswered >= total) showFinalResult(total);
+}
+
+function showFinalResult(total) {
+  finalAnswered = 0;
+  const pct = finalScore / total;
+  const banner = document.getElementById('resultBanner');
+  let cls, msg;
+  if (pct === 1)       { cls = 'result-amazing'; msg = '⚽ GOAL! Amazing! Leo scores! 🎉🎊'; spawnConfetti(); }
+  else if (pct >= 0.8) { cls = 'result-great';   msg = '🟡 Great job! Almost perfect! Keep it up!'; }
+  else if (pct >= 0.6) { cls = 'result-good';    msg = '🪑 Good effort! Keep practicing!'; }
+  else                 { cls = 'result-retry';    msg = '🔴 Let\'s try again! You can do it, Leo!'; }
+  banner.className = `result-banner show ${cls}`;
+  banner.textContent = msg;
+  document.getElementById('finalRetryBtn').style.display = 'block';
+}
+
+function spawnConfetti() {
+  const emojis = ['⚽','🚀','💡','⚡','🌈','🏆','✨','🎉'];
+  for (let i = 0; i < 16; i++) {
+    setTimeout(() => {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left  = Math.random() * 100 + 'vw';
+      el.style.top   = (60 + Math.random() * 30) + 'vh';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1100);
+    }, i * 80);
+  }
+}
+
+// Init finalAnswered tracker on open
+const origInitFinal = initFinalQuiz;
+window.initFinalQuiz = function() { finalAnswered = 0; origInitFinal(); };
+</script>
+</body>
+</html>

@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 · Vocabulary 2 — Action Words 🛠️</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--or:#F97316;--ord:#EA6C10;--bl:#3B82F6;--bld:#2563EB;--ye:#FDE047;--pu:#8B5CF6;--gr:#22C55E;--pk:#EC4899;--dk:#1E293B;--dkr:#0F172A;--mid:#334155;--bdr:#334155;--lt:#F1F5F9;--mt:#94A3B8;--er:#EF4444;--su:#22C55E;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--dkr);color:var(--lt);min-height:100vh;overflow-x:hidden;}
+.screen{display:none;min-height:100vh;flex-direction:column;}
+.screen.active{display:flex;}
+#home{background:linear-gradient(160deg,#0F172A,#1a2744);}
+.home-hdr{background:linear-gradient(135deg,var(--or),var(--bl));padding:22px 20px;text-align:center;}
+.home-hdr .badge{display:inline-block;background:rgba(255,255,255,.2);padding:3px 12px;border-radius:20px;font-size:.78rem;font-weight:800;margin-bottom:8px;}
+.home-hdr h1{font-size:1.75rem;font-weight:900;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.3);}
+.home-hdr p{color:rgba(255,255,255,.85);font-size:.9rem;margin-top:3px;}
+.vchips{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.vchip{background:rgba(255,255,255,.2);border-radius:20px;padding:4px 12px;font-size:.82rem;font-weight:800;color:#fff;}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;padding:18px;flex:1;}
+.mod-card{background:var(--dk);border-radius:16px;padding:18px 10px;text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s;border:2px solid var(--bdr);position:relative;user-select:none;}
+.mod-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.4);}
+.mod-card .cn{position:absolute;top:7px;left:8px;background:rgba(255,255,255,.08);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;color:var(--mt);}
+.mod-card .ci{font-size:2.4rem;display:block;margin-bottom:6px;}
+.mod-card h3{font-size:.88rem;font-weight:800;margin-bottom:3px;}
+.mod-card p{font-size:.73rem;color:var(--mt);}
+.mc1{border-color:var(--or);}.mc2{border-color:var(--bl);}.mc3{border-color:var(--pu);}.mc4{border-color:#F59E0B;}.mc5{border-color:#10B981;}.mc6{border-color:var(--pk);}.mc7{border-color:var(--or);}.mc8{border-color:var(--bl);}.mc9{border-color:var(--pu);}.mc10{border-color:#10B981;}.mc11{border-color:var(--gr);}.mc12{border-color:var(--ye);}
+.mod-hdr{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--dkr);border-bottom:2px solid var(--bdr);}
+.back-btn{background:var(--dk);border:none;color:var(--lt);padding:7px 16px;border-radius:20px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;white-space:nowrap;transition:background .2s;}
+.back-btn:hover{background:var(--bdr);}
+.mod-hdr h2{font-size:1.05rem;font-weight:800;flex:1;}
+.mod-body{flex:1;overflow-y:auto;padding:18px;}
+.sec{background:var(--dk);border-radius:16px;padding:18px;margin-bottom:14px;}
+.sec-t{font-size:1.05rem;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.sec-sub{font-size:.82rem;color:var(--mt);margin-bottom:12px;line-height:1.5;}
+.row{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+.row.r{flex-direction:row-reverse;}
+.spk{font-size:1.9rem;flex-shrink:0;}
+.bub{background:var(--mid);border-radius:16px;border-top-left-radius:4px;padding:10px 14px;flex:1;font-size:.9rem;line-height:1.5;}
+.bub.leo{background:linear-gradient(135deg,#1D4ED8,var(--bl));border-top-left-radius:16px;border-top-right-radius:4px;}
+.bub b{color:var(--ye);}
+.mode-row{display:flex;gap:8px;justify-content:center;margin-bottom:12px;}
+.mbtn{background:var(--dk);border:2px solid var(--bdr);color:var(--mt);padding:7px 22px;border-radius:20px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:700;transition:all .2s;}
+.mbtn.on{background:var(--or);border-color:var(--or);color:#fff;}
+.fc-area{max-width:420px;margin:0 auto;}
+.fc-wrap{perspective:1000px;width:100%;height:205px;margin:0 auto 14px;cursor:pointer;}
+.fc{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .45s;border-radius:20px;}
+.fc.flip{transform:rotateY(180deg);}
+.fc-face{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;}
+.fcf{background:linear-gradient(135deg,var(--or),#C2410C);}
+.fcb{background:linear-gradient(135deg,var(--bl),#7C3AED);transform:rotateY(180deg);}
+.fcf.cv{background:linear-gradient(135deg,var(--pu),#6D28D9);}
+.fcb.cv{background:linear-gradient(135deg,#0EA5E9,#0369A1);transform:rotateY(180deg);}
+.fc-em{font-size:3rem;margin-bottom:5px;}
+.fc-w{font-size:1.9rem;font-weight:900;color:#fff;}
+.fc-hint{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:5px;}
+.fc-sent{font-size:.9rem;color:#fff;line-height:1.5;margin-bottom:5px;}
+.fc-soc{font-size:.8rem;color:rgba(255,255,255,.75);font-style:italic;margin-top:3px;}
+.fc-def{font-size:.78rem;color:rgba(255,255,255,.7);margin-top:3px;}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px;}
+.fc-nav button,.shuf-btn{background:var(--dk);border:2px solid var(--bdr);color:var(--lt);padding:7px 16px;border-radius:20px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:700;font-size:.9rem;transition:all .2s;}
+.fc-nav button:hover,.shuf-btn:hover{background:var(--bdr);}
+.fc-ctr{background:var(--dk);padding:3px 12px;border-radius:20px;font-weight:700;color:var(--mt);font-size:.88rem;}
+.qwrap{margin-top:8px;display:flex;flex-direction:column;gap:6px;align-items:center;width:100%;}
+.qinp{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);border-radius:10px;padding:7px 12px;color:#fff;font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:700;width:70%;text-align:center;outline:none;}
+.qchk{background:var(--ye);border:none;color:var(--dkr);padding:7px 20px;border-radius:10px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;font-size:.85rem;}
+.fb{text-align:center;font-weight:800;font-size:.9rem;padding:5px;border-radius:8px;margin-top:5px;min-height:24px;}
+.fb.ok{color:var(--su);}
+.fb.bad{color:var(--er);}
+.wb-sticky{position:sticky;top:56px;z-index:10;background:var(--dkr);padding:7px 0;margin-bottom:8px;}
+.wbank{display:flex;flex-wrap:wrap;gap:7px;background:var(--mid);border-radius:12px;padding:10px;}
+.wchip{background:var(--or);color:#fff;padding:5px 14px;border-radius:20px;font-weight:800;cursor:pointer;font-size:.9rem;transition:all .2s;user-select:none;}
+.wchip.sel{background:var(--ord);transform:scale(1.05);box-shadow:0 0 0 3px var(--ye);}
+.wchip.used{opacity:.3;pointer-events:none;}
+.blank{display:inline-block;min-width:70px;border-bottom:3px solid var(--or);padding:2px 7px;margin:0 3px;vertical-align:middle;text-align:center;font-weight:800;font-size:.9rem;color:var(--or);cursor:pointer;border-radius:4px 4px 0 0;transition:all .2s;}
+.blank.filled{background:var(--or);color:#fff;border-radius:6px;}
+.blank:hover:not(.filled){background:rgba(249,115,22,.15);}
+.fill-txt{font-size:.95rem;line-height:2.5;color:var(--lt);}
+.match-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.mword{background:linear-gradient(135deg,var(--or),#C2410C);border-radius:12px;padding:11px 8px;text-align:center;cursor:pointer;font-weight:900;font-size:1rem;margin-bottom:7px;transition:all .2s;border:2px solid transparent;}
+.mword.sel{border-color:var(--ye);box-shadow:0 0 0 3px rgba(253,224,71,.4);}
+.mword.matched{opacity:.3;pointer-events:none;}
+.msent{background:var(--mid);border-radius:12px;padding:10px;font-size:.82rem;margin-bottom:7px;min-height:58px;border:2px dashed transparent;cursor:pointer;transition:all .2s;line-height:1.4;}
+.msent:hover{border-color:rgba(249,115,22,.5);}
+.msent.correct{border-color:var(--su);background:rgba(34,197,94,.1);}
+.msent.wrong{border-color:var(--er);background:rgba(239,68,68,.1);}
+.rtbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:.82rem;}
+.rtbl th{background:var(--or);color:#fff;padding:7px 10px;text-align:left;font-weight:800;}
+.rtbl td{padding:7px 10px;border-bottom:1px solid var(--bdr);background:var(--dk);}
+.timer{text-align:center;font-size:2.2rem;font-weight:900;color:var(--ye);margin-bottom:8px;}
+.scrm-w{text-align:center;font-size:2.3rem;font-weight:900;color:var(--or);letter-spacing:8px;margin:12px 0;word-break:break-all;}
+.sinp{background:var(--dk);border:2px solid var(--or);border-radius:12px;padding:10px 16px;color:var(--lt);font-family:'Nunito',sans-serif;font-size:1.15rem;font-weight:700;width:100%;max-width:260px;text-align:center;outline:none;display:block;margin:0 auto 10px;}
+.rule-card{background:linear-gradient(135deg,#1D4ED8,#7C3AED);border-radius:16px;padding:18px;margin-bottom:14px;}
+.rule-t{font-size:1.1rem;font-weight:900;color:var(--ye);margin-bottom:7px;}
+.rule-b{font-size:.87rem;color:#fff;line-height:1.6;}
+.ex-box{background:rgba(255,255,255,.1);border-radius:10px;padding:9px 12px;margin-top:9px;}
+.ew{color:var(--er);text-decoration:line-through;font-size:.86rem;}
+.er2{color:var(--su);font-weight:700;font-size:.86rem;}
+.sort-item{background:var(--dk);border-radius:12px;padding:10px 14px;margin-bottom:7px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.88rem;flex-wrap:wrap;}
+.sbtns{display:flex;gap:7px;flex-shrink:0;}
+.sbtn{padding:5px 12px;border-radius:20px;border:2px solid;font-family:'Nunito',sans-serif;font-weight:700;cursor:pointer;font-size:.8rem;transition:all .2s;background:transparent;}
+.sbtn.y{color:var(--su);border-color:var(--su);}
+.sbtn.n{color:var(--er);border-color:var(--er);}
+.sbtn.y.on{background:var(--su);color:#fff;}
+.sbtn.n.on{background:var(--er);color:#fff;}
+.fix-row{background:var(--dk);border-radius:12px;padding:12px 14px;margin-bottom:8px;}
+.fix-orig{font-size:.86rem;color:var(--mt);margin-bottom:5px;}
+.fixinp{background:var(--mid);border:2px solid var(--bdr);border-radius:8px;padding:7px 12px;color:var(--lt);font-family:'Nunito',sans-serif;font-size:.88rem;width:100%;outline:none;transition:border-color .2s;}
+.fixinp:focus{border-color:var(--or);}
+.fix-fb{font-size:.8rem;margin-top:4px;font-weight:700;}
+.fix-fb.ok{color:var(--su);}
+.fix-fb.bad{color:var(--er);}
+.seq-bank{background:var(--mid);border-radius:12px;padding:10px;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:7px;}
+.sqchip{background:var(--bl);color:#fff;padding:5px 12px;border-radius:8px;font-size:.83rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.sqchip.used{opacity:.3;pointer-events:none;}
+.sqslot{background:var(--dk);border:2px dashed var(--bdr);border-radius:10px;padding:10px 14px;min-height:42px;font-size:.86rem;color:var(--mt);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.sqslot.filled{background:rgba(59,130,246,.12);border-color:var(--bl);color:var(--lt);}
+.rank-list{display:flex;flex-direction:column;gap:9px;}
+.rank-item{background:var(--dk);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;border:2px solid var(--bdr);user-select:none;}
+.rank-num{background:var(--or);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.88rem;flex-shrink:0;}
+.rank-arr{display:flex;flex-direction:column;gap:3px;}
+.rarr{background:var(--mid);border:none;color:var(--lt);width:27px;height:27px;border-radius:8px;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.rarr:hover{background:var(--bdr);}
+.topic-btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+.tbtn{background:var(--dk);border:2px solid var(--bdr);color:var(--mt);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:700;font-size:.8rem;transition:all .2s;}
+.tbtn.on{background:var(--bl);border-color:var(--bl);color:#fff;}
+.create-area{background:var(--mid);border:none;border-radius:10px;padding:12px;color:var(--lt);font-family:'Nunito',sans-serif;font-size:.88rem;width:100%;min-height:100px;outline:none;resize:vertical;}
+#dribble{background:linear-gradient(160deg,#052e16,#14532d);}
+.drib-hdr{background:linear-gradient(135deg,#15803D,#166534);padding:16px;text-align:center;border-radius:16px;margin-bottom:12px;}
+.prog-field{background:#166534;border-radius:20px;height:20px;overflow:hidden;margin:9px 0;}
+.prog-bar{height:100%;background:var(--ye);border-radius:20px;transition:width .5s;display:flex;align-items:center;justify-content:flex-end;padding-right:5px;min-width:20px;}
+.dq{background:rgba(255,255,255,.08);border-radius:16px;padding:16px;margin-bottom:12px;}
+.dq-txt{font-size:1rem;font-weight:700;margin-bottom:12px;line-height:1.5;}
+.dq-opts{display:flex;flex-direction:column;gap:7px;}
+.dopt{background:rgba(255,255,255,.08);border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:600;transition:all .2s;border:2px solid transparent;font-size:.92rem;}
+.dopt:hover{border-color:rgba(253,224,71,.5);}
+.dopt.correct{background:rgba(34,197,94,.2);border-color:var(--su);color:#86EFAC;}
+.dopt.wrong{background:rgba(239,68,68,.2);border-color:var(--er);color:#FCA5A5;}
+.goal-anim{text-align:center;font-size:2.8rem;display:none;animation:goalPop .5s;}
+.assess-q{background:var(--dk);border-radius:16px;padding:16px;margin-bottom:12px;}
+.aq-opts{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+.aopt{background:var(--mid);border-radius:10px;padding:9px 14px;cursor:pointer;font-weight:600;transition:all .2s;border:2px solid transparent;font-size:.9rem;font-family:'Nunito',sans-serif;width:100%;text-align:left;}
+.aopt:hover{border-color:var(--or);}
+.aopt.correct{background:rgba(34,197,94,.2);border-color:var(--su);color:#86EFAC;}
+.aopt.wrong{background:rgba(239,68,68,.2);border-color:var(--er);color:#FCA5A5;}
+.assess-result{text-align:center;background:var(--dk);border-radius:16px;padding:22px;display:none;}
+.btn{background:var(--or);border:none;color:#fff;padding:10px 24px;border-radius:20px;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;font-size:.92rem;transition:all .2s;display:inline-block;}
+.btn:hover{background:var(--ord);transform:translateY(-2px);}
+.btn.sec{background:var(--mid);color:var(--lt);border:2px solid var(--bdr);}
+.btn.sec:hover{background:var(--bdr);}
+.btn.bl{background:var(--bl);}
+.btn.bl:hover{background:var(--bld);}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px;}
+.hlo{color:var(--or);font-weight:800;}
+.hlb{color:#60A5FA;font-weight:800;}
+.hly{color:var(--ye);font-weight:800;}
+.hlg{color:#86EFAC;font-weight:800;}
+.big-score{font-size:3.2rem;font-weight:900;color:var(--ye);text-align:center;margin:12px 0;}
+.rp-inp{background:var(--mid);border:2px solid var(--bdr);border-radius:8px;padding:5px 9px;color:var(--lt);font-family:'Nunito',sans-serif;font-size:.88rem;width:90px;text-align:center;outline:none;}
+.rp-inp:focus{border-color:var(--or);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-7px);}75%{transform:translateX(7px);}}
+@keyframes goalPop{0%{transform:scale(0);opacity:0;}60%{transform:scale(1.3);}100%{transform:scale(1);opacity:1;}}
+.fadein{animation:fadeIn .3s ease;}
+.shake{animation:shake .3s;}
+@media(max-width:500px){.mod-grid{grid-template-columns:repeat(2,1fr);}.match-cols{grid-template-columns:1fr;}.scrm-w{font-size:1.7rem;letter-spacing:5px;}}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div id="home" class="screen active">
+  <div class="home-hdr">
+    <div class="badge">📚 Unit 7 — Good Idea! · Inventions</div>
+    <h1>Vocabulary 2 🛠️</h1>
+    <p>Action Words for Instructions</p>
+    <div class="vchips">
+      <span class="vchip">💪 lift</span><span class="vchip">🏃 move</span>
+      <span class="vchip">📌 put</span><span class="vchip">🔄 turn</span><span class="vchip">🛠️ use</span>
+    </div>
+  </div>
+  <div class="mod-grid">
+    <div class="mod-card mc1" onclick="go('warmup')"><span class="cn">1</span><span class="ci">🔥</span><h3>Warm Up</h3><p>Connect Vocab 1</p></div>
+    <div class="mod-card mc2" onclick="go('present')"><span class="cn">2</span><span class="ci">🎯</span><h3>Present</h3><p>Meet the Words</p></div>
+    <div class="mod-card mc3" onclick="go('cflash')"><span class="cn">3</span><span class="ci">📖</span><h3>Content Words</h3><p>ground·hula hoop·waist</p></div>
+    <div class="mod-card mc4" onclick="go('vflash')"><span class="cn">4</span><span class="ci">⚡</span><h3>Flashcards</h3><p>5 Action Words</p></div>
+    <div class="mod-card mc5" onclick="go('matching');initMatch()"><span class="cn">5</span><span class="ci">🎯</span><h3>Matching</h3><p>Words & Sentences</p></div>
+    <div class="mod-card mc6" onclick="go('unscramble');initUS()"><span class="cn">6</span><span class="ci">🔤</span><h3>Unscramble</h3><p>Timer Challenge</p></div>
+    <div class="mod-card mc7" onclick="go('practice');initPrac()"><span class="cn">7</span><span class="ci">📓</span><h3>Practice</h3><p>Hula Hoop & More</p></div>
+    <div class="mod-card mc8" onclick="go('strategy');initStrat()"><span class="cn">8</span><span class="ci">🧩</span><h3>Strategy</h3><p>Imperatives</p></div>
+    <div class="mod-card mc9" onclick="go('ranking');initRank()"><span class="cn">9</span><span class="ci">📊</span><h3>Ranking</h3><p>Rank 1 to 5</p></div>
+    <div class="mod-card mc10" onclick="go('roleplay');initRP()"><span class="cn">10</span><span class="ci">🎤</span><h3>Role Play</h3><p>How to use it!</p></div>
+    <div class="mod-card mc11" onclick="go('dribble');initDrib()"><span class="cn">11</span><span class="ci">⚽</span><h3>Can Leo Dribble?</h3><p>Final Challenge!</p></div>
+    <div class="mod-card mc12" onclick="go('assessment');initAssess()"><span class="cn">12</span><span class="ci">✅</span><h3>Assessment</h3><p>Final Quiz</p></div>
+  </div>
+</div>
+
+<!-- MODULE 1: WARM UP -->
+<div id="warmup" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>🔥 Warm Up — Connect Vocabulary 1</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">💡 Inventions from Vocabulary 1 — Tick what you remember!</div>
+      <div class="sec-sub">How many inventions can you remember from Unit 7, Vocabulary 1? Tick them all! ✅</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;" id="inv-grid"></div>
+      <div id="inv-score" class="fb" style="margin-top:10px;"></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🔗 Match the Action Word!</div>
+      <div class="sec-sub">Tap a <span class="hlo">word chip</span>, then tap the matching clue. Use each word once!</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;" id="wu-chips">
+        <div class="wchip" onclick="wuSel(this,'lift')">💪 lift</div>
+        <div class="wchip" onclick="wuSel(this,'move')">🏃 move</div>
+        <div class="wchip" onclick="wuSel(this,'put')">📌 put</div>
+        <div class="wchip" onclick="wuSel(this,'turn')">🔄 turn</div>
+        <div class="wchip" onclick="wuSel(this,'use')">🛠️ use</div>
+      </div>
+      <div id="wu-clues"></div>
+      <div class="fb" id="wu-fb"></div>
+      <div class="btn-row"><button class="btn sec" onclick="initWU()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">💬 Think & Talk with Dad!</div>
+      <div class="row"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"Leo, think of ONE thing you do with a football during a match. Which of today's 5 words fits best — lift, move, put, turn or use?"</b></div></div>
+      <div class="row r"><span class="spk">👦</span><div class="bub leo">Leo 💬 — <i>Your answer here! 💭</i></div></div>
+      <div class="sec-sub" style="margin-top:8px;">💡 <b>Sample answers:</b> "I <span class="hlo">put</span> the ball on the ground before a free kick." · "The ball <span class="hlo">turns</span> in the air when I curve it." · "I <span class="hlo">use</span> my right foot to shoot."</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 2: PRESENT -->
+<div id="present" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>🎯 Present — Today's 5 Words</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">👨‍🏫 Dad Introduces the Words</div>
+      <div class="row"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"Leo, today's words are <span class="hlo">action words</span> — they describe what we DO with things. We use them to give instructions. Tap each card to reveal it!"</b></div></div>
+      <div class="row r"><span class="spk">👦</span><div class="bub leo">Leo 💬 — <b>"Like instructions for a video game? 🎮"</b></div></div>
+      <div class="row"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"Exactly! Today we use them to explain how to use a <span class="hlo">hula hoop</span>. Let's look at each word — click to reveal!"</b></div></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">⚡ Click to Reveal Each Word!</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;" id="reveal-grid"></div>
+      <div class="btn-row"><button class="btn" onclick="revealAll()">👀 Reveal All</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">⚽ These Words in Football! 2025-26</div>
+      <div id="football-exs"></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🌟 Spot the Action Word!</div>
+      <div class="sec-sub">Read each sentence. Find and say the action word aloud! 🗣️</div>
+      <div id="spot-exs"></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🧠 Quick Meaning Match</div>
+      <div class="sec-sub">Tap the correct definition for each word!</div>
+      <div id="meaning-qs"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 3: CONTENT VOCABULARY FLASHCARDS -->
+<div id="cflash" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>📖 Content Vocabulary Flashcards</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">📖 3 Content Words — ground · hula hoop · waist</div>
+      <div class="sec-sub">These words help you understand the hula hoop text. Click a card to flip it! ⭕</div>
+      <div class="fc-area">
+        <div class="mode-row">
+          <button class="mbtn on" id="cv-pb" onclick="setMode('cv','p')">Practice</button>
+          <button class="mbtn" id="cv-qb" onclick="setMode('cv','q')">Quiz</button>
+        </div>
+        <div style="display:flex;justify-content:center;margin-bottom:10px;"><button class="shuf-btn" onclick="shuf('cv')">🔀 Shuffle</button></div>
+        <div class="fc-wrap" id="cv-fw" onclick="flip('cv')">
+          <div class="fc" id="cv-fc">
+            <div class="fc-face fcf cv">
+              <div class="fc-em" id="cv-fem">🌱</div>
+              <div class="fc-w" id="cv-fw2">ground</div>
+              <div class="fc-hint" id="cv-fh">Click to see the meaning!</div>
+              <div class="qwrap" id="cv-qw" style="display:none;">
+                <div style="font-size:.84rem;color:rgba(255,255,255,.8);margin-bottom:4px;" id="cv-qs"></div>
+                <input class="qinp" id="cv-qi" placeholder="Type the word..." onkeydown="if(event.key==='Enter')chkQ('cv')">
+                <button class="qchk" onclick="chkQ('cv')">Check ✓</button>
+                <div class="fb" id="cv-qf"></div>
+              </div>
+            </div>
+            <div class="fc-face fcb cv">
+              <div class="fc-em" id="cv-bem">🌱</div>
+              <div class="fc-w" id="cv-bw">ground</div>
+              <div class="fc-sent" id="cv-bs"></div>
+              <div class="fc-def" id="cv-bd"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fc-nav">
+          <button onclick="prev('cv')">← Prev</button>
+          <span class="fc-ctr" id="cv-ctr">1 / 3</span>
+          <button onclick="nxt('cv')">Next →</button>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🔍 Content Words in Context</div>
+      <div id="cv-ctx"></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">✏️ Fill the Blank — Content Words</div>
+      <div class="sec-sub">Choose the correct content word for each sentence!</div>
+      <div id="cv-fill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 4: VOCABULARY 2 FLASHCARDS -->
+<div id="vflash" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>⚡ Vocabulary 2 Flashcards</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">⚡ 5 Action Words — Flip & Learn!</div>
+      <div class="sec-sub"><b>Practice:</b> click to flip and read the sentence. <b>Quiz:</b> read the sentence and type the missing word! 🎯</div>
+      <div class="fc-area">
+        <div class="mode-row">
+          <button class="mbtn on" id="v2-pb" onclick="setMode('v2','p')">Practice</button>
+          <button class="mbtn" id="v2-qb" onclick="setMode('v2','q')">Quiz</button>
+        </div>
+        <div style="display:flex;justify-content:center;margin-bottom:10px;"><button class="shuf-btn" onclick="shuf('v2')">🔀 Shuffle</button></div>
+        <div class="fc-wrap" id="v2-fw" onclick="flip('v2')">
+          <div class="fc" id="v2-fc">
+            <div class="fc-face fcf">
+              <div class="fc-em" id="v2-fem">💪</div>
+              <div class="fc-w" id="v2-fw2">lift</div>
+              <div class="fc-hint" id="v2-fh">Click to flip!</div>
+              <div class="qwrap" id="v2-qw" style="display:none;">
+                <div style="font-size:.82rem;color:rgba(255,255,255,.8);margin-bottom:4px;" id="v2-qs"></div>
+                <input class="qinp" id="v2-qi" placeholder="Type the word..." onkeydown="if(event.key==='Enter')chkQ('v2')">
+                <button class="qchk" onclick="chkQ('v2')">Check ✓</button>
+                <div class="fb" id="v2-qf"></div>
+              </div>
+            </div>
+            <div class="fc-face fcb">
+              <div class="fc-em" id="v2-bem">💪</div>
+              <div class="fc-w" id="v2-bw">lift</div>
+              <div class="fc-sent" id="v2-bs"></div>
+              <div class="fc-soc" id="v2-bso"></div>
+              <div class="fc-def" id="v2-bd"></div>
+            </div>
+          </div>
+        </div>
+        <div class="fc-nav">
+          <button onclick="prev('v2')">← Prev</button>
+          <span class="fc-ctr" id="v2-ctr">1 / 5</span>
+          <button onclick="nxt('v2')">Next →</button>
+        </div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">⚽ Football Examples — 2025-26 Season!</div>
+      <div id="v2-exs"></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🏆 Champions League & Ligue 1 Challenges</div>
+      <div class="sec-sub">Which action word fits each football moment? Tap your answer!</div>
+      <div id="cl-qs"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 5: MATCHING -->
+<div id="matching" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>🎯 Vocab Matching</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">🎯 Round 1 — Official Sentences (TR: 7.5)</div>
+      <div class="sec-sub">Tap a <span class="hlo">word</span> to select it, then tap the matching <span class="hlb">sentence</span>!</div>
+      <div class="match-cols"><div id="mw1"></div><div id="ms1"></div></div>
+      <div class="fb" id="m1-fb"></div>
+      <div id="m1-res" style="display:none;">
+        <div style="font-weight:800;margin:10px 0 5px;">🏆 Results</div>
+        <table class="rtbl"><thead><tr><th>Word</th><th>Emoji</th><th>Sentence (TR: 7.5)</th></tr></thead><tbody id="m1-tbody"></tbody></table>
+      </div>
+      <div class="btn-row"><button class="btn sec" onclick="initMatch()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">⚽ Round 2 — Football Sentences!</div>
+      <div class="sec-sub">Match the same words to football-themed sentences! 🔥</div>
+      <div class="match-cols"><div id="mw2"></div><div id="ms2"></div></div>
+      <div class="fb" id="m2-fb"></div>
+      <div id="m2-res" style="display:none;">
+        <div style="font-weight:800;margin:10px 0 5px;">⚽ Football Results</div>
+        <table class="rtbl"><thead><tr><th>Word</th><th>Emoji</th><th>Football Sentence</th></tr></thead><tbody id="m2-tbody"></tbody></table>
+      </div>
+      <div class="btn-row"><button class="btn sec" onclick="initMatch2()">↺ Reset</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 6: UNSCRAMBLE -->
+<div id="unscramble" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>🔤 Unscramble the Words</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="mode-row">
+        <button class="mbtn on" id="us-pb" onclick="setUS('p')">Practice</button>
+        <button class="mbtn" id="us-qb" onclick="setUS('q')">Quiz ⏱️</button>
+      </div>
+      <div id="us-prac">
+        <div class="sec-t">📝 Practice — Unscramble at Your Own Pace!</div>
+        <div class="sec-sub">Each word is scrambled. Type it correctly and press Enter or Check!</div>
+        <div id="us-pcards"></div>
+        <div class="btn-row"><button class="btn sec" onclick="initUSP()">↺ Reset</button></div>
+      </div>
+      <div id="us-quiz" style="display:none;">
+        <div class="sec-t">⏱️ Quiz Mode — Race the Clock!</div>
+        <div class="timer" id="us-timer">0:00</div>
+        <div style="text-align:center;font-size:1.3rem;font-weight:900;color:var(--gr);margin-bottom:8px;" id="us-score">Score: 0 / 5</div>
+        <div id="us-qcard"></div>
+        <div class="btn-row">
+          <button class="btn" onclick="startUSQ()">▶ Start</button>
+          <button class="btn sec" onclick="resetUSQ()">↺ Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 7: PRACTICE -->
+<div id="practice" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>📓 Practice — Hula Hoop & More</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">⭕ Ex 1 — Complete the Hula Hoop Instructions (TR: 7.6)</div>
+      <div class="sec-sub">Tap a word from the bank ↓ then tap a blank to fill it in!</div>
+      <div class="wb-sticky"><div class="wbank" id="p-bank"></div></div>
+      <div style="background:rgba(59,130,246,.07);border-radius:12px;padding:14px;border:1px solid rgba(59,130,246,.2);">
+        <div style="font-size:.84rem;color:var(--mt);margin-bottom:10px;font-style:italic;">"The hula hoop is an old invention, but it's very popular today. It's fun and it's good exercise!"</div>
+        <div class="fill-txt" id="p-fill"></div>
+      </div>
+      <div class="fb" id="p-fill-fb"></div>
+      <div class="btn-row"><button class="btn" onclick="chkFill()">✓ Check</button><button class="btn sec" onclick="initPrac()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🔢 Ex 2 — Put the Hula Hoop Steps in Order!</div>
+      <div class="sec-sub">Use ↑↓ arrows to arrange steps 1→4 in the correct order!</div>
+      <div class="rank-list" id="p-order"></div>
+      <div class="fb" id="p-order-fb"></div>
+      <div class="btn-row"><button class="btn" onclick="chkOrder()">✓ Check Order</button><button class="btn sec" onclick="initOrder()">🔀 Shuffle</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🎧 Ex 3 — Daniel & Irma's Table Invention (WB TR: 7.2)</div>
+      <div class="sec-sub">Read the dialogue, then answer the questions!</div>
+      <div style="background:rgba(59,130,246,.07);border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid rgba(59,130,246,.2);font-size:.86rem;line-height:1.9;">
+        <b>Daniel:</b> "What's that, Irma?" · <b>Irma:</b> "It's a new invention for the table! How do you <span class="hlo">use</span> it? Easy! I <span class="hlo">move</span> it across the table — like this!" · <b>Daniel:</b> "So the wheels <span class="hlo">turn</span>. Now what?" · <b>Irma:</b> "You <span class="hlo">put</span> the sauce on your fries!" · <b>Daniel:</b> "Why not just <span class="hlo">lift</span> the bottle?" · <b>Irma:</b> "Because this is cool!" · <b>Daniel:</b> "I think it's silly."
+      </div>
+      <div id="wb-qs"></div>
+      <div class="btn-row"><button class="btn sec" onclick="initWBQ()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🖊️ Ex 4 — Fill in the Workbook Sentences</div>
+      <div class="sec-sub">Choose the correct action word for each sentence!</div>
+      <div id="wb-fill2"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 8: STRATEGY -->
+<div id="strategy" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>🧩 Strategy — Imperatives for Instructions</h2></div>
+  <div class="mod-body">
+    <div class="rule-card">
+      <div class="rule-t">📌 Imperatives for Instructions</div>
+      <div class="rule-b">
+        Use the <b>base form of the verb</b> — no subject (no I / you / he / she...).<br>
+        Use <b>sequence words</b>: <span style="color:var(--ye);">First → Next → Then → Finally</span><br>
+        This makes instructions clear and polite!
+      </div>
+      <div class="ex-box"><div class="ew">❌ "You put the hoop on the ground."</div><div class="er2">✅ "Put the hoop on the ground."</div></div>
+      <div class="ex-box"><div class="ew">❌ "I lift my arms to celebrate."</div><div class="er2">✅ "Lift your arms to celebrate!"</div></div>
+      <div class="ex-box"><div class="ew">❌ "We move to the left side."</div><div class="er2">✅ "Move to the left side."</div></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">✅ Ex 1 — Imperative or NOT? Tap YES or NO!</div>
+      <div id="sort-area"></div>
+      <div class="fb" id="sort-fb"></div>
+      <div class="btn-row"><button class="btn" onclick="chkSort()">✓ Check</button><button class="btn sec" onclick="initSort()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">✏️ Ex 2 — Fix the Sentence! Remove the Subject!</div>
+      <div class="sec-sub">Type the correct imperative below each wrong sentence!</div>
+      <div id="fix-area"></div>
+      <div class="btn-row"><button class="btn" onclick="chkFix()">✓ Check All</button><button class="btn sec" onclick="initFix()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🔢 Ex 3 — Put the Steps in Order!</div>
+      <div class="sec-sub">Tap steps in the correct order to build the hula hoop instructions! Tap a filled slot to remove it.</div>
+      <div class="seq-bank" id="seq-bank"></div>
+      <div id="seq-slots"></div>
+      <div class="fb" id="seq-fb"></div>
+      <div class="btn-row"><button class="btn" onclick="chkSeq()">✓ Check</button><button class="btn sec" onclick="initSeq()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">⚽ Ex 4 — Write Football Instructions!</div>
+      <div class="sec-sub">How does Cherki take a free kick? Write 4 steps using: <span class="hly">First / Next / Then / Finally</span> + action words!</div>
+      <div style="background:rgba(249,115,22,.07);border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:.83rem;border:1px solid rgba(249,115,22,.2);">
+        💡 <b>Sample:</b> First, put the ball on the ground. Next, move back 5 steps. Then, use your right foot to kick. Finally, lift your arms — GOAL! ⚽
+      </div>
+      <textarea class="create-area" id="fw-area" placeholder="First, ...&#10;Next, ...&#10;Then, ...&#10;Finally, ..."></textarea>
+      <div class="btn-row"><button class="btn bl" onclick="chkFW()">✓ Check My Writing</button></div>
+      <div class="fb" id="fw-fb" style="margin-top:7px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 9: RANKING -->
+<div id="ranking" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>📊 Ranking — Order the Words</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">📊 How Often Do You Use These in Football?</div>
+      <div class="sec-sub">1 = most often · 5 = least often · Use ↑↓ to reorder!</div>
+      <div class="rank-list" id="rank-list"></div>
+      <div class="btn-row"><button class="btn bl" onclick="showRankRes()">🔒 Lock My Ranking</button></div>
+      <div id="rank-res" style="display:none;" class="sec" style="margin-top:12px;">
+        <div class="sec-t">🏆 Your Football Ranking!</div>
+        <div id="rank-res-body"></div>
+        <div class="row" style="margin-top:10px;"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"Great! Now say a football sentence for each word — can you do all 5?"</b></div></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🌍 Premier League & Ligue 1 Moments!</div>
+      <div class="sec-sub">Which action word fits each match description? Tap your answer!</div>
+      <div id="pl-qs"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 10: ROLE PLAY -->
+<div id="roleplay" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>🎤 Role Play — How to Use It!</h2></div>
+  <div class="mod-body">
+    <div class="sec">
+      <div class="sec-t">📖 Read: How to Put On Football Boots</div>
+      <div class="sec-sub">Read the dialogue. Notice the action words in <span class="hlo">orange!</span></div>
+      <div class="row"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"Leo, can you tell me how to put on football boots? I always forget! 😄"</b></div></div>
+      <div class="row r"><span class="spk">👦</span><div class="bub leo">Leo 💬 — <b>"Sure! First, <span class="hlo">put</span> the boot flat on the ground."</b></div></div>
+      <div class="row"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"OK. What next?"</b></div></div>
+      <div class="row r"><span class="spk">👦</span><div class="bub leo">Leo 💬 — <b>"Next, <span class="hlo">lift</span> the tongue up and <span class="hlo">put</span> your foot inside."</b></div></div>
+      <div class="row"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"Then the laces?"</b></div></div>
+      <div class="row r"><span class="spk">👦</span><div class="bub leo">Leo 💬 — <b>"Then <span class="hlo">use</span> both hands to tie them. Finally, <span class="hlo">move</span> your foot left and right to check comfort. The laces <span class="hlo">turn</span> into loops when you tie a bow!"</b></div></div>
+      <div class="row"><span class="spk">👨‍🏫</span><div class="bub">Dad 💬 — <b>"Perfect! Now I can play like Kvaratskhelia at PSG! ⚽🌟"</b></div></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">✏️ Fill in the Dialogue!</div>
+      <div class="sec-sub">Type the correct action word in each gap!</div>
+      <div id="rp-fill"></div>
+      <div class="fb" id="rp-fb"></div>
+      <div class="btn-row"><button class="btn" onclick="chkRP()">✓ Check</button><button class="btn sec" onclick="initRP()">↺ Reset</button></div>
+    </div>
+    <div class="sec">
+      <div class="sec-t">🎨 Create Your Own Instructions!</div>
+      <div class="sec-sub">Choose a sport or toy. Write 4 instructions: First / Next / Then / Finally!</div>
+      <div class="topic-btns" id="topic-btns">
+        <button class="tbtn on" onclick="selTopic(this,'football ⚽','put the ball on the penalty spot','move back 5 steps','use your strongest foot','lift your arms to celebrate')">⚽ Football</button>
+        <button class="tbtn" onclick="selTopic(this,'basketball 🏀','put the ball on the ground','move to the key position','use both hands to shoot','turn and celebrate with teammates')">🏀 Basketball</button>
+        <button class="tbtn" onclick="selTopic(this,'swimming 🏊','put your goggles on','lift your arms above your head','move your legs in a kick','turn your head to breathe')">🏊 Swimming</button>
+        <button class="tbtn" onclick="selTopic(this,'cycling 🚴','put on your helmet','lift yourself onto the seat','use the pedals to move','turn the handlebars to steer')">🚴 Cycling</button>
+      </div>
+      <div id="topic-hint" style="font-size:.83rem;color:var(--mt);margin-bottom:8px;"></div>
+      <textarea class="create-area" id="create-area" placeholder="First, ...&#10;Next, ...&#10;Then, ...&#10;Finally, ..."></textarea>
+      <div class="btn-row"><button class="btn" onclick="showSample()">💡 See a Sample</button></div>
+      <div id="rp-sample" style="display:none;background:rgba(34,197,94,.09);border-radius:10px;padding:12px;margin-top:10px;font-size:.86rem;line-height:1.8;border:1px solid rgba(34,197,94,.2);"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 11: CAN LEO DRIBBLE? -->
+<div id="dribble" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>⚽ Can Leo Dribble?</h2></div>
+  <div class="mod-body">
+    <div class="drib-hdr">
+      <div style="font-size:1.9rem;font-weight:900;color:var(--ye);">⚽ FINAL CHALLENGE!</div>
+      <div style="color:rgba(255,255,255,.85);margin-top:3px;">10 Mixed Questions — Get them all for a GOAL FEST! 🥅</div>
+      <div class="prog-field"><div class="prog-bar" id="drib-prog" style="width:0%"><span>⚽</span></div></div>
+      <div style="font-size:.82rem;color:rgba(255,255,255,.7);">Q <span id="drib-qn">0</span>/10 · Score: <span id="drib-sc">0</span></div>
+    </div>
+    <div id="drib-area"></div>
+    <div class="goal-anim" id="goal-anim">⚽ GOAL! 🥅🎉</div>
+    <div style="display:none;text-align:center;background:rgba(255,255,255,.08);border-radius:16px;padding:20px;" id="drib-end">
+      <div style="font-size:1.4rem;font-weight:900;margin-bottom:6px;">Final Score 🏆</div>
+      <div class="big-score" id="drib-final"></div>
+      <div style="font-size:1rem;margin-bottom:14px;" id="drib-msg"></div>
+      <button class="btn" onclick="initDrib()">▶ Play Again</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 12: ASSESSMENT -->
+<div id="assessment" class="screen">
+  <div class="mod-hdr"><button class="back-btn" onclick="home()">← Home</button><h2>✅ Formative Assessment</h2></div>
+  <div class="mod-body">
+    <div class="sec" style="background:linear-gradient(135deg,rgba(253,224,71,.08),rgba(249,115,22,.08));border:1px solid rgba(253,224,71,.25);">
+      <div class="sec-t">✅ Can You Use Action Words for Instructions?</div>
+      <div class="sec-sub">Answer all 6 questions, Leo — you've got this! 💪</div>
+    </div>
+    <div id="assess-area"></div>
+    <div id="assess-submit" style="text-align:center;margin-top:6px;"><button class="btn" onclick="subAssess()">✓ Submit All Answers</button></div>
+    <div class="assess-result" id="assess-res">
+      <div style="font-size:1.2rem;font-weight:900;margin-bottom:8px;">🏆 Assessment Complete!</div>
+      <div class="big-score" id="assess-score"></div>
+      <div style="margin-bottom:12px;" id="assess-msg"></div>
+      <button class="btn" onclick="initAssess()">↺ Try Again</button>
+    </div>
+  </div>
+</div>
+<script>
+// ═══ DATA ═══════════════════════════════════════════
+const V2=[
+  {id:'lift',w:'lift',e:'💪',sent:'Lift your arms and shake your legs.',qsent:'_____ your arms and shake your legs.',soc:'Cherki lifts the ball with a brilliant chip over the goalkeeper at PSG!',def:'to raise something up higher'},
+  {id:'move',w:'move',e:'🏃',sent:"Don't move. I'm taking a photo!",qsent:"Don't _____. I'm taking a photo!",soc:"Kvaratskhelia moves at incredible speed — nobody stops him for PSG in Ligue 1!",def:'to change position or go from one place to another'},
+  {id:'put',w:'put',e:'📌',sent:'Every morning I put my things in my backpack.',qsent:'Every morning I _____ my things in my backpack.',soc:'Haaland puts the ball in the top corner — Man City score again! 💥',def:'to place something in a particular position'},
+  {id:'turn',w:'turn',e:'🔄',sent:'The wheels turn.',qsent:'The wheels _____.',soc:'The ball turns sharply in the air as Bellingham bends his free kick for Real Madrid!',def:'to move in a circle or change direction'},
+  {id:'use',w:'use',e:'🛠️',sent:'How do you use that toy?',qsent:'How do you _____ that toy?',soc:'Salah uses both feet — that is why he is Liverpool\'s top scorer this season!',def:'to do something with an object or skill'}
+];
+const CV=[
+  {id:'ground',w:'ground',e:'🌱',sent:'Put the hula hoop on the ground.',qsent:'Put the hula hoop on the _____.', def:'the surface under your feet outside'},
+  {id:'hulahoop',w:'hula hoop',e:'⭕',sent:'A hula hoop is a round toy you spin around your waist.',qsent:'A _____ is a round toy you spin around your waist.',def:'a large plastic ring you spin around your body'},
+  {id:'waist',w:'waist',e:'🤸',sent:'Lift the hoop to your waist.',qsent:'Lift the hoop to your _____.', def:'the middle part of your body above your hips'}
+];
+
+// ═══ NAVIGATION ═════════════════════════════════════
+function home(){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('home').classList.add('active');}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+
+// ═══ FLASHCARD ENGINE ════════════════════════════════
+const FC={
+  v2:{data:[...V2],i:0,mode:'p'},
+  cv:{data:[...CV],i:0,mode:'p'}
+};
+function shuf(k){const d=FC[k].data;for(let i=d.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[d[i],d[j]]=[d[j],d[i]];}FC[k].i=0;renderFC(k);}
+function flip(k){if(FC[k].mode==='q')return;document.getElementById(k+'-fc').classList.toggle('flip');}
+function nxt(k){FC[k].i=(FC[k].i+1)%FC[k].data.length;renderFC(k);}
+function prev(k){FC[k].i=(FC[k].i-1+FC[k].data.length)%FC[k].data.length;renderFC(k);}
+function setMode(k,m){
+  FC[k].mode=m;FC[k].i=0;
+  document.getElementById(k+'-fc').classList.remove('flip');
+  document.getElementById(k+'-pb').classList.toggle('on',m==='p');
+  document.getElementById(k+'-qb').classList.toggle('on',m==='q');
+  renderFC(k);
+}
+function renderFC(k){
+  const st=FC[k],d=st.data[st.i];
+  document.getElementById(k+'-fem').textContent=d.e;
+  document.getElementById(k+'-fw2').textContent=d.w;
+  document.getElementById(k+'-bem').textContent=d.e;
+  document.getElementById(k+'-bw').textContent=d.w;
+  document.getElementById(k+'-bs').textContent='"'+d.sent+'"';
+  document.getElementById(k+'-bd').textContent='📖 '+d.def;
+  if(document.getElementById(k+'-bso'))document.getElementById(k+'-bso').textContent='⚽ '+(d.soc||'');
+  document.getElementById(k+'-ctr').textContent=`${st.i+1} / ${st.data.length}`;
+  const qw=document.getElementById(k+'-qw'),fh=document.getElementById(k+'-fh');
+  const fw=document.getElementById(k+'-fw');
+  if(st.mode==='q'){
+    if(qw)qw.style.display='flex';
+    if(fh)fh.style.display='none';
+    document.getElementById(k+'-qs').textContent=d.qsent;
+    document.getElementById(k+'-qi').value='';
+    document.getElementById(k+'-qf').textContent='';
+  } else {
+    if(qw)qw.style.display='none';
+    if(fh)fh.style.display='block';
+  }
+  document.getElementById(k+'-fc').classList.remove('flip');
+}
+function chkQ(k){
+  const d=FC[k].data[FC[k].i];
+  const v=document.getElementById(k+'-qi').value.trim().toLowerCase();
+  const fb=document.getElementById(k+'-qf');
+  if(v===d.w.toLowerCase()){fb.textContent='✅ Correct!';fb.className='fb ok';setTimeout(()=>nxt(k),1100);}
+  else{fb.textContent=`❌ Hint: starts with "${d.w[0]}" (${d.w.length} letters)`;fb.className='fb bad';}
+}
+// init flashcards
+renderFC('v2');renderFC('cv');
+
+// ═══ MODULE 1: WARM UP ═══════════════════════════════
+(function(){
+  const invs=[{l:'⚡ electricity'},{l:'🔋 battery'},{l:'⚙️ wheel'},{l:'💡 light bulb'},{l:'📱 cell phone'},{l:'💻 computer'},{l:'✈️ airplane'},{l:'🚗 car'},{l:'🖨️ printer'},{l:'📺 television'}];
+  const g=document.getElementById('inv-grid');
+  if(!g)return;
+  invs.forEach(inv=>{
+    const la=document.createElement('label');
+    la.style.cssText='display:flex;align-items:center;gap:6px;background:var(--dk);padding:7px 12px;border-radius:10px;cursor:pointer;font-weight:700;font-size:.85rem;border:2px solid var(--bdr);transition:all .2s;';
+    la.innerHTML=`<input type="checkbox" style="accent-color:var(--or);width:15px;height:15px;" onchange="cntInv()">${inv.l}`;
+    g.appendChild(la);
+  });
+})();
+function cntInv(){
+  const n=document.querySelectorAll('#inv-grid input:checked').length;
+  const msgs=['','🌱 Keep going!','👍','👍','💡 Good!','💡 Good!','⭐ Great!','⭐ Great!','🔥 Almost!','🏆 All of them!','🏆'];
+  const fb=document.getElementById('inv-score');
+  fb.textContent=`You ticked ${n} inventions! ${msgs[n]||'🏆 Amazing!'}`;
+  fb.className='fb ok';
+}
+
+const wuClues=[
+  {t:'To pick the hula hoop up from the floor.',a:'lift'},
+  {t:'To change the position of the hoop around your body.',a:'move'},
+  {t:'To place the hoop flat on the ground.',a:'put'},
+  {t:'When wheels spin around in a circle.',a:'turn'},
+  {t:'To do something with an invention — like a phone.',a:'use'},
+];
+let wuSel2=null,wuDone={};
+function initWU(){
+  wuSel2=null;wuDone={};
+  document.querySelectorAll('#wu-chips .wchip').forEach(c=>{c.classList.remove('sel','used');});
+  const area=document.getElementById('wu-clues');
+  if(!area)return;
+  area.innerHTML='';
+  wuClues.forEach(c=>{
+    const d=document.createElement('div');
+    d.id='wc-'+c.a;
+    d.style.cssText='background:var(--dk);border-radius:10px;padding:9px 14px;margin-bottom:7px;font-size:.88rem;border:2px dashed var(--bdr);cursor:pointer;transition:all .2s;';
+    d.textContent=c.t;
+    d.onclick=()=>wuClickClue(c);
+    area.appendChild(d);
+  });
+  document.getElementById('wu-fb').textContent='';
+}
+function wuSel(el,w){
+  if(wuSel2===w){wuSel2=null;el.classList.remove('sel');return;}
+  document.querySelectorAll('#wu-chips .wchip').forEach(c=>c.classList.remove('sel'));
+  wuSel2=w;el.classList.add('sel');
+}
+function wuClickClue(clue){
+  if(wuDone[clue.a])return;
+  const fb=document.getElementById('wu-fb');
+  if(!wuSel2){fb.textContent='👆 Tap a word first!';fb.className='fb bad';return;}
+  if(wuSel2===clue.a){
+    wuDone[clue.a]=true;
+    const d=document.getElementById('wc-'+clue.a);
+    d.style.borderColor='var(--su)';d.style.background='rgba(34,197,94,.1)';
+    const vd=V2.find(v=>v.id===clue.a);
+    d.textContent=clue.t+' → '+vd.e+' '+vd.w;
+    document.querySelectorAll('#wu-chips .wchip').forEach(c=>{if(c.textContent.includes(wuSel2))c.classList.add('used');});
+    wuSel2=null;
+    const s=Object.keys(wuDone).length;
+    fb.textContent=s===5?'🏆 All 5 matched! Ready for the lesson!':`✅ Correct! ${5-s} more!`;
+    fb.className='fb ok';
+  } else {
+    document.getElementById('wc-'+clue.a).classList.add('shake');
+    setTimeout(()=>document.getElementById('wc-'+clue.a).classList.remove('shake'),400);
+    fb.textContent='❌ Try a different word!';fb.className='fb bad';
+  }
+}
+initWU();
+
+// ═══ MODULE 2: PRESENT ═══════════════════════════════
+(function(){
+  const rg=document.getElementById('reveal-grid');
+  if(!rg)return;
+  V2.forEach((v,i)=>{
+    const c=document.createElement('div');
+    c.id='rv-'+i;
+    c.style.cssText='background:var(--dk);border-radius:14px;padding:14px;text-align:center;border:2px solid var(--bdr);min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;';
+    c.innerHTML=`<div style="font-size:2.2rem;margin-bottom:5px;">❓</div><div style="font-weight:800;color:var(--mt);">Word ${i+1}</div>`;
+    c.onclick=()=>{c.innerHTML=`<div style="font-size:2.5rem;margin-bottom:4px;">${v.e}</div><div style="font-weight:900;color:var(--or);font-size:1.05rem;">${v.w}</div><div style="font-size:.75rem;color:var(--mt);margin-top:3px;">${v.def.substring(0,32)}...</div>`;c.style.borderColor='var(--or)';c.style.background='rgba(249,115,22,.07)';};
+    rg.appendChild(c);
+  });
+
+  const fe=document.getElementById('football-exs');
+  if(fe){
+    [{e:'💪',w:'lift',t:'Cherki <b>lifts</b> the ball with a chip shot — PSG score in the Champions League!'},{e:'🏃',w:'move',t:'Kvaratskhelia <b>moves</b> past 3 defenders — Ligue 1\'s most exciting player!'},{e:'📌',w:'put',t:'Haaland <b>puts</b> the ball in the net — Man City win the Premier League match!'},{e:'🔄',w:'turn',t:'The ball <b>turns</b> in the air as Bellingham bends his Real Madrid free kick!'},{e:'🛠️',w:'use',t:'Lamine Yamal <b>uses</b> his incredible dribbling for Barcelona in La Liga!'}].forEach(f=>{
+      const d=document.createElement('div');
+      d.style.cssText='background:var(--dk);border-radius:12px;padding:11px 14px;display:flex;gap:10px;align-items:flex-start;border-left:3px solid var(--or);margin-bottom:8px;';
+      d.innerHTML=`<span style="font-size:1.7rem;flex-shrink:0;">${f.e}</span><div><span style="font-weight:900;color:var(--or);">${f.w}</span> — <span style="font-size:.87rem;">${f.t}</span></div>`;
+      fe.appendChild(d);
+    });
+  }
+
+  const se=document.getElementById('spot-exs');
+  if(se){
+    ['<b style="color:var(--or)">Put</b> the ball on the penalty spot before the kick.','<b style="color:var(--or)">Move</b> quickly — Kvaratskhelia is coming!','<b style="color:var(--or)">Lift</b> your arms to celebrate the goal! ⚽','The ball <b style="color:var(--or)">turns</b> in the air — a perfect curve!','<b style="color:var(--or)">Use</b> your imagination to dribble past defenders!'].forEach(s=>{
+      const d=document.createElement('div');
+      d.style.cssText='background:var(--dk);border-radius:10px;padding:9px 14px;margin-bottom:7px;font-size:.9rem;';
+      d.innerHTML=s;se.appendChild(d);
+    });
+  }
+
+  const mq=document.getElementById('meaning-qs');
+  if(mq){
+    [{q:'Which word means "to raise something up"?',opts:['move','lift','turn','put'],a:1},{q:'Which word means "to place something somewhere"?',opts:['use','turn','put','lift'],a:2},{q:'Which word means "to go from one place to another"?',opts:['move','put','use','turn'],a:0},{q:'Which word means "to spin or change direction"?',opts:['lift','use','move','turn'],a:3},{q:'Which word means "to do something with an object"?',opts:['put','use','move','lift'],a:1}].forEach((q,i)=>{
+      const div=document.createElement('div');
+      div.style.cssText='background:var(--dk);border-radius:12px;padding:13px;margin-bottom:9px;';
+      div.innerHTML=`<div style="font-weight:700;margin-bottom:9px;font-size:.9rem;">${i+1}. ${q.q}</div><div style="display:flex;flex-direction:column;gap:5px;" id="mq-${i}"></div><div class="fb" id="mqf-${i}"></div>`;
+      mq.appendChild(div);
+      const od=document.getElementById('mq-'+i);
+      q.opts.forEach((opt,j)=>{
+        const b=document.createElement('button');
+        b.className='aopt';b.textContent=opt;
+        b.onclick=()=>{od.querySelectorAll('.aopt').forEach(x=>x.onclick=null);if(j===q.a){b.classList.add('correct');document.getElementById('mqf-'+i).textContent='✅ Correct!';document.getElementById('mqf-'+i).className='fb ok';}else{b.classList.add('wrong');od.querySelectorAll('.aopt')[q.a].classList.add('correct');document.getElementById('mqf-'+i).textContent='❌ See green!';document.getElementById('mqf-'+i).className='fb bad';}};
+        od.appendChild(b);
+      });
+    });
+  }
+
+  // CV context
+  const cvc=document.getElementById('cv-ctx');
+  if(cvc){
+    CV.forEach(v=>{
+      const d=document.createElement('div');
+      d.style.cssText='background:var(--dk);border-radius:12px;padding:11px 14px;display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;border-left:3px solid var(--pu);';
+      d.innerHTML=`<span style="font-size:1.7rem;flex-shrink:0;">${v.e}</span><div><span style="font-weight:900;color:var(--pu);">${v.w}</span><div style="font-size:.85rem;margin-top:2px;">${v.sent}</div><div style="font-size:.78rem;color:var(--mt);margin-top:2px;">📖 ${v.def}</div></div>`;
+      cvc.appendChild(d);
+    });
+  }
+
+  // CV fill
+  const cvf=document.getElementById('cv-fill');
+  if(cvf){
+    [{s:'Put the hula hoop flat on the ___.',a:'ground',opts:['waist','ground','hula hoop']},{s:'A ___ is a large ring you spin around your body.',a:'hula hoop',opts:['ground','waist','hula hoop']},{s:'Lift the hoop up to your ___ — the middle of your body.',a:'waist',opts:['hula hoop','ground','waist']}].forEach((q,i)=>{
+      const div=document.createElement('div');
+      div.style.cssText='background:var(--dk);border-radius:12px;padding:12px;margin-bottom:8px;';
+      div.innerHTML=`<div style="font-size:.9rem;margin-bottom:8px;">${i+1}. ${q.s}</div><div style="display:flex;flex-wrap:wrap;gap:6px;" id="cvf-${i}"></div><div class="fb" id="cvff-${i}"></div>`;
+      cvf.appendChild(div);
+      const od=document.getElementById('cvf-'+i);
+      q.opts.forEach(opt=>{
+        const b=document.createElement('button');
+        b.style.cssText='background:var(--mid);border:2px solid var(--bdr);color:var(--lt);padding:6px 14px;border-radius:10px;cursor:pointer;font-family:Nunito,sans-serif;font-weight:700;font-size:.85rem;transition:all .2s;';
+        b.textContent=opt;
+        b.onclick=()=>{od.querySelectorAll('button').forEach(x=>x.onclick=null);if(opt===q.a){b.style.background='rgba(34,197,94,.2)';b.style.borderColor='var(--su)';b.style.color='#86EFAC';document.getElementById('cvff-'+i).textContent='✅ Correct!';document.getElementById('cvff-'+i).className='fb ok';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='var(--er)';b.style.color='#FCA5A5';od.querySelectorAll('button').forEach(x=>{if(x.textContent===q.a){x.style.background='rgba(34,197,94,.2)';x.style.borderColor='var(--su)';}});document.getElementById('cvff-'+i).textContent='❌ Check green!';document.getElementById('cvff-'+i).className='fb bad';}};
+        od.appendChild(b);
+      });
+    });
+  }
+
+  // v2 extra exs
+  const v2e=document.getElementById('v2-exs');
+  if(v2e){
+    [{e:'💪',w:'lift',t:"Cherki lifts the ball with his left foot over the keeper — a stunning Ligue 1 goal for PSG!"},{e:'🏃',w:'move',t:'Kvaratskhelia moves at 35 km/h — the fastest player in Ligue 1 this season!'},{e:'📌',w:'put',t:'Before every penalty, Haaland puts the ball exactly on the spot — then SCORES!'},{e:'🔄',w:'turn',t:'Bellingham turns defenders inside out with his dribbling for Real Madrid in La Liga!'},{e:'🛠️',w:'use',t:"Salah uses both feet and his brain to score for Liverpool — the Premier League's best!"}].forEach(f=>{
+      const d=document.createElement('div');
+      d.style.cssText='background:var(--dk);border-radius:12px;padding:10px 14px;display:flex;gap:10px;margin-bottom:8px;align-items:flex-start;border-left:3px solid var(--bl);';
+      d.innerHTML=`<span style="font-size:1.6rem;flex-shrink:0;">${f.e}</span><div><span style="font-weight:900;color:var(--bl);">${f.w}</span><div style="font-size:.83rem;margin-top:2px;">${f.t}</div></div>`;
+      v2e.appendChild(d);
+    });
+  }
+
+  // CL questions
+  const cl=document.getElementById('cl-qs');
+  if(cl){
+    [{q:"Kvaratskhelia _____ past the Arsenal defender in the Champions League!",a:'move',opts:['put','move','lift','use']},{q:"Cherki _____ the ball with a perfect chip over the keeper at PSG!",a:'lift',opts:['turn','put','lift','move']},{q:"Before the free kick, Bellingham _____ the ball exactly where he wants it.",a:'put',opts:['move','use','turn','put']},{q:"Salah _____ his speed and skill to score for Liverpool against Real Madrid!",a:'use',opts:['lift','use','put','move']},{q:"The ball _____ in the air as Yamal curves his shot for Barcelona!",a:'turn',opts:['turn','move','use','lift']}].forEach((q,i)=>{
+      const div=document.createElement('div');
+      div.style.cssText='background:var(--dk);border-radius:12px;padding:13px;margin-bottom:9px;border-left:3px solid var(--ye);';
+      div.innerHTML=`<div style="font-size:.87rem;margin-bottom:8px;">⚽ ${q.q.replace(/_____/,'<span style="color:var(--ye);font-weight:800;">_____</span>')}</div><div style="display:flex;flex-wrap:wrap;gap:6px;" id="cl-${i}"></div><div class="fb" id="clf-${i}"></div>`;
+      cl.appendChild(div);
+      const od=document.getElementById('cl-'+i);
+      q.opts.forEach(opt=>{
+        const b=document.createElement('button');
+        b.style.cssText='background:var(--mid);border:2px solid var(--bdr);color:var(--lt);padding:5px 13px;border-radius:10px;cursor:pointer;font-family:Nunito,sans-serif;font-weight:700;font-size:.83rem;transition:all .2s;';
+        b.textContent=opt;
+        b.onclick=()=>{od.querySelectorAll('button').forEach(x=>x.onclick=null);if(opt===q.a){b.style.background='rgba(34,197,94,.2)';b.style.borderColor='var(--su)';b.style.color='#86EFAC';document.getElementById('clf-'+i).textContent='✅ Correct!';document.getElementById('clf-'+i).className='fb ok';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='var(--er)';b.style.color='#FCA5A5';od.querySelectorAll('button').forEach(x=>{if(x.textContent===q.a)x.style.background='rgba(34,197,94,.2)';});document.getElementById('clf-'+i).textContent='❌ Check green!';document.getElementById('clf-'+i).className='fb bad';}};
+        od.appendChild(b);
+      });
+    });
+  }
+})();
+function revealAll(){V2.forEach((_,i)=>document.getElementById('rv-'+i)&&document.getElementById('rv-'+i).click());}
+
+// ═══ MODULE 5: MATCHING ══════════════════════════════
+let mSel=null,mDone={},mSel2=null,mDone2={};
+const footballSents=[
+  {id:'lift',sent:'Cherki lifts the ball with a chip over the keeper at PSG!'},
+  {id:'move',sent:'Kvaratskhelia moves so fast — no one in Ligue 1 can stop him!'},
+  {id:'put',sent:'Haaland puts the ball in the net — Man City win again!'},
+  {id:'turn',sent:'The ball turns sharply as Bellingham bends his free kick!'},
+  {id:'use',sent:'Salah uses his right foot to bend it into the top corner!'}
+];
+function initMatch(){
+  mSel=null;mDone={};
+  document.getElementById('m1-res').style.display='none';
+  document.getElementById('m1-tbody').innerHTML='';
+  document.getElementById('m1-fb').textContent='';
+  const wc=document.getElementById('mw1'),sc=document.getElementById('ms1');
+  wc.innerHTML='';sc.innerHTML='';
+  const ws=[...V2].sort(()=>Math.random()-.5);
+  const ss=[...V2].sort(()=>Math.random()-.5);
+  ws.forEach(v=>{
+    const d=document.createElement('div');d.className='mword';d.id='mw-'+v.id;d.innerHTML=`${v.e} ${v.w}`;
+    d.onclick=()=>{if(mDone[v.id])return;mSel=v.id;document.querySelectorAll('.mword').forEach(x=>x.classList.remove('sel'));d.classList.add('sel');};
+    wc.appendChild(d);
+  });
+  ss.forEach(v=>{
+    const d=document.createElement('div');d.className='msent';d.id='ms-'+v.id;d.dataset.a=v.id;d.textContent=v.sent;
+    d.onclick=()=>doMatch1(d,v);
+    sc.appendChild(d);
+  });
+}
+function doMatch1(el,v){
+  const fb=document.getElementById('m1-fb');
+  if(!mSel){fb.textContent='👆 Tap a word first!';fb.className='fb bad';return;}
+  if(mSel===v.id){
+    el.classList.add('correct');el.onclick=null;
+    document.getElementById('mw-'+mSel).classList.add('matched');document.getElementById('mw-'+mSel).onclick=null;
+    mDone[v.id]=true;
+    const vd=V2.find(x=>x.id===v.id);
+    const tr=document.createElement('tr');tr.innerHTML=`<td><b>${vd.w}</b></td><td>${vd.e}</td><td>${vd.sent}</td>`;
+    document.getElementById('m1-tbody').appendChild(tr);
+    document.getElementById('m1-res').style.display='block';
+    mSel=null;document.querySelectorAll('.mword').forEach(x=>x.classList.remove('sel'));
+    const n=Object.keys(mDone).length;
+    fb.textContent=n===5?'🏆 PERFECT! All 5 matched!':'✅ Correct! '+(5-n)+' more!';fb.className='fb ok';
+  } else {
+    el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),400);
+    el.classList.add('wrong');setTimeout(()=>el.classList.remove('wrong'),600);
+    fb.textContent='❌ Try a different sentence!';fb.className='fb bad';
+  }
+}
+function initMatch2(){
+  mSel2=null;mDone2={};
+  document.getElementById('m2-res').style.display='none';
+  document.getElementById('m2-tbody').innerHTML='';
+  document.getElementById('m2-fb').textContent='';
+  const wc=document.getElementById('mw2'),sc=document.getElementById('ms2');
+  wc.innerHTML='';sc.innerHTML='';
+  const ws=[...V2].sort(()=>Math.random()-.5);
+  const ss=[...footballSents].sort(()=>Math.random()-.5);
+  ws.forEach(v=>{
+    const d=document.createElement('div');d.className='mword';d.id='mw2-'+v.id;d.innerHTML=`${v.e} ${v.w}`;
+    d.onclick=()=>{if(mDone2[v.id])return;mSel2=v.id;document.querySelectorAll('#mw2 .mword').forEach(x=>x.classList.remove('sel'));d.classList.add('sel');};
+    wc.appendChild(d);
+  });
+  ss.forEach(s=>{
+    const d=document.createElement('div');d.className='msent';d.dataset.a=s.id;d.textContent=s.sent;
+    d.onclick=()=>{
+      const fb=document.getElementById('m2-fb');
+      if(!mSel2){fb.textContent='👆 Tap a word first!';fb.className='fb bad';return;}
+      if(mSel2===s.id){
+        d.classList.add('correct');d.onclick=null;
+        document.getElementById('mw2-'+mSel2).classList.add('matched');document.getElementById('mw2-'+mSel2).onclick=null;
+        mDone2[s.id]=true;
+        const vd=V2.find(x=>x.id===s.id);
+        const tr=document.createElement('tr');tr.innerHTML=`<td><b>${vd.w}</b></td><td>${vd.e}</td><td>${s.sent}</td>`;
+        document.getElementById('m2-tbody').appendChild(tr);
+        document.getElementById('m2-res').style.display='block';
+        mSel2=null;document.querySelectorAll('#mw2 .mword').forEach(x=>x.classList.remove('sel'));
+        const n=Object.keys(mDone2).length;
+        fb.textContent=n===5?'⚽ GOAL! All football sentences matched!':'✅ Great! '+(5-n)+' more!';fb.className='fb ok';
+      } else {
+        d.classList.add('shake');setTimeout(()=>d.classList.remove('shake'),400);
+        fb.textContent='❌ Try again!';fb.className='fb bad';
+      }
+    };
+    sc.appendChild(d);
+  });
+}
+
+// ═══ MODULE 6: UNSCRAMBLE ════════════════════════════
+let usTimerID=null,usSec=0,usQIdx=0,usQScore=0,usQData=[],usQActive=false;
+function scr(w){
+  let a=w.split('');let tries=0;
+  do{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}tries++;}
+  while(a.join('')===w&&tries<15);
+  return a.join('').toUpperCase();
+}
+function initUS(){setUS('p');}
+function setUS(m){
+  document.getElementById('us-pb').classList.toggle('on',m==='p');
+  document.getElementById('us-qb').classList.toggle('on',m==='q');
+  document.getElementById('us-prac').style.display=m==='p'?'block':'none';
+  document.getElementById('us-quiz').style.display=m==='q'?'block':'none';
+  if(m==='p')initUSP();
+  if(m==='q')resetUSQ();
+}
+function initUSP(){
+  const area=document.getElementById('us-pcards');area.innerHTML='';
+  V2.forEach((v,i)=>{
+    const div=document.createElement('div');
+    div.style.cssText='background:var(--dk);border-radius:14px;padding:15px;margin-bottom:10px;text-align:center;';
+    const s=scr(v.w);
+    div.innerHTML=`<div style="color:var(--mt);font-weight:700;margin-bottom:4px;">${v.e} Word ${i+1}</div>
+      <div class="scrm-w" id="sp${i}">${s}</div>
+      <input class="sinp" id="si${i}" placeholder="Type your answer..." onkeydown="if(event.key==='Enter')chkPW(${i},'${v.w}')">
+      <div class="fb" id="sf${i}"></div>
+      <div style="display:flex;gap:7px;justify-content:center;margin-top:8px;">
+        <button class="btn" onclick="chkPW(${i},'${v.w}')" style="padding:7px 16px;font-size:.85rem;">✓ Check</button>
+        <button class="btn sec" onclick="document.getElementById('si${i}').placeholder='Hint: starts with ${v.w[0]}, has ${v.w.length} letters'" style="padding:7px 16px;font-size:.85rem;">💡 Hint</button>
+      </div>`;
+    area.appendChild(div);
+  });
+}
+function chkPW(i,ans){
+  const inp=document.getElementById('si'+i);
+  const fb=document.getElementById('sf'+i);
+  if(inp.value.trim().toLowerCase()===ans.toLowerCase()){
+    fb.textContent='✅ Correct! "'+ans+'"';fb.className='fb ok';
+    inp.style.borderColor='var(--su)';inp.disabled=true;
+  } else {
+    fb.textContent='❌ Try again!';fb.className='fb bad';
+    inp.classList.add('shake');setTimeout(()=>inp.classList.remove('shake'),400);
+  }
+}
+function startUSQ(){
+  usQData=[...V2].sort(()=>Math.random()-.5).map(v=>({...v,s:scr(v.w)}));
+  usQIdx=0;usQScore=0;usSec=0;usQActive=true;
+  if(usTimerID)clearInterval(usTimerID);
+  usTimerID=setInterval(()=>{usSec++;const m=Math.floor(usSec/60),s=usSec%60;document.getElementById('us-timer').textContent=m+':'+(s<10?'0':'')+s;},1000);
+  renderUSQ();
+}
+function renderUSQ(){
+  const area=document.getElementById('us-qcard');area.innerHTML='';
+  document.getElementById('us-score').textContent='Score: '+usQScore+' / 5';
+  if(usQIdx>=5){clearInterval(usTimerID);usQActive=false;const m=Math.floor(usSec/60),s=usSec%60;area.innerHTML=`<div style="text-align:center;background:var(--dk);border-radius:14px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:7px;">🏆</div><div style="font-size:1.1rem;font-weight:900;color:var(--ye);">Done! Score: ${usQScore}/5</div><div style="color:var(--mt);margin-top:5px;">Time: ${m}:${(s<10?'0':'')+s}</div></div>`;return;}
+  const v=usQData[usQIdx];
+  area.innerHTML=`<div style="background:var(--dk);border-radius:14px;padding:18px;text-align:center;">
+    <div style="color:var(--mt);font-weight:700;margin-bottom:5px;">${v.e} Q${usQIdx+1}/5</div>
+    <div class="scrm-w">${v.s}</div>
+    <input class="sinp" id="q-inp" placeholder="Type the word!" onkeydown="if(event.key==='Enter')subUSQ()">
+    <div class="fb" id="q-fb"></div>
+    <div style="display:flex;gap:7px;justify-content:center;margin-top:9px;">
+      <button class="btn" onclick="subUSQ()">✓ Submit</button>
+      <button class="btn sec" onclick="skipUSQ()">Skip →</button>
+    </div></div>`;
+  setTimeout(()=>{const i=document.getElementById('q-inp');if(i)i.focus();},100);
+}
+function subUSQ(){
+  const inp=document.getElementById('q-inp'),fb=document.getElementById('q-fb');
+  if(!inp)return;
+  const v=usQData[usQIdx];
+  if(inp.value.trim().toLowerCase()===v.w){usQScore++;fb.textContent='⚽ Correct!';fb.className='fb ok';inp.disabled=true;setTimeout(()=>{usQIdx++;renderUSQ();},900);}
+  else{fb.textContent='❌ Try again! ('+v.w.length+' letters)';fb.className='fb bad';inp.classList.add('shake');setTimeout(()=>inp&&inp.classList.remove('shake'),400);}
+}
+function skipUSQ(){const v=usQData[usQIdx];const fb=document.getElementById('q-fb');if(fb){fb.textContent='Answer: '+v.w;fb.className='fb bad';}setTimeout(()=>{usQIdx++;renderUSQ();},1100);}
+function resetUSQ(){if(usTimerID)clearInterval(usTimerID);usSec=0;usQScore=0;usQIdx=0;usQActive=false;document.getElementById('us-timer').textContent='0:00';document.getElementById('us-score').textContent='Score: 0 / 5';document.getElementById('us-qcard').innerHTML='<div style="text-align:center;padding:18px;color:var(--mt);">Press ▶ Start when ready!</div>';}
+
+// ═══ MODULE 7: PRACTICE ══════════════════════════════
+const pFill=[
+  {pre:'1. How do you ',blank:'use',suf:" a hula hoop? It's easy."},
+  {pre:'2. ',blank:'Put',suf:' the hula hoop on the ground. Stand in the middle.'},
+  {pre:'3. ',blank:'Lift',suf:' the hoop to your waist.'},
+  {pre:'4. ',blank:'Move',suf:" your waist in a circle. Don't hold the hoop!"},
+  {pre:'5. The hoop ',blank:'turns',suf:' around and around. Can you feel it?'}
+];
+let pSelChip=null,pBlanks={};
+function initPrac(){
+  pSelChip=null;pBlanks={};
+  const bank=document.getElementById('p-bank');
+  if(bank){bank.innerHTML='';pFill.forEach((f,i)=>{const c=document.createElement('div');c.className='wchip';c.id='pc'+i;c.textContent=f.blank;c.onclick=()=>{document.querySelectorAll('#p-bank .wchip').forEach(x=>x.classList.remove('sel'));pSelChip={i,w:f.blank};c.classList.add('sel');};bank.appendChild(c);});}
+  const ft=document.getElementById('p-fill');
+  if(ft){ft.innerHTML='';pFill.forEach((f,i)=>{const p=document.createElement('p');p.style.marginBottom='9px';p.innerHTML=`${f.pre}<span class="blank" id="pb${i}" onclick="pClickBlank(${i})">&nbsp;&nbsp;&nbsp;&nbsp;</span>${f.suf}`;ft.appendChild(p);});}
+  document.getElementById('p-fill-fb').textContent='';
+  initOrder();initWBQ();initWBFill2();
+}
+function pClickBlank(i){
+  if(!pSelChip){document.getElementById('p-fill-fb').textContent='👆 Tap a word first!';document.getElementById('p-fill-fb').className='fb bad';return;}
+  if(pBlanks[i]!==undefined){const old=document.getElementById('pc'+pBlanks[i]);if(old)old.classList.remove('used');}
+  const bl=document.getElementById('pb'+i);bl.textContent=pSelChip.w;bl.classList.add('filled');
+  pBlanks[i]=pSelChip.i;document.getElementById('pc'+pSelChip.i).classList.add('used');
+  pSelChip=null;document.querySelectorAll('#p-bank .wchip').forEach(x=>x.classList.remove('sel'));
+  document.getElementById('p-fill-fb').textContent='';
+}
+function chkFill(){
+  let ok=0;
+  pFill.forEach((f,i)=>{
+    const bl=document.getElementById('pb'+i);
+    if(bl.textContent.toLowerCase()===f.blank.toLowerCase()){ok++;bl.style.background='var(--su)';}
+    else{bl.style.background='var(--er)';}
+  });
+  const fb=document.getElementById('p-fill-fb');
+  fb.textContent=ok===5?'🏆 PERFECT! All correct!':ok+'/5 correct. Tap a filled blank to reset it!';
+  fb.className=ok===5?'fb ok':'fb bad';
+}
+
+const cOrder=['Put the hula hoop on the ground. Stand in the middle.','Lift the hoop to your waist.',"Move your waist in a circle. Don't hold the hoop!",'The hoop turns around and around. Can you feel it?'];
+let ordData=[];
+function initOrder(){ordData=[...cOrder].sort(()=>Math.random()-.5);renderOrder();}
+function renderOrder(){
+  const l=document.getElementById('p-order');if(!l)return;l.innerHTML='';
+  ordData.forEach((t,i)=>{const d=document.createElement('div');d.className='rank-item';d.innerHTML=`<div class="rank-num" style="background:var(--bl);">${i+1}</div><div style="flex:1;font-size:.86rem;">${t}</div><div class="rank-arr"><button class="rarr" onclick="mvOrd(${i},-1)">↑</button><button class="rarr" onclick="mvOrd(${i},1)">↓</button></div>`;l.appendChild(d);});
+}
+function mvOrd(i,d){const j=i+d;if(j<0||j>=ordData.length)return;[ordData[i],ordData[j]]=[ordData[j],ordData[i]];renderOrder();}
+function chkOrder(){
+  let ok=0;ordData.forEach((t,i)=>{if(t===cOrder[i])ok++;});
+  const fb=document.getElementById('p-order-fb');
+  fb.textContent=ok===4?'🏆 Perfect order! You know all 4 steps!':ok+'/4 correct. Keep rearranging!';
+  fb.className=ok===4?'fb ok':'fb bad';
+}
+
+const wbQs=[{q:"What does Irma have?",opts:["A new ball","A hula hoop","A new table invention","A phone"],a:2},{q:"How does Irma move it?",opts:["She lifts it","She turns it","Across the table","In circles"],a:2},{q:"What do the wheels do?",opts:["They lift","They move","They put","They turn"],a:3},{q:"What does Daniel suggest?",opts:["Use both hands","Lift the bottle","Move the table","Turn the wheels"],a:1},{q:"What does Daniel think?",opts:["It's cool","It's useful","It's silly","It's amazing"],a:2}];
+function initWBQ(){
+  const area=document.getElementById('wb-qs');if(!area)return;area.innerHTML='';
+  wbQs.forEach((q,i)=>{
+    const div=document.createElement('div');div.style.cssText='background:var(--dk);border-radius:12px;padding:12px;margin-bottom:8px;';
+    div.innerHTML=`<div style="font-weight:700;margin-bottom:7px;font-size:.88rem;">${i+1}. ${q.q}</div><div style="display:flex;flex-direction:column;gap:5px;" id="wbq${i}"></div><div class="fb" id="wbqf${i}"></div>`;
+    area.appendChild(div);
+    const od=document.getElementById('wbq'+i);
+    q.opts.forEach((opt,j)=>{const b=document.createElement('button');b.className='aopt';b.textContent=opt;b.onclick=()=>{od.querySelectorAll('.aopt').forEach(x=>x.onclick=null);if(j===q.a){b.classList.add('correct');document.getElementById('wbqf'+i).textContent='✅ Correct!';document.getElementById('wbqf'+i).className='fb ok';}else{b.classList.add('wrong');od.querySelectorAll('.aopt')[q.a].classList.add('correct');document.getElementById('wbqf'+i).textContent='❌ See green!';document.getElementById('wbqf'+i).className='fb bad';}};od.appendChild(b);});
+  });
+}
+
+function initWBFill2(){
+  const area=document.getElementById('wb-fill2');if(!area)return;area.innerHTML='';
+  [{s:'I ___ the bottle with both hands.',a:'lift',opts:['move','lift','turn','use']},{s:'The wheels ___ when you push the table toy.',a:'turn',opts:['put','use','turn','move']},{s:'___ the sauce on your fries.',a:'Put',opts:['Lift','Move','Put','Turn']},{s:'How do you ___ this invention?',a:'use',opts:['move','use','put','lift']},{s:'___ it across the table to your friend!',a:'Move',opts:['Turn','Move','Lift','Put']}].forEach((q,i)=>{
+    const div=document.createElement('div');div.style.cssText='background:var(--dk);border-radius:12px;padding:12px;margin-bottom:8px;';
+    div.innerHTML=`<div style="font-size:.9rem;margin-bottom:7px;">${i+1}. "${q.s.replace('___','<b style="color:var(--or);">___</b>')}"</div><div style="display:flex;flex-wrap:wrap;gap:6px;" id="wbf2-${i}"></div><div class="fb" id="wbf2f-${i}"></div>`;
+    area.appendChild(div);
+    const od=document.getElementById('wbf2-'+i);
+    q.opts.forEach(opt=>{const b=document.createElement('button');b.style.cssText='background:var(--mid);border:2px solid var(--bdr);color:var(--lt);padding:5px 12px;border-radius:10px;cursor:pointer;font-family:Nunito,sans-serif;font-weight:700;font-size:.85rem;';b.textContent=opt;b.onclick=()=>{od.querySelectorAll('button').forEach(x=>x.onclick=null);if(opt.toLowerCase()===q.a.toLowerCase()){b.style.background='rgba(34,197,94,.2)';b.style.borderColor='var(--su)';b.style.color='#86EFAC';document.getElementById('wbf2f-'+i).textContent='✅ Correct!';document.getElementById('wbf2f-'+i).className='fb ok';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='var(--er)';b.style.color='#FCA5A5';od.querySelectorAll('button').forEach(x=>{if(x.textContent.toLowerCase()===q.a.toLowerCase())x.style.background='rgba(34,197,94,.2)';});document.getElementById('wbf2f-'+i).textContent='❌ See green!';document.getElementById('wbf2f-'+i).className='fb bad';}};od.appendChild(b);});
+  });
+}
+
+// ═══ MODULE 8: STRATEGY ══════════════════════════════
+const sortData=[{t:'Move your waist in a circle.',a:true},{t:'You should turn the wheel.',a:false},{t:'I put the ball in the goal.',a:false},{t:'Lift the ball over the wall!',a:true},{t:'Use your imagination!',a:true},{t:'He moves the toy down the stairs.',a:false},{t:'First, put the sticker in the box.',a:true},{t:'They use batteries for power.',a:false}];
+let sortAns={};
+function initSort(){
+  sortAns={};
+  const area=document.getElementById('sort-area');if(!area)return;area.innerHTML='';
+  sortData.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='sort-item';
+    d.innerHTML=`<span style="flex:1;">"${item.t}"</span><div class="sbtns"><button class="sbtn y" id="sy${i}" onclick="sortPick(${i},true)">✅ YES</button><button class="sbtn n" id="sn${i}" onclick="sortPick(${i},false)">❌ NO</button></div>`;
+    area.appendChild(d);
+  });
+  document.getElementById('sort-fb').textContent='';
+}
+function sortPick(i,v){sortAns[i]=v;document.getElementById('sy'+i).classList.toggle('on',v);document.getElementById('sn'+i).classList.toggle('on',!v);}
+function chkSort(){
+  let ok=0;
+  sortData.forEach((item,i)=>{
+    const ch=sortAns[i];if(ch===undefined)return;
+    if(ch===item.a){ok++;(item.a?document.getElementById('sy'+i):document.getElementById('sn'+i)).style.background='var(--su)';}
+    else{(ch?document.getElementById('sy'+i):document.getElementById('sn'+i)).style.background='var(--er)';(item.a?document.getElementById('sy'+i):document.getElementById('sn'+i)).style.background='var(--su)';}
+  });
+  const fb=document.getElementById('sort-fb');fb.textContent=ok+' / '+sortData.length+' correct!';fb.className=ok>=6?'fb ok':'fb bad';
+}
+
+const fixData=[
+  {orig:'You put the hoop on the ground.',fixed:'Put the hoop on the ground.'},
+  {orig:'I lift the ball over the wall.',fixed:'Lift the ball over the wall.'},
+  {orig:'We move to the right side.',fixed:'Move to the right side.'},
+  {orig:'You use your left foot.',fixed:'Use your left foot.'},
+  {orig:'He turns the wheel slowly.',fixed:'Turn the wheel slowly.'}
+];
+function initFix(){
+  const area=document.getElementById('fix-area');if(!area)return;area.innerHTML='';
+  fixData.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='fix-row';
+    d.innerHTML=`<div class="fix-orig">❌ "${item.orig}"</div><input class="fixinp" id="fi${i}" placeholder="Write the correct imperative..." onkeydown="if(event.key==='Enter')chkFI(${i})"><div class="fix-fb" id="fif${i}"></div>`;
+    area.appendChild(d);
+  });
+}
+function chkFI(i){
+  const inp=document.getElementById('fi'+i),fb=document.getElementById('fif'+i);
+  const ans=inp.value.trim().toLowerCase().replace(/[.!?]$/,'');
+  const cor=fixData[i].fixed.toLowerCase().replace(/[.!?]$/,'');
+  const firstWord=fixData[i].fixed.split(' ')[0].toLowerCase();
+  if(ans===cor||ans.startsWith(firstWord)&&ans.length>firstWord.length){fb.textContent='✅ Correct imperative!';fb.className='fix-fb ok';inp.style.borderColor='var(--su)';}
+  else{fb.textContent=`❌ Remove the subject! Start with: "${fixData[i].fixed.split(' ')[0]}"`;fb.className='fix-fb bad';}
+}
+function chkFix(){fixData.forEach((_,i)=>chkFI(i));}
+
+const seqSteps=['Put the hula hoop on the ground.','Lift the hoop to your waist.',"Move your waist in a circle.",'The hoop turns around and around!'];
+const seqLabs=['First,','Next,','Then,','Finally,'];
+let seqSlot=['','','',''],seqUsed={};
+function initSeq(){
+  seqSlot=['','','',''];seqUsed={};
+  const bank=document.getElementById('seq-bank');if(!bank)return;bank.innerHTML='';
+  [...seqSteps].sort(()=>Math.random()-.5).forEach((s,i)=>{
+    const c=document.createElement('div');c.className='sqchip';c.id='sqc'+i;c.dataset.t=s;c.textContent=s;
+    c.onclick=()=>seqClick(c,i,s);bank.appendChild(c);
+  });
+  const sl=document.getElementById('seq-slots');if(!sl)return;sl.innerHTML='';
+  seqLabs.forEach((lab,i)=>{
+    const d=document.createElement('div');d.className='sqslot';d.id='sqs'+i;
+    d.innerHTML=`<span style="color:var(--ye);font-weight:800;flex-shrink:0;">${lab}</span><span id="sqst${i}" style="color:var(--mt);">tap a step...</span>`;
+    d.onclick=()=>seqClear(i);sl.appendChild(d);
+  });
+  document.getElementById('seq-fb').textContent='';
+}
+function seqClick(chip,ci,text){
+  if(seqUsed[ci])return;
+  for(let s=0;s<4;s++){if(!seqSlot[s]){seqFill(s,ci,text,chip);return;}}
+}
+function seqFill(si,ci,text,chip){
+  seqSlot[si]=text;seqUsed[ci]=true;chip.classList.add('used');
+  document.getElementById('sqst'+si).textContent=text;document.getElementById('sqst'+si).style.color='var(--lt)';
+  document.getElementById('sqs'+si).classList.add('filled');document.getElementById('sqs'+si).dataset.ci=ci;
+}
+function seqClear(si){
+  const sl=document.getElementById('sqs'+si);if(!sl||!sl.classList.contains('filled'))return;
+  const ci=parseInt(sl.dataset.ci);seqSlot[si]='';delete seqUsed[ci];
+  const chip=document.getElementById('sqc'+ci);if(chip)chip.classList.remove('used');
+  document.getElementById('sqst'+si).textContent='tap a step...';document.getElementById('sqst'+si).style.color='var(--mt)';
+  sl.classList.remove('filled');delete sl.dataset.ci;
+}
+function chkSeq(){
+  let ok=0;
+  seqSteps.forEach((s,i)=>{const sl=document.getElementById('sqs'+i);if(!sl)return;if(seqSlot[i]===s){ok++;sl.style.borderColor='var(--su)';}else sl.style.borderColor='var(--er)';});
+  const fb=document.getElementById('seq-fb');fb.textContent=ok===4?'🏆 Perfect! You built the instructions correctly!':ok+'/4 correct. Tap a filled slot to clear it.';fb.className=ok===4?'fb ok':'fb bad';
+}
+function chkFW(){
+  const t=document.getElementById('fw-area').value.trim().toLowerCase();
+  const fb=document.getElementById('fw-fb');
+  const sw=['first','next','then','finally'],aw=['put','move','use','lift','turn'];
+  const hs=sw.filter(w=>t.includes(w)).length,ha=aw.filter(w=>t.includes(w)).length;
+  if(hs>=3&&ha>=2){fb.textContent='🏆 Excellent! Sequence words AND action words used!';fb.className='fb ok';}
+  else if(hs>=2||ha>=2){fb.textContent='✅ Good! Try adding more sequence words or action words!';fb.className='fb ok';}
+  else{fb.textContent='💡 Use: First/Next/Then/Finally + put/move/use/lift/turn!';fb.className='fb bad';}
+}
+
+// ═══ MODULE 9: RANKING ═══════════════════════════════
+let rankD=[];
+function initRank(){rankD=[...V2].sort(()=>Math.random()-.5);renderRank();initPLQs();}
+function renderRank(){
+  const l=document.getElementById('rank-list');if(!l)return;l.innerHTML='';
+  rankD.forEach((v,i)=>{const d=document.createElement('div');d.className='rank-item';d.innerHTML=`<div class="rank-num">${i+1}</div><span style="font-size:1.6rem;">${v.e}</span><div style="flex:1;font-weight:800;">${v.w}</div><div class="rank-arr"><button class="rarr" onclick="mvRank(${i},-1)">↑</button><button class="rarr" onclick="mvRank(${i},1)">↓</button></div>`;l.appendChild(d);});
+  document.getElementById('rank-res').style.display='none';
+}
+function mvRank(i,d){const j=i+d;if(j<0||j>=rankD.length)return;[rankD[i],rankD[j]]=[rankD[j],rankD[i]];renderRank();}
+const rkSoc=[{id:'lift',s:"I lift the ball with a chip shot — just like Cherki at PSG!"},{id:'move',s:"I move fast down the wing — like Kvaratskhelia in Ligue 1!"},{id:'put',s:"I put the ball in the net — like Haaland for Man City!"},{id:'turn',s:"The ball turns in the air when I curl my free kick!"},{id:'use',s:"I use my right foot to shoot and my left to pass!"}];
+function showRankRes(){
+  const body=document.getElementById('rank-res-body');body.innerHTML='';
+  rankD.forEach((v,i)=>{const s=rkSoc.find(x=>x.id===v.id);const d=document.createElement('div');d.style.cssText='background:var(--dk);border-radius:10px;padding:9px 14px;margin-bottom:7px;display:flex;gap:9px;align-items:flex-start;';d.innerHTML=`<div class="rank-num" style="flex-shrink:0;">${i+1}</div><div><div style="font-weight:800;">${v.e} ${v.w}</div><div style="font-size:.81rem;color:var(--mt);margin-top:2px;font-style:italic;">"${s.s}"</div></div>`;body.appendChild(d);});
+  document.getElementById('rank-res').style.display='block';
+}
+function initPLQs(){
+  const area=document.getElementById('pl-qs');if(!area)return;area.innerHTML='';
+  [{q:"Kvaratskhelia _____ past two defenders in the Ligue 1 match for PSG!",a:'move',opts:['lift','put','move','use']},{q:"Before his free kick, Cherki _____ the ball carefully on the ground.",a:'put',opts:['put','turn','move','lift']},{q:"The ball _____ in the air as Bellingham bends his shot for Real Madrid!",a:'turn',opts:['move','use','turn','put']},{q:"Salah _____ incredible speed and skill to score for Liverpool!",a:'use',opts:['use','lift','turn','move']},{q:"Haaland _____ the ball into the top corner — Man City score!",a:'lift',opts:['move','put','use','lift']}].forEach((q,i)=>{
+    const div=document.createElement('div');div.style.cssText='background:var(--dk);border-radius:12px;padding:12px;margin-bottom:9px;border-left:3px solid var(--or);';
+    div.innerHTML=`<div style="font-size:.86rem;margin-bottom:7px;">⚽ ${q.q.replace(/_____/,'<b style="color:var(--or);">_____</b>')}</div><div style="display:flex;flex-wrap:wrap;gap:6px;" id="plq${i}"></div><div class="fb" id="plqf${i}"></div>`;
+    area.appendChild(div);
+    const od=document.getElementById('plq'+i);
+    q.opts.forEach(opt=>{const b=document.createElement('button');b.style.cssText='background:var(--mid);border:2px solid var(--bdr);color:var(--lt);padding:5px 12px;border-radius:10px;cursor:pointer;font-family:Nunito,sans-serif;font-weight:700;font-size:.83rem;transition:all .2s;';b.textContent=opt;b.onclick=()=>{od.querySelectorAll('button').forEach(x=>x.onclick=null);if(opt===q.a){b.style.background='rgba(34,197,94,.2)';b.style.borderColor='var(--su)';b.style.color='#86EFAC';document.getElementById('plqf'+i).textContent='✅ Correct!';document.getElementById('plqf'+i).className='fb ok';}else{b.style.background='rgba(239,68,68,.2)';b.style.borderColor='var(--er)';b.style.color='#FCA5A5';od.querySelectorAll('button').forEach(x=>{if(x.textContent===q.a)x.style.background='rgba(34,197,94,.2)';});document.getElementById('plqf'+i).textContent='❌ See green!';document.getElementById('plqf'+i).className='fb bad';}};od.appendChild(b);});
+  });
+}
+
+// ═══ MODULE 10: ROLE PLAY ════════════════════════════
+const rpLines=[
+  {pre:"Leo 💬: \"First, ",blank:"put",suf:" the boot flat on the ground.\""},
+  {pre:"Leo 💬: \"Next, ",blank:"lift",suf:" the tongue up and put your foot inside.\""},
+  {pre:"Leo 💬: \"Then ",blank:"use",suf:" both hands to tie the laces tightly.\""},
+  {pre:"Leo 💬: \"Finally, ",blank:"move",suf:" your foot left and right to check comfort!\""},
+  {pre:"Dad 💬: \"And the laces ",blank:"turn",suf:" into loops when you tie the bow! ✅\""}
+];
+function initRP(){
+  const area=document.getElementById('rp-fill');if(!area)return;area.innerHTML='';
+  rpLines.forEach((line,i)=>{
+    const d=document.createElement('div');d.style.cssText='background:var(--dk);border-radius:10px;padding:10px 14px;margin-bottom:7px;font-size:.88rem;line-height:2;';
+    d.innerHTML=`${line.pre}<input class="rp-inp" id="rpi${i}" placeholder="word..." onkeydown="if(event.key==='Enter')chkRPItem(${i})">${line.suf}`;
+    area.appendChild(d);
+  });
+  document.getElementById('rp-fb').textContent='';
+}
+function chkRPItem(i){
+  const inp=document.getElementById('rpi'+i);
+  const ans=inp.value.trim().toLowerCase();
+  if(ans===rpLines[i].blank.toLowerCase()){inp.style.borderColor='var(--su)';}
+  else{inp.style.borderColor='var(--er)';inp.classList.add('shake');setTimeout(()=>inp.classList.remove('shake'),400);}
+}
+function chkRP(){
+  let ok=0;
+  rpLines.forEach((line,i)=>{
+    const inp=document.getElementById('rpi'+i);
+    if(inp.value.trim().toLowerCase()===line.blank.toLowerCase()){ok++;inp.style.borderColor='var(--su)';}
+    else{inp.style.borderColor='var(--er)';}
+  });
+  const fb=document.getElementById('rp-fb');fb.textContent=ok===5?'🏆 Perfect! All dialogue words correct!':ok+'/5 correct. Check the highlighted gaps!';fb.className=ok===5?'fb ok':'fb bad';
+}
+
+let curTopic={label:'football ⚽',steps:['put the ball on the penalty spot','move back 5 steps','use your strongest foot','lift your arms to celebrate']};
+function selTopic(el,label,s1,s2,s3,s4){
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('on'));el.classList.add('on');
+  curTopic={label,steps:[s1,s2,s3,s4]};
+  document.getElementById('topic-hint').textContent='💡 Topic: '+label+' — try to use all 5 action words!';
+  document.getElementById('rp-sample').style.display='none';
+}
+function showSample(){
+  const s=curTopic.steps;
+  document.getElementById('rp-sample').innerHTML=`<b>📝 Sample for ${curTopic.label}:</b><br>First, ${s[0]}.<br>Next, ${s[1]}.<br>Then, ${s[2]}.<br>Finally, ${s[3]}! ⭐`;
+  document.getElementById('rp-sample').style.display='block';
+}
+
+// ═══ MODULE 11: CAN LEO DRIBBLE? ════════════════════
+const dribQs=[
+  {type:'mc',q:'Which word means "to raise something up"?',opts:['move','lift','turn','put'],a:1},
+  {type:'fill',q:'_____ the hula hoop on the ground. Stand in the middle.',a:'Put',hint:'Starts with P'},
+  {type:'mc',q:'Kvaratskhelia _____ at incredible speed for PSG — which word fits?',opts:['put','lift','move','turn'],a:2},
+  {type:'fill',q:'How do you _____ that toy? Follow these instructions!',a:'use',hint:'Starts with U'},
+  {type:'mc',q:'Which sentence is a correct imperative instruction?',opts:['You lift the ball.','I put it down.','Move your waist in a circle!','He turns the wheel.'],a:2},
+  {type:'fill',q:'The wheels _____ when you push the table invention.',a:'turn',hint:'Starts with T'},
+  {type:'mc',q:'Which sequence word comes FIRST?',opts:['Finally','Then','First','Next'],a:2},
+  {type:'fill',q:'Haaland _____ the ball in the net — Man City score!',a:'puts',hint:'Starts with P (he/she form)'},
+  {type:'mc',q:'Which sentence uses an action word CORRECTLY?',opts:["Don't move! I'm taking a photo!","I am lift my arms.","He use his foot.","Turn the wheel it."],a:0},
+  {type:'mc',q:'What does "use" mean in "How do you use that toy?"',opts:['to throw','to do something with an object','to place somewhere','to raise up'],a:1}
+];
+let dribI=0,dribSc=0,dribActive=false;
+function initDrib(){
+  dribI=0;dribSc=0;dribActive=false;
+  document.getElementById('drib-qn').textContent='0';
+  document.getElementById('drib-sc').textContent='0';
+  document.getElementById('drib-prog').style.width='0%';
+  document.getElementById('drib-area').innerHTML='';
+  document.getElementById('drib-end').style.display='none';
+  document.getElementById('goal-anim').style.display='none';
+  renderDrib();
+}
+function renderDrib(){
+  document.getElementById('drib-qn').textContent=dribI;
+  document.getElementById('drib-sc').textContent=dribSc;
+  document.getElementById('drib-prog').style.width=(dribI/10*100)+'%';
+  if(dribI>=dribQs.length){endDrib();return;}
+  const q=dribQs[dribI];
+  const area=document.getElementById('drib-area');area.innerHTML='';
+  const div=document.createElement('div');div.className='dq fadein';
+  if(q.type==='mc'){
+    div.innerHTML=`<div class="dq-txt">${dribI+1}. ${q.q}</div><div class="dq-opts">${q.opts.map((opt,j)=>`<div class="dopt" onclick="answerDrib(${j},${q.a},this)">${opt}</div>`).join('')}</div>`;
+  } else {
+    div.innerHTML=`<div class="dq-txt">${dribI+1}. ${q.q.replace(/_____/,'<b style="color:var(--ye);">_____</b>')}</div>
+      <input class="sinp" style="margin:0 auto 10px;" id="d-inp" placeholder="Type the word..." onkeydown="if(event.key==='Enter')answerDribFill()">
+      <div style="font-size:.78rem;color:var(--mt);text-align:center;margin-bottom:8px;">💡 ${q.hint}</div>
+      <div style="text-align:center;"><button class="btn" onclick="answerDribFill()">✓ Submit</button></div>
+      <div class="fb" id="d-fb"></div>`;
+  }
+  area.appendChild(div);
+  if(q.type==='fill')setTimeout(()=>{const i=document.getElementById('d-inp');if(i)i.focus();},100);
+}
+function answerDrib(chosen,correct,el){
+  const opts=document.querySelectorAll('.dopt');opts.forEach(o=>o.onclick=null);
+  if(chosen===correct){el.classList.add('correct');dribSc++;showGoal();}
+  else{el.classList.add('wrong');opts[correct].classList.add('correct');}
+  setTimeout(()=>{dribI++;renderDrib();},1400);
+}
+function answerDribFill(){
+  const inp=document.getElementById('d-inp'),fb=document.getElementById('d-fb');
+  if(!inp)return;
+  const q=dribQs[dribI];
+  const ans=inp.value.trim().toLowerCase(),cor=q.a.toLowerCase();
+  if(ans===cor||ans===cor.replace(/s$/,'')){
+    fb.textContent='⚽ Correct!';fb.className='fb ok';inp.disabled=true;dribSc++;showGoal();
+    setTimeout(()=>{dribI++;renderDrib();},1000);
+  } else {
+    fb.textContent='❌ Try again!';fb.className='fb bad';inp.classList.add('shake');setTimeout(()=>inp&&inp.classList.remove('shake'),400);
+  }
+}
+function showGoal(){
+  const g=document.getElementById('goal-anim');g.style.display='block';g.style.animation='none';setTimeout(()=>{g.style.animation='goalPop .5s';},10);setTimeout(()=>{g.style.display='none';},1000);
+}
+function endDrib(){
+  document.getElementById('drib-area').innerHTML='';
+  const end=document.getElementById('drib-end');end.style.display='block';
+  document.getElementById('drib-final').textContent=dribSc+' / 10';
+  const msgs=[["Don't worry! Review the words and try again! 💪","Keep going — practice makes perfect!"],["Good effort! You're learning! 🌱","Almost there — review and retry!"],["Great job! You know these words! ⭐","Almost perfect! Try again for 10/10!"],["🏆 PERFECT! Leo can dribble all the way to the goal! 🥅 You NAILED it!","🏆 PERFECT! Leo dribbles like Kvaratskhelia!"]];
+  const tier=dribSc<=3?0:dribSc<=6?1:dribSc<=9?2:3;
+  document.getElementById('drib-msg').textContent=msgs[tier][dribSc===10?1:0];
+}
+
+// ═══ MODULE 12: ASSESSMENT ════════════════════════════
+const assessQs=[
+  {type:'mc',q:'Which word means "to raise something to a higher position"?',opts:['move','turn','lift','put'],a:2},
+  {type:'mc',q:'Complete: "_____ the hula hoop on the ground. Stand in the middle."',opts:['Move','Lift','Use','Put'],a:3},
+  {type:'mc',q:'Which is a correct imperative instruction?',opts:['You move your waist.','I lift the ball.','Move your waist in a circle!','He puts it down.'],a:2},
+  {type:'mc',q:'Which sequence word shows the LAST step?',opts:['First','Next','Then','Finally'],a:3},
+  {type:'mc',q:'Kvaratskhelia _____ past defenders at incredible speed for PSG.',opts:['puts','lifts','moves','turns'],a:2},
+  {type:'mc',q:'What do wheels do when a toy rolls down the stairs?',opts:['They lift','They put','They move','They turn'],a:3}
+];
+let assessAns={};
+function initAssess(){
+  assessAns={};
+  const area=document.getElementById('assess-area');area.innerHTML='';
+  document.getElementById('assess-res').style.display='none';
+  document.getElementById('assess-submit').style.display='block';
+  assessQs.forEach((q,i)=>{
+    const div=document.createElement('div');div.className='assess-q';
+    div.innerHTML=`<div style="font-weight:700;font-size:.93rem;margin-bottom:10px;">${i+1}. ${q.q}</div><div class="aq-opts" id="aq${i}"></div><div class="fb" id="aqf${i}"></div>`;
+    area.appendChild(div);
+    const od=document.getElementById('aq'+i);
+    q.opts.forEach((opt,j)=>{const b=document.createElement('button');b.className='aopt';b.textContent=opt;b.onclick=()=>{assessAns[i]=j;od.querySelectorAll('.aopt').forEach(x=>{x.classList.remove('correct','wrong');x.style.background='';x.style.borderColor='';x.style.color='';});b.style.background='rgba(59,130,246,.2)';b.style.borderColor='var(--bl)';};od.appendChild(b);});
+  });
+}
+function subAssess(){
+  let ok=0,missing=false;
+  assessQs.forEach((q,i)=>{
+    if(assessAns[i]===undefined){missing=true;return;}
+    const od=document.getElementById('aq'+i);
+    od.querySelectorAll('.aopt').forEach(b=>b.onclick=null);
+    if(assessAns[i]===q.a){ok++;od.querySelectorAll('.aopt')[q.a].classList.add('correct');}
+    else{od.querySelectorAll('.aopt')[assessAns[i]].classList.add('wrong');od.querySelectorAll('.aopt')[q.a].classList.add('correct');}
+  });
+  if(missing){alert('Please answer all 6 questions!');return;}
+  document.getElementById('assess-submit').style.display='none';
+  const res=document.getElementById('assess-res');res.style.display='block';
+  document.getElementById('assess-score').textContent=ok+' / 6';
+  const msgs=[
+    "Keep reviewing the action words — you can do it! 💪",
+    "Good start! Review lift, move, put, turn, use and try again! 📚",
+    "Well done! A few more reviews and you'll get 6/6! ⭐",
+    "Excellent! You almost have all the words! 🏆",
+    "Outstanding! Nearly perfect! 🌟",
+    "🏆 PERFECT SCORE! Leo has mastered ALL the action words! Kvaratskhelia-level skills! ⚽"
+  ];
+  document.getElementById('assess-msg').textContent=msgs[ok];
+  document.getElementById('assess-res').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══ INIT CALLS ══════════════════════════════════════
+initMatch();initMatch2();initUS();initStrat();initRank();initRP();initAssess();
+function initStrat(){initSort();initFix();initSeq();}
+</script>
+</body>
+</html>
