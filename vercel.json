@@ -12,14 +12,13 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/our-world", "destination": "/our-world.html" },
-    { "source": "/vocab-page", "destination": "/vocab-page.html" },
-    { "source": "/grammar-page", "destination": "/grammar-page.html" },
-    { "source": "/grammar-tab2-levelup", "destination": "/grammar-tab2-levelup.html" },
-    { "source": "/grammar-tab3-quiz", "destination": "/grammar-tab3-quiz.html" },
-    { "source": "/grammar-tab4-master", "destination": "/grammar-tab4-master.html" },
-    { "source": "/relatives", "destination": "/relatives.html" },
     { "source": "/vocab", "destination": "/vocab.html" },
     { "source": "/grammar", "destination": "/grammar.html" },
-    { "source": "/jh-grammar", "destination": "/jh-grammar.html" }
+    { "source": "/junior-high", "destination": "/junior-high.html" },
+    { "source": "/jh-vocab", "destination": "/jh-vocab.html" },
+    { "source": "/jh-grammar", "destination": "/jh-grammar.html" },
+    { "source": "/neritan", "destination": "/neritan.html" },
+    { "source": "/leo", "destination": "/leo.html" },
+    { "source": "/reference", "destination": "/reference.html" }
   ]
 }
