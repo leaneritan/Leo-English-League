@@ -1,10 +1,753 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 Opener — Good Idea!</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --orange:  #F97316;
+    --yellow:  #FDE047;
+    --blue:    #3B82F6;
+    --dark:    #431407;
+    --amber:   #EA580C;
+    --bg:      #FFF7ED;
+    --card:    #FFEDD5;
+    --text:    #1C1917;
+    --muted:   #78716C;
+    --green:   #16A34A;
+    --red:     #DC2626;
+    --font-h:  'Luckiest Guy', cursive;
+    --font-b:  'Nunito', sans-serif;
+    --radius:  16px;
+  }
+  body { font-family: var(--font-b); background: #1C1917; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; }
+
+  /* TOP BAR */
+  .topbar { width:100%; max-width:1400px; display:flex; align-items:center; justify-content:space-between; padding:10px 16px; gap:12px; }
+  .unit-chip { background:var(--orange); color:#fff; font-family:var(--font-h); font-size:0.85rem; letter-spacing:1px; padding:5px 14px; border-radius:20px; white-space:nowrap; }
+  .progress-wrap { flex:1; background:rgba(255,255,255,0.1); border-radius:20px; height:8px; overflow:hidden; }
+  .progress-fill { background:linear-gradient(90deg,var(--orange),var(--yellow)); height:100%; border-radius:20px; transition:width 0.4s ease; }
+  .slide-counter { color:#D6D3D1; font-size:0.82rem; font-weight:800; white-space:nowrap; }
+  .icon-btn { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:1rem; width:34px; height:34px; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s; flex-shrink:0; }
+  .icon-btn:hover { background:rgba(255,255,255,0.2); }
+
+  /* NOTES */
+  .notes-panel { display:none; background:#292524; border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius); padding:14px 18px; margin:0 0 10px; color:#D6D3D1; font-size:0.84rem; line-height:1.6; }
+  .notes-panel.open { display:block; }
+  .notes-panel strong { color:var(--yellow); }
+
+  /* SLIDE WRAP */
+  .slide-wrap { width:100%; max-width:1400px; position:relative; }
+
+  /* SLIDES */
+  .slide { display:none; background:var(--bg); border-radius:20px; overflow:hidden; min-height:calc(100vh - 130px); animation:fadeIn 0.3s ease; }
+  .slide.active { display:flex; flex-direction:column; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+  /* SLIDE HEADER */
+  .slide-header { padding:14px 28px; display:flex; align-items:center; gap:10px; font-family:var(--font-h); font-size:0.82rem; letter-spacing:1.5px; }
+  .sh-orange { background:var(--orange); color:#fff; }
+  .sh-green  { background:#16A34A; color:#fff; }
+  .sh-blue   { background:var(--blue); color:#fff; }
+  .sh-amber  { background:var(--amber); color:#fff; }
+  .sh-dark   { background:var(--dark); color:#fff; }
+  .sh-purple { background:#7C3AED; color:#fff; }
+
+  /* SLIDE BODY */
+  .slide-body { flex:1; padding:28px 36px; display:flex; flex-direction:column; gap:18px; }
+
+  /* TITLE SLIDE */
+  .title-slide { background:linear-gradient(135deg,#431407 0%,#7C2D12 50%,#C2410C 100%); min-height:calc(100vh - 130px); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; gap:16px; }
+  .title-slide .unit-label { background:rgba(255,255,255,0.15); color:var(--yellow); font-family:var(--font-h); font-size:0.9rem; letter-spacing:3px; padding:6px 20px; border-radius:20px; border:1px solid rgba(255,255,255,0.2); }
+  .title-slide h1 { font-family:var(--font-h); font-size:3.2rem; color:#fff; letter-spacing:2px; line-height:1.1; }
+  .title-slide h1 span { color:var(--yellow); }
+  .title-slide .subtitle { color:rgba(255,255,255,0.8); font-size:1.05rem; font-weight:700; }
+  .title-slide .theme-chip { background:var(--orange); color:#fff; font-weight:800; font-size:0.9rem; padding:8px 24px; border-radius:20px; margin-top:8px; }
+
+  /* SECTION SLIDES */
+  .section-slide { min-height:calc(100vh - 130px); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px; gap:14px; }
+  .section-slide .sec-emoji { font-size:4rem; }
+  .section-slide h2 { font-family:var(--font-h); font-size:2.2rem; letter-spacing:2px; }
+  .section-slide p { font-size:1rem; font-weight:600; max-width:520px; }
+  .sec-green  { background:#14532D; color:#DCFCE7; }
+  .sec-green h2 { color:#86EFAC; }
+  .sec-blue   { background:#1E3A8A; color:#DBEAFE; }
+  .sec-blue h2 { color:#93C5FD; }
+  .sec-amber  { background:#7C2D12; color:#FFEDD5; }
+  .sec-amber h2 { color:var(--yellow); }
+  .sec-intro  { background:linear-gradient(135deg,#1C1917,#44403C); color:#FFF7ED; }
+  .sec-intro h2 { color:var(--yellow); }
+  .sec-photo  { background:linear-gradient(135deg,#1E3A8A,#1D4ED8); color:#DBEAFE; }
+  .sec-photo h2 { color:#93C5FD; }
+  .sec-assess { background:linear-gradient(135deg,var(--dark),var(--amber)); color:#FFF7ED; }
+  .sec-assess h2 { color:var(--yellow); }
+
+  /* VOCAB CARD */
+  .vocab-card { background:var(--card); border:2px solid var(--orange); border-radius:var(--radius); padding:24px 28px; display:flex; align-items:flex-start; gap:20px; }
+  .vocab-card .vc-emoji { font-size:3rem; flex-shrink:0; }
+  .vocab-card .vc-word { font-family:var(--font-h); font-size:1.6rem; color:var(--amber); letter-spacing:1px; margin-bottom:6px; }
+  .vocab-card .vc-def { font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:10px; line-height:1.4; }
+  .vocab-card .vc-example { background:#fff; border-left:4px solid var(--orange); padding:8px 12px; border-radius:0 8px 8px 0; font-size:0.88rem; color:var(--muted); font-weight:600; font-style:italic; }
+
+  /* DIALOGUES */
+  .dialogue { display:flex; gap:12px; align-items:flex-start; }
+  .dialogue.leo { flex-direction:row-reverse; }
+  .avi { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+  .avi-dad { background:#1D4ED8; }
+  .avi-leo { background:#16A34A; }
+  .bubble { max-width:80%; padding:12px 16px; border-radius:16px; font-size:0.9rem; font-weight:700; line-height:1.5; }
+  .bubble-dad { background:#1D4ED8; color:#fff; border-radius:4px 16px 16px 16px; }
+  .bubble-leo { background:#16A34A; color:#fff; border-radius:16px 4px 16px 16px; }
+  .bubble-label { font-size:0.65rem; opacity:0.7; margin-bottom:4px; letter-spacing:0.5px; }
+
+  /* TEXT ELEMENTS */
+  .slide-title { font-family:var(--font-h); font-size:1.8rem; color:var(--amber); letter-spacing:1px; }
+  .slide-sub { font-size:0.9rem; font-weight:700; color:var(--muted); }
+
+  /* INFO CARD */
+  .info-card { background:var(--card); border-radius:var(--radius); padding:18px 22px; border-left:5px solid var(--orange); }
+  .info-card h3 { font-family:var(--font-h); font-size:1rem; letter-spacing:1px; color:var(--amber); margin-bottom:8px; }
+  .info-card p, .info-card li { font-size:0.88rem; font-weight:600; color:var(--text); line-height:1.6; }
+  .info-card ul { padding-left:18px; }
+
+  /* PHOTO CARD */
+  .photo-card { background:#1E3A8A; border-radius:var(--radius); padding:24px; text-align:center; color:#fff; }
+  .photo-card .photo-emoji { font-size:5rem; margin-bottom:12px; }
+  .photo-card h3 { font-family:var(--font-h); font-size:1.1rem; letter-spacing:1px; color:#93C5FD; margin-bottom:6px; }
+  .photo-card p { font-size:0.88rem; color:rgba(255,255,255,0.8); font-weight:600; line-height:1.5; }
+
+  /* Q CARD */
+  .q-card { background:#fff; border:2px solid var(--orange); border-radius:var(--radius); padding:18px 22px; }
+  .q-card .q-label { font-size:0.7rem; font-weight:800; letter-spacing:1px; color:var(--amber); margin-bottom:6px; }
+  .q-card .q-text { font-size:1.05rem; font-weight:800; color:var(--text); margin-bottom:14px; }
+  .q-card .answer-reveal { background:var(--card); border-radius:10px; padding:10px 16px; font-size:0.9rem; font-weight:700; color:var(--green); display:none; border-left:4px solid var(--green); }
+  .reveal-btn { background:var(--orange); color:#fff; border:none; font-family:var(--font-b); font-weight:800; font-size:0.82rem; padding:7px 16px; border-radius:20px; cursor:pointer; transition:background 0.2s; }
+  .reveal-btn:hover { background:var(--amber); }
+
+  /* CHOICES */
+  .choices { display:flex; gap:12px; flex-wrap:wrap; }
+  .choice-btn { background:var(--card); border:2px solid var(--orange); border-radius:var(--radius); padding:14px 20px; font-family:var(--font-b); font-weight:800; font-size:0.92rem; cursor:pointer; transition:all 0.2s; flex:1; min-width:140px; text-align:center; }
+  .choice-btn:hover { background:var(--orange); color:#fff; }
+  .choice-btn.correct { background:#DCFCE7; border-color:var(--green); color:var(--green); }
+  .choice-btn.wrong   { background:#FEE2E2; border-color:var(--red); color:var(--red); animation:shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  .choice-feedback { font-weight:800; font-size:0.9rem; display:none; padding:10px 16px; border-radius:10px; background:#DCFCE7; color:var(--green); border-left:4px solid var(--green); }
+
+  /* CAPTION */
+  .caption-box { background:#fff; border:2px solid var(--orange); border-radius:var(--radius); padding:18px; }
+  .caption-box label { display:block; font-weight:800; font-size:0.85rem; color:var(--amber); margin-bottom:8px; letter-spacing:0.5px; }
+  .caption-box textarea { width:100%; min-height:90px; border:1px solid #D6D3D1; border-radius:10px; padding:10px 14px; font-family:var(--font-b); font-size:0.92rem; font-weight:600; resize:vertical; color:var(--text); background:var(--bg); }
+  .caption-box textarea:focus { outline:2px solid var(--orange); border-color:var(--orange); }
+  .word-count { font-size:0.75rem; color:var(--muted); font-weight:700; margin-top:4px; text-align:right; }
+  .caption-hints { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .hint-chip { background:var(--card); border:1px solid var(--orange); color:var(--amber); font-size:0.78rem; font-weight:800; padding:4px 12px; border-radius:20px; cursor:pointer; transition:background 0.2s; }
+  .hint-chip:hover { background:var(--orange); color:#fff; }
+
+  /* STEPS */
+  .steps { display:flex; flex-direction:column; gap:10px; }
+  .step { background:#fff; border-radius:12px; padding:12px 16px; display:flex; align-items:flex-start; gap:12px; border:1px solid #E7E5E4; opacity:0; transform:translateY(8px); transition:all 0.3s; }
+  .step.visible { opacity:1; transform:none; }
+  .step-num { width:28px; height:28px; background:var(--orange); color:#fff; font-weight:900; font-size:0.85rem; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .step p { font-size:0.88rem; font-weight:700; color:var(--text); line-height:1.4; }
+  .step-reveal-btn { background:var(--orange); color:#fff; border:none; font-family:var(--font-b); font-weight:800; font-size:0.82rem; padding:8px 18px; border-radius:20px; cursor:pointer; align-self:flex-start; transition:background 0.2s; }
+  .step-reveal-btn:hover { background:var(--amber); }
+
+  /* HIGHLIGHT */
+  .highlight { background:var(--yellow); border-radius:12px; padding:14px 18px; color:var(--dark); font-weight:800; font-size:0.92rem; line-height:1.5; }
+  .highlight strong { color:var(--amber); }
+
+  /* TWO COL */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+  /* OVERVIEW GRID */
+  .overview-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .ov-item { background:var(--card); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:10px; border-left:4px solid var(--orange); }
+  .ov-icon { font-size:1.4rem; flex-shrink:0; }
+  .ov-label { font-size:0.7rem; font-weight:800; color:var(--amber); letter-spacing:0.5px; }
+  .ov-name { font-size:0.88rem; font-weight:800; color:var(--text); }
+
+  /* VOCAB CHIPS */
+  .vocab-chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .vocab-chip { background:var(--card); border:1px solid var(--orange); border-radius:20px; padding:5px 14px; font-size:0.82rem; font-weight:800; color:var(--amber); }
+
+  /* FORMATIVE ASSESSMENT */
+  .assess-items { display:flex; flex-direction:column; gap:10px; }
+  .assess-item { background:var(--card); border-radius:12px; padding:14px 18px; display:flex; align-items:center; gap:12px; cursor:pointer; border:2px solid transparent; transition:all 0.2s; }
+  .assess-item:hover { border-color:var(--orange); }
+  .assess-item.checked { background:#DCFCE7; border-color:var(--green); }
+  .assess-check { width:24px; height:24px; border:2px solid var(--orange); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; transition:all 0.2s; }
+  .assess-item.checked .assess-check { background:var(--green); border-color:var(--green); color:#fff; }
+  .assess-item p { font-size:0.88rem; font-weight:700; color:var(--text); }
+
+  /* EXPERT BOX */
+  .expert-box { background:#1E1B4B; border-radius:var(--radius); padding:18px 22px; color:#fff; border-left:5px solid #818CF8; }
+  .expert-box .expert-label { font-size:0.7rem; font-weight:800; letter-spacing:1px; color:#A5B4FC; margin-bottom:6px; }
+  .expert-box h3 { font-family:var(--font-h); font-size:1rem; letter-spacing:1px; color:#C7D2FE; margin-bottom:8px; }
+  .expert-box p { font-size:0.85rem; color:rgba(255,255,255,0.85); font-weight:600; line-height:1.6; }
+
+  /* IDEA BOX */
+  .idea-box { background:linear-gradient(135deg,#F97316,#FB923C); border-radius:var(--radius); padding:20px 24px; color:#fff; display:flex; gap:16px; align-items:center; }
+  .idea-box .idea-emoji { font-size:2.5rem; flex-shrink:0; }
+  .idea-box p { font-size:0.92rem; font-weight:700; line-height:1.5; }
+
+  /* NAV */
+  .nav-bar { width:100%; max-width:1400px; display:flex; align-items:center; justify-content:space-between; padding:10px 0 16px; gap:12px; }
+  .nav-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#fff; font-family:var(--font-b); font-weight:800; font-size:0.85rem; padding:10px 22px; border-radius:12px; cursor:pointer; display:flex; align-items:center; gap:6px; transition:all 0.2s; }
+  .nav-btn:hover:not(:disabled) { background:var(--orange); color:#fff; border-color:var(--orange); }
+  .nav-btn:disabled { opacity:0.3; cursor:not-allowed; }
+  .nav-btn-primary { background:var(--orange); border-color:var(--orange); color:#fff; }
+  .nav-btn-primary:hover { background:var(--amber) !important; }
+  .home-btn { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#D6D3D1; font-size:0.8rem; font-weight:700; padding:8px 14px; border-radius:10px; cursor:pointer; transition:all 0.2s; font-family:var(--font-b); }
+  .home-btn:hover { background:rgba(255,255,255,0.15); }
+</style>
 </head>
 <body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="unit-chip">💡 UNIT 7</div>
+  <div class="progress-wrap"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="slide-counter" id="slide-counter">1 / 22</div>
+  <button class="icon-btn" onclick="toggleNotes()" title="Speaker Notes">📋</button>
+  <button class="icon-btn" onclick="toggleFullscreen()" title="Fullscreen" id="fs-btn">⛶</button>
+</div>
+
+<div class="slide-wrap">
+  <div class="notes-panel" id="notes-panel"></div>
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide active" id="s1" data-notes="<strong>Say:</strong> 'Good morning Leo! Today we start Unit 7 — Good Idea! This unit is all about inventions — things people made to solve problems. Let's find out what inventions changed the world!'">
+  <div class="title-slide">
+    <div class="unit-label">UNIT 7 · LEVEL 4</div>
+    <h1>GOOD <span>IDEA!</span> 💡</h1>
+    <div class="subtitle">Our World Second Edition · National Geographic Learning</div>
+    <div class="theme-chip">🔧 Theme: Inventions &amp; Creativity</div>
+  </div>
+</div>
+
+<!-- SLIDE 2: IN THIS UNIT -->
+<div class="slide" id="s2" data-notes="<strong>Say:</strong> 'Leo, look at what we are going to learn in Unit 7. Read the four sentences with me.' Reveal one by one. Ask: 'Which one sounds most interesting to you?'">
+  <div class="slide-header sh-orange">🗺️ IN THIS UNIT</div>
+  <div class="slide-body">
+    <div class="slide-title">In this unit, I will…</div>
+    <div class="steps" id="unit-steps">
+      <button class="step-reveal-btn" onclick="revealSteps()">▶ Reveal one by one</button>
+      <div class="step" id="st1"><div class="step-num">1</div><p>💡 Talk about <strong>inventions</strong> and how they change the world</p></div>
+      <div class="step" id="st2"><div class="step-num">2</div><p>⏳ Talk about <strong>past habits</strong> — how things used to be</p></div>
+      <div class="step" id="st3"><div class="step-num">3</div><p>🔧 Describe <strong>how to use</strong> an invention</p></div>
+      <div class="step" id="st4"><div class="step-num">4</div><p>✍️ Write <strong>facts and opinions</strong> about a favorite invention</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: RELATED VOCAB SECTION -->
+<div class="slide" id="s3" data-notes="<strong>Say:</strong> 'Before we look at new words, let's check a word connected to today's topic — inventions and ideas.'">
+  <div class="section-slide sec-green">
+    <div class="sec-emoji">📗</div>
+    <h2>RELATED VOCABULARY</h2>
+    <p>A word connected to today's topic — inventions</p>
+  </div>
+</div>
+
+<!-- SLIDE 4: RELATED VOCAB CARD -->
+<div class="slide" id="s4" data-notes="<strong>Say:</strong> 'An idea is something you think of in your mind — a plan or thought. Leo, have you ever had a great idea? Tell me about it! Inventors always start with an idea.'">
+  <div class="slide-header sh-green">📗 RELATED VOCABULARY</div>
+  <div class="slide-body">
+    <div class="vocab-card" style="border-color:#16A34A">
+      <div class="vc-emoji">💭</div>
+      <div>
+        <div class="vc-word" style="color:#16A34A">idea</div>
+        <div class="vc-def">A thought or plan that you make up in your mind.</div>
+        <div class="vc-example">"Edison had an idea — he thought of making a light bulb. His idea changed the world!"</div>
+      </div>
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        Leo — imagine it's raining outside. You have no umbrella. What's a good idea? ☔
+      </div>
+    </div>
+    <div class="dialogue leo">
+      <div class="avi avi-leo">🦁</div>
+      <div class="bubble bubble-leo">
+        <div class="bubble-label">LEO 💬</div>
+        <em>Leo answers… "A good idea is to…"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: ACADEMIC LANGUAGE SECTION -->
+<div class="slide" id="s5" data-notes="<strong>Say:</strong> 'Now our academic language — an important concept word we'll use all unit long.'">
+  <div class="section-slide sec-blue">
+    <div class="sec-emoji">📘</div>
+    <h2>ACADEMIC LANGUAGE</h2>
+    <p>Key concept word for Unit 7</p>
+  </div>
+</div>
+
+<!-- SLIDE 6: ACADEMIC LANGUAGE CARD -->
+<div class="slide" id="s6" data-notes="<strong>Say:</strong> 'An invention is something new that someone makes or designs. It starts as an idea — then someone works hard to make it real. Leo, can you name 3 inventions right now?'">
+  <div class="slide-header sh-blue">📘 ACADEMIC LANGUAGE</div>
+  <div class="slide-body">
+    <div class="vocab-card" style="border-color:#3B82F6">
+      <div class="vc-emoji">⚙️</div>
+      <div>
+        <div class="vc-word" style="color:#1D4ED8">invention</div>
+        <div class="vc-def">Something new that someone makes or designs for the first time, usually to solve a problem.</div>
+        <div class="vc-example">"The light bulb, the wheel, and the phone are all inventions. They all started as someone's idea!"</div>
+      </div>
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        Leo, look around the room! Can you name 3 things that are inventions? Everything started as someone's idea! 💡
+      </div>
+    </div>
+    <div class="dialogue leo">
+      <div class="avi avi-leo">🦁</div>
+      <div class="bubble bubble-leo">
+        <div class="bubble-label">LEO 💬</div>
+        <em>Leo names 3 inventions…</em> ⚽
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: CONTENT VOCAB SECTION -->
+<div class="slide" id="s7" data-notes="<strong>Say:</strong> 'Now let's look at the content vocabulary — the key word for understanding this unit.'">
+  <div class="section-slide sec-amber">
+    <div class="sec-emoji">📙</div>
+    <h2>CONTENT VOCABULARY</h2>
+    <p>The key topic word for Unit 7</p>
+  </div>
+</div>
+
+<!-- SLIDE 8: CONTENT VOCAB CARD -->
+<div class="slide" id="s8" data-notes="<strong>Say:</strong> 'Creativity means the ability to think of new, original ideas. Inventors need creativity! Leo, do you think YOU are creative? What creative things have you made or thought of?'">
+  <div class="slide-header sh-amber">📙 CONTENT VOCABULARY</div>
+  <div class="slide-body">
+    <div class="vocab-card">
+      <div class="vc-emoji">🎨</div>
+      <div>
+        <div class="vc-word">creativity</div>
+        <div class="vc-def">The ability to think of new and original ideas. Using your imagination to make something new.</div>
+        <div class="vc-example">"Inventors use their creativity and imagination to make things that solve problems."</div>
+      </div>
+    </div>
+    <div class="highlight">
+      💡 <strong>Creativity + Imagination → Idea → Invention</strong> — This is how every invention in the world was made!
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        Leo — playing soccer takes skill, but designing a new soccer move takes <strong>creativity</strong>! ⚽ Have you ever invented a new move?
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: INTRODUCE SECTION -->
+<div class="slide" id="s9" data-notes="<strong>Say:</strong> 'Now we introduce the unit. We start with a Build Background activity — then we look at the amazing photo!'">
+  <div class="section-slide sec-intro">
+    <div class="sec-emoji">🚀</div>
+    <h2>INTRODUCE</h2>
+    <p>Build background — activate prior knowledge about inventions</p>
+  </div>
+</div>
+
+<!-- SLIDE 10: BUILD BACKGROUND -->
+<div class="slide" id="s10" data-notes="<strong>Say:</strong> 'The name of our next unit is Good Idea! An idea is something you think of.' Point to your head. 'You can have ideas to solve problems.' Show the light bulb. 'Long ago, there were no electric lights. It was difficult to see at night. Then a man had an idea — he made a light bulb!'">
+  <div class="slide-header sh-orange">🔦 BUILD BACKGROUND</div>
+  <div class="slide-body">
+    <div class="slide-title">What's a Good Idea? 💡</div>
+    <div class="idea-box">
+      <div class="idea-emoji">💡</div>
+      <p>An <strong>idea</strong> is something you think of. It's a thought or a plan. You can have ideas to solve problems. <br><br>Long ago — no electric lights! It was dark at night. Then someone had an idea → they made the <strong>light bulb</strong>!</p>
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        Leo — look around our room! At one time, there were no pencils, books, or phones. We have them today because people had ideas! Point to something — tell me: who invented it?
+      </div>
+    </div>
+    <div class="dialogue leo">
+      <div class="avi avi-leo">🦁</div>
+      <div class="bubble bubble-leo">
+        <div class="bubble-label">LEO 💬</div>
+        <em>Leo looks around and chooses an object…</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: LONG AGO vs TODAY -->
+<div class="slide" id="s11" data-notes="<strong>Say:</strong> 'Long ago, people used candles to see at night. Today what do we use? Electric lights! Long ago, people told stories at night. Today? They watch TV or play video games! Every one of these things is an invention — someone had an idea to make them.'">
+  <div class="slide-header sh-orange">⏳ LONG AGO vs TODAY</div>
+  <div class="slide-body">
+    <div class="slide-title">How did inventions change things? ⏳</div>
+    <div class="two-col">
+      <div class="info-card" style="border-color:#78716C">
+        <h3 style="color:#78716C">⏳ Long Ago</h3>
+        <ul>
+          <li>🕯️ Candles for light</li>
+          <li>📖 People told stories</li>
+          <li>🦶 Walk everywhere</li>
+          <li>✉️ Write letters by hand</li>
+          <li>🌑 Dark at night</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>✨ Today (Inventions!)</h3>
+        <ul>
+          <li>💡 Electric lights</li>
+          <li>📺 TV / video games</li>
+          <li>🚗 Cars / planes</li>
+          <li>📱 Phones / email</li>
+          <li>💻 Computers</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        Each thing on the right is an invention! Someone had an idea and worked to make it real. Leo — which invention do you think is the most important? ⚽
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12: PHOTO SECTION -->
+<div class="slide" id="s12" data-notes="<strong>Say:</strong> 'Now turn to pages 114 and 115 in your book. We are going to look at a very unusual photo — and try to figure out what's happening!'">
+  <div class="section-slide sec-photo">
+    <div class="sec-emoji">📸</div>
+    <h2>THE BIG PHOTO</h2>
+    <p>Pages 114–115 · Look carefully and think!</p>
+  </div>
+</div>
+
+<!-- SLIDE 13: PHOTO -->
+<div class="slide" id="s13" data-notes="<strong>Say:</strong> 'Look at this photo — what do you see? These people look like astronauts! But are they really in space? Let's look more carefully.' Ask Leo the 3 questions before revealing anything.">
+  <div class="slide-header sh-dark">🚀 THE PHOTO — pp. 114–115</div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div class="photo-card">
+        <div class="photo-emoji">🪖📺🚀</div>
+        <h3>People wearing Space Projection Helmets</h3>
+        <p>Washington, DC, USA · March 14, 2018</p>
+        <p style="margin-top:8px;font-size:0.78rem;opacity:0.7">📷 National Geographic · "One Strange Rock" premiere</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="info-card">
+          <h3>📍 Location</h3>
+          <p>Washington, DC, USA — at a special event for the premiere of a National Geographic TV show about Earth.</p>
+        </div>
+        <div class="info-card">
+          <h3>💡 The Invention</h3>
+          <p>The <strong>Space Projection Helmet</strong> — a virtual reality device that lets you experience space as if you were a real astronaut!</p>
+        </div>
+      </div>
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        Leo — before I tell you what's happening, what do YOU think? Are these real astronauts? Are they in space? 🤔
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 14: ABOUT THE PHOTO -->
+<div class="slide" id="s14" data-notes="<strong>Say:</strong> 'Here's the full story! These are journalists — reporters — not real astronauts. They went to a special event for a new TV show called One Strange Rock. They got to try a new invention: the Space Projection Helmet! With this helmet you can feel like a real astronaut in space!'">
+  <div class="slide-header sh-purple">🌍 ABOUT THE PHOTO — BE THE EXPERT</div>
+  <div class="slide-body">
+    <div class="expert-box">
+      <div class="expert-label">🌍 BE THE EXPERT</div>
+      <h3>About the Photo</h3>
+      <p>These are <strong>journalists</strong> — not real astronauts! On March 14, 2018, National Geographic had the first public showing of their TV series <em>"One Strange Rock"</em> — a show about Earth seen from space.<br><br>At the event, journalists were given a new invention: the <strong>Space Projection Helmet</strong>. This virtual reality device lets you experience the show as if you were a real astronaut in space! 🚀</p>
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        The Space Projection Helmet is an <strong>invention</strong>! Someone had an idea → designed a helmet → now you can feel like an astronaut! Leo, would you like to try this invention? ⚽
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 15: Q1 -->
+<div class="slide" id="s15" data-notes="<strong>Ask Leo:</strong> 'Where are these people?' Expected: auditorium, movie theater, at an event. Encourage full sentences: 'They are in…' / 'I think they are at…'">
+  <div class="slide-header sh-orange">💬 DISCUSSION — Question 1</div>
+  <div class="slide-body">
+    <div class="q-card">
+      <div class="q-label">QUESTION 1 OF 4</div>
+      <div class="q-text">📍 Where are these people?</div>
+      <button class="reveal-btn" onclick="reveal('a1',this)">👁 Show Answer</button>
+      <div class="answer-reveal" id="a1">✅ They are in an auditorium / movie theater / at a special event in Washington DC</div>
+    </div>
+    <div class="dialogue leo" style="margin-top:8px;">
+      <div class="avi avi-leo">🦁</div>
+      <div class="bubble bubble-leo">
+        <div class="bubble-label">LEO 💬</div>
+        <em>"They are in…"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 16: Q2 -->
+<div class="slide" id="s16" data-notes="<strong>Ask Leo:</strong> 'What are they doing?' Expected: watching a movie / looking at outer space / experiencing VR / trying the helmet. Ask: 'How do you know?'">
+  <div class="slide-header sh-orange">💬 DISCUSSION — Question 2</div>
+  <div class="slide-body">
+    <div class="q-card">
+      <div class="q-label">QUESTION 2 OF 4</div>
+      <div class="q-text">🤔 What are they doing?</div>
+      <button class="reveal-btn" onclick="reveal('a2',this)">👁 Show Answer</button>
+      <div class="answer-reveal" id="a2">✅ They are watching a TV show / experiencing virtual reality / using the Space Projection Helmet to feel like astronauts</div>
+    </div>
+    <div class="dialogue leo" style="margin-top:8px;">
+      <div class="avi avi-leo">🦁</div>
+      <div class="bubble bubble-leo">
+        <div class="bubble-label">LEO 💬</div>
+        <em>"They are…"</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 17: Q3 -->
+<div class="slide" id="s17" data-notes="<strong>Ask Leo:</strong> 'What are they wearing?' Expected: astronaut suits / costumes / Space Projection Helmets / VR headsets. This leads nicely into talking about the invention.">
+  <div class="slide-header sh-orange">💬 DISCUSSION — Question 3</div>
+  <div class="slide-body">
+    <div class="q-card">
+      <div class="q-label">QUESTION 3 OF 4</div>
+      <div class="q-text">👗 What are they wearing?</div>
+      <button class="reveal-btn" onclick="reveal('a3',this)">👁 Show Answer</button>
+      <div class="answer-reveal" id="a3">✅ They are wearing astronaut suits / costumes + Space Projection Helmets (virtual reality headsets)</div>
+    </div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        The Space Projection Helmet is a new invention — a virtual reality device. It's like a video game but you wear it on your head! Leo — is this a good invention? Why? 💡
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 18: Q4 - ACTIVITY -->
+<div class="slide" id="s18" data-notes="<strong>Say:</strong> 'Now a quick activity — look at the photo on p. 114. Check the correct answer below.' Wait for Leo to choose before clicking.">
+  <div class="slide-header sh-orange">✅ LOOK AND CHECK — Question 4</div>
+  <div class="slide-body">
+    <div class="slide-title">Who are these people? 🤔</div>
+    <div class="slide-sub">Look at p. 114 and choose the correct answer</div>
+    <div class="choices">
+      <button class="choice-btn" onclick="checkQ(this,false)">🚀 Real astronauts in space</button>
+      <button class="choice-btn" onclick="checkQ(this,true)">📰 Journalists at an event</button>
+      <button class="choice-btn" onclick="checkQ(this,false)">🎬 Movie actors on a film set</button>
+    </div>
+    <div class="choice-feedback" id="q-feedback">✅ Correct! They are journalists at the premiere of "One Strange Rock" — wearing the Space Projection Helmet invention! 🚀</div>
+  </div>
+</div>
+
+<!-- SLIDE 19: CAPTION -->
+<div class="slide" id="s19" data-notes="<strong>Say:</strong> 'Leo, now write your own caption for this photo. Think about: What are they doing? What are they wearing? What is the invention? Use interesting words!' Give Leo 3-4 minutes. Then vote on the most creative caption!">
+  <div class="slide-header sh-orange">✍️ WRITE A CAPTION</div>
+  <div class="slide-body">
+    <div class="slide-title">Write a caption for the photo ✍️</div>
+    <div class="dialogue">
+      <div class="avi avi-dad">👨</div>
+      <div class="bubble bubble-dad">
+        <div class="bubble-label">DAD 💬</div>
+        A caption is a short sentence describing a photo. Look at the photo on p. 114. Write your best caption below! Be creative — use interesting adjectives! 💡
+      </div>
+    </div>
+    <div class="caption-box">
+      <label>📝 Leo's Caption:</label>
+      <textarea id="caption-input" placeholder="Write your caption here…" oninput="updateCount()"></textarea>
+      <div class="word-count" id="word-count">0 words</div>
+      <div class="caption-hints">
+        <span style="font-size:0.75rem;font-weight:800;color:var(--amber);margin-right:4px;">💡 Word ideas:</span>
+        <span class="hint-chip" onclick="addHint('futuristic')">futuristic</span>
+        <span class="hint-chip" onclick="addHint('amazing')">amazing</span>
+        <span class="hint-chip" onclick="addHint('incredible')">incredible</span>
+        <span class="hint-chip" onclick="addHint('invention')">invention</span>
+        <span class="hint-chip" onclick="addHint('virtual reality')">virtual reality</span>
+        <span class="hint-chip" onclick="addHint('experience')">experience</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 20: SAMPLE CAPTIONS -->
+<div class="slide" id="s20" data-notes="<strong>After Leo writes:</strong> Share these sample captions. Ask Leo: 'Which caption do you like best? How is yours different?' Praise Leo's caption and ask him to read it aloud!">
+  <div class="slide-header sh-orange">💡 SAMPLE CAPTIONS</div>
+  <div class="slide-body">
+    <div class="slide-title">Sample Captions 💡</div>
+    <div class="slide-sub">Answers will vary — these are examples</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="info-card"><p>🚀 "Journalists experience space like real astronauts using the amazing <strong>Space Projection Helmet</strong> invention."</p></div>
+      <div class="info-card"><p>💡 "A <strong>futuristic</strong> invention lets these journalists feel like they are in outer space — without leaving Earth!"</p></div>
+      <div class="info-card"><p>🌍 "Thanks to a new <strong>virtual reality</strong> invention, these reporters can experience space from Washington, DC!"</p></div>
+    </div>
+    <div class="dialogue leo">
+      <div class="avi avi-leo">🦁</div>
+      <div class="bubble bubble-leo">
+        <div class="bubble-label">LEO 💬</div>
+        <em>Leo reads his caption aloud! 🎉</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 21: UNIT OVERVIEW -->
+<div class="slide" id="s21" data-notes="<strong>Say:</strong> 'Leo, here is everything we will learn in Unit 7. It's a great unit! We have new vocabulary, two grammar points, a reading about young inventors, and a project where you design your own app!'">
+  <div class="slide-header sh-orange">📋 UNIT 7 OVERVIEW</div>
+  <div class="slide-body">
+    <div class="slide-title">What's coming in Unit 7? 🗺️</div>
+    <div class="overview-grid">
+      <div class="ov-item"><div class="ov-icon">📚</div><div><div class="ov-label">VOCABULARY 1</div><div class="ov-name">Inventions — 14 words</div></div></div>
+      <div class="ov-item"><div class="ov-icon">📖</div><div><div class="ov-label">VOCABULARY 2</div><div class="ov-name">Actions — 5 words</div></div></div>
+      <div class="ov-item"><div class="ov-icon">✏️</div><div><div class="ov-label">GRAMMAR 1</div><div class="ov-name"><em>used to</em> for past habits</div></div></div>
+      <div class="ov-item"><div class="ov-icon">📝</div><div><div class="ov-label">GRAMMAR 2</div><div class="ov-name"><em>you</em> for general statements</div></div></div>
+      <div class="ov-item"><div class="ov-icon">🎵</div><div><div class="ov-label">SONG</div><div class="ov-name">Inventions Song</div></div></div>
+      <div class="ov-item"><div class="ov-icon">👁️</div><div><div class="ov-label">READING</div><div class="ov-name">Young and Creative</div></div></div>
+      <div class="ov-item"><div class="ov-icon">🖊️</div><div><div class="ov-label">WRITING</div><div class="ov-name">Fact and Opinion Writing</div></div></div>
+      <div class="ov-item"><div class="ov-icon">🎯</div><div><div class="ov-label">MISSION</div><div class="ov-name">Use your imagination</div></div></div>
+      <div class="ov-item"><div class="ov-icon">🚀</div><div><div class="ov-label">PROJECT</div><div class="ov-name">Design a superpower app</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 22: FORMATIVE ASSESSMENT -->
+<div class="slide" id="s22" data-notes="<strong>Formative Assessment:</strong> Go through each item. Ask Leo the question out loud. Tick each box when he answers successfully. If he struggles on any item, go back to that slide before moving to Vocabulary 1.">
+  <div class="slide-header sh-orange">✅ FORMATIVE ASSESSMENT</div>
+  <div class="slide-body">
+    <div class="slide-title">Can Leo… ?</div>
+    <div class="assess-items">
+      <div class="assess-item" onclick="toggleAssess(this)">
+        <div class="assess-check">✓</div>
+        <p>💡 Explain what an invention is and give 3 examples?</p>
+      </div>
+      <div class="assess-item" onclick="toggleAssess(this)">
+        <div class="assess-check">✓</div>
+        <p>📸 Identify who the people are in the photo and what they are wearing?</p>
+      </div>
+      <div class="assess-item" onclick="toggleAssess(this)">
+        <div class="assess-check">✓</div>
+        <p>🚀 Describe what the Space Projection Helmet does in a full sentence?</p>
+      </div>
+      <div class="assess-item" onclick="toggleAssess(this)">
+        <div class="assess-check">✓</div>
+        <p>✍️ Write a caption for the photo using at least one interesting adjective?</p>
+      </div>
+      <div class="assess-item" onclick="toggleAssess(this)">
+        <div class="assess-check">✓</div>
+        <p>🎨 Use the word "creativity" correctly in a sentence?</p>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:4px;">
+      ⚽ <strong>Ask Leo:</strong> "If you could invent anything in the world, what would you invent? Why?"
+    </div>
+  </div>
+</div>
+
+</div><!-- end slide-wrap -->
+
+<!-- NAV -->
+<div class="nav-bar">
+  <button class="nav-btn" id="prev-btn" onclick="changeSlide(-1)" disabled>← Previous</button>
+  <button class="home-btn" onclick="goHome()">🏠 Home</button>
+  <button class="nav-btn nav-btn-primary" id="next-btn" onclick="changeSlide(1)">Next →</button>
+</div>
+
+<script>
+  const TOTAL = 22;
+  let current = 1;
+  let notesOpen = false;
+  let qDone = false;
+  let stepIdx = 0;
+
+  const notes = {};
+  document.querySelectorAll('.slide').forEach(s => {
+    notes[parseInt(s.id.replace('s',''))] = s.dataset.notes || '';
+  });
+
+  function updateUI() {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    document.getElementById('s' + current).classList.add('active');
+    document.getElementById('slide-counter').textContent = current + ' / ' + TOTAL;
+    document.getElementById('progress-fill').style.width = (current / TOTAL * 100) + '%';
+    document.getElementById('prev-btn').disabled = current === 1;
+    document.getElementById('next-btn').textContent = current === TOTAL ? '✅ End' : 'Next →';
+    document.getElementById('next-btn').disabled = current === TOTAL;
+    if (notesOpen) document.getElementById('notes-panel').innerHTML = notes[current] || '<em>No notes for this slide.</em>';
+  }
+
+  function changeSlide(dir) { const n = current + dir; if (n >= 1 && n <= TOTAL) { current = n; updateUI(); } }
+  function goHome() { current = 1; updateUI(); }
+
+  function toggleNotes() {
+    notesOpen = !notesOpen;
+    const p = document.getElementById('notes-panel');
+    p.classList.toggle('open', notesOpen);
+    if (notesOpen) p.innerHTML = notes[current] || '<em>No notes for this slide.</em>';
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) { document.documentElement.requestFullscreen(); document.getElementById('fs-btn').textContent = '✕'; }
+    else { document.exitFullscreen(); document.getElementById('fs-btn').textContent = '⛶'; }
+  }
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.getElementById('fs-btn').textContent = '⛶'; });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   changeSlide(-1);
+  });
+
+  function reveal(id, btn) { document.getElementById(id).style.display = 'block'; btn.style.display = 'none'; }
+
+  function checkQ(btn, correct) {
+    if (qDone) return; qDone = true;
+    document.querySelectorAll('#s18 .choice-btn').forEach((b,i) => {
+      b.disabled = true;
+      if (b === btn) b.classList.add(correct ? 'correct' : 'wrong');
+      if (!correct && b.textContent.includes('Journalists')) b.classList.add('correct');
+    });
+    document.getElementById('q-feedback').style.display = 'block';
+  }
+
+  function revealSteps() {
+    const steps = ['st1','st2','st3','st4'];
+    if (stepIdx < steps.length) { document.getElementById(steps[stepIdx]).classList.add('visible'); stepIdx++; }
+    if (stepIdx >= steps.length) { const btn = document.querySelector('.step-reveal-btn'); btn.textContent = '✅ All revealed!'; btn.disabled = true; }
+  }
+
+  function updateCount() {
+    const txt = document.getElementById('caption-input').value.trim();
+    const w = txt ? txt.split(/\s+/).length : 0;
+    document.getElementById('word-count').textContent = w + ' word' + (w !== 1 ? 's' : '');
+  }
+
+  function addHint(word) {
+    const ta = document.getElementById('caption-input');
+    ta.value = ta.value + (ta.value && !ta.value.endsWith(' ') ? ' ' : '') + word + ' ';
+    ta.focus(); updateCount();
+  }
+
+  function toggleAssess(item) { item.classList.toggle('checked'); }
+
+  updateUI();
+</script>
 </body>
 </html>
