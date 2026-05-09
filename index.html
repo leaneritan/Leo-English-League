@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leo's English Elite Academy</title>
+<title>Leo's Elite English Academy</title>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -509,8 +509,10 @@ header {
   letter-spacing: 1px; padding: 2px 7px;
   border-radius: 2px; flex-shrink: 0;
 }
-.result-badge.v { background: var(--yellow); color: var(--yellow-ink); }
-.result-badge.g { background: var(--ink); color: #fff; }
+.result-badge.v  { background: var(--yellow); color: var(--yellow-ink); }
+.result-badge.g  { background: var(--ink); color: #fff; }
+.result-badge.jh { background: var(--nc-green); color: #fff; }
+.result-badge.d  { background: var(--ow-blue); color: #fff; }
 .result-word { flex:1; font-size:0.86rem; font-weight:600; color:var(--ink); }
 .result-word mark { background:var(--yellow); color:var(--ink); border-radius:2px; padding:0 2px; }
 .result-link {
@@ -519,9 +521,14 @@ header {
   letter-spacing: 1px; padding: 3px 10px;
   border: 1px solid var(--border); border-radius: 2px;
   text-decoration: none; color: var(--ink-2);
-  transition: all 0.15s;
+  transition: all 0.15s; white-space: nowrap;
 }
 .result-link:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.result-link.d  { border-color: var(--ow-blue); color: var(--ow-blue); }
+.result-link.d:hover  { background: var(--ow-blue); color: #fff; }
+.result-link.jh { border-color: var(--nc-green); color: var(--nc-green); }
+.result-link.jh:hover { background: var(--nc-green); color: #fff; }
+.result-links { display:flex; gap:6px; flex-wrap:wrap; }
 #noResults { display:none; padding:14px 0; font-size:0.83rem; color:var(--ink-3); }
 .suggest-chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
 .suggest-chip {
@@ -544,7 +551,7 @@ header {
 <header>
   <div class="brand">
     <div class="brand-badge">LEEA</div>
-    <div class="brand-name">LEO'S ENGLISH ELITE ACADEMY</div>
+    <div class="brand-name">LEO'S ELITE ENGLISH ACADEMY</div>
   </div>
 </header>
 
@@ -807,7 +814,30 @@ header {
     window.scrollTo(0, 0);
   }
 
-  // ── SEARCH DATA ──
+  // ── SANSEIDO DICTIONARY (loaded async) ──
+  let SANSEIDO = [];
+  fetch('content/new-crown/sanseido-index.json')
+    .then(r => r.json())
+    .then(data => { SANSEIDO = data; })
+    .catch(() => {});
+
+  // ── JH VOCAB (loaded async from all unit JSON files) ──
+  let JH_VOCAB = [];
+  const JH_UNITS = ['starter','lesson-1','lesson-2','lesson-3','lesson-4','lesson-5','review'];
+  Promise.all(
+    JH_UNITS.map(unit =>
+      fetch(`content/new-crown/jh1/${unit}/vocab.json`)
+        .then(r => r.json())
+        .then(data => data.words.map(w => ({
+          t: 'jh',
+          w: w.word,
+          u: `jh-vocab.html?unit=${unit}&id=${w.id}`
+        })))
+        .catch(() => [])
+    )
+  ).then(arrays => { JH_VOCAB = arrays.flat(); });
+
+  // ── SEARCH DATA (hardcoded — OW + Grammar) ──
   const DATA = [
     // OW L4 U1 Set 1
     {t:'v',w:'relatives',u:'vocab.html?level=4&unit=1&set=1&id=relatives'},
@@ -873,7 +903,7 @@ header {
     {t:'v',w:'put',u:'vocab.html?level=4&unit=7&set=2&id=put'},
     {t:'v',w:'use',u:'vocab.html?level=4&unit=7&set=2&id=use'},
     {t:'v',w:'lift',u:'vocab.html?level=4&unit=7&set=2&id=lift'},
-    // Grammar — all 16 sets fixed
+    // Grammar — all 16 sets
     {t:'g',w:'Comparatives with -er',u:'grammar.html?level=4&unit=1&set=1'},
     {t:'g',w:'Present progressive for future plans',u:'grammar.html?level=4&unit=1&set=2'},
     {t:'g',w:"Have to / Don't have to",u:'grammar.html?level=4&unit=2&set=1'},
@@ -904,19 +934,84 @@ header {
     return text.slice(0,i) + '<mark>' + text.slice(i, i+q.length) + '</mark>' + text.slice(i+q.length);
   }
 
+  function badgeLabel(t) {
+    if (t === 'v')  return 'OW';
+    if (t === 'g')  return 'G';
+    if (t === 'jh') return 'JH';
+    if (t === 'd')  return '📖';
+    return t;
+  }
+
+  function badgeTitle(t) {
+    if (t === 'v')  return 'Our World Vocab';
+    if (t === 'g')  return 'Grammar';
+    if (t === 'jh') return 'Junior High Vocab';
+    if (t === 'd')  return 'NC1 Dictionary';
+    return '';
+  }
+
   function doSearch(q) {
     results.innerHTML = '';
     noRes.style.display = 'none';
     clearBtn.style.display = q ? 'block' : 'none';
     if (q.length < 2) return;
-    const matches = DATA.filter(d => d.w.toLowerCase().includes(q.toLowerCase()));
-    if (!matches.length) { noRes.style.display = 'block'; return; }
-    matches.forEach(d => {
+
+    const ql = q.toLowerCase();
+
+    // Group results by word
+    const groups = {};
+
+    // Our World + Grammar
+    DATA.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      groups[key].sources.push({ t: d.t, u: d.u, ext: false });
+    });
+
+    // Junior High vocab
+    JH_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      // avoid duplicate JH entries for same word
+      if (!groups[key].sources.find(s => s.t === 'jh')) {
+        groups[key].sources.push({ t: 'jh', u: d.u, ext: false });
+      }
+    });
+
+    // Sanseido dictionary (max 8 matches to avoid flooding)
+    const dictMatches = SANSEIDO.filter(d => d.w.toLowerCase().includes(ql)).slice(0, 8);
+    dictMatches.forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      groups[key].sources.push({ t: 'd', u: d.u, ext: true });
+    });
+
+    const keys = Object.keys(groups);
+    if (!keys.length) { noRes.style.display = 'block'; return; }
+
+    // Sort: OW/Grammar first, then dictionary-only
+    keys.sort((a, b) => {
+      const aHasInternal = groups[a].sources.some(s => s.t !== 'd');
+      const bHasInternal = groups[b].sources.some(s => s.t !== 'd');
+      if (aHasInternal && !bHasInternal) return -1;
+      if (!aHasInternal && bHasInternal) return 1;
+      return a.localeCompare(b);
+    });
+
+    keys.forEach(key => {
+      const g = groups[key];
       const row = document.createElement('div');
       row.className = 'result-row';
-      row.innerHTML = `<span class="result-badge ${d.t}">${d.t==='v'?'V':'G'}</span>
-        <span class="result-word">${hl(d.w, q)}</span>
-        <a class="result-link" href="${d.u}">Open →</a>`;
+
+      const wordSpan = `<span class="result-word">${hl(g.word, q)}</span>`;
+      const links = g.sources.map(s => {
+        const label = badgeTitle(s.t);
+        const ext = s.ext ? 'target="_blank" rel="noopener"' : '';
+        const arrow = s.ext ? '↗' : '→';
+        return `<a class="result-link ${s.t}" href="${s.u}" ${ext} title="${label}">${label} ${arrow}</a>`;
+      }).join('');
+
+      row.innerHTML = wordSpan + `<div class="result-links">${links}</div>`;
       results.appendChild(row);
     });
   }
@@ -924,7 +1019,9 @@ header {
   function setSearch(val) { input.value = val; doSearch(val); input.focus(); }
 
   input.addEventListener('input', () => doSearch(input.value.trim()));
-  clearBtn.addEventListener('click', () => { input.value=''; doSearch(''); results.innerHTML=''; input.focus(); });
+  clearBtn.addEventListener('click', () => {
+    input.value = ''; doSearch(''); results.innerHTML = ''; input.focus();
+  });
 </script>
 </body>
 </html>
