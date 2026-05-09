@@ -1031,6 +1031,7 @@ header {
       .forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     window.scrollTo(0,0);
+    history.pushState({ screen: id }, '', '');
   }
   function showModes(p) { goTo('screen-'+p); }
   function showPerson() { goTo('screen-person'); }
@@ -1156,6 +1157,19 @@ header {
 
   buildGrid('neritan-unit-grid', 'n');
   buildGrid('leo-unit-grid', 'l');
+
+  history.replaceState({ screen: 'screen-person' }, '', '');
+
+  window.addEventListener('popstate', function(e) {
+    const id = e.state && e.state.screen
+      ? e.state.screen
+      : 'screen-person';
+    document.querySelectorAll('.screen')
+      .forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  });
+
   // ── SANSEIDO DICTIONARY (loaded async) ──
   let SANSEIDO = [];
   fetch('content/new-crown/sanseido-index.json')
