@@ -1,661 +1,930 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leo's English League</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leo's English Elite Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+:root {
+  --paper:      #FAFAF7;
+  --surface:    #FFFFFF;
+  --border:     #E5E3DC;
+  --soft:       #F0EEE8;
+  --ink:        #111111;
+  --ink-2:      #5A5853;
+  --ink-3:      #6B6963;
+  --ink-4:      #9A9A95;
+  --yellow:     #FFCC00;
+  --yellow-bg:  #FFFBE6;
+  --yellow-ink: #8B6B00;
+  --ow-blue:    #1A6BB5;
+  --ow-orange:  #E8630A;
+  --nc-green:   #2E7D32;
+  --nc-dark:    #1B5E20;
+  --el-red:     #E85D3C;
+  --el-dark:    #8F3618;
+}
 
-  <style>
-    :root {
-      --paper:      #FAFAF7;
-      --surface:    #FFFFFF;
-      --border:     #E5E3DC;
-      --soft:       #F0EEE8;
-      --ink:        #111111;
-      --ink-2:      #5A5853;
-      --ink-3:      #6B6963;
-      --ink-4:      #9A9A95;
-      --yellow:     #FFCC00;
-      --yellow-bg:  #FFFBE6;
-      --yellow-ink: #8B6B00;
-      --ow-accent:  #FFCC00;
-      --ow-ink:     #8B6B00;
-      --ow-bg:      #FFFBE6;
-      --jh-accent:  #2AA65A;
-      --jh-ink:     #1B6A39;
-      --jh-bg:      #E8F5EC;
-      --tg-accent:  #E85D3C;
-      --tg-ink:     #8F3618;
-      --tg-bg:      #FBEDE7;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* HEADER */
+header {
+  background: var(--ink);
+  padding: 0 32px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.brand-badge {
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.brand-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #fff;
+}
 
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Inter', system-ui, sans-serif;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
+/* SCREENS */
+.screen { display:none; flex:1; flex-direction:column; }
+.screen.active { display:flex; animation:fadeUp 0.3s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
-    /* ── TOP BAR ── */
-    .topbar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 32px;
-      background: var(--ink); color: #fff;
-    }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .yellow-mark {
-      background: var(--yellow); color: var(--ink);
-      font-family: 'Oswald', sans-serif; font-weight: 700;
-      font-size: 11px; letter-spacing: 0.18em;
-      padding: 5px 10px 4px;
-    }
-    .brand-text {
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #fff;
-    }
-    .topbar-right {
-      font-family: 'Oswald', sans-serif; font-weight: 500;
-      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--ink-4);
-    }
-    .topbar-right span { color: var(--yellow); }
+/* HERO */
+.hero {
+  background: var(--ink);
+  padding: 36px 32px 32px;
+  text-align: center;
+}
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--yellow);
+  color: var(--yellow-ink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 4px 14px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+.hero-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.hero-title span { color: var(--yellow); }
+.hero-sub { color: #9A9A95; font-size: 0.85rem; font-weight: 500; }
 
-    /* ── CONTAINER ── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 48px 32px 60px; }
+/* PERSON SECTION */
+.person-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px 24px;
+  width: 100%;
+}
+.section-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--ink-4);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.person-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 
-    /* ── HERO ── */
-    .hero { margin-bottom: 32px; }
-    .hero-kicker {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
-    }
-    .hero-kicker .bar { width: 32px; height: 3px; background: var(--yellow); }
-    .hero-kicker-text {
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--ink-3);
-    }
-    .hero-name {
-      font-family: 'Oswald', sans-serif; font-weight: 700;
-      font-size: 64px; line-height: 1;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .hero-name span { color: var(--yellow); }
-    .hero-sub {
-      font-size: 15px; color: var(--ink-3); line-height: 1.5;
-    }
+/* PERSON CARD */
+.person-card {
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  background: var(--surface);
+}
+.person-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+.person-card.neritan:hover { border-color: var(--yellow); }
+.person-card.leo:hover     { border-color: #4CAF50; }
+.person-card.ref:hover     { border-color: var(--ow-blue); }
 
-    /* ── SEARCH ── */
-    .search-wrap { margin-bottom: 36px; }
-    .search-label {
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--ink-4);
-      margin-bottom: 6px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .search-label::before {
-      content: ''; display: block;
-      width: 20px; height: 2px; background: var(--yellow);
-    }
-    .search-box {
-      display: flex; align-items: center; gap: 12px;
-      background: var(--surface); border: 2px solid var(--ink);
-      padding: 14px 18px;
-      position: relative;
-    }
-    .search-box svg { flex-shrink: 0; color: var(--ink-3); }
-    .search-box input {
-      flex: 1; border: 0; outline: 0;
-      font-family: 'Inter', sans-serif; font-size: 15px;
-      color: var(--ink); background: transparent;
-    }
-    .search-box input::placeholder { color: var(--ink-4); }
-    .search-clear {
-      background: var(--soft); border: 1px solid var(--border);
-      color: var(--ink-3); font-size: 11px;
-      font-family: 'Oswald', sans-serif; letter-spacing: 0.1em;
-      padding: 4px 10px; cursor: pointer;
-      display: none;
-    }
-    .search-clear:hover { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
-    .search-clear.visible { display: block; }
+.person-logo {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.bg-dark  { background: var(--ink); }
+.bg-navy  { background: #1A3A5C; }
 
-    /* ── SEARCH RESULTS ── */
-    .results { display: none; flex-direction: column; gap: 3px; margin-top: 8px; }
-    .results.visible { display: flex; }
+.person-emoji { font-size: 3.2rem; }
+.person-name {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+}
+.col-yellow { color: var(--yellow); }
+.col-green  { color: #81C784; }
+.col-blue   { color: #90CAF9; }
 
-    .result-row {
-      display: flex; align-items: center; gap: 14px;
-      background: var(--surface); border: 1px solid var(--border);
-      padding: 12px 16px;
-      transition: border-color 0.1s;
-    }
-    .result-row:hover { border-color: var(--ink); }
+.person-body { padding: 16px 18px; }
+.person-role {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ink-4);
+  margin-bottom: 5px;
+}
+.person-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.person-desc {
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.person-modes { display:flex; flex-wrap:wrap; gap:5px; }
+.mode-pill {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+.pill-ow  { background:#E3F0FF; color:var(--ow-blue); }
+.pill-jh  { background:#E8F5E9; color:var(--nc-dark); }
+.pill-el  { background:#FBF0ED; color:var(--el-dark); }
+.pill-ref { background:#F0F0FF; color:#3949AB; }
 
-    .result-type {
-      font-family: 'Oswald', sans-serif; font-weight: 700;
-      font-size: 10px; letter-spacing: 0.2em;
-      padding: 3px 8px; flex-shrink: 0;
-      min-width: 28px; text-align: center;
-    }
-    .result-type.vocab {
-      background: var(--yellow); color: var(--ink);
-    }
-    .result-type.grammar {
-      background: var(--ink); color: var(--yellow);
-    }
+.person-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 18px;
+  border-top: 1px solid var(--border);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ink-4);
+  gap: 6px;
+  transition: color 0.2s;
+}
+.person-card:hover .person-arrow { color: var(--ink); }
 
-    .result-word a { color: inherit; text-decoration: none; }
-    .result-word a:hover { text-decoration: underline; }
-    .result-word {
-      font-family: 'Inter', sans-serif; font-weight: 600;
-      font-size: 15px; color: var(--ink); flex: 1;
-    }
-    .result-word mark {
-      background: var(--yellow); color: var(--ink);
-      font-weight: 700; padding: 0 1px;
-    }
+/* MODE SCREEN */
+.mode-screen-header {
+  background: var(--ink);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.back-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 6px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.2); }
+.mode-screen-who {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: #fff;
+}
+.mode-screen-who span { color: var(--yellow); }
 
-    .result-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 10px; letter-spacing: 0.12em;
-      padding: 4px 9px;
-      border: 1.5px solid transparent;
-      cursor: pointer; transition: all 0.12s;
-      text-decoration: none;
-    }
-    .badge.ow {
-      background: var(--ow-bg); color: var(--ow-ink);
-      border-color: var(--ow-accent);
-    }
-    .badge.ow:hover { background: var(--ow-accent); color: var(--ink); }
-    .badge.jh {
-      background: var(--jh-bg); color: var(--jh-ink);
-      border-color: var(--jh-accent);
-    }
-    .badge.jh:hover { background: var(--jh-accent); color: #fff; }
-    .badge.tg {
-      background: var(--tg-bg); color: var(--tg-ink);
-      border-color: var(--tg-accent);
-    }
-    .badge.tg:hover { background: var(--tg-accent); color: #fff; }
+.mode-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+  width: 100%;
+}
+.mode-section-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--ink-4);
+  margin-bottom: 20px;
+}
 
-    .badge-world { font-weight: 700; }
-    .badge-sep { opacity: 0.4; margin: 0 1px; }
-    .badge-loc { font-weight: 500; opacity: 0.8; }
+/* MODE CARDS GRID */
+.modes-grid { display:grid; gap:16px; }
+.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.cols-3 { grid-template-columns: repeat(3, 1fr); }
 
-    /* empty state */
-    .no-results {
-      display: none;
-      padding: 24px 20px;
-      background: var(--surface); border: 1px solid var(--border);
-      margin-top: 8px;
-    }
-    .no-results.visible { display: block; }
-    .no-results-msg {
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 12px;
-    }
-    .suggestions { display: flex; gap: 6px; flex-wrap: wrap; }
-    .suggestion {
-      background: var(--soft); border: 1px solid var(--border);
-      font-family: 'Oswald', sans-serif; font-size: 11px;
-      letter-spacing: 0.1em; padding: 5px 12px;
-      cursor: pointer; color: var(--ink-2);
-    }
-    .suggestion:hover { border-color: var(--ink); color: var(--ink); }
+.mode-card {
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.mode-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+.mode-card.ow:hover  { border-color: var(--ow-blue); }
+.mode-card.nc:hover  { border-color: var(--nc-green); }
+.mode-card.el:hover  { border-color: var(--el-red); }
+.mode-card.ref:hover { border-color: var(--ow-blue); }
 
-    /* ── SECTION DIVIDER ── */
-    .section-divider {
-      display: flex; align-items: center; gap: 14px;
-      margin-bottom: 18px;
-    }
-    .section-divider .bar { width: 32px; height: 3px; background: var(--yellow); }
-    .section-divider-label {
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--ink-3);
-    }
-    .section-divider .rule { flex: 1; height: 1px; background: var(--border); }
+/* OUR WORLD LOGO */
+.ow-slot {
+  background: var(--ink);
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  position: relative;
+}
+.ow-slot.short { height: 120px; }
+.ow-natgeo-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--yellow);
+}
+.ow-natgeo-text {
+  position: absolute;
+  top: 9px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.4);
+}
+.ow-our {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--ow-orange);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.ow-world-row {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  letter-spacing: 2px;
+}
+.ow-world-row .l1 { color: #E8630A; }
+.ow-world-row .l2 { color: #E8B800; }
+.ow-world-row .l3 { color: #2E9E4F; }
+.ow-world-row .l4 { font-size: 2rem; }
+.ow-world-row .l5 { color: #9B2FBE; }
+.ow-world-row .l6 { color: #1A6BB5; }
+.ow-edition-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+}
 
-    /* ── MODE CARDS ── */
-    .modes-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
-    }
+/* NEW CROWN LOGO */
+.nc-slot {
+  background: var(--nc-green);
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.nc-slot.short { height: 120px; }
+.nc-crown-icon { font-size: 1.8rem; }
+.nc-title-text {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 1.7rem;
+  color: #fff;
+  letter-spacing: 2px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nc-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  background: #fff;
+  color: var(--nc-green);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 50%;
+}
+.nc-series-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.65);
+}
 
-    .mode-card {
-      display: flex; flex-direction: column;
-      border: 1.5px solid var(--border);
-      background: var(--surface);
-      cursor: pointer;
-      transition: border-color 0.15s, transform 0.1s;
-      text-decoration: none; color: inherit;
-    }
-    .mode-card:hover { border-color: var(--ink); }
+/* ENGLISH LEAGUE LOGO */
+.el-slot {
+  background: var(--el-red);
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.el-ball { font-size: 2rem; }
+.el-title-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 3px;
+  line-height: 1.1;
+  text-align: center;
+}
+.el-elite-badge {
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
 
-    /* logo slot */
-    .logo-slot {
-      padding: 36px 28px;
-      display: flex; align-items: center; justify-content: center;
-      border-bottom: 1.5px solid var(--border);
-      min-height: 180px;
-    }
-    .mode-card.our-world  .logo-slot { background: var(--ink); }
-    .mode-card.junior-high .logo-slot { background: var(--jh-bg); border-bottom-color: var(--jh-accent); }
-    .mode-card.training-ground .logo-slot { background: var(--tg-bg); border-bottom-color: var(--tg-accent); }
+/* MODE CARD BODY */
+.mode-body { padding: 16px 18px; background: var(--surface); }
+.mode-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ink-4);
+  margin-bottom: 5px;
+}
+.dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+.mode-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.mode-desc {
+  font-size: 0.77rem;
+  color: var(--ink-3);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.mode-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--ink-4);
+}
+.arrow { transition: transform 0.2s; display: inline-block; }
+.mode-card:hover .arrow { transform: translateX(4px); }
 
-    /* Our World rainbow logo */
-    .ow-brand { text-align: center; user-select: none; }
-    .ow-subline {
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
-      color: var(--yellow); margin-bottom: 10px;
-    }
-    .ow-word {
-      font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
-      font-size: 50px; line-height: 1; letter-spacing: 0.02em;
-      display: flex; gap: 2px; justify-content: center;
-    }
-    .ow-word span { display: inline-block; }
-    .ow-word .c1 { color: #E63946; }
-    .ow-word .c2 { color: #F4A11E; }
-    .ow-word .c3 { color: #FFCC00; }
-    .ow-word .c4 { color: #2AA65A; margin-left: 8px; }
-    .ow-word .c5 { color: #2AA6D9; }
-    .ow-word .c6 { color: #5E6FC2; }
-    .ow-word .c7 { color: #9B5BBF; }
-    .ow-word .c8 { color: #E85D3C; }
+/* SEARCH */
+.search-section {
+  background: var(--soft);
+  border-top: 1px solid var(--border);
+  padding: 24px 32px;
+  margin-top: auto;
+}
+.search-inner { max-width: 640px; margin: 0 auto; }
+.search-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--ink-4);
+  margin-bottom: 10px;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  padding: 0 14px;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+.search-box:focus-within { border-color: var(--ink); }
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  padding: 11px 0;
+  color: var(--ink);
+}
+.search-clear {
+  background: none; border: none;
+  cursor: pointer; color: var(--ink-4);
+  font-size: 1rem; padding: 4px; display: none;
+}
+#results { margin-top: 12px; }
+.result-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+}
+.result-row:last-child { border-bottom: none; }
+.result-badge {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 1px; padding: 2px 7px;
+  border-radius: 2px; flex-shrink: 0;
+}
+.result-badge.v { background: var(--yellow); color: var(--yellow-ink); }
+.result-badge.g { background: var(--ink); color: #fff; }
+.result-word { flex:1; font-size:0.86rem; font-weight:600; color:var(--ink); }
+.result-word mark { background:var(--yellow); color:var(--ink); border-radius:2px; padding:0 2px; }
+.result-link {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 1px; padding: 3px 10px;
+  border: 1px solid var(--border); border-radius: 2px;
+  text-decoration: none; color: var(--ink-2);
+  transition: all 0.15s;
+}
+.result-link:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+#noResults { display:none; padding:14px 0; font-size:0.83rem; color:var(--ink-3); }
+.suggest-chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.suggest-chip {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 2px; padding: 4px 12px;
+  font-size: 0.76rem; cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600; letter-spacing: 1px;
+  color: var(--ink-3); transition: all 0.15s;
+}
+.suggest-chip:hover { background: var(--ink); color: #fff; }
 
-    /* New Crown green logo */
-    .nc-brand { text-align: center; user-select: none; }
-    .nc-word {
-      font-family: 'Archivo Black', sans-serif;
-      font-size: 42px; line-height: 1;
-      color: var(--jh-accent); letter-spacing: 0.01em;
-      margin-bottom: 8px;
-    }
-    .nc-subline {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--jh-ink);
-    }
-    .nc-subline .crown { color: var(--jh-accent); font-size: 15px; }
-
-    /* Training Ground logo */
-    .tg-brand { text-align: center; user-select: none; }
-    .tg-word {
-      font-family: 'Oswald', sans-serif; font-weight: 700;
-      font-size: 38px; line-height: 0.9; letter-spacing: 0.05em;
-      text-transform: uppercase; color: var(--tg-accent);
-      margin-bottom: 10px;
-    }
-    .tg-subline {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
-      color: var(--tg-ink);
-    }
-    .tg-subline::before, .tg-subline::after {
-      content: '—'; opacity: 0.4;
-    }
-
-    /* card body */
-    .mode-body { padding: 18px 20px 20px; flex: 1; }
-    .mode-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
-      color: var(--ink-4); margin-bottom: 8px;
-    }
-    .mode-tag .dot {
-      width: 6px; height: 6px;
-    }
-    .mode-card.our-world    .mode-tag .dot { background: var(--yellow); }
-    .mode-card.junior-high  .mode-tag .dot { background: var(--jh-accent); }
-    .mode-card.training-ground .mode-tag .dot { background: var(--tg-accent); }
-
-    .mode-title {
-      font-family: 'Oswald', sans-serif; font-weight: 700;
-      font-size: 20px; color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .mode-desc {
-      font-size: 13px; color: var(--ink-3); line-height: 1.5;
-      margin-bottom: 16px;
-    }
-    .mode-meta {
-      display: flex; justify-content: space-between; align-items: center;
-      font-family: 'Oswald', sans-serif; font-weight: 600;
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--ink-4);
-    }
-    .mode-card.our-world:hover    .mode-meta .arrow { color: var(--yellow); }
-    .mode-card.junior-high:hover  .mode-meta .arrow { color: var(--jh-accent); }
-    .mode-card.training-ground:hover .mode-meta .arrow { color: var(--tg-accent); }
-    .mode-meta .arrow { font-size: 16px; transition: color 0.15s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 860px) {
-      .modes-grid { grid-template-columns: 1fr; }
-      .hero-name { font-size: 44px; }
-      .topbar { padding: 14px 20px; }
-      .container { padding: 32px 20px 48px; }
-    }
-  </style>
+@media (max-width: 680px) {
+  .person-grid, .cols-2, .cols-3 { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="brand">
-      <div class="yellow-mark">LEL</div>
-      <div class="brand-text">Leo's English League</div>
-    </div>
-    <div class="topbar-right">The <span>Handbook</span></div>
-  </header>
+<header>
+  <div class="brand">
+    <div class="brand-badge">LEL</div>
+    <div class="brand-name">LEO'S ENGLISH LEAGUE</div>
+  </div>
+</header>
 
-  <main class="container">
+<!-- ══ SCREEN 1: PERSON SELECTOR ══ -->
+<div class="screen active" id="screen-person">
+  <div class="hero">
+    <div class="hero-kicker">⚽ WELCOME BACK</div>
+    <div class="hero-title">LEO'S <span>LEAGUE</span></div>
+    <div class="hero-sub">Our World · Junior High · English League · Level 4 Active</div>
+  </div>
 
-    <!-- HERO -->
-    <div class="hero">
-      <div class="hero-kicker">
-        <div class="bar"></div>
-        <div class="hero-kicker-text">Welcome back</div>
+  <div class="person-section">
+    <div class="section-label">WHO ARE YOU TODAY?</div>
+    <div class="person-grid">
+
+      <div class="person-card neritan" onclick="showModes('neritan')">
+        <div class="person-logo bg-dark">
+          <div class="person-emoji">👨</div>
+          <div class="person-name col-yellow">NERITAN</div>
+        </div>
+        <div class="person-body">
+          <div class="person-role">TEACHING MODE</div>
+          <div class="person-title">Dad's Dashboard</div>
+          <div class="person-desc">Teaching slides for Our World and English League. Present lessons step by step.</div>
+          <div class="person-modes">
+            <span class="mode-pill pill-ow">OUR WORLD</span>
+            <span class="mode-pill pill-el">ENGLISH LEAGUE</span>
+          </div>
+        </div>
+        <div class="person-arrow">ENTER →</div>
       </div>
-      <h1 class="hero-name">LEO'S <span>LEAGUE</span></h1>
-      <p class="hero-sub">Search for a word or grammar point, or pick a mode below.</p>
-    </div>
 
-    <!-- SEARCH -->
-    <div class="search-wrap">
-      <div class="search-label">Search everything</div>
+      <div class="person-card leo" onclick="showModes('leo')">
+        <div class="person-logo bg-dark">
+          <div class="person-emoji">🦁</div>
+          <div class="person-name col-green">LEO</div>
+        </div>
+        <div class="person-body">
+          <div class="person-role">LEARNING MODE</div>
+          <div class="person-title">Leo's Learning Hub</div>
+          <div class="person-desc">Vocab flashcards, grammar charts, quizzes and Master Quiz. Do it alone!</div>
+          <div class="person-modes">
+            <span class="mode-pill pill-ow">OUR WORLD</span>
+            <span class="mode-pill pill-jh">JUNIOR HIGH</span>
+            <span class="mode-pill pill-el">LEAGUE ELITE</span>
+          </div>
+        </div>
+        <div class="person-arrow">ENTER →</div>
+      </div>
+
+      <div class="person-card ref" onclick="showModes('reference')">
+        <div class="person-logo bg-navy">
+          <div class="person-emoji">📚</div>
+          <div class="person-name col-blue">REFERENCE</div>
+        </div>
+        <div class="person-body">
+          <div class="person-role">LEO'S REFERENCE</div>
+          <div class="person-title">Look It Up</div>
+          <div class="person-desc">Every word and grammar point Leo has learned. Search, review, check anytime.</div>
+          <div class="person-modes">
+            <span class="mode-pill pill-ref">VOCAB</span>
+            <span class="mode-pill pill-ref">GRAMMAR</span>
+            <span class="mode-pill pill-ref">SEARCH</span>
+          </div>
+        </div>
+        <div class="person-arrow">ENTER →</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="search-section">
+    <div class="search-inner">
+      <div class="search-label">SEARCH EVERYTHING</div>
       <div class="search-box">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="7"/>
-          <path d="m21 21-4.35-4.35"/>
-        </svg>
-        <input id="searchInput" type="text"
-          placeholder="Try 'pumpkin', 'comparatives', 'should'…"
-          autocomplete="off" spellcheck="false">
-        <button class="search-clear" id="clearBtn">✕ CLEAR</button>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search vocab or grammar…" autocomplete="off">
+        <button class="search-clear" id="clearBtn">✕</button>
       </div>
-
-      <!-- Results -->
-      <div class="results" id="results"></div>
-
-      <!-- No results -->
-      <div class="no-results" id="noResults">
-        <div class="no-results-msg">No results found — try one of these</div>
-        <div class="suggestions">
-          <div class="suggestion" onclick="setSearch('pumpkin')">pumpkin</div>
-          <div class="suggestion" onclick="setSearch('comparatives')">comparatives</div>
-          <div class="suggestion" onclick="setSearch('should')">should</div>
-          <div class="suggestion" onclick="setSearch('animal')">animal</div>
+      <div id="results"></div>
+      <div id="noResults">No results found. Try:
+        <div class="suggest-chips">
+          <span class="suggest-chip" onclick="setSearch('invention')">invention</span>
+          <span class="suggest-chip" onclick="setSearch('comparatives')">comparatives</span>
+          <span class="suggest-chip" onclick="setSearch('pollution')">pollution</span>
+          <span class="suggest-chip" onclick="setSearch('should')">should</span>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- MODE SECTION HEADER -->
-    <div class="section-divider" id="modeSection">
-      <div class="bar"></div>
-      <div class="section-divider-label">Choose a mode</div>
-      <div class="rule"></div>
-    </div>
+<!-- ══ SCREEN 2A: NERITAN MODES ══ -->
+<div class="screen" id="screen-neritan">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="showPerson()">← Back</button>
+    <div class="mode-screen-who">👨 <span>NERITAN</span> — Teaching Mode</div>
+  </div>
+  <div class="mode-section">
+    <div class="mode-section-label">CHOOSE A TRACK</div>
+    <div class="modes-grid cols-2">
 
-    <!-- MODE CARDS -->
-    <div class="modes-grid" id="modesGrid">
-
-      <a href="our-world.html" class="mode-card our-world">
-        <div class="logo-slot">
-          <div class="ow-brand">
-            <div class="ow-subline">National Geographic</div>
-            <div class="ow-word">
-              <span class="c1">O</span><span class="c2">u</span><span class="c3">r</span>
-              <span class="c4">W</span><span class="c5">o</span><span class="c6">r</span><span class="c7">l</span><span class="c8">d</span>
-            </div>
+      <a class="mode-card ow" href="our-world.html">
+        <div class="ow-slot">
+          <div class="ow-natgeo-bar"></div>
+          <div class="ow-natgeo-text">NATIONAL GEOGRAPHIC LEARNING</div>
+          <div class="ow-our">Our</div>
+          <div class="ow-world-row">
+            <span class="l1">W</span><span class="l2">O</span><span class="l3">R</span><span class="l4">🌍</span><span class="l5">L</span><span class="l6">D</span>
           </div>
+          <div class="ow-edition-text">SECOND EDITION</div>
         </div>
         <div class="mode-body">
-          <div class="mode-tag"><div class="dot"></div>Textbook</div>
+          <div class="mode-tag"><div class="dot" style="color:var(--ow-blue)"></div>TEXTBOOK</div>
           <div class="mode-title">Our World</div>
-          <div class="mode-desc">Vocab, grammar, and quizzes from National Geographic Learning — Levels 1–6.</div>
-          <div class="mode-meta">
-            <span>Level 4 active</span>
-            <span class="arrow">→</span>
-          </div>
+          <div class="mode-desc">Teaching slides for all units. Level 4 active — Levels 1–3, 5–6 coming soon.</div>
+          <div class="mode-meta"><span>Level 4 · 8 units</span><span class="arrow">→</span></div>
         </div>
       </a>
 
-      <a href="junior-high.html" class="mode-card junior-high">
-        <div class="logo-slot">
-          <div class="nc-brand">
-            <div class="nc-word">NEW CROWN</div>
-            <div class="nc-subline"><span class="crown">♛</span> English Series</div>
-          </div>
+      <a class="mode-card el" href="#">
+        <div class="el-slot">
+          <div class="el-ball">⚽</div>
+          <div class="el-title-text">ENGLISH<br>LEAGUE</div>
         </div>
         <div class="mode-body">
-          <div class="mode-tag"><div class="dot"></div>School textbook</div>
-          <div class="mode-title">Junior High</div>
-          <div class="mode-desc">Units from Leo's school English class — New Crown, added unit by unit.</div>
-          <div class="mode-meta">
-            <span>Coming soon</span>
-            <span class="arrow">→</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="#" class="mode-card training-ground">
-        <div class="logo-slot">
-          <div class="tg-brand">
-            <div class="tg-word">Training<br>Ground</div>
-            <div class="tg-subline">Practice Field</div>
-          </div>
-        </div>
-        <div class="mode-body">
-          <div class="mode-tag"><div class="dot"></div>Custom practice</div>
-          <div class="mode-title">Training Ground</div>
-          <div class="mode-desc">Custom topics, focused drills, and extra vocab beyond the textbooks.</div>
-          <div class="mode-meta">
-            <span>Coming soon</span>
-            <span class="arrow">→</span>
-          </div>
+          <div class="mode-tag"><div class="dot" style="color:var(--el-red)"></div>CUSTOM</div>
+          <div class="mode-title">English League</div>
+          <div class="mode-desc">Teaching slides for grammar points outside the textbook. Neritan designs the content.</div>
+          <div class="mode-meta"><span>Coming soon</span><span class="arrow">→</span></div>
         </div>
       </a>
 
     </div>
-  </main>
+  </div>
+</div>
 
-  <script>
-    // ── SEARCH DATA (real Level 4 content) ──
-    const DATA = [
-      // Vocab – Our World Level 4 · Unit 1 · Set 1
-      { type:'V', word:'relatives',      url:'vocab.html?level=4&unit=1&set=1&id=relatives',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'different',      url:'vocab.html?level=4&unit=1&set=1&id=different',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'uglier',         url:'vocab.html?level=4&unit=1&set=1&id=uglier',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'cuter',          url:'vocab.html?level=4&unit=1&set=1&id=cuter',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'smarter',        url:'vocab.html?level=4&unit=1&set=1&id=smarter',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'friendlier',     url:'vocab.html?level=4&unit=1&set=1&id=friendlier',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'bigger',         url:'vocab.html?level=4&unit=1&set=1&id=bigger',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'smaller',        url:'vocab.html?level=4&unit=1&set=1&id=smaller',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'stronger',       url:'vocab.html?level=4&unit=1&set=1&id=stronger',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'older',          url:'vocab.html?level=4&unit=1&set=1&id=older',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'younger',        url:'vocab.html?level=4&unit=1&set=1&id=younger',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'taller',         url:'vocab.html?level=4&unit=1&set=1&id=taller',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'shorter',        url:'vocab.html?level=4&unit=1&set=1&id=shorter',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'slower',         url:'vocab.html?level=4&unit=1&set=1&id=slower',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'faster',         url:'vocab.html?level=4&unit=1&set=1&id=faster',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      // Vocab – Our World Level 4 · Unit 1 · Set 2
-      { type:'V', word:'glasses',        url:'vocab.html?level=4&unit=1&set=2&id=glasses',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'wavy hair',      url:'vocab.html?level=4&unit=1&set=2&id=wavy-hair',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'blond hair',     url:'vocab.html?level=4&unit=1&set=2&id=blond-hair',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'straight hair',  url:'vocab.html?level=4&unit=1&set=2&id=straight-hair',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      { type:'V', word:'curly hair',     url:'vocab.html?level=4&unit=1&set=2&id=curly-hair',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1'}] },
-      // Vocab – Our World Level 4 · Other units
-      { type:'V', word:'pumpkin',        url:'vocab.html?level=4&unit=2&set=1&id=pumpkin', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 3'}] },
-      { type:'V', word:'plant',          url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
-      { type:'V', word:'turnip',         url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
-      { type:'V', word:'enormous',       url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
-      { type:'V', word:'pull',           url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2'}] },
-      { type:'V', word:'stretch',        url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
-      { type:'V', word:'animal',         url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'},{code:'JH',cls:'jh',label:'JH · Unit 1'},{code:'TG',cls:'tg',label:'TG · Set 2'}] },
-      { type:'V', word:'habitat',        url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3'}] },
-      { type:'V', word:'pretty',         url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'handsome',       url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'athlete',        url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'wonderful',      url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
-      { type:'V', word:'hobby',          url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'},{code:'JH',cls:'jh',label:'JH · Unit 4'}] },
-      { type:'V', word:'school subject', url:'our-world.html',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U5'}] },
+<!-- ══ SCREEN 2B: LEO MODES ══ -->
+<div class="screen" id="screen-leo">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="showPerson()">← Back</button>
+    <div class="mode-screen-who">🦁 <span>LEO</span> — Learning Mode</div>
+  </div>
+  <div class="mode-section">
+    <div class="mode-section-label">CHOOSE A TRACK</div>
+    <div class="modes-grid cols-3">
 
-      // Grammar – Our World Level 4
-      { type:'G', word:'Comparatives with -er',              url:'grammar.html?level=4&unit=1&set=1', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G1'},{code:'JH',cls:'jh',label:'JH · Unit 2'}] },
-      { type:'G', word:'Present progressive for future plans', url:'grammar.html?level=4&unit=1&set=2', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U1 G2'}] },
-      { type:'G', word:'Superlatives with -est',             url:'grammar.html?level=4&unit=5&set=1', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G1'}] },
-      { type:'G', word:'Superlatives with most',             url:'grammar.html?level=4&unit=5&set=1', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U2 G2'}] },
-      { type:'G', word:'Irregular comparatives',             url:'grammar.html?level=4&unit=5&set=2', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U3 G1'}] },
-      { type:'G', word:'should / shouldn\'t',                url:'grammar.html?level=4&unit=4&set=1', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G1'},{code:'JH',cls:'jh',label:'JH · Unit 5'}] },
-      { type:'G', word:'have to / don\'t have to',           url:'grammar.html?level=4&unit=4&set=2', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U4 G2'}] },
+      <a class="mode-card ow" href="our-world.html">
+        <div class="ow-slot">
+          <div class="ow-natgeo-bar"></div>
+          <div class="ow-natgeo-text">NATIONAL GEOGRAPHIC LEARNING</div>
+          <div class="ow-our">Our</div>
+          <div class="ow-world-row">
+            <span class="l1">W</span><span class="l2">O</span><span class="l3">R</span><span class="l4">🌍</span><span class="l5">L</span><span class="l6">D</span>
+          </div>
+          <div class="ow-edition-text">SECOND EDITION</div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><div class="dot" style="color:var(--ow-blue)"></div>TEXTBOOK</div>
+          <div class="mode-title">Our World</div>
+          <div class="mode-desc">Vocab flashcards, grammar charts, quizzes and Master Quiz for all units.</div>
+          <div class="mode-meta"><span>Level 4 active</span><span class="arrow">→</span></div>
+        </div>
+      </a>
 
-      // Vocab – Our World Level 4 · Unit 6 · Set 1
-      { type:'V', word:'pollution',      url:'vocab.html?level=4&unit=6&set=1&id=pollution',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'resource',       url:'vocab.html?level=4&unit=6&set=1&id=resource',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'disappear',      url:'vocab.html?level=4&unit=6&set=1&id=disappear',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'creature',       url:'vocab.html?level=4&unit=6&set=1&id=creature',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'layer',          url:'vocab.html?level=4&unit=6&set=1&id=layer',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'zone',           url:'vocab.html?level=4&unit=6&set=1&id=zone',           worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'sunlight',       url:'vocab.html?level=4&unit=6&set=1&id=sunlight',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'midnight',       url:'vocab.html?level=4&unit=6&set=1&id=midnight',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'whale',          url:'vocab.html?level=4&unit=6&set=1&id=whale',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'squid',          url:'vocab.html?level=4&unit=6&set=1&id=squid',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'dolphin',        url:'vocab.html?level=4&unit=6&set=1&id=dolphin',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'fish',           url:'vocab.html?level=4&unit=6&set=1&id=fish',           worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'shark',          url:'vocab.html?level=4&unit=6&set=1&id=shark',          worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'sea turtle',     url:'vocab.html?level=4&unit=6&set=1&id=sea-turtle',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'octopus',        url:'vocab.html?level=4&unit=6&set=1&id=octopus',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'sea sponge',     url:'vocab.html?level=4&unit=6&set=1&id=sea-sponge',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      // Vocab – Our World Level 4 · Unit 6 · Set 2
-      { type:'V', word:'oil spill',      url:'vocab.html?level=4&unit=6&set=2&id=oil-spill',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'garbage',        url:'vocab.html?level=4&unit=6&set=2&id=garbage',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'overfishing',    url:'vocab.html?level=4&unit=6&set=2&id=overfishing',    worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'plastic',        url:'vocab.html?level=4&unit=6&set=2&id=plastic',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      { type:'V', word:'biodegradable',  url:'vocab.html?level=4&unit=6&set=2&id=biodegradable',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6'}] },
-      // Grammar – Our World Level 4 · Unit 6
-      { type:'G', word:'Have to, must, can\'t, and don\'t', url:'grammar.html?level=4&unit=6&set=1', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6 G1'}] },
-      { type:'G', word:'Future with will and won\'t',       url:'grammar.html?level=4&unit=6&set=2', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U6 G2'}] },
+      <a class="mode-card nc" href="junior-high.html">
+        <div class="nc-slot">
+          <div class="nc-crown-icon">👑</div>
+          <div class="nc-title-text">NEW CROWN <span class="nc-num-badge">1</span></div>
+          <div class="nc-series-text">ENGLISH SERIES</div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><div class="dot" style="color:var(--nc-green)"></div>JUNIOR HIGH</div>
+          <div class="mode-title">Junior High</div>
+          <div class="mode-desc">New Crown JH1 — vocab, grammar practice and drills for school English.</div>
+          <div class="mode-meta"><span>JH Year 1 active</span><span class="arrow">→</span></div>
+        </div>
+      </a>
 
-      // Vocab – Our World Level 4 · Unit 7 · Set 1
-      { type:'V', word:'invention',   url:'vocab.html?level=4&unit=7&set=1&id=invention',   worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'problem',     url:'vocab.html?level=4&unit=7&set=1&id=problem',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'solution',    url:'vocab.html?level=4&unit=7&set=1&id=solution',    worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'wheel',       url:'vocab.html?level=4&unit=7&set=1&id=wheel',       worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'electricity', url:'vocab.html?level=4&unit=7&set=1&id=electricity', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'useful',      url:'vocab.html?level=4&unit=7&set=1&id=useful',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'battery',     url:'vocab.html?level=4&unit=7&set=1&id=battery',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'imagination', url:'vocab.html?level=4&unit=7&set=1&id=imagination', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'creativity',  url:'vocab.html?level=4&unit=7&set=1&id=creativity',  worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'idea',        url:'vocab.html?level=4&unit=7&set=1&id=idea',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'invent',      url:'vocab.html?level=4&unit=7&set=1&id=invent',      worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'try',         url:'vocab.html?level=4&unit=7&set=1&id=try',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'fail',        url:'vocab.html?level=4&unit=7&set=1&id=fail',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'succeed',     url:'vocab.html?level=4&unit=7&set=1&id=succeed',     worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      // Vocab – Our World Level 4 · Unit 7 · Set 2
-      { type:'V', word:'move',        url:'vocab.html?level=4&unit=7&set=2&id=move',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'turn',        url:'vocab.html?level=4&unit=7&set=2&id=turn',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'put',         url:'vocab.html?level=4&unit=7&set=2&id=put',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'use',         url:'vocab.html?level=4&unit=7&set=2&id=use',         worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      { type:'V', word:'lift',        url:'vocab.html?level=4&unit=7&set=2&id=lift',        worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7'}] },
-      // Grammar – Our World Level 4 · Unit 7
-      { type:'G', word:'Used to — past habits',       url:'grammar.html?level=4&unit=7&set=1', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7 G1'}] },
-      { type:'G', word:'You — general statements',    url:'grammar.html?level=4&unit=7&set=2', worlds:[{code:'OW',cls:'ow',label:'OW · L4 U7 G2'}] },
-    ];
+      <a class="mode-card el" href="#">
+        <div class="el-slot">
+          <div class="el-ball">⚽</div>
+          <div class="el-title-text">ENGLISH<br>LEAGUE</div>
+          <div class="el-elite-badge">ELITE MODE</div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-tag"><div class="dot" style="color:var(--el-red)"></div>COMPETITIVE</div>
+          <div class="mode-title">English League Elite</div>
+          <div class="mode-desc">Timed grammar challenges, score tracking, and mastery badges.</div>
+          <div class="mode-meta"><span>Coming soon</span><span class="arrow">→</span></div>
+        </div>
+      </a>
 
-    const input    = document.getElementById('searchInput');
-    const clearBtn = document.getElementById('clearBtn');
-    const results  = document.getElementById('results');
-    const noRes    = document.getElementById('noResults');
-    const modeSection = document.getElementById('modeSection');
-    const modesGrid   = document.getElementById('modesGrid');
+    </div>
+  </div>
+</div>
 
-    function highlight(text, query) {
-      const idx = text.toLowerCase().indexOf(query.toLowerCase());
-      if (idx === -1) return text;
-      return text.slice(0, idx)
-        + '<mark>' + text.slice(idx, idx + query.length) + '</mark>'
-        + text.slice(idx + query.length);
-    }
+<!-- ══ SCREEN 2C: REFERENCE ══ -->
+<div class="screen" id="screen-reference">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="showPerson()">← Back</button>
+    <div class="mode-screen-who">📚 <span>LEO'S REFERENCE</span></div>
+  </div>
+  <div class="mode-section">
+    <div class="mode-section-label">LOOK IT UP</div>
+    <div class="modes-grid cols-3">
 
-    function showModes(show) {
-      modesGrid.style.display    = show ? 'grid' : 'none';
-      modeSection.style.display  = show ? 'flex' : 'none';
-    }
+      <a class="mode-card ow ref" href="our-world.html">
+        <div class="ow-slot short">
+          <div class="ow-natgeo-bar"></div>
+          <div class="ow-our" style="font-size:1.1rem">Our World</div>
+          <div class="ow-edition-text" style="font-size:0.6rem;color:rgba(255,255,255,0.45)">VOCABULARY</div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-title">Our World Vocab</div>
+          <div class="mode-desc">All Level 4 words with IPA, Japanese and audio.</div>
+          <div class="mode-meta"><span>Units 1–8 · 312 words</span><span class="arrow">→</span></div>
+        </div>
+      </a>
 
-    function doSearch(q) {
-      results.innerHTML = '';
-      results.classList.remove('visible');
-      noRes.classList.remove('visible');
+      <a class="mode-card nc ref" href="junior-high.html">
+        <div class="nc-slot short">
+          <div class="nc-title-text" style="font-size:1.2rem">NEW CROWN</div>
+          <div class="nc-series-text">VOCABULARY</div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-title">Junior High Vocab</div>
+          <div class="mode-desc">New Crown JH1 words with Japanese and audio.</div>
+          <div class="mode-meta"><span>Lessons 1–5</span><span class="arrow">→</span></div>
+        </div>
+      </a>
 
-      if (q.length < 2) {
-        showModes(true);
-        clearBtn.classList.remove('visible');
-        return;
-      }
+      <a class="mode-card ow ref" href="our-world.html">
+        <div class="ow-slot short">
+          <div class="ow-natgeo-bar"></div>
+          <div class="ow-our" style="font-size:1.1rem">Grammar</div>
+          <div class="ow-edition-text" style="font-size:0.6rem;color:rgba(255,255,255,0.45)">CHARTS + QUIZZES</div>
+        </div>
+        <div class="mode-body">
+          <div class="mode-title">Grammar Charts</div>
+          <div class="mode-desc">All grammar points with rules, examples and quizzes.</div>
+          <div class="mode-meta"><span>16 grammar sets</span><span class="arrow">→</span></div>
+        </div>
+      </a>
 
-      clearBtn.classList.add('visible');
-      showModes(false);
+    </div>
+  </div>
+</div>
 
-      const hits = DATA.filter(d => d.word.toLowerCase().includes(q.toLowerCase()));
+<script>
+  // ── NAVIGATION ──
+  function showModes(person) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-' + person).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  function showPerson() {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-person').classList.add('active');
+    window.scrollTo(0, 0);
+  }
 
-      if (hits.length === 0) {
-        noRes.classList.add('visible');
-        return;
-      }
+  // ── SEARCH DATA ──
+  const DATA = [
+    // OW L4 U1 Set 1
+    {t:'v',w:'relatives',u:'vocab.html?level=4&unit=1&set=1&id=relatives'},
+    {t:'v',w:'different',u:'vocab.html?level=4&unit=1&set=1&id=different'},
+    {t:'v',w:'uglier',u:'vocab.html?level=4&unit=1&set=1&id=uglier'},
+    {t:'v',w:'cuter',u:'vocab.html?level=4&unit=1&set=1&id=cuter'},
+    {t:'v',w:'smarter',u:'vocab.html?level=4&unit=1&set=1&id=smarter'},
+    {t:'v',w:'friendlier',u:'vocab.html?level=4&unit=1&set=1&id=friendlier'},
+    {t:'v',w:'bigger',u:'vocab.html?level=4&unit=1&set=1&id=bigger'},
+    {t:'v',w:'smaller',u:'vocab.html?level=4&unit=1&set=1&id=smaller'},
+    {t:'v',w:'stronger',u:'vocab.html?level=4&unit=1&set=1&id=stronger'},
+    {t:'v',w:'older',u:'vocab.html?level=4&unit=1&set=1&id=older'},
+    {t:'v',w:'younger',u:'vocab.html?level=4&unit=1&set=1&id=younger'},
+    {t:'v',w:'taller',u:'vocab.html?level=4&unit=1&set=1&id=taller'},
+    {t:'v',w:'shorter',u:'vocab.html?level=4&unit=1&set=1&id=shorter'},
+    {t:'v',w:'slower',u:'vocab.html?level=4&unit=1&set=1&id=slower'},
+    {t:'v',w:'faster',u:'vocab.html?level=4&unit=1&set=1&id=faster'},
+    // OW L4 U1 Set 2
+    {t:'v',w:'glasses',u:'vocab.html?level=4&unit=1&set=2&id=glasses'},
+    {t:'v',w:'wavy hair',u:'vocab.html?level=4&unit=1&set=2&id=wavy-hair'},
+    {t:'v',w:'blond hair',u:'vocab.html?level=4&unit=1&set=2&id=blond-hair'},
+    {t:'v',w:'straight hair',u:'vocab.html?level=4&unit=1&set=2&id=straight-hair'},
+    {t:'v',w:'curly hair',u:'vocab.html?level=4&unit=1&set=2&id=curly-hair'},
+    // OW L4 U2
+    {t:'v',w:'pumpkin',u:'vocab.html?level=4&unit=2&set=1&id=pumpkin'},
+    // OW L4 U6
+    {t:'v',w:'pollution',u:'vocab.html?level=4&unit=6&set=1&id=pollution'},
+    {t:'v',w:'resource',u:'vocab.html?level=4&unit=6&set=1&id=resource'},
+    {t:'v',w:'disappear',u:'vocab.html?level=4&unit=6&set=1&id=disappear'},
+    {t:'v',w:'creature',u:'vocab.html?level=4&unit=6&set=1&id=creature'},
+    {t:'v',w:'layer',u:'vocab.html?level=4&unit=6&set=1&id=layer'},
+    {t:'v',w:'zone',u:'vocab.html?level=4&unit=6&set=1&id=zone'},
+    {t:'v',w:'sunlight',u:'vocab.html?level=4&unit=6&set=1&id=sunlight'},
+    {t:'v',w:'midnight',u:'vocab.html?level=4&unit=6&set=1&id=midnight'},
+    {t:'v',w:'whale',u:'vocab.html?level=4&unit=6&set=1&id=whale'},
+    {t:'v',w:'squid',u:'vocab.html?level=4&unit=6&set=1&id=squid'},
+    {t:'v',w:'dolphin',u:'vocab.html?level=4&unit=6&set=1&id=dolphin'},
+    {t:'v',w:'shark',u:'vocab.html?level=4&unit=6&set=1&id=shark'},
+    {t:'v',w:'sea turtle',u:'vocab.html?level=4&unit=6&set=1&id=sea-turtle'},
+    {t:'v',w:'octopus',u:'vocab.html?level=4&unit=6&set=1&id=octopus'},
+    {t:'v',w:'sea sponge',u:'vocab.html?level=4&unit=6&set=1&id=sea-sponge'},
+    {t:'v',w:'oil spill',u:'vocab.html?level=4&unit=6&set=2&id=oil-spill'},
+    {t:'v',w:'garbage',u:'vocab.html?level=4&unit=6&set=2&id=garbage'},
+    {t:'v',w:'overfishing',u:'vocab.html?level=4&unit=6&set=2&id=overfishing'},
+    {t:'v',w:'plastic',u:'vocab.html?level=4&unit=6&set=2&id=plastic'},
+    {t:'v',w:'biodegradable',u:'vocab.html?level=4&unit=6&set=2&id=biodegradable'},
+    // OW L4 U7
+    {t:'v',w:'invention',u:'vocab.html?level=4&unit=7&set=1&id=invention'},
+    {t:'v',w:'problem',u:'vocab.html?level=4&unit=7&set=1&id=problem'},
+    {t:'v',w:'solution',u:'vocab.html?level=4&unit=7&set=1&id=solution'},
+    {t:'v',w:'wheel',u:'vocab.html?level=4&unit=7&set=1&id=wheel'},
+    {t:'v',w:'electricity',u:'vocab.html?level=4&unit=7&set=1&id=electricity'},
+    {t:'v',w:'useful',u:'vocab.html?level=4&unit=7&set=1&id=useful'},
+    {t:'v',w:'battery',u:'vocab.html?level=4&unit=7&set=1&id=battery'},
+    {t:'v',w:'imagination',u:'vocab.html?level=4&unit=7&set=1&id=imagination'},
+    {t:'v',w:'creativity',u:'vocab.html?level=4&unit=7&set=1&id=creativity'},
+    {t:'v',w:'idea',u:'vocab.html?level=4&unit=7&set=1&id=idea'},
+    {t:'v',w:'invent',u:'vocab.html?level=4&unit=7&set=1&id=invent'},
+    {t:'v',w:'fail',u:'vocab.html?level=4&unit=7&set=1&id=fail'},
+    {t:'v',w:'succeed',u:'vocab.html?level=4&unit=7&set=1&id=succeed'},
+    {t:'v',w:'move',u:'vocab.html?level=4&unit=7&set=2&id=move'},
+    {t:'v',w:'turn',u:'vocab.html?level=4&unit=7&set=2&id=turn'},
+    {t:'v',w:'put',u:'vocab.html?level=4&unit=7&set=2&id=put'},
+    {t:'v',w:'use',u:'vocab.html?level=4&unit=7&set=2&id=use'},
+    {t:'v',w:'lift',u:'vocab.html?level=4&unit=7&set=2&id=lift'},
+    // Grammar — all 16 sets fixed
+    {t:'g',w:'Comparatives with -er',u:'grammar.html?level=4&unit=1&set=1'},
+    {t:'g',w:'Present progressive for future plans',u:'grammar.html?level=4&unit=1&set=2'},
+    {t:'g',w:"Have to / Don't have to",u:'grammar.html?level=4&unit=2&set=1'},
+    {t:'g',w:'Would like',u:'grammar.html?level=4&unit=2&set=2'},
+    {t:'g',w:'Contrast with but and instead',u:'grammar.html?level=4&unit=3&set=1'},
+    {t:'g',w:'Comparatives with more',u:'grammar.html?level=4&unit=3&set=2'},
+    {t:'g',w:'Advice with should',u:'grammar.html?level=4&unit=4&set=1'},
+    {t:'g',w:'Reflexive pronouns',u:'grammar.html?level=4&unit=4&set=2'},
+    {t:'g',w:'Superlatives with -est and most',u:'grammar.html?level=4&unit=5&set=1'},
+    {t:'g',w:'Irregular comparatives and superlatives',u:'grammar.html?level=4&unit=5&set=2'},
+    {t:'g',w:"Have to, must, can't, and don't",u:'grammar.html?level=4&unit=6&set=1'},
+    {t:'g',w:"Future with will and won't",u:'grammar.html?level=4&unit=6&set=2'},
+    {t:'g',w:'You for general statements',u:'grammar.html?level=4&unit=7&set=1'},
+    {t:'g',w:'Used to for past habits',u:'grammar.html?level=4&unit=7&set=2'},
+    {t:'g',w:'Describing people with who',u:'grammar.html?level=4&unit=8&set=1'},
+    {t:'g',w:'Direct and indirect objects',u:'grammar.html?level=4&unit=8&set=2'},
+  ];
 
-      hits.forEach(item => {
-        const row = document.createElement('div');
-        row.className = 'result-row';
+  // ── SEARCH ──
+  const input    = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearBtn');
+  const results  = document.getElementById('results');
+  const noRes    = document.getElementById('noResults');
 
-        const typeTag = `<div class="result-type ${item.type === 'V' ? 'vocab' : 'grammar'}">${item.type}</div>`;
-        const wordSpan = `<div class="result-word"><a href="${item.url}">${highlight(item.word, q)}</a></div>`;
-        const badges = item.worlds.map(w =>
-          `<a href="${item.url}" class="badge ${w.cls}">
-            <span class="badge-world">${w.code}</span>
-            <span class="badge-sep">·</span>
-            <span class="badge-loc">${w.label.split('·')[1].trim()}</span>
-          </a>`
-        ).join('');
+  function hl(text, q) {
+    const i = text.toLowerCase().indexOf(q.toLowerCase());
+    if (i < 0) return text;
+    return text.slice(0,i) + '<mark>' + text.slice(i, i+q.length) + '</mark>' + text.slice(i+q.length);
+  }
 
-        row.innerHTML = typeTag + wordSpan + `<div class="result-badges">${badges}</div>`;
-        results.appendChild(row);
-      });
-
-      results.classList.add('visible');
-    }
-
-    function setSearch(val) {
-      input.value = val;
-      doSearch(val);
-    }
-
-    input.addEventListener('input', () => doSearch(input.value.trim()));
-    clearBtn.addEventListener('click', () => {
-      input.value = '';
-      doSearch('');
-      input.focus();
+  function doSearch(q) {
+    results.innerHTML = '';
+    noRes.style.display = 'none';
+    clearBtn.style.display = q ? 'block' : 'none';
+    if (q.length < 2) return;
+    const matches = DATA.filter(d => d.w.toLowerCase().includes(q.toLowerCase()));
+    if (!matches.length) { noRes.style.display = 'block'; return; }
+    matches.forEach(d => {
+      const row = document.createElement('div');
+      row.className = 'result-row';
+      row.innerHTML = `<span class="result-badge ${d.t}">${d.t==='v'?'V':'G'}</span>
+        <span class="result-word">${hl(d.w, q)}</span>
+        <a class="result-link" href="${d.u}">Open →</a>`;
+      results.appendChild(row);
     });
-  </script>
+  }
+
+  function setSearch(val) { input.value = val; doSearch(val); input.focus(); }
+
+  input.addEventListener('input', () => doSearch(input.value.trim()));
+  clearBtn.addEventListener('click', () => { input.value=''; doSearch(''); results.innerHTML=''; input.focus(); });
+</script>
 </body>
 </html>
