@@ -544,6 +544,154 @@ header {
 @media (max-width: 680px) {
   .person-grid, .cols-2, .cols-3 { grid-template-columns: 1fr; }
 }
+
+/* ── DASH CARDS (level grid) ── */
+.dash-card {
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.dash-card.active-card { cursor: pointer; }
+.dash-card.active-card:hover { transform: translateY(-4px); border-color: var(--ow-blue); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+.dash-card.locked { opacity: 0.5; }
+.dash-card-top {
+  padding: 24px 20px 16px;
+  color: #fff;
+  position: relative;
+}
+.dash-level-num {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.dash-level-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+.dash-active-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.dash-card-body { padding: 14px 18px; }
+.dash-meta {
+  font-size: 0.72rem;
+  color: var(--ink-4);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* status pills */
+.dash-status {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.dash-status.live   { background: #E8F5E9; color: var(--nc-dark); }
+.dash-status.coming { background: var(--soft); color: var(--ink-4); }
+
+/* ── UNIT ROWS ── */
+.units-grid { display: flex; flex-direction: column; gap: 8px; }
+.unit-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.2s;
+}
+.unit-row.active-row { cursor: pointer; border-color: var(--ow-blue); }
+.unit-row.active-row:hover { background: #EEF5FF; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.unit-row.locked { opacity: 0.5; }
+.unit-row-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--ink-4);
+  min-width: 48px;
+  flex-shrink: 0;
+}
+.unit-row-num.active-num { color: var(--ow-blue); }
+.unit-row-info { flex: 1; min-width: 0; }
+.unit-row-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.unit-row-sub {
+  font-size: 0.72rem;
+  color: var(--ink-4);
+  font-weight: 600;
+  margin-top: 2px;
+}
+.unit-row-arrow {
+  font-size: 1rem;
+  color: var(--ow-blue);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── LESSON ROWS ── */
+.lessons-list { display: flex; flex-direction: column; gap: 8px; }
+.lesson-row {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+.lesson-row.live { border-color: var(--ow-blue); }
+.lesson-row.live:hover { background: #EEF5FF; transform: translateX(4px); }
+.lesson-row.locked { opacity: 0.5; }
+.lesson-icon-wrap {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.lesson-info { flex: 1; min-width: 0; }
+.lesson-name { font-weight: 800; font-size: 0.9rem; color: var(--ink); }
+.lesson-sub { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
+.lesson-open {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: var(--ow-blue);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
 </style>
 </head>
 <body>
@@ -654,7 +802,7 @@ header {
     <div class="mode-section-label">CHOOSE A TRACK</div>
     <div class="modes-grid cols-2">
 
-      <a class="mode-card ow" href="our-world.html">
+      <div class="mode-card ow" onclick="goTo('screen-neritan-levels')" style="cursor:pointer">
         <div class="ow-slot">
           <div class="ow-natgeo-bar"></div>
           <div class="ow-natgeo-text">NATIONAL GEOGRAPHIC LEARNING</div>
@@ -670,7 +818,7 @@ header {
           <div class="mode-desc">Teaching slides for all units. Level 4 active — Levels 1–3, 5–6 coming soon.</div>
           <div class="mode-meta"><span>Level 4 · 8 units</span><span class="arrow">→</span></div>
         </div>
-      </a>
+      </div>
 
       <a class="mode-card el" href="#">
         <div class="el-slot">
@@ -684,6 +832,283 @@ header {
           <div class="mode-meta"><span>Coming soon</span><span class="arrow">→</span></div>
         </div>
       </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: NERITAN → OUR WORLD → LEVELS ══ -->
+<div class="screen" id="screen-neritan-levels">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="goTo('screen-neritan')">← Back</button>
+    <div class="mode-screen-who">👨 <span>OUR WORLD</span> — Choose a Level</div>
+  </div>
+  <div class="mode-section">
+    <div class="mode-section-label">SELECT LEVEL</div>
+    <div class="modes-grid cols-3">
+
+      <div class="dash-card locked">
+        <div class="dash-card-top" style="background:#3a3a3a">
+          <div class="dash-level-num">L1</div>
+          <div class="dash-level-name">Level 1</div>
+        </div>
+        <div class="dash-card-body">
+          <div class="dash-status coming">🔒 Coming soon</div>
+        </div>
+      </div>
+
+      <div class="dash-card locked">
+        <div class="dash-card-top" style="background:#3a3a3a">
+          <div class="dash-level-num">L2</div>
+          <div class="dash-level-name">Level 2</div>
+        </div>
+        <div class="dash-card-body">
+          <div class="dash-status coming">🔒 Coming soon</div>
+        </div>
+      </div>
+
+      <div class="dash-card locked">
+        <div class="dash-card-top" style="background:#3a3a3a">
+          <div class="dash-level-num">L3</div>
+          <div class="dash-level-name">Level 3</div>
+        </div>
+        <div class="dash-card-body">
+          <div class="dash-status coming">🔒 Coming soon</div>
+        </div>
+      </div>
+
+      <div class="dash-card active-card" onclick="goTo('screen-neritan-units')">
+        <div class="dash-card-top" style="background:var(--ow-blue)">
+          <div class="dash-level-num">L4</div>
+          <div class="dash-level-name">Level 4</div>
+          <div class="dash-active-badge">ACTIVE</div>
+        </div>
+        <div class="dash-card-body">
+          <div class="dash-status live">✅ Unit 7 in progress</div>
+          <div class="dash-meta">8 units · 1 slide live</div>
+        </div>
+      </div>
+
+      <div class="dash-card locked">
+        <div class="dash-card-top" style="background:#3a3a3a">
+          <div class="dash-level-num">L5</div>
+          <div class="dash-level-name">Level 5</div>
+        </div>
+        <div class="dash-card-body">
+          <div class="dash-status coming">🔒 Coming soon</div>
+        </div>
+      </div>
+
+      <div class="dash-card locked">
+        <div class="dash-card-top" style="background:#3a3a3a">
+          <div class="dash-level-num">L6</div>
+          <div class="dash-level-name">Level 6</div>
+        </div>
+        <div class="dash-card-body">
+          <div class="dash-status coming">🔒 Coming soon</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: NERITAN → OUR WORLD → L4 → UNITS ══ -->
+<div class="screen" id="screen-neritan-units">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="goTo('screen-neritan-levels')">← Back</button>
+    <div class="mode-screen-who">👨 <span>OUR WORLD · LEVEL 4</span> — Choose a Unit</div>
+  </div>
+  <div class="mode-section">
+    <div class="mode-section-label">SELECT UNIT</div>
+    <div class="units-grid">
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 1</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">All in Our Family 👨‍👩‍👦</div>
+          <div class="unit-row-sub">Families &amp; feelings</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 2</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">Fresh Food 🥗</div>
+          <div class="unit-row-sub">Healthy eating</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 3</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">Long Ago and Today ⏳</div>
+          <div class="unit-row-sub">Past and present</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 4</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">Get Well Soon! 🏥</div>
+          <div class="unit-row-sub">Health &amp; body</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 5</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">People I Admire ⭐</div>
+          <div class="unit-row-sub">Music &amp; talents</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 6</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">Wonders of the Sea 🌊</div>
+          <div class="unit-row-sub">Ocean life</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="unit-row active-row" onclick="goTo('screen-neritan-u7')">
+        <div class="unit-row-num active-num">Unit 7</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">Good Idea! 💡</div>
+          <div class="unit-row-sub">Inventions</div>
+        </div>
+        <div class="dash-status live">✅ 1 slide live</div>
+        <div class="unit-row-arrow">→</div>
+      </div>
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 8</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">That's Really Interesting! 🐻‍❄️</div>
+          <div class="unit-row-sub">Hobbies &amp; interests</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="unit-row locked">
+        <div class="unit-row-num">Unit 9</div>
+        <div class="unit-row-info">
+          <div class="unit-row-name">The Science of Fun 🚀</div>
+          <div class="unit-row-sub">Sports &amp; forces</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN: NERITAN → OUR WORLD → L4 → U7 → LESSONS ══ -->
+<div class="screen" id="screen-neritan-u7">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="goTo('screen-neritan-units')">← Back</button>
+    <div class="mode-screen-who">👨 <span>UNIT 7 — Good Idea! 💡</span></div>
+  </div>
+  <div class="mode-section">
+    <div class="mode-section-label">TEACHING SLIDES — LEVEL 4 · UNIT 7</div>
+    <div class="lessons-list">
+
+      <a class="lesson-row live" href="teach/our-world/level4/unit7/opener.html" target="_blank">
+        <div class="lesson-icon-wrap" style="background:#1A6BB520">🌍</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Unit Opener</div>
+          <div class="lesson-sub">Space Projection Helmet · Inventions intro · 22 slides</div>
+        </div>
+        <div class="dash-status live">✅ Live</div>
+        <div class="lesson-open">Open ↗</div>
+      </a>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">📚</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Vocabulary 1</div>
+          <div class="lesson-sub">14 invention words</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">📖</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Vocabulary 2</div>
+          <div class="lesson-sub">5 action words</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">✏️</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Grammar 1</div>
+          <div class="lesson-sub">Used to for past habits</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">📝</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Grammar 2</div>
+          <div class="lesson-sub">You for general statements</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">🎵</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Song</div>
+          <div class="lesson-sub">Inventions song</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">👁️</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Reading</div>
+          <div class="lesson-sub">Young and Creative</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">🖊️</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Writing</div>
+          <div class="lesson-sub">Fact and Opinion Writing</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">🎯</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Mission</div>
+          <div class="lesson-sub">Use your imagination</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
+
+      <div class="lesson-row locked">
+        <div class="lesson-icon-wrap" style="background:#eee">🚀</div>
+        <div class="lesson-info">
+          <div class="lesson-name">Project</div>
+          <div class="lesson-sub">Design a superpower app</div>
+        </div>
+        <div class="dash-status coming">🔒 Coming soon</div>
+      </div>
 
     </div>
   </div>
@@ -803,16 +1228,13 @@ header {
 
 <script>
   // ── NAVIGATION ──
-  function showModes(person) {
+  function goTo(screenId) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById('screen-' + person).classList.add('active');
+    document.getElementById(screenId).classList.add('active');
     window.scrollTo(0, 0);
   }
-  function showPerson() {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById('screen-person').classList.add('active');
-    window.scrollTo(0, 0);
-  }
+  function showModes(person) { goTo('screen-' + person); }
+  function showPerson() { goTo('screen-person'); }
 
   // ── SANSEIDO DICTIONARY (loaded async) ──
   let SANSEIDO = [];
