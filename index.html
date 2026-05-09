@@ -692,6 +692,44 @@ header {
   border-radius: 2px;
   flex-shrink: 0;
 }
+
+/* ── OUR WORLD ACCORDION SCREEN ── */
+.ow-screen-body { max-width:1100px; margin:0 auto; padding:24px 24px 60px; width:100%; }
+.level-tabs { display:flex; gap:6px; margin-bottom:24px; flex-wrap:wrap; }
+.level-tab { font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; padding:7px 18px; border-radius:2px; border:2px solid var(--border); background:var(--surface); color:var(--ink-4); cursor:pointer; transition:all 0.2s; }
+.level-tab.active { background:var(--ow-blue); border-color:var(--ow-blue); color:#fff; }
+.level-tab.locked { opacity:0.4; cursor:not-allowed; }
+.unit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.unit-card { border:2px solid var(--border); border-radius:4px; background:var(--surface); cursor:pointer; transition:all 0.2s; }
+.unit-card:hover { border-color:var(--ow-blue); }
+.unit-card.open { border-color:var(--ow-blue); background:#EEF5FF; }
+.unit-card-header { padding:14px 16px; display:flex; align-items:center; gap:10px; }
+.unit-num-badge { font-family:'Oswald',sans-serif; font-size:0.6rem; font-weight:700; letter-spacing:2px; color:var(--ink-4); flex-shrink:0; }
+.unit-card.open .unit-num-badge { color:var(--ow-blue); }
+.unit-card-info { flex:1; min-width:0; }
+.unit-card-name { font-weight:800; font-size:0.88rem; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.unit-card-sub { font-size:0.7rem; color:var(--ink-4); font-weight:600; margin-top:2px; }
+.unit-card-stat { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; padding:2px 8px; border-radius:2px; white-space:nowrap; flex-shrink:0; }
+.stat-live { background:#E8F5E9; color:var(--nc-dark); }
+.stat-lock { background:var(--soft); color:var(--ink-4); }
+.unit-chevron { font-size:0.7rem; color:var(--ink-4); flex-shrink:0; transition:transform 0.2s; }
+.unit-card.open .unit-chevron { transform:rotate(180deg); }
+.lesson-panel { display:none; grid-column:1/-1; border:2px solid var(--ow-blue); border-top:none; border-radius:0 0 4px 4px; background:#F5F9FF; padding:16px; margin-top:-10px; }
+.lesson-panel.open { display:block; animation:panelIn 0.2s ease; }
+@keyframes panelIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
+.lesson-panel-header { font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; color:var(--ow-blue); margin-bottom:12px; }
+.lesson-strip { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin; scrollbar-color:var(--ow-blue) transparent; }
+.lesson-chip { flex-shrink:0; width:110px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:10px 8px; text-decoration:none; color:inherit; transition:all 0.2s; }
+.lesson-chip.live { border-color:var(--ow-blue); cursor:pointer; }
+.lesson-chip.live:hover { background:var(--ow-blue); }
+.lesson-chip.live:hover .lc-name { color:#fff; }
+.lesson-chip.live:hover .lc-status { background:rgba(255,255,255,0.2); color:#fff; }
+.lesson-chip.locked { opacity:0.45; cursor:not-allowed; pointer-events:none; }
+.lc-icon { font-size:1.4rem; margin-bottom:6px; }
+.lc-name { font-weight:800; font-size:0.72rem; color:var(--ink); margin-bottom:5px; line-height:1.2; }
+.lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
+.lc-live { background:#E8F5E9; color:var(--nc-dark); }
+.lc-lock { background:var(--soft); color:var(--ink-4); }
 </style>
 </head>
 <body>
@@ -802,7 +840,7 @@ header {
     <div class="mode-section-label">CHOOSE A TRACK</div>
     <div class="modes-grid cols-2">
 
-      <div class="mode-card ow" onclick="goTo('screen-neritan-levels')" style="cursor:pointer">
+      <div class="mode-card ow" onclick="goTo('screen-neritan-ow')" style="cursor:pointer">
         <div class="ow-slot">
           <div class="ow-natgeo-bar"></div>
           <div class="ow-natgeo-text">NATIONAL GEOGRAPHIC LEARNING</div>
@@ -837,302 +875,6 @@ header {
   </div>
 </div>
 
-<!-- ══ SCREEN: NERITAN → OUR WORLD → LEVELS ══ -->
-<div class="screen" id="screen-neritan-levels">
-  <div class="mode-screen-header">
-    <button class="back-btn" onclick="goTo('screen-neritan')">← Back</button>
-    <div class="mode-screen-who">👨 <span>OUR WORLD</span> — Choose a Level</div>
-  </div>
-  <div class="mode-section">
-    <div class="mode-section-label">SELECT LEVEL</div>
-    <div class="modes-grid cols-3">
-
-      <div class="dash-card locked">
-        <div class="dash-card-top" style="background:#3a3a3a">
-          <div class="dash-level-num">L1</div>
-          <div class="dash-level-name">Level 1</div>
-        </div>
-        <div class="dash-card-body">
-          <div class="dash-status coming">🔒 Coming soon</div>
-        </div>
-      </div>
-
-      <div class="dash-card locked">
-        <div class="dash-card-top" style="background:#3a3a3a">
-          <div class="dash-level-num">L2</div>
-          <div class="dash-level-name">Level 2</div>
-        </div>
-        <div class="dash-card-body">
-          <div class="dash-status coming">🔒 Coming soon</div>
-        </div>
-      </div>
-
-      <div class="dash-card locked">
-        <div class="dash-card-top" style="background:#3a3a3a">
-          <div class="dash-level-num">L3</div>
-          <div class="dash-level-name">Level 3</div>
-        </div>
-        <div class="dash-card-body">
-          <div class="dash-status coming">🔒 Coming soon</div>
-        </div>
-      </div>
-
-      <div class="dash-card active-card" onclick="goTo('screen-neritan-units')">
-        <div class="dash-card-top" style="background:var(--ow-blue)">
-          <div class="dash-level-num">L4</div>
-          <div class="dash-level-name">Level 4</div>
-          <div class="dash-active-badge">ACTIVE</div>
-        </div>
-        <div class="dash-card-body">
-          <div class="dash-status live">✅ Unit 7 in progress</div>
-          <div class="dash-meta">9 units · 2 slides live</div>
-        </div>
-      </div>
-
-      <div class="dash-card locked">
-        <div class="dash-card-top" style="background:#3a3a3a">
-          <div class="dash-level-num">L5</div>
-          <div class="dash-level-name">Level 5</div>
-        </div>
-        <div class="dash-card-body">
-          <div class="dash-status coming">🔒 Coming soon</div>
-        </div>
-      </div>
-
-      <div class="dash-card locked">
-        <div class="dash-card-top" style="background:#3a3a3a">
-          <div class="dash-level-num">L6</div>
-          <div class="dash-level-name">Level 6</div>
-        </div>
-        <div class="dash-card-body">
-          <div class="dash-status coming">🔒 Coming soon</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ══ SCREEN: NERITAN → OUR WORLD → L4 → UNITS ══ -->
-<div class="screen" id="screen-neritan-units">
-  <div class="mode-screen-header">
-    <button class="back-btn" onclick="goTo('screen-neritan-levels')">← Back</button>
-    <div class="mode-screen-who">👨 <span>OUR WORLD · LEVEL 4</span> — Choose a Unit</div>
-  </div>
-  <div class="mode-section">
-    <div class="mode-section-label">SELECT UNIT</div>
-    <div class="units-grid">
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 1</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">All in Our Family 👨‍👩‍👦</div>
-          <div class="unit-row-sub">Families &amp; feelings</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 2</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">Fresh Food 🥗</div>
-          <div class="unit-row-sub">Healthy eating</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 3</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">Long Ago and Today ⏳</div>
-          <div class="unit-row-sub">Past and present</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 4</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">Get Well Soon! 🏥</div>
-          <div class="unit-row-sub">Health &amp; body</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 5</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">People I Admire ⭐</div>
-          <div class="unit-row-sub">Music &amp; talents</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 6</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">Wonders of the Sea 🌊</div>
-          <div class="unit-row-sub">Ocean life</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="unit-row active-row" onclick="goTo('screen-neritan-u7')">
-        <div class="unit-row-num active-num">Unit 7</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">Good Idea! 💡</div>
-          <div class="unit-row-sub">Inventions</div>
-        </div>
-        <div class="dash-status live">✅ 2 slides live</div>
-        <div class="unit-row-arrow">→</div>
-      </div>
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 8</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">That's Really Interesting! 🐻‍❄️</div>
-          <div class="unit-row-sub">Hobbies &amp; interests</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="unit-row locked">
-        <div class="unit-row-num">Unit 9</div>
-        <div class="unit-row-info">
-          <div class="unit-row-name">The Science of Fun 🚀</div>
-          <div class="unit-row-sub">Sports &amp; forces</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ══ SCREEN: NERITAN → OUR WORLD → L4 → U7 → LESSONS ══ -->
-<div class="screen" id="screen-neritan-u7">
-  <div class="mode-screen-header">
-    <button class="back-btn" onclick="goTo('screen-neritan-units')">← Back</button>
-    <div class="mode-screen-who">👨 <span>UNIT 7 — Good Idea! 💡</span></div>
-  </div>
-  <div class="mode-section">
-    <div class="mode-section-label">TEACHING SLIDES — LEVEL 4 · UNIT 7</div>
-    <div class="lessons-list">
-
-      <a class="lesson-row live" href="teach/our-world/level4/unit7/opener.html" target="_blank">
-        <div class="lesson-icon-wrap" style="background:#1A6BB520">🌍</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Unit Opener</div>
-          <div class="lesson-sub">Space Projection Helmet · Inventions intro · 22 slides</div>
-        </div>
-        <div class="dash-status live">✅ Live</div>
-        <div class="lesson-open">Open ↗</div>
-      </a>
-
-      <a class="lesson-row live" href="teach/our-world/level4/unit7/vocab1.html" target="_blank">
-        <div class="lesson-icon-wrap" style="background:#1A6BB520">📚</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Vocabulary 1</div>
-          <div class="lesson-sub">14 invention words · 8 slides</div>
-        </div>
-        <div class="dash-status live">✅ Live</div>
-        <div class="lesson-open">Open ↗</div>
-      </a>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">🎵</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Song</div>
-          <div class="lesson-sub">Inventions song</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">✏️</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Grammar 1</div>
-          <div class="lesson-sub">Used to for past habits</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">📖</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Vocabulary 2</div>
-          <div class="lesson-sub">5 action words</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">📝</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Grammar 2</div>
-          <div class="lesson-sub">You for general statements</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">👁️</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Reading</div>
-          <div class="lesson-sub">Young and Creative</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">🖊️</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Writing</div>
-          <div class="lesson-sub">Fact and Opinion Writing</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">💙</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Values</div>
-          <div class="lesson-sub">Unit values</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">🎯</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Mission</div>
-          <div class="lesson-sub">Use your imagination</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">🚀</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Project</div>
-          <div class="lesson-sub">Design a superpower app</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-      <div class="lesson-row locked">
-        <div class="lesson-icon-wrap" style="background:#eee">📗</div>
-        <div class="lesson-info">
-          <div class="lesson-name">Book Reading</div>
-          <div class="lesson-sub">Extended reading</div>
-        </div>
-        <div class="dash-status coming">🔒 Coming soon</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
 <!-- ══ SCREEN 2B: LEO MODES ══ -->
 <div class="screen" id="screen-leo">
   <div class="mode-screen-header">
@@ -1143,7 +885,7 @@ header {
     <div class="mode-section-label">CHOOSE A TRACK</div>
     <div class="modes-grid cols-3">
 
-      <a class="mode-card ow" href="our-world.html">
+      <div class="mode-card ow" onclick="goTo('screen-leo-ow')" style="cursor:pointer">
         <div class="ow-slot">
           <div class="ow-natgeo-bar"></div>
           <div class="ow-natgeo-text">NATIONAL GEOGRAPHIC LEARNING</div>
@@ -1159,7 +901,7 @@ header {
           <div class="mode-desc">Vocab flashcards, grammar charts, quizzes and Master Quiz for all units.</div>
           <div class="mode-meta"><span>Level 4 active</span><span class="arrow">→</span></div>
         </div>
-      </a>
+      </div>
 
       <a class="mode-card nc" href="junior-high.html">
         <div class="nc-slot">
@@ -1193,6 +935,43 @@ header {
   </div>
 </div>
 
+<!-- NERITAN OUR WORLD SCREEN -->
+<div class="screen" id="screen-neritan-ow">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="goTo('screen-neritan')">← Back</button>
+    <div class="mode-screen-who">👨 <span>OUR WORLD</span> — Teaching Slides</div>
+  </div>
+  <div class="ow-screen-body">
+    <div class="level-tabs">
+      <div class="level-tab locked">L1</div>
+      <div class="level-tab locked">L2</div>
+      <div class="level-tab locked">L3</div>
+      <div class="level-tab active">L4 ✅</div>
+      <div class="level-tab locked">L5</div>
+      <div class="level-tab locked">L6</div>
+    </div>
+    <div class="unit-grid" id="neritan-unit-grid"></div>
+  </div>
+</div>
+
+<!-- LEO OUR WORLD SCREEN -->
+<div class="screen" id="screen-leo-ow">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="goTo('screen-leo')">← Back</button>
+    <div class="mode-screen-who">🦁 <span>OUR WORLD</span> — Learning Modules</div>
+  </div>
+  <div class="ow-screen-body">
+    <div class="level-tabs">
+      <div class="level-tab locked">L1</div>
+      <div class="level-tab locked">L2</div>
+      <div class="level-tab locked">L3</div>
+      <div class="level-tab active">L4 ✅</div>
+      <div class="level-tab locked">L5</div>
+      <div class="level-tab locked">L6</div>
+    </div>
+    <div class="unit-grid" id="leo-unit-grid"></div>
+  </div>
+</div>
 <!-- ══ SCREEN 2C: REFERENCE ══ -->
 <div class="screen" id="screen-reference">
   <div class="mode-screen-header">
@@ -1247,14 +1026,123 @@ header {
 
 <script>
   // ── NAVIGATION ──
-  function goTo(screenId) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(screenId).classList.add('active');
-    window.scrollTo(0, 0);
+  function goTo(id) {
+    document.querySelectorAll('.screen')
+      .forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
   }
-  function showModes(person) { goTo('screen-' + person); }
+  function showModes(p) { goTo('screen-'+p); }
   function showPerson() { goTo('screen-person'); }
 
+  const UNITS = [
+    { n:1, name:'All in Our Family 👨‍👩‍👦', sub:'Families & feelings' },
+    { n:2, name:'Fresh Food 🥗',            sub:'Healthy eating' },
+    { n:3, name:'Long Ago and Today ⏳',     sub:'Past and present' },
+    { n:4, name:'Get Well Soon! 🏥',         sub:'Health & body' },
+    { n:5, name:'People I Admire ⭐',        sub:'Music & talents' },
+    { n:6, name:'Wonders of the Sea 🌊',     sub:'Ocean life' },
+    { n:7, name:'Good Idea! 💡',             sub:'Inventions' },
+    { n:8, name:"That's Really Interesting! 🐻‍❄️", sub:'Hobbies & interests' },
+    { n:9, name:'The Science of Fun 🚀',     sub:'Sports & forces' },
+  ];
+
+  const LESSONS = [
+    { id:'opener',       name:'Unit Opener',  icon:'🌍' },
+    { id:'vocab1',       name:'Vocabulary 1', icon:'📚' },
+    { id:'song',         name:'Song',         icon:'🎵' },
+    { id:'grammar1',     name:'Grammar 1',    icon:'✏️' },
+    { id:'vocab2',       name:'Vocabulary 2', icon:'📖' },
+    { id:'grammar2',     name:'Grammar 2',    icon:'📝' },
+    { id:'reading',      name:'Reading',      icon:'👁️' },
+    { id:'writing',      name:'Writing',      icon:'🖊️' },
+    { id:'values',       name:'Values',       icon:'💙' },
+    { id:'mission',      name:'Mission',      icon:'🎯' },
+    { id:'project',      name:'Project',      icon:'🚀' },
+    { id:'book-reading', name:'Book Reading', icon:'📗' },
+  ];
+
+  // Add new live lessons here as we build them
+  // Key format: '{person}-{level}-{unit}-{lessonId}'
+  const LIVE = {
+    'n-4-7-opener': { url:'teach/our-world/level4/unit7/opener.html', desc:'22 slides' },
+    'n-4-7-vocab1': { url:'teach/our-world/level4/unit7/vocab1.html', desc:'8 slides' },
+  };
+
+  function getLiveCount(person, level, unit) {
+    return LESSONS.filter(l => LIVE[`${person}-${level}-${unit}-${l.id}`]).length;
+  }
+
+  function buildGrid(containerId, person) {
+    const grid = document.getElementById(containerId);
+    if (!grid) return;
+    grid.innerHTML = '';
+    UNITS.forEach(u => {
+      const liveCount = getLiveCount(person, 4, u.n);
+      const hasLive = liveCount > 0;
+      const card = document.createElement('div');
+      card.className = 'unit-card';
+      card.id = `${person}-u${u.n}`;
+      card.innerHTML = `
+        <div class="unit-card-header" onclick="toggleUnit('${person}',${u.n})">
+          <div class="unit-num-badge">UNIT ${u.n}</div>
+          <div class="unit-card-info">
+            <div class="unit-card-name">${u.name}</div>
+            <div class="unit-card-sub">${u.sub}</div>
+          </div>
+          <div class="unit-card-stat ${hasLive?'stat-live':'stat-lock'}">
+            ${hasLive ? `✅ ${liveCount} live` : '🔒 Soon'}
+          </div>
+          <div class="unit-chevron">▼</div>
+        </div>`;
+      grid.appendChild(card);
+
+      const panel = document.createElement('div');
+      panel.className = 'lesson-panel';
+      panel.id = `${person}-panel-${u.n}`;
+      const chips = LESSONS.map(l => {
+        const key = `${person}-4-${u.n}-${l.id}`;
+        const live = LIVE[key];
+        if (live) {
+          return `<a class="lesson-chip live" href="${live.url}" target="_blank">
+            <div class="lc-icon">${l.icon}</div>
+            <div class="lc-name">${l.name}</div>
+            <div class="lc-status lc-live">✅ Live</div>
+          </a>`;
+        }
+        return `<div class="lesson-chip locked">
+          <div class="lc-icon">${l.icon}</div>
+          <div class="lc-name">${l.name}</div>
+          <div class="lc-status lc-lock">🔒 Soon</div>
+        </div>`;
+      }).join('');
+      panel.innerHTML = `
+        <div class="lesson-panel-header">
+          UNIT ${u.n} · ${u.name.toUpperCase()} · 12 LESSONS
+        </div>
+        <div class="lesson-strip">${chips}</div>`;
+      grid.appendChild(panel);
+    });
+  }
+
+  let openUnit = { n: null, leo: null };
+
+  function toggleUnit(person, unitNum) {
+    const card  = document.getElementById(`${person}-u${unitNum}`);
+    const panel = document.getElementById(`${person}-panel-${unitNum}`);
+    if (openUnit[person] && openUnit[person] !== unitNum) {
+      document.getElementById(`${person}-u${openUnit[person]}`).classList.remove('open');
+      document.getElementById(`${person}-panel-${openUnit[person]}`).classList.remove('open');
+    }
+    const isOpen = card.classList.contains('open');
+    card.classList.toggle('open', !isOpen);
+    panel.classList.toggle('open', !isOpen);
+    openUnit[person] = isOpen ? null : unitNum;
+    if (!isOpen) setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
+  }
+
+  buildGrid('neritan-unit-grid', 'n');
+  buildGrid('leo-unit-grid', 'leo');
   // ── SANSEIDO DICTIONARY (loaded async) ──
   let SANSEIDO = [];
   fetch('content/new-crown/sanseido-index.json')
