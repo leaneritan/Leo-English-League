@@ -1067,6 +1067,13 @@ header {
   const LIVE = {
     'n-4-7-opener': { url:'teach/our-world/level4/unit7/opener.html', desc:'22 slides' },
     'n-4-7-vocab1': { url:'teach/our-world/level4/unit7/vocab1.html', desc:'8 slides' },
+    'l-4-7-opener':   { url:'learn/our-world/level4/unit7/opener.html',   desc:'Unit opener app' },
+    'l-4-7-vocab1':   { url:'learn/our-world/level4/unit7/vocab1.html',   desc:'14 invention words' },
+    'l-4-7-song':     { url:'learn/our-world/level4/unit7/song.html',     desc:'Inventions song app' },
+    'l-4-7-grammar1': { url:'learn/our-world/level4/unit7/grammar1.html', desc:'Used to — past habits' },
+    'l-4-7-vocab2':   { url:'learn/our-world/level4/unit7/vocab2.html',   desc:'5 action words' },
+    'l-4-7-grammar2': { url:'learn/our-world/level4/unit7/grammar2.html', desc:'You — general statements' },
+    'l-4-7-reading':  { url:'learn/our-world/level4/unit7/reading.html',  desc:'Young and Creative' },
   };
 
   function getLiveCount(person, level, unit) {
@@ -1142,7 +1149,7 @@ header {
   }
 
   buildGrid('neritan-unit-grid', 'n');
-  buildGrid('leo-unit-grid', 'leo');
+  buildGrid('leo-unit-grid', 'l');
   // ── SANSEIDO DICTIONARY (loaded async) ──
   let SANSEIDO = [];
   fetch('content/new-crown/sanseido-index.json')
