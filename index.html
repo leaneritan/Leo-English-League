@@ -804,7 +804,7 @@ header {
   letter-spacing: 1px;
   width: 100%;
 }
-.neritan-mode .lesson-chip.live .hw-assign-btn {
+.lesson-chip.live .hw-assign-btn {
   display: block;
 }
 </style>
@@ -1304,16 +1304,16 @@ header {
     'l-4-7-reading':  { url:'learn/our-world/level4/unit7/reading.html',  desc:'Young and Creative' },
   };
 
-  function getLiveCount(person, level, unit) {
-    return LESSONS.filter(l => LIVE[`${person}-${level}-${unit}-${l.id}`]).length;
+  function getLiveCount(person, level, unit, livePrefix = person) {
+    return LESSONS.filter(l => LIVE[`${livePrefix}-${level}-${unit}-${l.id}`]).length;
   }
 
-  function buildGrid(containerId, person) {
+  function buildGrid(containerId, person, livePrefix = person) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
     grid.innerHTML = '';
     UNITS.forEach(u => {
-      const liveCount = getLiveCount(person, 4, u.n);
+      const liveCount = getLiveCount(person, 4, u.n, livePrefix);
       const hasLive = liveCount > 0;
       const card = document.createElement('div');
       card.className = 'unit-card';
@@ -1336,18 +1336,21 @@ header {
       panel.className = 'lesson-panel';
       panel.id = `${person}-panel-${u.n}`;
       const chips = LESSONS.map(l => {
-        const key = `${person}-4-${u.n}-${l.id}`;
+        const key = `${livePrefix}-4-${u.n}-${l.id}`;
         const live = LIVE[key];
         if (live) {
+          const assignButton = person === 'leo'
+            ? `<button class="hw-assign-btn"
+              onclick="event.preventDefault();
+              showAssignDialog('${person}-4-${u.n}-${l.id}',
+              '${l.name}','Unit ${u.n}','${live.url}')"
+              >📚 Assign HW</button>`
+            : '';
           return `<a class="lesson-chip live" href="${live.url}" target="_blank" data-hw-id="${person}-4-${u.n}-${l.id}">
             <div class="lc-icon">${l.icon}</div>
             <div class="lc-name">${l.name}</div>
             <div class="lc-status lc-live">✅ Live</div>
-            <button class="hw-assign-btn"
-              onclick="event.preventDefault();
-              showAssignDialog('${person}-4-${u.n}-${l.id}',
-              '${l.name}','Unit ${u.n}','${live.url}')"
-              >📚 Assign HW</button>
+            ${assignButton}
           </a>`;
         }
         return `<div class="lesson-chip locked">
@@ -1365,7 +1368,7 @@ header {
     });
   }
 
-  let openUnit = { n: null, leo: null };
+  let openUnit = { neritan: null, leo: null };
 
   function toggleUnit(person, unitNum) {
     const card  = document.getElementById(`${person}-u${unitNum}`);
@@ -1381,8 +1384,8 @@ header {
     if (!isOpen) setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
   }
 
-  buildGrid('neritan-unit-grid', 'n');
-  buildGrid('leo-unit-grid', 'l');
+  buildGrid('neritan-unit-grid', 'neritan', 'n');
+  buildGrid('leo-unit-grid', 'leo', 'l');
   renderHomeworkBadges();
   renderLeoHomework();
 
