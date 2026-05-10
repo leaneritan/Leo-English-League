@@ -1251,8 +1251,10 @@ header {
     document.querySelectorAll('.screen')
       .forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     history.pushState({ screen: id }, '', '');
+    if (id === 'screen-leo') renderLeoHomework();
+    if (id === 'screen-neritan-ow') renderHomeworkBadges();
   }
   function showModes(p) { goTo('screen-'+p); }
   function showPerson() { goTo('screen-person'); }
