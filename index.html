@@ -24,6 +24,7 @@
   --ow-orange:  #E8630A;
   --nc-green:   #2E7D32;
   --nc-dark:    #1B5E20;
+  --red:        #DC2626;
   --el-red:     #E85D3C;
   --el-dark:    #8F3618;
 }
@@ -730,6 +731,82 @@ header {
 .lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
 .lc-live { background:#E8F5E9; color:var(--nc-dark); }
 .lc-lock { background:var(--soft); color:var(--ink-4); }
+
+/* ── HOMEWORK SECTION ── */
+#leo-homework-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+  width: 100%;
+  display: none;
+}
+.hw-section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--ink-4);
+  margin-bottom: 12px;
+}
+.hw-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+  gap: 16px;
+}
+.hw-card:hover { border-color: var(--ow-blue); background: #EEF5FF; }
+.hw-card.hw-done { border-color: var(--nc-green); background: #F0FDF4; }
+.hw-lesson { font-weight: 800; font-size: 0.92rem; color: var(--ink); }
+.hw-unit { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
+.hw-card-right { text-align: right; flex-shrink: 0; }
+.hw-status { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; margin-bottom: 4px; display: inline-block; }
+.hw-status-done    { background: #E8F5E9; color: var(--nc-dark); }
+.hw-status-pending { background: #FEE2E2; color: var(--red); }
+.hw-due { font-size: 0.72rem; font-weight: 800; }
+.hw-ok      { color: var(--ink-4); }
+.hw-soon    { color: var(--ow-orange); }
+.hw-today   { color: var(--el-red); }
+.hw-overdue { color: var(--red); }
+.hw-chip-badge {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ── ASSIGN HOMEWORK BUTTON ON LESSON CHIPS ── */
+.lesson-chip .hw-assign-btn {
+  display: none;
+  font-size: 0.55rem;
+  font-weight: 700;
+  background: var(--yellow);
+  color: var(--ink);
+  border: none;
+  border-radius: 2px;
+  padding: 2px 6px;
+  cursor: pointer;
+  margin-top: 4px;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  width: 100%;
+}
+.neritan-mode .lesson-chip.live .hw-assign-btn {
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -881,6 +958,7 @@ header {
     <button class="back-btn" onclick="showPerson()">← Back</button>
     <div class="mode-screen-who">🦁 <span>LEO</span> — Learning Mode</div>
   </div>
+  <div id="leo-homework-section"></div>
   <div class="mode-section">
     <div class="mode-section-label">CHOOSE A TRACK</div>
     <div class="modes-grid cols-3">
@@ -941,7 +1019,7 @@ header {
     <button class="back-btn" onclick="goTo('screen-neritan')">← Back</button>
     <div class="mode-screen-who">👨 <span>OUR WORLD</span> — Teaching Slides</div>
   </div>
-  <div class="ow-screen-body">
+  <div class="ow-screen-body neritan-mode">
     <div class="level-tabs">
       <div class="level-tab locked">L1</div>
       <div class="level-tab locked">L2</div>
@@ -1025,6 +1103,149 @@ header {
 </div>
 
 <script>
+  // ── LEEA SAVE SYSTEM ──
+  function lSave(key, val) {
+    try {
+      localStorage.setItem('leea-' + key, JSON.stringify(val));
+    } catch(e) {}
+  }
+
+  function lLoad(key, fallback = null) {
+    try {
+      const v = localStorage.getItem('leea-' + key);
+      return v !== null ? JSON.parse(v) : fallback;
+    } catch(e) { return fallback; }
+  }
+
+  function lClear(prefix) {
+    Object.keys(localStorage)
+      .filter(k => k.startsWith('leea-' + prefix))
+      .forEach(k => localStorage.removeItem(k));
+  }
+
+  function lKeys(prefix) {
+    return Object.keys(localStorage)
+      .filter(k => k.startsWith('leea-' + prefix))
+      .map(k => k.replace('leea-', ''));
+  }
+
+
+  // ── HOMEWORK SYSTEM ──
+  function getHomework() {
+    return lLoad('homework', []);
+  }
+
+  function saveHomework(list) {
+    lSave('homework', list);
+  }
+
+  function assignHomework(id, lesson, unit, url, dueDate) {
+    const list = getHomework();
+    const exists = list.findIndex(h => h.id === id);
+    const entry = {
+      id, lesson, unit, url,
+      due: dueDate,
+      assigned: new Date().toISOString().split('T')[0]
+    };
+    if (exists >= 0) list[exists] = entry;
+    else list.push(entry);
+    saveHomework(list);
+    renderHomeworkBadges();
+    renderLeoHomework();
+    alert('✅ Homework assigned: ' + lesson + ' · Due ' + dueDate);
+  }
+
+  function removeHomework(id) {
+    const list = getHomework().filter(h => h.id !== id);
+    saveHomework(list);
+    renderHomeworkBadges();
+    renderLeoHomework();
+  }
+
+  function isHomeworkDone(id) {
+    return lLoad(id + '-done', false);
+  }
+
+  function getDueDateLabel(dateStr) {
+    const due = new Date(dateStr);
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const diff = Math.round((due - today) / (1000*60*60*24));
+    if (diff < 0)  return { label: 'Overdue!', cls: 'hw-overdue' };
+    if (diff === 0) return { label: 'Due today!', cls: 'hw-today' };
+    if (diff === 1) return { label: 'Due tomorrow', cls: 'hw-soon' };
+    return { label: 'Due ' + due.toLocaleDateString('en-GB',
+      {weekday:'short', day:'numeric', month:'short'}), cls: 'hw-ok' };
+  }
+
+
+  // ── RENDER HOMEWORK BADGES ON LESSON CHIPS ──
+  function renderHomeworkBadges() {
+    const hw = getHomework();
+    // Remove existing badges
+    document.querySelectorAll('.hw-chip-badge').forEach(b => b.remove());
+    // Add badge to matching live lesson chips
+    hw.forEach(h => {
+      const done = isHomeworkDone(h.id);
+      document.querySelectorAll('.lesson-chip.live').forEach(chip => {
+        const link = chip.getAttribute('href') || '';
+        const hwId = chip.getAttribute('data-hw-id') || '';
+        if (hwId === h.id || link.includes(h.id.replace(/-/g,'/'))) {
+          const badge = document.createElement('div');
+          badge.className = 'hw-chip-badge';
+          badge.textContent = done ? '✅ HW Done' : '📚 Homework';
+          chip.appendChild(badge);
+        }
+      });
+    });
+  }
+
+
+  // ── HOMEWORK SECTION IN LEO'S SCREEN ──
+  function renderLeoHomework() {
+    const container = document.getElementById('leo-homework-section');
+    if (!container) return;
+    const hw = getHomework();
+    if (!hw.length) {
+      container.style.display = 'none';
+      return;
+    }
+    container.style.display = 'block';
+    const list = hw.map(h => {
+      const done = isHomeworkDone(h.id);
+      const { label, cls } = getDueDateLabel(h.due);
+      return `
+        <a class="hw-card ${done ? 'hw-done' : ''}" href="${h.url}">
+          <div class="hw-card-left">
+            <div class="hw-lesson">${h.lesson}</div>
+            <div class="hw-unit">${h.unit} · Our World Level 4</div>
+          </div>
+          <div class="hw-card-right">
+            <div class="hw-status ${done ? 'hw-status-done' : 'hw-status-pending'}">
+              ${done ? '✅ Done' : '🔴 Not started'}
+            </div>
+            <div class="hw-due ${cls}">${label}</div>
+          </div>
+        </a>`;
+    }).join('');
+    container.innerHTML = `
+      <div class="hw-section-title">📚 HOMEWORK</div>
+      ${list}`;
+  }
+
+
+  // ── ASSIGN HOMEWORK FROM NERITAN'S LESSON CHIPS ──
+  function showAssignDialog(id, lesson, unit, url) {
+    const today = new Date().toISOString().split('T')[0];
+    const due = prompt(
+      '📚 Assign homework:\n' + lesson + ' · ' + unit +
+      '\n\nEnter due date (YYYY-MM-DD):',
+      today
+    );
+    if (due) assignHomework(id, lesson, unit, url, due);
+  }
+
+
   // ── NAVIGATION ──
   function goTo(id) {
     document.querySelectorAll('.screen')
@@ -1118,10 +1339,15 @@ header {
         const key = `${person}-4-${u.n}-${l.id}`;
         const live = LIVE[key];
         if (live) {
-          return `<a class="lesson-chip live" href="${live.url}" target="_blank">
+          return `<a class="lesson-chip live" href="${live.url}" target="_blank" data-hw-id="${person}-4-${u.n}-${l.id}">
             <div class="lc-icon">${l.icon}</div>
             <div class="lc-name">${l.name}</div>
             <div class="lc-status lc-live">✅ Live</div>
+            <button class="hw-assign-btn"
+              onclick="event.preventDefault();
+              showAssignDialog('${person}-4-${u.n}-${l.id}',
+              '${l.name}','Unit ${u.n}','${live.url}')"
+              >📚 Assign HW</button>
           </a>`;
         }
         return `<div class="lesson-chip locked">
@@ -1157,6 +1383,8 @@ header {
 
   buildGrid('neritan-unit-grid', 'n');
   buildGrid('leo-unit-grid', 'l');
+  renderHomeworkBadges();
+  renderLeoHomework();
 
   history.replaceState({ screen: 'screen-person' }, '', '');
 
