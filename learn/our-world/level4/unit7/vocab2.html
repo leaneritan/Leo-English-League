@@ -632,10 +632,17 @@ function lClear(prefix) {
     .filter(k => k.startsWith('leea-' + prefix))
     .forEach(k => localStorage.removeItem(k));
 }
+function lRemove(key) {
+  try { localStorage.removeItem('leea-' + key); } catch(e) {}
+}
 
-function saveVocab2Score(currentScore, done = false) {
+function saveVocab2Score(currentScore, done = false, details = {}) {
   lSave(SAVE_PREFIX + 'score', currentScore);
   if (done) lSave(SAVE_PREFIX + 'done', true);
+  if ('wrongQuestions' in details) lSave(SAVE_PREFIX + 'wrongQuestions', details.wrongQuestions);
+  else if (done) lRemove(SAVE_PREFIX + 'wrongQuestions');
+  if ('timeSpent' in details) lSave(SAVE_PREFIX + 'timeSpent', details.timeSpent);
+  else if (done) lRemove(SAVE_PREFIX + 'timeSpent');
   lSave(SAVE_PREFIX + 'timestamp', new Date().toISOString());
 }
 
@@ -668,6 +675,9 @@ if (isReview) {
   const score = lLoad(SAVE_PREFIX + 'score');
   const done = lLoad(SAVE_PREFIX + 'done');
   const ts = lLoad(SAVE_PREFIX + 'timestamp');
+  const wrongQuestions = lLoad(SAVE_PREFIX + 'wrongQuestions', []);
+  const timeSpent = lLoad(SAVE_PREFIX + 'timeSpent');
+  const hasSavedWork = score !== null || done || ts;
   const panel = document.createElement('div');
   panel.style.cssText =
     'position:fixed;top:0;left:0;right:0;' +
@@ -675,13 +685,22 @@ if (isReview) {
     'padding:12px 20px;z-index:9999;' +
     'font-family:sans-serif;font-size:0.85rem;' +
     'font-weight:700;pointer-events:auto;';
-  panel.innerHTML =
-    '📋 REVIEW MODE · Unit 7 Vocab 2 · ' +
-    'Score: ' + (score ?? 'Not started') +
-    ' · Status: ' + (done ? '✅ Done' :
-    '🔴 Incomplete') +
-    (ts ? ' · ' + new Date(ts)
-      .toLocaleString('en-GB') : '');
+  const wrongHtml = wrongQuestions.length
+    ? '<div style="margin-top:8px;">Wrong questions: ' +
+      wrongQuestions.map(q =>
+        '<span style="display:inline-block;margin:3px 6px 0 0;' +
+        'background:rgba(255,255,255,0.14);padding:3px 8px;' +
+        'border-radius:4px;">' + q + '</span>'
+      ).join('') + '</div>'
+    : '<div style="margin-top:8px;">Wrong questions: none saved</div>';
+  panel.innerHTML = hasSavedWork
+    ? '📋 REVIEW MODE · Unit 7 Vocab 2 · ' +
+      'Score: ' + (score ?? 'Not started') +
+      ' · Status: ' + (done ? '✅ Done' : '🔴 Incomplete') +
+      (timeSpent ? ' · Time spent: ' + timeSpent : ' · Time spent: not tracked') +
+      (ts ? ' · ' + new Date(ts).toLocaleString('en-GB') : '') +
+      wrongHtml
+    : '📋 REVIEW MODE · Unit 7 Vocab 2 · Work not started';
   document.body.insertBefore(panel,
     document.body.firstChild);
 }
@@ -1026,7 +1045,7 @@ function initMatch2(){
 }
 
 // ═══ MODULE 6: UNSCRAMBLE ════════════════════════════
-let usTimerID=null,usSec=0,usQIdx=0,usQScore=0,usQData=[],usQActive=false;
+let usTimerID=null,usSec=0,usQIdx=0,usQScore=0,usQData=[],usQActive=false,usQWrong=[];
 function scr(w){
   let a=w.split('');let tries=0;
   do{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}tries++;}
@@ -1072,7 +1091,7 @@ function chkPW(i,ans){
 }
 function startUSQ(){
   usQData=[...V2].sort(()=>Math.random()-.5).map(v=>({...v,s:scr(v.w)}));
-  usQIdx=0;usQScore=0;usSec=0;usQActive=true;
+  usQIdx=0;usQScore=0;usSec=0;usQActive=true;usQWrong=[];
   if(usTimerID)clearInterval(usTimerID);
   usTimerID=setInterval(()=>{usSec++;const m=Math.floor(usSec/60),s=usSec%60;document.getElementById('us-timer').textContent=m+':'+(s<10?'0':'')+s;},1000);
   renderUSQ();
@@ -1080,7 +1099,7 @@ function startUSQ(){
 function renderUSQ(){
   const area=document.getElementById('us-qcard');area.innerHTML='';
   document.getElementById('us-score').textContent='Score: '+usQScore+' / 5';
-  if(usQIdx>=5){clearInterval(usTimerID);usQActive=false;saveVocab2Score(usQScore + ' / 5', true);const m=Math.floor(usSec/60),s=usSec%60;area.innerHTML=`<div style="text-align:center;background:var(--dk);border-radius:14px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:7px;">🏆</div><div style="font-size:1.1rem;font-weight:900;color:var(--ye);">Done! Score: ${usQScore}/5</div><div style="color:var(--mt);margin-top:5px;">Time: ${m}:${(s<10?'0':'')+s}</div></div>`;return;}
+  if(usQIdx>=5){clearInterval(usTimerID);usQActive=false;const m=Math.floor(usSec/60),s=usSec%60,timeLabel=m+':'+(s<10?'0':'')+s;saveVocab2Score(usQScore + ' / 5', true, { wrongQuestions: usQWrong, timeSpent: timeLabel });area.innerHTML=`<div style="text-align:center;background:var(--dk);border-radius:14px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:7px;">🏆</div><div style="font-size:1.1rem;font-weight:900;color:var(--ye);">Done! Score: ${usQScore}/5</div><div style="color:var(--mt);margin-top:5px;">Time: ${timeLabel}</div></div>`;return;}
   const v=usQData[usQIdx];
   area.innerHTML=`<div style="background:var(--dk);border-radius:14px;padding:18px;text-align:center;">
     <div style="color:var(--mt);font-weight:700;margin-bottom:5px;">${v.e} Q${usQIdx+1}/5</div>
@@ -1098,10 +1117,10 @@ function subUSQ(){
   if(!inp)return;
   const v=usQData[usQIdx];
   if(inp.value.trim().toLowerCase()===v.w){usQScore++;saveVocab2Score(usQScore + ' / 5');fb.textContent='⚽ Correct!';fb.className='fb ok';inp.disabled=true;setTimeout(()=>{usQIdx++;renderUSQ();},900);}
-  else{fb.textContent='❌ Try again! ('+v.w.length+' letters)';fb.className='fb bad';inp.classList.add('shake');setTimeout(()=>inp&&inp.classList.remove('shake'),400);}
+  else{if(!usQWrong.includes(v.e + ' → ' + v.w))usQWrong.push(v.e + ' → ' + v.w);fb.textContent='❌ Try again! ('+v.w.length+' letters)';fb.className='fb bad';inp.classList.add('shake');setTimeout(()=>inp&&inp.classList.remove('shake'),400);}
 }
-function skipUSQ(){const v=usQData[usQIdx];const fb=document.getElementById('q-fb');if(fb){fb.textContent='Answer: '+v.w;fb.className='fb bad';}setTimeout(()=>{usQIdx++;renderUSQ();},1100);}
-function resetUSQ(){if(usTimerID)clearInterval(usTimerID);usSec=0;usQScore=0;usQIdx=0;usQActive=false;document.getElementById('us-timer').textContent='0:00';document.getElementById('us-score').textContent='Score: 0 / 5';document.getElementById('us-qcard').innerHTML='<div style="text-align:center;padding:18px;color:var(--mt);">Press ▶ Start when ready!</div>';}
+function skipUSQ(){const v=usQData[usQIdx];const fb=document.getElementById('q-fb');if(fb){if(!usQWrong.includes(v.e + ' → ' + v.w))usQWrong.push(v.e + ' → ' + v.w);fb.textContent='Answer: '+v.w;fb.className='fb bad';}setTimeout(()=>{usQIdx++;renderUSQ();},1100);}
+function resetUSQ(){if(usTimerID)clearInterval(usTimerID);usSec=0;usQScore=0;usQIdx=0;usQActive=false;usQWrong=[];document.getElementById('us-timer').textContent='0:00';document.getElementById('us-score').textContent='Score: 0 / 5';document.getElementById('us-qcard').innerHTML='<div style="text-align:center;padding:18px;color:var(--mt);">Press ▶ Start when ready!</div>';}
 
 // ═══ MODULE 7: PRACTICE ══════════════════════════════
 const pFill=[
@@ -1453,19 +1472,19 @@ function initAssess(){
   });
 }
 function subAssess(){
-  let ok=0,missing=false;
+  let ok=0,missing=false,wrongQuestions=[];
   assessQs.forEach((q,i)=>{
     if(assessAns[i]===undefined){missing=true;return;}
     const od=document.getElementById('aq'+i);
     od.querySelectorAll('.aopt').forEach(b=>b.onclick=null);
     if(assessAns[i]===q.a){ok++;od.querySelectorAll('.aopt')[q.a].classList.add('correct');}
-    else{od.querySelectorAll('.aopt')[assessAns[i]].classList.add('wrong');od.querySelectorAll('.aopt')[q.a].classList.add('correct');}
+    else{wrongQuestions.push((i+1)+'. '+q.q);od.querySelectorAll('.aopt')[assessAns[i]].classList.add('wrong');od.querySelectorAll('.aopt')[q.a].classList.add('correct');}
   });
   if(missing){alert('Please answer all 6 questions!');return;}
   document.getElementById('assess-submit').style.display='none';
   const res=document.getElementById('assess-res');res.style.display='block';
   document.getElementById('assess-score').textContent=ok+' / 6';
-  saveVocab2Score(ok + ' / 6', true);
+  saveVocab2Score(ok + ' / 6', true, { wrongQuestions });
   const msgs=[
     "Keep reviewing the action words — you can do it! 💪",
     "Good start! Review lift, move, put, turn, use and try again! 📚",

@@ -787,6 +787,45 @@ header {
   margin-top: 4px;
   display: block;
 }
+.hw-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.hw-open-btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  background: var(--ow-blue);
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.hw-open-btn:hover {
+  background: #155A99;
+}
+.hw-review-btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  background: #1D4ED8;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.hw-review-btn:hover {
+  background: #1E40AF;
+}
 
 /* ── ASSIGN HOMEWORK BUTTON ON LESSON CHIPS ── */
 .lesson-chip .hw-assign-btn {
@@ -1214,8 +1253,9 @@ header {
     const list = hw.map(h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
+      const reviewUrl = h.url.includes('?') ? h.url + '&review=1' : h.url + '?review=1';
       return `
-        <a class="hw-card ${done ? 'hw-done' : ''}" href="${h.url}">
+        <div class="hw-card ${done ? 'hw-done' : ''}">
           <div class="hw-card-left">
             <div class="hw-lesson">${h.lesson}</div>
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
@@ -1225,8 +1265,14 @@ header {
               ${done ? '✅ Done' : '🔴 Not started'}
             </div>
             <div class="hw-due ${cls}">${label}</div>
+            <div class="hw-card-actions">
+              <a class="hw-open-btn" href="${h.url}">Open →</a>
+              <a class="hw-review-btn" href="${reviewUrl}" target="_blank">
+                📋 Review Leo's work
+              </a>
+            </div>
           </div>
-        </a>`;
+        </div>`;
     }).join('');
     container.innerHTML = `
       <div class="hw-section-title">📚 HOMEWORK</div>
