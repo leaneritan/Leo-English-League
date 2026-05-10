@@ -1253,7 +1253,8 @@ header {
     const list = hw.map(h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
-      const reviewUrl = h.url.includes('?') ? h.url + '&review=1' : h.url + '?review=1';
+      const sep = h.url.includes('?') ? '&' : '?';
+      const reviewUrl = h.url + sep + 'review=1&hw=' + encodeURIComponent(h.id);
       return `
         <div class="hw-card ${done ? 'hw-done' : ''}">
           <div class="hw-card-left">

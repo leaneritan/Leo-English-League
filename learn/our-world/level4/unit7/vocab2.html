@@ -616,6 +616,8 @@ body{font-family:'Nunito',sans-serif;background:var(--dkr);color:var(--lt);min-h
 </div>
 <script>
 const SAVE_PREFIX = '4-7-vocab2-';
+const REVIEW_PARAMS = new URLSearchParams(location.search);
+const HOMEWORK_ID = REVIEW_PARAMS.get('hw') || 'leo-4-7-vocab2';
 
 function lSave(key, val) {
   try { localStorage.setItem('leea-' + key,
@@ -635,15 +637,26 @@ function lClear(prefix) {
 function lRemove(key) {
   try { localStorage.removeItem('leea-' + key); } catch(e) {}
 }
+function lLoadSaved(key, fallback = null) {
+  const direct = lLoad(SAVE_PREFIX + key);
+  return direct !== null ? direct : lLoad(HOMEWORK_ID + '-' + key, fallback);
+}
 
 function saveVocab2Score(currentScore, done = false, details = {}) {
   lSave(SAVE_PREFIX + 'score', currentScore);
+  lSave(HOMEWORK_ID + '-score', currentScore);
   if (done) lSave(SAVE_PREFIX + 'done', true);
+  if (done) lSave(HOMEWORK_ID + '-done', true);
   if ('wrongQuestions' in details) lSave(SAVE_PREFIX + 'wrongQuestions', details.wrongQuestions);
+  if ('wrongQuestions' in details) lSave(HOMEWORK_ID + '-wrongQuestions', details.wrongQuestions);
   else if (done) lRemove(SAVE_PREFIX + 'wrongQuestions');
+  else if (done) lRemove(HOMEWORK_ID + '-wrongQuestions');
   if ('timeSpent' in details) lSave(SAVE_PREFIX + 'timeSpent', details.timeSpent);
+  if ('timeSpent' in details) lSave(HOMEWORK_ID + '-timeSpent', details.timeSpent);
   else if (done) lRemove(SAVE_PREFIX + 'timeSpent');
+  else if (done) lRemove(HOMEWORK_ID + '-timeSpent');
   lSave(SAVE_PREFIX + 'timestamp', new Date().toISOString());
+  lSave(HOMEWORK_ID + '-timestamp', new Date().toISOString());
 }
 
 function showSavedWorkBanner() {
@@ -668,15 +681,14 @@ function showSavedWorkBanner() {
   }
 }
 
-const isReview = new URLSearchParams(
-  location.search).get('review') === '1';
+const isReview = REVIEW_PARAMS.get('review') === '1';
 if (isReview) {
   document.body.style.pointerEvents = 'none';
-  const score = lLoad(SAVE_PREFIX + 'score');
-  const done = lLoad(SAVE_PREFIX + 'done');
-  const ts = lLoad(SAVE_PREFIX + 'timestamp');
-  const wrongQuestions = lLoad(SAVE_PREFIX + 'wrongQuestions', []);
-  const timeSpent = lLoad(SAVE_PREFIX + 'timeSpent');
+  const score = lLoadSaved('score');
+  const done = lLoadSaved('done');
+  const ts = lLoadSaved('timestamp');
+  const wrongQuestions = lLoadSaved('wrongQuestions', []);
+  const timeSpent = lLoadSaved('timeSpent');
   const hasSavedWork = score !== null || done || ts;
   const panel = document.createElement('div');
   panel.style.cssText =
