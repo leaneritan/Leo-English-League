@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEEA Chart Components Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FAFAF7;
+      --surface: #FFFFFF;
+      --border: #E5E3DC;
+      --ink: #111111;
+      --ink-2: #5A5853;
+      --yellow: #FFCC00;
+      --ow-blue: #1A6BB5;
+      --ow-orange: #E8630A;
+      --nc-green: #2E7D32;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+    }
+    header {
+      height: 58px;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 24px;
+      border-bottom: 5px solid var(--yellow);
+    }
+    .brand-badge {
+      background: var(--yellow);
+      color: var(--ink);
+      font-family: Oswald, Impact, sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 8px;
+    }
+    .brand-name {
+      font-family: Oswald, Impact, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 24px 70px;
+    }
+    h1 {
+      font-family: Oswald, Impact, sans-serif;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+    .intro {
+      color: var(--ink-2);
+      font-size: .95rem;
+      font-weight: 650;
+      margin: 0 0 24px;
+    }
+    section {
+      margin: 0 0 26px;
+      padding: 18px;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 4px;
+    }
+    .section-label {
+      color: var(--ink-2);
+      font-family: Oswald, Impact, sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .mount {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-badge">LEEA</div>
+    <div class="brand-name">LEO'S ELITE ENGLISH ACADEMY</div>
+  </header>
+
+  <main>
+    <h1>Chart Components Demo</h1>
+    <p class="intro">Shared organizer patterns for teaching slide HTML files.</p>
+
+    <section>
+      <div class="section-label">Two-column → Writing (Fact & Opinion, Cause & Effect, Contrast)</div>
+      <div class="mount" id="demo-two-col"></div>
+    </section>
+
+    <section>
+      <div class="section-label">DnD Sorter → Writing, Song, Reading</div>
+      <div class="mount" id="demo-dnd"></div>
+    </section>
+
+    <section>
+      <div class="section-label">Fill-in Table → Reading, Grammar</div>
+      <div class="mount" id="demo-fill"></div>
+    </section>
+
+    <section>
+      <div class="section-label">Word Web → Writing (Plan section), Unit Opener</div>
+      <div class="mount" id="demo-web"></div>
+    </section>
+
+    <section>
+      <div class="section-label">Venn Diagram → Writing (Unit 6 Contrast)</div>
+      <div class="mount" id="demo-venn"></div>
+    </section>
+  </main>
+
+  <script src="charts.js"></script>
+  <script>
+    document.getElementById('demo-two-col').innerHTML = LEEA_CHARTS.buildTwoColChart({
+      id: 'demo-chart-1',
+      colA: { label: '📌 FACT', color: '#1A6BB5' },
+      colB: { label: '💭 OPINION', color: '#E8630A' },
+      rows: [
+        { a: 'The first smartphone was invented in 1992 by IBM.', b: 'I think smartphones are the most useful invention.' },
+        { a: 'Many people use smartphones every day.', b: 'In my opinion, phones make learning more fun.' },
+        { a: 'A GPS app can track distance and speed.', b: 'I believe athletes need smartphones for training.' },
+      ],
+      editable: false,
+      revealMode: true,
+    });
+
+    document.getElementById('demo-dnd').innerHTML = LEEA_CHARTS.buildDndSorter({
+      id: 'demo-dnd-1',
+      zones: [
+        { key: 'fact', label: '📌 FACT', color: '#1A6BB5' },
+        { key: 'opinion', label: '💭 OPINION', color: '#E8630A' },
+      ],
+      tiles: [
+        { text: 'Mbappé scored 15 goals.', answer: 'fact' },
+        { text: 'I think Mbappé is the best.', answer: 'opinion' },
+        { text: 'Harry Kane plays for Bayern Munich.', answer: 'fact' },
+        { text: 'In my opinion, football is the most exciting sport.', answer: 'opinion' },
+      ],
+      onComplete: 'confetti',
+    });
+
+    document.getElementById('demo-fill').innerHTML = LEEA_CHARTS.buildFillTable({
+      id: 'demo-tbl-1',
+      columns: ['Who', 'When', 'What', 'Why'],
+      rows: [
+        {
+          fixed: 'Angad Daryani 🔧',
+          inputs: [
+            { id: 'demo-c1-when', answer: ['2018'] },
+            { id: 'demo-c1-what', answer: ['tower', 'air'] },
+            { id: 'demo-c1-why', answer: ['pollution'] },
+          ],
+        },
+        {
+          fixed: 'Ann Makosinski 🔦',
+          inputs: [
+            { id: 'demo-c2-when', answer: ['2013'] },
+            { id: 'demo-c2-what', answer: ['flashlight'] },
+            { id: 'demo-c2-why', answer: ['electricity'] },
+          ],
+        },
+      ],
+      checkLabel: 'Check ✅',
+      showAnswersLabel: 'Show Answers 🔍',
+    });
+
+    document.getElementById('demo-web').innerHTML = LEEA_CHARTS.buildWordWeb({
+      id: 'demo-web-1',
+      center: { text: 'invention', emoji: '💡' },
+      nodes: [
+        { text: 'wheel', emoji: '🔵' },
+        { text: 'electricity', emoji: '⚡' },
+        { text: 'internet', emoji: '🌐' },
+        { text: 'smartphone', emoji: '📱' },
+      ],
+      editable: true,
+      addable: true,
+    });
+
+    document.getElementById('demo-venn').innerHTML = LEEA_CHARTS.buildVennDiagram({
+      id: 'demo-venn-1',
+      circleA: { label: 'Land Turtles 🐢', color: '#1A6BB5' },
+      circleB: { label: 'Sea Turtles 🌊', color: '#E8630A' },
+      itemsA: ['Hard shell', 'Dig holes in winter'],
+      itemsB: ['Flat shell', 'Swim to warm water'],
+      itemsAB: ['Have shells', 'Lay eggs on land'],
+      editable: true,
+    });
+  </script>
+</body>
+</html>
