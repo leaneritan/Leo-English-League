@@ -706,7 +706,8 @@ function summarizeModuleNumbers(nums) {
 
 function saveVocab2Score(currentScore, done = false, details = {}) {
   const active = document.querySelector('.screen.active');
-  if (active) markModuleDone(active.id);
+  if (details.moduleId) markModuleDone(details.moduleId);
+  else if (active) markModuleDone(active.id);
   lSaveBoth('score', currentScore);
   if (done) lSaveBoth('done', true);
   if ('wrongQuestions' in details) lSaveBoth('wrongQuestions', details.wrongQuestions);
@@ -804,7 +805,19 @@ const CV=[
 
 // ═══ NAVIGATION ═════════════════════════════════════
 function home(){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('home').classList.add('active');}
-function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');markModuleDone(id);}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function addModuleCompleteButtons() {
+  MODULES.forEach(mod => {
+    const screen = document.getElementById(mod.id);
+    if (!screen || screen.querySelector('.module-complete-btn')) return;
+    const body = screen.querySelector('.mod-body');
+    if (!body) return;
+    const row = document.createElement('div');
+    row.style.cssText = 'text-align:center;margin:18px 0 4px;';
+    row.innerHTML = `<button class="btn module-complete-btn" onclick="markModuleDone('${mod.id}');this.textContent='Module complete ✓';this.disabled=true;">Mark module complete ✓</button>`;
+    body.appendChild(row);
+  });
+}
 
 // ═══ FLASHCARD ENGINE ════════════════════════════════
 const FC={
@@ -1581,7 +1594,7 @@ function subAssess(){
 }
 
 // ═══ INIT CALLS ══════════════════════════════════════
-initMatch();initMatch2();initUS();initStrat();initRank();initRP();initAssess();
+initMatch();initMatch2();initUS();initStrat();initRank();initRP();initAssess();addModuleCompleteButtons();
 showSavedWorkBanner();
 function initStrat(){initSort();initFix();initSeq();}
 </script>

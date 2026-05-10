@@ -1219,6 +1219,8 @@ header {
     if (!confirm('Unassign this homework?')) return;
     const list = getHomework().filter(h => h.id !== id);
     saveHomework(list);
+    lClear(id + '-');
+    if (id === 'leo-4-7-vocab2') lClear('4-7-vocab2-');
     renderHomeworkBadges();
     renderLeoHomework();
     renderNeritanHomework();
