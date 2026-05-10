@@ -618,6 +618,21 @@ body{font-family:'Nunito',sans-serif;background:var(--dkr);color:var(--lt);min-h
 const SAVE_PREFIX = '4-7-vocab2-';
 const REVIEW_PARAMS = new URLSearchParams(location.search);
 const HOMEWORK_ID = REVIEW_PARAMS.get('hw') || 'leo-4-7-vocab2';
+const LESSON_STARTED_AT = Date.now();
+const MODULES = [
+  { id:'warmup', n:1, name:'Warm Up' },
+  { id:'present', n:2, name:'Present' },
+  { id:'cflash', n:3, name:'Content Vocabulary' },
+  { id:'vflash', n:4, name:'Vocabulary 2 Flashcards' },
+  { id:'matching', n:5, name:'Matching' },
+  { id:'unscramble', n:6, name:'Unscramble' },
+  { id:'practice', n:7, name:'Practice' },
+  { id:'strategy', n:8, name:'Strategy' },
+  { id:'ranking', n:9, name:'Ranking' },
+  { id:'roleplay', n:10, name:'Role Play' },
+  { id:'dribble', n:11, name:'Can Leo Dribble?' },
+  { id:'assessment', n:12, name:'Assessment' }
+];
 
 function lSave(key, val) {
   try { localStorage.setItem('leea-' + key,
@@ -641,22 +656,63 @@ function lLoadSaved(key, fallback = null) {
   const direct = lLoad(SAVE_PREFIX + key);
   return direct !== null ? direct : lLoad(HOMEWORK_ID + '-' + key, fallback);
 }
+function lSaveBoth(key, val) {
+  lSave(SAVE_PREFIX + key, val);
+  lSave(HOMEWORK_ID + '-' + key, val);
+}
+function lRemoveBoth(key) {
+  lRemove(SAVE_PREFIX + key);
+  lRemove(HOMEWORK_ID + '-' + key);
+}
+function getTimeSpentLabel() {
+  const sec = Math.max(0, Math.round((Date.now() - LESSON_STARTED_AT) / 1000));
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return m + ':' + (s < 10 ? '0' : '') + s;
+}
+function getSavedModules() {
+  return lLoadSaved('modules', []);
+}
+function saveModules(modules) {
+  lSaveBoth('modules', modules);
+  lSaveBoth('timestamp', new Date().toISOString());
+}
+function markModuleDone(id) {
+  const mod = MODULES.find(m => m.id === id);
+  if (!mod) return;
+  const modules = getSavedModules();
+  if (!modules.find(m => m.n === mod.n)) {
+    modules.push({ n: mod.n, name: mod.name });
+    saveModules(modules);
+  }
+}
+function summarizeModuleNumbers(nums) {
+  if (!nums.length) return 'None yet';
+  nums.sort((a,b) => a - b);
+  const ranges = [];
+  let start = nums[0], prev = nums[0];
+  for (let i = 1; i <= nums.length; i++) {
+    const current = nums[i];
+    if (current === prev + 1) {
+      prev = current;
+      continue;
+    }
+    ranges.push(start === prev ? String(start) : start + '-' + prev);
+    start = current;
+    prev = current;
+  }
+  return 'Module ' + ranges.join(', ');
+}
 
 function saveVocab2Score(currentScore, done = false, details = {}) {
-  lSave(SAVE_PREFIX + 'score', currentScore);
-  lSave(HOMEWORK_ID + '-score', currentScore);
-  if (done) lSave(SAVE_PREFIX + 'done', true);
-  if (done) lSave(HOMEWORK_ID + '-done', true);
-  if ('wrongQuestions' in details) lSave(SAVE_PREFIX + 'wrongQuestions', details.wrongQuestions);
-  if ('wrongQuestions' in details) lSave(HOMEWORK_ID + '-wrongQuestions', details.wrongQuestions);
-  else if (done) lRemove(SAVE_PREFIX + 'wrongQuestions');
-  else if (done) lRemove(HOMEWORK_ID + '-wrongQuestions');
-  if ('timeSpent' in details) lSave(SAVE_PREFIX + 'timeSpent', details.timeSpent);
-  if ('timeSpent' in details) lSave(HOMEWORK_ID + '-timeSpent', details.timeSpent);
-  else if (done) lRemove(SAVE_PREFIX + 'timeSpent');
-  else if (done) lRemove(HOMEWORK_ID + '-timeSpent');
-  lSave(SAVE_PREFIX + 'timestamp', new Date().toISOString());
-  lSave(HOMEWORK_ID + '-timestamp', new Date().toISOString());
+  const active = document.querySelector('.screen.active');
+  if (active) markModuleDone(active.id);
+  lSaveBoth('score', currentScore);
+  if (done) lSaveBoth('done', true);
+  if ('wrongQuestions' in details) lSaveBoth('wrongQuestions', details.wrongQuestions);
+  else if (done) lRemoveBoth('wrongQuestions');
+  lSaveBoth('timeSpent', details.timeSpent || getTimeSpentLabel());
+  lSaveBoth('timestamp', new Date().toISOString());
 }
 
 function showSavedWorkBanner() {
@@ -689,30 +745,45 @@ if (isReview) {
   const ts = lLoadSaved('timestamp');
   const wrongQuestions = lLoadSaved('wrongQuestions', []);
   const timeSpent = lLoadSaved('timeSpent');
-  const hasSavedWork = score !== null || done || ts;
+  const savedModules = getSavedModules();
+  const doneNums = savedModules.map(m => m.n);
+  const remainingNums = MODULES
+    .filter(m => !doneNums.includes(m.n))
+    .map(m => m.n);
+  const hasSavedWork = score !== null || done || ts || savedModules.length;
   const panel = document.createElement('div');
   panel.style.cssText =
-    'position:fixed;top:0;left:0;right:0;' +
-    'background:#1D4ED8;color:#fff;' +
-    'padding:12px 20px;z-index:9999;' +
-    'font-family:sans-serif;font-size:0.85rem;' +
-    'font-weight:700;pointer-events:auto;';
-  const wrongHtml = wrongQuestions.length
-    ? '<div style="margin-top:8px;">Wrong questions: ' +
-      wrongQuestions.map(q =>
-        '<span style="display:inline-block;margin:3px 6px 0 0;' +
-        'background:rgba(255,255,255,0.14);padding:3px 8px;' +
-        'border-radius:4px;">' + q + '</span>'
-      ).join('') + '</div>'
-    : '<div style="margin-top:8px;">Wrong questions: none saved</div>';
+    'position:fixed;top:24px;left:50%;transform:translateX(-50%);' +
+    'width:min(92vw,560px);background:#fff;color:#1C1917;' +
+    'border:3px solid #1D4ED8;border-radius:10px;' +
+    'box-shadow:0 18px 50px rgba(15,23,42,.25);' +
+    'padding:18px 20px;z-index:9999;font-family:sans-serif;' +
+    'font-size:0.9rem;font-weight:700;pointer-events:auto;';
+  const mistakeHtml = wrongQuestions.length
+    ? wrongQuestions.map(q =>
+        '<div style="background:#FEE2E2;color:#991B1B;' +
+        'border-radius:6px;padding:7px 9px;margin-top:6px;">' +
+        q + '</div>'
+      ).join('')
+    : '<div style="color:#166534;background:#DCFCE7;border-radius:6px;' +
+      'padding:7px 9px;margin-top:6px;">No mistakes saved yet</div>';
   panel.innerHTML = hasSavedWork
-    ? '📋 REVIEW MODE · Unit 7 Vocab 2 · ' +
-      'Score: ' + (score ?? 'Not started') +
-      ' · Status: ' + (done ? '✅ Done' : '🔴 Incomplete') +
-      (timeSpent ? ' · Time spent: ' + timeSpent : ' · Time spent: not tracked') +
-      (ts ? ' · ' + new Date(ts).toLocaleString('en-GB') : '') +
-      wrongHtml
-    : '📋 REVIEW MODE · Unit 7 Vocab 2 · Work not started';
+    ? '<div style="font-size:1rem;color:#1D4ED8;margin-bottom:10px;">' +
+      '📋 Review Card · Unit 7 Vocab 2</div>' +
+      '<div style="display:grid;gap:8px;">' +
+      '<div>Progress: ' + summarizeModuleNumbers(doneNums) +
+      ' done · ' + remainingNums.length + ' remaining</div>' +
+      '<div>Remaining: ' + summarizeModuleNumbers(remainingNums) + '</div>' +
+      '<div>Latest score: ' + (score ?? 'No score saved') + '</div>' +
+      '<div>Status: ' + (done ? '✅ Done' : '🔴 In progress') + '</div>' +
+      '<div>Time spent: ' + (timeSpent || 'Not tracked yet') + '</div>' +
+      (ts ? '<div>Last saved: ' + new Date(ts).toLocaleString('en-GB') + '</div>' : '') +
+      '<div style="margin-top:6px;">Mistakes</div>' +
+      mistakeHtml +
+      '</div>'
+    : '<div style="font-size:1rem;color:#1D4ED8;margin-bottom:8px;">' +
+      '📋 Review Card · Unit 7 Vocab 2</div>' +
+      '<div>Work not started</div>';
   document.body.insertBefore(panel,
     document.body.firstChild);
 }
@@ -733,7 +804,7 @@ const CV=[
 
 // ═══ NAVIGATION ═════════════════════════════════════
 function home(){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('home').classList.add('active');}
-function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');markModuleDone(id);}
 
 // ═══ FLASHCARD ENGINE ════════════════════════════════
 const FC={

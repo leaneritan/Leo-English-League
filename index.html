@@ -733,7 +733,8 @@ header {
 .lc-lock { background:var(--soft); color:var(--ink-4); }
 
 /* ── HOMEWORK SECTION ── */
-#leo-homework-section {
+#leo-homework-section,
+#neritan-homework-section {
   max-width: 980px;
   margin: 0 auto;
   padding: 24px 24px 0;
@@ -793,6 +794,24 @@ header {
   gap: 6px;
   margin-top: 8px;
   flex-wrap: wrap;
+}
+.hw-unassign-btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  background: #FEE2E2;
+  color: var(--red);
+  border: 0;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+  cursor: pointer;
+}
+.hw-unassign-btn:hover {
+  background: #FCA5A5;
 }
 .hw-open-btn {
   font-family: 'Oswald', sans-serif;
@@ -952,6 +971,7 @@ header {
     <button class="back-btn" onclick="showPerson()">← Back</button>
     <div class="mode-screen-who">👨 <span>NERITAN</span> — Teaching Mode</div>
   </div>
+  <div id="neritan-homework-section"></div>
   <div class="mode-section">
     <div class="mode-section-label">CHOOSE A TRACK</div>
     <div class="modes-grid cols-2">
@@ -1191,14 +1211,17 @@ header {
     saveHomework(list);
     renderHomeworkBadges();
     renderLeoHomework();
+    renderNeritanHomework();
     alert('✅ Homework assigned: ' + lesson + ' · Due ' + dueDate);
   }
 
   function removeHomework(id) {
+    if (!confirm('Unassign this homework?')) return;
     const list = getHomework().filter(h => h.id !== id);
     saveHomework(list);
     renderHomeworkBadges();
     renderLeoHomework();
+    renderNeritanHomework();
   }
 
   function isHomeworkDone(id) {
@@ -1241,6 +1264,11 @@ header {
 
 
   // ── HOMEWORK SECTION IN LEO'S SCREEN ──
+  function getReviewUrl(h) {
+    const sep = h.url.includes('?') ? '&' : '?';
+    return h.url + sep + 'review=1&hw=' + encodeURIComponent(h.id);
+  }
+
   function renderLeoHomework() {
     const container = document.getElementById('leo-homework-section');
     if (!container) return;
@@ -1253,8 +1281,6 @@ header {
     const list = hw.map(h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
-      const sep = h.url.includes('?') ? '&' : '?';
-      const reviewUrl = h.url + sep + 'review=1&hw=' + encodeURIComponent(h.id);
       return `
         <div class="hw-card ${done ? 'hw-done' : ''}">
           <div class="hw-card-left">
@@ -1268,15 +1294,51 @@ header {
             <div class="hw-due ${cls}">${label}</div>
             <div class="hw-card-actions">
               <a class="hw-open-btn" href="${h.url}">Open →</a>
-              <a class="hw-review-btn" href="${reviewUrl}" target="_blank">
-                📋 Review Leo's work
-              </a>
             </div>
           </div>
         </div>`;
     }).join('');
     container.innerHTML = `
       <div class="hw-section-title">📚 HOMEWORK</div>
+      ${list}`;
+  }
+
+  function renderNeritanHomework() {
+    const container = document.getElementById('neritan-homework-section');
+    if (!container) return;
+    const hw = getHomework();
+    if (!hw.length) {
+      container.style.display = 'none';
+      return;
+    }
+    container.style.display = 'block';
+    const list = hw.map(h => {
+      const done = isHomeworkDone(h.id);
+      const { label, cls } = getDueDateLabel(h.due);
+      return `
+        <div class="hw-card ${done ? 'hw-done' : ''}">
+          <div class="hw-card-left">
+            <div class="hw-lesson">${h.lesson}</div>
+            <div class="hw-unit">${h.unit} · Our World Level 4</div>
+          </div>
+          <div class="hw-card-right">
+            <div class="hw-status ${done ? 'hw-status-done' : 'hw-status-pending'}">
+              ${done ? '✅ Done' : '🔴 In progress'}
+            </div>
+            <div class="hw-due ${cls}">${label}</div>
+            <div class="hw-card-actions">
+              <a class="hw-review-btn" href="${getReviewUrl(h)}" target="_blank">
+                📋 Review Leo's work
+              </a>
+              <button class="hw-unassign-btn" onclick="removeHomework('${h.id}')">
+                Unassign
+              </button>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+    container.innerHTML = `
+      <div class="hw-section-title">📋 ASSIGNED HOMEWORK</div>
       ${list}`;
   }
 
@@ -1301,6 +1363,7 @@ header {
     window.scrollTo(0, 0);
     history.pushState({ screen: id }, '', '');
     if (id === 'screen-leo') renderLeoHomework();
+    if (id === 'screen-neritan') renderNeritanHomework();
     if (id === 'screen-neritan-ow') renderHomeworkBadges();
   }
   function showModes(p) { goTo('screen-'+p); }
@@ -1437,6 +1500,7 @@ header {
   buildGrid('leo-unit-grid', 'leo', 'l');
   renderHomeworkBadges();
   renderLeoHomework();
+  renderNeritanHomework();
 
   history.replaceState({ screen: 'screen-person' }, '', '');
 
@@ -1448,6 +1512,9 @@ header {
       .forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     window.scrollTo(0, 0);
+    if (id === 'screen-leo') renderLeoHomework();
+    if (id === 'screen-neritan') renderNeritanHomework();
+    if (id === 'screen-neritan-ow') renderHomeworkBadges();
   });
 
   // ── SANSEIDO DICTIONARY (loaded async) ──
