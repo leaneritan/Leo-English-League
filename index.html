@@ -813,6 +813,24 @@ header {
 .hw-unassign-btn:hover {
   background: #FCA5A5;
 }
+.hw-complete-btn {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  background: #DCFCE7;
+  color: var(--nc-dark);
+  border: 0;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+  cursor: pointer;
+}
+.hw-complete-btn:hover {
+  background: #BBF7D0;
+}
 .hw-open-btn {
   font-family: 'Oswald', sans-serif;
   font-size: 0.62rem;
@@ -1198,9 +1216,19 @@ header {
     lSave('homework', list);
   }
 
+  function getCompletedHomework() {
+    return lLoad('homework-completed', []);
+  }
+
+  function saveCompletedHomework(list) {
+    lSave('homework-completed', list);
+  }
+
   function assignHomework(id, lesson, unit, url, dueDate) {
     const list = getHomework();
     const exists = list.findIndex(h => h.id === id);
+    const completed = getCompletedHomework()
+      .filter(h => h.id !== id);
     const entry = {
       id, lesson, unit, url,
       due: dueDate,
@@ -1209,16 +1237,37 @@ header {
     if (exists >= 0) list[exists] = entry;
     else list.push(entry);
     saveHomework(list);
+    saveCompletedHomework(completed);
     renderHomeworkBadges();
     renderLeoHomework();
     renderNeritanHomework();
     alert('✅ Homework assigned: ' + lesson + ' · Due ' + dueDate);
   }
 
+  function completeHomework(id) {
+    if (!confirm('Mark this homework complete? Leo’s saved work will be kept.')) return;
+    const list = getHomework();
+    const entry = list.find(h => h.id === id);
+    if (!entry) return;
+    const completed = getCompletedHomework()
+      .filter(h => h.id !== id);
+    completed.unshift({
+      ...entry,
+      completed: new Date().toISOString().split('T')[0]
+    });
+    saveHomework(list.filter(h => h.id !== id));
+    saveCompletedHomework(completed);
+    renderHomeworkBadges();
+    renderLeoHomework();
+    renderNeritanHomework();
+  }
+
   function removeHomework(id) {
-    if (!confirm('Unassign this homework?')) return;
+    if (!confirm('Reset and unassign this homework? Leo’s saved work will be cleared.')) return;
     const list = getHomework().filter(h => h.id !== id);
+    const completed = getCompletedHomework().filter(h => h.id !== id);
     saveHomework(list);
+    saveCompletedHomework(completed);
     lClear(id + '-');
     if (id === 'leo-4-7-vocab2') lClear('4-7-vocab2-');
     renderHomeworkBadges();
@@ -1309,12 +1358,13 @@ header {
     const container = document.getElementById('neritan-homework-section');
     if (!container) return;
     const hw = getHomework();
-    if (!hw.length) {
+    const completed = getCompletedHomework();
+    if (!hw.length && !completed.length) {
       container.style.display = 'none';
       return;
     }
     container.style.display = 'block';
-    const list = hw.map(h => {
+    const activeList = hw.map(h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
@@ -1332,16 +1382,38 @@ header {
               <a class="hw-review-btn" href="${getReviewUrl(h)}" target="_blank">
                 📋 Review Leo's work
               </a>
+              <button class="hw-complete-btn" onclick="completeHomework('${h.id}')">
+                Mark Complete
+              </button>
               <button class="hw-unassign-btn" onclick="removeHomework('${h.id}')">
-                Unassign
+                Reset / Unassign
               </button>
             </div>
           </div>
         </div>`;
     }).join('');
+    const completedList = completed.map(h => {
+      return `
+        <div class="hw-card hw-done">
+          <div class="hw-card-left">
+            <div class="hw-lesson">${h.lesson}</div>
+            <div class="hw-unit">${h.unit} · Our World Level 4</div>
+          </div>
+          <div class="hw-card-right">
+            <div class="hw-status hw-status-done">✅ Completed</div>
+            <div class="hw-due hw-ok">Completed ${new Date(h.completed).toLocaleDateString('en-GB',
+              {weekday:'short', day:'numeric', month:'short'})}</div>
+            <div class="hw-card-actions">
+              <a class="hw-review-btn" href="${getReviewUrl(h)}" target="_blank">
+                📋 Review Leo's work
+              </a>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
     container.innerHTML = `
-      <div class="hw-section-title">📋 ASSIGNED HOMEWORK</div>
-      ${list}`;
+      ${hw.length ? '<div class="hw-section-title">📋 ASSIGNED HOMEWORK</div>' + activeList : ''}
+      ${completed.length ? '<div class="hw-section-title" style="margin-top:22px;">✅ COMPLETED WORK</div>' + completedList : ''}`;
   }
 
 
