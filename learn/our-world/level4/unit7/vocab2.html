@@ -615,6 +615,77 @@ body{font-family:'Nunito',sans-serif;background:var(--dkr);color:var(--lt);min-h
   </div>
 </div>
 <script>
+const SAVE_PREFIX = '4-7-vocab2-';
+
+function lSave(key, val) {
+  try { localStorage.setItem('leea-' + key,
+    JSON.stringify(val)); } catch(e) {}
+}
+function lLoad(key, fallback = null) {
+  try {
+    const v = localStorage.getItem('leea-' + key);
+    return v !== null ? JSON.parse(v) : fallback;
+  } catch(e) { return fallback; }
+}
+function lClear(prefix) {
+  Object.keys(localStorage)
+    .filter(k => k.startsWith('leea-' + prefix))
+    .forEach(k => localStorage.removeItem(k));
+}
+
+function saveVocab2Score(currentScore, done = false) {
+  lSave(SAVE_PREFIX + 'score', currentScore);
+  if (done) lSave(SAVE_PREFIX + 'done', true);
+  lSave(SAVE_PREFIX + 'timestamp', new Date().toISOString());
+}
+
+function showSavedWorkBanner() {
+  const saved = lLoad(SAVE_PREFIX + 'score');
+  if (saved !== null) {
+    const banner = document.createElement('div');
+    banner.style.cssText =
+      'background:#FDE047;color:#1C1917;' +
+      'padding:10px 16px;font-weight:800;' +
+      'font-size:0.85rem;text-align:center;';
+    banner.innerHTML = '📚 Saved work found! ' +
+      'Last score: ' + saved +
+      ' &nbsp;|&nbsp; <button onclick="lClear(' +
+      "'4-7-vocab2-'" +
+      ');this.parentElement.remove()" ' +
+      'style="background:none;border:2px solid ' +
+      '#1C1917;cursor:pointer;font-weight:800;' +
+      'padding:2px 10px;border-radius:4px">' +
+      '🔄 Reset</button>';
+    document.body.insertBefore(banner,
+      document.body.firstChild);
+  }
+}
+
+const isReview = new URLSearchParams(
+  location.search).get('review') === '1';
+if (isReview) {
+  document.body.style.pointerEvents = 'none';
+  const score = lLoad(SAVE_PREFIX + 'score');
+  const done = lLoad(SAVE_PREFIX + 'done');
+  const ts = lLoad(SAVE_PREFIX + 'timestamp');
+  const panel = document.createElement('div');
+  panel.style.cssText =
+    'position:fixed;top:0;left:0;right:0;' +
+    'background:#1D4ED8;color:#fff;' +
+    'padding:12px 20px;z-index:9999;' +
+    'font-family:sans-serif;font-size:0.85rem;' +
+    'font-weight:700;pointer-events:auto;';
+  panel.innerHTML =
+    '📋 REVIEW MODE · Unit 7 Vocab 2 · ' +
+    'Score: ' + (score ?? 'Not started') +
+    ' · Status: ' + (done ? '✅ Done' :
+    '🔴 Incomplete') +
+    (ts ? ' · ' + new Date(ts)
+      .toLocaleString('en-GB') : '');
+  document.body.insertBefore(panel,
+    document.body.firstChild);
+}
+
 // ═══ DATA ═══════════════════════════════════════════
 const V2=[
   {id:'lift',w:'lift',e:'💪',sent:'Lift your arms and shake your legs.',qsent:'_____ your arms and shake your legs.',soc:'Cherki lifts the ball with a brilliant chip over the goalkeeper at PSG!',def:'to raise something up higher'},
@@ -1009,7 +1080,7 @@ function startUSQ(){
 function renderUSQ(){
   const area=document.getElementById('us-qcard');area.innerHTML='';
   document.getElementById('us-score').textContent='Score: '+usQScore+' / 5';
-  if(usQIdx>=5){clearInterval(usTimerID);usQActive=false;const m=Math.floor(usSec/60),s=usSec%60;area.innerHTML=`<div style="text-align:center;background:var(--dk);border-radius:14px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:7px;">🏆</div><div style="font-size:1.1rem;font-weight:900;color:var(--ye);">Done! Score: ${usQScore}/5</div><div style="color:var(--mt);margin-top:5px;">Time: ${m}:${(s<10?'0':'')+s}</div></div>`;return;}
+  if(usQIdx>=5){clearInterval(usTimerID);usQActive=false;saveVocab2Score(usQScore + ' / 5', true);const m=Math.floor(usSec/60),s=usSec%60;area.innerHTML=`<div style="text-align:center;background:var(--dk);border-radius:14px;padding:18px;"><div style="font-size:1.8rem;margin-bottom:7px;">🏆</div><div style="font-size:1.1rem;font-weight:900;color:var(--ye);">Done! Score: ${usQScore}/5</div><div style="color:var(--mt);margin-top:5px;">Time: ${m}:${(s<10?'0':'')+s}</div></div>`;return;}
   const v=usQData[usQIdx];
   area.innerHTML=`<div style="background:var(--dk);border-radius:14px;padding:18px;text-align:center;">
     <div style="color:var(--mt);font-weight:700;margin-bottom:5px;">${v.e} Q${usQIdx+1}/5</div>
@@ -1026,7 +1097,7 @@ function subUSQ(){
   const inp=document.getElementById('q-inp'),fb=document.getElementById('q-fb');
   if(!inp)return;
   const v=usQData[usQIdx];
-  if(inp.value.trim().toLowerCase()===v.w){usQScore++;fb.textContent='⚽ Correct!';fb.className='fb ok';inp.disabled=true;setTimeout(()=>{usQIdx++;renderUSQ();},900);}
+  if(inp.value.trim().toLowerCase()===v.w){usQScore++;saveVocab2Score(usQScore + ' / 5');fb.textContent='⚽ Correct!';fb.className='fb ok';inp.disabled=true;setTimeout(()=>{usQIdx++;renderUSQ();},900);}
   else{fb.textContent='❌ Try again! ('+v.w.length+' letters)';fb.className='fb bad';inp.classList.add('shake');setTimeout(()=>inp&&inp.classList.remove('shake'),400);}
 }
 function skipUSQ(){const v=usQData[usQIdx];const fb=document.getElementById('q-fb');if(fb){fb.textContent='Answer: '+v.w;fb.className='fb bad';}setTimeout(()=>{usQIdx++;renderUSQ();},1100);}
@@ -1068,6 +1139,7 @@ function chkFill(){
   const fb=document.getElementById('p-fill-fb');
   fb.textContent=ok===5?'🏆 PERFECT! All correct!':ok+'/5 correct. Tap a filled blank to reset it!';
   fb.className=ok===5?'fb ok':'fb bad';
+  saveVocab2Score(ok + ' / 5');
 }
 
 const cOrder=['Put the hula hoop on the ground. Stand in the middle.','Lift the hoop to your waist.',"Move your waist in a circle. Don't hold the hoop!",'The hoop turns around and around. Can you feel it?'];
@@ -1083,6 +1155,7 @@ function chkOrder(){
   const fb=document.getElementById('p-order-fb');
   fb.textContent=ok===4?'🏆 Perfect order! You know all 4 steps!':ok+'/4 correct. Keep rearranging!';
   fb.className=ok===4?'fb ok':'fb bad';
+  saveVocab2Score(ok + ' / 4');
 }
 
 const wbQs=[{q:"What does Irma have?",opts:["A new ball","A hula hoop","A new table invention","A phone"],a:2},{q:"How does Irma move it?",opts:["She lifts it","She turns it","Across the table","In circles"],a:2},{q:"What do the wheels do?",opts:["They lift","They move","They put","They turn"],a:3},{q:"What does Daniel suggest?",opts:["Use both hands","Lift the bottle","Move the table","Turn the wheels"],a:1},{q:"What does Daniel think?",opts:["It's cool","It's useful","It's silly","It's amazing"],a:2}];
@@ -1130,6 +1203,7 @@ function chkSort(){
     else{(ch?document.getElementById('sy'+i):document.getElementById('sn'+i)).style.background='var(--er)';(item.a?document.getElementById('sy'+i):document.getElementById('sn'+i)).style.background='var(--su)';}
   });
   const fb=document.getElementById('sort-fb');fb.textContent=ok+' / '+sortData.length+' correct!';fb.className=ok>=6?'fb ok':'fb bad';
+  saveVocab2Score(ok + ' / ' + sortData.length);
 }
 
 const fixData=[
@@ -1195,6 +1269,7 @@ function chkSeq(){
   let ok=0;
   seqSteps.forEach((s,i)=>{const sl=document.getElementById('sqs'+i);if(!sl)return;if(seqSlot[i]===s){ok++;sl.style.borderColor='var(--su)';}else sl.style.borderColor='var(--er)';});
   const fb=document.getElementById('seq-fb');fb.textContent=ok===4?'🏆 Perfect! You built the instructions correctly!':ok+'/4 correct. Tap a filled slot to clear it.';fb.className=ok===4?'fb ok':'fb bad';
+  saveVocab2Score(ok + ' / 4');
 }
 function chkFW(){
   const t=document.getElementById('fw-area').value.trim().toLowerCase();
@@ -1263,6 +1338,7 @@ function chkRP(){
     else{inp.style.borderColor='var(--er)';}
   });
   const fb=document.getElementById('rp-fb');fb.textContent=ok===5?'🏆 Perfect! All dialogue words correct!':ok+'/5 correct. Check the highlighted gaps!';fb.className=ok===5?'fb ok':'fb bad';
+  saveVocab2Score(ok + ' / 5');
 }
 
 let curTopic={label:'football ⚽',steps:['put the ball on the penalty spot','move back 5 steps','use your strongest foot','lift your arms to celebrate']};
@@ -1324,7 +1400,7 @@ function renderDrib(){
 }
 function answerDrib(chosen,correct,el){
   const opts=document.querySelectorAll('.dopt');opts.forEach(o=>o.onclick=null);
-  if(chosen===correct){el.classList.add('correct');dribSc++;showGoal();}
+  if(chosen===correct){el.classList.add('correct');dribSc++;saveVocab2Score(dribSc + ' / 10');showGoal();}
   else{el.classList.add('wrong');opts[correct].classList.add('correct');}
   setTimeout(()=>{dribI++;renderDrib();},1400);
 }
@@ -1334,7 +1410,7 @@ function answerDribFill(){
   const q=dribQs[dribI];
   const ans=inp.value.trim().toLowerCase(),cor=q.a.toLowerCase();
   if(ans===cor||ans===cor.replace(/s$/,'')){
-    fb.textContent='⚽ Correct!';fb.className='fb ok';inp.disabled=true;dribSc++;showGoal();
+    fb.textContent='⚽ Correct!';fb.className='fb ok';inp.disabled=true;dribSc++;saveVocab2Score(dribSc + ' / 10');showGoal();
     setTimeout(()=>{dribI++;renderDrib();},1000);
   } else {
     fb.textContent='❌ Try again!';fb.className='fb bad';inp.classList.add('shake');setTimeout(()=>inp&&inp.classList.remove('shake'),400);
@@ -1347,6 +1423,7 @@ function endDrib(){
   document.getElementById('drib-area').innerHTML='';
   const end=document.getElementById('drib-end');end.style.display='block';
   document.getElementById('drib-final').textContent=dribSc+' / 10';
+  saveVocab2Score(dribSc + ' / 10', true);
   const msgs=[["Don't worry! Review the words and try again! 💪","Keep going — practice makes perfect!"],["Good effort! You're learning! 🌱","Almost there — review and retry!"],["Great job! You know these words! ⭐","Almost perfect! Try again for 10/10!"],["🏆 PERFECT! Leo can dribble all the way to the goal! 🥅 You NAILED it!","🏆 PERFECT! Leo dribbles like Kvaratskhelia!"]];
   const tier=dribSc<=3?0:dribSc<=6?1:dribSc<=9?2:3;
   document.getElementById('drib-msg').textContent=msgs[tier][dribSc===10?1:0];
@@ -1388,6 +1465,7 @@ function subAssess(){
   document.getElementById('assess-submit').style.display='none';
   const res=document.getElementById('assess-res');res.style.display='block';
   document.getElementById('assess-score').textContent=ok+' / 6';
+  saveVocab2Score(ok + ' / 6', true);
   const msgs=[
     "Keep reviewing the action words — you can do it! 💪",
     "Good start! Review lift, move, put, turn, use and try again! 📚",
@@ -1402,6 +1480,7 @@ function subAssess(){
 
 // ═══ INIT CALLS ══════════════════════════════════════
 initMatch();initMatch2();initUS();initStrat();initRank();initRP();initAssess();
+showSavedWorkBanner();
 function initStrat(){initSort();initFix();initSeq();}
 </script>
 </body>
