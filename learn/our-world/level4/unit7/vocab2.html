@@ -740,7 +740,7 @@ function showSavedWorkBanner() {
 
 const isReview = REVIEW_PARAMS.get('review') === '1';
 if (isReview) {
-  document.body.style.pointerEvents = 'none';
+  document.body.style.background = '#EEF5FF';
   const score = lLoadSaved('score');
   const done = lLoadSaved('done');
   const ts = lLoadSaved('timestamp');
@@ -752,14 +752,18 @@ if (isReview) {
     .filter(m => !doneNums.includes(m.n))
     .map(m => m.n);
   const hasSavedWork = score !== null || done || ts || savedModules.length;
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
   const panel = document.createElement('div');
   panel.style.cssText =
-    'position:fixed;top:24px;left:50%;transform:translateX(-50%);' +
-    'width:min(92vw,560px);background:#fff;color:#1C1917;' +
+    'width:min(92vw,620px);background:#fff;color:#1C1917;' +
+    'margin:40px auto;' +
     'border:3px solid #1D4ED8;border-radius:10px;' +
     'box-shadow:0 18px 50px rgba(15,23,42,.25);' +
-    'padding:18px 20px;z-index:9999;font-family:sans-serif;' +
-    'font-size:0.9rem;font-weight:700;pointer-events:auto;';
+    'padding:22px 24px;z-index:9999;font-family:sans-serif;' +
+    'font-size:0.9rem;font-weight:700;';
   const mistakeHtml = wrongQuestions.length
     ? wrongQuestions.map(q =>
         '<div style="background:#FEE2E2;color:#991B1B;' +
@@ -769,7 +773,7 @@ if (isReview) {
     : '<div style="color:#166534;background:#DCFCE7;border-radius:6px;' +
       'padding:7px 9px;margin-top:6px;">No mistakes saved yet</div>';
   panel.innerHTML = hasSavedWork
-    ? '<div style="font-size:1rem;color:#1D4ED8;margin-bottom:10px;">' +
+    ? '<div style="font-size:1.15rem;color:#1D4ED8;margin-bottom:10px;">' +
       '📋 Review Card · Unit 7 Vocab 2</div>' +
       '<div style="display:grid;gap:8px;">' +
       '<div>Progress: ' + summarizeModuleNumbers(doneNums) +
@@ -782,11 +786,10 @@ if (isReview) {
       '<div style="margin-top:6px;">Mistakes</div>' +
       mistakeHtml +
       '</div>'
-    : '<div style="font-size:1rem;color:#1D4ED8;margin-bottom:8px;">' +
+    : '<div style="font-size:1.15rem;color:#1D4ED8;margin-bottom:8px;">' +
       '📋 Review Card · Unit 7 Vocab 2</div>' +
       '<div>Work not started</div>';
-  document.body.insertBefore(panel,
-    document.body.firstChild);
+  document.body.appendChild(panel);
 }
 
 // ═══ DATA ═══════════════════════════════════════════
@@ -1595,7 +1598,7 @@ function subAssess(){
 
 // ═══ INIT CALLS ══════════════════════════════════════
 initMatch();initMatch2();initUS();initStrat();initRank();initRP();initAssess();addModuleCompleteButtons();
-showSavedWorkBanner();
+if (!isReview) showSavedWorkBanner();
 function initStrat(){initSort();initFix();initSeq();}
 </script>
 </body>
