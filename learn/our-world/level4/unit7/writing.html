@@ -64,7 +64,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 .mhd{padding:13px 14px;display:flex;align-items:center;gap:10px;color:#fff;position:sticky;top:0;z-index:10;flex-shrink:0}
 .mhd.or{background:var(--or)}.mhd.bl{background:var(--bl)}.mhd.gn{background:var(--gn)}.mhd.dk{background:var(--ink)}.mhd.ye{background:var(--yed)}
 .mbk{background:rgba(255,255,255,.15);border:none;color:#fff;font-family:var(--fn);font-size:.72rem;font-weight:800;padding:5px 11px;border-radius:20px;cursor:pointer;flex-shrink:0}
-.mhd-title{font-weight:800;font-size:.9rem;flex:1}
+.mhd-title{font-weight:900;font-size:1rem;flex:1;letter-spacing:.3px;text-shadow:0 1px 3px rgba(0,0,0,.25)}
 .mhd-num{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:1px;opacity:.7}
 .mbody{flex:1;padding:14px;display:flex;flex-direction:column;gap:12px;background:var(--paper)}
 
@@ -228,6 +228,78 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 .ref-card-title{font-family:var(--fnh);font-size:.58rem;font-weight:700;letter-spacing:2px;color:var(--bl);margin-bottom:5px}
 
 .score-mini{font-size:.78rem;font-weight:800;color:var(--or);text-align:right}
+
+/* ── BOTTOM ACTION BUTTONS ─────────────────────────────────── */
+.btn-row-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 20px;
+}
+.complete-btn {
+  flex: 1;
+  padding: 18px 20px;
+  background: #16A34A;
+  border: 3px solid #15803D;
+  border-radius: 4px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all .2s;
+  text-align: center;
+  letter-spacing: .2px;
+}
+.complete-btn:hover { background: #15803D; border-color: #14532D; }
+.complete-btn.confirmed {
+  background: #D1FAE5;
+  border-color: #16A34A;
+  color: #16A34A;
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.85;
+}
+/* Redo button always stays fully active — no confirmed state */
+.reset-btn { pointer-events: auto !important; opacity: 1 !important; }
+.reset-btn {
+  flex: 0 0 110px;
+  padding: 18px 14px;
+  background: #ffffff;
+  border: 3px solid #DC2626;
+  border-radius: 4px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .88rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: #DC2626;
+  transition: all .2s;
+  text-align: center;
+  white-space: nowrap;
+}
+.reset-btn:hover { background: #DC2626; color: #ffffff; }
+
+/* ── MODAL CLOSE X ─────────────────────────────────────────── */
+.mhd-close {
+  background: rgba(255,255,255,.18);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s;
+  margin-left: 8px;
+  line-height: 1;
+}
+.mhd-close:hover { background: rgba(255,255,255,.35); }
+
 </style>
 </head>
 <body>
@@ -347,7 +419,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M1: FACT OR OPINION -->
 <div class="modal" id="m1">
 <div class="mbox">
-<div class="mhd or"><div class="mhd-title">📌 Fact or Opinion?</div><div class="mhd-num">1 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">📌 Fact or Opinion?</div><div class="mhd-num">1 / 10</div><button class="mhd-close" onclick="closeModal('m1')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Read each sentence carefully. Is it always true (FACT 📌) or is it what someone thinks (OPINION 💭)? Tap the right button!</div></div>
   <div class="phrase-bank">
@@ -368,7 +440,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M2: KEY EXPRESSIONS -->
 <div class="modal" id="m2">
 <div class="mbox">
-<div class="mhd or"><div class="mhd-title">💬 Key Expressions</div><div class="mhd-num">2 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">💬 Key Expressions</div><div class="mhd-num">2 / 10</div><button class="mhd-close" onclick="closeModal('m2')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Choose the best phrase to complete each sentence. Think: is it a fact or an opinion?</div></div>
   <div class="phrase-bank">
@@ -394,7 +466,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M3: PLAN MY CHART -->
 <div class="modal" id="m3">
 <div class="mbox">
-<div class="mhd or"><div class="mhd-title">📋 Plan My Chart</div><div class="mhd-num">3 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">📋 Plan My Chart</div><div class="mhd-num">3 / 10</div><button class="mhd-close" onclick="closeModal('m3')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Choose an invention you like. Then write facts (always true) in the left column and your opinions (I think...) in the right column. This is your plan!</div></div>
   <div class="ex-box">
@@ -446,7 +518,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M4: WRITE -->
 <div class="modal" id="m4">
 <div class="mbox">
-<div class="mhd or"><div class="mhd-title">✏️ Write!</div><div class="mhd-num">4 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">✏️ Write!</div><div class="mhd-num">4 / 10</div><button class="mhd-close" onclick="closeModal('m4')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Use your plan chart! Write 2 paragraphs. Start with your opinion, add facts, then end with your opinion again. Aim for 80–120 words total.</div></div>
   <div id="m4-plan-ref"></div>
@@ -479,7 +551,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M5: EDIT CHECKLIST -->
 <div class="modal" id="m5">
 <div class="mbox">
-<div class="mhd gn"><div class="mhd-title">✅ Edit Checklist</div><div class="mhd-num">5 / 10</div></div>
+<div class="mhd gn"><div class="mhd-title">✅ Edit Checklist</div><div class="mhd-num">5 / 10</div><button class="mhd-close" onclick="closeModal('m5')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Read your writing from Module 4. Tick each box when you can find it in your writing. All 4 must be ticked before you're done!</div></div>
   <div class="ex-box"><div class="ex-lbl">WRITING SUPPORT — PRONOUNS!</div>
@@ -503,7 +575,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M6: WB ANALYSE -->
 <div class="modal" id="m6">
 <div class="mbox">
-<div class="mhd bl"><div class="mhd-title">🔍 Analyse the Model</div><div class="mhd-num">6 / 10 · WB p.90</div></div>
+<div class="mhd bl"><div class="mhd-title">🔍 Analyse the Model</div><div class="mhd-num">6 / 10 · WB p.90</div><button class="mhd-close" onclick="closeModal('m6')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 1. Read how the writer planned "A Good Idea" — then complete the chart and find 3 opinion phrases!</div></div>
   <div class="steps-list">
@@ -564,7 +636,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M7: 2ND PLAN -->
 <div class="modal" id="m7">
 <div class="mbox">
-<div class="mhd bl"><div class="mhd-title">📋 My 2nd Plan</div><div class="mhd-num">7 / 10 · WB p.90–91</div></div>
+<div class="mhd bl"><div class="mhd-title">📋 My 2nd Plan</div><div class="mhd-num">7 / 10 · WB p.90–91</div><button class="mhd-close" onclick="closeModal('m7')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 2. Choose a DIFFERENT invention from the one you used before. Fill in the chart with facts and opinions.</div></div>
   <div class="ex-box">
@@ -617,7 +689,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M8: WRITE MORE -->
 <div class="modal" id="m8">
 <div class="mbox">
-<div class="mhd bl"><div class="mhd-title">✍️ Write More</div><div class="mhd-num">8 / 10 · WB p.91</div></div>
+<div class="mhd bl"><div class="mhd-title">✍️ Write More</div><div class="mhd-num">8 / 10 · WB p.91</div><button class="mhd-close" onclick="closeModal('m8')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 3. Use your plan from Module 7. Follow steps 2–5 and write 2 paragraphs about your 2nd invention!</div></div>
   <div id="m8-plan-ref"></div>
@@ -646,7 +718,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M9: FREE WRITING -->
 <div class="modal" id="m9">
 <div class="mbox">
-<div class="mhd bl"><div class="mhd-title">🌍 Free Writing</div><div class="mhd-num">9 / 10 · WB p.91</div></div>
+<div class="mhd bl"><div class="mhd-title">🌍 Free Writing</div><div class="mhd-num">9 / 10 · WB p.91</div><button class="mhd-close" onclick="closeModal('m9')" title="Just close">✕</button></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 4. Pick ONE topic below and write 2–3 paragraphs of fact and opinion. Use I think, I believe, In my opinion + facts to support!</div></div>
   <div class="ex-box">
@@ -689,7 +761,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M10: CAN LEO SCORE -->
 <div class="modal" id="m10">
 <div class="mbox">
-<div class="mhd dk"><div class="mhd-title">⚽ Can Leo Score?</div><div class="mhd-num">10 / 10</div></div>
+<div class="mhd dk"><div class="mhd-title">⚽ Can Leo Score?</div><div class="mhd-num">10 / 10</div><button class="mhd-close" onclick="closeModal('m10')" title="Just close">✕</button></div>
 <div class="mbody" id="m10-body">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: 8 questions! You need 7/8 (80%) to score the goal! ⚽ Good luck!</div></div>
   <div id="m10-quiz"></div>
@@ -742,32 +814,13 @@ function initReviewMode() {
   const m8ta = lLoad(SAVE_PREFIX + 'm8-ta', '');
   const m9ta = lLoad(SAVE_PREFIX + 'm9-ta', '');
   const checklist = lLoad(SAVE_PREFIX + 'checklist', [false,false,false,false]);
-  const moduleNames = {
-    m1:'Fact or Opinion',
-    m2:'Key Expressions',
-    m3:'Plan My Chart',
-    m4:'Writing',
-    m5:'Edit Checklist',
-    m6:'Analyse the Model',
-    m7:'My 2nd Plan',
-    m8:'Write More',
-    m9:'Free Writing',
-    m10:'Can Leo Score'
-  };
-  const completedModules = Object.keys(moduleNames)
-    .filter(id => lLoad(SAVE_PREFIX + id + '-done', false))
-    .map(id => moduleNames[id]);
 
-  if (!scoreData && !m4p1 && !m8ta && !m9ta && !completedModules.length) {
+  if (!scoreData && !m4p1 && !m8ta && !m9ta) {
     body.innerHTML = '<div class="rv-not-started">📋 Work not started yet.</div>';
     return;
   }
 
   let html = '';
-
-  if (completedModules.length) {
-    html += `<div class="rv-card"><div class="rv-lbl">COMPLETED MODULES</div><div class="rv-val">${completedModules.length}/10 complete<br>${completedModules.join(' · ')}</div></div>`;
-  }
 
   if (scoreData) {
     const pct = Math.round((scoreData.score / 8) * 100);
@@ -813,18 +866,21 @@ function closeModal(id) {
 // PROGRESS + BADGE UPDATE
 // ═══════════════════════════════════════════════
 function updateBadge(id, state) {
-  const el = document.getElementById('badge-' + id);
-  if (!el) return;
-  el.className = 'mod-badge ' + (state === 'done' ? 'badge-done' : state === 'prog' ? 'badge-prog' : 'badge-new');
-  el.textContent = state === 'done' ? '✅ DONE' : state === 'prog' ? '▶ IN PROGRESS' :
-    id === 'm6' ? 'WB ACT 1' : id === 'm7' ? 'WB ACT 2' : id === 'm8' ? 'WB ACT 3' :
-    id === 'm9' ? 'WB ACT 4' : id === 'm10' ? 'FINAL QUIZ' : 'NOT STARTED';
-  // Update progress bar
-  const done = ['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10'].filter(m => {
-    const b = document.getElementById('badge-' + m);
-    return b && b.classList.contains('badge-done');
-  }).length;
-  document.getElementById('progFill').style.width = (done / 10 * 100) + '%';
+  try {
+    const el = document.getElementById('badge-' + id);
+    if (!el) return;
+    const labels = { m6:'WB ACT 1', m7:'WB ACT 2', m8:'WB ACT 3', m9:'WB ACT 4', m10:'FINAL QUIZ' };
+    el.className = 'mod-badge ' + (state === 'done' ? 'badge-done' : state === 'prog' ? 'badge-prog' : 'badge-new');
+    el.textContent = state === 'done' ? '✅ DONE' : state === 'prog' ? '▶ IN PROGRESS' : (labels[id] || 'NOT STARTED');
+    const pf = document.getElementById('progFill');
+    if (pf) {
+      const done = ['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10'].filter(m => {
+        const b = document.getElementById('badge-' + m);
+        return b && b.classList && b.classList.contains('badge-done');
+      }).length;
+      pf.style.width = (done / 10 * 100) + '%';
+    }
+  } catch(e) { console.warn('updateBadge error:', e); }
 }
 
 function showSaveInd(id) {
@@ -1459,22 +1515,18 @@ function launchConfetti() {
 // HW BANNER
 // ═══════════════════════════════════════════════
 function markComplete(id, name) {
-  // Save completion data
-  lSave(SAVE_PREFIX + id + '-complete', {
-    name: name,
-    timestamp: new Date().toISOString(),
-    done: true
-  });
-  lSave(SAVE_PREFIX + id + '-done', true);
-  lSave(HOMEWORK_ID + '-' + id + '-done', true);
-  updateBadge(id, 'done');
-  // Update button state briefly then close
-  const btn = document.getElementById('cbtn-' + id);
-  if (btn) {
-    btn.classList.add('confirmed');
-    btn.textContent = name + ' complete ✓';
-  }
-  setTimeout(() => closeModal(id), 400);
+  try {
+    lSave(SAVE_PREFIX + id + '-complete', { name: name, timestamp: new Date().toISOString(), done: true });
+    lSave(SAVE_PREFIX + id + '-done', true);
+    lSave(HOMEWORK_ID + '-' + id + '-done', true);
+    updateBadge(id, 'done');
+    const btn = document.getElementById('cbtn-' + id);
+    if (btn) {
+      btn.classList.add('confirmed');
+      btn.textContent = '✅ ' + name + ' complete';
+    }
+    setTimeout(function() { closeModal(id); }, 400);
+  } catch(e) { console.error('markComplete error:', e); }
 }
 
 
@@ -1484,71 +1536,100 @@ function resetModule(id) {
     m4:'Writing', m5:'Edit Checklist', m6:'Analyse the Model',
     m7:'My 2nd Plan', m8:'Write More', m9:'Free Writing', m10:'Can Leo Score'
   };
-  if (!confirm('Reset "' + (names[id] || id) + '"? Your work for this module will be cleared.')) return;
 
-  // Clear all keys for this module
+  // Find the redo button for this module
+  let redoBtn = null;
+  document.querySelectorAll('.reset-btn').forEach(function(b) {
+    if (b.getAttribute('onclick') === "resetModule('" + id + "')") redoBtn = b;
+  });
+
+  // Two-tap safety: first tap shows warning, second tap resets
+  if (redoBtn && !redoBtn.dataset.armed) {
+    redoBtn.dataset.armed = '1';
+    redoBtn.textContent = 'Sure? ↺';
+    redoBtn.style.background = '#DC2626';
+    redoBtn.style.color = '#fff';
+    setTimeout(function() {
+      if (redoBtn && redoBtn.dataset.armed) {
+        delete redoBtn.dataset.armed;
+        redoBtn.textContent = '↺ Redo';
+        redoBtn.style.background = '';
+        redoBtn.style.color = '';
+      }
+    }, 3000);
+    return;
+  }
+
+  // Second tap — execute reset
+  if (redoBtn) {
+    delete redoBtn.dataset.armed;
+    redoBtn.textContent = '↺ Redo';
+    redoBtn.style.background = '';
+    redoBtn.style.color = '';
+  }
+
+  // Clear localStorage for this module
   const prefix = 'leea-' + SAVE_PREFIX;
-  Object.keys(localStorage)
-    .filter(k => k.startsWith(prefix + id + '-') || k === prefix + id + '-done')
-    .forEach(k => localStorage.removeItem(k));
-  // Also clear hw-prefixed done key
+  Object.keys(localStorage).filter(function(k) {
+    return k.startsWith(prefix + id + '-') || k === prefix + id + '-done';
+  }).forEach(function(k) { localStorage.removeItem(k); });
   localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
 
   // Reset badge
   updateBadge(id, 'new');
 
   // Reset complete button
-  const btn = document.getElementById('cbtn-' + id);
-  if (btn) { btn.classList.remove('confirmed'); 
-    const labels = {m1:'Fact or Opinion',m2:'Key Expressions',m3:'Plan My Chart',
-      m4:'Writing',m5:'Edit Checklist',m6:'Analyse the Model',
-      m7:'My 2nd Plan',m8:'Write More',m9:'Free Writing',m10:'Can Leo Score'};
-    btn.textContent = 'Mark ' + (labels[id]||id) + ' complete ✓';
+  var completeBtnEl = document.getElementById('cbtn-' + id);
+  if (completeBtnEl) {
+    completeBtnEl.classList.remove('confirmed');
+    var lbl = names[id] || id;
+    completeBtnEl.textContent = 'Mark ' + lbl + ' complete ✓';
   }
 
-  // Re-init the module
+  // Re-init the module content
   if (id === 'm1') { lSave(SAVE_PREFIX + 'm1-answers', new Array(6).fill(null)); initM1(); }
   else if (id === 'm2') { lSave(SAVE_PREFIX + 'm2-answers', new Array(4).fill(null)); initM2(); }
   else if (id === 'm3') {
-    ['m3-inv','m3-f1','m3-f2','m3-f3','m3-o1','m3-o2','m3-o3'].forEach(k => {
-      const el = document.getElementById(k); if(el) el.value = '';
+    ['m3-inv','m3-f1','m3-f2','m3-f3','m3-o1','m3-o2','m3-o3'].forEach(function(k) {
+      var el = document.getElementById(k); if (el) el.value = '';
     });
   }
   else if (id === 'm4') {
-    ['m4-p1','m4-p2'].forEach(k => { const el = document.getElementById(k); if(el) el.value=''; });
+    ['m4-p1','m4-p2'].forEach(function(k) { var el = document.getElementById(k); if (el) el.value = ''; });
     m4Update();
   }
   else if (id === 'm5') {
-    ['ci-1','ci-2','ci-3','ci-4'].forEach(cid => {
-      const item = document.getElementById(cid);
-      item.classList.remove('ticked');
-      item.querySelector('.chk').textContent = '';
+    ['ci-1','ci-2','ci-3','ci-4'].forEach(function(cid) {
+      var item = document.getElementById(cid);
+      if (item) { item.classList.remove('ticked'); var cb = item.querySelector('.chk'); if (cb) cb.textContent = ''; }
     });
-    document.getElementById('m5-done').classList.remove('show');
+    var doneBanner = document.getElementById('m5-done');
+    if (doneBanner) doneBanner.classList.remove('show');
   }
   else if (id === 'm6') {
-    ['m6-a','m6-b','m6-c'].forEach(k => { const el=document.getElementById(k); if(el) el.value=''; });
-    document.querySelectorAll('#m6-phrases .phrase-sel').forEach(el => {
+    ['m6-a','m6-b','m6-c'].forEach(function(k) { var el = document.getElementById(k); if (el) el.value = ''; });
+    document.querySelectorAll('#m6-phrases .phrase-sel').forEach(function(el) {
       el.className = 'phrase-sel'; el.disabled = false;
     });
-    const fb = document.getElementById('m6-phrase-fb'); if(fb) { fb.className='mcq-fb'; fb.textContent=''; }
+    var fb = document.getElementById('m6-phrase-fb');
+    if (fb) { fb.className = 'mcq-fb'; fb.textContent = ''; }
     m6PickedPhrases = [];
   }
   else if (id === 'm7') {
-    ['m7-inv','m7-f1','m7-f2','m7-f3','m7-o1','m7-o2','m7-o3'].forEach(k => {
-      const el=document.getElementById(k); if(el) el.value='';
+    ['m7-inv','m7-f1','m7-f2','m7-f3','m7-o1','m7-o2','m7-o3'].forEach(function(k) {
+      var el = document.getElementById(k); if (el) el.value = '';
     });
   }
-  else if (id === 'm8') { const el=document.getElementById('m8-ta'); if(el){el.value='';m8Update();} }
+  else if (id === 'm8') { var el = document.getElementById('m8-ta'); if (el) { el.value = ''; m8Update(); } }
   else if (id === 'm9') {
-    const el=document.getElementById('m9-ta'); if(el){el.value='';m9Update();}
-    document.querySelectorAll('.topic-card').forEach(c=>c.classList.remove('picked'));
-    document.getElementById('m9-tip').style.display='none';
+    var ta = document.getElementById('m9-ta'); if (ta) { ta.value = ''; m9Update(); }
+    document.querySelectorAll('.topic-card').forEach(function(c) { c.classList.remove('picked'); });
+    var tip = document.getElementById('m9-tip'); if (tip) tip.style.display = 'none';
   }
   else if (id === 'm10') {
     m10Started = false;
-    document.getElementById('m10-quiz').innerHTML = '';
-    document.getElementById('m10-result').style.display = 'none';
+    var quiz = document.getElementById('m10-quiz'); if (quiz) quiz.innerHTML = '';
+    var res = document.getElementById('m10-result'); if (res) res.style.display = 'none';
   }
 }
 
@@ -1593,14 +1674,17 @@ window.addEventListener('DOMContentLoaded', function() {
   if (m2s) updateBadge('m2', m2s.score >= 3 ? 'done' : 'prog');
   const m10s = lLoad(SAVE_PREFIX + 'score');
   if (m10s) updateBadge('m10', m10s.done ? 'done' : 'prog');
-  // Restore confirmed state on complete buttons
-  ['m1','m2','m3','m4','m5','m6','m7','m8','m9'].forEach(id => {
-    const done = lLoad(SAVE_PREFIX + id + '-done', false);
+  // Restore confirmed state — only if marked via new system (has timestamp)
+  const modNames = {m1:'Fact or Opinion',m2:'Key Expressions',m3:'Plan My Chart',
+    m4:'Writing',m5:'Edit Checklist',m6:'Analyse the Model',
+    m7:'My 2nd Plan',m8:'Write More',m9:'Free Writing'};
+  Object.keys(modNames).forEach(id => {
+    const data = lLoad(SAVE_PREFIX + id + '-complete', null);
     const btn = document.getElementById('cbtn-' + id);
-    if (done && btn) {
+    if (data && data.timestamp && btn) {
       btn.classList.add('confirmed');
-      const names = {m1:'Fact or Opinion',m2:'Key Expressions',m3:'Plan My Chart',m4:'Writing',m5:'Edit Checklist',m6:'Analyse the Model',m7:'My 2nd Plan',m8:'Write More',m9:'Free Writing'};
-      btn.textContent = (names[id] || id) + ' complete ✓';
+      btn.textContent = modNames[id] + ' complete ✓';
+      updateBadge(id, 'done');
     }
   });
 });
