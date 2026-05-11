@@ -817,7 +817,15 @@ function addModuleCompleteButtons() {
     if (!body) return;
     const row = document.createElement('div');
     row.style.cssText = 'text-align:center;margin:18px 0 4px;';
-    row.innerHTML = `<button class="btn module-complete-btn" onclick="markModuleDone('${mod.id}');this.textContent='Module complete ✓';this.disabled=true;">Mark module complete ✓</button>`;
+    const button = document.createElement('button');
+    button.className = 'btn module-complete-btn';
+    button.textContent = `Mark ${mod.name} complete ✓`;
+    button.addEventListener('click', () => {
+      markModuleDone(mod.id);
+      button.textContent = `${mod.name} complete ✓`;
+      button.disabled = true;
+    });
+    row.appendChild(button);
     body.appendChild(row);
   });
 }
