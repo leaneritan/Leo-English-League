@@ -347,7 +347,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 <!-- M1: FACT OR OPINION -->
 <div class="modal" id="m1">
 <div class="mbox">
-<div class="mhd or"><button class="mbk" onclick="closeModal('m1')">← Back</button><div class="mhd-title">📌 Fact or Opinion?</div><div class="mhd-num">1 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">📌 Fact or Opinion?</div><div class="mhd-num">1 / 10</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Read each sentence carefully. Is it always true (FACT 📌) or is it what someone thinks (OPINION 💭)? Tap the right button!</div></div>
   <div class="phrase-bank">
@@ -359,13 +359,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
   <div class="ex-box"><div class="ex-lbl">EXAMPLE</div>"Erling Haaland plays for Manchester City." → 📌 <strong>FACT</strong> — it's always true, everyone can check it!<br>"I think Haaland is the best striker ever." → 💭 <strong>OPINION</strong> — not everyone agrees!</div>
   <div id="m1-questions"></div>
   <div class="score-mini" id="m1-score" style="display:none"></div>
-  <button class="complete-btn" id="cbtn-m1" onclick="markComplete('m1','Fact or Opinion')">Mark Fact or Opinion complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m1" onclick="markComplete('m1','Fact or Opinion')">Mark Fact or Opinion complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m1')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M2: KEY EXPRESSIONS -->
 <div class="modal" id="m2">
 <div class="mbox">
-<div class="mhd or"><button class="mbk" onclick="closeModal('m2')">← Back</button><div class="mhd-title">💬 Key Expressions</div><div class="mhd-num">2 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">💬 Key Expressions</div><div class="mhd-num">2 / 10</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Choose the best phrase to complete each sentence. Think: is it a fact or an opinion?</div></div>
   <div class="phrase-bank">
@@ -382,13 +385,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
   </div>
   <div id="m2-questions"></div>
   <div class="score-mini" id="m2-score" style="display:none"></div>
-  <button class="complete-btn" id="cbtn-m2" onclick="markComplete('m2','Key Expressions')">Mark Key Expressions complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m2" onclick="markComplete('m2','Key Expressions')">Mark Key Expressions complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m2')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M3: PLAN MY CHART -->
 <div class="modal" id="m3">
 <div class="mbox">
-<div class="mhd or"><button class="mbk" onclick="closeModal('m3')">← Back</button><div class="mhd-title">📋 Plan My Chart</div><div class="mhd-num">3 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">📋 Plan My Chart</div><div class="mhd-num">3 / 10</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Choose an invention you like. Then write facts (always true) in the left column and your opinions (I think...) in the right column. This is your plan!</div></div>
   <div class="ex-box">
@@ -431,13 +437,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
     </div>
   </div>
   <div class="save-ind" id="m3-saved">✅ Saved!</div>
-  <button class="complete-btn" id="cbtn-m3" onclick="markComplete('m3','Plan My Chart')">Mark Plan My Chart complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m3" onclick="markComplete('m3','Plan My Chart')">Mark Plan My Chart complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m3')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M4: WRITE -->
 <div class="modal" id="m4">
 <div class="mbox">
-<div class="mhd or"><button class="mbk" onclick="closeModal('m4')">← Back</button><div class="mhd-title">✏️ Write!</div><div class="mhd-num">4 / 10</div></div>
+<div class="mhd or"><div class="mhd-title">✏️ Write!</div><div class="mhd-num">4 / 10</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Use your plan chart! Write 2 paragraphs. Start with your opinion, add facts, then end with your opinion again. Aim for 80–120 words total.</div></div>
   <div id="m4-plan-ref"></div>
@@ -461,13 +470,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
   <textarea class="write-ta" id="m4-p2" placeholder="Write your second paragraph here..." oninput="m4Update()"></textarea>
   <div class="wc" id="m4-wc2">Words: 0 · Total: 0 / aim for 80–120 words</div>
   <div class="save-ind" id="m4-saved">✅ Saved!</div>
-  <button class="complete-btn" id="cbtn-m4" onclick="markComplete('m4','Writing')">Mark Writing complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m4" onclick="markComplete('m4','Writing')">Mark Writing complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m4')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M5: EDIT CHECKLIST -->
 <div class="modal" id="m5">
 <div class="mbox">
-<div class="mhd gn"><button class="mbk" onclick="closeModal('m5')">← Back</button><div class="mhd-title">✅ Edit Checklist</div><div class="mhd-num">5 / 10</div></div>
+<div class="mhd gn"><div class="mhd-title">✅ Edit Checklist</div><div class="mhd-num">5 / 10</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Read your writing from Module 4. Tick each box when you can find it in your writing. All 4 must be ticked before you're done!</div></div>
   <div class="ex-box"><div class="ex-lbl">WRITING SUPPORT — PRONOUNS!</div>
@@ -482,13 +494,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
     <div class="check-item" id="ci-4" onclick="toggleCheck('ci-4','m5')"><div class="chk" id="cb-4"></div><span>I included FACTS to support my opinions.</span></div>
   </div>
   <div class="all-done" id="m5-done">🎉 Great job! Your writing is ready to share! ✅</div>
-  <button class="complete-btn" id="cbtn-m5" onclick="markComplete('m5','Edit Checklist')">Mark Edit Checklist complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m5" onclick="markComplete('m5','Edit Checklist')">Mark Edit Checklist complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m5')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M6: WB ANALYSE -->
 <div class="modal" id="m6">
 <div class="mbox">
-<div class="mhd bl"><button class="mbk" onclick="closeModal('m6')">← Back</button><div class="mhd-title">🔍 Analyse the Model</div><div class="mhd-num">6 / 10 · WB p.90</div></div>
+<div class="mhd bl"><div class="mhd-title">🔍 Analyse the Model</div><div class="mhd-num">6 / 10 · WB p.90</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 1. Read how the writer planned "A Good Idea" — then complete the chart and find 3 opinion phrases!</div></div>
   <div class="steps-list">
@@ -540,13 +555,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
   <button class="check-ans-btn" onclick="m6CheckPhrases()" id="m6-check-btn">Check my answers ✅</button>
   <div class="mcq-fb" id="m6-phrase-fb"></div>
   <div class="save-ind" id="m6-saved">✅ Saved!</div>
-  <button class="complete-btn" id="cbtn-m6" onclick="markComplete('m6','Analyse the Model')">Mark Analyse the Model complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m6" onclick="markComplete('m6','Analyse the Model')">Mark Analyse the Model complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m6')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M7: 2ND PLAN -->
 <div class="modal" id="m7">
 <div class="mbox">
-<div class="mhd bl"><button class="mbk" onclick="closeModal('m7')">← Back</button><div class="mhd-title">📋 My 2nd Plan</div><div class="mhd-num">7 / 10 · WB p.90–91</div></div>
+<div class="mhd bl"><div class="mhd-title">📋 My 2nd Plan</div><div class="mhd-num">7 / 10 · WB p.90–91</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 2. Choose a DIFFERENT invention from the one you used before. Fill in the chart with facts and opinions.</div></div>
   <div class="ex-box">
@@ -590,13 +608,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
     </div>
   </div>
   <div class="save-ind" id="m7-saved">✅ Saved!</div>
-  <button class="complete-btn" id="cbtn-m7" onclick="markComplete('m7','My 2nd Plan')">Mark My 2nd Plan complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m7" onclick="markComplete('m7','My 2nd Plan')">Mark My 2nd Plan complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m7')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M8: WRITE MORE -->
 <div class="modal" id="m8">
 <div class="mbox">
-<div class="mhd bl"><button class="mbk" onclick="closeModal('m8')">← Back</button><div class="mhd-title">✍️ Write More</div><div class="mhd-num">8 / 10 · WB p.91</div></div>
+<div class="mhd bl"><div class="mhd-title">✍️ Write More</div><div class="mhd-num">8 / 10 · WB p.91</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 3. Use your plan from Module 7. Follow steps 2–5 and write 2 paragraphs about your 2nd invention!</div></div>
   <div id="m8-plan-ref"></div>
@@ -616,13 +637,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
   <textarea class="write-ta" id="m8-ta" style="min-height:160px" placeholder="Write your paragraphs here..." oninput="m8Update()"></textarea>
   <div class="wc" id="m8-wc">Words: 0 · Aim for 60–100 words</div>
   <div class="save-ind" id="m8-saved">✅ Saved!</div>
-  <button class="complete-btn" id="cbtn-m8" onclick="markComplete('m8','Write More')">Mark Write More complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m8" onclick="markComplete('m8','Write More')">Mark Write More complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m8')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M9: FREE WRITING -->
 <div class="modal" id="m9">
 <div class="mbox">
-<div class="mhd bl"><button class="mbk" onclick="closeModal('m9')">← Back</button><div class="mhd-title">🌍 Free Writing</div><div class="mhd-num">9 / 10 · WB p.91</div></div>
+<div class="mhd bl"><div class="mhd-title">🌍 Free Writing</div><div class="mhd-num">9 / 10 · WB p.91</div></div>
 <div class="mbody">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 4. Pick ONE topic below and write 2–3 paragraphs of fact and opinion. Use I think, I believe, In my opinion + facts to support!</div></div>
   <div class="ex-box">
@@ -656,13 +680,16 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
   <textarea class="write-ta" id="m9-ta" style="min-height:180px" placeholder="Write 2–3 paragraphs here..." oninput="m9Update()"></textarea>
   <div class="wc" id="m9-wc">Words: 0 · Aim for 80–130 words</div>
   <div class="save-ind" id="m9-saved">✅ Saved!</div>
-  <button class="complete-btn" id="cbtn-m9" onclick="markComplete('m9','Free Writing')">Mark Free Writing complete ✓</button>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m9" onclick="markComplete('m9','Free Writing')">Mark Free Writing complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m9')">↺ Redo</button>
+  </div>
 </div></div></div>
 
 <!-- M10: CAN LEO SCORE -->
 <div class="modal" id="m10">
 <div class="mbox">
-<div class="mhd dk"><button class="mbk" onclick="closeModal('m10')">← Back</button><div class="mhd-title">⚽ Can Leo Score?</div><div class="mhd-num">10 / 10</div></div>
+<div class="mhd dk"><div class="mhd-title">⚽ Can Leo Score?</div><div class="mhd-num">10 / 10</div></div>
 <div class="mbody" id="m10-body">
   <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: 8 questions! You need 7/8 (80%) to score the goal! ⚽ Good luck!</div></div>
   <div id="m10-quiz"></div>
@@ -1376,7 +1403,10 @@ function showM10Result() {
       ${pass ? '' : `<button class="check-ans-btn" style="margin:16px auto 0;display:block" onclick="initM10()">🔄 Try Again</button>`}
     </div>`;
   // Add complete button to result
-  const completeHtml = `<button class="complete-btn" id="cbtn-m10" style="max-width:460px;margin:16px auto 0" onclick="markComplete('m10','Can Leo Score')">Mark Can Leo Score complete ✓</button>`;
+  const completeHtml = `<div class="btn-row-bottom" style="margin-top:16px">
+    <button class="complete-btn" id="cbtn-m10" onclick="markComplete('m10','Can Leo Score')">Mark Can Leo Score complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m10')">↺ Redo</button>
+  </div>`;
   res.innerHTML += completeHtml;
   if (pass) launchConfetti();
 }
@@ -1426,6 +1456,81 @@ function markComplete(id, name) {
     btn.textContent = name + ' complete ✓';
   }
   setTimeout(() => closeModal(id), 400);
+}
+
+
+function resetModule(id) {
+  const names = {
+    m1:'Fact or Opinion', m2:'Key Expressions', m3:'Plan My Chart',
+    m4:'Writing', m5:'Edit Checklist', m6:'Analyse the Model',
+    m7:'My 2nd Plan', m8:'Write More', m9:'Free Writing', m10:'Can Leo Score'
+  };
+  if (!confirm('Reset "' + (names[id] || id) + '"? Your work for this module will be cleared.')) return;
+
+  // Clear all keys for this module
+  const prefix = 'leea-' + SAVE_PREFIX;
+  Object.keys(localStorage)
+    .filter(k => k.startsWith(prefix + id + '-') || k === prefix + id + '-done')
+    .forEach(k => localStorage.removeItem(k));
+  // Also clear hw-prefixed done key
+  localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
+
+  // Reset badge
+  updateBadge(id, 'new');
+
+  // Reset complete button
+  const btn = document.getElementById('cbtn-' + id);
+  if (btn) { btn.classList.remove('confirmed'); 
+    const labels = {m1:'Fact or Opinion',m2:'Key Expressions',m3:'Plan My Chart',
+      m4:'Writing',m5:'Edit Checklist',m6:'Analyse the Model',
+      m7:'My 2nd Plan',m8:'Write More',m9:'Free Writing',m10:'Can Leo Score'};
+    btn.textContent = 'Mark ' + (labels[id]||id) + ' complete ✓';
+  }
+
+  // Re-init the module
+  if (id === 'm1') { lSave(SAVE_PREFIX + 'm1-answers', new Array(6).fill(null)); initM1(); }
+  else if (id === 'm2') { lSave(SAVE_PREFIX + 'm2-answers', new Array(4).fill(null)); initM2(); }
+  else if (id === 'm3') {
+    ['m3-inv','m3-f1','m3-f2','m3-f3','m3-o1','m3-o2','m3-o3'].forEach(k => {
+      const el = document.getElementById(k); if(el) el.value = '';
+    });
+  }
+  else if (id === 'm4') {
+    ['m4-p1','m4-p2'].forEach(k => { const el = document.getElementById(k); if(el) el.value=''; });
+    m4Update();
+  }
+  else if (id === 'm5') {
+    ['ci-1','ci-2','ci-3','ci-4'].forEach(cid => {
+      const item = document.getElementById(cid);
+      item.classList.remove('ticked');
+      item.querySelector('.chk').textContent = '';
+    });
+    document.getElementById('m5-done').classList.remove('show');
+  }
+  else if (id === 'm6') {
+    ['m6-a','m6-b','m6-c'].forEach(k => { const el=document.getElementById(k); if(el) el.value=''; });
+    document.querySelectorAll('#m6-phrases .phrase-sel').forEach(el => {
+      el.className = 'phrase-sel'; el.disabled = false;
+    });
+    const fb = document.getElementById('m6-phrase-fb'); if(fb) { fb.className='mcq-fb'; fb.textContent=''; }
+    m6PickedPhrases = [];
+  }
+  else if (id === 'm7') {
+    ['m7-inv','m7-f1','m7-f2','m7-f3','m7-o1','m7-o2','m7-o3'].forEach(k => {
+      const el=document.getElementById(k); if(el) el.value='';
+    });
+  }
+  else if (id === 'm8') { const el=document.getElementById('m8-ta'); if(el){el.value='';m8Update();} }
+  else if (id === 'm9') {
+    const el=document.getElementById('m9-ta'); if(el){el.value='';m9Update();}
+    document.querySelectorAll('.topic-card').forEach(c=>c.classList.remove('picked'));
+    document.getElementById('m9-tip').style.display='none';
+  }
+  else if (id === 'm10') {
+    m10Started = false;
+    document.getElementById('m10-quiz').innerHTML = '';
+    document.getElementById('m10-result').style.display = 'none';
+  }
 }
 
 function initHWBanner() {
