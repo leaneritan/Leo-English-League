@@ -742,13 +742,32 @@ function initReviewMode() {
   const m8ta = lLoad(SAVE_PREFIX + 'm8-ta', '');
   const m9ta = lLoad(SAVE_PREFIX + 'm9-ta', '');
   const checklist = lLoad(SAVE_PREFIX + 'checklist', [false,false,false,false]);
+  const moduleNames = {
+    m1:'Fact or Opinion',
+    m2:'Key Expressions',
+    m3:'Plan My Chart',
+    m4:'Writing',
+    m5:'Edit Checklist',
+    m6:'Analyse the Model',
+    m7:'My 2nd Plan',
+    m8:'Write More',
+    m9:'Free Writing',
+    m10:'Can Leo Score'
+  };
+  const completedModules = Object.keys(moduleNames)
+    .filter(id => lLoad(SAVE_PREFIX + id + '-done', false))
+    .map(id => moduleNames[id]);
 
-  if (!scoreData && !m4p1 && !m8ta && !m9ta) {
+  if (!scoreData && !m4p1 && !m8ta && !m9ta && !completedModules.length) {
     body.innerHTML = '<div class="rv-not-started">📋 Work not started yet.</div>';
     return;
   }
 
   let html = '';
+
+  if (completedModules.length) {
+    html += `<div class="rv-card"><div class="rv-lbl">COMPLETED MODULES</div><div class="rv-val">${completedModules.length}/10 complete<br>${completedModules.join(' · ')}</div></div>`;
+  }
 
   if (scoreData) {
     const pct = Math.round((scoreData.score / 8) * 100);
