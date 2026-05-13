@@ -1179,6 +1179,9 @@ header {
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="lib/leea-cloud-config.js"></script>
+<script src="lib/leea-cloud.js"></script>
 <script>
   // ── LEEA SAVE SYSTEM ──
   function lSave(key, val) {
@@ -1224,6 +1227,60 @@ header {
     lSave('homework-completed', list);
   }
 
+  function cloudHomeworkEnabled() {
+    return !!(window.LEEA_CLOUD && window.LEEA_CLOUD.enabled);
+  }
+
+  function applyCloudHomework(rows) {
+    if (!Array.isArray(rows)) return;
+    const assigned = rows
+      .filter(h => h.status !== 'completed')
+      .map(({ status, ...h }) => h);
+    const completed = rows
+      .filter(h => h.status === 'completed')
+      .map(({ status, ...h }) => h);
+    saveHomework(assigned);
+    saveCompletedHomework(completed);
+    renderHomeworkBadges();
+    renderLeoHomework();
+    renderNeritanHomework();
+  }
+
+  async function syncHomeworkFromCloud() {
+    if (!cloudHomeworkEnabled()) return;
+    const rows = await window.LEEA_CLOUD.fetchHomework();
+    if (!rows) return;
+    const localAssigned = getHomework();
+    const localCompleted = getCompletedHomework();
+    if (!rows.length && (localAssigned.length || localCompleted.length)) {
+      localAssigned.forEach(h => syncCloudAssignedHomework(h));
+      localCompleted.forEach(h => syncCloudCompletedHomework(h));
+      return;
+    }
+    applyCloudHomework(rows);
+  }
+
+  function syncCloudAssignedHomework(entry) {
+    if (!cloudHomeworkEnabled()) return;
+    window.LEEA_CLOUD.upsertHomework(entry).then(ok => {
+      if (!ok) alert('Homework saved on this browser, but cloud sync failed.');
+    });
+  }
+
+  function syncCloudCompletedHomework(entry) {
+    if (!cloudHomeworkEnabled()) return;
+    window.LEEA_CLOUD.completeHomework(entry).then(ok => {
+      if (!ok) alert('Homework completed on this browser, but cloud sync failed.');
+    });
+  }
+
+  function syncCloudRemovedHomework(id) {
+    if (!cloudHomeworkEnabled()) return;
+    window.LEEA_CLOUD.deleteHomework(id).then(ok => {
+      if (!ok) alert('Homework removed on this browser, but cloud sync failed.');
+    });
+  }
+
   function assignHomework(id, lesson, unit, url, dueDate) {
     const list = getHomework();
     const exists = list.findIndex(h => h.id === id);
@@ -1241,6 +1298,7 @@ header {
     renderHomeworkBadges();
     renderLeoHomework();
     renderNeritanHomework();
+    syncCloudAssignedHomework(entry);
     alert('✅ Homework assigned: ' + lesson + ' · Due ' + dueDate);
   }
 
@@ -1251,12 +1309,14 @@ header {
     if (!entry) return;
     const completed = getCompletedHomework()
       .filter(h => h.id !== id);
-    completed.unshift({
+    const completedEntry = {
       ...entry,
       completed: new Date().toISOString().split('T')[0]
-    });
+    };
+    completed.unshift(completedEntry);
     saveHomework(list.filter(h => h.id !== id));
     saveCompletedHomework(completed);
+    syncCloudCompletedHomework(completedEntry);
     renderHomeworkBadges();
     renderLeoHomework();
     renderNeritanHomework();
@@ -1270,6 +1330,7 @@ header {
     saveCompletedHomework(completed);
     lClear(id + '-');
     if (id === 'leo-4-7-vocab2') lClear('4-7-vocab2-');
+    syncCloudRemovedHomework(id);
     renderHomeworkBadges();
     renderLeoHomework();
     renderNeritanHomework();
@@ -1576,6 +1637,7 @@ header {
   renderHomeworkBadges();
   renderLeoHomework();
   renderNeritanHomework();
+  syncHomeworkFromCloud();
 
   history.replaceState({ screen: 'screen-person' }, '', '');
 
