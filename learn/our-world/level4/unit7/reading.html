@@ -201,11 +201,28 @@ h1,h2,h3{font-family:'Baloo 2',sans-serif}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .3s}
 .dot.active{background:var(--primary)}
 .dot.done{background:var(--success)}
+.complete-btn{width:100%;margin-top:.7rem;background:var(--accent);color:#1C1917;border:2px solid #1C1917;border-radius:8px;padding:.65rem .8rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.84rem;cursor:pointer}
+.complete-btn.confirmed{background:#DCFCE7;border-color:var(--success);color:#14532D}
+.review-screen{display:none;min-height:100vh;background:var(--bg);padding:1rem}
+.review-screen.show{display:block}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:.8rem}
+.review-label{font-size:.7rem;font-weight:800;color:var(--primary);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.25rem}
+.review-value{font-size:.9rem;line-height:1.5;color:var(--text)}
+.review-title{font-family:'Baloo 2',sans-serif;font-size:1.35rem;color:var(--accent);margin-bottom:.25rem}
+.review-sub{color:var(--text-muted);font-size:.82rem;margin-bottom:1rem}
 hr.divider{border:none;border-top:1px solid var(--border);margin:1rem 0}
 .pill{display:inline-block;background:var(--card2);border:1px solid var(--border);border-radius:999px;padding:.2rem .6rem;font-size.7rem;margin:.15rem}
 </style>
 </head>
 <body>
+
+<div class="review-screen" id="reviewScreen">
+  <div class="review-title">Review Mode — Leo's Reading Work</div>
+  <div class="review-sub">Unit 7 · Young and Creative</div>
+  <div id="reviewBody"></div>
+</div>
+
+<div id="appRoot">
 
 <!-- ═══════════════════ HEADER ═══════════════════ -->
 <div class="app-header">
@@ -677,7 +694,134 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:1rem 0}
   </div>
 </div>
 
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../../../lib/leea-cloud-config.js"></script>
+<script src="../../../../lib/leea-cloud.js"></script>
 <script>
+// ─── LEEA SAVE + REVIEW SYSTEM ─────────────────────────────────────────
+const SAVE_PREFIX = '4-7-reading-';
+const HOMEWORK_ID = new URLSearchParams(location.search).get('hw') || 'leo-4-7-reading';
+const isReview = new URLSearchParams(location.search).get('review') === '1';
+const moduleNames = {
+  m1:'Related Vocabulary',
+  m2:'Academic Language',
+  m3:'Content Vocabulary',
+  m4:'Warm Up',
+  m5:'Read Together',
+  m6:'Listen',
+  m7:'Comprehension',
+  m8:'Think Aloud',
+  m9:'Practice',
+  m10:'Recap',
+  m11:'Apply',
+  m12:'Wrap Up',
+  m13:'Formative Assessment',
+  m14:'Can Leo Score'
+};
+
+function lSave(key, val) {
+  try { localStorage.setItem('leea-' + key, JSON.stringify(val)); } catch(e) {}
+  syncProgressKey(key, val);
+}
+
+function lLoad(key, fallback = null) {
+  try {
+    const v = localStorage.getItem('leea-' + key);
+    return v !== null ? JSON.parse(v) : fallback;
+  } catch(e) { return fallback; }
+}
+
+function cloudProgressEnabled() {
+  return !!(window.LEEA_CLOUD && window.LEEA_CLOUD.enabled);
+}
+
+function syncProgressKey(key, val) {
+  if (!cloudProgressEnabled()) return;
+  window.LEEA_CLOUD.saveProgress(HOMEWORK_ID, key, val);
+}
+
+async function restoreProgressFromCloud() {
+  if (!cloudProgressEnabled()) return;
+  const rows = await window.LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+  if (!rows) return;
+  rows.forEach(row => {
+    try { localStorage.setItem('leea-' + row.storage_key, JSON.stringify(row.value)); } catch(e) {}
+  });
+}
+
+function getCompletedModules() {
+  return Object.keys(moduleNames)
+    .filter(id => lLoad(SAVE_PREFIX + id + '-done', false))
+    .map(id => moduleNames[id]);
+}
+
+function getWrongScoreQuestions() {
+  return lLoad(SAVE_PREFIX + 'wrongQuestions', []);
+}
+
+function markModuleDone(id) {
+  lSave(SAVE_PREFIX + id + '-done', true);
+  lSave(HOMEWORK_ID + '-' + id + '-done', true);
+  const card = document.querySelector(`.module-card[onclick="openModal('${id}')"]`);
+  if (card) card.classList.add('done');
+  const btn = document.getElementById('complete-' + id);
+  if (btn) {
+    btn.classList.add('confirmed');
+    btn.textContent = moduleNames[id] + ' complete ✓';
+  }
+}
+
+function addCompleteButtons() {
+  Object.keys(moduleNames).forEach(id => {
+    const modal = document.getElementById('modal-' + id);
+    if (!modal || modal.querySelector('#complete-' + id)) return;
+    const body = modal.querySelector('.modal-body');
+    if (!body) return;
+    const btn = document.createElement('button');
+    btn.className = 'complete-btn';
+    btn.id = 'complete-' + id;
+    btn.type = 'button';
+    btn.textContent = 'Mark ' + moduleNames[id] + ' complete ✓';
+    btn.addEventListener('click', () => markModuleDone(id));
+    body.appendChild(btn);
+  });
+}
+
+function restoreCompletionUI() {
+  Object.keys(moduleNames).forEach(id => {
+    if (lLoad(SAVE_PREFIX + id + '-done', false)) markModuleDone(id);
+  });
+}
+
+function initReviewMode() {
+  const app = document.getElementById('appRoot');
+  const review = document.getElementById('reviewScreen');
+  const body = document.getElementById('reviewBody');
+  if (app) app.style.display = 'none';
+  if (review) review.classList.add('show');
+  const completed = getCompletedModules();
+  const score = lLoad(SAVE_PREFIX + 'score');
+  const wrong = getWrongScoreQuestions();
+  const hasWork = completed.length || score;
+  if (!hasWork) {
+    body.innerHTML = '<div class="review-card"><div class="review-value">Work not started yet.</div></div>';
+    return;
+  }
+  let html = '';
+  if (completed.length) {
+    html += `<div class="review-card"><div class="review-label">Completed Modules</div><div class="review-value">${completed.length}/14 complete<br>${completed.join(' · ')}</div></div>`;
+  }
+  if (score) {
+    html += `<div class="review-card"><div class="review-label">Can Leo Score?</div><div class="review-value">${score.score}/${score.total} correct · ${score.percent}% · ${score.done ? 'Done' : 'In progress'}</div></div>`;
+  }
+  if (wrong.length) {
+    html += `<div class="review-card"><div class="review-label">Mistakes</div><div class="review-value">${wrong.map(q => 'Question ' + q.question + ': ' + q.prompt).join('<br>')}</div></div>`;
+  }
+  body.innerHTML = html;
+}
+
 // ─── DATA ───────────────────────────────────────────────────────────
 const relVocab = [
   {word:'invention',emoji:'💡',def:'A new thing someone makes for the first time',ex:'The telephone was an important invention.'},
@@ -1088,8 +1232,8 @@ function selectThumb(btn,type){
 }
 
 // ─── M14 INIT / QUIZ ─────────────────────────────────────────────────
-let sqIdx=0, sqScore=0, sqAnswered=false;
-function initM14(){sqIdx=0;sqScore=0;renderScoreQ();}
+let sqIdx=0, sqScore=0, sqAnswered=false, sqWrong=[];
+function initM14(){sqIdx=0;sqScore=0;sqWrong=[];renderScoreQ();}
 function renderScoreQ(){
   const el=document.getElementById('score-question-box');
   document.getElementById('goal-anim').style.display='none';
@@ -1119,6 +1263,14 @@ function answerScore(chosen,ans,btn){
   fb.style.display='block';
   if(chosen===ans){sqScore++;fb.textContent='✅ Correct!';}
   else{fb.textContent='❌ Correct answer: '+scoreQs[sqIdx].opts[ans];}
+  if (chosen !== ans) {
+    sqWrong.push({
+      question: sqIdx + 1,
+      prompt: scoreQs[sqIdx].q,
+      chosen: scoreQs[sqIdx].opts[chosen],
+      correct: scoreQs[sqIdx].opts[ans]
+    });
+  }
   document.getElementById('sq-next').style.display='block';
 }
 function nextScoreQ(){sqIdx++;renderScoreQ();}
@@ -1140,8 +1292,19 @@ function showFinalScore(){
     msg=`📖 Go back and review the reading. Even Mbappé (La Liga top scorer) had to work hard to be the best!`;
   }
   document.getElementById('final-msg').innerHTML=msg;
+  lSave(SAVE_PREFIX + 'score', {
+    score: sqScore,
+    total: scoreQs.length,
+    percent: pct,
+    done: true,
+    timestamp: new Date().toISOString()
+  });
+  lSave(SAVE_PREFIX + 'wrongQuestions', sqWrong);
+  lSave(SAVE_PREFIX + 'done', true);
+  lSave(HOMEWORK_ID + '-done', true);
+  markModuleDone('m14');
 }
-function restartQuiz(){sqIdx=0;sqScore=0;renderScoreQ();document.getElementById('final-score').style.display='none';}
+function restartQuiz(){sqIdx=0;sqScore=0;sqWrong=[];renderScoreQ();document.getElementById('final-score').style.display='none';}
 function confetti(){
   const rain=document.createElement('div');rain.className='confetti-rain';document.body.appendChild(rain);
   const colors=['#F97316','#3B82F6','#FDE047','#22C55E','#EF4444'];
@@ -1175,6 +1338,12 @@ function closeModal(id){
 
 // init act2 clues container
 document.addEventListener('DOMContentLoaded',()=>{
+  if (isReview) {
+    restoreProgressFromCloud().then(initReviewMode);
+    return;
+  }
+  addCompleteButtons();
+  restoreProgressFromCloud().then(restoreCompletionUI);
   const cluesDiv=document.createElement('div');
   cluesDiv.id='act2-clues';
   document.getElementById('act2-bank')?.insertAdjacentElement('afterend',cluesDiv);
