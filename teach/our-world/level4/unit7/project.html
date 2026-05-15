@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Unit 7 · Good Idea! · Project</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#1E0A3C;--p:#7C3AED;--a:#C4B5FD;--lt:#EDE9FE;--wh:#fff;--gn:#22C55E;--rd:#EF4444;--gd:#F59E0B;--or:#F97316;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:"Outfit",sans-serif}
+
+section{background:var(--bg);color:var(--wh);display:flex;flex-direction:column;padding:64px 96px;position:relative;overflow:hidden}
+.grad{background:linear-gradient(135deg,#1E0A3C 0%,#4C1D95 55%,#7C3AED 100%)}
+.grad-or{background:linear-gradient(135deg,#92400E 0%,#B45309 55%,#F97316 100%)}
+
+.t1{font-size:64px;font-weight:900;color:var(--a);line-height:1.1;margin-bottom:24px}
+.t2{font-size:44px;font-weight:800;color:var(--a);margin-bottom:18px}
+.tb{font-size:34px;line-height:1.55}
+.tsm{font-size:28px;line-height:1.5}
+.txs{font-size:24px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:12px;border:none;cursor:pointer;font-size:28px;font-weight:700;font-family:"Outfit",sans-serif;transition:all .2s}
+.bp{background:var(--p);color:var(--wh)}.bp:hover{background:#6D28D9;transform:translateY(-2px)}
+.ba{background:var(--a);color:var(--bg)}.ba:hover{opacity:.9;transform:translateY(-2px)}
+.bg{background:transparent;border:2px solid var(--a);color:var(--a)}.bg:hover{background:rgba(196,181,253,.12)}
+.bgn{background:var(--gn);color:var(--wh)}
+.bor{background:var(--or);color:var(--wh)}.bor:hover{background:#EA580C;transform:translateY(-2px)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(196,181,253,.5)}50%{box-shadow:0 0 0 22px rgba(196,181,253,0);transform:scale(1.04)}}
+.bpulse{animation:pulse 2s infinite}
+
+.tn-btn{position:absolute;top:20px;right:20px;background:rgba(196,181,253,.15);border:1px solid rgba(196,181,253,.5);border-radius:8px;padding:7px 16px;cursor:pointer;font-size:22px;color:var(--a);font-family:"Outfit",sans-serif;z-index:60}
+.tn-panel{display:none;position:absolute;top:64px;right:20px;width:480px;background:#2D1458;border:2px solid var(--a);border-radius:14px;padding:22px 26px;font-size:24px;color:var(--lt);line-height:1.55;z-index:60;box-shadow:0 8px 40px rgba(0,0,0,.6);max-height:380px;overflow-y:auto}
+.tn-panel.open{display:block}
+
+/* Blur reveal */
+.blur-card{filter:blur(7px);transition:filter .4s;cursor:pointer;user-select:none;border-radius:16px}
+.blur-card.rev{filter:none;border:2px solid var(--a)!important;box-shadow:0 0 24px rgba(196,181,253,.35)}
+
+/* Step box */
+.step-box{display:none;background:rgba(124,58,237,.25);border-left:5px solid var(--a);border-radius:0 12px 12px 0;padding:16px 22px;font-size:34px;margin:8px 0}
+.step-box.show{display:block;animation:fdIn .4s}
+.tip-box{display:none;background:rgba(34,197,94,.15);border:2px solid var(--gn);border-radius:14px;padding:18px 24px;font-size:32px;margin-top:12px}
+.tip-box.show{display:block;animation:fdIn .5s}
+
+/* Vocab word strip */
+.vocab-strip{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.vocab-pill{background:rgba(124,58,237,.3);border:2px solid var(--p);border-radius:12px;padding:14px 24px;cursor:pointer;transition:all .2s;text-align:center;min-width:180px}
+.vocab-pill:hover{border-color:var(--a);transform:translateY(-3px)}
+.vocab-pill.open{border-color:var(--a);background:rgba(196,181,253,.15)}
+.vocab-pill .vword{font-size:32px;font-weight:800;color:var(--a)}
+.vocab-pill .vdef{font-size:22px;color:var(--lt);margin-top:8px;display:none;line-height:1.4}
+.vocab-pill.open .vdef{display:block}
+
+/* Option cards */
+.opt{background:rgba(124,58,237,.2);border:2px solid var(--p);border-radius:14px;padding:24px 28px;cursor:pointer;transition:all .2s;font-size:30px;text-align:center}
+.opt:hover{border-color:var(--a);transform:translateY(-3px)}
+.opt.sel{border-color:var(--a);background:rgba(196,181,253,.15)}
+
+/* Text area */
+.ans-area{background:rgba(255,255,255,.1);border:2px solid var(--p);border-radius:10px;padding:14px 20px;font-size:32px;color:var(--wh);width:100%;outline:none;font-family:"Outfit",sans-serif;resize:none;min-height:100px;transition:border-color .2s}
+.ans-area:focus{border-color:var(--a)}
+.model-ans{display:none;background:rgba(34,197,94,.15);border:2px solid var(--gn);border-radius:12px;padding:20px 24px;font-size:30px;margin-top:14px;line-height:1.55}
+.model-ans.show{display:block;animation:fdIn .4s}
+
+/* Starter chips */
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.chip{background:rgba(196,181,253,.15);border:1px solid var(--a);border-radius:20px;padding:8px 18px;font-size:24px;cursor:pointer;color:var(--a);transition:all .2s}
+.chip:hover{background:var(--p);color:var(--wh);border-color:var(--p)}
+
+/* Checklist */
+.cb-row{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid rgba(196,181,253,.1);cursor:pointer;font-size:34px;transition:color .2s}
+.cb-box{width:44px;height:44px;border:3px solid var(--p);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;transition:all .2s;flex-shrink:0}
+.cb-row.ticked .cb-box{background:var(--gn);border-color:var(--gn);color:var(--wh)}
+.cb-row.ticked{color:var(--gn)}
+
+/* Feedback frames */
+.ff{background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.2);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.ff-hd{padding:14px 20px;font-size:28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.ff-hd:hover{background:rgba(196,181,253,.08)}
+.ff-body{display:none;padding:14px 20px;border-top:1px solid rgba(196,181,253,.15)}
+.ff-body.open{display:block}
+.ff-inp{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(196,181,253,.3);border-radius:8px;padding:12px 16px;font-family:"Outfit",sans-serif;font-size:26px;color:var(--wh);outline:none}
+.ff-inp:focus{border-color:var(--a)}
+
+/* Star */
+.star{font-size:56px;cursor:pointer;background:none;border:none;transition:transform .15s;filter:grayscale(1) opacity(.45);padding:0 6px}
+.star:hover,.star.lit{filter:none;transform:scale(1.18)}
+
+/* Confetti */
+.cp{position:fixed;width:12px;height:12px;border-radius:2px;pointer-events:none;z-index:9999;animation:cf 1.6s ease forwards}
+
+/* Animations */
+@keyframes flyL{from{transform:translateX(-200px);opacity:0}to{transform:none;opacity:1}}
+@keyframes flyU{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+@keyframes fdIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes cf{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(500px) rotate(720deg);opacity:0}}
+.fly-l{animation:flyL .8s ease forwards}
+.fly-u{animation:flyU .8s ease forwards}
+.fd1{animation:fdIn 1s .5s forwards;opacity:0}
+.fd2{animation:fdIn 1s 1.2s forwards;opacity:0}
+.fd3{animation:fdIn 1s 2s forwards;opacity:0}
+</style>
+</head>
+<body>
+<script>(() => {
+  const DESIGN_W_DEFAULT = 1920;
+  const DESIGN_H_DEFAULT = 1080;
+  const OVERLAY_HIDE_MS = 1800;
+  const VALIDATE_ATTR = 'no_overflowing_text,no_overlapping_text,slide_sized_text';
+  const pad2 = (n) => String(n).padStart(2, '0');
+  const stylesheet = `
+    :host { position:fixed; inset:0; display:block; background:#000; overflow:hidden; }
+    .stage { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+    .canvas { position:relative; transform-origin:center center; flex-shrink:0; background:#fff; will-change:transform; }
+    ::slotted(*) { position:absolute!important; inset:0!important; width:100%!important; height:100%!important;
+      box-sizing:border-box!important; overflow:hidden; opacity:0; pointer-events:none; visibility:hidden; }
+    ::slotted([data-deck-active]) { opacity:1; pointer-events:auto; visibility:visible; }
+    .tapzones { position:fixed; inset:0; display:flex; z-index:2147482000; pointer-events:none; }
+    .tapzone { flex:1; pointer-events:auto; -webkit-tap-highlight-color:transparent; }
+    @media (hover:hover) and (pointer:fine) { .tapzones { display:none; } }
+    .overlay { position:fixed; left:50%; bottom:22px; transform:translate(-50%,6px) scale(0.92);
+      filter:blur(6px); display:flex; align-items:center; gap:4px; padding:4px; background:#000; color:#fff;
+      border-radius:999px; font-size:12px; opacity:0; pointer-events:none;
+      transition:opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin:center bottom; z-index:2147483000; user-select:none; }
+    .overlay[data-visible] { opacity:1; pointer-events:auto; transform:translate(-50%,0) scale(1); filter:blur(0); }
+    .btn { appearance:none; -webkit-appearance:none; background:transparent; border:0; margin:0; padding:0;
+      color:inherit; font:inherit; cursor:default; display:inline-flex; align-items:center; justify-content:center;
+      height:28px; min-width:28px; border-radius:999px; color:rgba(255,255,255,0.72);
+      transition:background 140ms ease, color 140ms ease; -webkit-tap-highlight-color:transparent; }
+    .btn:hover { background:rgba(255,255,255,0.12); color:#fff; }
+    .btn svg { width:14px; height:14px; display:block; }
+    .btn.reset { font-size:11px; font-weight:500; padding:0 10px 0 12px; gap:6px; }
+    .btn.reset .kbd { display:inline-flex; align-items:center; justify-content:center; min-width:16px; height:16px;
+      padding:0 4px; font-family:ui-monospace,monospace; font-size:10px; color:rgba(255,255,255,.88);
+      background:rgba(255,255,255,.12); border-radius:4px; }
+    .count { font-variant-numeric:tabular-nums; color:#fff; font-weight:500; padding:0 8px; min-width:42px;
+      text-align:center; font-size:12px; }
+    .count .sep { color:rgba(255,255,255,.45); margin:0 3px; }
+    .count .total { color:rgba(255,255,255,.55); }
+    .divider { width:1px; height:14px; background:rgba(255,255,255,.18); margin:0 2px; }
+    @media print {
+      :host { position:static; inset:auto; background:none; overflow:visible; }
+      .stage { position:static; display:block; }
+      .canvas { transform:none!important; width:auto!important; height:auto!important; background:none; }
+      ::slotted(*) { position:relative!important; inset:auto!important;
+        width:var(--deck-design-w)!important; height:var(--deck-design-h)!important;
+        opacity:1!important; visibility:visible!important; break-after:page; }
+      .overlay,.tapzones { display:none!important; }
+    }
+  `;
+  class DeckStage extends HTMLElement {
+    static get observedAttributes() { return ['width','height','noscale']; }
+    constructor() {
+      super();
+      this._root = this.attachShadow({mode:'open'});
+      this._index = 0; this._slides = []; this._hideTimer = null;
+      this._onKey = this._onKey.bind(this);
+      this._onResize = this._onResize.bind(this);
+      this._onSlotChange = this._onSlotChange.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onTapBack = this._onTapBack.bind(this);
+      this._onTapForward = this._onTapForward.bind(this);
+    }
+    get designWidth() { return parseInt(this.getAttribute('width'),10)||DESIGN_W_DEFAULT; }
+    get designHeight() { return parseInt(this.getAttribute('height'),10)||DESIGN_H_DEFAULT; }
+    connectedCallback() {
+      this._render(); this._syncPrintPageRule();
+      window.addEventListener('keydown',this._onKey);
+      window.addEventListener('resize',this._onResize);
+      window.addEventListener('mousemove',this._onMouseMove,{passive:true});
+    }
+    disconnectedCallback() {
+      window.removeEventListener('keydown',this._onKey);
+      window.removeEventListener('resize',this._onResize);
+      window.removeEventListener('mousemove',this._onMouseMove);
+      if(this._hideTimer) clearTimeout(this._hideTimer);
+    }
+    attributeChangedCallback() {
+      if(this._canvas) {
+        this._canvas.style.width = this.designWidth+'px';
+        this._canvas.style.height = this.designHeight+'px';
+        this._canvas.style.setProperty('--deck-design-w',this.designWidth+'px');
+        this._canvas.style.setProperty('--deck-design-h',this.designHeight+'px');
+        this._fit(); this._syncPrintPageRule();
+      }
+    }
+    _render() {
+      const style = document.createElement('style'); style.textContent = stylesheet;
+      const stage = document.createElement('div'); stage.className = 'stage';
+      const canvas = document.createElement('div'); canvas.className = 'canvas';
+      canvas.style.width = this.designWidth+'px'; canvas.style.height = this.designHeight+'px';
+      canvas.style.setProperty('--deck-design-w',this.designWidth+'px');
+      canvas.style.setProperty('--deck-design-h',this.designHeight+'px');
+      const slot = document.createElement('slot');
+      slot.addEventListener('slotchange',this._onSlotChange);
+      canvas.appendChild(slot); stage.appendChild(canvas);
+      const tapzones = document.createElement('div'); tapzones.className = 'tapzones';
+      tapzones.setAttribute('aria-hidden','true');
+      const tzBack = document.createElement('div'); tzBack.className = 'tapzone tapzone--back';
+      const tzMid = document.createElement('div'); tzMid.className = 'tapzone tapzone--mid'; tzMid.style.pointerEvents='none';
+      const tzFwd = document.createElement('div'); tzFwd.className = 'tapzone tapzone--fwd';
+      tzBack.addEventListener('click',this._onTapBack); tzFwd.addEventListener('click',this._onTapForward);
+      tapzones.append(tzBack,tzMid,tzFwd);
+      const overlay = document.createElement('div'); overlay.className = 'overlay';
+      overlay.setAttribute('role','toolbar'); overlay.setAttribute('aria-label','Deck controls');
+      overlay.innerHTML = `
+        <button class="btn prev" type="button" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <span class="count"><span class="current">1</span><span class="sep">/</span><span class="total">1</span></span>
+        <button class="btn next" type="button" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      `;
+      overlay.querySelector('.prev').addEventListener('click',()=>this._go(this._index-1,'click'));
+      overlay.querySelector('.next').addEventListener('click',()=>this._go(this._index+1,'click'));
+      overlay.querySelector('.reset').addEventListener('click',()=>this._go(0,'click'));
+      this._root.append(style,stage,tapzones,overlay);
+      this._canvas = canvas; this._slot = slot; this._overlay = overlay;
+      this._countEl = overlay.querySelector('.current');
+      this._totalEl = overlay.querySelector('.total');
+    }
+    _syncPrintPageRule() {
+      const id = 'deck-stage-print-page';
+      let tag = document.getElementById(id);
+      if(!tag){ tag=document.createElement('style'); tag.id=id; document.head.appendChild(tag); }
+      tag.textContent = '@page{size:'+this.designWidth+'px '+this.designHeight+'px;margin:0}'+
+        '@media print{html,body{margin:0!important;padding:0!important;background:none!important;overflow:visible!important;height:auto!important}'+
+        '*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}';
+    }
+    _onSlotChange() {
+      const assigned = this._slot.assignedElements({flatten:true});
+      this._slides = assigned.filter(el=>!['TEMPLATE','SCRIPT','STYLE'].includes(el.tagName));
+      this._slides.forEach((slide,i)=>{
+        const n=i+1;
+        let label=slide.getAttribute('data-label')||'Slide';
+        slide.setAttribute('data-screen-label',pad2(n)+' '+label);
+        if(!slide.hasAttribute('data-om-validate')) slide.setAttribute('data-om-validate',VALIDATE_ATTR);
+        slide.setAttribute('data-deck-slide',String(i));
+      });
+      if(this._totalEl) this._totalEl.textContent=String(this._slides.length||1);
+      if(this._index>=this._slides.length) this._index=Math.max(0,this._slides.length-1);
+      const h=(location.hash||'').match(/^#(\d+)$/);
+      if(h){const n=parseInt(h[1],10)-1; if(n>=0&&n<this._slides.length) this._index=n;}
+      this._applyIndex({showOverlay:false,reason:'init'});
+      this._fit();
+    }
+    _applyIndex({showOverlay=true,reason='init'}={}) {
+      if(!this._slides.length) return;
+      const curr=this._index;
+      try{history.replaceState(null,'','#'+(curr+1));}catch(e){}
+      this._slides.forEach((s,i)=>{
+        if(i===curr) s.setAttribute('data-deck-active','');
+        else s.removeAttribute('data-deck-active');
+      });
+      if(this._countEl) this._countEl.textContent=String(curr+1);
+      try{window.postMessage({slideIndexChanged:curr},'*');}catch(e){}
+      this.dispatchEvent(new CustomEvent('slidechange',{detail:{index:curr,total:this._slides.length,slide:this._slides[curr]||null,reason},bubbles:true,composed:true}));
+      if(showOverlay) this._flashOverlay();
+    }
+    _flashOverlay() {
+      if(!this._overlay) return;
+      this._overlay.setAttribute('data-visible','');
+      if(this._hideTimer) clearTimeout(this._hideTimer);
+      this._hideTimer=setTimeout(()=>this._overlay.removeAttribute('data-visible'),OVERLAY_HIDE_MS);
+    }
+    _fit() {
+      if(!this._canvas) return;
+      if(this.hasAttribute('noscale')){this._canvas.style.transform='none';return;}
+      const s=Math.min(window.innerWidth/this.designWidth,window.innerHeight/this.designHeight);
+      this._canvas.style.transform=`scale(${s})`;
+    }
+    _onResize(){this._fit();}
+    _onMouseMove(){this._flashOverlay();}
+    _onTapBack(e){e.preventDefault();this._go(this._index-1,'tap');}
+    _onTapForward(e){e.preventDefault();this._go(this._index+1,'tap');}
+    _onKey(e){
+      const t=e.target;
+      if(t&&(t.isContentEditable||/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if(e.metaKey||e.ctrlKey||e.altKey) return;
+      const key=e.key; let handled=true;
+      if(key==='ArrowRight'||key==='PageDown'||key===' '||key==='Spacebar') this._go(this._index+1,'keyboard');
+      else if(key==='ArrowLeft'||key==='PageUp') this._go(this._index-1,'keyboard');
+      else if(key==='Home') this._go(0,'keyboard');
+      else if(key==='End') this._go(this._slides.length-1,'keyboard');
+      else if(key==='r'||key==='R') this._go(0,'keyboard');
+      else if(/^[0-9]$/.test(key)){const n=key==='0'?9:parseInt(key,10)-1;if(n<this._slides.length)this._go(n,'keyboard');}
+      else handled=false;
+      if(handled){e.preventDefault();this._flashOverlay();}
+    }
+    _go(i,reason='api'){
+      if(!this._slides.length) return;
+      const clamped=Math.max(0,Math.min(this._slides.length-1,i));
+      if(clamped===this._index){this._flashOverlay();return;}
+      this._index=clamped;
+      this._applyIndex({showOverlay:true,reason});
+    }
+    get index(){return this._index;}
+    get length(){return this._slides.length;}
+    goTo(i){this._go(i,'api');}
+    next(){this._go(this._index+1,'api');}
+    prev(){this._go(this._index-1,'api');}
+    reset(){this._go(0,'api');}
+  }
+  if(!customElements.get('deck-stage')) customElements.define('deck-stage',DeckStage);
+})();</script>
+<deck-stage width="1920" height="1080">
+
+<!-- 01 TITLE -->
+<section class="grad" data-label="01 Title" style="align-items:center;justify-content:center;text-align:center;gap:24px">
+  <div class="fly-l" style="font-size:120px">🦸‍♂️📱</div>
+  <div class="fly-l" style="font-size:96px;font-weight:900">PROJECT</div>
+  <div class="fd1" style="font-size:52px;font-weight:700;color:var(--a)">Design a Superpower App!</div>
+  <div class="fd2" style="font-size:30px;color:rgba(255,255,255,.6)">Unit 7 · Good Idea! · Our World Level 4</div>
+  <button class="btn ba bpulse fd3" onclick="DS.next()" style="margin-top:12px;font-size:36px;padding:20px 60px">Start ▶</button>
+</section>
+
+<!-- 02 OBJECTIVES -->
+<section data-label="02 Objectives">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Read each objective aloud. Ask Leo: "Do you know what a superpower app is? If you could have any superpower, what would it be?" This is just to excite him — don't explain the project yet.</div>
+  <h1 class="t1">In This Lesson, Leo Will… 🎯</h1>
+  <div style="display:flex;gap:32px;flex:1;align-items:center">
+    <div class="blur-card" onclick="this.classList.add('rev')" style="flex:1;background:rgba(124,58,237,.3);border:2px solid var(--p);border-radius:20px;padding:44px 32px;text-align:center">
+      <div style="font-size:72px;margin-bottom:16px">🎨</div>
+      <div class="tb" style="font-weight:700">Design a superpower app that solves a real problem.</div>
+    </div>
+    <div class="blur-card" onclick="this.classList.add('rev')" style="flex:1;background:rgba(124,58,237,.3);border:2px solid var(--p);border-radius:20px;padding:44px 32px;text-align:center">
+      <div style="font-size:72px;margin-bottom:16px">💬</div>
+      <div class="tb" style="font-weight:700">Share ideas and give positive feedback.</div>
+    </div>
+    <div class="blur-card" onclick="this.classList.add('rev');document.getElementById('obj-next').style.display='inline-flex'" style="flex:1;background:rgba(124,58,237,.3);border:2px solid var(--p);border-radius:20px;padding:44px 32px;text-align:center">
+      <div style="font-size:72px;margin-bottom:16px">✅</div>
+      <div class="tb" style="font-weight:700">Complete the Unit 7 review.</div>
+    </div>
+  </div>
+  <div style="margin-top:24px;display:flex;align-items:center;gap:20px">
+    <span class="tsm" style="color:rgba(196,181,253,.6)">Click each card to reveal ↑</span>
+    <button class="btn ba" id="obj-next" onclick="DS.next()" style="display:none">Vocabulary ▶</button>
+  </div>
+</section>
+
+<!-- 03 VOCABULARY (brief) -->
+<section data-label="03 Content Vocabulary">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">These 5 words appear in the Project activities. Don't spend too much time — click each word, read the definition, say an example together. Move on quickly. If Leo knows a word already, just confirm and move on. These are needed for the Workbook pp. 92-93.</div>
+  <h1 class="t1">Content Vocabulary 📖</h1>
+  <div class="tsm" style="color:rgba(196,181,253,.7);margin-bottom:20px">Tap each word to see its meaning!</div>
+  <div class="vocab-strip">
+    <div class="vocab-pill" onclick="this.classList.toggle('open')">
+      <div class="vword">simple ✨</div>
+      <div class="vdef">Easy to understand or do — not complicated.</div>
+    </div>
+    <div class="vocab-pill" onclick="this.classList.toggle('open')">
+      <div class="vword">materials 🔧</div>
+      <div class="vdef">The things you use to make or build something.</div>
+    </div>
+    <div class="vocab-pill" onclick="this.classList.toggle('open')">
+      <div class="vword">recycle ♻️</div>
+      <div class="vdef">To use something again in a new way.</div>
+    </div>
+    <div class="vocab-pill" onclick="this.classList.toggle('open')">
+      <div class="vword">ghost 👻</div>
+      <div class="vdef">A spirit — something invisible that passes through things.</div>
+    </div>
+    <div class="vocab-pill" onclick="this.classList.toggle('open')">
+      <div class="vword">vacuum 🌀</div>
+      <div class="vdef">A space with no air in it — or a machine that sucks up dirt.</div>
+    </div>
+  </div>
+  <div style="margin-top:32px;background:rgba(124,58,237,.2);border:1px solid rgba(196,181,253,.3);border-radius:14px;padding:22px 28px">
+    <div class="tsm" style="color:var(--a);font-weight:700;margin-bottom:8px">⚽ Quick connection:</div>
+    <div class="tsm">Lamine Yamal's dribbling is so smooth it looks <strong style="color:var(--a)">simple</strong> — but it uses incredible skill! And Arsenal used <strong style="color:var(--a)">simple</strong> teamwork to beat Real Madrid 5-1 in the 2024/25 UCL quarter-finals!</div>
+  </div>
+  <button class="btn ba" onclick="DS.next()" style="margin-top:24px;width:fit-content">Prepare ▶</button>
+</section>
+
+<!-- 04 SECTION: PREPARE -->
+<section class="grad" data-label="04 Prepare Header" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+  <div style="font-size:110px">🧠</div>
+  <div style="font-size:90px;font-weight:900">Prepare</div>
+  <div style="font-size:40px;color:var(--a)">Brainstorm · Think · Design</div>
+</section>
+
+<!-- 05 UNIT 7 INVENTIONS RECAP -->
+<section data-label="05 Unit 7 Inventions Recap">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Ask Leo to recall inventions from the unit BEFORE clicking reveal. Say: "We learned about many inventions in Unit 7. Can you remember any?" Accept all answers. Then reveal one by one. The football one is new — it connects what Leo knows to the unit theme.</div>
+  <h1 class="t1">Inventions from Unit 7 💡</h1>
+  <div class="tsm" style="color:rgba(196,181,253,.7);margin-bottom:16px">Can Leo remember them? Click to reveal!</div>
+  <div data-step="-1" id="inv-reveal" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+    <div class="step-box" id="inv1">🛞 <strong style="color:var(--a)">The wheel</strong> — one of the greatest inventions ever. Moved everything faster.</div>
+    <div class="step-box" id="inv2">✏️ <strong style="color:var(--a)">The eraser</strong> — invented by accident! A man noticed rubber removed pencil marks.</div>
+    <div class="step-box" id="inv3">✈️ <strong style="color:var(--a)">The airplane</strong> — the Wright brothers turned imagination into reality.</div>
+    <div class="step-box" id="inv4">📎 <strong style="color:var(--a)">Sticky notes</strong> — Spencer Silver invented the glue in 1970. Arthur Fry found the use!</div>
+    <div class="step-box" id="inv5">⚽ <strong style="color:var(--a)">Goal-line technology &amp; VAR</strong> — football inventions! Used in every top league and Champions League.</div>
+    <div class="tip-box" id="inv-tip">🌟 <em>"All these inventions started as someone's idea. Today — YOUR turn!"</em></div>
+  </div>
+  <div style="display:flex;gap:16px;margin-top:16px">
+    <button class="btn bp" id="inv-btn" onclick="vcReveal('inv-reveal','inv-next','inv-btn')">▶ Reveal</button>
+    <button class="btn ba" id="inv-next" onclick="DS.next()" style="display:none">Problems ▶</button>
+  </div>
+</section>
+
+<!-- 06 DAILY PROBLEMS BRAINSTORM -->
+<section data-label="06 Daily Problems Brainstorm">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Help Leo think of REAL problems from his own life. Start with the examples on screen. Then ask: "What about on the football pitch? What problem does a goalkeeper have? What about a striker?" Write any ideas. There are no wrong answers here!</div>
+  <h1 class="t1">What Problems Do You Have? ⚠️</h1>
+  <div style="display:flex;gap:48px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+      <div style="background:rgba(124,58,237,.2);border-radius:14px;padding:22px 28px;font-size:32px;line-height:1.7">
+        Think of problems in your daily life. Your superpower app will be the <strong style="color:var(--a)">solution!</strong>
+      </div>
+      <textarea class="ans-area" id="problems-ta" placeholder="Write your problems here..." style="min-height:160px;font-size:28px"></textarea>
+      <div class="chip-row">
+        <div class="chip" onclick="insertTA('problems-ta','It takes a long time to do my chores. ')">🏠 Long chores</div>
+        <div class="chip" onclick="insertTA('problems-ta','My room is always messy. ')">🛏️ Messy room</div>
+        <div class="chip" onclick="insertTA('problems-ta','I am often late to school. ')">⏰ Late to school</div>
+        <div class="chip" onclick="insertTA('problems-ta','I forget my homework. ')">📚 Forget homework</div>
+        <div class="chip" onclick="insertTA('problems-ta','My phone battery always dies. ')">🔋 Battery dies</div>
+      </div>
+      <button class="btn ba" onclick="DS.next()" style="width:fit-content;margin-top:8px">Think Like a Superhero ▶</button>
+    </div>
+    <div style="width:420px;display:flex;flex-direction:column;gap:14px">
+      <div class="tsm" style="color:var(--a);font-weight:700">⚽ Football problems:</div>
+      <div class="opt sel" style="font-size:28px;text-align:left;padding:18px 22px">🥅 Goalkeeper doesn't know where the striker will shoot</div>
+      <div class="opt" style="font-size:28px;text-align:left;padding:18px 22px">⚡ Players run out of energy in the 90th minute</div>
+      <div class="opt" style="font-size:28px;text-align:left;padding:18px 22px">🎯 Strikers miss penalties under pressure</div>
+      <div style="background:rgba(196,181,253,.1);border-radius:10px;padding:14px 18px;font-size:24px;color:rgba(196,181,253,.7);margin-top:4px">💡 Haaland scored 8 goals in the 2024/25 UCL — but even he had tough nights. What app would help him?</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 THINK LIKE A SUPERHERO -->
+<section data-label="07 Think Like a Superhero">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Read the explanation together. Then show the model (Superfood Man). Ask: "Is this a good app? What problem does it solve? How does it work?" Then tell Leo: "Now YOU design YOUR app — it can be anything!"</div>
+  <h1 class="t1">Think Like a Superhero! 🦸‍♂️</h1>
+  <div style="display:flex;gap:48px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:20px;justify-content:center">
+      <div style="background:rgba(124,58,237,.25);border-radius:16px;padding:28px 36px;font-size:34px;line-height:1.7">
+        A <strong style="color:var(--a)">superpower app</strong> uses technology to solve a problem — like a superhero power, but on your phone! 📱
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="step-box show" style="font-size:30px">1️⃣ Choose a <strong style="color:var(--a)">problem</strong> from your list.</div>
+        <div class="step-box show" style="font-size:30px">2️⃣ <strong style="color:var(--a)">Imagine</strong> an app that solves it.</div>
+        <div class="step-box show" style="font-size:30px">3️⃣ <strong style="color:var(--a)">Sketch</strong> 3–4 ideas for the app.</div>
+        <div class="step-box show" style="font-size:30px">4️⃣ <strong style="color:var(--a)">Choose</strong> your best idea!</div>
+      </div>
+    </div>
+    <div style="width:520px;background:rgba(249,115,22,.15);border:2px solid var(--or);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:28px;font-weight:700;color:var(--or)">📱 MODEL — From the Student Book:</div>
+      <div style="font-size:100px;text-align:center">🦸‍♂️🥗</div>
+      <div style="font-size:30px;font-style:italic;line-height:1.6;color:var(--lt)">"My superhero is <strong style="color:var(--or)">Superfood Man</strong>. I didn't use to eat breakfast, but now I do! Superfood Man reminds me to eat a healthy breakfast every morning. He's great!"</div>
+      <div style="font-size:24px;color:rgba(255,255,255,.6)">Problem: skipping breakfast → App: healthy habit reminder</div>
+    </div>
+  </div>
+  <button class="btn ba" onclick="DS.next()" style="margin-top:20px;width:fit-content">Design My App ▶</button>
+</section>
+
+<!-- 08 SECTION: DESIGN -->
+<section class="grad" data-label="08 Design Header" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+  <div style="font-size:110px">🎨</div>
+  <div style="font-size:90px;font-weight:900">Design Your App</div>
+  <div style="font-size:40px;color:var(--a)">Choose · Name · Describe · Draw</div>
+</section>
+
+<!-- 09 STEP 1: CHOOSE YOUR PROBLEM -->
+<section data-label="09 Design Step 1: Choose Problem">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Leo picks ONE problem to focus on. If he picked football problems — great! If he wants a personal one — also great. The key is that it's a REAL problem he actually has. Push him to commit to one before moving on.</div>
+  <h1 class="t1">Step 1 — Choose Your Problem 🎯</h1>
+  <div style="display:flex;gap:40px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:20px;justify-content:center">
+      <div style="background:rgba(124,58,237,.2);border-radius:14px;padding:22px 28px;font-size:34px;line-height:1.6">
+        Look at your problems list. Choose <strong style="color:var(--a)">ONE</strong> problem your superpower app will solve!
+      </div>
+      <textarea class="ans-area" id="chosen-problem" placeholder="My chosen problem is..." style="min-height:120px;font-size:30px"></textarea>
+      <div style="background:rgba(34,197,94,.1);border:1px solid var(--gn);border-radius:10px;padding:16px 20px;font-size:26px">
+        ✅ Dad 💬 <em>"Remember — the best inventions solve <strong>everyday</strong> problems. PSG won the UCL because they solved the problem of finishing chances — Désiré Doué scored twice in the 5-0 final!"</em>
+      </div>
+      <button class="btn ba" onclick="DS.next()" style="width:fit-content">Step 2 ▶</button>
+    </div>
+    <div style="width:440px;display:flex;flex-direction:column;gap:12px">
+      <div class="tsm" style="color:var(--a);font-weight:700">Example problems:</div>
+      <div class="opt" onclick="insertTA('chosen-problem','I forget to do my homework. ')" style="font-size:26px;text-align:left;padding:16px 20px">📚 Forgetting homework</div>
+      <div class="opt" onclick="insertTA('chosen-problem','My phone battery always runs out. ')" style="font-size:26px;text-align:left;padding:16px 20px">🔋 Phone battery dying</div>
+      <div class="opt" onclick="insertTA('chosen-problem','I am late to school every morning. ')" style="font-size:26px;text-align:left;padding:16px 20px">⏰ Always late</div>
+      <div class="opt" onclick="insertTA('chosen-problem','I never know when to shoot in football. ')" style="font-size:26px;text-align:left;padding:16px 20px">⚽ Knowing when to shoot</div>
+      <div class="opt" onclick="insertTA('chosen-problem','My room is always messy and I can't find things. ')" style="font-size:26px;text-align:left;padding:16px 20px">🏠 Messy room</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 STEP 2: NAME & DESCRIBE -->
+<section data-label="10 Design Step 2: Name and Describe">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Help Leo think of a creative name. It can be a superhero name, an app name, or a combination. Examples: "HomeworkHero", "BatteryMan", "GoalMaster 3000". The name should hint at what the app does. Then he describes what the app does in 1-2 sentences.</div>
+  <h1 class="t1">Step 2 — Name &amp; Describe Your App 📝</h1>
+  <div style="display:flex;gap:48px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:30px;font-weight:700;color:var(--a)">My App Name:</div>
+      <input id="app-name" placeholder="e.g. HomeworkHero, GoalMaster 3000..." style="background:rgba(255,255,255,.1);border:2px solid var(--p);border-radius:10px;padding:14px 20px;font-size:36px;color:var(--wh);outline:none;font-family:Outfit,sans-serif;width:100%;transition:border-color .2s" onfocus="this.style.borderColor='var(--a)'" onblur="this.style.borderColor='var(--p)'"/>
+      <div style="font-size:30px;font-weight:700;color:var(--a);margin-top:8px">My App Description:</div>
+      <textarea class="ans-area" id="app-desc" placeholder="My app is called... It helps me... It works by..." style="min-height:140px;font-size:28px"></textarea>
+      <div class="chip-row">
+        <div class="chip" onclick="insertTA('app-desc','My app is called... ')">My app is called...</div>
+        <div class="chip" onclick="insertTA('app-desc','It helps me... ')">It helps me...</div>
+        <div class="chip" onclick="insertTA('app-desc','It works by... ')">It works by...</div>
+        <div class="chip" onclick="insertTA('app-desc','It is useful because... ')">It is useful because...</div>
+      </div>
+      <button class="btn ba" onclick="DS.next()" style="width:fit-content;margin-top:4px">Step 3 ▶</button>
+    </div>
+    <div style="width:440px;display:flex;flex-direction:column;gap:16px">
+      <div class="tsm" style="color:var(--a);font-weight:700">⚽ Football app examples:</div>
+      <div style="background:rgba(124,58,237,.2);border-radius:12px;padding:20px 24px;font-size:26px;line-height:1.6">
+        <strong style="color:var(--or)">GoalMaster 3000</strong><br/>It helps strikers choose the best corner to shoot. It analyses the goalkeeper's position and suggests: left, right or centre!
+      </div>
+      <div style="background:rgba(124,58,237,.2);border-radius:12px;padding:20px 24px;font-size:26px;line-height:1.6">
+        <strong style="color:var(--or)">StaminaBoost</strong><br/>It tracks your energy level during a match and tells you when to sprint and when to save energy — like Raphinha's 13 UCL goals needed!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 STEP 3: HOW DOES IT WORK? -->
+<section data-label="11 Design Step 3: How It Works">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">This is the most creative step. Leo explains the "mechanics" of his app — what happens when you open it, what it shows, what it does. It doesn't need to be technically realistic. Encourage creativity. "Would it sound an alarm? Send a message? Show a map?"</div>
+  <h1 class="t1">Step 3 — How Does It Work? ⚙️</h1>
+  <div style="display:flex;gap:48px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px">
+      <div style="background:rgba(124,58,237,.2);border-radius:14px;padding:22px 28px;font-size:32px;line-height:1.6">
+        Explain step-by-step how someone uses your app. What happens when you open it? What does it show?
+      </div>
+      <textarea class="ans-area" id="app-how" placeholder="When you open the app... First it... Then it... Finally it..." style="min-height:180px;font-size:28px"></textarea>
+      <div class="chip-row">
+        <div class="chip" onclick="insertTA('app-how','When you open the app... ')">When you open it...</div>
+        <div class="chip" onclick="insertTA('app-how','It will sound an alarm... ')">Sound an alarm</div>
+        <div class="chip" onclick="insertTA('app-how','It sends you a message... ')">Send a message</div>
+        <div class="chip" onclick="insertTA('app-how','It shows you a map / list / chart... ')">Show a map/list</div>
+        <div class="chip" onclick="insertTA('app-how','It uses AI to... ')">Use AI</div>
+      </div>
+      <button class="btn ba" onclick="DS.next()" style="width:fit-content;margin-top:4px">Be the Expert ▶</button>
+    </div>
+    <div style="width:440px;display:flex;flex-direction:column;gap:14px">
+      <div class="tsm" style="color:var(--a);font-weight:700">Will your app…</div>
+      <div class="opt" style="font-size:26px;padding:14px 20px;text-align:left">🔔 Sound an alarm or reminder?</div>
+      <div class="opt" style="font-size:26px;padding:14px 20px;text-align:left">💬 Send you a message?</div>
+      <div class="opt" style="font-size:26px;padding:14px 20px;text-align:left">🗺️ Show a map or directions?</div>
+      <div class="opt" style="font-size:26px;padding:14px 20px;text-align:left">🤖 Use AI to make decisions?</div>
+      <div class="opt" style="font-size:26px;padding:14px 20px;text-align:left">♻️ Recycle or reuse something?</div>
+      <div class="opt" style="font-size:26px;padding:14px 20px;text-align:left">👻 Work invisibly in the background?</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 SECTION: BE THE EXPERT -->
+<section class="grad" data-label="12 Be the Expert Header" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+  <div style="font-size:110px">🧠</div>
+  <div style="font-size:90px;font-weight:900">Be the Expert</div>
+  <div style="font-size:40px;color:var(--a)">Giving Good Feedback</div>
+</section>
+
+<!-- 13 TEACHING TIP: FEEDBACK -->
+<section data-label="13 Giving Feedback">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Read the sentence starters together. Then model: Dad gives Leo feedback on HIS app using these starters. Show how good feedback is honest but kind — it helps make the idea BETTER, not worse. Leo should then use these when he "presents" his app.</div>
+  <h1 class="t1">How to Give Good Feedback 💬</h1>
+  <div style="display:flex;gap:48px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center">
+      <div class="tsm" style="color:rgba(196,181,253,.7);margin-bottom:8px">Good feedback is <strong style="color:var(--gn)">honest</strong> and <strong style="color:var(--a)">kind</strong>. It makes the idea <strong style="color:var(--or)">better!</strong></div>
+      <div class="step-box show" style="background:rgba(34,197,94,.12);border-left-color:var(--gn);font-size:30px">✅ <em>"Your app looks fun. However, I don't understand how it will..."</em></div>
+      <div class="step-box show" style="background:rgba(34,197,94,.12);border-left-color:var(--gn);font-size:30px">✅ <em>"I like your idea, but I would maybe change..."</em></div>
+      <div class="step-box show" style="background:rgba(34,197,94,.12);border-left-color:var(--gn);font-size:30px">✅ <em>"The ideas are great, but I think you don't need..."</em></div>
+      <div class="step-box show" style="background:rgba(34,197,94,.12);border-left-color:var(--gn);font-size:30px">✅ <em>"I really like the part where..."</em></div>
+      <div class="tip-box show" style="font-size:28px">⚽ <strong style="color:var(--gn)">Football connection:</strong> After every UCL match, coaches give players feedback — what was great AND what to improve. That's how Raphinha scored 13 goals this season! Always honest, always kind.</div>
+    </div>
+    <div style="width:440px;background:rgba(239,68,68,.1);border:2px solid var(--rd);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:16px;justify-content:center">
+      <div style="font-size:32px;font-weight:700;color:var(--rd)">❌ Avoid this:</div>
+      <div style="font-size:28px;color:rgba(255,255,255,.7);line-height:1.6;font-style:italic">"This is a bad idea."<br/>"That will never work."<br/>"This is boring."</div>
+      <div style="font-size:28px;color:rgba(255,255,255,.7);line-height:1.6;margin-top:12px">These don't help anyone improve. Always explain WHY and HOW to make it better.</div>
+    </div>
+  </div>
+  <button class="btn ba" onclick="DS.next()" style="margin-top:24px;width:fit-content">Share ▶</button>
+</section>
+
+<!-- 14 SECTION: SHARE -->
+<section class="grad" data-label="14 Share Header" style="align-items:center;justify-content:center;text-align:center;gap:28px">
+  <div style="font-size:110px">🗣️</div>
+  <div style="font-size:90px;font-weight:900">Share</div>
+  <div style="font-size:40px;color:var(--a)">Present · Feedback · Improve</div>
+</section>
+
+<!-- 15 PRESENT YOUR APP -->
+<section data-label="15 Present Your App">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Leo presents his app to Dad as if he is in a classroom. He has 30 seconds to explain it. You listen and take notes. Then use the feedback frames below to give Leo 2-3 pieces of honest, kind feedback. Ask: How does the app work? How is it useful? What problem does it solve?</div>
+  <h1 class="t1">Present Your Superpower App! 🎤</h1>
+  <div style="display:flex;gap:48px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+      <div style="background:rgba(124,58,237,.2);border-radius:14px;padding:22px 28px;font-size:32px;line-height:1.6">
+        Present to Dad using this structure:
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="step-box show" style="font-size:28px">1️⃣ <strong style="color:var(--a)">The problem:</strong> <em>"A typical problem is..."</em></div>
+        <div class="step-box show" style="font-size:28px">2️⃣ <strong style="color:var(--a)">My app:</strong> <em>"My app is called... It helps me..."</em></div>
+        <div class="step-box show" style="font-size:28px">3️⃣ <strong style="color:var(--a)">How it works:</strong> <em>"When you open it... First it... Then it..."</em></div>
+        <div class="step-box show" style="font-size:28px">4️⃣ <strong style="color:var(--a)">Why it's useful:</strong> <em>"This app is useful because..."</em></div>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;margin-top:8px">
+        <button class="btn bpulse bp" onclick="startTimer('t15',30,function(){document.getElementById('t15-done').style.display='inline-flex'})" style="font-size:28px;padding:14px 36px">🎤 Present! (30s)</button>
+        <span id="t15" style="font-size:72px;font-weight:900;color:var(--a);display:none"></span>
+      </div>
+      <button class="btn ba" id="t15-done" onclick="DS.next()" style="display:none;width:fit-content">Dad's Feedback ▶</button>
+    </div>
+    <div style="width:440px;display:flex;flex-direction:column;gap:12px">
+      <div class="tsm" style="color:var(--a);font-weight:700">Dad's questions:</div>
+      <div style="background:rgba(124,58,237,.15);border-radius:10px;padding:14px 18px;font-size:26px">❓ "How does the app work?"</div>
+      <div style="background:rgba(124,58,237,.15);border-radius:10px;padding:14px 18px;font-size:26px">❓ "How is the app useful?"</div>
+      <div style="background:rgba(124,58,237,.15);border-radius:10px;padding:14px 18px;font-size:26px">❓ "What problem does it solve?"</div>
+      <div style="background:rgba(124,58,237,.15);border-radius:10px;padding:14px 18px;font-size:26px">❓ "What would you call your superhero?"</div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 DAD FEEDBACK FRAMES -->
+<section data-label="16 Dad Feedback Frames">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Fill in 2-3 feedback frames honestly. Use the sentence starters from slide 13. Then share your feedback with Leo verbally. Ask him: "Would you like to change anything in your app based on this feedback?" Give him time to modify before moving to Review.</div>
+  <h1 class="t1">Dad's Feedback 📋</h1>
+  <div style="flex:1;display:flex;flex-direction:column;gap:14px;justify-content:center">
+    <div class="ff">
+      <div class="ff-hd" onclick="toggleFF(this)" style="color:var(--gn)">💚 One thing I really like about your app is... <span>▼</span></div>
+      <div class="ff-body"><input class="ff-inp" type="text" placeholder="Type feedback here..."/></div>
+    </div>
+    <div class="ff">
+      <div class="ff-hd" onclick="toggleFF(this)" style="color:var(--a)">🤔 I don't understand how it will... <span>▼</span></div>
+      <div class="ff-body"><input class="ff-inp" type="text" placeholder="Type feedback here..."/></div>
+    </div>
+    <div class="ff">
+      <div class="ff-hd" onclick="toggleFF(this)" style="color:var(--or)">🔧 I would maybe change... <span>▼</span></div>
+      <div class="ff-body"><input class="ff-inp" type="text" placeholder="Type feedback here..."/></div>
+    </div>
+    <div class="ff">
+      <div class="ff-hd" onclick="toggleFF(this)" style="color:var(--rd)">❓ A question I have is... <span>▼</span></div>
+      <div class="ff-body"><input class="ff-inp" type="text" placeholder="Type feedback here..."/></div>
+    </div>
+    <button class="btn ba" onclick="DS.next()" style="width:fit-content;margin-top:8px">Modify &amp; Review ▶</button>
+  </div>
+</section>
+
+<!-- 17 MODIFY + REVIEW (NOW I CAN) -->
+<section data-label="17 Modify and Now I Can">
+  <button class="tn-btn" onclick="toggleNote(this)">📝 Teacher</button>
+  <div class="tn-panel">Modify: Give Leo 5 minutes to improve his app based on feedback. He can add details or change the description. Then go through "Now I Can" together — Leo taps each item when he feels confident. For any item he can't tick, give a quick reminder using unit examples. Unit 7 quiz after this!</div>
+  <h1 class="t1">Modify &amp; Review ✏️✅</h1>
+  <div style="display:flex;gap:48px;flex:1">
+    <div style="flex:1;display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:32px;font-weight:800;color:var(--a);margin-bottom:4px">✏️ Improve Your App:</div>
+      <textarea class="ans-area" id="app-improve" placeholder="After Dad's feedback, I will change / add..." style="min-height:120px;font-size:28px"></textarea>
+      <div style="margin-top:16px;font-size:32px;font-weight:800;color:var(--a)">✅ Now I Can…</div>
+      <div onclick="toggleCb(this)" class="cb-row"><div class="cb-box"></div><div class="tsm">Talk about inventions.</div></div>
+      <div onclick="toggleCb(this)" class="cb-row"><div class="cb-box"></div><div class="tsm">Talk about past habits (used to).</div></div>
+      <div onclick="toggleCb(this)" class="cb-row"><div class="cb-box"></div><div class="tsm">Describe how to use an invention.</div></div>
+      <div onclick="toggleCb(this)" class="cb-row"><div class="cb-box"></div><div class="tsm">Write facts and opinions about a favourite invention.</div></div>
+      <div class="tip-box" id="cb-tip" style="font-size:26px">🎉 Amazing, Leo! You completed Unit 7 — <strong style="color:var(--gn)">Good Idea!</strong> ⚽</div>
+    </div>
+    <div style="width:440px;display:flex;flex-direction:column;gap:14px">
+      <div class="tsm" style="color:var(--a);font-weight:700">Unit 7 quick review:</div>
+      <div style="background:rgba(124,58,237,.2);border-radius:12px;padding:18px 22px;font-size:26px;line-height:1.7">
+        ❓ What are 2 inventions from Unit 7?<br/>
+        ❓ What did people use to do before smartphones?<br/>
+        ❓ How do you use goal-line technology?<br/>
+        ❓ Give an example of a <strong style="color:var(--a)">fact</strong> and an <strong style="color:var(--a)">opinion</strong>.
+      </div>
+      <div style="background:rgba(124,58,237,.2);border-radius:12px;padding:18px 22px;font-size:26px;line-height:1.7">
+        📋 <strong style="color:var(--a)">Project rubric:</strong><br/>
+        ✅ Sketched ideas for a superpower app?<br/>
+        ✅ Exchanged ideas with Dad?<br/>
+        ✅ Explained how the app solves a problem?
+      </div>
+    </div>
+  </div>
+  <button class="btn ba" onclick="DS.next();document.getElementById('cb-tip').classList.add('show')" style="margin-top:20px;width:fit-content">Closing ▶</button>
+</section>
+
+<!-- 18 CLOSING -->
+<section class="grad" data-label="18 Closing" style="align-items:center;justify-content:center;text-align:center;gap:20px">
+  <div style="font-size:100px">🦸‍♂️🏆📱</div>
+  <div style="font-size:80px;font-weight:900;color:var(--wh)">Amazing Work, Leo!</div>
+  <div style="font-size:40px;color:var(--a);max-width:1200px;line-height:1.6">You designed a <strong>superpower app</strong> and completed <strong>Unit 7 — Good Idea!</strong></div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;max-width:1000px">
+    <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:14px 28px;font-size:28px">✅ You designed a superpower app that solves a real problem</div>
+    <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:14px 28px;font-size:28px">✅ You gave and received positive feedback</div>
+    <div style="background:rgba(255,255,255,.1);border-radius:12px;padding:14px 28px;font-size:28px">✅ You completed the full Unit 7 — Good Idea! 🎉</div>
+  </div>
+  <div style="margin-top:16px">
+    <div style="font-size:30px;color:var(--a);margin-bottom:12px">How confident do you feel? ⭐</div>
+    <div style="display:flex;gap:4px;justify-content:center">
+      <button class="star" id="st1" onclick="rateStar(1)">⭐</button>
+      <button class="star" id="st2" onclick="rateStar(2)">⭐</button>
+      <button class="star" id="st3" onclick="rateStar(3)">⭐</button>
+      <button class="star" id="st4" onclick="rateStar(4)">⭐</button>
+      <button class="star" id="st5" onclick="rateStar(5)">⭐</button>
+    </div>
+    <div id="star-msg" style="font-size:34px;margin-top:14px;min-height:44px;color:var(--a)"></div>
+  </div>
+</section>
+
+</deck-stage>
+
+<script>
+const DS = document.querySelector('deck-stage');
+
+function toggleNote(btn) { btn.nextElementSibling.classList.toggle('open'); }
+
+function vcReveal(containerId, nextId, btnId) {
+  const cont = document.getElementById(containerId);
+  const step = parseInt(cont.dataset.step || '-1') + 1;
+  const items = cont.querySelectorAll('.step-box[id]');
+  if (step < items.length) {
+    items[step].classList.add('show');
+    cont.dataset.step = step;
+    if (step === items.length - 1) {
+      document.getElementById('inv-tip').classList.add('show');
+      setTimeout(function() {
+        document.getElementById(nextId).style.display = 'inline-flex';
+        document.getElementById(btnId).style.display = 'none';
+      }, 600);
+    }
+  }
+}
+
+function insertTA(id, text) {
+  const ta = document.getElementById(id);
+  if (!ta) return;
+  const pos = ta.selectionStart || ta.value.length;
+  ta.value = ta.value.slice(0, pos) + text + ta.value.slice(pos);
+  ta.selectionStart = ta.selectionEnd = pos + text.length;
+  ta.focus();
+}
+
+function toggleFF(hd) {
+  const body = hd.nextElementSibling;
+  body.classList.toggle('open');
+  const arrow = hd.querySelector('span');
+  if (arrow) arrow.textContent = body.classList.contains('open') ? '▲' : '▼';
+}
+
+function toggleCb(row) {
+  row.classList.toggle('ticked');
+  row.querySelector('.cb-box').textContent = row.classList.contains('ticked') ? '✓' : '';
+}
+
+function startTimer(id, secs, cb) {
+  const el = document.getElementById(id);
+  el.style.display = 'inline-block';
+  let t = secs;
+  el.textContent = t;
+  const iv = setInterval(function() {
+    t--;
+    el.textContent = t;
+    if (t <= 0) { clearInterval(iv); el.style.display = 'none'; if (cb) cb(); }
+  }, 1000);
+}
+
+function rateStar(n) {
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById('st' + i).classList.toggle('lit', i <= n);
+  }
+  const msgs = ['','Keep going! 💪','Getting there! 👍','Good work! 😊','Really good! 🌟','Superpower level! 🦸‍♂️🏆'];
+  document.getElementById('star-msg').textContent = msgs[n];
+  if (n >= 4) confetti();
+}
+
+function confetti() {
+  const colors = ['#C4B5FD','#7C3AED','#F59E0B','#22C55E','#EF4444','#F97316','#fff'];
+  for (let i = 0; i < 70; i++) {
+    setTimeout(function() {
+      const d = document.createElement('div');
+      d.className = 'cp';
+      d.style.left = Math.random() * 100 + 'vw';
+      d.style.top = '-20px';
+      d.style.background = colors[Math.floor(Math.random() * colors.length)];
+      d.style.width = d.style.height = (8 + Math.random() * 12) + 'px';
+      d.style.animationDuration = (1.2 + Math.random() * 0.8) + 's';
+      document.body.appendChild(d);
+      setTimeout(function() { d.remove(); }, 2500);
+    }, i * 30);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  DS.addEventListener('slidechange', function(e) {
+    if (e.detail.slide && e.detail.slide.dataset.label === '18 Closing') {
+      setTimeout(confetti, 500);
+    }
+  });
+});
+</script>
+</body>
+</html>
