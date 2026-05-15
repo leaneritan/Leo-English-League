@@ -1231,6 +1231,14 @@ header {
     return !!(window.LEEA_CLOUD && window.LEEA_CLOUD.enabled);
   }
 
+  function cloudErrorText() {
+    const err = window.LEEA_CLOUD && window.LEEA_CLOUD.lastError;
+    if (!err) return 'No Supabase error details were returned.';
+    return [err.message, err.details, err.hint, err.code]
+      .filter(Boolean)
+      .join(' · ');
+  }
+
   function applyCloudHomework(rows) {
     if (!Array.isArray(rows)) return;
     const assigned = rows
@@ -1263,21 +1271,21 @@ header {
   function syncCloudAssignedHomework(entry) {
     if (!cloudHomeworkEnabled()) return;
     window.LEEA_CLOUD.upsertHomework(entry).then(ok => {
-      if (!ok) alert('Homework saved on this browser, but cloud sync failed.');
+      if (!ok) alert('Homework saved on this browser, but cloud sync failed: ' + cloudErrorText());
     });
   }
 
   function syncCloudCompletedHomework(entry) {
     if (!cloudHomeworkEnabled()) return;
     window.LEEA_CLOUD.completeHomework(entry).then(ok => {
-      if (!ok) alert('Homework completed on this browser, but cloud sync failed.');
+      if (!ok) alert('Homework completed on this browser, but cloud sync failed: ' + cloudErrorText());
     });
   }
 
   function syncCloudRemovedHomework(id) {
     if (!cloudHomeworkEnabled()) return;
     window.LEEA_CLOUD.deleteHomework(id).then(ok => {
-      if (!ok) alert('Homework removed on this browser, but cloud sync failed.');
+      if (!ok) alert('Homework removed on this browser, but cloud sync failed: ' + cloudErrorText());
     });
   }
 
