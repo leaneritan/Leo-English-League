@@ -734,7 +734,8 @@ header {
 
 /* ── HOMEWORK SECTION ── */
 #leo-homework-section,
-#neritan-homework-section {
+#neritan-homework-section,
+#neritan-completed-section {
   max-width: 980px;
   margin: 0 auto;
   padding: 24px 24px 0;
@@ -1027,6 +1028,7 @@ header {
 
     </div>
   </div>
+  <div id="neritan-completed-section"></div>
 </div>
 
 <!-- ══ SCREEN 2B: LEO MODES ══ -->
@@ -1344,6 +1346,16 @@ header {
     renderNeritanHomework();
   }
 
+  function deleteCompletedHomework(id) {
+    if (!confirm('Delete this completed homework from Neritan’s list? Leo’s saved app work will be kept.')) return;
+    const completed = getCompletedHomework().filter(h => h.id !== id);
+    saveCompletedHomework(completed);
+    syncCloudRemovedHomework(id);
+    renderHomeworkBadges();
+    renderLeoHomework();
+    renderNeritanHomework();
+  }
+
   function isHomeworkDone(id) {
     return lLoad(id + '-done', false);
   }
@@ -1425,14 +1437,12 @@ header {
 
   function renderNeritanHomework() {
     const container = document.getElementById('neritan-homework-section');
-    if (!container) return;
+    const completedContainer = document.getElementById('neritan-completed-section');
+    if (!container || !completedContainer) return;
     const hw = getHomework();
     const completed = getCompletedHomework();
-    if (!hw.length && !completed.length) {
-      container.style.display = 'none';
-      return;
-    }
-    container.style.display = 'block';
+    container.style.display = hw.length ? 'block' : 'none';
+    completedContainer.style.display = completed.length ? 'block' : 'none';
     const activeList = hw.map(h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
@@ -1476,13 +1486,17 @@ header {
               <a class="hw-review-btn" href="${getReviewUrl(h)}" target="_blank">
                 📋 Review Leo's work
               </a>
+              <button class="hw-unassign-btn" onclick="deleteCompletedHomework('${h.id}')">
+                Delete
+              </button>
             </div>
           </div>
         </div>`;
     }).join('');
     container.innerHTML = `
-      ${hw.length ? '<div class="hw-section-title">📋 ASSIGNED HOMEWORK</div>' + activeList : ''}
-      ${completed.length ? '<div class="hw-section-title" style="margin-top:22px;">✅ COMPLETED WORK</div>' + completedList : ''}`;
+      ${hw.length ? '<div class="hw-section-title">📋 ASSIGNED HOMEWORK</div>' + activeList : ''}`;
+    completedContainer.innerHTML = `
+      ${completed.length ? '<div class="hw-section-title">✅ COMPLETED WORK</div>' + completedList : ''}`;
   }
 
 
