@@ -49,6 +49,10 @@ for each row execute function public.set_leea_updated_at();
 alter table public.leea_homework enable row level security;
 alter table public.leea_progress enable row level security;
 
+grant usage on schema public to anon;
+grant select, insert, update, delete on public.leea_homework to anon;
+grant select, insert, update, delete on public.leea_progress to anon;
+
 -- For the first family-only version, the browser uses the anon key.
 -- This makes homework sync work from static HTML. It is acceptable for a
 -- private family tool, but not for a public multi-student product.
