@@ -905,6 +905,67 @@ header {
 .lesson-chip.live .hw-assign-btn {
   display: block;
 }
+.quick-nav,
+.ow-breadcrumbs {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  width: 100%;
+}
+.quick-card {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  border:2px solid var(--border);
+  border-radius:4px;
+  background:var(--surface);
+  padding:14px 18px;
+  cursor:pointer;
+  transition:all 0.2s;
+}
+.quick-card:hover { border-color:var(--ow-blue); background:#EEF5FF; }
+.quick-kicker {
+  font-family:'Oswald',sans-serif;
+  font-size:0.58rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--ow-blue);
+  margin-bottom:3px;
+}
+.quick-title { font-weight:900; font-size:0.98rem; color:var(--ink); }
+.quick-sub { font-size:0.72rem; color:var(--ink-4); font-weight:600; margin-top:2px; }
+.quick-action {
+  font-family:'Oswald',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#fff;
+  background:var(--ow-blue);
+  border-radius:2px;
+  padding:5px 12px;
+  white-space:nowrap;
+}
+.ow-breadcrumbs {
+  padding-top:0;
+  padding-bottom:12px;
+  max-width:1100px;
+  font-family:'Oswald',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:1.5px;
+  color:var(--ink-4);
+}
+.crumb-link {
+  color:var(--ow-blue);
+  cursor:pointer;
+}
+.crumb-link:hover { text-decoration:underline; }
+.crumb-current { color:var(--ink); }
+@media (max-width: 720px) {
+  .quick-card { align-items:flex-start; flex-direction:column; }
+  .quick-action { width:100%; text-align:center; }
+}
 </style>
 </head>
 <body>
@@ -1011,6 +1072,7 @@ header {
     <button class="back-btn" onclick="showPerson()">← Back</button>
     <div class="mode-screen-who">👨 <span>NERITAN</span> — Teaching Mode</div>
   </div>
+  <div id="neritan-continue-section" class="quick-nav"></div>
   <div id="neritan-homework-section"></div>
   <div class="mode-section">
     <div class="mode-section-label">CHOOSE A TRACK</div>
@@ -1058,6 +1120,7 @@ header {
     <button class="back-btn" onclick="showPerson()">← Back</button>
     <div class="mode-screen-who">🦁 <span>LEO</span> — Learning Mode</div>
   </div>
+  <div id="leo-continue-section" class="quick-nav"></div>
   <div id="leo-homework-section"></div>
   <div class="mode-section">
     <div class="mode-section-label">CHOOSE A TRACK</div>
@@ -1120,6 +1183,11 @@ header {
     <div class="mode-screen-who">👨 <span>OUR WORLD</span> — Teaching Slides</div>
   </div>
   <div class="ow-screen-body neritan-mode">
+    <div class="ow-breadcrumbs">
+      <span class="crumb-link" onclick="showPerson()">HOME</span> /
+      <span class="crumb-link" onclick="goTo('screen-neritan')">NERITAN</span> /
+      <span class="crumb-current">OUR WORLD · LEVEL 4 · UNIT 7</span>
+    </div>
     <div class="level-tabs">
       <div class="level-tab locked">L1</div>
       <div class="level-tab locked">L2</div>
@@ -1139,6 +1207,11 @@ header {
     <div class="mode-screen-who">🦁 <span>OUR WORLD</span> — Learning Modules</div>
   </div>
   <div class="ow-screen-body">
+    <div class="ow-breadcrumbs">
+      <span class="crumb-link" onclick="showPerson()">HOME</span> /
+      <span class="crumb-link" onclick="goTo('screen-leo')">LEO</span> /
+      <span class="crumb-current">OUR WORLD · LEVEL 4 · UNIT 7</span>
+    </div>
     <div class="level-tabs">
       <div class="level-tab locked">L1</div>
       <div class="level-tab locked">L2</div>
@@ -1433,7 +1506,63 @@ header {
     return h.url + sep + 'review=1&hw=' + encodeURIComponent(h.id);
   }
 
+  function renderContinueNav() {
+    const leoBox = document.getElementById('leo-continue-section');
+    const neritanBox = document.getElementById('neritan-continue-section');
+    const hw = getHomework();
+    const nextHw = hw[0];
+
+    if (leoBox) {
+      if (nextHw) {
+        leoBox.innerHTML = `
+          <div class="quick-card" onclick="window.open('${nextHw.url}', '_blank')">
+            <div>
+              <div class="quick-kicker">CONTINUE</div>
+              <div class="quick-title">${nextHw.lesson}</div>
+              <div class="quick-sub">${nextHw.unit} · Due ${nextHw.due}</div>
+            </div>
+            <div class="quick-action">OPEN APP</div>
+          </div>`;
+      } else {
+        leoBox.innerHTML = `
+          <div class="quick-card" onclick="goTo('screen-leo-ow')">
+            <div>
+              <div class="quick-kicker">CONTINUE</div>
+              <div class="quick-title">Our World Level 4</div>
+              <div class="quick-sub">Open Unit 7 lessons</div>
+            </div>
+            <div class="quick-action">OPEN UNIT</div>
+          </div>`;
+      }
+    }
+
+    if (neritanBox) {
+      if (nextHw) {
+        neritanBox.innerHTML = `
+          <div class="quick-card" onclick="window.open('${getReviewUrl(nextHw)}', '_blank')">
+            <div>
+              <div class="quick-kicker">REVIEW NEXT</div>
+              <div class="quick-title">${nextHw.lesson}</div>
+              <div class="quick-sub">${nextHw.unit} · review Leo's work</div>
+            </div>
+            <div class="quick-action">REVIEW</div>
+          </div>`;
+      } else {
+        neritanBox.innerHTML = `
+          <div class="quick-card" onclick="goTo('screen-neritan-ow')">
+            <div>
+              <div class="quick-kicker">CONTINUE</div>
+              <div class="quick-title">Our World Level 4</div>
+              <div class="quick-sub">Open Unit 7 teaching slides</div>
+            </div>
+            <div class="quick-action">OPEN UNIT</div>
+          </div>`;
+      }
+    }
+  }
+
   function renderLeoHomework() {
+    renderContinueNav();
     const container = document.getElementById('leo-homework-section');
     if (!container) return;
     const hw = getHomework();
@@ -1468,6 +1597,7 @@ header {
   }
 
   function renderNeritanHomework() {
+    renderContinueNav();
     const container = document.getElementById('neritan-homework-section');
     const completedContainer = document.getElementById('neritan-completed-section');
     if (!container || !completedContainer) return;
