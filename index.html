@@ -718,21 +718,38 @@ header {
 .lesson-panel { display:none; grid-column:1/-1; border:2px solid var(--ow-blue); border-top:none; border-radius:0 0 4px 4px; background:#F5F9FF; padding:16px; margin-top:-10px; }
 .lesson-panel.open { display:block; animation:panelIn 0.2s ease; }
 @keyframes panelIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
-.lesson-panel-header { font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; color:var(--ow-blue); margin-bottom:12px; }
+.lesson-panel-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:14px; }
+.lesson-panel-header { font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; color:var(--ow-blue); margin-bottom:8px; }
+.lesson-progress { width:min(300px,100%); }
+.lesson-progress-label { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; color:var(--ink-4); margin-bottom:5px; text-align:right; }
+.lesson-progress-track { height:7px; border-radius:2px; background:#D9E8F8; overflow:hidden; }
+.lesson-progress-fill { height:100%; background:var(--ow-blue); }
+.lesson-filter { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+.lesson-filter-btn { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; border:2px solid var(--border); border-radius:2px; background:var(--surface); color:var(--ink-4); padding:4px 10px; cursor:pointer; }
+.lesson-filter-btn.active { border-color:var(--ow-blue); background:var(--ow-blue); color:#fff; }
+.lesson-section-title { font-family:'Oswald',sans-serif; font-size:0.62rem; font-weight:700; letter-spacing:2px; color:var(--ink-4); margin:10px 0 8px; }
+.lesson-section.empty { display:none; }
 .lesson-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
-.lesson-chip { min-height:116px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:10px 8px; text-decoration:none; color:inherit; transition:all 0.2s; display:flex; flex-direction:column; justify-content:center; }
+.lesson-chip { min-height:104px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:9px 8px; text-decoration:none; color:inherit; transition:all 0.2s; display:flex; flex-direction:column; justify-content:center; }
 .lesson-chip.live { border-color:var(--ow-blue); cursor:pointer; }
 .lesson-chip.live:hover { background:var(--ow-blue); }
 .lesson-chip.live:hover .lc-name { color:#fff; }
 .lesson-chip.live:hover .lc-status { background:rgba(255,255,255,0.2); color:#fff; }
+.lesson-chip.assigned { border-color:var(--yellow); box-shadow:inset 0 0 0 2px rgba(255,204,0,0.16); }
+.lesson-chip.done { border-color:var(--nc-green); background:#F0FDF4; }
 .lesson-chip.locked { opacity:0.45; cursor:not-allowed; pointer-events:none; }
-.lc-icon { font-size:1.4rem; margin-bottom:6px; }
+.lesson-chip.hidden-by-filter { display:none; }
+.lc-icon { font-size:1.25rem; margin-bottom:5px; }
 .lc-name { font-weight:800; font-size:0.72rem; color:var(--ink); margin-bottom:5px; line-height:1.2; }
 .lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
 .lc-live { background:#E8F5E9; color:var(--nc-dark); }
 .lc-lock { background:var(--soft); color:var(--ink-4); }
+.lc-action { font-family:'Oswald',sans-serif; font-size:0.52rem; font-weight:700; letter-spacing:1px; color:var(--ow-blue); margin-top:5px; }
+.lesson-chip.live:hover .lc-action { color:#fff; }
 @media (max-width: 720px) {
   .unit-grid { grid-template-columns:1fr; }
+  .lesson-panel-top { display:block; }
+  .lesson-progress-label { text-align:left; }
   .lesson-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 
@@ -1382,6 +1399,11 @@ header {
     const hw = getHomework();
     // Remove existing badges
     document.querySelectorAll('.hw-chip-badge').forEach(b => b.remove());
+    document.querySelectorAll('.lesson-chip.live').forEach(chip => {
+      chip.classList.remove('assigned', 'done');
+      chip.dataset.assigned = '0';
+      chip.dataset.done = '0';
+    });
     // Add badge to matching live lesson chips
     hw.forEach(h => {
       const done = isHomeworkDone(h.id);
@@ -1389,12 +1411,18 @@ header {
         const link = chip.getAttribute('href') || '';
         const hwId = chip.getAttribute('data-hw-id') || '';
         if (hwId === h.id || link.includes(h.id.replace(/-/g,'/'))) {
+          chip.classList.add(done ? 'done' : 'assigned');
+          chip.dataset.assigned = '1';
+          chip.dataset.done = done ? '1' : '0';
           const badge = document.createElement('div');
           badge.className = 'hw-chip-badge';
           badge.textContent = done ? '✅ HW Done' : '📚 Homework';
           chip.appendChild(badge);
         }
       });
+    });
+    Object.keys(lessonFilters).forEach(person => {
+      Object.keys(lessonFilters[person]).forEach(unit => applyLessonFilter(person, unit));
     });
   }
 
@@ -1588,6 +1616,41 @@ header {
     return LESSONS.filter(l => LIVE[`${livePrefix}-${level}-${unit}-${l.id}`]).length;
   }
 
+  const lessonFilters = { neritan: {}, leo: {} };
+
+  function getLessonHwId(person, unit, lessonId) {
+    return `${person}-4-${unit}-${lessonId}`;
+  }
+
+  function applyLessonFilter(person, unitNum) {
+    const panel = document.getElementById(`${person}-panel-${unitNum}`);
+    if (!panel) return;
+    const filter = lessonFilters[person][unitNum] || 'all';
+    panel.querySelectorAll('.lesson-filter-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === filter);
+    });
+    panel.querySelectorAll('.lesson-chip').forEach(chip => {
+      const isLive = chip.dataset.live === '1';
+      const isAssigned = chip.dataset.assigned === '1';
+      const isLocked = chip.dataset.live !== '1';
+      const visible =
+        filter === 'all' ||
+        (filter === 'live' && isLive) ||
+        (filter === 'assigned' && isAssigned) ||
+        (filter === 'locked' && isLocked);
+      chip.classList.toggle('hidden-by-filter', !visible);
+    });
+    panel.querySelectorAll('.lesson-section').forEach(section => {
+      const hasVisible = !!section.querySelector('.lesson-chip:not(.hidden-by-filter)');
+      section.classList.toggle('empty', !hasVisible);
+    });
+  }
+
+  function setLessonFilter(person, unitNum, filter) {
+    lessonFilters[person][unitNum] = filter;
+    applyLessonFilter(person, unitNum);
+  }
+
   function buildGrid(containerId, person, livePrefix = person) {
     const grid = document.getElementById(containerId);
     if (!grid) return;
@@ -1615,42 +1678,70 @@ header {
       const panel = document.createElement('div');
       panel.className = 'lesson-panel';
       panel.id = `${person}-panel-${u.n}`;
-      const chips = LESSONS.map(l => {
+      const liveChips = [];
+      const lockedChips = [];
+      LESSONS.forEach(l => {
         const key = `${livePrefix}-4-${u.n}-${l.id}`;
         const live = LIVE[key];
         if (live) {
+          const hwId = getLessonHwId(person, u.n, l.id);
+          const actionLabel = person === 'neritan' ? 'Open Slides' : 'Start App';
           const assignButton = person === 'leo'
             ? `<button class="hw-assign-btn"
               onclick="event.preventDefault();
-              showAssignDialog('${person}-4-${u.n}-${l.id}',
+              showAssignDialog('${hwId}',
               '${l.name}','Unit ${u.n}','${live.url}')"
               >📚 Assign HW</button>`
             : '';
-          return `<a class="lesson-chip live" href="${live.url}" target="_blank" data-hw-id="${person}-4-${u.n}-${l.id}">
+          liveChips.push(`<a class="lesson-chip live" href="${live.url}" target="_blank" data-hw-id="${hwId}" data-live="1" data-assigned="0">
             <div class="lc-icon">${l.icon}</div>
             <div class="lc-name">${l.name}</div>
             <div class="lc-status lc-live">✅ Live</div>
+            <div class="lc-action">${actionLabel}</div>
             ${assignButton}
-          </a>`;
+          </a>`);
+          return;
         }
-        return `<div class="lesson-chip locked">
+        lockedChips.push(`<div class="lesson-chip locked" data-live="0" data-assigned="0">
           <div class="lc-icon">${l.icon}</div>
           <div class="lc-name">${l.name}</div>
           <div class="lc-status lc-lock">🔒 Soon</div>
-        </div>`;
-      }).join('');
+        </div>`);
+      });
+      const progress = Math.round((liveCount / LESSONS.length) * 100);
       panel.innerHTML = `
-        <div class="lesson-panel-header">
-          UNIT ${u.n} · ${u.name.toUpperCase()} · 12 LESSONS
+        <div class="lesson-panel-top">
+          <div>
+            <div class="lesson-panel-header">
+              UNIT ${u.n} · ${u.name.toUpperCase()} · ${LESSONS.length} LESSONS
+            </div>
+            <div class="lesson-filter">
+              <button class="lesson-filter-btn active" data-filter="all" onclick="setLessonFilter('${person}',${u.n},'all')">ALL</button>
+              <button class="lesson-filter-btn" data-filter="live" onclick="setLessonFilter('${person}',${u.n},'live')">LIVE</button>
+              <button class="lesson-filter-btn" data-filter="assigned" onclick="setLessonFilter('${person}',${u.n},'assigned')">ASSIGNED</button>
+              <button class="lesson-filter-btn" data-filter="locked" onclick="setLessonFilter('${person}',${u.n},'locked')">LOCKED</button>
+            </div>
+          </div>
+          <div class="lesson-progress">
+            <div class="lesson-progress-label">${liveCount} OF ${LESSONS.length} LIVE</div>
+            <div class="lesson-progress-track"><div class="lesson-progress-fill" style="width:${progress}%"></div></div>
+          </div>
         </div>
-        <div class="lesson-strip">${chips}</div>`;
+        <div class="lesson-section">
+          <div class="lesson-section-title">LIVE LESSONS</div>
+          <div class="lesson-strip">${liveChips.join('')}</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-section-title">COMING SOON</div>
+          <div class="lesson-strip">${lockedChips.join('')}</div>
+        </div>`;
       grid.appendChild(panel);
     });
   }
 
   let openUnit = { neritan: null, leo: null };
 
-  function toggleUnit(person, unitNum) {
+  function toggleUnit(person, unitNum, shouldScroll = true) {
     const card  = document.getElementById(`${person}-u${unitNum}`);
     const panel = document.getElementById(`${person}-panel-${unitNum}`);
     if (openUnit[person] && openUnit[person] !== unitNum) {
@@ -1661,11 +1752,19 @@ header {
     card.classList.toggle('open', !isOpen);
     panel.classList.toggle('open', !isOpen);
     openUnit[person] = isOpen ? null : unitNum;
-    if (!isOpen) setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
+    if (!isOpen) applyLessonFilter(person, unitNum);
+    if (!isOpen && shouldScroll) setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
+  }
+
+  function openFirstLiveUnit(person, livePrefix = person) {
+    const firstLive = UNITS.find(u => getLiveCount(person, 4, u.n, livePrefix) > 0);
+    if (firstLive) toggleUnit(person, firstLive.n, false);
   }
 
   buildGrid('neritan-unit-grid', 'neritan', 'n');
   buildGrid('leo-unit-grid', 'leo', 'l');
+  openFirstLiveUnit('neritan', 'n');
+  openFirstLiveUnit('leo', 'l');
   renderHomeworkBadges();
   renderLeoHomework();
   renderNeritanHomework();
