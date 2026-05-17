@@ -962,7 +962,36 @@ header {
 }
 .crumb-link:hover { text-decoration:underline; }
 .crumb-current { color:var(--ink); }
+.app-rail {
+  position:fixed;
+  left:12px;
+  top:86px;
+  z-index:20;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.rail-btn {
+  width:42px;
+  height:42px;
+  border:2px solid var(--border);
+  border-radius:4px;
+  background:var(--surface);
+  color:var(--ink);
+  font-size:1rem;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  transition:all 0.2s;
+}
+.rail-btn:hover,
+.rail-btn.active {
+  border-color:var(--ow-blue);
+  background:var(--ow-blue);
+  color:#fff;
+}
 @media (max-width: 720px) {
+  .app-rail { display:none; }
   .quick-card { align-items:flex-start; flex-direction:column; }
   .quick-action { width:100%; text-align:center; }
 }
@@ -976,6 +1005,14 @@ header {
     <div class="brand-name">LEO'S ELITE ENGLISH ACADEMY</div>
   </div>
 </header>
+
+<nav class="app-rail" aria-label="Main navigation">
+  <button class="rail-btn" data-screen="screen-person" onclick="goTo('screen-person')" title="Home">⌂</button>
+  <button class="rail-btn" data-screen="screen-neritan" onclick="goTo('screen-neritan')" title="Neritan">👨</button>
+  <button class="rail-btn" data-screen="screen-leo" onclick="goTo('screen-leo')" title="Leo">🦁</button>
+  <button class="rail-btn" data-screen="screen-neritan-ow" onclick="goTo('screen-neritan-ow')" title="Neritan Our World">🌍</button>
+  <button class="rail-btn" data-screen="screen-reference" onclick="goTo('screen-reference')" title="Reference">📚</button>
+</nav>
 
 <!-- ══ SCREEN 1: PERSON SELECTOR ══ -->
 <div class="screen active" id="screen-person">
@@ -1675,15 +1712,45 @@ header {
 
 
   // ── NAVIGATION ──
-  function goTo(id) {
+  const SCREEN_HASHES = {
+    'screen-person': 'home',
+    'screen-neritan': 'neritan',
+    'screen-leo': 'leo',
+    'screen-reference': 'reference',
+    'screen-neritan-ow': 'neritan/our-world',
+    'screen-leo-ow': 'leo/our-world'
+  };
+  const HASH_SCREENS = Object.fromEntries(
+    Object.entries(SCREEN_HASHES).map(([screen, hash]) => [hash, screen])
+  );
+
+  function screenFromHash() {
+    const hash = window.location.hash.replace(/^#/, '');
+    return HASH_SCREENS[hash] || 'screen-person';
+  }
+
+  function updateRail(id) {
+    document.querySelectorAll('.rail-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.screen === id);
+    });
+  }
+
+  function showScreen(id) {
     document.querySelectorAll('.screen')
       .forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+    const screen = document.getElementById(id) || document.getElementById('screen-person');
+    screen.classList.add('active');
     window.scrollTo(0, 0);
-    history.pushState({ screen: id }, '', '');
+    updateRail(id);
     if (id === 'screen-leo') renderLeoHomework();
     if (id === 'screen-neritan') renderNeritanHomework();
-    if (id === 'screen-neritan-ow') renderHomeworkBadges();
+    if (id === 'screen-neritan-ow' || id === 'screen-leo-ow') renderHomeworkBadges();
+  }
+
+  function goTo(id, push = true) {
+    showScreen(id);
+    const hash = SCREEN_HASHES[id] || 'home';
+    if (push) history.pushState({ screen: id }, '', '#' + hash);
   }
   function showModes(p) { goTo('screen-'+p); }
   function showPerson() { goTo('screen-person'); }
@@ -1900,19 +1967,15 @@ header {
   renderNeritanHomework();
   syncHomeworkFromCloud();
 
-  history.replaceState({ screen: 'screen-person' }, '', '');
+  const initialScreen = screenFromHash();
+  showScreen(initialScreen);
+  history.replaceState({ screen: initialScreen }, '', '#' + (SCREEN_HASHES[initialScreen] || 'home'));
 
   window.addEventListener('popstate', function(e) {
     const id = e.state && e.state.screen
       ? e.state.screen
-      : 'screen-person';
-    document.querySelectorAll('.screen')
-      .forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0, 0);
-    if (id === 'screen-leo') renderLeoHomework();
-    if (id === 'screen-neritan') renderNeritanHomework();
-    if (id === 'screen-neritan-ow') renderHomeworkBadges();
+      : screenFromHash();
+    showScreen(id);
   });
 
   // ── SANSEIDO DICTIONARY (loaded async) ──
