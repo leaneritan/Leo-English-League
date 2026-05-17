@@ -34,7 +34,7 @@ h1,h2,h3{font-family:'Baloo 2',sans-serif}
 .unit-badge{display:inline-block;background:var(--secondary);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;margin-bottom:.4rem;letter-spacing:.05em;text-transform:uppercase}
 
 /* ── MAIN MENU ── */
-#main-menu{padding:1rem}
+#main-menu{padding:1rem;max-width:760px;margin:0 auto}
 .menu-intro{text-align:center;margin-bottom:1rem}
 .menu-intro h2{font-size:1.1rem;color:var(--accent);margin-bottom:.3rem}
 .menu-intro p{font-size:.8rem;color:var(--text-muted)}
@@ -201,8 +201,11 @@ h1,h2,h3{font-family:'Baloo 2',sans-serif}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .3s}
 .dot.active{background:var(--primary)}
 .dot.done{background:var(--success)}
-.complete-btn{width:100%;margin-top:.7rem;background:var(--accent);color:#1C1917;border:2px solid #1C1917;border-radius:8px;padding:.65rem .8rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.84rem;cursor:pointer}
+.module-action-row{display:flex;gap:.5rem;margin-top:.7rem}
+.complete-btn{flex:1;background:var(--accent);color:#1C1917;border:2px solid #1C1917;border-radius:8px;padding:.65rem .8rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.84rem;cursor:pointer}
 .complete-btn.confirmed{background:#DCFCE7;border-color:var(--success);color:#14532D}
+.redo-module-btn{flex:0 0 96px;background:transparent;color:var(--error);border:2px solid var(--error);border-radius:8px;padding:.65rem .6rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.82rem;cursor:pointer}
+.redo-module-btn:hover{background:var(--error);color:#fff}
 .review-screen{display:none;min-height:100vh;background:var(--bg);padding:1rem}
 .review-screen.show{display:block}
 .review-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:.8rem}
@@ -773,19 +776,65 @@ function markModuleDone(id) {
   }
 }
 
+function redoModule(id) {
+  const btn = document.getElementById('redo-' + id);
+  if (btn && !btn.dataset.armed) {
+    btn.dataset.armed = '1';
+    btn.textContent = 'Sure?';
+    setTimeout(() => {
+      if (btn && btn.dataset.armed) {
+        delete btn.dataset.armed;
+        btn.textContent = 'Redo';
+      }
+    }, 2500);
+    return;
+  }
+  if (btn) {
+    delete btn.dataset.armed;
+    btn.textContent = 'Redo';
+  }
+  localStorage.removeItem('leea-' + SAVE_PREFIX + id + '-done');
+  localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
+  lSave(SAVE_PREFIX + id + '-done', false);
+  lSave(HOMEWORK_ID + '-' + id + '-done', false);
+  if (id === 'm14') {
+    ['score', 'wrongQuestions', 'done'].forEach(key => {
+      localStorage.removeItem('leea-' + SAVE_PREFIX + key);
+    });
+    lSave(SAVE_PREFIX + 'done', false);
+  }
+  const card = document.querySelector(`.module-card[onclick="openModal('${id}')"]`);
+  if (card) card.classList.remove('done');
+  const completeBtn = document.getElementById('complete-' + id);
+  if (completeBtn) {
+    completeBtn.classList.remove('confirmed');
+    completeBtn.textContent = 'Mark ' + moduleNames[id] + ' complete ✓';
+  }
+}
+
 function addCompleteButtons() {
   Object.keys(moduleNames).forEach(id => {
     const modal = document.getElementById('modal-' + id);
     if (!modal || modal.querySelector('#complete-' + id)) return;
     const body = modal.querySelector('.modal-body');
     if (!body) return;
+    const row = document.createElement('div');
+    row.className = 'module-action-row';
     const btn = document.createElement('button');
     btn.className = 'complete-btn';
     btn.id = 'complete-' + id;
     btn.type = 'button';
     btn.textContent = 'Mark ' + moduleNames[id] + ' complete ✓';
     btn.addEventListener('click', () => markModuleDone(id));
-    body.appendChild(btn);
+    const redoBtn = document.createElement('button');
+    redoBtn.className = 'redo-module-btn';
+    redoBtn.id = 'redo-' + id;
+    redoBtn.type = 'button';
+    redoBtn.textContent = 'Redo';
+    redoBtn.addEventListener('click', () => redoModule(id));
+    row.appendChild(btn);
+    row.appendChild(redoBtn);
+    body.appendChild(row);
   });
 }
 
