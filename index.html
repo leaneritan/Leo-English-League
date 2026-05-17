@@ -719,8 +719,8 @@ header {
 .lesson-panel.open { display:block; animation:panelIn 0.2s ease; }
 @keyframes panelIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
 .lesson-panel-header { font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; color:var(--ow-blue); margin-bottom:12px; }
-.lesson-strip { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin; scrollbar-color:var(--ow-blue) transparent; }
-.lesson-chip { flex-shrink:0; width:110px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:10px 8px; text-decoration:none; color:inherit; transition:all 0.2s; }
+.lesson-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
+.lesson-chip { min-height:116px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:10px 8px; text-decoration:none; color:inherit; transition:all 0.2s; display:flex; flex-direction:column; justify-content:center; }
 .lesson-chip.live { border-color:var(--ow-blue); cursor:pointer; }
 .lesson-chip.live:hover { background:var(--ow-blue); }
 .lesson-chip.live:hover .lc-name { color:#fff; }
@@ -731,6 +731,10 @@ header {
 .lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
 .lc-live { background:#E8F5E9; color:var(--nc-dark); }
 .lc-lock { background:var(--soft); color:var(--ink-4); }
+@media (max-width: 720px) {
+  .unit-grid { grid-template-columns:1fr; }
+  .lesson-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
 
 /* ── HOMEWORK SECTION ── */
 #leo-homework-section,
