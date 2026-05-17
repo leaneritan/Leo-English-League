@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Unit 7 · Book Reading — Sweet Surprises</title>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<script src="../../../components/charts.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --or:#F97316;--amb:#EA580C;--ye:#FDE047;--choc:#92400E;
+  --crm:#FFEDD5;--card:#FFF7ED;--bg:#1C1917;
+  --gn:#16A34A;--gnl:#DCFCE7;--rd:#DC2626;--rdl:#FEE2E2;
+  --bl:#1D4ED8;--ice:#BAE6FD;
+  --text:#1C1917;--muted:#78716C;
+  --fnh:"Luckiest Guy",cursive;--fn:"Nunito",sans-serif;
+  --r:14px;
+}
+body{font-family:var(--fn);background:var(--bg);display:flex;flex-direction:column;align-items:center;min-height:100vh}
+
+/* ── TOP BAR ── */
+.topbar{width:100%;max-width:1400px;display:flex;align-items:center;padding:10px 16px;gap:12px}
+.unit-chip{background:var(--or);color:#fff;font-family:var(--fnh);font-size:.82rem;letter-spacing:1px;padding:5px 14px;border-radius:20px;white-space:nowrap}
+.prog-wrap{flex:1;background:rgba(255,255,255,.1);border-radius:20px;height:8px;overflow:hidden}
+.prog-fill{background:linear-gradient(90deg,var(--or),var(--ye));height:100%;border-radius:20px;transition:width .4s}
+.slide-counter{color:#D6D3D1;font-size:.82rem;font-weight:800;white-space:nowrap}
+.icon-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1rem;width:34px;height:34px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}
+.icon-btn:hover{background:rgba(255,255,255,.2)}
+
+/* ── NOTES ── */
+.slide-wrap{width:100%;max-width:1400px;position:relative}
+.notes-panel{display:none;background:#292524;border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:14px 18px;margin:0 0 10px;color:#D6D3D1;font-size:.84rem;line-height:1.6}
+.notes-panel.open{display:block}
+.notes-panel strong{color:var(--ye)}
+
+/* ── SLIDES ── */
+.slide{display:none;background:var(--card);border-radius:20px;overflow:hidden;min-height:calc(100vh - 130px);animation:fadeIn .3s ease}
+.slide.active{display:flex;flex-direction:column}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── HEADERS ── */
+.slide-header{padding:12px 28px;display:flex;align-items:center;gap:10px;font-family:var(--fnh);font-size:.82rem;letter-spacing:1.5px}
+.sh-or{background:var(--or);color:#fff}.sh-amb{background:var(--amb);color:#fff}
+.sh-choc{background:var(--choc);color:#fff}.sh-gn{background:#16A34A;color:#fff}
+.sh-bl{background:var(--bl);color:#fff}.sh-dk{background:#431407;color:#fff}
+
+/* ── SLIDE BODY ── */
+.slide-body{flex:1;padding:24px 32px;display:flex;flex-direction:column;gap:14px;overflow-y:auto}
+
+/* ── TITLE SLIDE ── */
+.title-slide{background:linear-gradient(135deg,#431407,#92400E,#C2410C);min-height:calc(100vh - 130px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;gap:16px}
+.title-slide .unit-lbl{background:rgba(255,255,255,.15);color:var(--ye);font-family:var(--fnh);font-size:.9rem;letter-spacing:3px;padding:6px 20px;border-radius:20px}
+.title-slide h1{font-family:var(--fnh);font-size:3.2rem;color:#fff;letter-spacing:2px;line-height:1.1}
+.title-slide h1 span{color:var(--ye)}
+.title-slide .sub{color:rgba(255,255,255,.75);font-size:.95rem;font-weight:700}
+
+/* ── SECTION SLIDE ── */
+.section-slide{min-height:calc(100vh - 130px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;gap:14px}
+.section-slide .sec-emoji{font-size:4rem}
+.section-slide h2{font-family:var(--fnh);font-size:2.4rem;letter-spacing:2px}
+.section-slide p{font-size:1rem;font-weight:700;max-width:560px}
+.sec-before{background:linear-gradient(135deg,#164E63,#0C4A6E);color:#E0F2FE}.sec-before h2{color:#BAE6FD}
+.sec-during{background:linear-gradient(135deg,#431407,#7C2D12);color:var(--crm)}.sec-during h2{color:var(--ye)}
+.sec-after{background:linear-gradient(135deg,#14532D,#166534);color:#DCFCE7}.sec-after h2{color:#86EFAC}
+
+/* ── DIALOGUE ── */
+.dialogue{display:flex;gap:12px;align-items:flex-start}
+.dialogue.leo{flex-direction:row-reverse}
+.avi{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.avi-dad{background:var(--bl)}.avi-leo{background:var(--gn)}
+.bubble{max-width:80%;padding:11px 15px;border-radius:16px;font-size:.86rem;font-weight:700;line-height:1.5}
+.bubble-dad{background:var(--bl);color:#fff;border-radius:4px 16px 16px 16px}
+.bubble-leo{background:var(--gn);color:#fff;border-radius:16px 4px 16px 16px}
+.bubble-label{font-size:.6rem;opacity:.7;margin-bottom:2px;letter-spacing:.5px}
+
+/* ── VOCAB TABS ── */
+.present-module{flex:1;display:flex;flex-direction:column;min-height:0}
+.pp-bar-row{background:rgba(249,115,22,.1);border-radius:8px;padding:7px 12px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.pp-bar-wrap{flex:1;background:rgba(249,115,22,.2);border-radius:20px;height:6px;overflow:hidden}
+.pp-bar-fill{background:var(--or);height:100%;border-radius:20px;transition:width .5s}
+.pp-text{font-size:.72rem;font-weight:800;color:var(--amb);white-space:nowrap}
+.word-tabs-bar{display:flex;gap:4px;overflow-x:auto;padding:0 0 6px;scrollbar-width:thin;scrollbar-color:var(--or) transparent;flex-shrink:0}
+.word-tabs-bar::-webkit-scrollbar{height:4px}
+.word-tabs-bar::-webkit-scrollbar-thumb{background:var(--or);border-radius:4px}
+.word-tab{background:rgba(249,115,22,.12);border:2px solid rgba(249,115,22,.3);color:var(--amb);font-family:var(--fn);font-weight:800;font-size:.72rem;padding:6px 12px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:all .2s;flex-shrink:0}
+.word-tab:hover{background:rgba(249,115,22,.25)}
+.word-tab.active{background:var(--or);border-color:var(--or);color:#fff}
+.word-tab.done{background:rgba(22,163,74,.15);border-color:#16A34A;color:#16A34A}
+.word-tab.done.active{background:#16A34A;color:#fff}
+.word-panel{display:none;flex:1;overflow-y:auto}
+.word-panel.active{display:block}
+.word-panel-inner{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:4px}
+.word-header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:linear-gradient(135deg,#431407,var(--amb));border-radius:var(--r);color:#fff;margin-bottom:10px}
+.word-big-emoji{font-size:2.6rem}
+.word-title{font-family:var(--fnh);font-size:1.6rem;letter-spacing:1px;color:#fff}
+.word-pos{font-size:.7rem;font-weight:700;opacity:.7;margin-top:2px;letter-spacing:1px}
+.def-box{background:var(--crm);border-radius:var(--r);padding:12px 16px;border-left:5px solid var(--or)}
+.def-label{font-size:.6rem;font-weight:800;letter-spacing:1px;color:var(--muted);margin-bottom:4px}
+.def-text{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:6px}
+.def-example{font-size:.8rem;color:var(--muted);font-weight:600;font-style:italic}
+.mini-game{background:#fff;border:2px solid var(--or);border-radius:var(--r);padding:14px 16px}
+.mini-game h4{font-family:var(--fnh);font-size:.82rem;letter-spacing:1px;color:var(--or);margin-bottom:8px}
+.game-area{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;min-height:70px}
+.game-btn{background:var(--crm);border:2px solid var(--or);border-radius:10px;padding:9px 14px;font-family:var(--fn);font-weight:800;font-size:.84rem;cursor:pointer;transition:all .2s;text-align:center}
+.game-btn:hover:not(:disabled){background:var(--or);color:#fff}
+.game-btn.correct{background:var(--gnl);border-color:var(--gn);color:var(--gn)}
+.game-btn.wrong{background:var(--rdl);border-color:var(--rd);color:var(--rd)}
+.game-btn:disabled{cursor:default;opacity:.7}
+.game-msg{font-size:.8rem;font-weight:800;color:var(--gn);width:100%;text-align:center;display:none;margin-top:4px}
+.game-msg.show{display:block}
+.game-msg.err{color:var(--rd)}
+.qc-box{background:#fff;border:1px solid #E7E5E4;border-radius:var(--r);padding:12px 16px;margin-top:8px}
+.qc-q{font-size:.86rem;font-weight:800;color:var(--text);margin-bottom:8px}
+.qc-opts{display:flex;flex-direction:column;gap:5px}
+.qc-opt{background:var(--crm);border:2px solid transparent;border-radius:10px;padding:8px 12px;font-family:var(--fn);font-weight:700;font-size:.8rem;cursor:pointer;text-align:left;transition:all .2s}
+.qc-opt:hover{border-color:var(--or)}
+.qc-opt.correct{background:var(--gnl);border-color:var(--gn);color:var(--gn)}
+.qc-opt.wrong{background:var(--rdl);border-color:var(--rd);color:var(--rd)}
+.word-nav{display:flex;justify-content:space-between;align-items:center;padding:8px 0 0;flex-shrink:0}
+.wnav-btn{background:var(--or);color:#fff;border:none;font-family:var(--fn);font-weight:800;font-size:.8rem;padding:8px 18px;border-radius:20px;cursor:pointer;transition:background .2s}
+.wnav-btn:hover{background:var(--amb)}
+.wnav-btn:disabled{opacity:.3;cursor:not-allowed}
+.wnav-btn.sec{background:var(--crm);color:var(--amb);border:2px solid var(--or)}
+.wnav-btn.sec:hover{background:var(--or);color:#fff}
+.word-prog-text{font-size:.72rem;font-weight:800;color:var(--muted)}
+
+/* ── FREEZE GAME ── */
+.freeze-scene{text-align:center;padding:8px}
+.drink-emoji{font-size:3.5rem;transition:all .4s;display:inline-block}
+.freeze-btn{background:var(--crm);border:3px solid var(--or);border-radius:8px;padding:8px 20px;font-family:var(--fn);font-weight:900;font-size:1rem;cursor:pointer;margin-top:8px;transition:all .3s}
+.freeze-btn.cold{background:#BAE6FD;border-color:#0EA5E9;color:#0C4A6E}
+
+/* ── MELT GAME ── */
+.melt-wrap{text-align:center}
+.choc-bar{font-size:3rem;transition:all .5s;display:inline-block;filter:none}
+.choc-bar.melting{filter:blur(2px) opacity(.6);transform:scaleY(.5) scaleX(1.3)}
+.melt-msg{font-size:.8rem;font-weight:800;color:var(--gn);margin-top:8px;display:none}
+
+/* ── RECIPE ORDER GAME ── */
+.recipe-steps{display:flex;flex-direction:column;gap:6px}
+.recipe-step{background:var(--crm);border:2px solid var(--or);border-radius:10px;padding:9px 12px;font-size:.82rem;font-weight:800;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
+.recipe-step:hover:not(.done):not(.wrong-order){border-color:var(--amb)}
+.recipe-step.done{background:var(--gnl);border-color:var(--gn);cursor:default}
+.recipe-step.wrong-order{background:var(--rdl);border-color:var(--rd);animation:shake .3s}
+.step-num{background:var(--or);color:#fff;font-family:var(--fnh);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+
+/* ── INFO CARD ── */
+.info-card{background:var(--crm);border-radius:var(--r);padding:14px 18px;border-left:5px solid var(--or)}
+.info-card h3{font-family:var(--fnh);font-size:.92rem;letter-spacing:1px;color:var(--amb);margin-bottom:6px}
+.info-card p,.info-card li{font-size:.84rem;font-weight:600;color:var(--text);line-height:1.6}
+.info-card ul{padding-left:16px}
+.highlight{background:var(--ye);border-radius:12px;padding:12px 16px;color:var(--choc);font-weight:800;font-size:.88rem;line-height:1.5}
+.slide-title{font-family:var(--fnh);font-size:1.7rem;color:var(--amb);letter-spacing:1px}
+.reveal-btn{background:var(--or);color:#fff;border:none;font-family:var(--fn);font-weight:800;font-size:.78rem;padding:6px 14px;border-radius:20px;cursor:pointer}
+.reveal-btn:hover{background:var(--amb)}
+.answer-reveal{background:var(--crm);border-radius:8px;padding:8px 14px;font-size:.86rem;font-weight:700;color:var(--gn);display:none;border-left:4px solid var(--gn);margin-top:6px}
+
+/* ── READING STEPS ── */
+.step-card{background:#fff;border:2px solid var(--or);border-radius:var(--r);padding:16px 20px;margin-bottom:10px;display:none}
+.step-card.show{display:block;animation:fadeIn .4s}
+.step-card .step-hd{font-family:var(--fnh);font-size:.9rem;letter-spacing:1px;color:var(--or);margin-bottom:6px}
+.step-card p{font-size:.88rem;font-weight:700;color:var(--text);line-height:1.6}
+.next-step-btn{background:var(--or);color:#fff;border:none;font-family:var(--fn);font-weight:800;font-size:.82rem;padding:9px 22px;border-radius:20px;cursor:pointer;margin-top:8px}
+.next-step-btn:hover{background:var(--amb)}
+
+/* ── Q&A ── */
+.qa-item{background:var(--crm);border-radius:var(--r);overflow:hidden;margin-bottom:8px}
+.qa-q{padding:14px 20px;font-size:.9rem;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s;color:var(--choc)}
+.qa-q:hover{background:#FFEDD5}
+.qa-a{display:none;padding:12px 20px;font-size:.86rem;border-top:1px solid rgba(249,115,22,.3);color:var(--text);font-weight:700;line-height:1.6}
+.qa-a.open{display:block}
+
+/* ── CB ASSESS ── */
+.assess-item{background:var(--crm);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;border:2px solid transparent;transition:all .2s;margin-bottom:6px}
+.assess-item:hover{border-color:var(--or)}
+.assess-item.checked{background:var(--gnl);border-color:var(--gn)}
+.assess-check{width:22px;height:22px;border:2px solid var(--or);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;transition:all .2s}
+.assess-item.checked .assess-check{background:var(--gn);border-color:var(--gn);color:#fff}
+.assess-item p{font-size:.86rem;font-weight:700;color:var(--text)}
+
+/* ── CHART CONTAINER ── */
+.chart-wrap{background:#fff;border:2px solid var(--or);border-radius:var(--r);padding:12px;margin:8px 0}
+
+/* ── FILL INPUT ── */
+.fill-inp{border:none;border-bottom:2px solid var(--or);background:transparent;font-family:var(--fn);font-size:.88rem;font-weight:700;color:var(--text);outline:none;padding:2px 6px;width:140px;text-align:center;transition:border-color .2s}
+.fill-inp.ok{border-bottom-color:var(--gn);color:var(--gn)}
+.fill-inp.bad{border-bottom-color:var(--rd);animation:shake .3s}
+
+/* ── NAV ── */
+.nav-bar{width:100%;max-width:1400px;display:flex;align-items:center;justify-content:space-between;padding:10px 0 16px;gap:12px}
+.nav-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-family:var(--fn);font-weight:800;font-size:.85rem;padding:10px 22px;border-radius:12px;cursor:pointer;transition:all .2s}
+.nav-btn:hover:not(:disabled){background:var(--or);border-color:var(--or)}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed}
+.nav-btn-primary{background:var(--or);border-color:var(--or);color:#fff}
+.nav-btn-primary:hover{background:var(--amb) !important}
+.home-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#D6D3D1;font-size:.8rem;font-weight:700;padding:8px 14px;border-radius:10px;cursor:pointer;transition:all .2s;font-family:var(--fn)}
+.home-btn:hover{background:rgba(255,255,255,.15)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="unit-chip">🍪 UNIT 7 · BOOK READING</div>
+  <div class="prog-wrap"><div class="prog-fill" id="prog-fill"></div></div>
+  <div class="slide-counter" id="slide-counter">1 / 15</div>
+  <button class="icon-btn" onclick="toggleNotes()" title="Notes">📋</button>
+  <button class="icon-btn" onclick="toggleFS()" id="fs-btn">⛶</button>
+</div>
+
+<div class="slide-wrap">
+<div class="notes-panel" id="notes-panel"></div>
+
+<!-- ══ 1: TITLE ══ -->
+<div class="slide active" id="s1" data-notes="<strong>Say:</strong> 'Leo, today we read a nonfiction book about food inventions! Before we read, we will learn 11 new vocabulary words. Then we read together and find out how your favourite snacks were invented by accident!' 🍪🍦">
+  <div class="title-slide">
+    <div class="unit-lbl">UNIT 7 · LEVEL 4 · BOOK READING</div>
+    <div style="font-size:3.5rem">🍪🍦💥</div>
+    <h1>Sweet <span>Surprises!</span></h1>
+    <div class="sub">Accidental Food Inventions</div>
+    <div style="background:rgba(255,255,255,.15);color:var(--ye);font-family:var(--fnh);font-size:.85rem;letter-spacing:2px;padding:7px 22px;border-radius:20px;margin-top:4px">📖 11 Vocabulary Words · 3-Step Reading Routine</div>
+    <div style="margin-top:8px;font-size:.9rem;color:rgba(255,255,255,.7);font-weight:700">Reading Strategy: <strong style="color:var(--ye)">Cause and Effect ⚡➡️✅</strong></div>
+  </div>
+</div>
+
+<!-- ══ 2: VOCABULARY MODULE (11 words tabbed) ══ -->
+<div class="slide" id="s2" data-notes="<strong>VOCABULARY MODULE:</strong> Click each word tab. For each word: read the definition together, do the mini-game, then the quick check. Mark each word done before moving on. These 11 words all appear in the reader — knowing them will help Leo understand the stories.">
+  <div class="slide-header sh-or">📖 VOCABULARY — 11 Words from the Reader</div>
+  <div class="slide-body" style="padding-bottom:8px">
+
+    <div class="pp-bar-row">
+      <div class="pp-bar-wrap"><div class="pp-bar-fill" id="pp-bar" style="width:0%"></div></div>
+      <div class="pp-text" id="pp-text">0 / 11 words</div>
+    </div>
+
+    <div class="word-tabs-bar" id="word-tabs-bar">
+      <button class="word-tab active" onclick="showWord(0)">💥 accident</button>
+      <button class="word-tab" onclick="showWord(1)">🥨 crispy</button>
+      <button class="word-tab" onclick="showWord(2)">🔧 device</button>
+      <button class="word-tab" onclick="showWord(3)">🤔 expected</button>
+      <button class="word-tab" onclick="showWord(4)">🎡 fair</button>
+      <button class="word-tab" onclick="showWord(5)">❄️ frozen</button>
+      <button class="word-tab" onclick="showWord(6)">👥 guests</button>
+      <button class="word-tab" onclick="showWord(7)">🫠 melt</button>
+      <button class="word-tab" onclick="showWord(8)">💨 powder</button>
+      <button class="word-tab" onclick="showWord(9)">📋 recipe</button>
+      <button class="word-tab" onclick="showWord(10)">🍿 snacks</button>
+    </div>
+
+    <!-- ── WORD 0: accident ── -->
+    <div class="word-panel active" id="wp-0">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">💥</div><div><div class="word-title">accident</div><div class="word-pos">NOUN · COUNTABLE</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">Something that happens in a very surprising way — it was NOT planned!</div>
+            <div class="def-example">From the book: "The chocolate chip cookie was an accident! Ruth did not plan to invent it."</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — have you ever scored a goal by accident? Maybe the ball hit your knee? That is an accident! 💥⚽</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 WHICH FOOD WAS AN ACCIDENT?</h4>
+            <p style="font-size:.76rem;font-weight:700;color:var(--muted);margin-bottom:8px">Click the foods invented by ACCIDENT!</p>
+            <div class="game-area">
+              <button class="game-btn" onclick="clickAcc(this,true)">🍪 Chocolate chip cookie</button>
+              <button class="game-btn" onclick="clickAcc(this,false)">🍕 Pizza (planned!)</button>
+              <button class="game-btn" onclick="clickAcc(this,true)">🍦 Popsicle</button>
+              <button class="game-btn" onclick="clickAcc(this,false)">🍰 Birthday cake (planned!)</button>
+            </div>
+            <div class="game-msg" id="acc-msg">✅ Both the cookie AND popsicle were accidents — nobody planned them!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ An accident means something…</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w0')">You planned carefully</button>
+              <button class="qc-opt" onclick="qc(this,true,'w0')">That happened in a surprising way — NOT planned! 💥</button>
+              <button class="qc-opt" onclick="qc(this,false,'w0')">That was difficult to do</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" disabled>← First word</button><span class="word-prog-text">Word 1 of 11</span><button class="wnav-btn" onclick="nextWord(0)">Next: crispy →</button></div>
+    </div>
+
+    <!-- ── WORD 1: crispy ── -->
+    <div class="word-panel" id="wp-1">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">🥨</div><div><div class="word-title">crispy</div><div class="word-pos">ADJECTIVE</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">Firm but easily broken — makes a crunching sound when you eat it!</div>
+            <div class="def-example">From the book: "The chocolate chips were crispy and warm — not melted chocolate."</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — what is your favourite crispy food? Crisps? Crackers? Crispy chicken? 🥨</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 CRISPY ✅ OR SOFT ❌?</h4>
+            <div class="game-area">
+              <button class="game-btn" onclick="sortCrispy(this,true)">🍟 Chips</button>
+              <button class="game-btn" onclick="sortCrispy(this,false)">🍞 Fresh bread</button>
+              <button class="game-btn" onclick="sortCrispy(this,true)">🥨 Crackers</button>
+              <button class="game-btn" onclick="sortCrispy(this,false)">🍮 Pudding</button>
+              <button class="game-btn" onclick="sortCrispy(this,true)">🍪 Cookie chips</button>
+              <button class="game-btn" onclick="sortCrispy(this,false)">🧁 Soft cake</button>
+            </div>
+            <div class="game-msg" id="crispy-msg">✅ Crispy things make a CRUNCH! Soft things do not!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ "The chocolate chips were _______ — they made a crunch!"</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w1')">melted</button>
+              <button class="qc-opt" onclick="qc(this,false,'w1')">soft</button>
+              <button class="qc-opt" onclick="qc(this,true,'w1')">crispy 🥨</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(0)">← accident</button><span class="word-prog-text">Word 2 of 11</span><button class="wnav-btn" onclick="nextWord(1)">Next: device →</button></div>
+    </div>
+
+    <!-- ── WORD 2: device ── -->
+    <div class="word-panel" id="wp-2">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">🔧</div><div><div class="word-title">device</div><div class="word-pos">NOUN · COUNTABLE</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">A thing made to do a particular task — a tool or machine.</div>
+            <div class="def-example">From the book: "Frank used a stick as a device to stir his sweet drink."</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — name 3 devices in this room! A phone is a device. What else? 🔧 VAR is a device used in football!</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 MATCH DEVICE → TASK!</h4>
+            <div class="game-area" style="flex-direction:column;align-items:stretch">
+              <button class="game-btn" onclick="matchDevice(this,'mix')">🥄 Stick → used to <span id="dev1">?</span></button>
+              <button class="game-btn" onclick="matchDevice(this,'check')">📺 VAR camera → used to <span id="dev2">?</span></button>
+              <button class="game-btn" onclick="matchDevice(this,'light')">💡 Light bulb → used to <span id="dev3">?</span></button>
+            </div>
+            <div class="game-msg" id="device-msg">✅ Every device does a TASK — that is what makes it a device!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ A device is…</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w2')">A type of food</button>
+              <button class="qc-opt" onclick="qc(this,true,'w2')">A thing made to do a particular task 🔧</button>
+              <button class="qc-opt" onclick="qc(this,false,'w2')">A surprise accident</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(1)">← crispy</button><span class="word-prog-text">Word 3 of 11</span><button class="wnav-btn" onclick="nextWord(2)">Next: expected →</button></div>
+    </div>
+
+    <!-- ── WORD 3: expected ── -->
+    <div class="word-panel" id="wp-3">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">🤔</div><div><div class="word-title">expected</div><div class="word-pos">VERB (PAST)</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">Thought that something was likely to happen — you believed it would occur.</div>
+            <div class="def-example">From the book: "Ruth expected the chocolate to melt — but it did NOT melt!"</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — Liverpool expected to win the Premier League. Mohamed Salah scored 29 goals and they DID win! 🏆 Expected = what you THINK will happen.</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 DID LEO EXPECT THIS? TRUE or FALSE!</h4>
+            <div class="game-area" style="flex-direction:column;align-items:stretch">
+              <div style="font-size:.82rem;font-weight:800;color:var(--text);margin-bottom:8px">💭 "I expected PSG to beat Inter 5-0 in the Champions League final."</div>
+              <div style="display:flex;gap:8px">
+                <button class="game-btn" style="flex:1" onclick="expectGame(this,false)">✅ TRUE — I expected it</button>
+                <button class="game-btn" style="flex:1" onclick="expectGame(this,true)">😲 FALSE — I did NOT expect it!</button>
+              </div>
+            </div>
+            <div class="game-msg" id="expect-msg">✅ PSG winning 5-0 was NOT expected — most people expected a close match!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ "Ruth _______ the chocolate to melt, but it stayed crispy!"</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w3')">wanted</button>
+              <button class="qc-opt" onclick="qc(this,true,'w3')">expected 🤔</button>
+              <button class="qc-opt" onclick="qc(this,false,'w3')">invented</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(2)">← device</button><span class="word-prog-text">Word 4 of 11</span><button class="wnav-btn" onclick="nextWord(3)">Next: fair →</button></div>
+    </div>
+
+    <!-- ── WORD 4: fair ── -->
+    <div class="word-panel" id="wp-4">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">🎡</div><div><div class="word-title">fair</div><div class="word-pos">NOUN · COUNTABLE</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">An event, usually outside, with fun activities and things to buy — like a festival!</div>
+            <div class="def-example">From the book: "Frank Epperson sold popsicles at a fair — everyone loved them!"</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — a fair is like a street festival. Rides, food stalls, games! Have you ever been to a fair or market? 🎡</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 CLICK THINGS YOU FIND AT A FAIR!</h4>
+            <div class="game-area">
+              <button class="game-btn" onclick="fairGame(this,true)">🎡 Ferris wheel</button>
+              <button class="game-btn" onclick="fairGame(this,false)">🖥️ Office desk</button>
+              <button class="game-btn" onclick="fairGame(this,true)">🍦 Ice cream stall</button>
+              <button class="game-btn" onclick="fairGame(this,false)">🏥 Hospital bed</button>
+              <button class="game-btn" onclick="fairGame(this,true)">🎪 Games tent</button>
+              <button class="game-btn" onclick="fairGame(this,true)">🍿 Snack stalls</button>
+            </div>
+            <div class="game-msg" id="fair-msg">✅ Fairs have rides, food, and games — fun outside events!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ Frank sold popsicles at a _______ where everyone was having fun!</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w4')">hospital</button>
+              <button class="qc-opt" onclick="qc(this,false,'w4')">school</button>
+              <button class="qc-opt" onclick="qc(this,true,'w4')">fair 🎡</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(3)">← expected</button><span class="word-prog-text">Word 5 of 11</span><button class="wnav-btn" onclick="nextWord(4)">Next: frozen →</button></div>
+    </div>
+
+    <!-- ── WORD 5: frozen ── -->
+    <div class="word-panel" id="wp-5">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">❄️</div><div><div class="word-title">frozen</div><div class="word-pos">ADJECTIVE</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">Turned solid by very cold temperatures — changed from liquid to solid ice.</div>
+            <div class="def-example">From the book: "In the morning, Frank found his drink was frozen solid — the popsicle was born!"</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — in winter, sometimes a football pitch is frozen and the match is cancelled! A frozen pitch is dangerous. ❄️⚽</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 FREEZE THE DRINK! Click to change the temperature!</h4>
+            <div class="freeze-scene">
+              <div class="drink-emoji" id="freeze-drink">🥤</div><br/>
+              <div id="freeze-temp" style="font-size:.82rem;font-weight:800;color:var(--muted);margin:4px 0">Temperature: warm 🌡️</div>
+              <button class="freeze-btn" id="freeze-btn" onclick="freezeDrink()">❄️ Make it cold!</button>
+            </div>
+            <div class="game-msg" id="freeze-msg">✅ Frozen! The liquid turned solid — just like Frank Epperson popsicle! 🍦</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ "Frank left his drink outside. In the morning it was _______ solid."</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w5')">melted</button>
+              <button class="qc-opt" onclick="qc(this,true,'w5')">frozen ❄️</button>
+              <button class="qc-opt" onclick="qc(this,false,'w5')">crispy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(4)">← fair</button><span class="word-prog-text">Word 6 of 11</span><button class="wnav-btn" onclick="nextWord(5)">Next: guests →</button></div>
+    </div>
+
+    <!-- ── WORD 6: guests ── -->
+    <div class="word-panel" id="wp-6">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">👥</div><div><div class="word-title">guests</div><div class="word-pos">NOUN · PLURAL</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">People staying in a hotel or another person's home for a short time — visitors.</div>
+            <div class="def-example">From the book: "Ruth Wakefield had guests staying at her inn. She made cookies for them."</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — when we have guests at home, we make something special! Away fans are like guests at the stadium. 👥⚽</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 WHO IS A GUEST?</h4>
+            <p style="font-size:.76rem;font-weight:700;color:var(--muted);margin-bottom:8px">Click the GUESTS — people visiting, NOT people who live there!</p>
+            <div class="game-area">
+              <button class="game-btn" onclick="guestGame(this,false)">👨 Dad (lives here)</button>
+              <button class="game-btn" onclick="guestGame(this,true)">👴 Grandpa visiting for the weekend</button>
+              <button class="game-btn" onclick="guestGame(this,false)">🦁 Leo (lives here)</button>
+              <button class="game-btn" onclick="guestGame(this,true)">👫 Friends staying over</button>
+            </div>
+            <div class="game-msg" id="guest-msg">✅ Guests are people who VISIT — they do not live there all the time!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ Ruth made cookies for her _______ at the inn.</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w6')">family</button>
+              <button class="qc-opt" onclick="qc(this,true,'w6')">guests 👥</button>
+              <button class="qc-opt" onclick="qc(this,false,'w6')">students</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(5)">← frozen</button><span class="word-prog-text">Word 7 of 11</span><button class="wnav-btn" onclick="nextWord(6)">Next: melt →</button></div>
+    </div>
+
+    <!-- ── WORD 7: melt ── -->
+    <div class="word-panel" id="wp-7">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">🫠</div><div><div class="word-title">melt</div><div class="word-pos">VERB</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">To change from a solid to a liquid because of heat — it goes soft and runny!</div>
+            <div class="def-example">From the book: "Ruth expected the chocolate to melt in the oven — but it stayed crispy!"</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — when Salah runs at defenders, they melt away! He goes so fast! 🫠⚽ Chocolate melts in your mouth too!</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 MELT THE CHOCOLATE! Click the oven!</h4>
+            <div class="melt-wrap">
+              <div style="text-align:center;padding:8px">
+                <div class="choc-bar" id="choc-bar">🍫</div>
+                <div id="melt-temp" style="font-size:.82rem;font-weight:800;color:var(--muted);margin:6px 0">Put it in the oven to melt! 🔥</div>
+                <button class="game-btn" id="melt-btn" onclick="meltChoc()">🔥 Heat up!</button>
+              </div>
+              <div class="melt-msg" id="melt-msg">🫠 It melted! Solid chocolate → liquid chocolate! But Ruth chocolate did NOT melt — that is why she made an accident!</div>
+            </div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ Ruth expected the chocolate to _______ in the oven — but it did NOT!</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w7')">freeze</button>
+              <button class="qc-opt" onclick="qc(this,true,'w7')">melt 🫠</button>
+              <button class="qc-opt" onclick="qc(this,false,'w7')">grow</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(6)">← guests</button><span class="word-prog-text">Word 8 of 11</span><button class="wnav-btn" onclick="nextWord(7)">Next: powder →</button></div>
+    </div>
+
+    <!-- ── WORD 8: powder ── -->
+    <div class="word-panel" id="wp-8">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">💨</div><div><div class="word-title">powder</div><div class="word-pos">NOUN · UNCOUNTABLE</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">A dry dust made of very small pieces — like flour, cocoa powder, or sugar.</div>
+            <div class="def-example">From the book: "Frank used a sweet powder to make his drink — the powder dissolved in the water."</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Cocoa powder makes hot chocolate! Flour is a powder. When a footballer slides on a dry pitch, white powder dust flies up! 💨⚽</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 FIND THE POWDERS! Click the powder ingredients!</h4>
+            <div class="game-area">
+              <button class="game-btn" onclick="powderGame(this,true)">☕ Cocoa powder</button>
+              <button class="game-btn" onclick="powderGame(this,false)">🥚 Eggs</button>
+              <button class="game-btn" onclick="powderGame(this,true)">🌾 Flour</button>
+              <button class="game-btn" onclick="powderGame(this,false)">🧈 Butter</button>
+              <button class="game-btn" onclick="powderGame(this,true)">🍬 Sugar</button>
+              <button class="game-btn" onclick="powderGame(this,false)">🍫 Chocolate bar</button>
+            </div>
+            <div class="game-msg" id="powder-msg">✅ Powders are dry and made of tiny pieces — cocoa, flour, sugar are all powders!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ Which is an example of a powder?</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w8')">Milk 🥛</button>
+              <button class="qc-opt" onclick="qc(this,true,'w8')">Cocoa powder ☕ 💨</button>
+              <button class="qc-opt" onclick="qc(this,false,'w8')">A chocolate bar 🍫</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(7)">← melt</button><span class="word-prog-text">Word 9 of 11</span><button class="wnav-btn" onclick="nextWord(8)">Next: recipe →</button></div>
+    </div>
+
+    <!-- ── WORD 9: recipe ── -->
+    <div class="word-panel" id="wp-9">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">📋</div><div><div class="word-title">recipe</div><div class="word-pos">NOUN · COUNTABLE</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">A set of instructions for making a food dish — it tells you the ingredients and steps.</div>
+            <div class="def-example">From the book: "Ruth was following a recipe when she invented the chocolate chip cookie by accident."</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>A recipe is like a training plan — step 1, step 2, step 3! Liverpool recipe for winning: Salah goals + great team = Champions! 📋⚽</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 PUT THE RECIPE IN ORDER! Click steps 1→2→3!</h4>
+            <div class="recipe-steps" id="recipe-steps">
+              <div class="recipe-step" data-order="2" onclick="clickRecipe(this)"><div class="step-num">?</div>Put the dough in the oven 🔥</div>
+              <div class="recipe-step" data-order="3" onclick="clickRecipe(this)"><div class="step-num">?</div>Take out the cookies and eat! 🍪</div>
+              <div class="recipe-step" data-order="1" onclick="clickRecipe(this)"><div class="step-num">?</div>Mix flour, sugar, butter and eggs 🥣</div>
+            </div>
+            <div class="game-msg" id="recipe-msg">✅ Mix → Bake → Eat! That is the recipe! Ruth followed a recipe but made an accident!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ A recipe tells you…</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w9')">The history of food</button>
+              <button class="qc-opt" onclick="qc(this,true,'w9')">Ingredients and steps to make a dish 📋</button>
+              <button class="qc-opt" onclick="qc(this,false,'w9')">How to buy food</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(8)">← powder</button><span class="word-prog-text">Word 10 of 11</span><button class="wnav-btn" onclick="nextWord(9)">Next: snacks →</button></div>
+    </div>
+
+    <!-- ── WORD 10: snacks ── -->
+    <div class="word-panel" id="wp-10">
+      <div class="word-panel-inner">
+        <div>
+          <div class="word-header"><div class="word-big-emoji">🍿</div><div><div class="word-title">snacks</div><div class="word-pos">NOUN · PLURAL</div></div></div>
+          <div class="def-box">
+            <div class="def-label">DEFINITION</div>
+            <div class="def-text">Small amounts of food eaten between meals — quick things to eat!</div>
+            <div class="def-example">From the book: "Popsicles and cookies are popular snacks all around the world."</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — we eat snacks at half-time! Crisps, fruit, drinks. Snacks are NOT full meals — they are small and quick! 🍿⚽</div></div>
+        </div>
+        <div>
+          <div class="mini-game">
+            <h4>🎮 SNACK or FULL MEAL?</h4>
+            <div class="game-area">
+              <button class="game-btn" onclick="snackGame(this,true)">🍦 Popsicle</button>
+              <button class="game-btn" onclick="snackGame(this,false)">🍝 Spaghetti bolognese</button>
+              <button class="game-btn" onclick="snackGame(this,true)">🍪 Cookie</button>
+              <button class="game-btn" onclick="snackGame(this,false)">🍗 Roast chicken dinner</button>
+              <button class="game-btn" onclick="snackGame(this,true)">🍿 Popcorn</button>
+              <button class="game-btn" onclick="snackGame(this,true)">🥨 Crackers</button>
+            </div>
+            <div class="game-msg" id="snack-msg">✅ Snacks are small and quick — not full meals! Both the cookie and popsicle became famous snacks!</div>
+          </div>
+          <div class="qc-box">
+            <div class="qc-q">❓ "Popsicles and cookies are popular _______ around the world."</div>
+            <div class="qc-opts">
+              <button class="qc-opt" onclick="qc(this,false,'w10')">meals</button>
+              <button class="qc-opt" onclick="qc(this,true,'w10')">snacks 🍿</button>
+              <button class="qc-opt" onclick="qc(this,false,'w10')">devices</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="word-nav"><button class="wnav-btn sec" onclick="showWord(9)">← recipe</button><span class="word-prog-text">Word 11 of 11 ✅</span><button class="wnav-btn" onclick="changeSlide(1)" style="background:#16A34A;border-color:#16A34A">All done! Before Reading →</button></div>
+    </div>
+
+  </div><!-- end slide-body -->
+</div><!-- end s2 -->
+
+<!-- ══ 3: BEFORE READING HEADER ══ -->
+<div class="slide" id="s3" data-notes="<strong>Step 1 — Before Reading:</strong> Tell Leo to open his reader to the beginning. Ask him to scan quickly — look at the title, cover photo, and any pictures he can see. Do NOT read yet. This builds curiosity and activates prior knowledge.">
+  <div class="section-slide sec-before">
+    <div class="sec-emoji">🔍</div>
+    <h2>Step 1: Before Reading</h2>
+    <p>Scan · Predict · Activate</p>
+    <div style="font-size:1.4rem;margin-top:8px">🍪 🍦 💥 ❓</div>
+  </div>
+</div>
+
+<!-- ══ 4: BEFORE READING — SCAN & PREDICT ══ -->
+<div class="slide" id="s4" data-notes="<strong>Say:</strong> 'Open your book. Look at the cover — what do you see? Read the title together: Sweet Surprises — Accidental Food Inventions. Ask: What do you think this book is about? What do you know about accidental inventions? What is your favourite snack?' Write Leo answers on paper. Play audio TR: 7.X and have Leo read along.">
+  <div class="slide-header sh-bl">🔍 STEP 1 — Before Reading: Scan &amp; Predict</div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="slide-title">Before You Read 🧠</div>
+        <div class="info-card">
+          <h3>SCAN THE BOOK COVER — What do you see?</h3>
+          <ul>
+            <li>🍪 Title: <strong>Sweet Surprises: Accidental Food Inventions</strong></li>
+            <li>📸 Cover photo: food? kitchen? people?</li>
+            <li>💡 Key word: <strong>Accidental</strong> — what does it mean?</li>
+          </ul>
+        </div>
+        <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — look at the cover. What do you think this book is about? What food inventions do you already know?</div></div>
+        <div class="dialogue leo"><div class="avi avi-leo">🦁</div><div class="bubble bubble-leo"><div class="bubble-label">LEO 💬</div><em>Leo looks, scans, and makes predictions…</em></div></div>
+        <div class="highlight">🎧 Play audio track. Leo reads along in his book while listening.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="info-card">
+          <h3>WHAT DO YOU KNOW? 💭</h3>
+          <p>Before reading — what do you already know about:</p>
+          <ul>
+            <li>🍪 How was the chocolate chip cookie invented?</li>
+            <li>🍦 Who invented the popsicle?</li>
+            <li>💥 Can you name any invention that was an accident?</li>
+          </ul>
+        </div>
+        <div class="info-card" style="border-left-color:var(--gn)">
+          <h3>⚽ CONNECT TO SOCCER</h3>
+          <p>Sometimes the best goals are <strong>accidents</strong>! A ball deflects off a defender and goes in the net. Mohamed Salah scored 29 goals in 2024/25 — some were planned, some were lucky accidents!</p>
+        </div>
+        <div class="info-card" style="border-left-color:var(--choc)">
+          <h3>📖 READING STRATEGY TODAY</h3>
+          <p>Look for <strong style="color:var(--amb)">CAUSE ⚡</strong> and <strong style="color:var(--gn)">EFFECT ✅</strong> while you read.<br/>WHY did something happen? WHAT happened as a result?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 5: READING STRATEGY — CAUSE AND EFFECT ══ -->
+<div class="slide" id="s5" data-notes="<strong>Teach Cause and Effect:</strong> Say: 'Before we read, we need to understand our reading strategy. Look at the two boxes. CAUSE = WHY something happened. EFFECT = WHAT happened as a result.' Use the chalk drop example: drop something and say the cause and effect. Then use the football examples — Leo knows these players! Make sure Leo can explain C&amp;E in his own words before clicking reveal.">
+  <div class="slide-header sh-or">⚡ Reading Strategy — Cause and Effect</div>
+  <div class="slide-body">
+    <div class="slide-title">Cause and Effect ⚡ ➡️ ✅</div>
+    <div class="two-col" style="margin-bottom:10px">
+      <div style="background:#FEE2E2;border:3px solid #DC2626;border-radius:14px;padding:20px 24px;text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:8px">⚡</div>
+        <div style="font-family:var(--fnh);font-size:1.3rem;color:#DC2626;letter-spacing:1px;margin-bottom:8px">CAUSE</div>
+        <div style="font-size:.9rem;font-weight:800;color:var(--text)">WHY did it happen?<br/>The reason. The first thing.</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--muted);margin-top:8px;font-style:italic">Signal words:<br/><strong style="color:#DC2626">because · since · as</strong></div>
+      </div>
+      <div style="background:#DCFCE7;border:3px solid #16A34A;border-radius:14px;padding:20px 24px;text-align:center">
+        <div style="font-size:2.5rem;margin-bottom:8px">✅</div>
+        <div style="font-family:var(--fnh);font-size:1.3rem;color:#16A34A;letter-spacing:1px;margin-bottom:8px">EFFECT</div>
+        <div style="font-size:.9rem;font-weight:800;color:var(--text)">WHAT happened?<br/>The result. What changed.</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--muted);margin-top:8px;font-style:italic">Signal words:<br/><strong style="color:#16A34A">so · therefore · as a result</strong></div>
+      </div>
+    </div>
+    <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — I drop this pen on the floor. CAUSE: I let go of the pen. EFFECT: the pen fell! Now YOU tell me the cause and effect of THIS: Dad forgot his keys at home.</div></div>
+    <div class="dialogue leo" style="margin-bottom:6px"><div class="avi avi-leo">🦁</div><div class="bubble bubble-leo"><div class="bubble-label">LEO 💬</div><em>Leo answers: CAUSE = Dad forgot his keys. EFFECT = ?</em></div></div>
+    <div id="ce-soccer-ex" class="chart-wrap" style="margin-top:4px"></div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="next-step-btn" onclick="buildStrategySoccer()">⚽ Show Football Examples!</button>
+      <button class="wnav-btn" onclick="changeSlide(1)" style="background:var(--choc)">Now Read! →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 5: DURING READING HEADER ══ -->
+<div class="slide" id="s6" data-notes="<strong>Step 2 — During Reading:</strong> Leo now reads the book independently. Stop after each story to check comprehension. Use the Wh- questions: Who? What? Where? When? Provide the cause and effect chart as a graphic organizer to help him keep track. Play audio a second time for target vocabulary and grammar.">
+  <div class="section-slide sec-during">
+    <div class="sec-emoji">📖</div>
+    <h2>Step 2: During Reading</h2>
+    <p>Read · Ask Questions · Find Cause &amp; Effect</p>
+    <div style="font-size:1.4rem;margin-top:8px">⚡ ➡️ ✅</div>
+  </div>
+</div>
+
+<!-- ══ 6: STORY 1 — RUTH WAKEFIELD ══ -->
+<div class="slide" id="s7" data-notes="<strong>Story 1 — Ruth Wakefield:</strong> Read each step aloud together. After step 2, PAUSE and ask: 'What do you think happened when she put the chocolate in the oven?' Let Leo guess before revealing step 3. Key vocab to point out: recipe, guests, expected, melt, accident, crispy.">
+  <div class="slide-header sh-choc">🍪 Story 1 — Ruth Wakefield and the Chocolate Chip Cookie</div>
+  <div class="slide-body">
+    <div class="dialogue" style="margin-bottom:8px"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — read together! I read one sentence, you read the next. Look for the CAUSE and EFFECT as we go!</div></div>
+    <div class="two-col" style="flex:1">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="step-card show">
+          <div class="step-hd">🏨 Setting the scene…</div>
+          <p>Ruth Wakefield had a small hotel. She had many <strong>guests</strong>. She made cookies for them every day — she followed a <strong>recipe</strong>.</p>
+        </div>
+        <div class="step-card" id="r1s2">
+          <div class="step-hd">🍫 The accident begins…</div>
+          <p>One day, she put pieces of a chocolate bar into her cookie dough. She <strong>expected</strong> the chocolate to <strong>melt</strong> in the oven and become a chocolate cookie.</p>
+        </div>
+        <div class="step-card" id="r1s3">
+          <div class="step-hd">💥 The SURPRISE!</div>
+          <p>But the chocolate did NOT melt! It stayed as small, <strong>crispy</strong> chips. It was an <strong>accident</strong>! She did not plan this at all.</p>
+        </div>
+        <div class="step-card" id="r1s4">
+          <div class="step-hd">🍪 The result!</div>
+          <p>The guests loved the cookies! The chocolate chip cookie was born. Today it is one of the most popular <strong>snacks</strong> in the world!</p>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:4px">
+          <button class="next-step-btn" id="r1-btn" onclick="storyStep('r1',4,'r1-btn','r1-next')">▶ Next</button>
+          <button class="wnav-btn" id="r1-next" onclick="changeSlide(1)" style="display:none;background:#16A34A">Cause &amp; Effect Chart →</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="info-card">
+          <h3>❓ WH- QUESTIONS — Check Understanding</h3>
+          <ul>
+            <li><strong>Who</strong> is this story about?</li>
+            <li><strong>What</strong> did Ruth put in the cookie dough?</li>
+            <li><strong>What</strong> did she expect to happen?</li>
+            <li><strong>What</strong> actually happened?</li>
+            <li><strong>When</strong> was the chocolate chip cookie invented?</li>
+          </ul>
+        </div>
+        <div class="info-card" style="border-left-color:var(--gn)">
+          <h3>🔍 FIND THE VOCABULARY!</h3>
+          <p>As you read, find these words in the text:</p>
+          <p>guests · recipe · expected · melt · crispy · accident · snacks</p>
+        </div>
+        <div class="highlight">💡 <strong>Key idea:</strong> Ruth was following a recipe when she had her accident. She expected one thing — she got something better!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 7: C&E — COOKIE ══ -->
+<div class="slide" id="s8" data-notes="Ask Leo to explain the cause and effect IN HIS OWN WORDS before the chart appears. Then reveal. This is the graphic organizer from Step 2 of the reading routine. The chart uses charts.js buildTwoColChart.">
+  <div class="slide-header sh-choc">⚡ Cause &amp; Effect — Story 1: The Cookie 🍪</div>
+  <div class="slide-body" style="justify-content:center">
+    <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — explain this in your own words! What was the CAUSE? What was the EFFECT? Then we check!</div></div>
+    <div id="ce-cookie" class="chart-wrap"></div>
+    <div class="highlight" style="margin-top:8px">⚽ Football C&amp;E: <strong>CAUSE:</strong> Haaland got an ankle injury. <strong>EFFECT:</strong> Salah scored 29 goals and won the Golden Boot — for the 4th time! 🏆</div>
+    <button class="wnav-btn" onclick="changeSlide(1)" style="background:var(--choc);margin-top:12px;width:fit-content">Story 2 →</button>
+  </div>
+</div>
+
+<!-- ══ 8: STORY 2 — FRANK EPPERSON ══ -->
+<div class="slide" id="s9" data-notes="<strong>Story 2 — Frank Epperson:</strong> Frank was only 11 years old! Tell Leo: 'He was almost your age!' This makes the story very relatable. After step 2 — PAUSE. Ask: 'What do you think happened to his drink?' Let Leo guess. Key vocab: device, powder, frozen, fair, snacks, accident.">
+  <div class="slide-header sh-bl">🍦 Story 2 — Frank Epperson and the Popsicle</div>
+  <div class="slide-body">
+    <div class="dialogue" style="margin-bottom:8px"><div class="avi avi-leo">🦁</div><div class="bubble bubble-leo"><div class="bubble-label">LEO 💬</div>Frank was 11 years old — almost my age! He invented one of the most popular snacks in the world!</div></div>
+    <div class="two-col" style="flex:1">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="step-card show">
+          <div class="step-hd">👦 Young Frank — 1905</div>
+          <p>Frank Epperson was 11 years old. He mixed water and <strong>powder</strong> to make a sweet drink. He put a stick in it as a <strong>device</strong> to stir it.</p>
+        </div>
+        <div class="step-card" id="r2s2">
+          <div class="step-hd">❄️ The cold night…</div>
+          <p>He left his drink outside by accident on a very cold night. The temperature dropped very low. He forgot about it and went to sleep.</p>
+        </div>
+        <div class="step-card" id="r2s3">
+          <div class="step-hd">💥 The morning surprise!</div>
+          <p>In the morning, his drink was <strong>frozen</strong> solid! The stick was still inside. He pulled it out, licked it — and it was delicious! A complete <strong>accident</strong>!</p>
+        </div>
+        <div class="step-card" id="r2s4">
+          <div class="step-hd">🎡 A famous snack is born!</div>
+          <p>Frank called it a "popsicle." He sold them at a <strong>fair</strong>. Everyone loved them! Popsicles are now one of the most popular <strong>snacks</strong> in the world!</p>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:4px">
+          <button class="next-step-btn" id="r2-btn" onclick="storyStep('r2',4,'r2-btn','r2-next')">▶ Next</button>
+          <button class="wnav-btn" id="r2-next" onclick="changeSlide(1)" style="display:none;background:#1D4ED8">Cause &amp; Effect Chart →</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="info-card">
+          <h3>❓ WH- QUESTIONS</h3>
+          <ul>
+            <li><strong>Who</strong> invented the popsicle?</li>
+            <li><strong>How old</strong> was he?</li>
+            <li><strong>What</strong> did he leave outside?</li>
+            <li><strong>What</strong> happened overnight?</li>
+            <li><strong>Where</strong> did he sell popsicles?</li>
+          </ul>
+        </div>
+        <div class="info-card" style="border-left-color:#0EA5E9">
+          <h3>🔍 FIND THE VOCABULARY!</h3>
+          <p>powder · device · frozen · fair · snacks · accident</p>
+        </div>
+        <div class="highlight" style="background:var(--ice);color:#0C4A6E">🎧 Play audio a second time. Leo listens for: the words <strong>frozen, device, powder, fair</strong> and the grammar: <strong>used to</strong>.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 9: C&E — POPSICLE ══ -->
+<div class="slide" id="s10" data-notes="Leo explains this one HIMSELF — without looking at his book. Then the chart reveals. Compare to Story 1: both were accidents, both used simple ingredients, both became world-famous snacks.">
+  <div class="slide-header sh-bl">⚡ Cause &amp; Effect — Story 2: The Popsicle 🍦</div>
+  <div class="slide-body" style="justify-content:center">
+    <div class="dialogue"><div class="avi avi-leo">🦁</div><div class="bubble bubble-leo"><div class="bubble-label">LEO 💬</div>I can explain this! Cause: Frank left his drink in the cold. Effect: it froze and the popsicle was invented!</div></div>
+    <div id="ce-popsicle" class="chart-wrap"></div>
+    <div class="highlight" style="background:var(--ice);color:#0C4A6E;margin-top:8px">⚽ Both stories + soccer: <em>Frank left his drink in the cold → popsicle born! PSG pressed Inter in the UCL final → 5-0 win! Every great result has a cause!</em></div>
+    <button class="wnav-btn" onclick="changeSlide(1)" style="background:#1D4ED8;margin-top:12px;width:fit-content">After Reading →</button>
+  </div>
+</div>
+
+<!-- ══ 10: AFTER READING HEADER ══ -->
+<div class="slide" id="s11" data-notes="<strong>Step 3 — After Reading:</strong> Now Leo applies the reading strategies: summarizing, comparing and contrasting, drawing conclusions. He works with the information from both stories.">
+  <div class="section-slide sec-after">
+    <div class="sec-emoji">✅</div>
+    <h2>Step 3: After Reading</h2>
+    <p>Summarise · Compare · Apply · Conclude</p>
+    <div style="font-size:1.4rem;margin-top:8px">📊 🔍 💡</div>
+  </div>
+</div>
+
+<!-- ══ 11: COMPLETE THE CHART ══ -->
+<div class="slide" id="s12" data-notes="Leo fills this chart from memory FIRST — then check. Use keyword matching — doesn't need exact sentences. The chart is a graphic organizer from the reading routine. Uses buildFillTable from charts.js.">
+  <div class="slide-header sh-gn">📊 After Reading — Complete the Graphic Organizer</div>
+  <div class="slide-body" style="justify-content:center">
+    <div class="dialogue"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo — complete this chart from memory! No looking at the book first. Then we check together.</div></div>
+    <div id="after-chart" class="chart-wrap"></div>
+    <button class="wnav-btn" onclick="changeSlide(1)" style="background:#16A34A;margin-top:10px;width:fit-content">Comprehension Questions →</button>
+  </div>
+</div>
+
+<!-- ══ 12: COMPREHENSION Q&A ══ -->
+<div class="slide" id="s13" data-notes="Ask Leo each question verbally FIRST. Let him answer before clicking to reveal. If he cannot answer, ask: 'What does the book say about this?' Guide him back to the text — do not give the answer directly.">
+  <div class="slide-header sh-gn">❓ Comprehension Questions — After Reading</div>
+  <div class="slide-body">
+    <div class="dialogue" style="margin-bottom:4px"><div class="avi avi-dad">👨</div><div class="bubble bubble-dad"><div class="bubble-label">DAD 💬</div>Leo answers first — then we check! No looking at the book yet.</div></div>
+    <div class="qa-item"><div class="qa-q" onclick="toggleQA(this)">Q1: Who invented the chocolate chip cookie? What was she doing? <span>▼</span></div><div class="qa-a">Ruth Wakefield invented the chocolate chip cookie. She was following a recipe and making cookies for the guests at her hotel.</div></div>
+    <div class="qa-item"><div class="qa-q" onclick="toggleQA(this)">Q2: What did Ruth expect to happen? What actually happened? <span>▼</span></div><div class="qa-a">She expected the chocolate to melt and make a chocolate cookie. But the chocolate did NOT melt — it stayed crispy! It was an accident.</div></div>
+    <div class="qa-item"><div class="qa-q" onclick="toggleQA(this)">Q3: How old was Frank Epperson when he invented the popsicle? <span>▼</span></div><div class="qa-a">Frank was 11 years old. It was the year 1905. He used a stick to stir a sweet powder drink and left it outside in the cold by accident.</div></div>
+    <div class="qa-item"><div class="qa-q" onclick="toggleQA(this)">Q4: What is one thing the two inventions have in common? <span>▼</span></div><div class="qa-a">Both were invented by accident — nobody planned them! Both used simple, everyday ingredients. Both became extremely popular snacks around the world.</div></div>
+    <div class="qa-item"><div class="qa-q" onclick="toggleQA(this)">Q5: What is the main idea of this book? <span>▼</span></div><div class="qa-a">The main idea is that some of the best and most popular food inventions in the world happened by accident — not by careful planning!</div></div>
+    <button class="wnav-btn" onclick="changeSlide(1)" style="background:#16A34A;margin-top:10px;width:fit-content">Compare &amp; Contrast →</button>
+  </div>
+</div>
+
+<!-- ══ 13: COMPARE & CONTRAST + GRAMMAR ══ -->
+<div class="slide" id="s14" data-notes="Step 3 — Apply strategies: Compare and contrast both stories. Then find 'used to' in the text together. Ask Leo to make his own 'used to' sentences. Soccer example: 'People used to eat only plain cookies. Now everyone eats chocolate chip cookies!'">
+  <div class="slide-header sh-amb">🔍 Compare &amp; Contrast + Grammar in Context</div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="slide-title" style="font-size:1.3rem">Compare the Two Inventions</div>
+        <div class="info-card">
+          <h3>🍪 CHOCOLATE CHIP COOKIE vs 🍦 POPSICLE</h3>
+          <ul>
+            <li><strong>Same:</strong> Both were accidents. Both used simple ingredients. Both became popular snacks.</li>
+            <li><strong>Different:</strong> Cookie → heat (oven). Popsicle → cold (outside).</li>
+            <li><strong>Different:</strong> Ruth was an adult. Frank was 11 years old!</li>
+            <li><strong>Different:</strong> Cookie was at a hotel. Popsicle was sold at a fair.</li>
+          </ul>
+        </div>
+        <div class="highlight">💡 <strong>Conclusion:</strong> You do not need to plan to be a great inventor! Sometimes accidents create the best things.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="slide-title" style="font-size:1.3rem">Grammar in Context — <em>used to</em></div>
+        <div class="info-card" style="border-left-color:var(--bl)">
+          <h3>FIND "USED TO" IN THE TEXT</h3>
+          <p>"People <strong>used to</strong> eat plain cookies. Now they eat chocolate chip cookies!"</p>
+          <p>"People <strong>used to</strong> not have popsicles. Now they are everywhere!"</p>
+        </div>
+        <div class="info-card" style="border-left-color:var(--gn)">
+          <h3>LEO'S TURN — Make your own sentence!</h3>
+          <p>Use <strong>used to + verb</strong> to talk about the past:</p>
+          <p>⚽ "Footballers <strong>used to</strong> play without VAR. Now VAR checks every goal!"</p>
+          <p>💡 "I <strong>used to</strong> not know about accidental inventions. Now I know two!"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 14: FORMATIVE ASSESSMENT ══ -->
+<div class="slide" id="s15" data-notes="<strong>Formative Assessment:</strong> Go through each item — ask Leo the question out loud before he ticks it. This assesses all three steps of the reading routine: vocabulary, comprehension, and strategy application. If Leo cannot tick something — go back and review.">
+  <div class="slide-header sh-or">✅ Formative Assessment — Now I Can…</div>
+  <div class="slide-body">
+    <div class="two-col" style="flex:1">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div class="slide-title" style="font-size:1.3rem">Can Leo do this? 🦁</div>
+        <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>💥 Use all 11 vocabulary words correctly.</p></div>
+        <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>⚡➡️✅ Explain what cause and effect means.</p></div>
+        <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>🍪 Retell the chocolate chip cookie story.</p></div>
+        <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>🍦 Retell the popsicle story.</p></div>
+        <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>🔍 Compare the two inventions.</p></div>
+        <div class="assess-item" onclick="toggleAssess(this)"><div class="assess-check">✓</div><p>🔤 Use "used to" for past habits.</p></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="info-card">
+          <h3>⚡ QUICK CAUSE &amp; EFFECT QUIZ</h3>
+          <ul>
+            <li>CAUSE: Ruth put chocolate in cookie dough → EFFECT: <button class="reveal-btn" onclick="showAns('a1',this)">Show</button> <span class="answer-reveal" id="a1">🍪 Chocolate chip cookie was invented!</span></li>
+            <li style="margin-top:8px">CAUSE: Frank left his drink in the cold → EFFECT: <button class="reveal-btn" onclick="showAns('a2',this)">Show</button> <span class="answer-reveal" id="a2">🍦 It froze — the popsicle was born!</span></li>
+          </ul>
+        </div>
+        <div class="info-card" style="border-left-color:var(--gn)">
+          <h3>💡 FINAL QUESTION — Open Ended</h3>
+          <p>If YOU accidentally invented a food — what would it be? Tell Dad! Use: <strong>accident · device · recipe · snack</strong></p>
+        </div>
+        <div class="highlight">⚽ <strong>Reading strategy used today:</strong> Cause and Effect — the same skill needed to understand why Salah won the Golden Boot and Liverpool won the title! 🏆</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 15: CLOSING ══ -->
+<div class="slide" id="s16" data-notes="<strong>Say:</strong> 'Leo — amazing work! You read a full nonfiction book AND learned 11 new vocabulary words! You used cause and effect to understand two accidental inventions. Now you know the story behind your favourite snacks!'">
+  <div class="title-slide" style="background:linear-gradient(135deg,#431407,#92400E,#16A34A)">
+    <div style="font-size:3.5rem">🍪🍦🏆</div>
+    <h1>Amazing Work, <span>Leo!</span></h1>
+    <div class="sub">You read Sweet Surprises and understood every part!</div>
+    <div style="display:flex;flex-direction:column;gap:8px;max-width:700px;margin-top:12px">
+      <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px 20px;font-size:.88rem;font-weight:700;color:#fff">✅ You learned 11 new vocabulary words from the reader</div>
+      <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px 20px;font-size:.88rem;font-weight:700;color:#fff">✅ You used the Three-Step Reading Routine</div>
+      <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px 20px;font-size:.88rem;font-weight:700;color:#fff">✅ You identified cause and effect in two real stories</div>
+      <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:10px 20px;font-size:.88rem;font-weight:700;color:#fff">✅ You used "used to" for past habits</div>
+    </div>
+    <div style="margin-top:16px;font-size:.9rem;color:rgba(255,255,255,.7);font-weight:700">Next: Leo does the Book Reading App homework! 📱</div>
+  </div>
+</div>
+
+</div><!-- end slide-wrap -->
+
+<!-- NAV BAR -->
+<div class="nav-bar">
+  <button class="nav-btn" id="prev-btn" onclick="changeSlide(-1)" disabled>← Previous</button>
+  <button class="home-btn" onclick="goHome()">🏠 Home</button>
+  <button class="nav-btn nav-btn-primary" id="next-btn" onclick="changeSlide(1)">Next →</button>
+</div>
+
+<script>
+const TOTAL = 16;
+let current = 1;
+let notesOpen = false;
+const notes = {};
+document.querySelectorAll('.slide').forEach(function(s) {
+  notes[parseInt(s.id.replace('s',''))] = s.dataset.notes || '';
+});
+
+function updateUI() {
+  document.querySelectorAll('.slide').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById('s'+current).classList.add('active');
+  document.getElementById('slide-counter').textContent = current + ' / ' + TOTAL;
+  document.getElementById('prog-fill').style.width = (current/TOTAL*100) + '%';
+  document.getElementById('prev-btn').disabled = current === 1;
+  document.getElementById('next-btn').disabled = current === TOTAL;
+  document.getElementById('next-btn').textContent = current === TOTAL ? 'End ✅' : 'Next →';
+  if (notesOpen) document.getElementById('notes-panel').innerHTML = notes[current] || '<em>No notes.</em>';
+  if (current === 8 && !document.getElementById('ce-cookie').dataset.built) buildCharts();
+  if (current === 10 && !document.getElementById('ce-popsicle').dataset.built) buildCharts();
+  if (current === 12 && !document.getElementById('after-chart').dataset.built) buildCharts();
+}
+
+function changeSlide(d) {
+  var n = current + d;
+  if (n >= 1 && n <= TOTAL) { current = n; updateUI(); window.scrollTo(0,0); }
+}
+function goHome() { window.location.href = '../../../../../index.html'; }
+function toggleNotes() {
+  notesOpen = !notesOpen;
+  var p = document.getElementById('notes-panel');
+  p.classList.toggle('open', notesOpen);
+  if (notesOpen) p.innerHTML = notes[current] || '<em>No notes.</em>';
+}
+function toggleFS() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    document.getElementById('fs-btn').textContent = 'x';
+  } else {
+    document.exitFullscreen();
+    document.getElementById('fs-btn').textContent = '\u26F6';
+  }
+}
+document.addEventListener('fullscreenchange', function() {
+  if (!document.fullscreenElement) document.getElementById('fs-btn').textContent = '\u26F6';
+});
+document.addEventListener('keydown', function(e) {
+  if (current !== 2) {
+    if (e.key==='ArrowRight'||e.key==='ArrowDown') changeSlide(1);
+    if (e.key==='ArrowLeft'||e.key==='ArrowUp') changeSlide(-1);
+  }
+});
+
+// VOCAB TABS
+var wordDone = new Array(11).fill(false);
+function showWord(idx) {
+  document.querySelectorAll('.word-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('wp-'+idx).classList.add('active');
+  document.querySelectorAll('.word-tab').forEach(function(t, i) {
+    t.classList.remove('active');
+    if (wordDone[i]) t.classList.add('done'); else t.classList.remove('done');
+  });
+  document.querySelectorAll('.word-tab')[idx].classList.add('active');
+}
+function nextWord(idx) {
+  wordDone[idx] = true;
+  var done = wordDone.filter(Boolean).length;
+  document.getElementById('pp-bar').style.width = (done/11*100) + '%';
+  document.getElementById('pp-text').textContent = done + ' / 11 words';
+  document.querySelectorAll('.word-tab').forEach(function(t, i) { if (wordDone[i]) t.classList.add('done'); });
+  if (idx < 10) showWord(idx + 1);
+}
+
+// QUICK CHECK
+function qc(btn, correct, wordId) {
+  var box = btn.closest('.qc-opts');
+  box.querySelectorAll('.qc-opt').forEach(function(b) { b.disabled = true; });
+  btn.classList.add(correct ? 'correct' : 'wrong');
+}
+
+// ── MINI GAMES ──
+var accCount = 0;
+function clickAcc(btn, isAcc) {
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.classList.add(isAcc ? 'correct' : 'wrong');
+  if (isAcc) { accCount++; if (accCount >= 2) document.getElementById('acc-msg').classList.add('show'); }
+}
+var crispyCount = 0;
+function sortCrispy(btn, isCrispy) {
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.classList.add(isCrispy ? 'correct' : 'wrong');
+  crispyCount++;
+  if (crispyCount >= 4) document.getElementById('crispy-msg').classList.add('show');
+}
+var devCount = 0;
+var devAns = ['mix your drink', 'check if a goal is correct', 'give light'];
+function matchDevice(btn, task) {
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.classList.add('correct');
+  var spans = btn.querySelectorAll('span');
+  if (spans.length) spans[0].textContent = devAns[devCount];
+  devCount++;
+  if (devCount >= 3) document.getElementById('device-msg').classList.add('show');
+}
+function expectGame(btn, isNotExpected) {
+  document.querySelectorAll('#wp-3 .game-btn').forEach(function(b) { b.disabled = true; });
+  btn.classList.add(isNotExpected ? 'correct' : 'wrong');
+  document.getElementById('expect-msg').classList.add('show');
+}
+var fairCount = 0;
+function fairGame(btn, atFair) {
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.classList.add(atFair ? 'correct' : 'wrong');
+  if (atFair) { fairCount++; if (fairCount >= 4) document.getElementById('fair-msg').classList.add('show'); }
+}
+var freezeStep = 0;
+var freezeStates = [
+  { emoji: '\uD83E\uDD64', temp: 'Getting cold... \u2744', btn: '\u2744\uFE0F Colder!', class: '' },
+  { emoji: '\uD83E\uDDCA', temp: 'Almost frozen! \u2744\uFE0F', btn: '\u2744\uFE0F Freeze it!', class: 'cold' },
+  { emoji: '\uD83E\uDDCA\u2744\uFE0F', temp: 'FROZEN SOLID! \uD83C\uDF66', btn: '\u2705 Frozen!', class: 'cold' }
+];
+function freezeDrink() {
+  if (freezeStep >= 2) return;
+  freezeStep++;
+  var state = freezeStates[freezeStep];
+  document.getElementById('freeze-drink').textContent = state.emoji;
+  document.getElementById('freeze-temp').textContent = state.temp;
+  var btn = document.getElementById('freeze-btn');
+  btn.textContent = state.btn;
+  if (state.class) btn.classList.add(state.class);
+  if (freezeStep >= 2) {
+    btn.disabled = true;
+    document.getElementById('freeze-msg').classList.add('show');
+  }
+}
+var guestCount = 0;
+function guestGame(btn, isGuest) {
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.classList.add(isGuest ? 'correct' : 'wrong');
+  if (isGuest) { guestCount++; if (guestCount >= 2) document.getElementById('guest-msg').classList.add('show'); }
+}
+var meltStep = 0;
+function meltChoc() {
+  if (meltStep >= 2) return;
+  meltStep++;
+  var bar = document.getElementById('choc-bar');
+  var msg = document.getElementById('melt-msg');
+  var btn = document.getElementById('melt-btn');
+  if (meltStep === 1) {
+    bar.textContent = '\uD83C\uDF6B';
+    bar.style.filter = 'blur(1px) opacity(.8)';
+    btn.textContent = '\uD83D\uDD25 Hotter!';
+    document.getElementById('melt-temp').textContent = 'Getting runny... \uD83E\uDEE0';
+  } else {
+    bar.textContent = '\uD83E\uDEE0';
+    bar.style.filter = 'blur(3px) opacity(.5)';
+    bar.style.transform = 'scaleY(.4) scaleX(1.4)';
+    btn.disabled = true;
+    btn.textContent = '\uD83E\uDEE0 Melted!';
+    document.getElementById('melt-temp').textContent = 'MELTED — liquid chocolate! \uD83E\uDEE0';
+    msg.style.display = 'block';
+  }
+}
+var powderCount = 0;
+function powderGame(btn, isPowder) {
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.classList.add(isPowder ? 'correct' : 'wrong');
+  if (isPowder) { powderCount++; if (powderCount >= 3) document.getElementById('powder-msg').classList.add('show'); }
+}
+var recipeOrder = 1;
+function clickRecipe(el) {
+  if (el.classList.contains('done') || el.classList.contains('wrong-order')) return;
+  var order = parseInt(el.dataset.order);
+  if (order === recipeOrder) {
+    el.classList.add('done');
+    el.querySelector('.step-num').textContent = recipeOrder;
+    recipeOrder++;
+    if (recipeOrder > 3) document.getElementById('recipe-msg').classList.add('show');
+  } else {
+    el.classList.add('wrong-order');
+    setTimeout(function() { el.classList.remove('wrong-order'); }, 600);
+  }
+}
+var snackCount = 0;
+function snackGame(btn, isSnack) {
+  if (btn.disabled) return;
+  btn.disabled = true;
+  btn.classList.add(isSnack ? 'correct' : 'wrong');
+  if (isSnack) { snackCount++; if (snackCount >= 4) document.getElementById('snack-msg').classList.add('show'); }
+}
+
+// C&E STRATEGY CHART
+var strategyBuilt = false;
+function buildStrategySoccer() {
+  if (strategyBuilt) return;
+  if (!window.LEEA_CHARTS) { setTimeout(buildStrategySoccer, 200); return; }
+  var el = document.getElementById('ce-soccer-ex');
+  if (!el) return;
+  el.innerHTML = window.LEEA_CHARTS.buildTwoColChart({
+    id: 'soccer-strategy',
+    colA: { label: '⚡ CAUSE — Why?', color: '#DC2626' },
+    colB: { label: '✅ EFFECT — What happened?', color: '#16A34A' },
+    rows: [
+      { a: 'Salah scored 29 goals + 18 assists in the 2024/25 season.', b: 'Liverpool won the Premier League title! 🏆' },
+      { a: 'Haaland had an ankle injury mid-season.', b: 'Salah won the Golden Boot — for the 4th time! ⚽' },
+      { a: 'PSG pressed hard and scored 5 goals in the UCL final.', b: 'PSG beat Inter Milan 5-0 — UCL Champions! 🏆' }
+    ],
+    revealMode: true
+  });
+  strategyBuilt = true;
+}
+
+// STORY STEPS
+var r1Step = 0, r2Step = 0;
+var r1Els = ['r1s2','r1s3','r1s4'];
+var r2Els = ['r2s2','r2s3','r2s4'];
+function storyStep(prefix, total, btnId, nextId) {
+  if (prefix === 'r1') {
+    if (r1Step < r1Els.length) {
+      document.getElementById(r1Els[r1Step]).classList.add('show');
+      r1Step++;
+    }
+    if (r1Step >= r1Els.length) {
+      document.getElementById(btnId).style.display = 'none';
+      document.getElementById(nextId).style.display = 'inline-flex';
+    }
+  } else {
+    if (r2Step < r2Els.length) {
+      document.getElementById(r2Els[r2Step]).classList.add('show');
+      r2Step++;
+    }
+    if (r2Step >= r2Els.length) {
+      document.getElementById(btnId).style.display = 'none';
+      document.getElementById(nextId).style.display = 'inline-flex';
+    }
+  }
+}
+
+// Q&A
+function toggleQA(hd) {
+  var a = hd.nextElementSibling;
+  a.classList.toggle('open');
+  var sp = hd.querySelector('span');
+  if (sp) sp.textContent = a.classList.contains('open') ? '\u25B2' : '\u25BC';
+}
+
+// ASSESS
+function toggleAssess(item) { item.classList.toggle('checked'); }
+
+// REVEAL ANSWERS
+function showAns(id, btn) {
+  document.getElementById(id).style.display = 'block';
+  btn.style.display = 'none';
+}
+
+// CHARTS
+function buildCharts() {
+  if (!window.LEEA_CHARTS) { setTimeout(buildCharts, 200); return; }
+  var cook = document.getElementById('ce-cookie');
+  if (cook && !cook.dataset.built) {
+    cook.innerHTML = window.LEEA_CHARTS.buildTwoColChart({
+      id: 'cookie-ce', colA: { label: '\u26A1 CAUSE (Why?)', color: '#DC2626' }, colB: { label: '\u2705 EFFECT (What happened?)', color: '#16A34A' },
+      rows: [
+        { a: 'Ruth put chocolate bar pieces into her cookie dough.', b: 'The chocolate stayed CRISPY — it did not melt!' },
+        { a: 'The crispy chips tasted delicious! Guests loved them.', b: '\uD83C\uDF6A The chocolate chip cookie was born — now a world-famous snack!' }
+      ], revealMode: true
+    });
+    cook.dataset.built = '1';
+  }
+  var pop = document.getElementById('ce-popsicle');
+  if (pop && !pop.dataset.built) {
+    pop.innerHTML = window.LEEA_CHARTS.buildTwoColChart({
+      id: 'popsicle-ce', colA: { label: '\u26A1 CAUSE (Why?)', color: '#DC2626' }, colB: { label: '\u2705 EFFECT (What happened?)', color: '#16A34A' },
+      rows: [
+        { a: 'Frank left his sweet powder drink outside on a cold night.', b: 'The drink froze SOLID with the stick inside! \u2744\uFE0F' },
+        { a: 'Frank tasted the frozen drink — it was delicious!', b: '\uD83C\uDF66 The popsicle was invented — now sold at every fair!' }
+      ], revealMode: true
+    });
+    pop.dataset.built = '1';
+  }
+  var aft = document.getElementById('after-chart');
+  if (aft && !aft.dataset.built) {
+    aft.innerHTML = window.LEEA_CHARTS.buildFillTable({
+      id: 'after-tbl',
+      columns: ['Inventor \uD83D\uDC64', 'Cause \u26A1 (Why?)', 'Effect \u2705 (What happened?)'],
+      rows: [
+        { fixed: 'Ruth Wakefield \uD83C\uDF6A', inputs: [{ id: 'r1c', answer: ['chocolate','bar','pieces','dough'] }, { id: 'r1e', answer: ['melt','crispy','chip','cookie'] }] },
+        { fixed: 'Frank Epperson \uD83C\uDF66', inputs: [{ id: 'r2c', answer: ['cold','night','drink','stick','outside','powder'] }, { id: 'r2e', answer: ['freeze','frozen','popsicle','solid'] }] }
+      ],
+      checkLabel: 'Check \u2705',
+      showAnswersLabel: 'Show Answers \uD83D\uDD0D'
+    });
+    aft.dataset.built = '1';
+  }
+}
+
+updateUI();
+setTimeout(buildCharts, 300);
+</script>
+</body>
+</html>
