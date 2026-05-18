@@ -1,11 +1,11 @@
 (function () {
   const lessons = [
     { id: 'opener', label: 'Unit Opener', file: 'opener.html' },
-    { id: 'vocab1', label: 'Vocabulary 1', file: 'vocab1.html' },
+    { id: 'vocab1', label: 'Vocabulary 1', file: 'vocab-1.html' },
     { id: 'song', label: 'Song', file: 'song.html' },
-    { id: 'grammar1', label: 'Grammar 1', file: 'grammar1.html' },
-    { id: 'vocab2', label: 'Vocabulary 2', file: 'vocab2.html' },
-    { id: 'grammar2', label: 'Grammar 2', file: 'grammar2.html' },
+    { id: 'grammar1', label: 'Grammar 1', file: 'grammar-1.html' },
+    { id: 'vocab2', label: 'Vocabulary 2', file: 'vocab-2.html' },
+    { id: 'grammar2', label: 'Grammar 2', file: 'grammar-2.html' },
     { id: 'reading', label: 'Reading', file: 'reading.html' },
     { id: 'writing', label: 'Writing', file: 'writing.html' },
     { id: 'values', label: 'Values', file: 'values.html' },
