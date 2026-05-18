@@ -16,9 +16,6 @@
     { "source": "/grammar", "destination": "/grammar.html" },
     { "source": "/junior-high", "destination": "/junior-high.html" },
     { "source": "/jh-vocab", "destination": "/jh-vocab.html" },
-    { "source": "/jh-grammar", "destination": "/jh-grammar.html" },
-    { "source": "/neritan", "destination": "/neritan.html" },
-    { "source": "/leo", "destination": "/leo.html" },
-    { "source": "/reference", "destination": "/reference.html" }
+    { "source": "/jh-grammar", "destination": "/jh-grammar.html" }
   ]
 }
