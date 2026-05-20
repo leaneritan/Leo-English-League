@@ -321,6 +321,61 @@
     /* grammar section inside accordion */
     .acc-grammar { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
 
+    /* ── glossary subsection inside accordion (collapsible) ── */
+    .acc-glossary {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .glossary-toggle {
+      width: 100%;
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.12s ease;
+      font-family: inherit;
+      text-align: left;
+    }
+    .glossary-toggle:hover { background: var(--yellow-bg); border-color: var(--ink); }
+    .glossary-toggle .gloss-ico { font-size: 14px; line-height: 1; }
+    .glossary-toggle .gloss-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink);
+    }
+    .glossary-toggle .gloss-count {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-4);
+      margin-left: auto;
+    }
+    .glossary-toggle .gloss-chevron {
+      width: 12px; height: 12px;
+      color: var(--ink-4);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .acc-glossary.open .glossary-toggle { background: var(--yellow-bg); border-color: var(--ink); }
+    .acc-glossary.open .gloss-chevron { transform: rotate(180deg); color: var(--ink); }
+    .glossary-body {
+      display: none;
+      padding: 14px 0 4px;
+    }
+    .acc-glossary.open .glossary-body { display: block; }
+
+    /* glossary subgroup labels */
+    .set-label.glossary-academic .dot { background: #0EA5E9; }
+    .set-label.glossary-related  .dot { background: #737373; }
+    .set-label.glossary-content  .dot { background: #B8860B; }
+    .set-label.glossary-extras   .dot { background: #FDE68A; border: 1px solid #B8860B; }
+
+    /* glossary tile variants — left-accent only, keeping look unified with V1/V2 tiles */
+    .vocab-tile.glossary-academic { border-left: 3px solid #0EA5E9; }
+    .vocab-tile.glossary-related  { border-left: 3px solid #737373; }
+    .vocab-tile.glossary-content  { border-left: 3px solid #B8860B; }
+    .vocab-tile.glossary-extras   { border-left: 3px solid #FDE68A; }
+
     /* tab panels */
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
@@ -785,7 +840,7 @@
         <span class="acc-num">Unit 8</span><span class="acc-sep">·</span>
         <span class="acc-title">That's Really Interesting!</span>
         <span class="acc-rule"></span>
-        <span class="acc-count">19 words · 2 grammar</span>
+        <span class="acc-count">19 vocab · 34 glossary · 2 grammar</span>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="acc-body">
@@ -827,6 +882,63 @@
               <div class="gram-name">Direct and indirect objects</div>
               <div class="gram-ex">My dad gave me this fossil.</div>
             </a>
+          </div>
+        </div>
+        <div class="acc-glossary" id="unit-8-glossary">
+          <button class="glossary-toggle" onclick="this.parentElement.classList.toggle('open')">
+            <span class="gloss-ico">📚</span>
+            <span class="gloss-label">Glossary</span>
+            <span class="gloss-count">34 words</span>
+            <svg class="gloss-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="glossary-body">
+
+            <div class="set-label glossary-academic"><span class="dot"></span>Academic Language · 14</div>
+            <div class="vocab-grid">
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=analyze"><div class="emoji">🔍🧠</div><div class="word">analyze</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=describe"><div class="emoji">🔬👀</div><div class="word">describe</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=explain"><div class="emoji">💡🗣️</div><div class="word">explain</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=caption"><div class="emoji">📝🖼️</div><div class="word">caption</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=accuracy"><div class="emoji">🎯✓</div><div class="word">accuracy</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=clause"><div class="emoji">🧩📝</div><div class="word">clause</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=contraction"><div class="emoji">✂️🔡</div><div class="word">contraction</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=direct-object"><div class="emoji">🎯🔗</div><div class="word">direct object</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=indirect-object"><div class="emoji">📦↪️</div><div class="word">indirect object</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=sequence"><div class="emoji">🔢➡️</div><div class="word">sequence</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=definition"><div class="emoji">📖📝</div><div class="word">definition</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=description"><div class="emoji">📋👁️</div><div class="word">description</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=details"><div class="emoji">🔍✨</div><div class="word">details</div></a>
+          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=biography"><div class="emoji">📚👤</div><div class="word">biography</div></a>
+            </div>
+
+            <div class="set-label glossary-content"><span class="dot"></span>Content Vocabulary · 15</div>
+            <div class="vocab-grid">
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=trilobite"><div class="emoji">🪨🦂</div><div class="word">trilobite</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=outdoor"><div class="emoji">🌳☀️</div><div class="word">outdoor</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=hider"><div class="emoji">🙈🌳</div><div class="word">hider</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=seeker"><div class="emoji">🔍🚶</div><div class="word">seeker</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=treasure"><div class="emoji">💎💰</div><div class="word">treasure</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=app"><div class="emoji">📱💚</div><div class="word">app</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=clue"><div class="emoji">🔎🗒️</div><div class="word">clue</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=compass"><div class="emoji">🧭</div><div class="word">compass</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=ornament"><div class="emoji">🎄✨</div><div class="word">ornament</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=sinking"><div class="emoji">🚢⬇️</div><div class="word">sinking</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=origami"><div class="emoji">🦢📄</div><div class="word">origami</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=folding"><div class="emoji">📄🔁</div><div class="word">folding</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=design"><div class="emoji">🎨✏️</div><div class="word">design</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=dragon"><div class="emoji">🐉</div><div class="word">dragon</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=crane"><div class="emoji">🦢</div><div class="word">crane</div></a>
+            </div>
+
+            <div class="set-label glossary-related"><span class="dot"></span>Related Vocabulary · 5</div>
+            <div class="vocab-grid">
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=hobby"><div class="emoji">🎨🎯</div><div class="word">hobby</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=photographer"><div class="emoji">📷👤</div><div class="word">photographer</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=hiker"><div class="emoji">🚶🏔️</div><div class="word">hiker</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=polar-bear"><div class="emoji">🐻‍❄️</div><div class="word">polar bear</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=musical-instrument"><div class="emoji">🎸🎺</div><div class="word">musical instrument</div></a>
+            </div>
+
           </div>
         </div>
       </div>

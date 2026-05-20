@@ -65,6 +65,7 @@
     .tag.related  { background: var(--related-bg); color: var(--related); border-color: var(--related); }
     .tag.content  { background: var(--content-bg); color: var(--content-ink); border-color: var(--content-ink); }
     .tag.extras   { background: var(--extras-bg); color: var(--yellow-ink); border-color: var(--yellow-ink); }
+    .tag.vocab    { background: var(--yellow); color: var(--ink); border-color: var(--ink); }
     .tag.origin   { background: var(--academic-bg); color: var(--academic-ink); border-color: var(--academic); }
     .unit-tag { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); }
 
@@ -285,7 +286,8 @@
       academic: "Academic Language",
       related:  "Related Vocabulary",
       content:  "Content Vocabulary",
-      extras:   "Additional Vocabulary"
+      extras:   "Additional Vocabulary",
+      vocab:    "Vocabulary"
     };
 
     // ════════════════════════════════════════════════════════════════
@@ -294,9 +296,15 @@
 
     function getParams() {
       const p = new URLSearchParams(window.location.search);
+      // Accept BOTH ?word= (glossary convention) and ?id= (existing V1/V2 convention)
+      const word = (p.get('word') || p.get('id') || '').trim();
+      const unitRaw = p.get('unit');
+      const setRaw = p.get('set');
       return {
         level: parseInt(p.get('level'), 10) || null,
-        word: (p.get('word') || '').trim()
+        word: word,
+        unit: unitRaw ? parseInt(unitRaw, 10) : null,
+        set: setRaw ? parseInt(setRaw, 10) : null
       };
     }
 
@@ -328,7 +336,7 @@
       }
     }
 
-    async function findEntry(level, wordId) {
+    async function findEntry(level, wordId, unitHint, setHint) {
       // 1. Try level-wide glossary.json
       const glossary = await loadJson(`content/our-world/level-${level}/glossary.json`);
       if (glossary && Array.isArray(glossary.words)) {
@@ -341,9 +349,29 @@
         const hit = extras.words.find(w => w.id === wordId);
         if (hit) return { entry: hit, source: 'extras' };
       }
-      // 3. Future: per-unit vocab-1.json / vocab-2.json
-      //    Would need a unit hint via ?unit=N&source=v1 to know which files to fetch.
-      //    Defer this until the Handbook tiles pass that hint along.
+      // 3. Per-unit V1/V2 fallback (existing tile URL pattern: ?unit=N&set=N&id=ID)
+      //    Per-unit JSONs predate the glossary architecture and may use either
+      //    {words: [...]} or {items: [...]} or a top-level array. We try all.
+      if (unitHint && setHint) {
+        const unitPath = `content/our-world/level-${level}/unit-${unitHint}/vocab-${setHint}.json`;
+        const unitData = await loadJson(unitPath);
+        if (unitData) {
+          const list = Array.isArray(unitData) ? unitData
+                     : Array.isArray(unitData.words) ? unitData.words
+                     : Array.isArray(unitData.items) ? unitData.items
+                     : [];
+          const hit = list.find(w => w.id === wordId);
+          if (hit) {
+            // Synthesize a unit-specific origin tag so the breadcrumb works.
+            // The category 'vocab' renders with the bright-yellow V1/V2 styling.
+            const synthTag = `L${level}U${unitHint}V${setHint}`;
+            return {
+              entry: { ...hit, category: hit.category || 'vocab', tags: hit.tags || [synthTag] },
+              source: `unit-${unitHint}/vocab-${setHint}`
+            };
+          }
+        }
+      }
       return null;
     }
 
@@ -866,18 +894,18 @@
     // ════════════════════════════════════════════════════════════════
 
     async function init() {
-      const { level, word } = getParams();
+      const { level, word, unit, set } = getParams();
 
       if (!word) {
-        renderError('No word specified', 'Please add ?level=N&word=WORDID to the URL.');
+        renderError('No word specified', 'Please add ?level=N&id=WORDID to the URL (or ?level=N&word=WORDID).');
         return;
       }
       if (!level) {
-        renderError('No level specified', 'Please add ?level=N to the URL (e.g. ?level=4&word=describe).');
+        renderError('No level specified', 'Please add ?level=N to the URL (e.g. ?level=4&id=describe).');
         return;
       }
 
-      const result = await findEntry(level, word);
+      const result = await findEntry(level, word, unit, set);
       if (!result) {
         renderNotFound(word, level);
         return;
