@@ -815,6 +815,7 @@ header {
   color: var(--ink-4);
   margin-bottom: 12px;
 }
+.hw-group + .hw-group { margin-top: 18px; }
 .hw-card {
   display: flex;
   align-items: center;
@@ -831,6 +832,7 @@ header {
 }
 .hw-card:hover { border-color: var(--ow-blue); background: #EEF5FF; }
 .hw-card.hw-done { border-color: var(--nc-green); background: #F0FDF4; }
+.hw-card.hw-review-ready { border-color: var(--yellow); background: var(--yellow-bg); }
 .hw-lesson { font-weight: 800; font-size: 0.92rem; color: var(--ink); }
 .hw-unit { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
 .hw-card-right { text-align: right; flex-shrink: 0; }
@@ -928,6 +930,11 @@ header {
 }
 .hw-review-btn:hover {
   background: #1E40AF;
+}
+@media (max-width: 720px) {
+  .hw-card { align-items:flex-start; flex-direction:column; }
+  .hw-card-right { text-align:left; width:100%; }
+  .hw-card-actions { justify-content:flex-start; }
 }
 
 /* ── ASSIGN HOMEWORK BUTTON ON LESSON CHIPS ── */
@@ -1667,7 +1674,9 @@ header {
       return;
     }
     container.style.display = 'block';
-    const list = hw.map(h => {
+    const pending = hw.filter(h => !isHomeworkDone(h.id));
+    const doneList = hw.filter(h => isHomeworkDone(h.id));
+    const renderLeoCard = h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
@@ -1686,10 +1695,20 @@ header {
             </div>
           </div>
         </div>`;
-    }).join('');
+    };
+    const pendingList = pending.map(renderLeoCard).join('');
+    const completedList = doneList.map(renderLeoCard).join('');
     container.innerHTML = `
-      <div class="hw-section-title">📚 HOMEWORK</div>
-      ${list}`;
+      ${pending.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">HOMEWORK TO DO</div>
+          ${pendingList}
+        </div>` : ''}
+      ${doneList.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">DONE WORK</div>
+          ${completedList}
+        </div>` : ''}`;
   }
 
   function renderNeritanHomework() {
@@ -1701,11 +1720,13 @@ header {
     const completed = getCompletedHomework();
     container.style.display = hw.length ? 'block' : 'none';
     completedContainer.style.display = completed.length ? 'block' : 'none';
-    const activeList = hw.map(h => {
+    const assigned = hw.filter(h => !isHomeworkDone(h.id));
+    const readyForReview = hw.filter(h => isHomeworkDone(h.id));
+    const renderActiveCard = h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
-        <div class="hw-card ${done ? 'hw-done' : ''}">
+        <div class="hw-card ${done ? 'hw-review-ready' : ''}">
           <div class="hw-card-left">
             <div class="hw-lesson">${h.lesson}</div>
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
@@ -1728,7 +1749,9 @@ header {
             </div>
           </div>
         </div>`;
-    }).join('');
+    };
+    const assignedList = assigned.map(renderActiveCard).join('');
+    const reviewList = readyForReview.map(renderActiveCard).join('');
     const completedList = completed.map(h => {
       return `
         <div class="hw-card hw-done">
@@ -1752,9 +1775,18 @@ header {
         </div>`;
     }).join('');
     container.innerHTML = `
-      ${hw.length ? '<div class="hw-section-title">📋 ASSIGNED HOMEWORK</div>' + activeList : ''}`;
+      ${assigned.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">ASSIGNED HOMEWORK</div>
+          ${assignedList}
+        </div>` : ''}
+      ${readyForReview.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">READY FOR REVIEW</div>
+          ${reviewList}
+        </div>` : ''}`;
     completedContainer.innerHTML = `
-      ${completed.length ? '<div class="hw-section-title">✅ COMPLETED WORK</div>' + completedList : ''}`;
+      ${completed.length ? '<div class="hw-section-title">COMPLETED WORK</div>' + completedList : ''}`;
   }
 
 
