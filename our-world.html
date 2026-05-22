@@ -1087,6 +1087,8 @@
         </a>
       </div>
 
+      <div class="no-results" id="grammarNoResults">No grammar matches found</div>
+
     </div><!-- /panel-grammar -->
 
     <!-- ── LEVELS PANEL ── -->
@@ -1143,8 +1145,11 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById('panel-' + key).classList.add('active');
-      // search box only makes sense on vocab tab
-      document.querySelector('.search-box').style.display = key === 'vocab' ? '' : 'none';
+      document.querySelector('.search-box').style.display = key === 'levels' ? 'none' : '';
+      searchInput.placeholder = key === 'grammar'
+        ? "Search grammar — 'should', 'comparatives', 'who'..."
+        : "Search a word or a grammar point — 'pumpkin', 'comparatives', 'should'...";
+      doSearch(searchInput.value);
     });
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -1161,10 +1166,44 @@
     const searchInput = document.getElementById('searchInput');
     const clearBtn    = document.getElementById('clearSearch');
     const noResults   = document.getElementById('noResults');
+    const grammarNoResults = document.getElementById('grammarNoResults');
+
+    function activeTabKey() {
+      const tab = document.querySelector('#tabsBar .tab.active');
+      return tab ? tab.dataset.tab : 'vocab';
+    }
+
+    function searchGrammar(q) {
+      let totalVisible = 0;
+      const grammarPanel = document.getElementById('panel-grammar');
+      grammarPanel.querySelectorAll('.unit-divider').forEach(divider => {
+        const list = divider.nextElementSibling;
+        if (!list || !list.classList.contains('grammar-list')) return;
+        const unitText = divider.textContent.toLowerCase();
+        let unitVisible = 0;
+        list.querySelectorAll('.gram-row').forEach(row => {
+          const rowText = (unitText + ' ' + row.textContent).toLowerCase();
+          const show = !q || rowText.includes(q);
+          row.style.display = show ? '' : 'none';
+          if (show) unitVisible++;
+        });
+        divider.style.display = (!q || unitVisible) ? '' : 'none';
+        list.style.display = (!q || unitVisible) ? '' : 'none';
+        totalVisible += unitVisible;
+      });
+      if (grammarNoResults) grammarNoResults.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+    }
 
     function doSearch(raw) {
       const q = raw.toLowerCase().trim();
       clearBtn.style.display = q ? 'inline-block' : 'none';
+      if (grammarNoResults) grammarNoResults.style.display = 'none';
+      noResults.style.display = 'none';
+
+      if (activeTabKey() === 'grammar') {
+        searchGrammar(q);
+        return;
+      }
 
       const accordions = document.querySelectorAll('.unit-accordion');
       let totalVisible = 0;
