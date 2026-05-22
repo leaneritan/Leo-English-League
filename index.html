@@ -69,6 +69,50 @@ header {
   letter-spacing: 1px;
   color: #fff;
 }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-home,
+.role-chip {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.header-home {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.62);
+  padding: 6px 8px;
+}
+.header-home:hover { color: #fff; }
+.role-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255,255,255,0.26);
+  border-radius: 2px;
+  padding: 3px;
+}
+.role-chip {
+  background: transparent;
+  border: 0;
+  color: rgba(255,255,255,0.68);
+  padding: 5px 9px;
+}
+.role-chip:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+.role-chip.active {
+  background: var(--yellow);
+  color: var(--ink);
+}
 
 /* SCREENS */
 .screen { display:none; flex:1; flex-direction:column; }
@@ -991,6 +1035,14 @@ header {
   color:#fff;
 }
 @media (max-width: 720px) {
+  header { padding:0 16px; }
+  .brand-name { display:none; }
+  .header-actions { gap:6px; }
+  .header-home,
+  .role-chip {
+    font-size:0.58rem;
+    padding:5px 7px;
+  }
   .app-rail { display:none; }
   .quick-card { align-items:flex-start; flex-direction:column; }
   .quick-action { width:100%; text-align:center; }
@@ -1003,6 +1055,13 @@ header {
   <div class="brand">
     <div class="brand-badge">LEEA</div>
     <div class="brand-name">LEO'S ELITE ENGLISH ACADEMY</div>
+  </div>
+  <div class="header-actions" aria-label="Global navigation">
+    <button class="header-home" type="button" onclick="showPerson()">HOME</button>
+    <div class="role-switcher" aria-label="Role switcher">
+      <button class="role-chip" data-role="neritan" type="button" onclick="setPreferredRole('neritan', true)">NERITAN</button>
+      <button class="role-chip" data-role="leo" type="button" onclick="setPreferredRole('leo', true)">LEO</button>
+    </div>
   </div>
 </header>
 
@@ -1723,10 +1782,45 @@ header {
   const HASH_SCREENS = Object.fromEntries(
     Object.entries(SCREEN_HASHES).map(([screen, hash]) => [hash, screen])
   );
+  const ROLE_SCREENS = {
+    neritan: 'screen-neritan',
+    leo: 'screen-leo'
+  };
+
+  function roleFromScreen(id) {
+    if (id && id.startsWith('screen-neritan')) return 'neritan';
+    if (id && id.startsWith('screen-leo')) return 'leo';
+    return null;
+  }
+
+  function getPreferredRole() {
+    const role = lLoad('preferred-role', null);
+    return ROLE_SCREENS[role] ? role : null;
+  }
+
+  function updateRoleSwitcher(role = getPreferredRole()) {
+    document.querySelectorAll('.role-chip').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.role === role);
+    });
+  }
+
+  function setPreferredRole(role, navigate = false) {
+    if (!ROLE_SCREENS[role]) return;
+    lSave('preferred-role', role);
+    updateRoleSwitcher(role);
+    if (navigate) goTo(ROLE_SCREENS[role]);
+  }
 
   function screenFromHash() {
     const hash = window.location.hash.replace(/^#/, '');
     return HASH_SCREENS[hash] || 'screen-person';
+  }
+
+  function initialScreenFromState() {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash && HASH_SCREENS[hash]) return HASH_SCREENS[hash];
+    const role = getPreferredRole();
+    return role ? ROLE_SCREENS[role] : 'screen-person';
   }
 
   function updateRail(id) {
@@ -1742,12 +1836,15 @@ header {
     screen.classList.add('active');
     window.scrollTo(0, 0);
     updateRail(id);
+    updateRoleSwitcher(roleFromScreen(screen.id) || getPreferredRole());
     if (id === 'screen-leo') renderLeoHomework();
     if (id === 'screen-neritan') renderNeritanHomework();
     if (id === 'screen-neritan-ow' || id === 'screen-leo-ow') renderHomeworkBadges();
   }
 
   function goTo(id, push = true) {
+    const role = roleFromScreen(id);
+    if (role) lSave('preferred-role', role);
     showScreen(id);
     const hash = SCREEN_HASHES[id] || 'home';
     if (push) history.pushState({ screen: id }, '', '#' + hash);
@@ -1967,7 +2064,7 @@ header {
   renderNeritanHomework();
   syncHomeworkFromCloud();
 
-  const initialScreen = screenFromHash();
+  const initialScreen = initialScreenFromState();
   showScreen(initialScreen);
   history.replaceState({ screen: initialScreen }, '', '#' + (SCREEN_HASHES[initialScreen] || 'home'));
 
