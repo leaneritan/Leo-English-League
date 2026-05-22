@@ -757,6 +757,8 @@ header {
 .unit-card-stat { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; padding:2px 8px; border-radius:2px; white-space:nowrap; flex-shrink:0; }
 .stat-live { background:#E8F5E9; color:var(--nc-dark); }
 .stat-lock { background:var(--soft); color:var(--ink-4); }
+.stat-assigned { background:var(--yellow-bg); color:var(--yellow-ink); }
+.stat-done { background:#E8F5E9; color:var(--nc-dark); }
 .unit-chevron { font-size:0.7rem; color:var(--ink-4); flex-shrink:0; transition:transform 0.2s; }
 .unit-card.open .unit-chevron { transform:rotate(180deg); }
 .lesson-panel { display:none; grid-column:1/-1; border:2px solid var(--ow-blue); border-top:none; border-radius:0 0 4px 4px; background:#F5F9FF; padding:16px; margin-top:-10px; }
@@ -1790,6 +1792,40 @@ header {
     Object.keys(lessonFilters).forEach(person => {
       Object.keys(lessonFilters[person]).forEach(unit => applyLessonFilter(person, unit));
     });
+    refreshUnitStats();
+  }
+
+  function getUnitHomeworkStats(person, unitNum) {
+    const owner = person === 'neritan' ? 'leo' : person;
+    const prefix = `${owner}-4-${unitNum}-`;
+    const active = getHomework().filter(h => h.id && h.id.startsWith(prefix));
+    const assigned = active.filter(h => !isHomeworkDone(h.id)).length;
+    const done = active.filter(h => isHomeworkDone(h.id)).length;
+    const completed = getCompletedHomework().filter(h => h.id && h.id.startsWith(prefix)).length;
+    return { assigned, done, completed };
+  }
+
+  function getUnitStat(person, unitNum, liveCount) {
+    const stats = getUnitHomeworkStats(person, unitNum);
+    if (stats.done) return { cls: 'stat-done', label: `✅ ${stats.done} done` };
+    if (stats.assigned) return { cls: 'stat-assigned', label: `📚 ${stats.assigned} HW` };
+    if (stats.completed) return { cls: 'stat-done', label: `✅ ${stats.completed} complete` };
+    if (liveCount > 0) return { cls: 'stat-live', label: `✅ ${liveCount} live` };
+    return { cls: 'stat-lock', label: '🔒 Soon' };
+  }
+
+  function refreshUnitStats() {
+    ['neritan', 'leo'].forEach(person => {
+      UNITS.forEach(u => {
+        const stat = document.querySelector(`#${person}-u${u.n} .unit-card-stat`);
+        if (!stat) return;
+        const livePrefix = person === 'leo' ? 'l' : 'n';
+        const liveCount = getLiveCount(person, 4, u.n, livePrefix);
+        const unitStat = getUnitStat(person, u.n, liveCount);
+        stat.className = `unit-card-stat ${unitStat.cls}`;
+        stat.textContent = unitStat.label;
+      });
+    });
   }
 
 
@@ -2214,7 +2250,7 @@ header {
     grid.innerHTML = '';
     UNITS.forEach(u => {
       const liveCount = getLiveCount(person, 4, u.n, livePrefix);
-      const hasLive = liveCount > 0;
+      const unitStat = getUnitStat(person, u.n, liveCount);
       const card = document.createElement('div');
       card.className = 'unit-card';
       card.id = `${person}-u${u.n}`;
@@ -2225,8 +2261,8 @@ header {
             <div class="unit-card-name">${u.name}</div>
             <div class="unit-card-sub">${u.sub}</div>
           </div>
-          <div class="unit-card-stat ${hasLive?'stat-live':'stat-lock'}">
-            ${hasLive ? `✅ ${liveCount} live` : '🔒 Soon'}
+          <div class="unit-card-stat ${unitStat.cls}">
+            ${unitStat.label}
           </div>
           <div class="unit-chevron">▼</div>
         </div>`;
