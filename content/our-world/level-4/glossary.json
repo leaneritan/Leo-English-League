@@ -1,7 +1,6 @@
 {
   "level": 4,
   "words": [
-
     {
       "id": "analyze",
       "word": "analyze",
@@ -13,22 +12,74 @@
       "jp_word": "分析する",
       "jp_reading": "ぶんせきする",
       "jp_sentence": "写真を<b>分析</b>します。",
-      "jp_tags": ["動詞", "学習語"],
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Op"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Op"
+      ],
+      "meaning": "To look at something carefully and in detail so you can understand it, explain it, or find important information.",
+      "jp_meaning": "何かをよく見て、細かいところまで考え、意味や大切な情報を見つけること。",
+      "when_to_use": [
+        "When you look closely at a photo, chart, map, or text.",
+        "When you study information and say what it means.",
+        "When a question asks you to find clues and think carefully."
+      ],
+      "jp_when_to_use": [
+        "写真・表・地図・文章をくわしく見るとき。",
+        "情報を調べて、何が分かるか言うとき。",
+        "問題文で、手がかりを見つけて考えるとき。"
+      ],
+      "how_to_use": {
+        "structure": "analyze + noun",
+        "patterns": [
+          "analyze a photo",
+          "analyze the data",
+          "analyze the text",
+          "analyze why something happened"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "analyze + 調べるもの",
+        "patterns": [
+          "analyze a photo = 写真を分析する",
+          "analyze the data = データを分析する",
+          "analyze the text = 文章を分析する"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Analyze the photo and find three clues.",
+          "jp": "写真を分析して、手がかりを三つ見つけましょう。",
+          "context_en": "Photo task",
+          "context_jp": "写真を使う活動"
+        },
+        {
+          "en": "We analyzed the chart in science class.",
+          "jp": "理科の授業でその表を分析しました。",
+          "context_en": "Science",
+          "context_jp": "理科"
+        },
+        {
+          "en": "Can you analyze why the hiker used a compass?",
+          "jp": "なぜハイカーがコンパスを使ったのか分析できますか。",
+          "context_en": "Reading discussion",
+          "context_jp": "読解の話し合い"
+        }
+      ],
+      "collocations": [
+        "analyze a photo",
+        "analyze data",
+        "analyze a chart",
+        "analyze the text",
+        "analyze clues"
+      ],
+      "jp_note": "look at は「見る」だけでも使えます。analyze は「よく見て、考えて、情報を見つける」という強い意味です。",
+      "practice_prompt": "Analyze a picture from Unit 8. Write three things you can learn from it.",
+      "jp_practice_prompt": "Unit 8 の絵を分析して、そこから分かることを三つ書きましょう。"
     },
-
     {
       "id": "describe",
       "word": "describe",
@@ -40,22 +91,74 @@
       "jp_word": "描写する",
       "jp_reading": "びょうしゃする",
       "jp_sentence": "写真を<b>描写</b>してください。",
-      "jp_tags": ["動詞", "学習語"],
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Op"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Op"
+      ],
+      "meaning": "To say or write what someone or something is like using clear details.",
+      "jp_meaning": "人や物がどんな様子か、くわしい言葉で言ったり書いたりすること。",
+      "when_to_use": [
+        "When you tell what a person, animal, place, or object looks like.",
+        "When you write details about a hobby or interest.",
+        "When you answer questions that ask, \"What is it like?\""
+      ],
+      "jp_when_to_use": [
+        "人・動物・場所・物の様子を伝えるとき。",
+        "趣味や興味についてくわしく書くとき。",
+        "「どんな様子ですか」に答えるとき。"
+      ],
+      "how_to_use": {
+        "structure": "describe + noun / describe what + sentence",
+        "patterns": [
+          "describe a person",
+          "describe your hobby",
+          "describe what you see",
+          "describe it with details"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "describe + 説明するもの",
+        "patterns": [
+          "describe a person = 人の様子を説明する",
+          "describe your hobby = 自分の趣味を説明する",
+          "describe what you see = 見えるものを説明する"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Describe the polar bear in the photo.",
+          "jp": "写真のホッキョクグマの様子を説明しましょう。",
+          "context_en": "Photo description",
+          "context_jp": "写真描写"
+        },
+        {
+          "en": "Leo described his favorite hobby.",
+          "jp": "レオは自分の好きな趣味を説明しました。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        },
+        {
+          "en": "Use three adjectives to describe the ornament.",
+          "jp": "三つの形容詞を使って、その飾りを説明しましょう。",
+          "context_en": "Vocabulary practice",
+          "context_jp": "語い練習"
+        }
+      ],
+      "collocations": [
+        "describe a photo",
+        "describe a person",
+        "describe a place",
+        "describe your hobby",
+        "describe in detail"
+      ],
+      "jp_note": "describe は「くわしく様子を伝える」です。explain は「理由や仕組みを説明する」です。",
+      "practice_prompt": "Describe a hobby you like. Use at least three details.",
+      "jp_practice_prompt": "好きな趣味を説明しましょう。少なくとも三つのくわしい情報を使いましょう。"
     },
-
     {
       "id": "explain",
       "word": "explain",
@@ -67,22 +170,74 @@
       "jp_word": "説明する",
       "jp_reading": "せつめいする",
       "jp_sentence": "ルールを<b>説明</b>してください。",
-      "jp_tags": ["動詞", "学習語"],
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Op"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Op"
+      ],
+      "meaning": "To make something clear by giving reasons, steps, examples, or information.",
+      "jp_meaning": "理由・手順・例・情報を使って、分かりやすく説明すること。",
+      "when_to_use": [
+        "When you tell why something happened.",
+        "When you teach someone how to do something.",
+        "When you answer a question with reasons or examples."
+      ],
+      "jp_when_to_use": [
+        "なぜ起こったのかを言うとき。",
+        "やり方を人に教えるとき。",
+        "理由や例を使って答えるとき。"
+      ],
+      "how_to_use": {
+        "structure": "explain + noun / explain why / explain how",
+        "patterns": [
+          "explain the rules",
+          "explain why",
+          "explain how to play",
+          "explain your answer"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "explain + 説明すること",
+        "patterns": [
+          "explain the rules = ルールを説明する",
+          "explain why = なぜかを説明する",
+          "explain how = どのようにするか説明する"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Can you explain the rules of the game?",
+          "jp": "そのゲームのルールを説明できますか。",
+          "context_en": "Game",
+          "context_jp": "ゲーム"
+        },
+        {
+          "en": "Explain why this app is useful.",
+          "jp": "なぜこのアプリが役に立つのか説明しましょう。",
+          "context_en": "Project",
+          "context_jp": "プロジェクト"
+        },
+        {
+          "en": "The teacher explained the meaning of the word.",
+          "jp": "先生はその単語の意味を説明しました。",
+          "context_en": "Classroom",
+          "context_jp": "教室"
+        }
+      ],
+      "collocations": [
+        "explain the rules",
+        "explain a word",
+        "explain why",
+        "explain how",
+        "explain your idea"
+      ],
+      "jp_note": "describe は様子を伝えること。explain は「なぜ」「どうやって」などを分かりやすくすることです。",
+      "practice_prompt": "Explain how to play your favorite game in three steps.",
+      "jp_practice_prompt": "好きなゲームの遊び方を三つの手順で説明しましょう。"
     },
-
     {
       "id": "caption",
       "word": "caption",
@@ -94,22 +249,74 @@
       "jp_word": "説明文",
       "jp_reading": "せつめいぶん",
       "jp_sentence": "写真に<b>説明文</b>を書きます。",
-      "jp_tags": ["名詞", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Op"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Op"
+      ],
+      "meaning": "A short sentence or phrase that explains a picture, photo, chart, or illustration.",
+      "jp_meaning": "写真・絵・図などの内容を短く説明する文や言葉。",
+      "when_to_use": [
+        "Under a photo in a book or article.",
+        "When you label a picture in a project.",
+        "When you explain what is happening in an image."
+      ],
+      "jp_when_to_use": [
+        "本や記事の写真の下に書くとき。",
+        "プロジェクトで絵に説明を付けるとき。",
+        "画像で何が起きているか短く伝えるとき。"
+      ],
+      "how_to_use": {
+        "structure": "write/read/add + a caption",
+        "patterns": [
+          "write a caption",
+          "read the caption",
+          "add a caption",
+          "photo caption"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "caption = 写真や絵の短い説明",
+        "patterns": [
+          "write a caption = キャプションを書く",
+          "read the caption = キャプションを読む",
+          "photo caption = 写真の説明文"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Write a caption for this polar bear photo.",
+          "jp": "このホッキョクグマの写真にキャプションを書きましょう。",
+          "context_en": "Photo task",
+          "context_jp": "写真活動"
+        },
+        {
+          "en": "The caption tells us where the photo was taken.",
+          "jp": "キャプションはその写真がどこで撮られたかを教えてくれます。",
+          "context_en": "Reading",
+          "context_jp": "読解"
+        },
+        {
+          "en": "A good caption is short but clear.",
+          "jp": "よいキャプションは短くても分かりやすいです。",
+          "context_en": "Writing tip",
+          "context_jp": "書くコツ"
+        }
+      ],
+      "collocations": [
+        "write a caption",
+        "photo caption",
+        "short caption",
+        "caption under a picture",
+        "add a caption"
+      ],
+      "jp_note": "caption は長い説明ではなく、写真や絵の近くにある短い説明です。",
+      "practice_prompt": "Choose a Unit 8 picture and write one clear caption.",
+      "jp_practice_prompt": "Unit 8 の絵を一つ選び、分かりやすいキャプションを一つ書きましょう。"
     },
-
     {
       "id": "hobby",
       "word": "hobby",
@@ -121,11 +328,14 @@
       "jp_word": "趣味",
       "jp_reading": "しゅみ",
       "jp_sentence": "私の<b>趣味</b>はサッカーをすることです。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "related",
-      "tags": ["L4U8Op"]
+      "tags": [
+        "L4U8Op"
+      ]
     },
-
     {
       "id": "photographer",
       "word": "photographer",
@@ -137,11 +347,15 @@
       "jp_word": "写真家",
       "jp_reading": "しゃしんか",
       "jp_sentence": "<b>写真家</b>が写真を撮ります。",
-      "jp_tags": ["名詞", "職業"],
+      "jp_tags": [
+        "名詞",
+        "職業"
+      ],
       "category": "related",
-      "tags": ["L4U8Op"]
+      "tags": [
+        "L4U8Op"
+      ]
     },
-
     {
       "id": "hiker",
       "word": "hiker",
@@ -153,11 +367,15 @@
       "jp_word": "ハイカー",
       "jp_reading": "ハイカー",
       "jp_sentence": "<b>ハイカー</b>は山を歩きます。",
-      "jp_tags": ["名詞", "カタカナ語"],
+      "jp_tags": [
+        "名詞",
+        "カタカナ語"
+      ],
       "category": "related",
-      "tags": ["L4U8Op"]
+      "tags": [
+        "L4U8Op"
+      ]
     },
-
     {
       "id": "polar-bear",
       "word": "polar bear",
@@ -169,11 +387,15 @@
       "jp_word": "白くま",
       "jp_reading": "しろくま",
       "jp_sentence": "<b>白くま</b>は寒いところに住んでいます。",
-      "jp_tags": ["名詞", "動物"],
+      "jp_tags": [
+        "名詞",
+        "動物"
+      ],
       "category": "related",
-      "tags": ["L4U8Op"]
+      "tags": [
+        "L4U8Op"
+      ]
     },
-
     {
       "id": "musical-instrument",
       "word": "musical instrument",
@@ -185,11 +407,14 @@
       "jp_word": "楽器",
       "jp_reading": "がっき",
       "jp_sentence": "ギターは<b>楽器</b>です。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "related",
-      "tags": ["L4U8V1"]
+      "tags": [
+        "L4U8V1"
+      ]
     },
-
     {
       "id": "accuracy",
       "word": "accuracy",
@@ -201,22 +426,74 @@
       "jp_word": "正確さ",
       "jp_reading": "せいかくさ",
       "jp_sentence": "<b>正確さ</b>を大切にしましょう。",
-      "jp_tags": ["名詞", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8V2"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8V2"
+      ],
+      "meaning": "The quality of being correct, exact, and careful.",
+      "jp_meaning": "正しく、正確で、まちがいが少ないこと。",
+      "when_to_use": [
+        "When checking answers, spelling, grammar, or facts.",
+        "When practicing speaking or writing carefully.",
+        "When comparing correct information with mistakes."
+      ],
+      "jp_when_to_use": [
+        "答え・つづり・文法・事実を確認するとき。",
+        "話す・書く練習をていねいにするとき。",
+        "正しい情報とまちがいを比べるとき。"
+      ],
+      "how_to_use": {
+        "structure": "accuracy in + skill / with accuracy",
+        "patterns": [
+          "spelling accuracy",
+          "grammar accuracy",
+          "speak with accuracy",
+          "improve accuracy"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "accuracy = 正確さ",
+        "patterns": [
+          "spelling accuracy = つづりの正確さ",
+          "grammar accuracy = 文法の正確さ",
+          "with accuracy = 正確に"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Check your spelling for accuracy.",
+          "jp": "つづりが正確か確認しましょう。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        },
+        {
+          "en": "Accuracy is important in a definition.",
+          "jp": "定義では正確さが大切です。",
+          "context_en": "Academic vocabulary",
+          "context_jp": "学習語い"
+        },
+        {
+          "en": "Practice slowly first, then build accuracy.",
+          "jp": "まずゆっくり練習して、それから正確さを高めましょう。",
+          "context_en": "Practice advice",
+          "context_jp": "練習のアドバイス"
+        }
+      ],
+      "collocations": [
+        "spelling accuracy",
+        "grammar accuracy",
+        "check accuracy",
+        "improve accuracy",
+        "with accuracy"
+      ],
+      "jp_note": "accuracy は「速さ」ではなく「正しさ」です。テストや発表では accuracy と fluency の両方が大切です。",
+      "practice_prompt": "Write five Unit 8 words and check your spelling accuracy.",
+      "jp_practice_prompt": "Unit 8 の単語を五つ書き、つづりの正確さを確認しましょう。"
     },
-
     {
       "id": "clause",
       "word": "clause",
@@ -228,22 +505,75 @@
       "jp_word": "節",
       "jp_reading": "せつ",
       "jp_sentence": "<b>節</b>には主語と動詞があります。",
-      "jp_tags": ["名詞", "文法用語", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "文法用語",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8G1"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8G1"
+      ],
+      "meaning": "A group of words with a subject and a verb. Some clauses can be complete sentences, and some are parts of longer sentences.",
+      "jp_meaning": "主語と動詞をふくむ語のまとまり。文になるものも、長い文の一部になるものもあります。",
+      "when_to_use": [
+        "When learning grammar and sentence parts.",
+        "When studying sentences with who, that, because, or when.",
+        "When checking if a sentence has a subject and verb."
+      ],
+      "jp_when_to_use": [
+        "文法や文の部分を学ぶとき。",
+        "who, that, because, when などを使う文を学ぶとき。",
+        "文に主語と動詞があるか確認するとき。"
+      ],
+      "how_to_use": {
+        "structure": "subject + verb = clause",
+        "patterns": [
+          "main clause",
+          "relative clause",
+          "a clause with who",
+          "a clause has a verb"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "主語 + 動詞 = clause",
+        "patterns": [
+          "main clause = 主節",
+          "relative clause = 関係節",
+          "a clause with who = who を使う節"
+        ]
+      },
+      "examples": [
+        {
+          "en": "The clause \"who collects fossils\" tells us more about the boy.",
+          "jp": "\"who collects fossils\" という節は、その男の子についてさらに説明しています。",
+          "context_en": "Grammar",
+          "context_jp": "文法"
+        },
+        {
+          "en": "A clause usually has a subject and a verb.",
+          "jp": "節にはふつう主語と動詞があります。",
+          "context_en": "Grammar rule",
+          "context_jp": "文法ルール"
+        },
+        {
+          "en": "Find the clause in this sentence.",
+          "jp": "この文の中の節を見つけましょう。",
+          "context_en": "Practice",
+          "context_jp": "練習"
+        }
+      ],
+      "collocations": [
+        "main clause",
+        "relative clause",
+        "who clause",
+        "clause in a sentence",
+        "subject and verb"
+      ],
+      "jp_note": "clause は「単語一つ」ではなく、主語と動詞を持つまとまりです。phrase は動詞がないことがあります。",
+      "practice_prompt": "Underline the clause with who in this sentence: I know a girl who plays the guitar.",
+      "jp_practice_prompt": "I know a girl who plays the guitar. の中で who を使った節に下線を引きましょう。"
     },
-
     {
       "id": "contraction",
       "word": "contraction",
@@ -255,22 +585,75 @@
       "jp_word": "短縮形",
       "jp_reading": "たんしゅくけい",
       "jp_sentence": "「I'm」は「I am」の<b>短縮形</b>です。",
-      "jp_tags": ["名詞", "文法用語", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "文法用語",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8G1"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8G1"
+      ],
+      "meaning": "A shorter form made by joining two words and replacing missing letters with an apostrophe.",
+      "jp_meaning": "二つの語を短くつなげ、なくなった文字のところにアポストロフィを使う形。",
+      "when_to_use": [
+        "In speaking and informal writing.",
+        "With words like I am, do not, cannot, and she is.",
+        "When reading dialogue or everyday English."
+      ],
+      "jp_when_to_use": [
+        "会話やふだんの書き言葉で使うとき。",
+        "I am, do not, cannot, she is などを短くするとき。",
+        "会話文や日常英語を読むとき。"
+      ],
+      "how_to_use": {
+        "structure": "word + word -> contraction",
+        "patterns": [
+          "I am -> I'm",
+          "do not -> don't",
+          "cannot -> can't",
+          "she is -> she's"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "二つの語を短くする",
+        "patterns": [
+          "I am -> I'm",
+          "do not -> don't",
+          "cannot -> can't"
+        ]
+      },
+      "examples": [
+        {
+          "en": "\"I'm\" is a contraction of \"I am.\"",
+          "jp": "\"I'm\" は \"I am\" の短縮形です。",
+          "context_en": "Grammar",
+          "context_jp": "文法"
+        },
+        {
+          "en": "Use an apostrophe in a contraction.",
+          "jp": "短縮形ではアポストロフィを使います。",
+          "context_en": "Writing rule",
+          "context_jp": "書くルール"
+        },
+        {
+          "en": "\"Don't\" means \"do not.\"",
+          "jp": "\"Don't\" は \"do not\" という意味です。",
+          "context_en": "Vocabulary",
+          "context_jp": "語い"
+        }
+      ],
+      "collocations": [
+        "use a contraction",
+        "write a contraction",
+        "apostrophe in a contraction",
+        "common contractions",
+        "contraction of two words"
+      ],
+      "jp_note": "contraction ではアポストロフィの位置に注意します。dont ではなく don't と書きます。",
+      "practice_prompt": "Change these words into contractions: I am, do not, cannot, she is.",
+      "jp_practice_prompt": "I am, do not, cannot, she is を短縮形に変えましょう。"
     },
-
     {
       "id": "trilobite",
       "word": "trilobite",
@@ -282,11 +665,14 @@
       "jp_word": "三葉虫",
       "jp_reading": "さんようちゅう",
       "jp_sentence": "<b>三葉虫</b>は古代の海の生き物です。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8G1"]
+      "tags": [
+        "L4U8G1"
+      ]
     },
-
     {
       "id": "direct-object",
       "word": "direct object",
@@ -298,22 +684,75 @@
       "jp_word": "直接目的語",
       "jp_reading": "ちょくせつもくてきご",
       "jp_sentence": "「I kicked the ball」では「the ball」が<b>直接目的語</b>です。",
-      "jp_tags": ["名詞", "文法用語", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "文法用語",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8G2"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8G2"
+      ],
+      "meaning": "The noun or pronoun that receives the action of the verb. It answers what or whom.",
+      "jp_meaning": "動詞の動作を直接受ける名詞や代名詞。「何を」「だれを」に答えます。",
+      "when_to_use": [
+        "When studying sentence patterns.",
+        "When finding who or what receives an action.",
+        "When learning direct and indirect objects."
+      ],
+      "jp_when_to_use": [
+        "文型を学ぶとき。",
+        "動作を受けるものや人を見つけるとき。",
+        "直接目的語と間接目的語を学ぶとき。"
+      ],
+      "how_to_use": {
+        "structure": "subject + verb + direct object",
+        "patterns": [
+          "read a book",
+          "kick the ball",
+          "make an app",
+          "gave a present"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "主語 + 動詞 + 直接目的語",
+        "patterns": [
+          "read a book = 本を読む",
+          "kick the ball = ボールをける",
+          "make an app = アプリを作る"
+        ]
+      },
+      "examples": [
+        {
+          "en": "In \"I kicked the ball,\" the ball is the direct object.",
+          "jp": "\"I kicked the ball\" では、the ball が直接目的語です。",
+          "context_en": "Grammar",
+          "context_jp": "文法"
+        },
+        {
+          "en": "Leo made an app. What did Leo make? An app.",
+          "jp": "レオはアプリを作りました。何を作りましたか。アプリです。",
+          "context_en": "Question check",
+          "context_jp": "確認問題"
+        },
+        {
+          "en": "Find the direct object in the sentence.",
+          "jp": "文の中の直接目的語を見つけましょう。",
+          "context_en": "Practice",
+          "context_jp": "練習"
+        }
+      ],
+      "collocations": [
+        "find the direct object",
+        "verb and direct object",
+        "direct object of the verb",
+        "receives the action",
+        "answers what"
+      ],
+      "jp_note": "direct object は「何を」「だれを」に答える部分です。日本語の「を」に近いことが多いです。",
+      "practice_prompt": "Find the direct object: My dad gave me this fossil.",
+      "jp_practice_prompt": "My dad gave me this fossil. の直接目的語を見つけましょう。"
     },
-
     {
       "id": "indirect-object",
       "word": "indirect object",
@@ -325,22 +764,75 @@
       "jp_word": "間接目的語",
       "jp_reading": "かんせつもくてきご",
       "jp_sentence": "「I gave Leo a ball」では「Leo」が<b>間接目的語</b>です。",
-      "jp_tags": ["名詞", "文法用語", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "文法用語",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8G2"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8G2"
+      ],
+      "meaning": "The noun or pronoun that tells who receives or benefits from the direct object. It often answers to whom or for whom.",
+      "jp_meaning": "直接目的語を受け取る人や、動作の相手になる人を表す名詞や代名詞。「だれに」に答えることが多いです。",
+      "when_to_use": [
+        "When a sentence has giving, showing, telling, or sending.",
+        "When finding the person who receives something.",
+        "When comparing direct and indirect objects."
+      ],
+      "jp_when_to_use": [
+        "give, show, tell, send などの文を学ぶとき。",
+        "何かを受け取る人を見つけるとき。",
+        "直接目的語と間接目的語を比べるとき。"
+      ],
+      "how_to_use": {
+        "structure": "subject + verb + indirect object + direct object",
+        "patterns": [
+          "gave Leo a ball",
+          "sent me a message",
+          "showed us a photo",
+          "told her a story"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "主語 + 動詞 + 間接目的語 + 直接目的語",
+        "patterns": [
+          "gave Leo a ball = レオにボールをあげた",
+          "sent me a message = 私にメッセージを送った",
+          "showed us a photo = 私たちに写真を見せた"
+        ]
+      },
+      "examples": [
+        {
+          "en": "In \"I gave Leo a ball,\" Leo is the indirect object.",
+          "jp": "\"I gave Leo a ball\" では、Leo が間接目的語です。",
+          "context_en": "Grammar",
+          "context_jp": "文法"
+        },
+        {
+          "en": "My dad gave me this fossil.",
+          "jp": "父は私にこの化石をくれました。",
+          "context_en": "Unit 8 grammar",
+          "context_jp": "Unit 8 文法"
+        },
+        {
+          "en": "Find the indirect object: She showed us a photo.",
+          "jp": "間接目的語を見つけましょう。She showed us a photo.",
+          "context_en": "Practice",
+          "context_jp": "練習"
+        }
+      ],
+      "collocations": [
+        "find the indirect object",
+        "indirect object pronoun",
+        "direct and indirect objects",
+        "gave me something",
+        "showed us something"
+      ],
+      "jp_note": "indirect object は「だれに」に答えることが多いです。direct object は「何を」に答えます。",
+      "practice_prompt": "Write one sentence with an indirect object: gave me, showed us, or told Leo.",
+      "jp_practice_prompt": "gave me, showed us, told Leo のどれかを使って、間接目的語のある文を書きましょう。"
     },
-
     {
       "id": "sequence",
       "word": "sequence",
@@ -352,22 +844,74 @@
       "jp_word": "順序",
       "jp_reading": "じゅんじょ",
       "jp_sentence": "出来事を正しい<b>順序</b>に並べましょう。",
-      "jp_tags": ["名詞", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Re"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Re"
+      ],
+      "meaning": "The order in which events, steps, or ideas happen or should be arranged.",
+      "jp_meaning": "出来事・手順・考えなどが起こる順番、または並べる順序。",
+      "when_to_use": [
+        "When telling a story in order.",
+        "When following steps or instructions.",
+        "When using words like first, next, then, and finally."
+      ],
+      "jp_when_to_use": [
+        "物語を順番に話すとき。",
+        "手順や説明に従うとき。",
+        "first, next, then, finally などを使うとき。"
+      ],
+      "how_to_use": {
+        "structure": "sequence of + plural noun",
+        "patterns": [
+          "sequence of events",
+          "sequence of steps",
+          "put in sequence",
+          "the right sequence"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "sequence of + 複数名詞",
+        "patterns": [
+          "sequence of events = 出来事の順番",
+          "sequence of steps = 手順の順番",
+          "put in sequence = 順番に並べる"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Put the events in the correct sequence.",
+          "jp": "出来事を正しい順番に並べましょう。",
+          "context_en": "Reading",
+          "context_jp": "読解"
+        },
+        {
+          "en": "Use sequence words in your writing.",
+          "jp": "作文で順序を表す言葉を使いましょう。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        },
+        {
+          "en": "First, fold the paper. Next, make a triangle.",
+          "jp": "まず紙を折ります。次に三角形を作ります。",
+          "context_en": "Instructions",
+          "context_jp": "手順説明"
+        }
+      ],
+      "collocations": [
+        "sequence of events",
+        "sequence words",
+        "correct sequence",
+        "put in sequence",
+        "sequence of steps"
+      ],
+      "jp_note": "sequence は「順番」です。writing では first, next, then, finally が役に立ちます。",
+      "practice_prompt": "Write four steps for making an origami crane using sequence words.",
+      "jp_practice_prompt": "順序を表す言葉を使って、折り紙の鶴を作る四つの手順を書きましょう。"
     },
-
     {
       "id": "outdoor",
       "word": "outdoor",
@@ -379,11 +923,14 @@
       "jp_word": "屋外の",
       "jp_reading": "おくがいの",
       "jp_sentence": "ハイキングは<b>屋外の</b>趣味です。",
-      "jp_tags": ["形容詞"],
+      "jp_tags": [
+        "形容詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "hider",
       "word": "hider",
@@ -395,11 +942,14 @@
       "jp_word": "隠す人",
       "jp_reading": "かくすひと",
       "jp_sentence": "<b>隠す人</b>は宝物を隠します。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "seeker",
       "word": "seeker",
@@ -411,11 +961,14 @@
       "jp_word": "探す人",
       "jp_reading": "さがすひと",
       "jp_sentence": "<b>探す人</b>は宝物を探します。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "treasure",
       "word": "treasure",
@@ -427,11 +980,14 @@
       "jp_word": "宝物",
       "jp_reading": "たからもの",
       "jp_sentence": "<b>宝物</b>を見つけました！",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "app",
       "word": "app",
@@ -443,11 +999,15 @@
       "jp_word": "アプリ",
       "jp_reading": "アプリ",
       "jp_sentence": "スマホの<b>アプリ</b>を使います。",
-      "jp_tags": ["名詞", "カタカナ語"],
+      "jp_tags": [
+        "名詞",
+        "カタカナ語"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "clue",
       "word": "clue",
@@ -459,11 +1019,14 @@
       "jp_word": "手がかり",
       "jp_reading": "てがかり",
       "jp_sentence": "宝物を見つけるために<b>手がかり</b>を読みましょう。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "compass",
       "word": "compass",
@@ -475,11 +1038,14 @@
       "jp_word": "方位磁石",
       "jp_reading": "ほういじしゃく",
       "jp_sentence": "北を見つけるために<b>方位磁石</b>を使います。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "ornament",
       "word": "ornament",
@@ -491,11 +1057,14 @@
       "jp_word": "飾り",
       "jp_reading": "かざり",
       "jp_sentence": "木に<b>飾り</b>をつけましょう。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "sinking",
       "word": "sinking",
@@ -507,11 +1076,14 @@
       "jp_word": "沈んでいる",
       "jp_reading": "しずんでいる",
       "jp_sentence": "船が<b>沈んでいます</b>。",
-      "jp_tags": ["動詞"],
+      "jp_tags": [
+        "動詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Re"]
+      "tags": [
+        "L4U8Re"
+      ]
     },
-
     {
       "id": "definition",
       "word": "definition",
@@ -523,22 +1095,74 @@
       "jp_word": "定義",
       "jp_reading": "ていぎ",
       "jp_sentence": "「hobby」の<b>定義</b>は何ですか。",
-      "jp_tags": ["名詞", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Wr"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Wr"
+      ],
+      "meaning": "A clear explanation of what a word or idea means.",
+      "jp_meaning": "単語や考えの意味を分かりやすく説明したもの。定義。",
+      "when_to_use": [
+        "When learning a new word.",
+        "When explaining academic vocabulary.",
+        "When a question asks, \"What does this mean?\""
+      ],
+      "jp_when_to_use": [
+        "新しい単語を学ぶとき。",
+        "学習語いを説明するとき。",
+        "「これはどういう意味ですか」に答えるとき。"
+      ],
+      "how_to_use": {
+        "structure": "definition of + word",
+        "patterns": [
+          "the definition of hobby",
+          "write a definition",
+          "clear definition",
+          "dictionary definition"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "definition of + 単語",
+        "patterns": [
+          "definition of hobby = hobby の定義",
+          "write a definition = 定義を書く",
+          "clear definition = 分かりやすい定義"
+        ]
+      },
+      "examples": [
+        {
+          "en": "What is the definition of \"hobby\"?",
+          "jp": "\"hobby\" の定義は何ですか。",
+          "context_en": "Vocabulary",
+          "context_jp": "語い"
+        },
+        {
+          "en": "A good definition is clear and simple.",
+          "jp": "よい定義は分かりやすく簡単です。",
+          "context_en": "Writing tip",
+          "context_jp": "書くコツ"
+        },
+        {
+          "en": "Write a definition for the word \"treasure.\"",
+          "jp": "\"treasure\" という単語の定義を書きましょう。",
+          "context_en": "Practice",
+          "context_jp": "練習"
+        }
+      ],
+      "collocations": [
+        "write a definition",
+        "clear definition",
+        "dictionary definition",
+        "definition of a word",
+        "give a definition"
+      ],
+      "jp_note": "definition は「意味をはっきり説明する文」です。example は「例」です。両方あると分かりやすくなります。",
+      "practice_prompt": "Write a simple definition of one Unit 8 word, then add one example.",
+      "jp_practice_prompt": "Unit 8 の単語を一つ選び、簡単な定義を書いてから例を一つ足しましょう。"
     },
-
     {
       "id": "description",
       "word": "description",
@@ -550,22 +1174,74 @@
       "jp_word": "描写",
       "jp_reading": "びょうしゃ",
       "jp_sentence": "自分の趣味の<b>描写</b>を書きましょう。",
-      "jp_tags": ["名詞", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Wr"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Wr"
+      ],
+      "meaning": "A spoken or written explanation that tells what someone or something is like.",
+      "jp_meaning": "人や物がどんな様子かを伝える話し言葉や書き言葉の説明。描写。",
+      "when_to_use": [
+        "When writing about a person, place, animal, object, or hobby.",
+        "When giving details about what something looks like.",
+        "When comparing a definition with details."
+      ],
+      "jp_when_to_use": [
+        "人・場所・動物・物・趣味について書くとき。",
+        "見た目や様子をくわしく伝えるとき。",
+        "定義にくわしい情報を足すとき。"
+      ],
+      "how_to_use": {
+        "structure": "description of + noun",
+        "patterns": [
+          "description of a hobby",
+          "write a description",
+          "short description",
+          "detailed description"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "description of + 説明するもの",
+        "patterns": [
+          "description of a hobby = 趣味の説明",
+          "write a description = 描写を書く",
+          "detailed description = くわしい描写"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Write a description of your favorite hobby.",
+          "jp": "好きな趣味の説明を書きましょう。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        },
+        {
+          "en": "The description includes color, size, and shape.",
+          "jp": "その描写には色、大きさ、形が入っています。",
+          "context_en": "Writing detail",
+          "context_jp": "詳しい描写"
+        },
+        {
+          "en": "Read the description and guess the object.",
+          "jp": "説明を読んで、その物を当てましょう。",
+          "context_en": "Game",
+          "context_jp": "ゲーム"
+        }
+      ],
+      "collocations": [
+        "write a description",
+        "short description",
+        "detailed description",
+        "description of a person",
+        "description of a hobby"
+      ],
+      "jp_note": "description は名詞です。describe は動詞です。例: I describe it. / I write a description.",
+      "practice_prompt": "Write a three-sentence description of an object in your room.",
+      "jp_practice_prompt": "自分の部屋にある物を一つ選び、三文で説明を書きましょう。"
     },
-
     {
       "id": "details",
       "word": "details",
@@ -577,22 +1253,75 @@
       "jp_word": "詳細",
       "jp_reading": "しょうさい",
       "jp_sentence": "もっと<b>詳細</b>を書きましょう。",
-      "jp_tags": ["名詞", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Wr"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Wr"
+      ],
+      "meaning": "Small pieces of information that make an idea, description, or story clearer and more complete.",
+      "jp_meaning": "考え・説明・物語をもっと分かりやすく、くわしくする小さな情報。",
+      "when_to_use": [
+        "When adding more information to writing.",
+        "When explaining a photo, hobby, or story.",
+        "When a teacher asks for specific information."
+      ],
+      "jp_when_to_use": [
+        "作文に情報を足すとき。",
+        "写真・趣味・物語を説明するとき。",
+        "先生に具体的な情報を求められたとき。"
+      ],
+      "how_to_use": {
+        "structure": "add/give/include + details",
+        "patterns": [
+          "add details",
+          "give details",
+          "include details",
+          "specific details",
+          "important details"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "details = くわしい情報",
+        "patterns": [
+          "add details = 詳しい情報を足す",
+          "give details = 詳しく説明する",
+          "specific details = 具体的な情報"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Add more details to your description.",
+          "jp": "あなたの説明にもっと詳しい情報を足しましょう。",
+          "context_en": "Writing feedback",
+          "context_jp": "作文のフィードバック"
+        },
+        {
+          "en": "The details help the reader imagine the hobby.",
+          "jp": "詳しい情報は、読む人がその趣味を想像する助けになります。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        },
+        {
+          "en": "Give three details about the photo.",
+          "jp": "写真について三つの詳しい情報を言いましょう。",
+          "context_en": "Speaking",
+          "context_jp": "スピーキング"
+        }
+      ],
+      "collocations": [
+        "add details",
+        "give details",
+        "important details",
+        "specific details",
+        "small details"
+      ],
+      "jp_note": "details は一つだけでなく、いくつかの「くわしい情報」を表すことが多いです。",
+      "practice_prompt": "Write one sentence about a hobby, then add two details.",
+      "jp_practice_prompt": "趣味について一文を書き、それに二つの詳しい情報を足しましょう。"
     },
-
     {
       "id": "origami",
       "word": "origami",
@@ -604,11 +1333,14 @@
       "jp_word": "折り紙",
       "jp_reading": "おりがみ",
       "jp_sentence": "<b>折り紙</b>は紙を折る芸術です。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Wr"]
+      "tags": [
+        "L4U8Wr"
+      ]
     },
-
     {
       "id": "folding",
       "word": "folding",
@@ -620,11 +1352,14 @@
       "jp_word": "折ること",
       "jp_reading": "おること",
       "jp_sentence": "紙を<b>折ること</b>は練習が必要です。",
-      "jp_tags": ["動詞"],
+      "jp_tags": [
+        "動詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Wr"]
+      "tags": [
+        "L4U8Wr"
+      ]
     },
-
     {
       "id": "design",
       "word": "design",
@@ -636,11 +1371,15 @@
       "jp_word": "デザイン",
       "jp_reading": "デザイン",
       "jp_sentence": "この折り紙の<b>デザイン</b>が好きです。",
-      "jp_tags": ["名詞", "カタカナ語"],
+      "jp_tags": [
+        "名詞",
+        "カタカナ語"
+      ],
       "category": "content",
-      "tags": ["L4U8Wr"]
+      "tags": [
+        "L4U8Wr"
+      ]
     },
-
     {
       "id": "dragon",
       "word": "dragon",
@@ -652,11 +1391,14 @@
       "jp_word": "竜",
       "jp_reading": "りゅう",
       "jp_sentence": "紙の<b>竜</b>を作りました。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Wr"]
+      "tags": [
+        "L4U8Wr"
+      ]
     },
-
     {
       "id": "crane",
       "word": "crane",
@@ -668,11 +1410,14 @@
       "jp_word": "鶴",
       "jp_reading": "つる",
       "jp_sentence": "折り<b>鶴</b>は有名な折り紙です。",
-      "jp_tags": ["名詞"],
+      "jp_tags": [
+        "名詞"
+      ],
       "category": "content",
-      "tags": ["L4U8Wr"]
+      "tags": [
+        "L4U8Wr"
+      ]
     },
-
     {
       "id": "biography",
       "word": "biography",
@@ -684,21 +1429,73 @@
       "jp_word": "伝記",
       "jp_reading": "でんき",
       "jp_sentence": "<b>伝記</b>はある人の人生の物語です。",
-      "jp_tags": ["名詞", "学習語"],
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
       "category": "academic",
-      "tags": ["L4U8Bk"],
-      "meaning": "",
-      "jp_meaning": "",
-      "when_to_use": [],
-      "jp_when_to_use": [],
-      "how_to_use": { "structure": "", "patterns": [] },
-      "jp_how_to_use": { "structure": "", "patterns": [] },
-      "examples": [],
-      "collocations": [],
-      "jp_note": "",
-      "practice_prompt": "",
-      "jp_practice_prompt": ""
+      "tags": [
+        "L4U8Bk"
+      ],
+      "meaning": "A true story about a person's life, usually written by someone else.",
+      "jp_meaning": "ある人の人生について書かれた本当の話。ふつう本人ではない人が書きます。伝記。",
+      "when_to_use": [
+        "When reading about a real person's life.",
+        "When learning about someone famous or interesting.",
+        "When writing facts about a person in time order."
+      ],
+      "jp_when_to_use": [
+        "実在する人の人生について読むとき。",
+        "有名な人や興味深い人について学ぶとき。",
+        "人についての事実を時間の順に書くとき。"
+      ],
+      "how_to_use": {
+        "structure": "biography of/about + person",
+        "patterns": [
+          "a biography of Angad Daryani",
+          "read a biography",
+          "write a biography",
+          "short biography"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "biography of/about + 人",
+        "patterns": [
+          "biography of a scientist = 科学者の伝記",
+          "read a biography = 伝記を読む",
+          "write a biography = 伝記を書く"
+        ]
+      },
+      "examples": [
+        {
+          "en": "We read a biography of a young inventor.",
+          "jp": "私たちは若い発明家の伝記を読みました。",
+          "context_en": "Reading",
+          "context_jp": "読解"
+        },
+        {
+          "en": "A biography includes facts about a person's life.",
+          "jp": "伝記には、その人の人生についての事実が入っています。",
+          "context_en": "Text type",
+          "context_jp": "文章の種類"
+        },
+        {
+          "en": "Write a short biography of someone you admire.",
+          "jp": "あなたが尊敬する人の短い伝記を書きましょう。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        }
+      ],
+      "collocations": [
+        "read a biography",
+        "write a biography",
+        "short biography",
+        "biography of a person",
+        "true biography"
+      ],
+      "jp_note": "biography は「伝記」です。autobiography は「自伝」で、自分自身について書いたものです。",
+      "practice_prompt": "Write five facts for a short biography of a person you admire.",
+      "jp_practice_prompt": "尊敬する人の短い伝記を書くために、事実を五つ書きましょう。"
     }
-
   ]
 }
