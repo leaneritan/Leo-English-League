@@ -1018,6 +1018,29 @@ header {
   outline:none;
   border-color:var(--ow-blue);
 }
+.assign-quick-dates {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  margin-top:10px;
+}
+.assign-quick-dates button {
+  border:2px solid var(--border);
+  border-radius:2px;
+  background:var(--surface);
+  color:var(--ink-2);
+  cursor:pointer;
+  font-family:'Oswald',sans-serif;
+  font-size:0.58rem;
+  font-weight:700;
+  letter-spacing:1px;
+  padding:6px 8px;
+}
+.assign-quick-dates button:hover {
+  border-color:var(--yellow);
+  background:var(--yellow-bg);
+  color:var(--ink);
+}
 .assign-actions {
   display:flex;
   justify-content:flex-end;
@@ -1235,6 +1258,11 @@ header {
       <span class="assign-label">DUE DATE</span>
       <input class="assign-date" id="assign-date" type="date">
     </label>
+    <div class="assign-quick-dates" aria-label="Quick due dates">
+      <button type="button" onclick="setAssignDueOffset(0)">TODAY</button>
+      <button type="button" onclick="setAssignDueOffset(1)">TOMORROW</button>
+      <button type="button" onclick="setAssignDueOffset(7)">NEXT WEEK</button>
+    </div>
     <div class="assign-actions">
       <button class="assign-cancel" type="button" onclick="closeAssignDialog()">Cancel</button>
       <button class="assign-confirm" type="button" onclick="confirmAssignDialog()">Assign</button>
@@ -1969,6 +1997,12 @@ header {
   function closeAssignDialog() {
     pendingHomeworkAssignment = null;
     document.getElementById('assign-modal').style.display = 'none';
+  }
+
+  function setAssignDueOffset(days) {
+    const due = new Date();
+    due.setDate(due.getDate() + days);
+    document.getElementById('assign-date').value = due.toISOString().split('T')[0];
   }
 
   function confirmAssignDialog() {
