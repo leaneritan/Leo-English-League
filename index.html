@@ -956,6 +956,94 @@ header {
 .lesson-chip.live .hw-assign-btn {
   display: block;
 }
+.assign-modal {
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(17,17,17,0.58);
+  padding:24px;
+}
+.assign-dialog {
+  width:min(420px,100%);
+  background:var(--surface);
+  border:2px solid var(--ink);
+  border-radius:4px;
+  padding:20px;
+}
+.assign-kicker {
+  font-family:'Oswald',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--ow-blue);
+  margin-bottom:8px;
+}
+.assign-title {
+  font-weight:900;
+  font-size:1.2rem;
+  color:var(--ink);
+}
+.assign-sub {
+  font-size:0.78rem;
+  color:var(--ink-4);
+  font-weight:700;
+  margin-top:3px;
+}
+.assign-field {
+  display:block;
+  margin-top:18px;
+}
+.assign-label {
+  display:block;
+  font-family:'Oswald',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--ink-4);
+  margin-bottom:6px;
+}
+.assign-date {
+  width:100%;
+  border:2px solid var(--border);
+  border-radius:4px;
+  padding:10px 12px;
+  font:700 0.92rem 'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+}
+.assign-date:focus {
+  outline:none;
+  border-color:var(--ow-blue);
+}
+.assign-actions {
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:18px;
+}
+.assign-cancel,
+.assign-confirm {
+  font-family:'Oswald',sans-serif;
+  font-size:0.66rem;
+  font-weight:700;
+  letter-spacing:1px;
+  border-radius:2px;
+  padding:7px 14px;
+  cursor:pointer;
+}
+.assign-cancel {
+  border:2px solid var(--border);
+  background:var(--surface);
+  color:var(--ink-2);
+}
+.assign-confirm {
+  border:2px solid var(--yellow);
+  background:var(--yellow);
+  color:var(--ink);
+}
 .quick-nav,
 .ow-breadcrumbs {
   max-width: 980px;
@@ -1137,6 +1225,22 @@ header {
     <span>REF</span>
   </button>
 </nav>
+
+<div class="assign-modal" id="assign-modal" role="dialog" aria-modal="true" aria-labelledby="assign-title">
+  <div class="assign-dialog">
+    <div class="assign-kicker">ASSIGN HOMEWORK</div>
+    <div class="assign-title" id="assign-title">Lesson</div>
+    <div class="assign-sub" id="assign-sub">Unit</div>
+    <label class="assign-field">
+      <span class="assign-label">DUE DATE</span>
+      <input class="assign-date" id="assign-date" type="date">
+    </label>
+    <div class="assign-actions">
+      <button class="assign-cancel" type="button" onclick="closeAssignDialog()">Cancel</button>
+      <button class="assign-confirm" type="button" onclick="confirmAssignDialog()">Assign</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══ SCREEN 1: PERSON SELECTOR ══ -->
 <div class="screen active" id="screen-person">
@@ -1849,15 +1953,42 @@ header {
 
 
   // ── ASSIGN HOMEWORK FROM NERITAN'S LESSON CHIPS ──
+  let pendingHomeworkAssignment = null;
+
   function showAssignDialog(id, lesson, unit, url) {
     const today = new Date().toISOString().split('T')[0];
-    const due = prompt(
-      '📚 Assign homework:\n' + lesson + ' · ' + unit +
-      '\n\nEnter due date (YYYY-MM-DD):',
-      today
-    );
-    if (due) assignHomework(id, lesson, unit, url, due);
+    pendingHomeworkAssignment = { id, lesson, unit, url };
+    document.getElementById('assign-title').textContent = lesson;
+    document.getElementById('assign-sub').textContent = unit + ' · Our World Level 4';
+    const dateInput = document.getElementById('assign-date');
+    dateInput.value = today;
+    document.getElementById('assign-modal').style.display = 'flex';
+    dateInput.focus();
   }
+
+  function closeAssignDialog() {
+    pendingHomeworkAssignment = null;
+    document.getElementById('assign-modal').style.display = 'none';
+  }
+
+  function confirmAssignDialog() {
+    if (!pendingHomeworkAssignment) return;
+    const due = document.getElementById('assign-date').value;
+    if (!due) {
+      alert('Please choose a due date.');
+      return;
+    }
+    const hw = pendingHomeworkAssignment;
+    closeAssignDialog();
+    assignHomework(hw.id, hw.lesson, hw.unit, hw.url, due);
+  }
+
+  document.getElementById('assign-modal').addEventListener('click', e => {
+    if (e.target.id === 'assign-modal') closeAssignDialog();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && pendingHomeworkAssignment) closeAssignDialog();
+  });
 
 
   // ── NAVIGATION ──
