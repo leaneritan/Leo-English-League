@@ -780,6 +780,7 @@ header {
 .lesson-chip.live { border-color:var(--ow-blue); cursor:pointer; }
 .lesson-chip.live:hover { background:var(--ow-blue); }
 .lesson-chip.live:hover .lc-name { color:#fff; }
+.lesson-chip.live:hover .lc-desc { color:rgba(255,255,255,0.82); }
 .lesson-chip.live:hover .lc-status { background:rgba(255,255,255,0.2); color:#fff; }
 .lesson-chip.assigned { border-color:var(--yellow); box-shadow:inset 0 0 0 2px rgba(255,204,0,0.16); }
 .lesson-chip.done { border-color:var(--nc-green); background:#F0FDF4; }
@@ -787,6 +788,7 @@ header {
 .lesson-chip.hidden-by-filter { display:none; }
 .lc-icon { font-size:1.25rem; margin-bottom:5px; }
 .lc-name { font-weight:800; font-size:0.72rem; color:var(--ink); margin-bottom:5px; line-height:1.2; }
+.lc-desc { font-size:0.62rem; color:var(--ink-4); font-weight:700; line-height:1.25; margin:-1px 0 6px; }
 .lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
 .lc-live { background:#E8F5E9; color:var(--nc-dark); }
 .lc-lock { background:var(--soft); color:var(--ink-4); }
@@ -2289,6 +2291,7 @@ header {
           liveChips.push(`<a class="lesson-chip live" href="${live.url}" target="_blank" data-hw-id="${hwId}" data-live="1" data-assigned="0">
             <div class="lc-icon">${l.icon}</div>
             <div class="lc-name">${l.name}</div>
+            <div class="lc-desc">${live.desc}</div>
             <div class="lc-status lc-live">✅ Live</div>
             <div class="lc-action">${actionLabel}</div>
             ${assignButton}
