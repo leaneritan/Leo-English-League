@@ -573,6 +573,8 @@ header {
 .result-link.d:hover  { background: var(--ow-blue); color: #fff; }
 .result-link.jh { border-color: var(--nc-green); color: var(--nc-green); }
 .result-link.jh:hover { background: var(--nc-green); color: #fff; }
+.result-link.gl { border-color: var(--ow-orange); color: var(--ow-orange); }
+.result-link.gl:hover { background: var(--ow-orange); color: #fff; }
 .result-links { display:flex; gap:6px; flex-wrap:wrap; }
 #noResults { display:none; padding:14px 0; font-size:0.83rem; color:var(--ink-3); }
 .suggest-chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
@@ -2400,6 +2402,19 @@ header {
     )
   ).then(arrays => { JH_VOCAB = arrays.flat(); });
 
+  // ── OUR WORLD LEVEL 4 GLOSSARY (loaded async) ──
+  let OW_GLOSSARY = [];
+  fetch('content/our-world/level-4/glossary.json')
+    .then(r => r.json())
+    .then(data => {
+      OW_GLOSSARY = (data.words || []).map(w => ({
+        t: 'gl',
+        w: w.word,
+        u: `vocab.html?level=4&id=${w.id}`
+      }));
+    })
+    .catch(() => {});
+
   // ── SEARCH DATA (hardcoded — OW + Grammar) ──
   const DATA = [
     // OW L4 U1 Set 1
@@ -2501,6 +2516,7 @@ header {
     if (t === 'v')  return 'OW';
     if (t === 'g')  return 'G';
     if (t === 'jh') return 'JH';
+    if (t === 'gl') return 'GL';
     if (t === 'd')  return '📖';
     return t;
   }
@@ -2509,6 +2525,7 @@ header {
     if (t === 'v')  return 'Our World Vocab';
     if (t === 'g')  return 'Grammar';
     if (t === 'jh') return 'Junior High Vocab';
+    if (t === 'gl') return 'Our World Glossary';
     if (t === 'd')  return 'NC1 Dictionary';
     return '';
   }
@@ -2529,6 +2546,15 @@ header {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
       groups[key].sources.push({ t: d.t, u: d.u, ext: false });
+    });
+
+    // Our World Level 4 glossary
+    OW_GLOSSARY.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      if (!groups[key].sources.find(s => s.t === 'gl')) {
+        groups[key].sources.push({ t: 'gl', u: d.u, ext: false });
+      }
     });
 
     // Junior High vocab
