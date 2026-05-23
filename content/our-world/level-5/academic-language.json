@@ -1,0 +1,3450 @@
+{
+  "level": 5,
+  "title": "Our World Level 5 Academic Language",
+  "source": {
+    "book": "Our World Second Edition",
+    "file": "ow_language_bank_1.pdf",
+    "section": "Academic Language Level 5",
+    "note": "Word list extracted from the Teacher Language Bank PDF; partners, meanings, notes, and mini tests are LEEA enrichment fields."
+  },
+  "schema_version": 1,
+  "word_count": 73,
+  "mini_test_format": {
+    "common_partner_choice": "Choose the natural phrase that uses the academic word.",
+    "meaning_check": "Choose the type/category of the academic word.",
+    "use_it": "Write or say a short classroom sentence using the word."
+  },
+  "words": [
+    {
+      "id": "adverb",
+      "word": "adverb",
+      "order": 1,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about adverb",
+      "common_partners": [
+        "adverb form",
+        "find the adverb",
+        "circle the adverb",
+        "use the adverb",
+        "adverb in a sentence"
+      ],
+      "sample_sentence": "Find the adverb in the sentence.",
+      "watch_out": "Use adverb when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"adverb\"?",
+          "choices": [
+            "adverb form",
+            "sleep the adverb",
+            "adverb banana"
+          ],
+          "answer": "adverb form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"adverb\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"adverb\" in a classroom sentence.",
+          "answer_example": "Find the adverb in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "alike",
+      "word": "alike",
+      "order": 2,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use alike",
+        "alike in your answer",
+        "explain alike",
+        "alike example",
+        "talk about alike"
+      ],
+      "sample_sentence": "Use alike to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with alike.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"alike\"?",
+          "choices": [
+            "use alike",
+            "sleep the alike",
+            "alike banana"
+          ],
+          "answer": "use alike"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"alike\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"alike\" in a classroom sentence.",
+          "answer_example": "Use alike to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "biography",
+      "word": "biography",
+      "order": 3,
+      "kind": "academic_language",
+      "category": "text",
+      "type": "reading / writing term",
+      "japanese_hint": "読む・書くときに使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a reading or writing word Leo uses when working with texts",
+      "common_partners": [
+        "biography in the text",
+        "find the biography",
+        "write the biography",
+        "underline the biography",
+        "biography and details"
+      ],
+      "sample_sentence": "Find the biography in the text.",
+      "watch_out": "Look back at the text before choosing the biography.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"biography\"?",
+          "choices": [
+            "biography in the text",
+            "sleep the biography",
+            "biography banana"
+          ],
+          "answer": "biography in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"biography\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"biography\" in a classroom sentence.",
+          "answer_example": "Find the biography in the text."
+        }
+      ]
+    },
+    {
+      "id": "categories",
+      "word": "categories",
+      "order": 4,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the categories",
+        "categories in class",
+        "use categories",
+        "talk about categories",
+        "categories activity"
+      ],
+      "sample_sentence": "Use categories in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"categories\"?",
+          "choices": [
+            "the categories",
+            "sleep the categories",
+            "categories banana"
+          ],
+          "answer": "the categories"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"categories\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"categories\" in a classroom sentence.",
+          "answer_example": "Use categories in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "cause",
+      "word": "cause",
+      "order": 5,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use cause",
+        "cause in your answer",
+        "explain cause",
+        "cause example",
+        "talk about cause"
+      ],
+      "sample_sentence": "Use cause to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with cause.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"cause\"?",
+          "choices": [
+            "use cause",
+            "sleep the cause",
+            "cause banana"
+          ],
+          "answer": "use cause"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"cause\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"cause\" in a classroom sentence.",
+          "answer_example": "Use cause to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "certain",
+      "word": "certain",
+      "order": 6,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the certain",
+        "certain in class",
+        "use certain",
+        "talk about certain",
+        "certain activity"
+      ],
+      "sample_sentence": "Use certain in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"certain\"?",
+          "choices": [
+            "the certain",
+            "sleep the certain",
+            "certain banana"
+          ],
+          "answer": "the certain"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"certain\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"certain\" in a classroom sentence.",
+          "answer_example": "Use certain in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "characteristics",
+      "word": "characteristics",
+      "order": 7,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use characteristics",
+        "characteristics in your answer",
+        "explain characteristics",
+        "characteristics example",
+        "talk about characteristics"
+      ],
+      "sample_sentence": "Use characteristics to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with characteristics.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"characteristics\"?",
+          "choices": [
+            "use characteristics",
+            "sleep the characteristics",
+            "characteristics banana"
+          ],
+          "answer": "use characteristics"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"characteristics\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"characteristics\" in a classroom sentence.",
+          "answer_example": "Use characteristics to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "word": "check",
+      "order": 8,
+      "kind": "academic_language",
+      "category": "action",
+      "type": "classroom action",
+      "japanese_hint": "授業で使う動作・指示の言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "a classroom action word Leo hears in instructions",
+      "common_partners": [
+        "check the answer",
+        "check the words",
+        "check with a partner",
+        "check carefully",
+        "check on the page"
+      ],
+      "sample_sentence": "Please check the answer.",
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"check\"?",
+          "choices": [
+            "check the answer",
+            "sleep the check",
+            "check banana"
+          ],
+          "answer": "check the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"check\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"check\" in a classroom sentence.",
+          "answer_example": "Please check the answer."
+        }
+      ]
+    },
+    {
+      "id": "choose",
+      "word": "choose",
+      "order": 9,
+      "kind": "academic_language",
+      "category": "action",
+      "type": "classroom action",
+      "japanese_hint": "授業で使う動作・指示の言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "a classroom action word Leo hears in instructions",
+      "common_partners": [
+        "choose the answer",
+        "choose the words",
+        "choose with a partner",
+        "choose carefully",
+        "choose on the page"
+      ],
+      "sample_sentence": "Please choose the answer.",
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"choose\"?",
+          "choices": [
+            "choose the answer",
+            "sleep the choose",
+            "choose banana"
+          ],
+          "answer": "choose the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"choose\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"choose\" in a classroom sentence.",
+          "answer_example": "Please choose the answer."
+        }
+      ]
+    },
+    {
+      "id": "classification",
+      "word": "classification",
+      "order": 10,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "classification chart",
+        "animal classification",
+        "classification system",
+        "use classification",
+        "classification activity"
+      ],
+      "sample_sentence": "Use classification to sort the animals.",
+      "watch_out": "Use reasons or examples when you work with classification.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"classification\"?",
+          "choices": [
+            "classification chart",
+            "sleep the classification",
+            "classification banana"
+          ],
+          "answer": "classification chart"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"classification\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"classification\" in a classroom sentence.",
+          "answer_example": "Use classification to sort the animals."
+        }
+      ]
+    },
+    {
+      "id": "classify",
+      "word": "classify",
+      "order": 11,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "classify the ideas",
+        "classify the text",
+        "classify your answer",
+        "classify with evidence",
+        "classify carefully"
+      ],
+      "sample_sentence": "Classify the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with classify.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"classify\"?",
+          "choices": [
+            "classify the ideas",
+            "sleep the classify",
+            "classify banana"
+          ],
+          "answer": "classify the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"classify\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"classify\" in a classroom sentence.",
+          "answer_example": "Classify the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "word": "compare",
+      "order": 12,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "compare the ideas",
+        "compare the text",
+        "compare your answer",
+        "compare with evidence",
+        "compare carefully"
+      ],
+      "sample_sentence": "Compare the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with compare.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"compare\"?",
+          "choices": [
+            "compare the ideas",
+            "sleep the compare",
+            "compare banana"
+          ],
+          "answer": "compare the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"compare\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"compare\" in a classroom sentence.",
+          "answer_example": "Compare the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "comparison",
+      "word": "comparison",
+      "order": 13,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the comparison",
+        "comparison in class",
+        "use comparison",
+        "talk about comparison",
+        "comparison activity"
+      ],
+      "sample_sentence": "Use comparison in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"comparison\"?",
+          "choices": [
+            "the comparison",
+            "sleep the comparison",
+            "comparison banana"
+          ],
+          "answer": "the comparison"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"comparison\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"comparison\" in a classroom sentence.",
+          "answer_example": "Use comparison in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "conclude",
+      "word": "conclude",
+      "order": 14,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "conclude the ideas",
+        "conclude the text",
+        "conclude your answer",
+        "conclude with evidence",
+        "conclude carefully"
+      ],
+      "sample_sentence": "Conclude the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with conclude.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"conclude\"?",
+          "choices": [
+            "conclude the ideas",
+            "sleep the conclude",
+            "conclude banana"
+          ],
+          "answer": "conclude the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"conclude\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"conclude\" in a classroom sentence.",
+          "answer_example": "Conclude the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "condition",
+      "word": "condition",
+      "order": 15,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "condition sentence",
+        "real condition",
+        "possible condition",
+        "condition and result",
+        "use a condition"
+      ],
+      "sample_sentence": "Write a condition and a result.",
+      "watch_out": "Use reasons or examples when you work with condition.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"condition\"?",
+          "choices": [
+            "condition sentence",
+            "sleep the condition",
+            "condition banana"
+          ],
+          "answer": "condition sentence"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"condition\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"condition\" in a classroom sentence.",
+          "answer_example": "Write a condition and a result."
+        }
+      ]
+    },
+    {
+      "id": "conditional",
+      "word": "conditional",
+      "order": 16,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use conditional",
+        "conditional in your answer",
+        "explain conditional",
+        "conditional example",
+        "talk about conditional"
+      ],
+      "sample_sentence": "Use conditional to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with conditional.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"conditional\"?",
+          "choices": [
+            "use conditional",
+            "sleep the conditional",
+            "conditional banana"
+          ],
+          "answer": "use conditional"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"conditional\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"conditional\" in a classroom sentence.",
+          "answer_example": "Use conditional to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "contraction",
+      "word": "contraction",
+      "order": 17,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about contraction",
+      "common_partners": [
+        "contraction form",
+        "find the contraction",
+        "circle the contraction",
+        "use the contraction",
+        "contraction in a sentence"
+      ],
+      "sample_sentence": "Find the contraction in the sentence.",
+      "watch_out": "Use contraction when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"contraction\"?",
+          "choices": [
+            "contraction form",
+            "sleep the contraction",
+            "contraction banana"
+          ],
+          "answer": "contraction form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"contraction\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"contraction\" in a classroom sentence.",
+          "answer_example": "Find the contraction in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "contrast",
+      "word": "contrast",
+      "order": 18,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "contrast the ideas",
+        "contrast the text",
+        "contrast your answer",
+        "contrast with evidence",
+        "contrast carefully"
+      ],
+      "sample_sentence": "Contrast the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with contrast.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"contrast\"?",
+          "choices": [
+            "contrast the ideas",
+            "sleep the contrast",
+            "contrast banana"
+          ],
+          "answer": "contrast the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"contrast\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"contrast\" in a classroom sentence.",
+          "answer_example": "Contrast the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "decide",
+      "word": "decide",
+      "order": 19,
+      "kind": "academic_language",
+      "category": "action",
+      "type": "classroom action",
+      "japanese_hint": "授業で使う動作・指示の言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "a classroom action word Leo hears in instructions",
+      "common_partners": [
+        "decide the answer",
+        "decide the words",
+        "decide with a partner",
+        "decide carefully",
+        "decide on the page"
+      ],
+      "sample_sentence": "Please decide the answer.",
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"decide\"?",
+          "choices": [
+            "decide the answer",
+            "sleep the decide",
+            "decide banana"
+          ],
+          "answer": "decide the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"decide\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"decide\" in a classroom sentence.",
+          "answer_example": "Please decide the answer."
+        }
+      ]
+    },
+    {
+      "id": "depend",
+      "word": "depend",
+      "order": 20,
+      "kind": "academic_language",
+      "category": "action",
+      "type": "classroom action",
+      "japanese_hint": "授業で使う動作・指示の言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "a classroom action word Leo hears in instructions",
+      "common_partners": [
+        "depend the answer",
+        "depend the words",
+        "depend with a partner",
+        "depend carefully",
+        "depend on the page"
+      ],
+      "sample_sentence": "Please depend the answer.",
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"depend\"?",
+          "choices": [
+            "depend the answer",
+            "sleep the depend",
+            "depend banana"
+          ],
+          "answer": "depend the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"depend\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"depend\" in a classroom sentence.",
+          "answer_example": "Please depend the answer."
+        }
+      ]
+    },
+    {
+      "id": "descriptive",
+      "word": "descriptive",
+      "order": 21,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use descriptive",
+        "descriptive in your answer",
+        "explain descriptive",
+        "descriptive example",
+        "talk about descriptive"
+      ],
+      "sample_sentence": "Use descriptive to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with descriptive.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"descriptive\"?",
+          "choices": [
+            "use descriptive",
+            "sleep the descriptive",
+            "descriptive banana"
+          ],
+          "answer": "use descriptive"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"descriptive\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"descriptive\" in a classroom sentence.",
+          "answer_example": "Use descriptive to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "diagram",
+      "word": "diagram",
+      "order": 22,
+      "kind": "academic_language",
+      "category": "organizer",
+      "type": "chart / organizer word",
+      "japanese_hint": "図や表で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a chart or organizer word Leo uses when showing ideas clearly",
+      "common_partners": [
+        "diagram organizer",
+        "complete the diagram",
+        "look at the diagram",
+        "use the diagram",
+        "make a diagram"
+      ],
+      "sample_sentence": "Use the diagram to show your ideas.",
+      "watch_out": "A diagram helps organize ideas; it is not the final answer by itself.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"diagram\"?",
+          "choices": [
+            "diagram organizer",
+            "sleep the diagram",
+            "diagram banana"
+          ],
+          "answer": "diagram organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"diagram\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"diagram\" in a classroom sentence.",
+          "answer_example": "Use the diagram to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "different",
+      "word": "different",
+      "order": 23,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use different",
+        "different in your answer",
+        "explain different",
+        "different example",
+        "talk about different"
+      ],
+      "sample_sentence": "Use different to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with different.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"different\"?",
+          "choices": [
+            "use different",
+            "sleep the different",
+            "different banana"
+          ],
+          "answer": "use different"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"different\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"different\" in a classroom sentence.",
+          "answer_example": "Use different to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "effect",
+      "word": "effect",
+      "order": 24,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "cause and effect",
+        "effect of the change",
+        "main effect",
+        "possible effect",
+        "explain the effect"
+      ],
+      "sample_sentence": "Explain the effect of the change.",
+      "watch_out": "Use reasons or examples when you work with effect.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"effect\"?",
+          "choices": [
+            "cause and effect",
+            "sleep the effect",
+            "effect banana"
+          ],
+          "answer": "cause and effect"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"effect\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"effect\" in a classroom sentence.",
+          "answer_example": "Explain the effect of the change."
+        }
+      ]
+    },
+    {
+      "id": "emotions",
+      "word": "emotions",
+      "order": 25,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the emotions",
+        "emotions in class",
+        "use emotions",
+        "talk about emotions",
+        "emotions activity"
+      ],
+      "sample_sentence": "Use emotions in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"emotions\"?",
+          "choices": [
+            "the emotions",
+            "sleep the emotions",
+            "emotions banana"
+          ],
+          "answer": "the emotions"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"emotions\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"emotions\" in a classroom sentence.",
+          "answer_example": "Use emotions in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "word": "experience",
+      "order": 26,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the experience",
+        "experience in class",
+        "use experience",
+        "talk about experience",
+        "experience activity"
+      ],
+      "sample_sentence": "Use experience in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"experience\"?",
+          "choices": [
+            "the experience",
+            "sleep the experience",
+            "experience banana"
+          ],
+          "answer": "the experience"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"experience\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"experience\" in a classroom sentence.",
+          "answer_example": "Use experience in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "formal",
+      "word": "formal",
+      "order": 27,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the formal",
+        "formal in class",
+        "use formal",
+        "talk about formal",
+        "formal activity"
+      ],
+      "sample_sentence": "Use formal in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"formal\"?",
+          "choices": [
+            "the formal",
+            "sleep the formal",
+            "formal banana"
+          ],
+          "answer": "the formal"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"formal\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"formal\" in a classroom sentence.",
+          "answer_example": "Use formal in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "graphics",
+      "word": "graphics",
+      "order": 28,
+      "kind": "academic_language",
+      "category": "organizer",
+      "type": "chart / organizer word",
+      "japanese_hint": "図や表で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a chart or organizer word Leo uses when showing ideas clearly",
+      "common_partners": [
+        "graphics organizer",
+        "complete the graphics",
+        "look at the graphics",
+        "use the graphics",
+        "make a graphics"
+      ],
+      "sample_sentence": "Use the graphics to show your ideas.",
+      "watch_out": "A graphics helps organize ideas; it is not the final answer by itself.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"graphics\"?",
+          "choices": [
+            "graphics organizer",
+            "sleep the graphics",
+            "graphics banana"
+          ],
+          "answer": "graphics organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"graphics\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"graphics\" in a classroom sentence.",
+          "answer_example": "Use the graphics to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "grid",
+      "word": "grid",
+      "order": 29,
+      "kind": "academic_language",
+      "category": "organizer",
+      "type": "chart / organizer word",
+      "japanese_hint": "図や表で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a chart or organizer word Leo uses when showing ideas clearly",
+      "common_partners": [
+        "grid organizer",
+        "complete the grid",
+        "look at the grid",
+        "use the grid",
+        "make a grid"
+      ],
+      "sample_sentence": "Use the grid to show your ideas.",
+      "watch_out": "A grid helps organize ideas; it is not the final answer by itself.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"grid\"?",
+          "choices": [
+            "grid organizer",
+            "sleep the grid",
+            "grid banana"
+          ],
+          "answer": "grid organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"grid\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"grid\" in a classroom sentence.",
+          "answer_example": "Use the grid to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "hypothetical",
+      "word": "hypothetical",
+      "order": 30,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "hypothetical question",
+        "hypothetical situation",
+        "hypothetical answer",
+        "hypothetical idea",
+        "use hypothetical language"
+      ],
+      "sample_sentence": "Answer the hypothetical question.",
+      "watch_out": "Use reasons or examples when you work with hypothetical.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"hypothetical\"?",
+          "choices": [
+            "hypothetical question",
+            "sleep the hypothetical",
+            "hypothetical banana"
+          ],
+          "answer": "hypothetical question"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"hypothetical\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"hypothetical\" in a classroom sentence.",
+          "answer_example": "Answer the hypothetical question."
+        }
+      ]
+    },
+    {
+      "id": "imagined",
+      "word": "imagined",
+      "order": 31,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use imagined",
+        "imagined in your answer",
+        "explain imagined",
+        "imagined example",
+        "talk about imagined"
+      ],
+      "sample_sentence": "Use imagined to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with imagined.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"imagined\"?",
+          "choices": [
+            "use imagined",
+            "sleep the imagined",
+            "imagined banana"
+          ],
+          "answer": "use imagined"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"imagined\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"imagined\" in a classroom sentence.",
+          "answer_example": "Use imagined to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "in-general",
+      "word": "in general",
+      "order": 32,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "noun phrase",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "in general",
+        "speak in general",
+        "write in general",
+        "in general statements",
+        "talk in general"
+      ],
+      "sample_sentence": "Use in general to talk about many people or things.",
+      "watch_out": "Use reasons or examples when you work with in general.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"in general\"?",
+          "choices": [
+            "in general",
+            "sleep the in general",
+            "in general banana"
+          ],
+          "answer": "in general"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"in general\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"in general\" in a classroom sentence.",
+          "answer_example": "Use in general to talk about many people or things."
+        }
+      ]
+    },
+    {
+      "id": "inform",
+      "word": "inform",
+      "order": 33,
+      "kind": "academic_language",
+      "category": "action",
+      "type": "classroom action",
+      "japanese_hint": "授業で使う動作・指示の言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "a classroom action word Leo hears in instructions",
+      "common_partners": [
+        "inform the answer",
+        "inform the words",
+        "inform with a partner",
+        "inform carefully",
+        "inform on the page"
+      ],
+      "sample_sentence": "Please inform the answer.",
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"inform\"?",
+          "choices": [
+            "inform the answer",
+            "sleep the inform",
+            "inform banana"
+          ],
+          "answer": "inform the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"inform\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"inform\" in a classroom sentence.",
+          "answer_example": "Please inform the answer."
+        }
+      ]
+    },
+    {
+      "id": "informal",
+      "word": "informal",
+      "order": 34,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the informal",
+        "informal in class",
+        "use informal",
+        "talk about informal",
+        "informal activity"
+      ],
+      "sample_sentence": "Use informal in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"informal\"?",
+          "choices": [
+            "the informal",
+            "sleep the informal",
+            "informal banana"
+          ],
+          "answer": "the informal"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"informal\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"informal\" in a classroom sentence.",
+          "answer_example": "Use informal in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "information",
+      "word": "information",
+      "order": 35,
+      "kind": "academic_language",
+      "category": "text",
+      "type": "reading / writing term",
+      "japanese_hint": "読む・書くときに使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a reading or writing word Leo uses when working with texts",
+      "common_partners": [
+        "information in the text",
+        "find the information",
+        "write the information",
+        "underline the information",
+        "information and details"
+      ],
+      "sample_sentence": "Find the information in the text.",
+      "watch_out": "Look back at the text before choosing the information.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"information\"?",
+          "choices": [
+            "information in the text",
+            "sleep the information",
+            "information banana"
+          ],
+          "answer": "information in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"information\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"information\" in a classroom sentence.",
+          "answer_example": "Find the information in the text."
+        }
+      ]
+    },
+    {
+      "id": "likely",
+      "word": "likely",
+      "order": 36,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "adverb",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the likely",
+        "likely in class",
+        "use likely",
+        "talk about likely",
+        "likely activity"
+      ],
+      "sample_sentence": "Use likely in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"likely\"?",
+          "choices": [
+            "the likely",
+            "sleep the likely",
+            "likely banana"
+          ],
+          "answer": "the likely"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"likely\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"likely\" in a classroom sentence.",
+          "answer_example": "Use likely in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "word": "location",
+      "order": 37,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the location",
+        "location in class",
+        "use location",
+        "talk about location",
+        "location activity"
+      ],
+      "sample_sentence": "Use location in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"location\"?",
+          "choices": [
+            "the location",
+            "sleep the location",
+            "location banana"
+          ],
+          "answer": "the location"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"location\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"location\" in a classroom sentence.",
+          "answer_example": "Use location in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "logical",
+      "word": "logical",
+      "order": 38,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use logical",
+        "logical in your answer",
+        "explain logical",
+        "logical example",
+        "talk about logical"
+      ],
+      "sample_sentence": "Use logical to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with logical.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"logical\"?",
+          "choices": [
+            "use logical",
+            "sleep the logical",
+            "logical banana"
+          ],
+          "answer": "use logical"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"logical\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"logical\" in a classroom sentence.",
+          "answer_example": "Use logical to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "meaning",
+      "word": "meaning",
+      "order": 39,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use meaning",
+        "meaning in your answer",
+        "explain meaning",
+        "meaning example",
+        "talk about meaning"
+      ],
+      "sample_sentence": "Use meaning to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with meaning.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"meaning\"?",
+          "choices": [
+            "use meaning",
+            "sleep the meaning",
+            "meaning banana"
+          ],
+          "answer": "use meaning"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"meaning\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"meaning\" in a classroom sentence.",
+          "answer_example": "Use meaning to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "multiple",
+      "word": "multiple",
+      "order": 40,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use multiple",
+        "multiple in your answer",
+        "explain multiple",
+        "multiple example",
+        "talk about multiple"
+      ],
+      "sample_sentence": "Use multiple to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with multiple.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"multiple\"?",
+          "choices": [
+            "use multiple",
+            "sleep the multiple",
+            "multiple banana"
+          ],
+          "answer": "use multiple"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"multiple\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"multiple\" in a classroom sentence.",
+          "answer_example": "Use multiple to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "noun",
+      "word": "noun",
+      "order": 41,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about noun",
+      "common_partners": [
+        "noun form",
+        "find the noun",
+        "circle the noun",
+        "use the noun",
+        "noun in a sentence"
+      ],
+      "sample_sentence": "Find the noun in the sentence.",
+      "watch_out": "Use noun when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"noun\"?",
+          "choices": [
+            "noun form",
+            "sleep the noun",
+            "noun banana"
+          ],
+          "answer": "noun form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"noun\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"noun\" in a classroom sentence.",
+          "answer_example": "Find the noun in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "object",
+      "word": "object",
+      "order": 42,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the object",
+        "object in class",
+        "use object",
+        "talk about object",
+        "object activity"
+      ],
+      "sample_sentence": "Use object in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"object\"?",
+          "choices": [
+            "the object",
+            "sleep the object",
+            "object banana"
+          ],
+          "answer": "the object"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"object\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"object\" in a classroom sentence.",
+          "answer_example": "Use object in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "opposite",
+      "word": "opposite",
+      "order": 43,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use opposite",
+        "opposite in your answer",
+        "explain opposite",
+        "opposite example",
+        "talk about opposite"
+      ],
+      "sample_sentence": "Use opposite to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with opposite.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"opposite\"?",
+          "choices": [
+            "use opposite",
+            "sleep the opposite",
+            "opposite banana"
+          ],
+          "answer": "use opposite"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"opposite\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"opposite\" in a classroom sentence.",
+          "answer_example": "Use opposite to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "organize",
+      "word": "organize",
+      "order": 44,
+      "kind": "academic_language",
+      "category": "action",
+      "type": "classroom action",
+      "japanese_hint": "授業で使う動作・指示の言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "a classroom action word Leo hears in instructions",
+      "common_partners": [
+        "organize the answer",
+        "organize the words",
+        "organize with a partner",
+        "organize carefully",
+        "organize on the page"
+      ],
+      "sample_sentence": "Please organize the answer.",
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"organize\"?",
+          "choices": [
+            "organize the answer",
+            "sleep the organize",
+            "organize banana"
+          ],
+          "answer": "organize the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"organize\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"organize\" in a classroom sentence.",
+          "answer_example": "Please organize the answer."
+        }
+      ]
+    },
+    {
+      "id": "passive-voice",
+      "word": "passive voice",
+      "order": 45,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun phrase",
+      "student_friendly_meaning": "a verb form where the receiver of an action is the subject",
+      "common_partners": [
+        "passive voice form",
+        "find the passive voice",
+        "circle the passive voice",
+        "use the passive voice",
+        "passive voice in a sentence"
+      ],
+      "sample_sentence": "Find the passive voice in the sentence.",
+      "watch_out": "Use passive voice when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"passive voice\"?",
+          "choices": [
+            "passive voice form",
+            "sleep the passive voice",
+            "passive voice banana"
+          ],
+          "answer": "passive voice form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"passive voice\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"passive voice\" in a classroom sentence.",
+          "answer_example": "Find the passive voice in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "persuade",
+      "word": "persuade",
+      "order": 46,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "persuade the ideas",
+        "persuade the text",
+        "persuade your answer",
+        "persuade with evidence",
+        "persuade carefully"
+      ],
+      "sample_sentence": "Persuade the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with persuade.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"persuade\"?",
+          "choices": [
+            "persuade the ideas",
+            "sleep the persuade",
+            "persuade banana"
+          ],
+          "answer": "persuade the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"persuade\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"persuade\" in a classroom sentence.",
+          "answer_example": "Persuade the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "possibility",
+      "word": "possibility",
+      "order": 47,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "show possibility",
+        "future possibility",
+        "real possibility",
+        "possibility sentence",
+        "talk about possibility"
+      ],
+      "sample_sentence": "Talk about a future possibility.",
+      "watch_out": "Use reasons or examples when you work with possibility.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"possibility\"?",
+          "choices": [
+            "show possibility",
+            "sleep the possibility",
+            "possibility banana"
+          ],
+          "answer": "show possibility"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"possibility\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"possibility\" in a classroom sentence.",
+          "answer_example": "Talk about a future possibility."
+        }
+      ]
+    },
+    {
+      "id": "possible",
+      "word": "possible",
+      "order": 48,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use possible",
+        "possible in your answer",
+        "explain possible",
+        "possible example",
+        "talk about possible"
+      ],
+      "sample_sentence": "Use possible to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with possible.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"possible\"?",
+          "choices": [
+            "use possible",
+            "sleep the possible",
+            "possible banana"
+          ],
+          "answer": "use possible"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"possible\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"possible\" in a classroom sentence.",
+          "answer_example": "Use possible to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "prediction",
+      "word": "prediction",
+      "order": 49,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use prediction",
+        "prediction in your answer",
+        "explain prediction",
+        "prediction example",
+        "talk about prediction"
+      ],
+      "sample_sentence": "Use prediction to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with prediction.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"prediction\"?",
+          "choices": [
+            "use prediction",
+            "sleep the prediction",
+            "prediction banana"
+          ],
+          "answer": "use prediction"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"prediction\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"prediction\" in a classroom sentence.",
+          "answer_example": "Use prediction to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "prefer",
+      "word": "prefer",
+      "order": 50,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "prefer the ideas",
+        "prefer the text",
+        "prefer your answer",
+        "prefer with evidence",
+        "prefer carefully"
+      ],
+      "sample_sentence": "Prefer the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with prefer.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"prefer\"?",
+          "choices": [
+            "prefer the ideas",
+            "sleep the prefer",
+            "prefer banana"
+          ],
+          "answer": "prefer the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"prefer\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"prefer\" in a classroom sentence.",
+          "answer_example": "Prefer the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "prefix",
+      "word": "prefix",
+      "order": 51,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about prefix",
+      "common_partners": [
+        "prefix form",
+        "find the prefix",
+        "circle the prefix",
+        "use the prefix",
+        "prefix in a sentence"
+      ],
+      "sample_sentence": "Find the prefix in the sentence.",
+      "watch_out": "Use prefix when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"prefix\"?",
+          "choices": [
+            "prefix form",
+            "sleep the prefix",
+            "prefix banana"
+          ],
+          "answer": "prefix form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"prefix\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"prefix\" in a classroom sentence.",
+          "answer_example": "Find the prefix in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "process",
+      "word": "process",
+      "order": 52,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use process",
+        "process in your answer",
+        "explain process",
+        "process example",
+        "talk about process"
+      ],
+      "sample_sentence": "Use process to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with process.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"process\"?",
+          "choices": [
+            "use process",
+            "sleep the process",
+            "process banana"
+          ],
+          "answer": "use process"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"process\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"process\" in a classroom sentence.",
+          "answer_example": "Use process to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "pronoun",
+      "word": "pronoun",
+      "order": 53,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about pronoun",
+      "common_partners": [
+        "pronoun form",
+        "find the pronoun",
+        "circle the pronoun",
+        "use the pronoun",
+        "pronoun in a sentence"
+      ],
+      "sample_sentence": "Find the pronoun in the sentence.",
+      "watch_out": "Use pronoun when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"pronoun\"?",
+          "choices": [
+            "pronoun form",
+            "sleep the pronoun",
+            "pronoun banana"
+          ],
+          "answer": "pronoun form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"pronoun\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"pronoun\" in a classroom sentence.",
+          "answer_example": "Find the pronoun in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "purpose",
+      "word": "purpose",
+      "order": 54,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use purpose",
+        "purpose in your answer",
+        "explain purpose",
+        "purpose example",
+        "talk about purpose"
+      ],
+      "sample_sentence": "Use purpose to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with purpose.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"purpose\"?",
+          "choices": [
+            "use purpose",
+            "sleep the purpose",
+            "purpose banana"
+          ],
+          "answer": "use purpose"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"purpose\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"purpose\" in a classroom sentence.",
+          "answer_example": "Use purpose to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "question",
+      "word": "question",
+      "order": 55,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the question",
+        "question in class",
+        "use question",
+        "talk about question",
+        "question activity"
+      ],
+      "sample_sentence": "Use question in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"question\"?",
+          "choices": [
+            "the question",
+            "sleep the question",
+            "question banana"
+          ],
+          "answer": "the question"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"question\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"question\" in a classroom sentence.",
+          "answer_example": "Use question in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "rank",
+      "word": "rank",
+      "order": 56,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "rank the ideas",
+        "rank the text",
+        "rank your answer",
+        "rank with evidence",
+        "rank carefully"
+      ],
+      "sample_sentence": "Rank the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with rank.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"rank\"?",
+          "choices": [
+            "rank the ideas",
+            "sleep the rank",
+            "rank banana"
+          ],
+          "answer": "rank the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"rank\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"rank\" in a classroom sentence.",
+          "answer_example": "Rank the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "reason",
+      "word": "reason",
+      "order": 57,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use reason",
+        "reason in your answer",
+        "explain reason",
+        "reason example",
+        "talk about reason"
+      ],
+      "sample_sentence": "Use reason to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with reason.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"reason\"?",
+          "choices": [
+            "use reason",
+            "sleep the reason",
+            "reason banana"
+          ],
+          "answer": "use reason"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"reason\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"reason\" in a classroom sentence.",
+          "answer_example": "Use reason to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "result",
+      "word": "result",
+      "order": 58,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use result",
+        "result in your answer",
+        "explain result",
+        "result example",
+        "talk about result"
+      ],
+      "sample_sentence": "Use result to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with result.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"result\"?",
+          "choices": [
+            "use result",
+            "sleep the result",
+            "result banana"
+          ],
+          "answer": "use result"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"result\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"result\" in a classroom sentence.",
+          "answer_example": "Use result to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "review",
+      "word": "review",
+      "order": 59,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "review the ideas",
+        "review the text",
+        "review your answer",
+        "review with evidence",
+        "review carefully"
+      ],
+      "sample_sentence": "Review the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with review.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"review\"?",
+          "choices": [
+            "review the ideas",
+            "sleep the review",
+            "review banana"
+          ],
+          "answer": "review the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"review\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"review\" in a classroom sentence.",
+          "answer_example": "Review the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "root",
+      "word": "root",
+      "order": 60,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the root",
+        "root in class",
+        "use root",
+        "talk about root",
+        "root activity"
+      ],
+      "sample_sentence": "Use root in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"root\"?",
+          "choices": [
+            "the root",
+            "sleep the root",
+            "root banana"
+          ],
+          "answer": "the root"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"root\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"root\" in a classroom sentence.",
+          "answer_example": "Use root in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "scan",
+      "word": "scan",
+      "order": 61,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "scan the ideas",
+        "scan the text",
+        "scan your answer",
+        "scan with evidence",
+        "scan carefully"
+      ],
+      "sample_sentence": "Scan the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with scan.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"scan\"?",
+          "choices": [
+            "scan the ideas",
+            "sleep the scan",
+            "scan banana"
+          ],
+          "answer": "scan the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"scan\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"scan\" in a classroom sentence.",
+          "answer_example": "Scan the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "senses",
+      "word": "senses",
+      "order": 62,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the senses",
+        "senses in class",
+        "use senses",
+        "talk about senses",
+        "senses activity"
+      ],
+      "sample_sentence": "Use senses in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"senses\"?",
+          "choices": [
+            "the senses",
+            "sleep the senses",
+            "senses banana"
+          ],
+          "answer": "the senses"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"senses\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"senses\" in a classroom sentence.",
+          "answer_example": "Use senses in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "sentence-structure",
+      "word": "sentence structure",
+      "order": 63,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun phrase",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about sentence structure",
+      "common_partners": [
+        "sentence structure form",
+        "find the sentence structure",
+        "circle the sentence structure",
+        "use the sentence structure",
+        "sentence structure in a sentence"
+      ],
+      "sample_sentence": "Find the sentence structure in the sentence.",
+      "watch_out": "Use sentence structure when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"sentence structure\"?",
+          "choices": [
+            "sentence structure form",
+            "sleep the sentence structure",
+            "sentence structure banana"
+          ],
+          "answer": "sentence structure form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"sentence structure\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"sentence structure\" in a classroom sentence.",
+          "answer_example": "Find the sentence structure in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "sequence",
+      "word": "sequence",
+      "order": 64,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use sequence",
+        "sequence in your answer",
+        "explain sequence",
+        "sequence example",
+        "talk about sequence"
+      ],
+      "sample_sentence": "Use sequence to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with sequence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"sequence\"?",
+          "choices": [
+            "use sequence",
+            "sleep the sequence",
+            "sequence banana"
+          ],
+          "answer": "use sequence"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"sequence\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"sequence\" in a classroom sentence.",
+          "answer_example": "Use sequence to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "similar",
+      "word": "similar",
+      "order": 65,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "adjective",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "use similar",
+        "similar in your answer",
+        "explain similar",
+        "similar example",
+        "talk about similar"
+      ],
+      "sample_sentence": "Use similar to explain your answer.",
+      "watch_out": "Use reasons or examples when you work with similar.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"similar\"?",
+          "choices": [
+            "use similar",
+            "sleep the similar",
+            "similar banana"
+          ],
+          "answer": "use similar"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"similar\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"similar\" in a classroom sentence.",
+          "answer_example": "Use similar to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "speculation",
+      "word": "speculation",
+      "order": 66,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "academic word",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "make speculation",
+        "speculation sentence",
+        "use speculation",
+        "speculation about the picture",
+        "show speculation"
+      ],
+      "sample_sentence": "Make speculation about the picture.",
+      "watch_out": "Use reasons or examples when you work with speculation.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"speculation\"?",
+          "choices": [
+            "make speculation",
+            "sleep the speculation",
+            "speculation banana"
+          ],
+          "answer": "make speculation"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"speculation\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"speculation\" in a classroom sentence.",
+          "answer_example": "Make speculation about the picture."
+        }
+      ]
+    },
+    {
+      "id": "subject",
+      "word": "subject",
+      "order": 67,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about subject",
+      "common_partners": [
+        "subject form",
+        "find the subject",
+        "circle the subject",
+        "use the subject",
+        "subject in a sentence"
+      ],
+      "sample_sentence": "Find the subject in the sentence.",
+      "watch_out": "Use subject when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"subject\"?",
+          "choices": [
+            "subject form",
+            "sleep the subject",
+            "subject banana"
+          ],
+          "answer": "subject form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"subject\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"subject\" in a classroom sentence.",
+          "answer_example": "Find the subject in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "summarize",
+      "word": "summarize",
+      "order": 68,
+      "kind": "academic_language",
+      "category": "thinking",
+      "type": "academic thinking word",
+      "japanese_hint": "考える力を表す言葉",
+      "part_of_speech": "verb",
+      "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "common_partners": [
+        "summarize the ideas",
+        "summarize the text",
+        "summarize your answer",
+        "summarize with evidence",
+        "summarize carefully"
+      ],
+      "sample_sentence": "Summarize the ideas carefully.",
+      "watch_out": "Use reasons or examples when you work with summarize.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"summarize\"?",
+          "choices": [
+            "summarize the ideas",
+            "sleep the summarize",
+            "summarize banana"
+          ],
+          "answer": "summarize the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"summarize\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"summarize\" in a classroom sentence.",
+          "answer_example": "Summarize the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "synonym",
+      "word": "synonym",
+      "order": 69,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the synonym",
+        "synonym in class",
+        "use synonym",
+        "talk about synonym",
+        "synonym activity"
+      ],
+      "sample_sentence": "Use synonym in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"synonym\"?",
+          "choices": [
+            "the synonym",
+            "sleep the synonym",
+            "synonym banana"
+          ],
+          "answer": "the synonym"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"synonym\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"synonym\" in a classroom sentence.",
+          "answer_example": "Use synonym in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "tag",
+      "word": "tag",
+      "order": 70,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about tag",
+      "common_partners": [
+        "tag form",
+        "find the tag",
+        "circle the tag",
+        "use the tag",
+        "tag in a sentence"
+      ],
+      "sample_sentence": "Find the tag in the sentence.",
+      "watch_out": "Use tag when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"tag\"?",
+          "choices": [
+            "tag form",
+            "sleep the tag",
+            "tag banana"
+          ],
+          "answer": "tag form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"tag\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"tag\" in a classroom sentence.",
+          "answer_example": "Find the tag in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "type",
+      "word": "type",
+      "order": 71,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the type",
+        "type in class",
+        "use type",
+        "talk about type",
+        "type activity"
+      ],
+      "sample_sentence": "Use type in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"type\"?",
+          "choices": [
+            "the type",
+            "sleep the type",
+            "type banana"
+          ],
+          "answer": "the type"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"type\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"type\" in a classroom sentence.",
+          "answer_example": "Use type in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "verb",
+      "word": "verb",
+      "order": 72,
+      "kind": "academic_language",
+      "category": "grammar",
+      "type": "grammar term",
+      "japanese_hint": "文法で使う言葉",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a grammar word Leo uses to talk about verb",
+      "common_partners": [
+        "verb form",
+        "find the verb",
+        "circle the verb",
+        "use the verb",
+        "verb in a sentence"
+      ],
+      "sample_sentence": "Find the verb in the sentence.",
+      "watch_out": "Use verb when talking about sentence grammar, not just the topic.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"verb\"?",
+          "choices": [
+            "verb form",
+            "sleep the verb",
+            "verb banana"
+          ],
+          "answer": "verb form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"verb\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"verb\" in a classroom sentence.",
+          "answer_example": "Find the verb in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "word",
+      "word": "word",
+      "order": 73,
+      "kind": "academic_language",
+      "category": "classroom",
+      "type": "classroom academic word",
+      "japanese_hint": "授業でよく使うアカデミック語",
+      "part_of_speech": "noun",
+      "student_friendly_meaning": "a classroom academic word Leo uses in school tasks",
+      "common_partners": [
+        "the word",
+        "word in class",
+        "use word",
+        "talk about word",
+        "word activity"
+      ],
+      "sample_sentence": "Use word in your classroom work.",
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"word\"?",
+          "choices": [
+            "the word",
+            "sleep the word",
+            "word banana"
+          ],
+          "answer": "the word"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"word\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"word\" in a classroom sentence.",
+          "answer_example": "Use word in your classroom work."
+        }
+      ]
+    }
+  ]
+}
