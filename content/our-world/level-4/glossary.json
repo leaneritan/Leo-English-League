@@ -43,11 +43,13 @@
         ]
       },
       "jp_how_to_use": {
-        "structure": "analyze + 調べるもの",
+        "structure": "分析する + 目的語",
         "patterns": [
-          "analyze a photo = 写真を分析する",
-          "analyze the data = データを分析する",
-          "analyze the text = 文章を分析する"
+          "analyze the ideas = 考えを分析する",
+          "analyze the text = 文章を分析する",
+          "analyze your answer = 自分の答えを分析する",
+          "analyze with evidence = 証拠を使って分析する",
+          "analyze carefully = 注意深く分析する"
         ]
       },
       "examples": [
@@ -85,7 +87,7 @@
         },
         {
           "en": "analyze the text",
-          "jp": "文章で分析するを使う"
+          "jp": "文章を分析する"
         },
         {
           "en": "analyze clues",
@@ -140,7 +142,7 @@
       "syllables": "de·scribe",
       "pos": "Verb",
       "sample": "Please <b>describe</b> the photo.",
-      "jp_word": "描写する",
+      "jp_word": "説明する",
       "jp_reading": "びょうしゃする",
       "jp_sentence": "写真を<b>描写</b>してください。",
       "jp_tags": [
@@ -174,11 +176,13 @@
         ]
       },
       "jp_how_to_use": {
-        "structure": "describe + 説明するもの",
+        "structure": "説明する + 目的語",
         "patterns": [
-          "describe a person = 人の様子を説明する",
-          "describe your hobby = 自分の趣味を説明する",
-          "describe what you see = 見えるものを説明する"
+          "describe the picture = 絵を説明する",
+          "describe a person = 人について説明する",
+          "describe your idea = 自分の考えを説明する",
+          "describe in detail = 詳しく説明する",
+          "describe what happened = 何が起きたかを説明する"
         ]
       },
       "examples": [
@@ -204,23 +208,23 @@
       "collocations": [
         {
           "en": "describe the picture",
-          "jp": "the pictureで描写するを使う"
+          "jp": "絵を説明する"
         },
         {
           "en": "describe a person",
-          "jp": "a personで描写するを使う"
+          "jp": "人について説明する"
         },
         {
           "en": "describe your idea",
-          "jp": "your ideaで描写するを使う"
+          "jp": "自分の考えを説明する"
         },
         {
           "en": "describe in detail",
-          "jp": "in detailで描写するを使う"
+          "jp": "詳しく説明する"
         },
         {
           "en": "describe what happened",
-          "jp": "what happenedで描写するを使う"
+          "jp": "何が起きたかを説明する"
         }
       ],
       "jp_note": "describe は「くわしく様子を伝える」です。explain は「理由や仕組みを説明する」です。",
@@ -309,11 +313,13 @@
         ]
       },
       "jp_how_to_use": {
-        "structure": "explain + 説明すること",
+        "structure": "説明する + 目的語",
         "patterns": [
-          "explain the rules = ルールを説明する",
-          "explain why = なぜかを説明する",
-          "explain how = どのようにするか説明する"
+          "explain the ideas = 考えを説明する",
+          "explain the text = 文章を説明する",
+          "explain your answer = 自分の答えを説明する",
+          "explain with evidence = 証拠を使って説明する",
+          "explain carefully = 注意深く説明する"
         ]
       },
       "examples": [
@@ -339,7 +345,7 @@
       "collocations": [
         {
           "en": "explain your answer",
-          "jp": "自分の答えを説明するする"
+          "jp": "自分の答えを説明する"
         },
         {
           "en": "explain the reason",
@@ -2378,11 +2384,11 @@
       "jp_how_to_use": {
         "structure": "「action」 + 文の中で使う",
         "patterns": [
-          "take action = よく一緒に使う表現",
-          "action word = よく一緒に使う表現",
-          "action in the story = よく一緒に使う表現",
-          "show an action = よく一緒に使う表現",
-          "action and result = よく一緒に使う表現"
+          "take action = 「take action」として使う",
+          "action word = wordで「action」を使う",
+          "action in the story = in the storyで「action」を使う",
+          "show an action = 「show an action」として使う",
+          "action and result = and resultで「action」を使う"
         ]
       },
       "jp_sentence": "「action」を使って考えを説明します。",
@@ -2509,11 +2515,11 @@
       "jp_how_to_use": {
         "structure": "「action word」 + 文の中で使う",
         "patterns": [
-          "action word form = よく一緒に使う表現",
-          "find the action word = よく一緒に使う表現",
-          "circle the action word = よく一緒に使う表現",
-          "use the action word = よく一緒に使う表現",
-          "action word in a sentence = よく一緒に使う表現"
+          "action word form = 動作を表す語の形",
+          "find the action word = 動作を表す語を見つける",
+          "circle the action word = 動作を表す語に丸をつける",
+          "use the action word = 動作を表す語を使う",
+          "action word in a sentence = 文の中の動作を表す語"
         ]
       },
       "jp_sentence": "「action word」を使って考えを説明します。",
@@ -2640,11 +2646,11 @@
       "jp_how_to_use": {
         "structure": "棒グラフ + 文の中で使う",
         "patterns": [
-          "bar graph organizer = よく一緒に使う表現",
-          "complete the bar graph = よく一緒に使う表現",
-          "look at the bar graph = よく一緒に使う表現",
-          "use the bar graph = よく一緒に使う表現",
-          "make a bar graph = よく一緒に使う表現"
+          "bar graph organizer = organizerで棒グラフを使う",
+          "complete the bar graph = 「complete the bar graph」として使う",
+          "look at the bar graph = 「look at the bar graph」として使う",
+          "use the bar graph = 棒グラフを使う",
+          "make a bar graph = 「make a bar graph」として使う"
         ]
       },
       "jp_sentence": "「bar graph」を使って考えを説明します。",
@@ -2771,11 +2777,11 @@
       "jp_how_to_use": {
         "structure": "原因と結果 + 文の中で使う",
         "patterns": [
-          "cause and effect relationship = よく一緒に使う表現",
-          "cause and effect chart = よく一緒に使う表現",
-          "explain cause and effect = よく一緒に使う表現",
-          "show cause and effect = よく一緒に使う表現",
-          "cause and effect sentence = よく一緒に使う表現"
+          "cause and effect relationship = relationshipで原因と結果を使う",
+          "cause and effect chart = chartで原因と結果を使う",
+          "explain cause and effect = 「explain cause and effect」として使う",
+          "show cause and effect = 「show cause and effect」として使う",
+          "cause and effect sentence = sentenceで原因と結果を使う"
         ]
       },
       "jp_sentence": "「cause and effect」を使って考えを説明します。",
@@ -2902,11 +2908,11 @@
       "jp_how_to_use": {
         "structure": "表・図 + 文の中で使う",
         "patterns": [
-          "chart organizer = よく一緒に使う表現",
-          "complete the chart = よく一緒に使う表現",
-          "look at the chart = よく一緒に使う表現",
-          "use the chart = よく一緒に使う表現",
-          "make a chart = よく一緒に使う表現"
+          "chart organizer = organizerで表・図を使う",
+          "complete the chart = 「complete the chart」として使う",
+          "look at the chart = 「look at the chart」として使う",
+          "use the chart = 表・図を使う",
+          "make a chart = 「make a chart」として使う"
         ]
       },
       "jp_sentence": "「chart」を使って考えを説明します。",
@@ -3031,13 +3037,13 @@
         "より分かりやすいアカデミックな答えを作りたいとき。"
       ],
       "jp_how_to_use": {
-        "structure": "比べる + 文の中で使う",
+        "structure": "比べる + 目的語",
         "patterns": [
-          "compare two ideas = よく一緒に使う表現",
-          "compare and contrast = よく一緒に使う表現",
-          "compare the pictures = よく一緒に使う表現",
-          "compare your answers = よく一緒に使う表現",
-          "compare the results = よく一緒に使う表現"
+          "compare two ideas = 二つの考えを比べる",
+          "compare the pictures = 絵を比べる",
+          "compare your answers = 自分たちの答えを比べる",
+          "compare with evidence = 証拠を使って比べる",
+          "compare carefully = 注意深く比べる"
         ]
       },
       "jp_sentence": "二つの絵を注意深く比べましょう。",
@@ -3094,7 +3100,7 @@
       "collocations": [
         {
           "en": "contrast two ideas",
-          "jp": "two ideasで対比するを使う"
+          "jp": "二つの考えを対比する"
         },
         {
           "en": "compare and contrast",
@@ -3102,15 +3108,15 @@
         },
         {
           "en": "show a contrast",
-          "jp": "「show a contrast」として使う"
+          "jp": "違いを示す"
         },
         {
           "en": "contrast the pictures",
-          "jp": "the picturesで対比するを使う"
+          "jp": "絵を対比する"
         },
         {
           "en": "contrast the answers",
-          "jp": "the answersで対比するを使う"
+          "jp": "答えを対比する"
         }
       ],
       "common_partners": [
@@ -3162,13 +3168,13 @@
         "より分かりやすいアカデミックな答えを作りたいとき。"
       ],
       "jp_how_to_use": {
-        "structure": "対比する + 文の中で使う",
+        "structure": "対比する + 目的語",
         "patterns": [
-          "contrast two ideas = よく一緒に使う表現",
-          "compare and contrast = よく一緒に使う表現",
-          "show a contrast = よく一緒に使う表現",
-          "contrast the pictures = よく一緒に使う表現",
-          "contrast the answers = よく一緒に使う表現"
+          "contrast two ideas = 二つの考えを対比する",
+          "compare and contrast = 比べて違いを説明する",
+          "show a contrast = 違いを示す",
+          "contrast the pictures = 絵を対比する",
+          "contrast the answers = 答えを対比する"
         ]
       },
       "jp_sentence": "「contrast」を使って考えを説明します。",
@@ -3295,11 +3301,11 @@
       "jp_how_to_use": {
         "structure": "「critical thinking」 + 文の中で使う",
         "patterns": [
-          "use critical thinking = よく一緒に使う表現",
-          "critical thinking question = よく一緒に使う表現",
-          "critical thinking skill = よく一緒に使う表現",
-          "show critical thinking = よく一緒に使う表現",
-          "critical thinking activity = よく一緒に使う表現"
+          "use critical thinking = 「critical thinking」を使う",
+          "critical thinking question = questionで「critical thinking」を使う",
+          "critical thinking skill = skillで「critical thinking」を使う",
+          "show critical thinking = 「show critical thinking」として使う",
+          "critical thinking activity = activityで「critical thinking」を使う"
         ]
       },
       "jp_sentence": "「critical thinking」を使って考えを説明します。",
@@ -3426,11 +3432,11 @@
       "jp_how_to_use": {
         "structure": "「descriptive details」 + 文の中で使う",
         "patterns": [
-          "use descriptive details = よく一緒に使う表現",
-          "add descriptive details = よく一緒に使う表現",
-          "descriptive details in writing = よく一緒に使う表現",
-          "clear descriptive details = よく一緒に使う表現",
-          "find descriptive details = よく一緒に使う表現"
+          "use descriptive details = 「descriptive details」を使う",
+          "add descriptive details = 「add descriptive details」として使う",
+          "descriptive details in writing = in writingで「descriptive details」を使う",
+          "clear descriptive details = 「clear descriptive details」として使う",
+          "find descriptive details = 「descriptive details」を見つける"
         ]
       },
       "jp_sentence": "「descriptive details」を使って考えを説明します。",
@@ -3557,11 +3563,11 @@
       "jp_how_to_use": {
         "structure": "図 + 文の中で使う",
         "patterns": [
-          "diagram organizer = よく一緒に使う表現",
-          "complete the diagram = よく一緒に使う表現",
-          "look at the diagram = よく一緒に使う表現",
-          "use the diagram = よく一緒に使う表現",
-          "make a diagram = よく一緒に使う表現"
+          "diagram organizer = organizerで図を使う",
+          "complete the diagram = 「complete the diagram」として使う",
+          "look at the diagram = 「look at the diagram」として使う",
+          "use the diagram = 図を使う",
+          "make a diagram = 「make a diagram」として使う"
         ]
       },
       "jp_sentence": "「diagram」を使って考えを説明します。",
@@ -3688,11 +3694,11 @@
       "jp_how_to_use": {
         "structure": "「differences」 + 文の中で使う",
         "patterns": [
-          "find differences = よく一緒に使う表現",
-          "show differences = よく一緒に使う表現",
-          "differences between ideas = よく一緒に使う表現",
-          "compare differences = よく一緒に使う表現",
-          "explain differences = よく一緒に使う表現"
+          "find differences = 「differences」を見つける",
+          "show differences = 「show differences」として使う",
+          "differences between ideas = between ideasで「differences」を使う",
+          "compare differences = 「compare differences」として使う",
+          "explain differences = 「explain differences」として使う"
         ]
       },
       "jp_sentence": "「differences」を使って考えを説明します。",
@@ -3819,11 +3825,11 @@
       "jp_how_to_use": {
         "structure": "結果・影響 + 文の中で使う",
         "patterns": [
-          "cause and effect = よく一緒に使う表現",
-          "effect of the change = よく一緒に使う表現",
-          "main effect = よく一緒に使う表現",
-          "possible effect = よく一緒に使う表現",
-          "explain the effect = よく一緒に使う表現"
+          "cause and effect = 「cause and effect」として使う",
+          "effect of the change = of the changeで結果・影響を使う",
+          "main effect = 「main effect」として使う",
+          "possible effect = 「possible effect」として使う",
+          "explain the effect = 「explain the effect」として使う"
         ]
       },
       "jp_sentence": "「effect」を使って考えを説明します。",
@@ -3950,11 +3956,11 @@
       "jp_how_to_use": {
         "structure": "「events」 + 文の中で使う",
         "patterns": [
-          "the events = よく一緒に使う表現",
-          "events in class = よく一緒に使う表現",
-          "use events = よく一緒に使う表現",
-          "talk about events = よく一緒に使う表現",
-          "events activity = よく一緒に使う表現"
+          "the events = 「the events」として使う",
+          "events in class = in classで「events」を使う",
+          "use events = 「events」を使う",
+          "talk about events = 「talk about events」として使う",
+          "events activity = activityで「events」を使う"
         ]
       },
       "jp_sentence": "「events」を使って考えを説明します。",
@@ -4081,11 +4087,11 @@
       "jp_how_to_use": {
         "structure": "「expressions」 + 文の中で使う",
         "patterns": [
-          "the expressions = よく一緒に使う表現",
-          "expressions in class = よく一緒に使う表現",
-          "use expressions = よく一緒に使う表現",
-          "talk about expressions = よく一緒に使う表現",
-          "expressions activity = よく一緒に使う表現"
+          "the expressions = 「the expressions」として使う",
+          "expressions in class = in classで「expressions」を使う",
+          "use expressions = 「expressions」を使う",
+          "talk about expressions = 「talk about expressions」として使う",
+          "expressions activity = activityで「expressions」を使う"
         ]
       },
       "jp_sentence": "「expressions」を使って考えを説明します。",
@@ -4212,11 +4218,11 @@
       "jp_how_to_use": {
         "structure": "事実 + 文の中で使う",
         "patterns": [
-          "fact or opinion = よく一緒に使う表現",
-          "check the fact = よく一緒に使う表現",
-          "write a fact = よく一緒に使う表現",
-          "find facts = よく一緒に使う表現",
-          "use facts = よく一緒に使う表現"
+          "fact or opinion = or opinionで事実を使う",
+          "check the fact = 事実を確認する",
+          "write a fact = 事実を書く",
+          "find facts = 事実を見つける",
+          "use facts = 事実を使う"
         ]
       },
       "jp_sentence": "「fact」を使って考えを説明します。",
@@ -4343,11 +4349,11 @@
       "jp_how_to_use": {
         "structure": "「form」 + 文の中で使う",
         "patterns": [
-          "the form = よく一緒に使う表現",
-          "form in class = よく一緒に使う表現",
-          "use form = よく一緒に使う表現",
-          "talk about form = よく一緒に使う表現",
-          "form activity = よく一緒に使う表現"
+          "the form = 「the form」として使う",
+          "form in class = in classで「form」を使う",
+          "use form = 「form」を使う",
+          "talk about form = 「talk about form」として使う",
+          "form activity = activityで「form」を使う"
         ]
       },
       "jp_sentence": "「form」を使って考えを説明します。",
@@ -4404,23 +4410,23 @@
       "collocations": [
         {
           "en": "generalize from examples",
-          "jp": "from examplesで一般化するを使う"
+          "jp": "例から一般化する"
         },
         {
           "en": "generalize about a group",
-          "jp": "about a groupで一般化するを使う"
+          "jp": "グループについて一般化する"
         },
         {
           "en": "generalize carefully",
-          "jp": "一般化するを注意深く使う"
+          "jp": "注意深く一般化する"
         },
         {
           "en": "generalize the idea",
-          "jp": "the ideaで一般化するを使う"
+          "jp": "考えを一般化する"
         },
         {
           "en": "generalize from evidence",
-          "jp": "from evidenceで一般化するを使う"
+          "jp": "証拠から一般化する"
         }
       ],
       "common_partners": [
@@ -4472,13 +4478,13 @@
         "より分かりやすいアカデミックな答えを作りたいとき。"
       ],
       "jp_how_to_use": {
-        "structure": "一般化する + 文の中で使う",
+        "structure": "一般化する + 目的語",
         "patterns": [
-          "generalize from examples = よく一緒に使う表現",
-          "generalize about a group = よく一緒に使う表現",
-          "generalize carefully = よく一緒に使う表現",
-          "generalize the idea = よく一緒に使う表現",
-          "generalize from evidence = よく一緒に使う表現"
+          "generalize from examples = 例から一般化する",
+          "generalize the idea = 考えを一般化する",
+          "generalize your answer = 自分の答えを一般化する",
+          "generalize with evidence = 証拠を使って一般化する",
+          "generalize carefully = 注意深く一般化する"
         ]
       },
       "jp_sentence": "「generalize」を使って考えを説明します。",
@@ -4605,11 +4611,11 @@
       "jp_how_to_use": {
         "structure": "グラフ + 文の中で使う",
         "patterns": [
-          "graph organizer = よく一緒に使う表現",
-          "complete the graph = よく一緒に使う表現",
-          "look at the graph = よく一緒に使う表現",
-          "use the graph = よく一緒に使う表現",
-          "make a graph = よく一緒に使う表現"
+          "graph organizer = organizerでグラフを使う",
+          "complete the graph = 「complete the graph」として使う",
+          "look at the graph = 「look at the graph」として使う",
+          "use the graph = グラフを使う",
+          "make a graph = 「make a graph」として使う"
         ]
       },
       "jp_sentence": "「graph」を使って考えを説明します。",
@@ -4736,11 +4742,11 @@
       "jp_how_to_use": {
         "structure": "「graphic features」 + 文の中で使う",
         "patterns": [
-          "graphic features organizer = よく一緒に使う表現",
-          "complete the graphic features = よく一緒に使う表現",
-          "look at the graphic features = よく一緒に使う表現",
-          "use the graphic features = よく一緒に使う表現",
-          "make a graphic features = よく一緒に使う表現"
+          "graphic features organizer = organizerで「graphic features」を使う",
+          "complete the graphic features = 「complete the graphic features」として使う",
+          "look at the graphic features = 「look at the graphic features」として使う",
+          "use the graphic features = 「graphic features」を使う",
+          "make a graphic features = 「make a graphic features」として使う"
         ]
       },
       "jp_sentence": "「graphic features」を使って考えを説明します。",
@@ -4797,23 +4803,23 @@
       "collocations": [
         {
           "en": "identify the ideas",
-          "jp": "考えについて特定するを使う"
+          "jp": "考えを特定する"
         },
         {
           "en": "identify the text",
-          "jp": "文章で特定するを使う"
+          "jp": "文章を特定する"
         },
         {
           "en": "identify your answer",
-          "jp": "自分の答えを特定するする"
+          "jp": "自分の答えを特定する"
         },
         {
           "en": "identify with evidence",
-          "jp": "証拠を使って特定するを説明する"
+          "jp": "証拠を使って特定する"
         },
         {
           "en": "identify carefully",
-          "jp": "特定するを注意深く使う"
+          "jp": "注意深く特定する"
         }
       ],
       "common_partners": [
@@ -4867,11 +4873,11 @@
       "jp_how_to_use": {
         "structure": "特定する + 文の中で使う",
         "patterns": [
-          "identify the ideas = よく一緒に使う表現",
-          "identify the text = よく一緒に使う表現",
-          "identify your answer = よく一緒に使う表現",
-          "identify with evidence = よく一緒に使う表現",
-          "identify carefully = よく一緒に使う表現"
+          "identify the ideas = 考えを特定する",
+          "identify the text = 文章を特定する",
+          "identify your answer = 自分の答えを特定する",
+          "identify with evidence = 証拠を使って特定する",
+          "identify carefully = 注意深く特定する"
         ]
       },
       "jp_sentence": "「identify」を使って考えを説明します。",
@@ -4998,11 +5004,11 @@
       "jp_how_to_use": {
         "structure": "「instructions」 + 文の中で使う",
         "patterns": [
-          "the instructions = よく一緒に使う表現",
-          "instructions in class = よく一緒に使う表現",
-          "use instructions = よく一緒に使う表現",
-          "talk about instructions = よく一緒に使う表現",
-          "instructions activity = よく一緒に使う表現"
+          "the instructions = 「the instructions」として使う",
+          "instructions in class = in classで「instructions」を使う",
+          "use instructions = 「instructions」を使う",
+          "talk about instructions = 「talk about instructions」として使う",
+          "instructions activity = activityで「instructions」を使う"
         ]
       },
       "jp_sentence": "「instructions」を使って考えを説明します。",
@@ -5129,11 +5135,11 @@
       "jp_how_to_use": {
         "structure": "「label」 + 文の中で使う",
         "patterns": [
-          "the label = よく一緒に使う表現",
-          "label in class = よく一緒に使う表現",
-          "use label = よく一緒に使う表現",
-          "talk about label = よく一緒に使う表現",
-          "label activity = よく一緒に使う表現"
+          "the label = 「the label」として使う",
+          "label in class = in classで「label」を使う",
+          "use label = 「label」を使う",
+          "talk about label = 「talk about label」として使う",
+          "label activity = activityで「label」を使う"
         ]
       },
       "jp_sentence": "「label」を使って考えを説明します。",
@@ -5260,11 +5266,11 @@
       "jp_how_to_use": {
         "structure": "主な考え + 文の中で使う",
         "patterns": [
-          "find the main idea = よく一緒に使う表現",
-          "main idea of the text = よく一緒に使う表現",
-          "write the main idea = よく一緒に使う表現",
-          "circle the main idea = よく一緒に使う表現",
-          "main idea and details = よく一緒に使う表現"
+          "find the main idea = 主な考えを見つける",
+          "main idea of the text = of the textで主な考えを使う",
+          "write the main idea = 主な考えを書く",
+          "circle the main idea = 主な考えに丸をつける",
+          "main idea and details = and detailsで主な考えを使う"
         ]
       },
       "jp_sentence": "「main idea」を使って考えを説明します。",
@@ -5391,11 +5397,11 @@
       "jp_how_to_use": {
         "structure": "「match」 + 文の中で使う",
         "patterns": [
-          "match the answer = よく一緒に使う表現",
-          "match the words = よく一緒に使う表現",
-          "match with a partner = よく一緒に使う表現",
-          "match carefully = よく一緒に使う表現",
-          "match on the page = よく一緒に使う表現"
+          "match the answer = 「match」を合わせる",
+          "match the words = 「match」を合わせる",
+          "match with a partner = 「match」を合わせる",
+          "match carefully = 「match」を合わせる",
+          "match on the page = 「match」を合わせる"
         ]
       },
       "jp_sentence": "「match」を使って考えを説明します。",
@@ -5522,11 +5528,11 @@
       "jp_how_to_use": {
         "structure": "「obligation」 + 文の中で使う",
         "patterns": [
-          "obligation form = よく一緒に使う表現",
-          "find the obligation = よく一緒に使う表現",
-          "circle the obligation = よく一緒に使う表現",
-          "use the obligation = よく一緒に使う表現",
-          "obligation in a sentence = よく一緒に使う表現"
+          "obligation form = 「obligation」の形",
+          "find the obligation = 「obligation」を見つける",
+          "circle the obligation = 「obligation」に丸をつける",
+          "use the obligation = 「obligation」を使う",
+          "obligation in a sentence = 文の中の「obligation」"
         ]
       },
       "jp_sentence": "「obligation」を使って考えを説明します。",
@@ -5653,11 +5659,11 @@
       "jp_how_to_use": {
         "structure": "意見 + 文の中で使う",
         "patterns": [
-          "give an opinion = よく一緒に使う表現",
-          "state your opinion = よく一緒に使う表現",
-          "fact or opinion = よく一緒に使う表現",
-          "support your opinion = よく一緒に使う表現",
-          "opinion sentence = よく一緒に使う表現"
+          "give an opinion = 「give an opinion」として使う",
+          "state your opinion = 「state your opinion」として使う",
+          "fact or opinion = 「fact or opinion」として使う",
+          "support your opinion = 「support your opinion」として使う",
+          "opinion sentence = sentenceで意見を使う"
         ]
       },
       "jp_sentence": "「opinion」を使って考えを説明します。",
