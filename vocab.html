@@ -58,6 +58,30 @@
     .state-msg .home-link { display: inline-block; margin-top: 24px; padding: 10px 20px; background: var(--ink); color: var(--yellow); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; }
     .state-msg .home-link:hover { background: var(--yellow); color: var(--ink); }
 
+    /* Level glossary index */
+    .level-index-head { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 18px; }
+    .level-index-kicker { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 8px; }
+    .level-index-title { font-family: 'Oswald', sans-serif; font-size: 46px; line-height: 1; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    .level-index-sub { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+    .level-index-tools { display: flex; align-items: center; gap: 10px; margin: 18px 0 20px; flex-wrap: wrap; }
+    .level-index-search { flex: 1; min-width: 220px; border: 1.5px solid var(--ink); background: var(--surface); color: var(--ink); padding: 11px 14px; font: 600 15px 'Inter', sans-serif; }
+    .level-index-search:focus { outline: 2px solid var(--yellow); outline-offset: 2px; }
+    .level-filter { border: 1px solid var(--border); background: var(--surface); color: var(--ink-3); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 9px 11px; cursor: pointer; }
+    .level-filter.active { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .level-word-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .level-word-card { display: block; min-height: 108px; background: var(--surface); border: 1px solid var(--border); color: inherit; text-decoration: none; padding: 14px; transition: all 0.15s; }
+    .level-word-card:hover { border-color: var(--ink); transform: translateY(-1px); }
+    .level-word-card.academic { border-left: 4px solid var(--academic); }
+    .level-word-card.content { border-left: 4px solid var(--content-ink); }
+    .level-word-card.related { border-left: 4px solid var(--related); }
+    .level-word-card.extras { border-left: 4px solid var(--yellow); }
+    .level-word-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .level-word-emoji { font-size: 24px; line-height: 1; }
+    .level-word-kind { font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-4); text-align: right; }
+    .level-word-name { font-weight: 800; font-size: 16px; line-height: 1.2; color: var(--ink); margin-bottom: 6px; }
+    .level-word-meta { font-size: 12px; line-height: 1.4; color: var(--ink-3); }
+    .level-empty { border: 1px dashed var(--ink-3); background: var(--surface); color: var(--ink-2); padding: 24px; text-align: center; font-weight: 700; }
+
     /* Page meta */
     .page-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
     .tag { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); background: var(--surface); padding: 4px 8px 3px; border: 1px solid var(--border); text-transform: uppercase; }
@@ -242,6 +266,8 @@
       .pron-divider { display: none; }
       .topbar { padding: 14px 20px; }
       .container { padding: 20px 20px 40px; }
+      .level-word-grid { grid-template-columns: 1fr; }
+      .level-index-title { font-size: 38px; }
       .rich-section-body { padding: 16px 18px; }
       .en-block { font-size: 15px; }
       .jp-body { font-size: 15px; }
@@ -425,6 +451,111 @@
     // ════════════════════════════════════════════════════════════════
     // RENDER PIECES
     // ════════════════════════════════════════════════════════════════
+
+    async function loadLevelWords(level) {
+      const glossary = await loadJson(`content/our-world/level-${level}/glossary.json`);
+      const extras = await loadJson(`content/our-world/level-${level}/extras.json`);
+      const words = [];
+      if (glossary && Array.isArray(glossary.words)) {
+        words.push(...glossary.words.map(w => ({ ...w, source: 'glossary' })));
+      }
+      if (extras && Array.isArray(extras.words)) {
+        words.push(...extras.words.map(w => ({ ...w, category: w.category || 'extras', source: 'extras' })));
+      }
+      return words;
+    }
+
+    function levelWordCategory(entry) {
+      if (entry.category === 'academic' || entry.kind === 'academic_language') return 'academic';
+      if (entry.category === 'content') return 'content';
+      if (entry.category === 'related') return 'related';
+      if (entry.category === 'extras') return 'extras';
+      return entry.category || 'vocab';
+    }
+
+    function renderLevelIndex(level, words) {
+      const crumb = document.getElementById('crumb');
+      crumb.innerHTML = [
+        `<a href="index.html">Home</a><span class="sep">/</span>`,
+        `<a href="our-world.html">Our World</a><span class="sep">/</span>`,
+        `<span class="active">Level ${level} Glossary</span>`
+      ].join('');
+
+      const counts = words.reduce((acc, w) => {
+        const cat = levelWordCategory(w);
+        acc[cat] = (acc[cat] || 0) + 1;
+        return acc;
+      }, {});
+      const filters = [
+        ['all', `All ${words.length}`],
+        ['academic', `Academic ${counts.academic || 0}`],
+        ['content', `Content ${counts.content || 0}`],
+        ['related', `Related ${counts.related || 0}`],
+        ['extras', `Extras ${counts.extras || 0}`]
+      ].filter(([key]) => key === 'all' || counts[key]);
+
+      document.getElementById('main').innerHTML = `
+        <a href="our-world.html" class="back-link">Back to Our World</a>
+        <div class="level-index-head">
+          <div class="level-index-kicker">Our World Glossary</div>
+          <h1 class="level-index-title">Level ${level}</h1>
+          <p class="level-index-sub">Open any word to see examples, Japanese support, common partners, and mini tests where available.</p>
+        </div>
+        <div class="level-index-tools">
+          <input class="level-index-search" id="levelWordSearch" type="search" placeholder="Search Level ${level} words...">
+          ${filters.map(([key, label]) => `<button class="level-filter ${key === 'all' ? 'active' : ''}" type="button" data-filter="${key}">${safeHTML(label)}</button>`).join('')}
+        </div>
+        <div class="level-word-grid" id="levelWordGrid">
+          ${words.map(w => {
+            const cat = levelWordCategory(w);
+            const label = CATEGORY_LABELS[cat] || cat;
+            const summary = w.meaning || w.jp_meaning || w.sample || w.sentence || '';
+            return `
+              <a class="level-word-card ${cat}" href="vocab.html?level=${level}&id=${encodeURIComponent(w.id)}" data-cat="${safeAttr(cat)}" data-search="${safeAttr([w.word, w.id, label, summary].join(' '))}">
+                <div class="level-word-top">
+                  <div class="level-word-emoji">${safeHTML(w.emoji || '📚')}</div>
+                  <div class="level-word-kind">${safeHTML(label)}</div>
+                </div>
+                <div class="level-word-name">${safeHTML(w.word || w.id)}</div>
+                <div class="level-word-meta">${safeHTML(summary).slice(0, 96)}</div>
+              </a>
+            `;
+          }).join('')}
+        </div>
+        <div class="level-empty hidden" id="levelEmpty">No matching words in this level.</div>
+      `;
+      wireLevelIndex();
+    }
+
+    function wireLevelIndex() {
+      const search = document.getElementById('levelWordSearch');
+      const cards = Array.from(document.querySelectorAll('.level-word-card'));
+      const filters = Array.from(document.querySelectorAll('.level-filter'));
+      const empty = document.getElementById('levelEmpty');
+      let activeFilter = 'all';
+
+      function apply() {
+        const q = (search.value || '').trim().toLowerCase();
+        let shown = 0;
+        cards.forEach(card => {
+          const catOk = activeFilter === 'all' || card.dataset.cat === activeFilter;
+          const searchOk = !q || (card.dataset.search || '').toLowerCase().includes(q);
+          const visible = catOk && searchOk;
+          card.classList.toggle('hidden', !visible);
+          if (visible) shown++;
+        });
+        empty.classList.toggle('hidden', shown > 0);
+      }
+
+      search.addEventListener('input', apply);
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeFilter = btn.dataset.filter || 'all';
+          filters.forEach(b => b.classList.toggle('active', b === btn));
+          apply();
+        });
+      });
+    }
 
     function renderCrumb(entry, originTag) {
       const crumb = document.getElementById('crumb');
@@ -966,12 +1097,17 @@
     async function init() {
       const { level, word, unit, set } = getParams();
 
-      if (!word) {
-        renderError('No word specified', 'Please add ?level=N&id=WORDID to the URL (or ?level=N&word=WORDID).');
-        return;
-      }
       if (!level) {
         renderError('No level specified', 'Please add ?level=N to the URL (e.g. ?level=4&id=describe).');
+        return;
+      }
+      if (!word) {
+        const words = await loadLevelWords(level);
+        if (!words.length) {
+          renderError('No glossary found', `Level ${level} does not have glossary words yet.`);
+          return;
+        }
+        renderLevelIndex(level, words);
         return;
       }
 

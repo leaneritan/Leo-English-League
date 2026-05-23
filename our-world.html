@@ -382,7 +382,8 @@
 
     /* levels grid */
     .levels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
-    .level-card { background: var(--surface); border: 1.5px solid var(--border); padding: 28px 24px; }
+    .level-card { display: block; background: var(--surface); border: 1.5px solid var(--border); padding: 28px 24px; color: inherit; text-decoration: none; transition: all 0.15s ease; }
+    .level-card:hover { border-color: var(--ink); transform: translateY(-1px); }
     .level-card.active-level { background: var(--yellow-bg); border-color: var(--yellow); }
     .level-card-num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 36px; line-height: 1; color: var(--ink-4); margin-bottom: 6px; }
     .level-card.active-level .level-card-num { color: var(--ink); }
@@ -1095,36 +1096,36 @@
     <div class="tab-panel" id="panel-levels">
 
       <div class="levels-grid">
-        <div class="level-card">
+        <a class="level-card" href="vocab.html?level=1">
           <div class="level-card-num">L1</div>
           <div class="level-card-name">Level 1</div>
-          <div class="level-badge soon">Coming soon</div>
-        </div>
-        <div class="level-card">
+          <div class="level-badge now">Glossary ready</div>
+        </a>
+        <a class="level-card" href="vocab.html?level=2">
           <div class="level-card-num">L2</div>
           <div class="level-card-name">Level 2</div>
-          <div class="level-badge soon">Coming soon</div>
-        </div>
-        <div class="level-card">
+          <div class="level-badge now">Glossary ready</div>
+        </a>
+        <a class="level-card" href="vocab.html?level=3">
           <div class="level-card-num">L3</div>
           <div class="level-card-name">Level 3</div>
-          <div class="level-badge soon">Coming soon</div>
-        </div>
-        <div class="level-card active-level">
+          <div class="level-badge now">Glossary ready</div>
+        </a>
+        <a class="level-card active-level" href="vocab.html?level=4">
           <div class="level-card-num">L4</div>
           <div class="level-card-name">Level 4</div>
           <div class="level-badge now">Active now</div>
-        </div>
-        <div class="level-card">
+        </a>
+        <a class="level-card" href="vocab.html?level=5">
           <div class="level-card-num">L5</div>
           <div class="level-card-name">Level 5</div>
-          <div class="level-badge soon">Coming soon</div>
-        </div>
-        <div class="level-card">
+          <div class="level-badge now">Glossary ready</div>
+        </a>
+        <a class="level-card" href="vocab.html?level=6">
           <div class="level-card-num">L6</div>
           <div class="level-card-name">Level 6</div>
-          <div class="level-badge soon">Coming soon</div>
-        </div>
+          <div class="level-badge now">Glossary ready</div>
+        </a>
       </div>
 
     </div><!-- /panel-levels -->
