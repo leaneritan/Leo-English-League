@@ -14,7 +14,8 @@
       "jp_sentence": "写真を<b>分析</b>します。",
       "jp_tags": [
         "動詞",
-        "学習語"
+        "学習語",
+        "アカデミック語"
       ],
       "category": "academic",
       "tags": [
@@ -51,7 +52,7 @@
       },
       "examples": [
         {
-          "en": "Analyze the photo and find three clues.",
+          "en": "<b>analyze</b> the photo and find three clues.",
           "jp": "写真を分析して、手がかりを三つ見つけましょう。",
           "context_en": "Photo task",
           "context_jp": "写真を使う活動"
@@ -63,18 +64,33 @@
           "context_jp": "理科"
         },
         {
-          "en": "Can you analyze why the hiker used a compass?",
+          "en": "Can you <b>analyze</b> why the hiker used a compass?",
           "jp": "なぜハイカーがコンパスを使ったのか分析できますか。",
           "context_en": "Reading discussion",
           "context_jp": "読解の話し合い"
         }
       ],
       "collocations": [
-        "analyze a photo",
-        "analyze data",
-        "analyze a chart",
-        "analyze the text",
-        "analyze clues"
+        {
+          "en": "analyze a photo",
+          "jp": "analyze a photo = よく一緒に使う表現"
+        },
+        {
+          "en": "analyze data",
+          "jp": "analyze data = よく一緒に使う表現"
+        },
+        {
+          "en": "analyze a chart",
+          "jp": "analyze a chart = よく一緒に使う表現"
+        },
+        {
+          "en": "analyze the text",
+          "jp": "analyze the text = よく一緒に使う表現"
+        },
+        {
+          "en": "analyze clues",
+          "jp": "analyze clues = よく一緒に使う表現"
+        }
       ],
       "jp_note": "look at は「見る」だけでも使えます。analyze は「よく見て、考えて、情報を見つける」という強い意味です。",
       "practice_prompt": "Analyze a picture from Unit 8. Write three things you can learn from it.",
@@ -85,6 +101,35 @@
         "analyze a chart",
         "analyze the text",
         "analyze clues"
+      ],
+      "kind": "academic_language",
+      "level": 4,
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"analyze\"?",
+          "choices": [
+            "analyze a photo",
+            "sleep the analyze",
+            "analyze banana"
+          ],
+          "answer": "analyze a photo"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What is \"analyze\" used for?",
+          "choices": [
+            "Academic classroom work",
+            "A food word",
+            "A place name"
+          ],
+          "answer": "Academic classroom work"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"analyze\" in a sentence.",
+          "answer_example": "analyze the photo and find three clues."
+        }
       ]
     },
     {
@@ -100,7 +145,8 @@
       "jp_sentence": "写真を<b>描写</b>してください。",
       "jp_tags": [
         "動詞",
-        "学習語"
+        "学習語",
+        "思考の言葉"
       ],
       "category": "academic",
       "tags": [
@@ -137,7 +183,7 @@
       },
       "examples": [
         {
-          "en": "Describe the polar bear in the photo.",
+          "en": "<b>describe</b> the polar bear in the photo.",
           "jp": "写真のホッキョクグマの様子を説明しましょう。",
           "context_en": "Photo description",
           "context_jp": "写真描写"
@@ -149,18 +195,33 @@
           "context_jp": "ライティング"
         },
         {
-          "en": "Use three adjectives to describe the ornament.",
+          "en": "Use three adjectives to <b>describe</b> the ornament.",
           "jp": "三つの形容詞を使って、その飾りを説明しましょう。",
           "context_en": "Vocabulary practice",
           "context_jp": "語い練習"
         }
       ],
       "collocations": [
-        "describe a photo",
-        "describe a person",
-        "describe a place",
-        "describe your hobby",
-        "describe in detail"
+        {
+          "en": "describe the picture",
+          "jp": "describe the picture = よく一緒に使う表現"
+        },
+        {
+          "en": "describe a person",
+          "jp": "describe a person = よく一緒に使う表現"
+        },
+        {
+          "en": "describe your idea",
+          "jp": "describe your idea = よく一緒に使う表現"
+        },
+        {
+          "en": "describe in detail",
+          "jp": "describe in detail = よく一緒に使う表現"
+        },
+        {
+          "en": "describe what happened",
+          "jp": "describe what happened = よく一緒に使う表現"
+        }
       ],
       "jp_note": "describe は「くわしく様子を伝える」です。explain は「理由や仕組みを説明する」です。",
       "practice_prompt": "Describe a hobby you like. Use at least three details.",
@@ -219,7 +280,8 @@
       "jp_sentence": "ルールを<b>説明</b>してください。",
       "jp_tags": [
         "動詞",
-        "学習語"
+        "学習語",
+        "アカデミック語"
       ],
       "category": "academic",
       "tags": [
@@ -256,13 +318,13 @@
       },
       "examples": [
         {
-          "en": "Can you explain the rules of the game?",
+          "en": "Can you <b>explain</b> the rules of the game?",
           "jp": "そのゲームのルールを説明できますか。",
           "context_en": "Game",
           "context_jp": "ゲーム"
         },
         {
-          "en": "Explain why this app is useful.",
+          "en": "<b>explain</b> why this app is useful.",
           "jp": "なぜこのアプリが役に立つのか説明しましょう。",
           "context_en": "Project",
           "context_jp": "プロジェクト"
@@ -275,11 +337,26 @@
         }
       ],
       "collocations": [
-        "explain the rules",
-        "explain a word",
-        "explain why",
-        "explain how",
-        "explain your idea"
+        {
+          "en": "explain your answer",
+          "jp": "explain your answer = よく一緒に使う表現"
+        },
+        {
+          "en": "explain the reason",
+          "jp": "explain the reason = よく一緒に使う表現"
+        },
+        {
+          "en": "explain the idea",
+          "jp": "explain the idea = よく一緒に使う表現"
+        },
+        {
+          "en": "explain clearly",
+          "jp": "explain clearly = よく一緒に使う表現"
+        },
+        {
+          "en": "explain with examples",
+          "jp": "explain with examples = よく一緒に使う表現"
+        }
       ],
       "jp_note": "describe は様子を伝えること。explain は「なぜ」「どうやって」などを分かりやすくすることです。",
       "practice_prompt": "Explain how to play your favorite game in three steps.",
@@ -290,6 +367,35 @@
         "explain the idea",
         "explain clearly",
         "explain with examples"
+      ],
+      "kind": "academic_language",
+      "level": 4,
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"explain\"?",
+          "choices": [
+            "explain your answer",
+            "sleep the explain",
+            "explain banana"
+          ],
+          "answer": "explain your answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What is \"explain\" used for?",
+          "choices": [
+            "Academic classroom work",
+            "A food word",
+            "A place name"
+          ],
+          "answer": "Academic classroom work"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"explain\" in a sentence.",
+          "answer_example": "Can you explain the rules of the game?"
+        }
       ]
     },
     {
@@ -305,7 +411,8 @@
       "jp_sentence": "写真に<b>説明文</b>を書きます。",
       "jp_tags": [
         "名詞",
-        "学習語"
+        "学習語",
+        "読解・作文の言葉"
       ],
       "category": "academic",
       "tags": [
@@ -342,30 +449,45 @@
       },
       "examples": [
         {
-          "en": "Write a caption for this polar bear photo.",
+          "en": "Write a <b>caption</b> for this polar bear photo.",
           "jp": "このホッキョクグマの写真にキャプションを書きましょう。",
           "context_en": "Photo task",
           "context_jp": "写真活動"
         },
         {
-          "en": "The caption tells us where the photo was taken.",
+          "en": "The <b>caption</b> tells us where the photo was taken.",
           "jp": "キャプションはその写真がどこで撮られたかを教えてくれます。",
           "context_en": "Reading",
           "context_jp": "読解"
         },
         {
-          "en": "A good caption is short but clear.",
+          "en": "A good <b>caption</b> is short but clear.",
           "jp": "よいキャプションは短くても分かりやすいです。",
           "context_en": "Writing tip",
           "context_jp": "書くコツ"
         }
       ],
       "collocations": [
-        "write a caption",
-        "photo caption",
-        "short caption",
-        "caption under a picture",
-        "add a caption"
+        {
+          "en": "read the caption",
+          "jp": "read the caption = よく一緒に使う表現"
+        },
+        {
+          "en": "write a caption",
+          "jp": "write a caption = よく一緒に使う表現"
+        },
+        {
+          "en": "picture caption",
+          "jp": "picture caption = よく一緒に使う表現"
+        },
+        {
+          "en": "caption under the photo",
+          "jp": "caption under the photo = よく一緒に使う表現"
+        },
+        {
+          "en": "caption and photo",
+          "jp": "caption and photo = よく一緒に使う表現"
+        }
       ],
       "jp_note": "caption は長い説明ではなく、写真や絵の近くにある短い説明です。",
       "practice_prompt": "Choose a Unit 8 picture and write one clear caption.",
@@ -522,7 +644,8 @@
       "jp_sentence": "<b>正確さ</b>を大切にしましょう。",
       "jp_tags": [
         "名詞",
-        "学習語"
+        "学習語",
+        "思考の言葉"
       ],
       "category": "academic",
       "tags": [
@@ -559,30 +682,45 @@
       },
       "examples": [
         {
-          "en": "Check your spelling for accuracy.",
-          "jp": "つづりが正確か確認しましょう。",
+          "en": "Check the accuracy of your answer.",
+          "jp": "答えの正確さを確認しましょう。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Reading accuracy helps you understand the text.",
+          "jp": "読む正確さは文章理解に役立ちます。",
+          "context_en": "Reading",
+          "context_jp": "読解"
+        },
+        {
+          "en": "Improve your spelling accuracy.",
+          "jp": "つづりの正確さを高めましょう。",
           "context_en": "Writing",
-          "context_jp": "ライティング"
-        },
-        {
-          "en": "Accuracy is important in a definition.",
-          "jp": "定義では正確さが大切です。",
-          "context_en": "Academic vocabulary",
-          "context_jp": "学習語い"
-        },
-        {
-          "en": "Practice slowly first, then build accuracy.",
-          "jp": "まずゆっくり練習して、それから正確さを高めましょう。",
-          "context_en": "Practice advice",
-          "context_jp": "練習のアドバイス"
+          "context_jp": "作文"
         }
       ],
       "collocations": [
-        "spelling accuracy",
-        "grammar accuracy",
-        "check accuracy",
-        "improve accuracy",
-        "with accuracy"
+        {
+          "en": "check accuracy",
+          "jp": "check accuracy = よく一緒に使う表現"
+        },
+        {
+          "en": "improve accuracy",
+          "jp": "improve accuracy = よく一緒に使う表現"
+        },
+        {
+          "en": "accuracy in your answer",
+          "jp": "accuracy in your answer = よく一緒に使う表現"
+        },
+        {
+          "en": "reading accuracy",
+          "jp": "reading accuracy = よく一緒に使う表現"
+        },
+        {
+          "en": "spelling accuracy",
+          "jp": "spelling accuracy = よく一緒に使う表現"
+        }
       ],
       "jp_note": "accuracy は「速さ」ではなく「正しさ」です。テストや発表では accuracy と fluency の両方が大切です。",
       "practice_prompt": "Write five Unit 8 words and check your spelling accuracy.",
@@ -679,30 +817,45 @@
       },
       "examples": [
         {
-          "en": "The clause \"who collects fossils\" tells us more about the boy.",
+          "en": "The <b>clause</b> \"who collects fossils\" tells us more about the boy.",
           "jp": "\"who collects fossils\" という節は、その男の子についてさらに説明しています。",
           "context_en": "Grammar",
           "context_jp": "文法"
         },
         {
-          "en": "A clause usually has a subject and a verb.",
+          "en": "A <b>clause</b> usually has a subject and a verb.",
           "jp": "節にはふつう主語と動詞があります。",
           "context_en": "Grammar rule",
           "context_jp": "文法ルール"
         },
         {
-          "en": "Find the clause in this sentence.",
+          "en": "Find the <b>clause</b> in this sentence.",
           "jp": "この文の中の節を見つけましょう。",
           "context_en": "Practice",
           "context_jp": "練習"
         }
       ],
       "collocations": [
-        "main clause",
-        "relative clause",
-        "who clause",
-        "clause in a sentence",
-        "subject and verb"
+        {
+          "en": "main clause",
+          "jp": "main clause = よく一緒に使う表現"
+        },
+        {
+          "en": "relative clause",
+          "jp": "relative clause = よく一緒に使う表現"
+        },
+        {
+          "en": "find the clause",
+          "jp": "find the clause = よく一緒に使う表現"
+        },
+        {
+          "en": "use a clause",
+          "jp": "use a clause = よく一緒に使う表現"
+        },
+        {
+          "en": "clause in a sentence",
+          "jp": "clause in a sentence = よく一緒に使う表現"
+        }
       ],
       "jp_note": "clause は「単語一つ」ではなく、主語と動詞を持つまとまりです。phrase は動詞がないことがあります。",
       "practice_prompt": "Underline the clause with who in this sentence: I know a girl who plays the guitar.",
@@ -799,13 +952,13 @@
       },
       "examples": [
         {
-          "en": "\"I'm\" is a contraction of \"I am.\"",
+          "en": "\"I'm\" is a <b>contraction</b> of \"I am.\"",
           "jp": "\"I'm\" は \"I am\" の短縮形です。",
           "context_en": "Grammar",
           "context_jp": "文法"
         },
         {
-          "en": "Use an apostrophe in a contraction.",
+          "en": "Use an apostrophe in a <b>contraction</b>.",
           "jp": "短縮形ではアポストロフィを使います。",
           "context_en": "Writing rule",
           "context_jp": "書くルール"
@@ -818,11 +971,26 @@
         }
       ],
       "collocations": [
-        "use a contraction",
-        "write a contraction",
-        "apostrophe in a contraction",
-        "common contractions",
-        "contraction of two words"
+        {
+          "en": "make a contraction",
+          "jp": "make a contraction = よく一緒に使う表現"
+        },
+        {
+          "en": "use a contraction",
+          "jp": "use a contraction = よく一緒に使う表現"
+        },
+        {
+          "en": "find the contraction",
+          "jp": "find the contraction = よく一緒に使う表現"
+        },
+        {
+          "en": "contraction form",
+          "jp": "contraction form = よく一緒に使う表現"
+        },
+        {
+          "en": "contraction in a sentence",
+          "jp": "contraction in a sentence = よく一緒に使う表現"
+        }
       ],
       "jp_note": "contraction ではアポストロフィの位置に注意します。dont ではなく don't と書きます。",
       "practice_prompt": "Change these words into contractions: I am, do not, cannot, she is.",
@@ -938,7 +1106,7 @@
       },
       "examples": [
         {
-          "en": "In \"I kicked the ball,\" the ball is the direct object.",
+          "en": "In \"I kicked the ball,\" the ball is the <b>direct object</b>.",
           "jp": "\"I kicked the ball\" では、the ball が直接目的語です。",
           "context_en": "Grammar",
           "context_jp": "文法"
@@ -950,18 +1118,33 @@
           "context_jp": "確認問題"
         },
         {
-          "en": "Find the direct object in the sentence.",
+          "en": "Find the <b>direct object</b> in the sentence.",
           "jp": "文の中の直接目的語を見つけましょう。",
           "context_en": "Practice",
           "context_jp": "練習"
         }
       ],
       "collocations": [
-        "find the direct object",
-        "verb and direct object",
-        "direct object of the verb",
-        "receives the action",
-        "answers what"
+        {
+          "en": "find the direct object",
+          "jp": "find the direct object = よく一緒に使う表現"
+        },
+        {
+          "en": "circle the direct object",
+          "jp": "circle the direct object = よく一緒に使う表現"
+        },
+        {
+          "en": "direct object in a sentence",
+          "jp": "direct object in a sentence = よく一緒に使う表現"
+        },
+        {
+          "en": "verb and direct object",
+          "jp": "verb and direct object = よく一緒に使う表現"
+        },
+        {
+          "en": "use a direct object",
+          "jp": "use a direct object = よく一緒に使う表現"
+        }
       ],
       "jp_note": "direct object は「何を」「だれを」に答える部分です。日本語の「を」に近いことが多いです。",
       "practice_prompt": "Find the direct object: My dad gave me this fossil.",
@@ -1058,7 +1241,7 @@
       },
       "examples": [
         {
-          "en": "In \"I gave Leo a ball,\" Leo is the indirect object.",
+          "en": "In \"I gave Leo a ball,\" Leo is the <b>indirect object</b>.",
           "jp": "\"I gave Leo a ball\" では、Leo が間接目的語です。",
           "context_en": "Grammar",
           "context_jp": "文法"
@@ -1070,18 +1253,33 @@
           "context_jp": "Unit 8 文法"
         },
         {
-          "en": "Find the indirect object: She showed us a photo.",
+          "en": "Find the <b>indirect object</b>: She showed us a photo.",
           "jp": "間接目的語を見つけましょう。She showed us a photo.",
           "context_en": "Practice",
           "context_jp": "練習"
         }
       ],
       "collocations": [
-        "find the indirect object",
-        "indirect object pronoun",
-        "direct and indirect objects",
-        "gave me something",
-        "showed us something"
+        {
+          "en": "find the indirect object",
+          "jp": "find the indirect object = よく一緒に使う表現"
+        },
+        {
+          "en": "circle the indirect object",
+          "jp": "circle the indirect object = よく一緒に使う表現"
+        },
+        {
+          "en": "indirect object in a sentence",
+          "jp": "indirect object in a sentence = よく一緒に使う表現"
+        },
+        {
+          "en": "direct and indirect objects",
+          "jp": "direct and indirect objects = よく一緒に使う表現"
+        },
+        {
+          "en": "use an indirect object",
+          "jp": "use an indirect object = よく一緒に使う表現"
+        }
       ],
       "jp_note": "indirect object は「だれに」に答えることが多いです。direct object は「何を」に答えます。",
       "practice_prompt": "Write one sentence with an indirect object: gave me, showed us, or told Leo.",
@@ -1140,7 +1338,8 @@
       "jp_sentence": "出来事を正しい<b>順序</b>に並べましょう。",
       "jp_tags": [
         "名詞",
-        "学習語"
+        "学習語",
+        "アカデミック語"
       ],
       "category": "academic",
       "tags": [
@@ -1178,29 +1377,44 @@
       "examples": [
         {
           "en": "Put the events in the correct sequence.",
-          "jp": "出来事を正しい順番に並べましょう。",
+          "jp": "出来事を正しい順序に並べましょう。",
           "context_en": "Reading",
           "context_jp": "読解"
         },
         {
-          "en": "Use sequence words in your writing.",
-          "jp": "作文で順序を表す言葉を使いましょう。",
+          "en": "Use sequence words like first, next, then, and finally.",
+          "jp": "first, next, then, finally のような順序を表す言葉を使いましょう。",
           "context_en": "Writing",
-          "context_jp": "ライティング"
+          "context_jp": "作文"
         },
         {
-          "en": "First, fold the paper. Next, make a triangle.",
-          "jp": "まず紙を折ります。次に三角形を作ります。",
-          "context_en": "Instructions",
-          "context_jp": "手順説明"
+          "en": "Check the sequence before you answer.",
+          "jp": "答える前に順序を確認しましょう。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
         }
       ],
       "collocations": [
-        "sequence of events",
-        "sequence words",
-        "correct sequence",
-        "put in sequence",
-        "sequence of steps"
+        {
+          "en": "sequence of events",
+          "jp": "sequence of events = よく一緒に使う表現"
+        },
+        {
+          "en": "put in sequence",
+          "jp": "put in sequence = よく一緒に使う表現"
+        },
+        {
+          "en": "in the correct sequence",
+          "jp": "in the correct sequence = よく一緒に使う表現"
+        },
+        {
+          "en": "sequence words",
+          "jp": "sequence words = よく一緒に使う表現"
+        },
+        {
+          "en": "sequence chart",
+          "jp": "sequence chart = よく一緒に使う表現"
+        }
       ],
       "jp_note": "sequence は「順番」です。writing では first, next, then, finally が役に立ちます。",
       "practice_prompt": "Write four steps for making an origami crane using sequence words.",
@@ -1211,6 +1425,35 @@
         "in the correct sequence",
         "sequence words",
         "sequence chart"
+      ],
+      "kind": "academic_language",
+      "level": 4,
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"sequence\"?",
+          "choices": [
+            "sequence of events",
+            "sleep the sequence",
+            "sequence banana"
+          ],
+          "answer": "sequence of events"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What is \"sequence\" used for?",
+          "choices": [
+            "Academic classroom work",
+            "A food word",
+            "A place name"
+          ],
+          "answer": "Academic classroom work"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"sequence\" in a sentence.",
+          "answer_example": "Put the events in the correct sequence."
+        }
       ]
     },
     {
@@ -1398,7 +1641,8 @@
       "jp_sentence": "「hobby」の<b>定義</b>は何ですか。",
       "jp_tags": [
         "名詞",
-        "学習語"
+        "学習語",
+        "読解・作文の言葉"
       ],
       "category": "academic",
       "tags": [
@@ -1435,30 +1679,45 @@
       },
       "examples": [
         {
-          "en": "What is the definition of \"hobby\"?",
+          "en": "What is the <b>definition</b> of \"hobby\"?",
           "jp": "\"hobby\" の定義は何ですか。",
           "context_en": "Vocabulary",
           "context_jp": "語い"
         },
         {
-          "en": "A good definition is clear and simple.",
+          "en": "A good <b>definition</b> is clear and simple.",
           "jp": "よい定義は分かりやすく簡単です。",
           "context_en": "Writing tip",
           "context_jp": "書くコツ"
         },
         {
-          "en": "Write a definition for the word \"treasure.\"",
+          "en": "Write a <b>definition</b> for the word \"treasure.\"",
           "jp": "\"treasure\" という単語の定義を書きましょう。",
           "context_en": "Practice",
           "context_jp": "練習"
         }
       ],
       "collocations": [
-        "write a definition",
-        "clear definition",
-        "dictionary definition",
-        "definition of a word",
-        "give a definition"
+        {
+          "en": "read the definition",
+          "jp": "read the definition = よく一緒に使う表現"
+        },
+        {
+          "en": "write a definition",
+          "jp": "write a definition = よく一緒に使う表現"
+        },
+        {
+          "en": "dictionary definition",
+          "jp": "dictionary definition = よく一緒に使う表現"
+        },
+        {
+          "en": "definition of the word",
+          "jp": "definition of the word = よく一緒に使う表現"
+        },
+        {
+          "en": "match the definition",
+          "jp": "match the definition = よく一緒に使う表現"
+        }
       ],
       "jp_note": "definition は「意味をはっきり説明する文」です。example は「例」です。両方あると分かりやすくなります。",
       "practice_prompt": "Write a simple definition of one Unit 8 word, then add one example.",
@@ -1517,7 +1776,8 @@
       "jp_sentence": "自分の趣味の<b>描写</b>を書きましょう。",
       "jp_tags": [
         "名詞",
-        "学習語"
+        "学習語",
+        "思考の言葉"
       ],
       "category": "academic",
       "tags": [
@@ -1554,30 +1814,45 @@
       },
       "examples": [
         {
-          "en": "Write a description of your favorite hobby.",
+          "en": "Write a <b>description</b> of your favorite hobby.",
           "jp": "好きな趣味の説明を書きましょう。",
           "context_en": "Writing",
           "context_jp": "ライティング"
         },
         {
-          "en": "The description includes color, size, and shape.",
+          "en": "The <b>description</b> includes color, size, and shape.",
           "jp": "その描写には色、大きさ、形が入っています。",
           "context_en": "Writing detail",
           "context_jp": "詳しい描写"
         },
         {
-          "en": "Read the description and guess the object.",
+          "en": "Read the <b>description</b> and guess the object.",
           "jp": "説明を読んで、その物を当てましょう。",
           "context_en": "Game",
           "context_jp": "ゲーム"
         }
       ],
       "collocations": [
-        "write a description",
-        "short description",
-        "detailed description",
-        "description of a person",
-        "description of a hobby"
+        {
+          "en": "write a description",
+          "jp": "write a description = よく一緒に使う表現"
+        },
+        {
+          "en": "short description",
+          "jp": "short description = よく一緒に使う表現"
+        },
+        {
+          "en": "description of the picture",
+          "jp": "description of the picture = よく一緒に使う表現"
+        },
+        {
+          "en": "clear description",
+          "jp": "clear description = よく一緒に使う表現"
+        },
+        {
+          "en": "read the description",
+          "jp": "read the description = よく一緒に使う表現"
+        }
       ],
       "jp_note": "description は名詞です。describe は動詞です。例: I describe it. / I write a description.",
       "practice_prompt": "Write a three-sentence description of an object in your room.",
@@ -1636,7 +1911,8 @@
       "jp_sentence": "もっと<b>詳細</b>を書きましょう。",
       "jp_tags": [
         "名詞",
-        "学習語"
+        "学習語",
+        "アカデミック語"
       ],
       "category": "academic",
       "tags": [
@@ -1674,30 +1950,45 @@
       },
       "examples": [
         {
-          "en": "Add more details to your description.",
+          "en": "Add more <b>details</b> to your description.",
           "jp": "あなたの説明にもっと詳しい情報を足しましょう。",
           "context_en": "Writing feedback",
           "context_jp": "作文のフィードバック"
         },
         {
-          "en": "The details help the reader imagine the hobby.",
+          "en": "The <b>details</b> help the reader imagine the hobby.",
           "jp": "詳しい情報は、読む人がその趣味を想像する助けになります。",
           "context_en": "Writing",
           "context_jp": "ライティング"
         },
         {
-          "en": "Give three details about the photo.",
+          "en": "Give three <b>details</b> about the photo.",
           "jp": "写真について三つの詳しい情報を言いましょう。",
           "context_en": "Speaking",
           "context_jp": "スピーキング"
         }
       ],
       "collocations": [
-        "add details",
-        "give details",
-        "important details",
-        "specific details",
-        "small details"
+        {
+          "en": "important details",
+          "jp": "important details = よく一緒に使う表現"
+        },
+        {
+          "en": "find details",
+          "jp": "find details = よく一緒に使う表現"
+        },
+        {
+          "en": "add details",
+          "jp": "add details = よく一緒に使う表現"
+        },
+        {
+          "en": "details in the text",
+          "jp": "details in the text = よく一緒に使う表現"
+        },
+        {
+          "en": "main idea and details",
+          "jp": "main idea and details = よく一緒に使う表現"
+        }
       ],
       "jp_note": "details は一つだけでなく、いくつかの「くわしい情報」を表すことが多いです。",
       "practice_prompt": "Write one sentence about a hobby, then add two details.",
@@ -1708,6 +1999,35 @@
         "add details",
         "details in the text",
         "main idea and details"
+      ],
+      "kind": "academic_language",
+      "level": 4,
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"details\"?",
+          "choices": [
+            "important details",
+            "sleep the details",
+            "details banana"
+          ],
+          "answer": "important details"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What is \"details\" used for?",
+          "choices": [
+            "Academic classroom work",
+            "A food word",
+            "A place name"
+          ],
+          "answer": "Academic classroom work"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"details\" in a sentence.",
+          "answer_example": "Add more details to your description."
+        }
       ]
     },
     {
@@ -1819,7 +2139,8 @@
       "jp_sentence": "<b>伝記</b>はある人の人生の物語です。",
       "jp_tags": [
         "名詞",
-        "学習語"
+        "学習語",
+        "アカデミック語"
       ],
       "category": "academic",
       "tags": [
@@ -1856,30 +2177,45 @@
       },
       "examples": [
         {
-          "en": "We read a biography of a young inventor.",
+          "en": "We read a <b>biography</b> of a young inventor.",
           "jp": "私たちは若い発明家の伝記を読みました。",
           "context_en": "Reading",
           "context_jp": "読解"
         },
         {
-          "en": "A biography includes facts about a person's life.",
+          "en": "A <b>biography</b> includes facts about a person's life.",
           "jp": "伝記には、その人の人生についての事実が入っています。",
           "context_en": "Text type",
           "context_jp": "文章の種類"
         },
         {
-          "en": "Write a short biography of someone you admire.",
+          "en": "Write a short <b>biography</b> of someone you admire.",
           "jp": "あなたが尊敬する人の短い伝記を書きましょう。",
           "context_en": "Writing",
           "context_jp": "ライティング"
         }
       ],
       "collocations": [
-        "read a biography",
-        "write a biography",
-        "short biography",
-        "biography of a person",
-        "true biography"
+        {
+          "en": "read a biography",
+          "jp": "read a biography = よく一緒に使う表現"
+        },
+        {
+          "en": "write a biography",
+          "jp": "write a biography = よく一緒に使う表現"
+        },
+        {
+          "en": "short biography",
+          "jp": "short biography = よく一緒に使う表現"
+        },
+        {
+          "en": "biography of a person",
+          "jp": "biography of a person = よく一緒に使う表現"
+        },
+        {
+          "en": "biography details",
+          "jp": "biography details = よく一緒に使う表現"
+        }
       ],
       "jp_note": "biography は「伝記」です。autobiography は「自伝」で、自分自身について書いたものです。",
       "practice_prompt": "Write five facts for a short biography of a person you admire.",
@@ -1890,6 +2226,35 @@
         "short biography",
         "biography of a person",
         "biography details"
+      ],
+      "kind": "academic_language",
+      "level": 4,
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"biography\"?",
+          "choices": [
+            "read a biography",
+            "sleep the biography",
+            "biography banana"
+          ],
+          "answer": "read a biography"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What is \"biography\" used for?",
+          "choices": [
+            "Academic classroom work",
+            "A food word",
+            "A place name"
+          ],
+          "answer": "Academic classroom work"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"biography\" in a sentence.",
+          "answer_example": "We read a biography of a young inventor."
+        }
       ]
     },
     {
@@ -1922,25 +2287,44 @@
       },
       "examples": [
         {
-          "en": "Take action.",
-          "context_en": "Academic language"
+          "en": "Take <b>action</b>.",
+          "jp": "「action」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>action</b> when the teacher gives instructions.",
+          "jp": "「action」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>action</b> to understand the text more clearly.",
+          "jp": "「action」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "take action"
+          "en": "take action",
+          "jp": "take action = よく一緒に使う表現"
         },
         {
-          "en": "action word"
+          "en": "action word",
+          "jp": "action word = よく一緒に使う表現"
         },
         {
-          "en": "action in the story"
+          "en": "action in the story",
+          "jp": "action in the story = よく一緒に使う表現"
         },
         {
-          "en": "show an action"
+          "en": "show an action",
+          "jp": "show an action = よく一緒に使う表現"
         },
         {
-          "en": "action and result"
+          "en": "action and result",
+          "jp": "action and result = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -1951,7 +2335,7 @@
         "action and result"
       ],
       "watch_out": "This is a school word; listen for how it is used with other words.",
-      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "「action」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"action\" in one classroom sentence.",
       "mini_test": [
         {
@@ -1979,7 +2363,30 @@
           "prompt": "Use \"action\" in a classroom sentence.",
           "answer_example": "Take action."
         }
-      ]
+      ],
+      "jp_word": "「action」",
+      "jp_reading": "",
+      "jp_tags": [
+        "学習語"
+      ],
+      "jp_meaning": "「action」は、授業や学習活動でよく使う学校の言葉です。",
+      "jp_when_to_use": [
+        "先生の指示に「action」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「action」 + 文の中で使う",
+        "patterns": [
+          "take action = よく一緒に使う表現",
+          "action word = よく一緒に使う表現",
+          "action in the story = よく一緒に使う表現",
+          "show an action = よく一緒に使う表現",
+          "action and result = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「action」を使って考えを説明します。",
+      "jp_practice_prompt": "「action」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "action-word",
@@ -2011,25 +2418,44 @@
       },
       "examples": [
         {
-          "en": "Find the action word in the sentence.",
-          "context_en": "Academic language"
+          "en": "Find the <b>action word</b> in the sentence.",
+          "jp": "「action word」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>action word</b> when the teacher gives instructions.",
+          "jp": "「action word」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>action word</b> to understand the text more clearly.",
+          "jp": "「action word」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "action word form"
+          "en": "action word form",
+          "jp": "action word form = よく一緒に使う表現"
         },
         {
-          "en": "find the action word"
+          "en": "find the action word",
+          "jp": "find the action word = よく一緒に使う表現"
         },
         {
-          "en": "circle the action word"
+          "en": "circle the action word",
+          "jp": "circle the action word = よく一緒に使う表現"
         },
         {
-          "en": "use the action word"
+          "en": "use the action word",
+          "jp": "use the action word = よく一緒に使う表現"
         },
         {
-          "en": "action word in a sentence"
+          "en": "action word in a sentence",
+          "jp": "action word in a sentence = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2040,7 +2466,7 @@
         "action word in a sentence"
       ],
       "watch_out": "Use action word when talking about sentence grammar, not just the topic.",
-      "jp_note": "Use action word when talking about sentence grammar, not just the topic.",
+      "jp_note": "「action word」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"action word\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2068,7 +2494,30 @@
           "prompt": "Use \"action word\" in a classroom sentence.",
           "answer_example": "Find the action word in the sentence."
         }
-      ]
+      ],
+      "jp_word": "「action word」",
+      "jp_reading": "",
+      "jp_tags": [
+        "文法用語"
+      ],
+      "jp_meaning": "「action word」は、文法について話すときに使う言葉です。文の形や働きを説明するときに使います。",
+      "jp_when_to_use": [
+        "先生の指示に「action word」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「action word」 + 文の中で使う",
+        "patterns": [
+          "action word form = よく一緒に使う表現",
+          "find the action word = よく一緒に使う表現",
+          "circle the action word = よく一緒に使う表現",
+          "use the action word = よく一緒に使う表現",
+          "action word in a sentence = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「action word」を使って考えを説明します。",
+      "jp_practice_prompt": "「action word」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "bar-graph",
@@ -2100,25 +2549,44 @@
       },
       "examples": [
         {
-          "en": "Use the bar graph to show your ideas.",
-          "context_en": "Academic language"
+          "en": "Use the <b>bar graph</b> to show your ideas.",
+          "jp": "「bar graph」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>bar graph</b> when the teacher gives instructions.",
+          "jp": "「bar graph」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>bar graph</b> to understand the text more clearly.",
+          "jp": "「bar graph」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "bar graph organizer"
+          "en": "bar graph organizer",
+          "jp": "bar graph organizer = よく一緒に使う表現"
         },
         {
-          "en": "complete the bar graph"
+          "en": "complete the bar graph",
+          "jp": "complete the bar graph = よく一緒に使う表現"
         },
         {
-          "en": "look at the bar graph"
+          "en": "look at the bar graph",
+          "jp": "look at the bar graph = よく一緒に使う表現"
         },
         {
-          "en": "use the bar graph"
+          "en": "use the bar graph",
+          "jp": "use the bar graph = よく一緒に使う表現"
         },
         {
-          "en": "make a bar graph"
+          "en": "make a bar graph",
+          "jp": "make a bar graph = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2129,7 +2597,7 @@
         "make a bar graph"
       ],
       "watch_out": "A bar graph helps organize ideas; it is not the final answer by itself.",
-      "jp_note": "A bar graph helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "「bar graph」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"bar graph\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2157,7 +2625,30 @@
           "prompt": "Use \"bar graph\" in a classroom sentence.",
           "answer_example": "Use the bar graph to show your ideas."
         }
-      ]
+      ],
+      "jp_word": "棒グラフ",
+      "jp_reading": "",
+      "jp_tags": [
+        "図表・整理の言葉"
+      ],
+      "jp_meaning": "「bar graph」は、図や表で考えを整理するときに使う言葉です。情報を見やすくまとめるときに使います。",
+      "jp_when_to_use": [
+        "先生の指示に「bar graph」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "棒グラフ + 文の中で使う",
+        "patterns": [
+          "bar graph organizer = よく一緒に使う表現",
+          "complete the bar graph = よく一緒に使う表現",
+          "look at the bar graph = よく一緒に使う表現",
+          "use the bar graph = よく一緒に使う表現",
+          "make a bar graph = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「bar graph」を使って考えを説明します。",
+      "jp_practice_prompt": "「bar graph」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "cause-and-effect",
@@ -2189,25 +2680,44 @@
       },
       "examples": [
         {
-          "en": "Use a cause and effect chart to explain your idea.",
-          "context_en": "Academic language"
+          "en": "Use a <b>cause and effect</b> chart to explain your idea.",
+          "jp": "「cause and effect」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>cause and effect</b> when the teacher gives instructions.",
+          "jp": "「cause and effect」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>cause and effect</b> to understand the text more clearly.",
+          "jp": "「cause and effect」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "cause and effect relationship"
+          "en": "cause and effect relationship",
+          "jp": "cause and effect relationship = よく一緒に使う表現"
         },
         {
-          "en": "cause and effect chart"
+          "en": "cause and effect chart",
+          "jp": "cause and effect chart = よく一緒に使う表現"
         },
         {
-          "en": "explain cause and effect"
+          "en": "explain cause and effect",
+          "jp": "explain cause and effect = よく一緒に使う表現"
         },
         {
-          "en": "show cause and effect"
+          "en": "show cause and effect",
+          "jp": "show cause and effect = よく一緒に使う表現"
         },
         {
-          "en": "cause and effect sentence"
+          "en": "cause and effect sentence",
+          "jp": "cause and effect sentence = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2218,7 +2728,7 @@
         "cause and effect sentence"
       ],
       "watch_out": "Use reasons or examples when you work with cause and effect.",
-      "jp_note": "Use reasons or examples when you work with cause and effect.",
+      "jp_note": "「cause and effect」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"cause and effect\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2246,7 +2756,30 @@
           "prompt": "Use \"cause and effect\" in a classroom sentence.",
           "answer_example": "Use a cause and effect chart to explain your idea."
         }
-      ]
+      ],
+      "jp_word": "原因と結果",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「cause and effect」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「cause and effect」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "原因と結果 + 文の中で使う",
+        "patterns": [
+          "cause and effect relationship = よく一緒に使う表現",
+          "cause and effect chart = よく一緒に使う表現",
+          "explain cause and effect = よく一緒に使う表現",
+          "show cause and effect = よく一緒に使う表現",
+          "cause and effect sentence = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「cause and effect」を使って考えを説明します。",
+      "jp_practice_prompt": "「cause and effect」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "chart",
@@ -2278,25 +2811,44 @@
       },
       "examples": [
         {
-          "en": "Use the chart to show your ideas.",
-          "context_en": "Academic language"
+          "en": "Use the <b>chart</b> to show your ideas.",
+          "jp": "「chart」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>chart</b> when the teacher gives instructions.",
+          "jp": "「chart」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>chart</b> to understand the text more clearly.",
+          "jp": "「chart」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "chart organizer"
+          "en": "chart organizer",
+          "jp": "chart organizer = よく一緒に使う表現"
         },
         {
-          "en": "complete the chart"
+          "en": "complete the chart",
+          "jp": "complete the chart = よく一緒に使う表現"
         },
         {
-          "en": "look at the chart"
+          "en": "look at the chart",
+          "jp": "look at the chart = よく一緒に使う表現"
         },
         {
-          "en": "use the chart"
+          "en": "use the chart",
+          "jp": "use the chart = よく一緒に使う表現"
         },
         {
-          "en": "make a chart"
+          "en": "make a chart",
+          "jp": "make a chart = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2307,7 +2859,7 @@
         "make a chart"
       ],
       "watch_out": "A chart helps organize ideas; it is not the final answer by itself.",
-      "jp_note": "A chart helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "「chart」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"chart\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2335,7 +2887,30 @@
           "prompt": "Use \"chart\" in a classroom sentence.",
           "answer_example": "Use the chart to show your ideas."
         }
-      ]
+      ],
+      "jp_word": "表・図",
+      "jp_reading": "",
+      "jp_tags": [
+        "図表・整理の言葉"
+      ],
+      "jp_meaning": "「chart」は、図や表で考えを整理するときに使う言葉です。情報を見やすくまとめるときに使います。",
+      "jp_when_to_use": [
+        "先生の指示に「chart」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "表・図 + 文の中で使う",
+        "patterns": [
+          "chart organizer = よく一緒に使う表現",
+          "complete the chart = よく一緒に使う表現",
+          "look at the chart = よく一緒に使う表現",
+          "use the chart = よく一緒に使う表現",
+          "make a chart = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「chart」を使って考えを説明します。",
+      "jp_practice_prompt": "「chart」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "compare",
@@ -2367,25 +2942,44 @@
       },
       "examples": [
         {
-          "en": "Compare the ideas carefully.",
-          "context_en": "Academic language"
+          "en": "Compare the two pictures carefully.",
+          "jp": "二つの絵を注意深く比べましょう。",
+          "context_en": "Reading",
+          "context_jp": "読解"
+        },
+        {
+          "en": "Compare your answer with your partner.",
+          "jp": "自分の答えをパートナーの答えと比べましょう。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "In writing, compare the ideas and explain the difference.",
+          "jp": "作文では、考えを比べて違いを説明しましょう。",
+          "context_en": "Writing",
+          "context_jp": "作文"
         }
       ],
       "collocations": [
         {
-          "en": "compare the ideas"
+          "en": "compare two ideas",
+          "jp": "compare two ideas = よく一緒に使う表現"
         },
         {
-          "en": "compare the text"
+          "en": "compare and contrast",
+          "jp": "compare and contrast = よく一緒に使う表現"
         },
         {
-          "en": "compare your answer"
+          "en": "compare the pictures",
+          "jp": "compare the pictures = よく一緒に使う表現"
         },
         {
-          "en": "compare with evidence"
+          "en": "compare your answers",
+          "jp": "compare your answers = よく一緒に使う表現"
         },
         {
-          "en": "compare carefully"
+          "en": "compare the results",
+          "jp": "compare the results = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2396,7 +2990,7 @@
         "compare the results"
       ],
       "watch_out": "Use reasons or examples when you work with compare.",
-      "jp_note": "Use reasons or examples when you work with compare.",
+      "jp_note": "「compare」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"compare\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2424,7 +3018,30 @@
           "prompt": "Use \"compare\" in a classroom sentence.",
           "answer_example": "Compare the ideas carefully."
         }
-      ]
+      ],
+      "jp_word": "比べる",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「compare」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「compare」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "比べる + 文の中で使う",
+        "patterns": [
+          "compare two ideas = よく一緒に使う表現",
+          "compare and contrast = よく一緒に使う表現",
+          "compare the pictures = よく一緒に使う表現",
+          "compare your answers = よく一緒に使う表現",
+          "compare the results = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "二つの絵を注意深く比べましょう。",
+      "jp_practice_prompt": "「compare」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "contrast",
@@ -2456,25 +3073,44 @@
       },
       "examples": [
         {
-          "en": "Contrast the ideas carefully.",
-          "context_en": "Academic language"
+          "en": "<b>contrast</b> the ideas carefully.",
+          "jp": "「contrast」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>contrast</b> when the teacher gives instructions.",
+          "jp": "「contrast」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>contrast</b> to understand the text more clearly.",
+          "jp": "「contrast」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "contrast the ideas"
+          "en": "contrast two ideas",
+          "jp": "contrast two ideas = よく一緒に使う表現"
         },
         {
-          "en": "contrast the text"
+          "en": "compare and contrast",
+          "jp": "compare and contrast = よく一緒に使う表現"
         },
         {
-          "en": "contrast your answer"
+          "en": "show a contrast",
+          "jp": "show a contrast = よく一緒に使う表現"
         },
         {
-          "en": "contrast with evidence"
+          "en": "contrast the pictures",
+          "jp": "contrast the pictures = よく一緒に使う表現"
         },
         {
-          "en": "contrast carefully"
+          "en": "contrast the answers",
+          "jp": "contrast the answers = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2485,7 +3121,7 @@
         "contrast the answers"
       ],
       "watch_out": "Use reasons or examples when you work with contrast.",
-      "jp_note": "Use reasons or examples when you work with contrast.",
+      "jp_note": "「contrast」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"contrast\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2513,7 +3149,30 @@
           "prompt": "Use \"contrast\" in a classroom sentence.",
           "answer_example": "Contrast the ideas carefully."
         }
-      ]
+      ],
+      "jp_word": "対比する",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「contrast」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「contrast」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "対比する + 文の中で使う",
+        "patterns": [
+          "contrast two ideas = よく一緒に使う表現",
+          "compare and contrast = よく一緒に使う表現",
+          "show a contrast = よく一緒に使う表現",
+          "contrast the pictures = よく一緒に使う表現",
+          "contrast the answers = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「contrast」を使って考えを説明します。",
+      "jp_practice_prompt": "「contrast」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "critical-thinking",
@@ -2545,25 +3204,44 @@
       },
       "examples": [
         {
-          "en": "Use critical thinking to explain your answer.",
-          "context_en": "Academic language"
+          "en": "Use <b>critical thinking</b> to explain your answer.",
+          "jp": "「critical thinking」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>critical thinking</b> when the teacher gives instructions.",
+          "jp": "「critical thinking」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>critical thinking</b> to understand the text more clearly.",
+          "jp": "「critical thinking」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "use critical thinking"
+          "en": "use critical thinking",
+          "jp": "use critical thinking = よく一緒に使う表現"
         },
         {
-          "en": "critical thinking question"
+          "en": "critical thinking question",
+          "jp": "critical thinking question = よく一緒に使う表現"
         },
         {
-          "en": "critical thinking skill"
+          "en": "critical thinking skill",
+          "jp": "critical thinking skill = よく一緒に使う表現"
         },
         {
-          "en": "show critical thinking"
+          "en": "show critical thinking",
+          "jp": "show critical thinking = よく一緒に使う表現"
         },
         {
-          "en": "critical thinking activity"
+          "en": "critical thinking activity",
+          "jp": "critical thinking activity = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2574,7 +3252,7 @@
         "critical thinking activity"
       ],
       "watch_out": "Use reasons or examples when you work with critical thinking.",
-      "jp_note": "Use reasons or examples when you work with critical thinking.",
+      "jp_note": "「critical thinking」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"critical thinking\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2602,7 +3280,30 @@
           "prompt": "Use \"critical thinking\" in a classroom sentence.",
           "answer_example": "Use critical thinking to explain your answer."
         }
-      ]
+      ],
+      "jp_word": "「critical thinking」",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「critical thinking」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「critical thinking」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「critical thinking」 + 文の中で使う",
+        "patterns": [
+          "use critical thinking = よく一緒に使う表現",
+          "critical thinking question = よく一緒に使う表現",
+          "critical thinking skill = よく一緒に使う表現",
+          "show critical thinking = よく一緒に使う表現",
+          "critical thinking activity = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「critical thinking」を使って考えを説明します。",
+      "jp_practice_prompt": "「critical thinking」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "descriptive-details",
@@ -2634,25 +3335,44 @@
       },
       "examples": [
         {
-          "en": "Add descriptive details to your writing.",
-          "context_en": "Academic language"
+          "en": "Add <b>descriptive details</b> to your writing.",
+          "jp": "「descriptive details」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>descriptive details</b> when the teacher gives instructions.",
+          "jp": "「descriptive details」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>descriptive details</b> to understand the text more clearly.",
+          "jp": "「descriptive details」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "use descriptive details"
+          "en": "use descriptive details",
+          "jp": "use descriptive details = よく一緒に使う表現"
         },
         {
-          "en": "add descriptive details"
+          "en": "add descriptive details",
+          "jp": "add descriptive details = よく一緒に使う表現"
         },
         {
-          "en": "descriptive details in writing"
+          "en": "descriptive details in writing",
+          "jp": "descriptive details in writing = よく一緒に使う表現"
         },
         {
-          "en": "clear descriptive details"
+          "en": "clear descriptive details",
+          "jp": "clear descriptive details = よく一緒に使う表現"
         },
         {
-          "en": "find descriptive details"
+          "en": "find descriptive details",
+          "jp": "find descriptive details = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2663,7 +3383,7 @@
         "find descriptive details"
       ],
       "watch_out": "Use reasons or examples when you work with descriptive details.",
-      "jp_note": "Use reasons or examples when you work with descriptive details.",
+      "jp_note": "「descriptive details」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"descriptive details\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2691,7 +3411,30 @@
           "prompt": "Use \"descriptive details\" in a classroom sentence.",
           "answer_example": "Add descriptive details to your writing."
         }
-      ]
+      ],
+      "jp_word": "「descriptive details」",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「descriptive details」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「descriptive details」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「descriptive details」 + 文の中で使う",
+        "patterns": [
+          "use descriptive details = よく一緒に使う表現",
+          "add descriptive details = よく一緒に使う表現",
+          "descriptive details in writing = よく一緒に使う表現",
+          "clear descriptive details = よく一緒に使う表現",
+          "find descriptive details = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「descriptive details」を使って考えを説明します。",
+      "jp_practice_prompt": "「descriptive details」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "diagram",
@@ -2723,25 +3466,44 @@
       },
       "examples": [
         {
-          "en": "Use the diagram to show your ideas.",
-          "context_en": "Academic language"
+          "en": "Use the <b>diagram</b> to show your ideas.",
+          "jp": "「diagram」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>diagram</b> when the teacher gives instructions.",
+          "jp": "「diagram」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>diagram</b> to understand the text more clearly.",
+          "jp": "「diagram」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "diagram organizer"
+          "en": "diagram organizer",
+          "jp": "diagram organizer = よく一緒に使う表現"
         },
         {
-          "en": "complete the diagram"
+          "en": "complete the diagram",
+          "jp": "complete the diagram = よく一緒に使う表現"
         },
         {
-          "en": "look at the diagram"
+          "en": "look at the diagram",
+          "jp": "look at the diagram = よく一緒に使う表現"
         },
         {
-          "en": "use the diagram"
+          "en": "use the diagram",
+          "jp": "use the diagram = よく一緒に使う表現"
         },
         {
-          "en": "make a diagram"
+          "en": "make a diagram",
+          "jp": "make a diagram = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2752,7 +3514,7 @@
         "make a diagram"
       ],
       "watch_out": "A diagram helps organize ideas; it is not the final answer by itself.",
-      "jp_note": "A diagram helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "「diagram」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"diagram\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2780,7 +3542,30 @@
           "prompt": "Use \"diagram\" in a classroom sentence.",
           "answer_example": "Use the diagram to show your ideas."
         }
-      ]
+      ],
+      "jp_word": "図",
+      "jp_reading": "",
+      "jp_tags": [
+        "図表・整理の言葉"
+      ],
+      "jp_meaning": "「diagram」は、図や表で考えを整理するときに使う言葉です。情報を見やすくまとめるときに使います。",
+      "jp_when_to_use": [
+        "先生の指示に「diagram」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "図 + 文の中で使う",
+        "patterns": [
+          "diagram organizer = よく一緒に使う表現",
+          "complete the diagram = よく一緒に使う表現",
+          "look at the diagram = よく一緒に使う表現",
+          "use the diagram = よく一緒に使う表現",
+          "make a diagram = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「diagram」を使って考えを説明します。",
+      "jp_practice_prompt": "「diagram」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "differences",
@@ -2812,25 +3597,44 @@
       },
       "examples": [
         {
-          "en": "Find differences between the two pictures.",
-          "context_en": "Academic language"
+          "en": "Find <b>differences</b> between the two pictures.",
+          "jp": "「differences」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>differences</b> when the teacher gives instructions.",
+          "jp": "「differences」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>differences</b> to understand the text more clearly.",
+          "jp": "「differences」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "find differences"
+          "en": "find differences",
+          "jp": "find differences = よく一緒に使う表現"
         },
         {
-          "en": "show differences"
+          "en": "show differences",
+          "jp": "show differences = よく一緒に使う表現"
         },
         {
-          "en": "differences between ideas"
+          "en": "differences between ideas",
+          "jp": "differences between ideas = よく一緒に使う表現"
         },
         {
-          "en": "compare differences"
+          "en": "compare differences",
+          "jp": "compare differences = よく一緒に使う表現"
         },
         {
-          "en": "explain differences"
+          "en": "explain differences",
+          "jp": "explain differences = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2841,7 +3645,7 @@
         "explain differences"
       ],
       "watch_out": "Use reasons or examples when you work with differences.",
-      "jp_note": "Use reasons or examples when you work with differences.",
+      "jp_note": "「differences」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"differences\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2869,7 +3673,30 @@
           "prompt": "Use \"differences\" in a classroom sentence.",
           "answer_example": "Find differences between the two pictures."
         }
-      ]
+      ],
+      "jp_word": "「differences」",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「differences」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「differences」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「differences」 + 文の中で使う",
+        "patterns": [
+          "find differences = よく一緒に使う表現",
+          "show differences = よく一緒に使う表現",
+          "differences between ideas = よく一緒に使う表現",
+          "compare differences = よく一緒に使う表現",
+          "explain differences = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「differences」を使って考えを説明します。",
+      "jp_practice_prompt": "「differences」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "effect",
@@ -2901,25 +3728,44 @@
       },
       "examples": [
         {
-          "en": "Explain the effect of the change.",
-          "context_en": "Academic language"
+          "en": "Explain the <b>effect</b> of the change.",
+          "jp": "「effect」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>effect</b> when the teacher gives instructions.",
+          "jp": "「effect」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>effect</b> to understand the text more clearly.",
+          "jp": "「effect」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "cause and effect"
+          "en": "cause and effect",
+          "jp": "cause and effect = よく一緒に使う表現"
         },
         {
-          "en": "effect of the change"
+          "en": "effect of the change",
+          "jp": "effect of the change = よく一緒に使う表現"
         },
         {
-          "en": "main effect"
+          "en": "main effect",
+          "jp": "main effect = よく一緒に使う表現"
         },
         {
-          "en": "possible effect"
+          "en": "possible effect",
+          "jp": "possible effect = よく一緒に使う表現"
         },
         {
-          "en": "explain the effect"
+          "en": "explain the effect",
+          "jp": "explain the effect = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -2930,7 +3776,7 @@
         "explain the effect"
       ],
       "watch_out": "Use reasons or examples when you work with effect.",
-      "jp_note": "Use reasons or examples when you work with effect.",
+      "jp_note": "「effect」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"effect\" in one classroom sentence.",
       "mini_test": [
         {
@@ -2958,7 +3804,30 @@
           "prompt": "Use \"effect\" in a classroom sentence.",
           "answer_example": "Explain the effect of the change."
         }
-      ]
+      ],
+      "jp_word": "結果・影響",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「effect」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「effect」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "結果・影響 + 文の中で使う",
+        "patterns": [
+          "cause and effect = よく一緒に使う表現",
+          "effect of the change = よく一緒に使う表現",
+          "main effect = よく一緒に使う表現",
+          "possible effect = よく一緒に使う表現",
+          "explain the effect = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「effect」を使って考えを説明します。",
+      "jp_practice_prompt": "「effect」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "events",
@@ -2990,25 +3859,44 @@
       },
       "examples": [
         {
-          "en": "Use events in your classroom work.",
-          "context_en": "Academic language"
+          "en": "Use <b>events</b> in your classroom work.",
+          "jp": "「events」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>events</b> when the teacher gives instructions.",
+          "jp": "「events」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>events</b> to understand the text more clearly.",
+          "jp": "「events」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "the events"
+          "en": "the events",
+          "jp": "the events = よく一緒に使う表現"
         },
         {
-          "en": "events in class"
+          "en": "events in class",
+          "jp": "events in class = よく一緒に使う表現"
         },
         {
-          "en": "use events"
+          "en": "use events",
+          "jp": "use events = よく一緒に使う表現"
         },
         {
-          "en": "talk about events"
+          "en": "talk about events",
+          "jp": "talk about events = よく一緒に使う表現"
         },
         {
-          "en": "events activity"
+          "en": "events activity",
+          "jp": "events activity = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3019,7 +3907,7 @@
         "events activity"
       ],
       "watch_out": "This is a school word; listen for how it is used with other words.",
-      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "「events」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"events\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3047,7 +3935,30 @@
           "prompt": "Use \"events\" in a classroom sentence.",
           "answer_example": "Use events in your classroom work."
         }
-      ]
+      ],
+      "jp_word": "「events」",
+      "jp_reading": "",
+      "jp_tags": [
+        "学習語"
+      ],
+      "jp_meaning": "「events」は、授業や学習活動でよく使う学校の言葉です。",
+      "jp_when_to_use": [
+        "先生の指示に「events」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「events」 + 文の中で使う",
+        "patterns": [
+          "the events = よく一緒に使う表現",
+          "events in class = よく一緒に使う表現",
+          "use events = よく一緒に使う表現",
+          "talk about events = よく一緒に使う表現",
+          "events activity = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「events」を使って考えを説明します。",
+      "jp_practice_prompt": "「events」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "expressions",
@@ -3079,25 +3990,44 @@
       },
       "examples": [
         {
-          "en": "Use expressions in your classroom work.",
-          "context_en": "Academic language"
+          "en": "Use <b>expressions</b> in your classroom work.",
+          "jp": "「expressions」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>expressions</b> when the teacher gives instructions.",
+          "jp": "「expressions」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>expressions</b> to understand the text more clearly.",
+          "jp": "「expressions」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "the expressions"
+          "en": "the expressions",
+          "jp": "the expressions = よく一緒に使う表現"
         },
         {
-          "en": "expressions in class"
+          "en": "expressions in class",
+          "jp": "expressions in class = よく一緒に使う表現"
         },
         {
-          "en": "use expressions"
+          "en": "use expressions",
+          "jp": "use expressions = よく一緒に使う表現"
         },
         {
-          "en": "talk about expressions"
+          "en": "talk about expressions",
+          "jp": "talk about expressions = よく一緒に使う表現"
         },
         {
-          "en": "expressions activity"
+          "en": "expressions activity",
+          "jp": "expressions activity = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3108,7 +4038,7 @@
         "expressions activity"
       ],
       "watch_out": "This is a school word; listen for how it is used with other words.",
-      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "「expressions」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"expressions\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3136,7 +4066,30 @@
           "prompt": "Use \"expressions\" in a classroom sentence.",
           "answer_example": "Use expressions in your classroom work."
         }
-      ]
+      ],
+      "jp_word": "「expressions」",
+      "jp_reading": "",
+      "jp_tags": [
+        "学習語"
+      ],
+      "jp_meaning": "「expressions」は、授業や学習活動でよく使う学校の言葉です。",
+      "jp_when_to_use": [
+        "先生の指示に「expressions」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「expressions」 + 文の中で使う",
+        "patterns": [
+          "the expressions = よく一緒に使う表現",
+          "expressions in class = よく一緒に使う表現",
+          "use expressions = よく一緒に使う表現",
+          "talk about expressions = よく一緒に使う表現",
+          "expressions activity = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「expressions」を使って考えを説明します。",
+      "jp_practice_prompt": "「expressions」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "fact",
@@ -3168,25 +4121,44 @@
       },
       "examples": [
         {
-          "en": "Fact or opinion.",
-          "context_en": "Academic language"
+          "en": "<b>fact</b> or opinion.",
+          "jp": "「fact」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>fact</b> when the teacher gives instructions.",
+          "jp": "「fact」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>fact</b> to understand the text more clearly.",
+          "jp": "「fact」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "fact or opinion"
+          "en": "fact or opinion",
+          "jp": "fact or opinion = よく一緒に使う表現"
         },
         {
-          "en": "check the fact"
+          "en": "check the fact",
+          "jp": "check the fact = よく一緒に使う表現"
         },
         {
-          "en": "write a fact"
+          "en": "write a fact",
+          "jp": "write a fact = よく一緒に使う表現"
         },
         {
-          "en": "find facts"
+          "en": "find facts",
+          "jp": "find facts = よく一緒に使う表現"
         },
         {
-          "en": "use facts"
+          "en": "use facts",
+          "jp": "use facts = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3197,7 +4169,7 @@
         "use facts"
       ],
       "watch_out": "Look back at the text before choosing the fact.",
-      "jp_note": "Look back at the text before choosing the fact.",
+      "jp_note": "「fact」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"fact\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3225,7 +4197,30 @@
           "prompt": "Use \"fact\" in a classroom sentence.",
           "answer_example": "Fact or opinion."
         }
-      ]
+      ],
+      "jp_word": "事実",
+      "jp_reading": "",
+      "jp_tags": [
+        "読解・作文の言葉"
+      ],
+      "jp_meaning": "「fact」は、読む・書く活動で使う言葉です。文章の中の大切な部分を見つけるときに役立ちます。",
+      "jp_when_to_use": [
+        "先生の指示に「fact」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "事実 + 文の中で使う",
+        "patterns": [
+          "fact or opinion = よく一緒に使う表現",
+          "check the fact = よく一緒に使う表現",
+          "write a fact = よく一緒に使う表現",
+          "find facts = よく一緒に使う表現",
+          "use facts = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「fact」を使って考えを説明します。",
+      "jp_practice_prompt": "「fact」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "form",
@@ -3257,25 +4252,44 @@
       },
       "examples": [
         {
-          "en": "Use form in your classroom work.",
-          "context_en": "Academic language"
+          "en": "Use <b>form</b> in your classroom work.",
+          "jp": "「form」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>form</b> when the teacher gives instructions.",
+          "jp": "「form」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>form</b> to understand the text more clearly.",
+          "jp": "「form」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "the form"
+          "en": "the form",
+          "jp": "the form = よく一緒に使う表現"
         },
         {
-          "en": "form in class"
+          "en": "form in class",
+          "jp": "form in class = よく一緒に使う表現"
         },
         {
-          "en": "use form"
+          "en": "use form",
+          "jp": "use form = よく一緒に使う表現"
         },
         {
-          "en": "talk about form"
+          "en": "talk about form",
+          "jp": "talk about form = よく一緒に使う表現"
         },
         {
-          "en": "form activity"
+          "en": "form activity",
+          "jp": "form activity = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3286,7 +4300,7 @@
         "form activity"
       ],
       "watch_out": "This is a school word; listen for how it is used with other words.",
-      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "「form」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"form\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3314,7 +4328,30 @@
           "prompt": "Use \"form\" in a classroom sentence.",
           "answer_example": "Use form in your classroom work."
         }
-      ]
+      ],
+      "jp_word": "「form」",
+      "jp_reading": "",
+      "jp_tags": [
+        "学習語"
+      ],
+      "jp_meaning": "「form」は、授業や学習活動でよく使う学校の言葉です。",
+      "jp_when_to_use": [
+        "先生の指示に「form」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「form」 + 文の中で使う",
+        "patterns": [
+          "the form = よく一緒に使う表現",
+          "form in class = よく一緒に使う表現",
+          "use form = よく一緒に使う表現",
+          "talk about form = よく一緒に使う表現",
+          "form activity = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「form」を使って考えを説明します。",
+      "jp_practice_prompt": "「form」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "generalize",
@@ -3346,25 +4383,44 @@
       },
       "examples": [
         {
-          "en": "Generalize from examples carefully.",
-          "context_en": "Academic language"
+          "en": "<b>generalize</b> from examples carefully.",
+          "jp": "「generalize」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>generalize</b> when the teacher gives instructions.",
+          "jp": "「generalize」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>generalize</b> to understand the text more clearly.",
+          "jp": "「generalize」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "generalize from examples"
+          "en": "generalize from examples",
+          "jp": "generalize from examples = よく一緒に使う表現"
         },
         {
-          "en": "generalize about a group"
+          "en": "generalize about a group",
+          "jp": "generalize about a group = よく一緒に使う表現"
         },
         {
-          "en": "generalize carefully"
+          "en": "generalize carefully",
+          "jp": "generalize carefully = よく一緒に使う表現"
         },
         {
-          "en": "generalize the idea"
+          "en": "generalize the idea",
+          "jp": "generalize the idea = よく一緒に使う表現"
         },
         {
-          "en": "generalize from evidence"
+          "en": "generalize from evidence",
+          "jp": "generalize from evidence = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3375,7 +4431,7 @@
         "generalize from evidence"
       ],
       "watch_out": "Use reasons or examples when you work with generalize.",
-      "jp_note": "Use reasons or examples when you work with generalize.",
+      "jp_note": "「generalize」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"generalize\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3403,7 +4459,30 @@
           "prompt": "Use \"generalize\" in a classroom sentence.",
           "answer_example": "Generalize from examples carefully."
         }
-      ]
+      ],
+      "jp_word": "一般化する",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「generalize」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「generalize」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "一般化する + 文の中で使う",
+        "patterns": [
+          "generalize from examples = よく一緒に使う表現",
+          "generalize about a group = よく一緒に使う表現",
+          "generalize carefully = よく一緒に使う表現",
+          "generalize the idea = よく一緒に使う表現",
+          "generalize from evidence = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「generalize」を使って考えを説明します。",
+      "jp_practice_prompt": "「generalize」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "graph",
@@ -3435,25 +4514,44 @@
       },
       "examples": [
         {
-          "en": "Use the graph to show your ideas.",
-          "context_en": "Academic language"
+          "en": "Use the <b>graph</b> to show your ideas.",
+          "jp": "「graph」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>graph</b> when the teacher gives instructions.",
+          "jp": "「graph」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>graph</b> to understand the text more clearly.",
+          "jp": "「graph」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "graph organizer"
+          "en": "graph organizer",
+          "jp": "graph organizer = よく一緒に使う表現"
         },
         {
-          "en": "complete the graph"
+          "en": "complete the graph",
+          "jp": "complete the graph = よく一緒に使う表現"
         },
         {
-          "en": "look at the graph"
+          "en": "look at the graph",
+          "jp": "look at the graph = よく一緒に使う表現"
         },
         {
-          "en": "use the graph"
+          "en": "use the graph",
+          "jp": "use the graph = よく一緒に使う表現"
         },
         {
-          "en": "make a graph"
+          "en": "make a graph",
+          "jp": "make a graph = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3464,7 +4562,7 @@
         "make a graph"
       ],
       "watch_out": "A graph helps organize ideas; it is not the final answer by itself.",
-      "jp_note": "A graph helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "「graph」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"graph\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3492,7 +4590,30 @@
           "prompt": "Use \"graph\" in a classroom sentence.",
           "answer_example": "Use the graph to show your ideas."
         }
-      ]
+      ],
+      "jp_word": "グラフ",
+      "jp_reading": "",
+      "jp_tags": [
+        "図表・整理の言葉"
+      ],
+      "jp_meaning": "「graph」は、図や表で考えを整理するときに使う言葉です。情報を見やすくまとめるときに使います。",
+      "jp_when_to_use": [
+        "先生の指示に「graph」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "グラフ + 文の中で使う",
+        "patterns": [
+          "graph organizer = よく一緒に使う表現",
+          "complete the graph = よく一緒に使う表現",
+          "look at the graph = よく一緒に使う表現",
+          "use the graph = よく一緒に使う表現",
+          "make a graph = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「graph」を使って考えを説明します。",
+      "jp_practice_prompt": "「graph」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "graphic-features",
@@ -3524,25 +4645,44 @@
       },
       "examples": [
         {
-          "en": "Use the graphic features to show your ideas.",
-          "context_en": "Academic language"
+          "en": "Use the <b>graphic features</b> to show your ideas.",
+          "jp": "「graphic features」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>graphic features</b> when the teacher gives instructions.",
+          "jp": "「graphic features」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>graphic features</b> to understand the text more clearly.",
+          "jp": "「graphic features」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "graphic features organizer"
+          "en": "graphic features organizer",
+          "jp": "graphic features organizer = よく一緒に使う表現"
         },
         {
-          "en": "complete the graphic features"
+          "en": "complete the graphic features",
+          "jp": "complete the graphic features = よく一緒に使う表現"
         },
         {
-          "en": "look at the graphic features"
+          "en": "look at the graphic features",
+          "jp": "look at the graphic features = よく一緒に使う表現"
         },
         {
-          "en": "use the graphic features"
+          "en": "use the graphic features",
+          "jp": "use the graphic features = よく一緒に使う表現"
         },
         {
-          "en": "make a graphic features"
+          "en": "make a graphic features",
+          "jp": "make a graphic features = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3553,7 +4693,7 @@
         "make a graphic features"
       ],
       "watch_out": "A graphic features helps organize ideas; it is not the final answer by itself.",
-      "jp_note": "A graphic features helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "「graphic features」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"graphic features\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3581,7 +4721,30 @@
           "prompt": "Use \"graphic features\" in a classroom sentence.",
           "answer_example": "Use the graphic features to show your ideas."
         }
-      ]
+      ],
+      "jp_word": "「graphic features」",
+      "jp_reading": "",
+      "jp_tags": [
+        "図表・整理の言葉"
+      ],
+      "jp_meaning": "「graphic features」は、図や表で考えを整理するときに使う言葉です。情報を見やすくまとめるときに使います。",
+      "jp_when_to_use": [
+        "先生の指示に「graphic features」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「graphic features」 + 文の中で使う",
+        "patterns": [
+          "graphic features organizer = よく一緒に使う表現",
+          "complete the graphic features = よく一緒に使う表現",
+          "look at the graphic features = よく一緒に使う表現",
+          "use the graphic features = よく一緒に使う表現",
+          "make a graphic features = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「graphic features」を使って考えを説明します。",
+      "jp_practice_prompt": "「graphic features」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "identify",
@@ -3613,25 +4776,44 @@
       },
       "examples": [
         {
-          "en": "Identify the ideas carefully.",
-          "context_en": "Academic language"
+          "en": "<b>identify</b> the ideas carefully.",
+          "jp": "「identify」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>identify</b> when the teacher gives instructions.",
+          "jp": "「identify」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>identify</b> to understand the text more clearly.",
+          "jp": "「identify」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "identify the ideas"
+          "en": "identify the ideas",
+          "jp": "identify the ideas = よく一緒に使う表現"
         },
         {
-          "en": "identify the text"
+          "en": "identify the text",
+          "jp": "identify the text = よく一緒に使う表現"
         },
         {
-          "en": "identify your answer"
+          "en": "identify your answer",
+          "jp": "identify your answer = よく一緒に使う表現"
         },
         {
-          "en": "identify with evidence"
+          "en": "identify with evidence",
+          "jp": "identify with evidence = よく一緒に使う表現"
         },
         {
-          "en": "identify carefully"
+          "en": "identify carefully",
+          "jp": "identify carefully = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3642,7 +4824,7 @@
         "identify carefully"
       ],
       "watch_out": "Use reasons or examples when you work with identify.",
-      "jp_note": "Use reasons or examples when you work with identify.",
+      "jp_note": "「identify」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"identify\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3670,7 +4852,30 @@
           "prompt": "Use \"identify\" in a classroom sentence.",
           "answer_example": "Identify the ideas carefully."
         }
-      ]
+      ],
+      "jp_word": "特定する",
+      "jp_reading": "",
+      "jp_tags": [
+        "思考の言葉"
+      ],
+      "jp_meaning": "「identify」は、考えを深めて説明するときに使うアカデミックな言葉です。理由や証拠と一緒に使うとよいです。",
+      "jp_when_to_use": [
+        "先生の指示に「identify」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "特定する + 文の中で使う",
+        "patterns": [
+          "identify the ideas = よく一緒に使う表現",
+          "identify the text = よく一緒に使う表現",
+          "identify your answer = よく一緒に使う表現",
+          "identify with evidence = よく一緒に使う表現",
+          "identify carefully = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「identify」を使って考えを説明します。",
+      "jp_practice_prompt": "「identify」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "instructions",
@@ -3702,25 +4907,44 @@
       },
       "examples": [
         {
-          "en": "Use instructions in your classroom work.",
-          "context_en": "Academic language"
+          "en": "Use <b>instructions</b> in your classroom work.",
+          "jp": "「instructions」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>instructions</b> when the teacher gives instructions.",
+          "jp": "「instructions」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>instructions</b> to understand the text more clearly.",
+          "jp": "「instructions」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "the instructions"
+          "en": "the instructions",
+          "jp": "the instructions = よく一緒に使う表現"
         },
         {
-          "en": "instructions in class"
+          "en": "instructions in class",
+          "jp": "instructions in class = よく一緒に使う表現"
         },
         {
-          "en": "use instructions"
+          "en": "use instructions",
+          "jp": "use instructions = よく一緒に使う表現"
         },
         {
-          "en": "talk about instructions"
+          "en": "talk about instructions",
+          "jp": "talk about instructions = よく一緒に使う表現"
         },
         {
-          "en": "instructions activity"
+          "en": "instructions activity",
+          "jp": "instructions activity = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3731,7 +4955,7 @@
         "instructions activity"
       ],
       "watch_out": "This is a school word; listen for how it is used with other words.",
-      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "「instructions」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"instructions\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3759,7 +4983,30 @@
           "prompt": "Use \"instructions\" in a classroom sentence.",
           "answer_example": "Use instructions in your classroom work."
         }
-      ]
+      ],
+      "jp_word": "「instructions」",
+      "jp_reading": "",
+      "jp_tags": [
+        "学習語"
+      ],
+      "jp_meaning": "「instructions」は、授業や学習活動でよく使う学校の言葉です。",
+      "jp_when_to_use": [
+        "先生の指示に「instructions」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「instructions」 + 文の中で使う",
+        "patterns": [
+          "the instructions = よく一緒に使う表現",
+          "instructions in class = よく一緒に使う表現",
+          "use instructions = よく一緒に使う表現",
+          "talk about instructions = よく一緒に使う表現",
+          "instructions activity = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「instructions」を使って考えを説明します。",
+      "jp_practice_prompt": "「instructions」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "label",
@@ -3791,25 +5038,44 @@
       },
       "examples": [
         {
-          "en": "Use label in your classroom work.",
-          "context_en": "Academic language"
+          "en": "Use <b>label</b> in your classroom work.",
+          "jp": "「label」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>label</b> when the teacher gives instructions.",
+          "jp": "「label」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>label</b> to understand the text more clearly.",
+          "jp": "「label」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "the label"
+          "en": "the label",
+          "jp": "the label = よく一緒に使う表現"
         },
         {
-          "en": "label in class"
+          "en": "label in class",
+          "jp": "label in class = よく一緒に使う表現"
         },
         {
-          "en": "use label"
+          "en": "use label",
+          "jp": "use label = よく一緒に使う表現"
         },
         {
-          "en": "talk about label"
+          "en": "talk about label",
+          "jp": "talk about label = よく一緒に使う表現"
         },
         {
-          "en": "label activity"
+          "en": "label activity",
+          "jp": "label activity = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3820,7 +5086,7 @@
         "label activity"
       ],
       "watch_out": "This is a school word; listen for how it is used with other words.",
-      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "「label」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"label\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3848,7 +5114,30 @@
           "prompt": "Use \"label\" in a classroom sentence.",
           "answer_example": "Use label in your classroom work."
         }
-      ]
+      ],
+      "jp_word": "「label」",
+      "jp_reading": "",
+      "jp_tags": [
+        "学習語"
+      ],
+      "jp_meaning": "「label」は、授業や学習活動でよく使う学校の言葉です。",
+      "jp_when_to_use": [
+        "先生の指示に「label」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「label」 + 文の中で使う",
+        "patterns": [
+          "the label = よく一緒に使う表現",
+          "label in class = よく一緒に使う表現",
+          "use label = よく一緒に使う表現",
+          "talk about label = よく一緒に使う表現",
+          "label activity = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「label」を使って考えを説明します。",
+      "jp_practice_prompt": "「label」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "main-idea",
@@ -3880,25 +5169,44 @@
       },
       "examples": [
         {
-          "en": "Find the main idea.",
-          "context_en": "Academic language"
+          "en": "Find the <b>main idea</b>.",
+          "jp": "「main idea」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>main idea</b> when the teacher gives instructions.",
+          "jp": "「main idea」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>main idea</b> to understand the text more clearly.",
+          "jp": "「main idea」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "find the main idea"
+          "en": "find the main idea",
+          "jp": "find the main idea = よく一緒に使う表現"
         },
         {
-          "en": "main idea of the text"
+          "en": "main idea of the text",
+          "jp": "main idea of the text = よく一緒に使う表現"
         },
         {
-          "en": "write the main idea"
+          "en": "write the main idea",
+          "jp": "write the main idea = よく一緒に使う表現"
         },
         {
-          "en": "circle the main idea"
+          "en": "circle the main idea",
+          "jp": "circle the main idea = よく一緒に使う表現"
         },
         {
-          "en": "main idea and details"
+          "en": "main idea and details",
+          "jp": "main idea and details = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3909,7 +5217,7 @@
         "main idea and details"
       ],
       "watch_out": "Look back at the text before choosing the main idea.",
-      "jp_note": "Look back at the text before choosing the main idea.",
+      "jp_note": "「main idea」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"main idea\" in one classroom sentence.",
       "mini_test": [
         {
@@ -3937,7 +5245,30 @@
           "prompt": "Use \"main idea\" in a classroom sentence.",
           "answer_example": "Find the main idea."
         }
-      ]
+      ],
+      "jp_word": "主な考え",
+      "jp_reading": "",
+      "jp_tags": [
+        "読解・作文の言葉"
+      ],
+      "jp_meaning": "「main idea」は、読む・書く活動で使う言葉です。文章の中の大切な部分を見つけるときに役立ちます。",
+      "jp_when_to_use": [
+        "先生の指示に「main idea」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "主な考え + 文の中で使う",
+        "patterns": [
+          "find the main idea = よく一緒に使う表現",
+          "main idea of the text = よく一緒に使う表現",
+          "write the main idea = よく一緒に使う表現",
+          "circle the main idea = よく一緒に使う表現",
+          "main idea and details = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「main idea」を使って考えを説明します。",
+      "jp_practice_prompt": "「main idea」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "match",
@@ -3969,25 +5300,44 @@
       },
       "examples": [
         {
-          "en": "Please match the answer.",
-          "context_en": "Academic language"
+          "en": "Please <b>match</b> the answer.",
+          "jp": "「match」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>match</b> when the teacher gives instructions.",
+          "jp": "「match」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>match</b> to understand the text more clearly.",
+          "jp": "「match」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "match the answer"
+          "en": "match the answer",
+          "jp": "match the answer = よく一緒に使う表現"
         },
         {
-          "en": "match the words"
+          "en": "match the words",
+          "jp": "match the words = よく一緒に使う表現"
         },
         {
-          "en": "match with a partner"
+          "en": "match with a partner",
+          "jp": "match with a partner = よく一緒に使う表現"
         },
         {
-          "en": "match carefully"
+          "en": "match carefully",
+          "jp": "match carefully = よく一緒に使う表現"
         },
         {
-          "en": "match on the page"
+          "en": "match on the page",
+          "jp": "match on the page = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -3998,7 +5348,7 @@
         "match on the page"
       ],
       "watch_out": "Listen for this action word in classroom instructions.",
-      "jp_note": "Listen for this action word in classroom instructions.",
+      "jp_note": "「match」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"match\" in one classroom sentence.",
       "mini_test": [
         {
@@ -4026,7 +5376,30 @@
           "prompt": "Use \"match\" in a classroom sentence.",
           "answer_example": "Please match the answer."
         }
-      ]
+      ],
+      "jp_word": "「match」",
+      "jp_reading": "",
+      "jp_tags": [
+        "授業の動作語"
+      ],
+      "jp_meaning": "「match」は、授業中の指示でよく使う動作の言葉です。何をするかをはっきり示します。",
+      "jp_when_to_use": [
+        "先生の指示に「match」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「match」 + 文の中で使う",
+        "patterns": [
+          "match the answer = よく一緒に使う表現",
+          "match the words = よく一緒に使う表現",
+          "match with a partner = よく一緒に使う表現",
+          "match carefully = よく一緒に使う表現",
+          "match on the page = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「match」を使って考えを説明します。",
+      "jp_practice_prompt": "「match」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "obligation",
@@ -4058,25 +5431,44 @@
       },
       "examples": [
         {
-          "en": "Find the obligation in the sentence.",
-          "context_en": "Academic language"
+          "en": "Find the <b>obligation</b> in the sentence.",
+          "jp": "「obligation」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>obligation</b> when the teacher gives instructions.",
+          "jp": "「obligation」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>obligation</b> to understand the text more clearly.",
+          "jp": "「obligation」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "obligation form"
+          "en": "obligation form",
+          "jp": "obligation form = よく一緒に使う表現"
         },
         {
-          "en": "find the obligation"
+          "en": "find the obligation",
+          "jp": "find the obligation = よく一緒に使う表現"
         },
         {
-          "en": "circle the obligation"
+          "en": "circle the obligation",
+          "jp": "circle the obligation = よく一緒に使う表現"
         },
         {
-          "en": "use the obligation"
+          "en": "use the obligation",
+          "jp": "use the obligation = よく一緒に使う表現"
         },
         {
-          "en": "obligation in a sentence"
+          "en": "obligation in a sentence",
+          "jp": "obligation in a sentence = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -4087,7 +5479,7 @@
         "obligation in a sentence"
       ],
       "watch_out": "Use obligation when talking about sentence grammar, not just the topic.",
-      "jp_note": "Use obligation when talking about sentence grammar, not just the topic.",
+      "jp_note": "「obligation」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"obligation\" in one classroom sentence.",
       "mini_test": [
         {
@@ -4115,7 +5507,30 @@
           "prompt": "Use \"obligation\" in a classroom sentence.",
           "answer_example": "Find the obligation in the sentence."
         }
-      ]
+      ],
+      "jp_word": "「obligation」",
+      "jp_reading": "",
+      "jp_tags": [
+        "文法用語"
+      ],
+      "jp_meaning": "「obligation」は、文法について話すときに使う言葉です。文の形や働きを説明するときに使います。",
+      "jp_when_to_use": [
+        "先生の指示に「obligation」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "「obligation」 + 文の中で使う",
+        "patterns": [
+          "obligation form = よく一緒に使う表現",
+          "find the obligation = よく一緒に使う表現",
+          "circle the obligation = よく一緒に使う表現",
+          "use the obligation = よく一緒に使う表現",
+          "obligation in a sentence = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「obligation」を使って考えを説明します。",
+      "jp_practice_prompt": "「obligation」の Common partner を一つ選んで、自分の文を書きましょう。"
     },
     {
       "id": "opinion",
@@ -4147,25 +5562,44 @@
       },
       "examples": [
         {
-          "en": "Give an opinion.",
-          "context_en": "Academic language"
+          "en": "Give an <b>opinion</b>.",
+          "jp": "「opinion」を使って考えを説明します。",
+          "context_en": "Academic language",
+          "context_jp": "アカデミック語"
+        },
+        {
+          "en": "Listen for <b>opinion</b> when the teacher gives instructions.",
+          "jp": "「opinion」は授業でよく使います。",
+          "context_en": "Classroom",
+          "context_jp": "授業"
+        },
+        {
+          "en": "Use <b>opinion</b> to understand the text more clearly.",
+          "jp": "「opinion」は読解でよく使います。",
+          "context_en": "Reading",
+          "context_jp": "読解"
         }
       ],
       "collocations": [
         {
-          "en": "give an opinion"
+          "en": "give an opinion",
+          "jp": "give an opinion = よく一緒に使う表現"
         },
         {
-          "en": "state your opinion"
+          "en": "state your opinion",
+          "jp": "state your opinion = よく一緒に使う表現"
         },
         {
-          "en": "fact or opinion"
+          "en": "fact or opinion",
+          "jp": "fact or opinion = よく一緒に使う表現"
         },
         {
-          "en": "support your opinion"
+          "en": "support your opinion",
+          "jp": "support your opinion = よく一緒に使う表現"
         },
         {
-          "en": "opinion sentence"
+          "en": "opinion sentence",
+          "jp": "opinion sentence = よく一緒に使う表現"
         }
       ],
       "common_partners": [
@@ -4176,7 +5610,7 @@
         "opinion sentence"
       ],
       "watch_out": "Look back at the text before choosing the opinion.",
-      "jp_note": "Look back at the text before choosing the opinion.",
+      "jp_note": "「opinion」は単語だけで覚えるより、Common partners と一緒に覚えると使いやすくなります。",
       "practice_prompt": "Use \"opinion\" in one classroom sentence.",
       "mini_test": [
         {
@@ -4204,7 +5638,30 @@
           "prompt": "Use \"opinion\" in a classroom sentence.",
           "answer_example": "Give an opinion."
         }
-      ]
+      ],
+      "jp_word": "意見",
+      "jp_reading": "",
+      "jp_tags": [
+        "読解・作文の言葉"
+      ],
+      "jp_meaning": "「opinion」は、読む・書く活動で使う言葉です。文章の中の大切な部分を見つけるときに役立ちます。",
+      "jp_when_to_use": [
+        "先生の指示に「opinion」が出てきたとき。",
+        "読む・書く・文法・考える活動を説明するとき。",
+        "より分かりやすいアカデミックな答えを作りたいとき。"
+      ],
+      "jp_how_to_use": {
+        "structure": "意見 + 文の中で使う",
+        "patterns": [
+          "give an opinion = よく一緒に使う表現",
+          "state your opinion = よく一緒に使う表現",
+          "fact or opinion = よく一緒に使う表現",
+          "support your opinion = よく一緒に使う表現",
+          "opinion sentence = よく一緒に使う表現"
+        ]
+      },
+      "jp_sentence": "「opinion」を使って考えを説明します。",
+      "jp_practice_prompt": "「opinion」の Common partner を一つ選んで、自分の文を書きましょう。"
     }
   ],
   "word_count": 60,

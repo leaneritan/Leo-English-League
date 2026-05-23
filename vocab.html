@@ -179,6 +179,18 @@
     .colloc-arrow { color: var(--academic); font-weight: 700; }
     .colloc-jp { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: var(--ink-2); }
 
+    /* Mini test */
+    .mini-test-card { background: var(--surface); border: 1px solid var(--border); padding: 18px 20px; margin-bottom: 18px; }
+    .mini-test-list { display: flex; flex-direction: column; gap: 14px; }
+    .mini-test-item { background: var(--paper); border: 1px solid var(--border); padding: 14px; }
+    .mini-test-prompt { font-weight: 700; font-size: 15px; line-height: 1.45; margin-bottom: 10px; color: var(--ink); }
+    .mini-test-choices { display: flex; flex-wrap: wrap; gap: 8px; }
+    .mini-choice { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; padding: 7px 10px; border: 1px solid var(--ink); background: #fff; color: var(--ink); cursor: pointer; transition: all 0.15s; }
+    .mini-choice:hover { background: var(--academic-bg); border-color: var(--academic); }
+    .mini-choice.correct { background: #E8F5E9; border-color: #2E7D32; color: #1B5E20; }
+    .mini-choice.wrong { background: #FEE2E2; border-color: #B91C1C; color: #7F1D1D; }
+    .mini-answer { font-size: 14px; line-height: 1.55; color: var(--ink-2); background: #fff; border-left: 3px solid var(--academic); padding: 9px 12px; }
+
     /* Note callout */
     .note-callout { background: var(--academic-bg); border: 1px solid var(--academic); border-left: 4px solid var(--academic); padding: 18px 20px; margin-bottom: 18px; }
     .note-head { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--academic-ink); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
@@ -399,6 +411,15 @@
       // Authored content uses only <b> for highlighting.
       if (typeof s !== 'string') return '';
       return s.replace(/<(?!\/?b\b)[^>]*>/gi, '');
+    }
+
+    function safeAttr(s) {
+      return safeHTML(s)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
     }
 
     // ════════════════════════════════════════════════════════════════
@@ -674,13 +695,47 @@
           </div>
           <div class="rich-section-body">
             <div class="collocations-list">
-              ${cols.map(c => `
-                <div class="collocation">
-                  <span class="colloc-en" data-word="${headWord}">${safeHTML(c.en || '')}</span>
-                  <span class="colloc-arrow">→</span>
-                  <span class="colloc-jp">${c.jp || ''}</span>
-                </div>
-              `).join('')}
+              ${cols.map(c => {
+                const phrase = c.en || '';
+                const prefix = phrase.toLowerCase().startsWith(headWord.toLowerCase()) ? '' : headWord;
+                return `
+                  <div class="collocation">
+                    <span class="colloc-en" data-word="${prefix}">${safeHTML(phrase)}</span>
+                    <span class="colloc-arrow">→</span>
+                    <span class="colloc-jp">${safeHTML(c.jp || '')}</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderMiniTest(entry) {
+      const tests = entry.mini_test || [];
+      if (!tests.length) return '';
+      return `
+        <section class="rich-section">
+          <div class="rich-section-head">
+            <div class="bar"></div>
+            <div class="label">Mini test game</div>
+            <div class="jp-label">ミニテスト</div>
+          </div>
+          <div class="rich-section-body">
+            <div class="mini-test-card">
+              <div class="mini-test-list">
+                ${tests.map((t, index) => `
+                  <div class="mini-test-item" data-answer="${safeAttr(t.answer || '')}">
+                    <div class="mini-test-prompt">${safeHTML(t.prompt || '')}</div>
+                    ${Array.isArray(t.choices) && t.choices.length ? `
+                      <div class="mini-test-choices">
+                        ${t.choices.map(choice => `<button class="mini-choice" type="button">${safeHTML(choice)}</button>`).join('')}
+                      </div>
+                    ` : `<div class="mini-answer">${safeHTML(t.answer_example || t.answer || '')}</div>`}
+                  </div>
+                `).join('')}
+              </div>
             </div>
           </div>
         </section>
@@ -799,6 +854,7 @@
         html += renderSectionHowToUse(entry);
         html += renderSectionExamples(entry);
         html += renderSectionCollocations(entry, entry.word);
+        html += renderMiniTest(entry);
         html += renderNoteCallout(entry);
         html += renderTryIt(entry);
       }
@@ -811,6 +867,7 @@
       // Wire up interactions
       wireAudioButton(entry.word);
       wireBasicJpToggle();
+      wireMiniTest();
       if (rich && hasAnyJp) {
         wireMasterJpToggle();
       }
@@ -860,6 +917,19 @@
         const open = card.classList.toggle('open');
         btn.classList.toggle('open', open);
         if (label) label.textContent = open ? 'Hide basic Japanese info' : 'Show basic Japanese info';
+      });
+    }
+
+    function wireMiniTest() {
+      document.querySelectorAll('.mini-test-item').forEach(item => {
+        const answer = (item.dataset.answer || '').trim();
+        item.querySelectorAll('.mini-choice').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const choice = btn.textContent.trim();
+            item.querySelectorAll('.mini-choice').forEach(b => b.classList.remove('correct', 'wrong'));
+            btn.classList.add(choice === answer ? 'correct' : 'wrong');
+          });
+        });
       });
     }
 
