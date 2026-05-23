@@ -338,8 +338,9 @@
       const word = (p.get('word') || p.get('id') || '').trim();
       const unitRaw = p.get('unit');
       const setRaw = p.get('set');
+      const levelRaw = (p.get('level') || '').trim().toLowerCase();
       return {
-        level: parseInt(p.get('level'), 10) || null,
+        level: levelRaw === 'all' ? 'all' : parseInt(levelRaw, 10) || null,
         word: word,
         unit: unitRaw ? parseInt(unitRaw, 10) : null,
         set: setRaw ? parseInt(setRaw, 10) : null
@@ -453,14 +454,22 @@
     // ════════════════════════════════════════════════════════════════
 
     async function loadLevelWords(level) {
+      if (level === 'all') {
+        const all = [];
+        for (let l = 1; l <= 6; l++) {
+          const levelWords = await loadLevelWords(l);
+          all.push(...levelWords.map(w => ({ ...w, level: l })));
+        }
+        return all;
+      }
       const glossary = await loadJson(`content/our-world/level-${level}/glossary.json`);
       const extras = await loadJson(`content/our-world/level-${level}/extras.json`);
       const words = [];
       if (glossary && Array.isArray(glossary.words)) {
-        words.push(...glossary.words.map(w => ({ ...w, source: 'glossary' })));
+        words.push(...glossary.words.map(w => ({ ...w, level, source: 'glossary' })));
       }
       if (extras && Array.isArray(extras.words)) {
-        words.push(...extras.words.map(w => ({ ...w, category: w.category || 'extras', source: 'extras' })));
+        words.push(...extras.words.map(w => ({ ...w, level, category: w.category || 'extras', source: 'extras' })));
       }
       return words;
     }
@@ -475,10 +484,11 @@
 
     function renderLevelIndex(level, words) {
       const crumb = document.getElementById('crumb');
+      const title = level === 'all' ? 'All Levels' : `Level ${level}`;
       crumb.innerHTML = [
         `<a href="index.html">Home</a><span class="sep">/</span>`,
         `<a href="our-world.html">Our World</a><span class="sep">/</span>`,
-        `<span class="active">Level ${level} Glossary</span>`
+        `<span class="active">${title} Glossary</span>`
       ].join('');
 
       const counts = words.reduce((acc, w) => {
@@ -498,11 +508,11 @@
         <a href="our-world.html" class="back-link">Back to Our World</a>
         <div class="level-index-head">
           <div class="level-index-kicker">Our World Glossary</div>
-          <h1 class="level-index-title">Level ${level}</h1>
+          <h1 class="level-index-title">${title}</h1>
           <p class="level-index-sub">Open any word to see examples, Japanese support, common partners, and mini tests where available.</p>
         </div>
         <div class="level-index-tools">
-          <input class="level-index-search" id="levelWordSearch" type="search" placeholder="Search Level ${level} words...">
+          <input class="level-index-search" id="levelWordSearch" type="search" placeholder="Search ${title} words...">
           ${filters.map(([key, label]) => `<button class="level-filter ${key === 'all' ? 'active' : ''}" type="button" data-filter="${key}">${safeHTML(label)}</button>`).join('')}
         </div>
         <div class="level-word-grid" id="levelWordGrid">
@@ -511,10 +521,10 @@
             const label = CATEGORY_LABELS[cat] || cat;
             const summary = w.meaning || w.jp_meaning || w.sample || w.sentence || '';
             return `
-              <a class="level-word-card ${cat}" href="vocab.html?level=${level}&id=${encodeURIComponent(w.id)}" data-cat="${safeAttr(cat)}" data-search="${safeAttr([w.word, w.id, label, summary].join(' '))}">
+              <a class="level-word-card ${cat}" href="vocab.html?level=${w.level || level}&id=${encodeURIComponent(w.id)}" data-cat="${safeAttr(cat)}" data-search="${safeAttr([w.word, w.id, label, summary, `level ${w.level || level}`].join(' '))}">
                 <div class="level-word-top">
                   <div class="level-word-emoji">${safeHTML(w.emoji || '📚')}</div>
-                  <div class="level-word-kind">${safeHTML(label)}</div>
+                <div class="level-word-kind">${level === 'all' ? `L${w.level} · ` : ''}${safeHTML(label)}</div>
                 </div>
                 <div class="level-word-name">${safeHTML(w.word || w.id)}</div>
                 <div class="level-word-meta">${safeHTML(summary).slice(0, 96)}</div>

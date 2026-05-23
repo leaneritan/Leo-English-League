@@ -143,12 +143,14 @@
     }
     .level-pills { display: flex; gap: 4px; }
     .pill {
+      display: inline-block;
       font-family: 'Oswald', sans-serif; font-weight: 600;
       font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
       padding: 6px 12px;
       background: var(--surface); border: 1px solid var(--border);
-      color: var(--ink-3); cursor: pointer;
+      color: var(--ink-3); cursor: pointer; text-decoration: none;
     }
+    .pill:hover { border-color: var(--ink); color: var(--ink); }
     .pill.active {
       background: var(--ink); color: var(--yellow);
       border-color: var(--ink);
@@ -350,6 +352,16 @@
       color: var(--ink-4);
       margin-left: auto;
     }
+    .gloss-open {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--academic);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      background: var(--surface);
+    }
+    .gloss-open:hover { border-color: var(--academic); background: var(--academic-bg); }
     .glossary-toggle .gloss-chevron {
       width: 12px; height: 12px;
       color: var(--ink-4);
@@ -443,13 +455,13 @@
     <div class="filter-row">
       <div class="filter-label">Showing</div>
       <div class="level-pills">
-        <button class="pill active">Level 4</button>
-        <button class="pill">L1</button>
-        <button class="pill">L2</button>
-        <button class="pill">L3</button>
-        <button class="pill">L5</button>
-        <button class="pill">L6</button>
-        <button class="pill">All levels</button>
+        <a class="pill active" href="vocab.html?level=4">Level 4</a>
+        <a class="pill" href="vocab.html?level=1">L1</a>
+        <a class="pill" href="vocab.html?level=2">L2</a>
+        <a class="pill" href="vocab.html?level=3">L3</a>
+        <a class="pill" href="vocab.html?level=5">L5</a>
+        <a class="pill" href="vocab.html?level=6">L6</a>
+        <a class="pill" href="vocab.html?level=all">All levels</a>
       </div>
     </div>
 
@@ -886,12 +898,13 @@
           </div>
         </div>
         <div class="acc-glossary" id="unit-8-glossary">
-          <button class="glossary-toggle" onclick="this.parentElement.classList.toggle('open')">
+          <div class="glossary-toggle" role="button" tabindex="0" onclick="this.parentElement.classList.toggle('open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <span class="gloss-ico">📚</span>
             <span class="gloss-label">Glossary</span>
             <span class="gloss-count">34 words</span>
+            <a class="gloss-open" href="vocab.html?level=4" onclick="event.stopPropagation()">Open all</a>
             <svg class="gloss-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
+          </div>
           <div class="glossary-body">
 
             <div class="set-label glossary-academic"><span class="dot"></span>Academic Language · 14</div>
