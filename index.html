@@ -2402,6 +2402,25 @@ header {
     )
   ).then(arrays => { JH_VOCAB = arrays.flat(); });
 
+  // ── OUR WORLD LEVEL 4 VOCAB (loaded async from unit JSON files) ──
+  let OW_VOCAB = [];
+  const OW_UNITS = [1,2,3,4,5,6,7,8];
+  const OW_SETS = [1,2];
+  Promise.all(
+    OW_UNITS.flatMap(unit =>
+      OW_SETS.map(set =>
+        fetch(`content/our-world/level-4/unit-${unit}/vocab-${set}.json`)
+          .then(r => r.json())
+          .then(data => (data.words || []).map(w => ({
+            t: 'v',
+            w: w.word,
+            u: `vocab.html?level=4&unit=${unit}&set=${set}&id=${w.id}`
+          })))
+          .catch(() => [])
+      )
+    )
+  ).then(arrays => { OW_VOCAB = arrays.flat(); });
+
   // ── OUR WORLD LEVEL 4 GLOSSARY (loaded async) ──
   let OW_GLOSSARY = [];
   fetch('content/our-world/level-4/glossary.json')
@@ -2546,6 +2565,15 @@ header {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
       groups[key].sources.push({ t: d.t, u: d.u, ext: false });
+    });
+
+    // Our World vocab JSON
+    OW_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      if (!groups[key].sources.find(s => s.t === 'v' && s.u === d.u)) {
+        groups[key].sources.push({ t: 'v', u: d.u, ext: false });
+      }
     });
 
     // Our World Level 4 glossary
