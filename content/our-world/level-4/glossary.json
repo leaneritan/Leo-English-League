@@ -2260,7 +2260,7 @@
     {
       "id": "action",
       "word": "action",
-      "emoji": "📘",
+      "emoji": "🗝️",
       "pos": "noun",
       "sample": "Take <b>action</b>.",
       "category": "academic",
@@ -2391,7 +2391,7 @@
     {
       "id": "action-word",
       "word": "action word",
-      "emoji": "📘",
+      "emoji": "🏃‍♂️",
       "pos": "noun phrase",
       "sample": "Find the <b>action word</b> in the sentence.",
       "category": "academic",
@@ -2522,7 +2522,7 @@
     {
       "id": "bar-graph",
       "word": "bar graph",
-      "emoji": "📘",
+      "emoji": "❓",
       "pos": "noun phrase",
       "sample": "Use the <b>bar graph</b> to show your ideas.",
       "category": "academic",
@@ -2653,7 +2653,7 @@
     {
       "id": "cause-and-effect",
       "word": "cause and effect",
-      "emoji": "📘",
+      "emoji": "❓",
       "pos": "noun phrase",
       "sample": "Use a <b>cause and effect</b> chart to explain your idea.",
       "category": "academic",
@@ -2784,7 +2784,7 @@
     {
       "id": "chart",
       "word": "chart",
-      "emoji": "📘",
+      "emoji": "❓",
       "pos": "noun",
       "sample": "Use the <b>chart</b> to show your ideas.",
       "category": "academic",
@@ -2915,7 +2915,7 @@
     {
       "id": "compare",
       "word": "compare",
-      "emoji": "📘",
+      "emoji": "⚖️",
       "pos": "verb",
       "sample": "<b>compare</b> the ideas carefully.",
       "category": "academic",
@@ -3046,7 +3046,7 @@
     {
       "id": "contrast",
       "word": "contrast",
-      "emoji": "📘",
+      "emoji": "↔️",
       "pos": "verb",
       "sample": "<b>contrast</b> the ideas carefully.",
       "category": "academic",
@@ -3177,7 +3177,7 @@
     {
       "id": "critical-thinking",
       "word": "critical thinking",
-      "emoji": "📘",
+      "emoji": "🔎",
       "pos": "noun phrase",
       "sample": "Use <b>critical thinking</b> to explain your answer.",
       "category": "academic",
@@ -3308,7 +3308,7 @@
     {
       "id": "descriptive-details",
       "word": "descriptive details",
-      "emoji": "📘",
+      "emoji": "🔎",
       "pos": "noun phrase",
       "sample": "Add <b>descriptive details</b> to your writing.",
       "category": "academic",
@@ -3439,7 +3439,7 @@
     {
       "id": "diagram",
       "word": "diagram",
-      "emoji": "📘",
+      "emoji": "❓",
       "pos": "noun",
       "sample": "Use the <b>diagram</b> to show your ideas.",
       "category": "academic",
@@ -3570,7 +3570,7 @@
     {
       "id": "differences",
       "word": "differences",
-      "emoji": "📘",
+      "emoji": "💡",
       "pos": "academic word",
       "sample": "Find <b>differences</b> between the two pictures.",
       "category": "academic",
@@ -3701,7 +3701,7 @@
     {
       "id": "effect",
       "word": "effect",
-      "emoji": "📘",
+      "emoji": "🌊",
       "pos": "academic word",
       "sample": "Explain the <b>effect</b> of the change.",
       "category": "academic",
@@ -3832,7 +3832,7 @@
     {
       "id": "events",
       "word": "events",
-      "emoji": "📘",
+      "emoji": "📅",
       "pos": "noun",
       "sample": "Use <b>events</b> in your classroom work.",
       "category": "academic",
@@ -3963,7 +3963,7 @@
     {
       "id": "expressions",
       "word": "expressions",
-      "emoji": "📘",
+      "emoji": "💬",
       "pos": "noun",
       "sample": "Use <b>expressions</b> in your classroom work.",
       "category": "academic",
@@ -4094,7 +4094,7 @@
     {
       "id": "fact",
       "word": "fact",
-      "emoji": "📘",
+      "emoji": "📌",
       "pos": "noun",
       "sample": "<b>fact</b> or opinion.",
       "category": "academic",
@@ -4225,7 +4225,7 @@
     {
       "id": "form",
       "word": "form",
-      "emoji": "📘",
+      "emoji": "🧱",
       "pos": "noun",
       "sample": "Use <b>form</b> in your classroom work.",
       "category": "academic",
@@ -4356,7 +4356,7 @@
     {
       "id": "generalize",
       "word": "generalize",
-      "emoji": "📘",
+      "emoji": "🌐",
       "pos": "academic word",
       "sample": "<b>generalize</b> from examples carefully.",
       "category": "academic",
@@ -4487,7 +4487,7 @@
     {
       "id": "graph",
       "word": "graph",
-      "emoji": "📘",
+      "emoji": "📊",
       "pos": "noun",
       "sample": "Use the <b>graph</b> to show your ideas.",
       "category": "academic",
@@ -4618,7 +4618,7 @@
     {
       "id": "graphic-features",
       "word": "graphic features",
-      "emoji": "📘",
+      "emoji": "🗂️",
       "pos": "noun phrase",
       "sample": "Use the <b>graphic features</b> to show your ideas.",
       "category": "academic",
@@ -4749,7 +4749,7 @@
     {
       "id": "identify",
       "word": "identify",
-      "emoji": "📘",
+      "emoji": "🔎",
       "pos": "verb",
       "sample": "<b>identify</b> the ideas carefully.",
       "category": "academic",
@@ -4880,7 +4880,7 @@
     {
       "id": "instructions",
       "word": "instructions",
-      "emoji": "📘",
+      "emoji": "📋",
       "pos": "noun",
       "sample": "Use <b>instructions</b> in your classroom work.",
       "category": "academic",
@@ -5011,7 +5011,7 @@
     {
       "id": "label",
       "word": "label",
-      "emoji": "📘",
+      "emoji": "🏷️",
       "pos": "noun",
       "sample": "Use <b>label</b> in your classroom work.",
       "category": "academic",
@@ -5142,7 +5142,7 @@
     {
       "id": "main-idea",
       "word": "main idea",
-      "emoji": "📘",
+      "emoji": "💡",
       "pos": "noun phrase",
       "sample": "Find the <b>main idea</b>.",
       "category": "academic",
@@ -5273,7 +5273,7 @@
     {
       "id": "match",
       "word": "match",
-      "emoji": "📘",
+      "emoji": "🧩",
       "pos": "verb",
       "sample": "Please <b>match</b> the answer.",
       "category": "academic",
@@ -5404,7 +5404,7 @@
     {
       "id": "obligation",
       "word": "obligation",
-      "emoji": "📘",
+      "emoji": "☑️",
       "pos": "noun",
       "sample": "Find the <b>obligation</b> in the sentence.",
       "category": "academic",
@@ -5535,7 +5535,7 @@
     {
       "id": "opinion",
       "word": "opinion",
-      "emoji": "📘",
+      "emoji": "💭",
       "pos": "noun",
       "sample": "Give an <b>opinion</b>.",
       "category": "academic",
