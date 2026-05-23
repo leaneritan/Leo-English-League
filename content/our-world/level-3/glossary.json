@@ -4,7 +4,7 @@
     {
       "id": "alike",
       "word": "alike",
-      "emoji": "💡",
+      "emoji": "🤝",
       "pos": "adjective",
       "sample": "Use <b>alike</b> to explain your answer.",
       "category": "academic",
@@ -135,7 +135,7 @@
     {
       "id": "amount",
       "word": "amount",
-      "emoji": "💡",
+      "emoji": "📏",
       "pos": "academic word",
       "sample": "Use <b>amount</b> to explain your answer.",
       "category": "academic",
@@ -266,7 +266,7 @@
     {
       "id": "author",
       "word": "author",
-      "emoji": "❓",
+      "emoji": "✍️",
       "pos": "noun",
       "sample": "Find the <b>author</b> in the text.",
       "category": "academic",
@@ -397,7 +397,7 @@
     {
       "id": "bar-graph",
       "word": "bar graph",
-      "emoji": "❓",
+      "emoji": "📊",
       "pos": "noun phrase",
       "sample": "Use the <b>bar graph</b> to show your ideas.",
       "category": "academic",
@@ -528,7 +528,7 @@
     {
       "id": "body",
       "word": "body",
-      "emoji": "❓",
+      "emoji": "📄",
       "pos": "noun",
       "sample": "Use <b>body</b> in your classroom work.",
       "category": "academic",
@@ -659,7 +659,7 @@
     {
       "id": "body-text",
       "word": "body text",
-      "emoji": "❓",
+      "emoji": "📄",
       "pos": "noun phrase",
       "sample": "Find the <b>body text</b> in the text.",
       "category": "academic",
@@ -921,7 +921,7 @@
     {
       "id": "chart",
       "word": "chart",
-      "emoji": "❓",
+      "emoji": "📈",
       "pos": "noun",
       "sample": "Use the <b>chart</b> to show your ideas.",
       "category": "academic",
@@ -1183,7 +1183,7 @@
     {
       "id": "collect",
       "word": "collect",
-      "emoji": "📣",
+      "emoji": "🧺",
       "pos": "verb",
       "sample": "Please <b>collect</b> the answer.",
       "category": "academic",
@@ -1314,7 +1314,7 @@
     {
       "id": "column",
       "word": "column",
-      "emoji": "❓",
+      "emoji": "▥",
       "pos": "noun",
       "sample": "Use the <b>column</b> to show your ideas.",
       "category": "academic",
@@ -1576,7 +1576,7 @@
     {
       "id": "context",
       "word": "context",
-      "emoji": "❓",
+      "emoji": "🧭",
       "pos": "noun",
       "sample": "Find the <b>context</b> in the text.",
       "category": "academic",
@@ -2231,7 +2231,7 @@
     {
       "id": "detail",
       "word": "detail",
-      "emoji": "❓",
+      "emoji": "📐",
       "pos": "noun",
       "sample": "Find the <b>detail</b> in the text.",
       "category": "academic",
@@ -2362,7 +2362,7 @@
     {
       "id": "diagram",
       "word": "diagram",
-      "emoji": "❓",
+      "emoji": "💡",
       "pos": "noun",
       "sample": "Use the <b>diagram</b> to show your ideas.",
       "category": "academic",
@@ -2493,7 +2493,7 @@
     {
       "id": "dictionary",
       "word": "dictionary",
-      "emoji": "❓",
+      "emoji": "🌊",
       "pos": "noun",
       "sample": "Find the <b>dictionary</b> in the text.",
       "category": "academic",
@@ -2755,7 +2755,7 @@
     {
       "id": "guess",
       "word": "guess",
-      "emoji": "📣",
+      "emoji": "🕵️",
       "pos": "verb",
       "sample": "Please <b>guess</b> the answer.",
       "category": "academic",
@@ -2886,7 +2886,7 @@
     {
       "id": "how-often",
       "word": "how often",
-      "emoji": "❓",
+      "emoji": "💡",
       "pos": "noun phrase",
       "sample": "Use <b>how often</b> to explain your answer.",
       "category": "academic",
@@ -3017,7 +3017,7 @@
     {
       "id": "idea",
       "word": "idea",
-      "emoji": "❓",
+      "emoji": "🧰",
       "pos": "noun",
       "sample": "Use <b>idea</b> in your classroom work.",
       "category": "academic",
@@ -3148,7 +3148,7 @@
     {
       "id": "information",
       "word": "information",
-      "emoji": "❓",
+      "emoji": "📣",
       "pos": "noun",
       "sample": "Find the <b>information</b> in the text.",
       "category": "academic",
@@ -3279,7 +3279,7 @@
     {
       "id": "key-words",
       "word": "key words",
-      "emoji": "📝",
+      "emoji": "☑️",
       "pos": "noun phrase",
       "sample": "Find the <b>key words</b> in the text.",
       "category": "academic",
@@ -3803,7 +3803,7 @@
     {
       "id": "order",
       "word": "order",
-      "emoji": "🔢➡️",
+      "emoji": "🔬",
       "pos": "academic word",
       "sample": "Use <b>order</b> to explain your answer.",
       "category": "academic",
@@ -3934,7 +3934,7 @@
     {
       "id": "part",
       "word": "part",
-      "emoji": "💡",
+      "emoji": "🔍",
       "pos": "academic word",
       "sample": "Use <b>part</b> to explain your answer.",
       "category": "academic",
@@ -4065,7 +4065,7 @@
     {
       "id": "phrase",
       "word": "phrase",
-      "emoji": "❓",
+      "emoji": "🗂️",
       "pos": "noun",
       "sample": "Find the <b>phrase</b> in the text.",
       "category": "academic",
@@ -4196,7 +4196,7 @@
     {
       "id": "pick",
       "word": "pick",
-      "emoji": "📣",
+      "emoji": "🔠",
       "pos": "verb",
       "sample": "Please <b>pick</b> the answer.",
       "category": "academic",
@@ -4327,7 +4327,7 @@
     {
       "id": "piece",
       "word": "piece",
-      "emoji": "💡",
+      "emoji": "🟨",
       "pos": "academic word",
       "sample": "Use <b>piece</b> to explain your answer.",
       "category": "academic",
@@ -4458,7 +4458,7 @@
     {
       "id": "plan",
       "word": "plan",
-      "emoji": "❓",
+      "emoji": "📊",
       "pos": "noun",
       "sample": "Use <b>plan</b> in your classroom work.",
       "category": "academic",
@@ -4720,7 +4720,7 @@
     {
       "id": "request",
       "word": "request",
-      "emoji": "📣",
+      "emoji": "🖊️",
       "pos": "verb",
       "sample": "Please <b>request</b> the answer.",
       "category": "academic",
@@ -4851,7 +4851,7 @@
     {
       "id": "research",
       "word": "research",
-      "emoji": "💡",
+      "emoji": "🔠",
       "pos": "verb",
       "sample": "<b>research</b> the ideas carefully.",
       "category": "academic",
@@ -4982,7 +4982,7 @@
     {
       "id": "row",
       "word": "row",
-      "emoji": "❓",
+      "emoji": "💬",
       "pos": "noun",
       "sample": "Use the <b>row</b> to show your ideas.",
       "category": "academic",
@@ -5113,7 +5113,7 @@
     {
       "id": "scan",
       "word": "scan",
-      "emoji": "💡",
+      "emoji": "📊",
       "pos": "verb",
       "sample": "<b>scan</b> the ideas carefully.",
       "category": "academic",
@@ -5375,7 +5375,7 @@
     {
       "id": "spin",
       "word": "spin",
-      "emoji": "❓",
+      "emoji": "📣",
       "pos": "noun",
       "sample": "Use <b>spin</b> in your classroom work.",
       "category": "academic",
@@ -5506,7 +5506,7 @@
     {
       "id": "steps",
       "word": "steps",
-      "emoji": "💡",
+      "emoji": "🕵️",
       "pos": "academic word",
       "sample": "Use <b>steps</b> to explain your answer.",
       "category": "academic",
@@ -5637,7 +5637,7 @@
     {
       "id": "survey",
       "word": "survey",
-      "emoji": "❓",
+      "emoji": "🏷️",
       "pos": "noun",
       "sample": "Use <b>survey</b> in your classroom work.",
       "category": "academic",
@@ -5899,7 +5899,7 @@
     {
       "id": "topic-sentence",
       "word": "topic sentence",
-      "emoji": "📝",
+      "emoji": "🗝️",
       "pos": "noun phrase",
       "sample": "Find the <b>topic sentence</b> in the text.",
       "category": "academic",
@@ -6030,7 +6030,7 @@
     {
       "id": "verb",
       "word": "verb",
-      "emoji": "🔤",
+      "emoji": "✨",
       "pos": "noun",
       "sample": "Find the <b>verb</b> in the sentence.",
       "category": "academic",
@@ -6161,7 +6161,7 @@
     {
       "id": "whole",
       "word": "whole",
-      "emoji": "❓",
+      "emoji": "🗂️",
       "pos": "adjective",
       "sample": "Use <b>whole</b> to explain your answer.",
       "category": "academic",

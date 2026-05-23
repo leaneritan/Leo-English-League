@@ -2260,7 +2260,7 @@
     {
       "id": "action",
       "word": "action",
-      "emoji": "🗝️",
+      "emoji": "📣",
       "pos": "noun",
       "sample": "Take <b>action</b>.",
       "category": "academic",
@@ -2522,7 +2522,7 @@
     {
       "id": "bar-graph",
       "word": "bar graph",
-      "emoji": "❓",
+      "emoji": "📊",
       "pos": "noun phrase",
       "sample": "Use the <b>bar graph</b> to show your ideas.",
       "category": "academic",
@@ -2653,7 +2653,7 @@
     {
       "id": "cause-and-effect",
       "word": "cause and effect",
-      "emoji": "❓",
+      "emoji": "🕵️",
       "pos": "noun phrase",
       "sample": "Use a <b>cause and effect</b> chart to explain your idea.",
       "category": "academic",
@@ -2784,7 +2784,7 @@
     {
       "id": "chart",
       "word": "chart",
-      "emoji": "❓",
+      "emoji": "📈",
       "pos": "noun",
       "sample": "Use the <b>chart</b> to show your ideas.",
       "category": "academic",
@@ -3177,7 +3177,7 @@
     {
       "id": "critical-thinking",
       "word": "critical thinking",
-      "emoji": "🔎",
+      "emoji": "✅",
       "pos": "noun phrase",
       "sample": "Use <b>critical thinking</b> to explain your answer.",
       "category": "academic",
@@ -3308,7 +3308,7 @@
     {
       "id": "descriptive-details",
       "word": "descriptive details",
-      "emoji": "🔎",
+      "emoji": "🗝️",
       "pos": "noun phrase",
       "sample": "Add <b>descriptive details</b> to your writing.",
       "category": "academic",
@@ -3439,7 +3439,7 @@
     {
       "id": "diagram",
       "word": "diagram",
-      "emoji": "❓",
+      "emoji": "💡",
       "pos": "noun",
       "sample": "Use the <b>diagram</b> to show your ideas.",
       "category": "academic",
@@ -3570,7 +3570,7 @@
     {
       "id": "differences",
       "word": "differences",
-      "emoji": "💡",
+      "emoji": "🛠️",
       "pos": "academic word",
       "sample": "Find <b>differences</b> between the two pictures.",
       "category": "academic",
