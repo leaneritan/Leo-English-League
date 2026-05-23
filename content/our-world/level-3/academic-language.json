@@ -308,24 +308,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a reading or writing word Leo uses when working with texts",
       "common_partners": [
-        "caption in the text",
-        "find the caption",
-        "write the caption",
-        "underline the caption",
-        "caption and details"
+        "read the caption",
+        "write a caption",
+        "picture caption",
+        "caption under the photo",
+        "caption and photo"
       ],
-      "sample_sentence": "Find the caption in the text.",
+      "sample_sentence": "Read the caption.",
       "watch_out": "Look back at the text before choosing the caption.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"caption\"?",
           "choices": [
-            "caption in the text",
+            "read the caption",
             "sleep the caption",
             "caption banana"
           ],
-          "answer": "caption in the text"
+          "answer": "read the caption"
         },
         {
           "type": "meaning_check",
@@ -340,7 +340,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"caption\" in a classroom sentence.",
-          "answer_example": "Find the caption in the text."
+          "answer_example": "Read the caption."
         }
       ]
     },
@@ -637,24 +637,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a grammar word Leo uses to talk about contraction",
       "common_partners": [
-        "contraction form",
+        "make a contraction",
+        "use a contraction",
         "find the contraction",
-        "circle the contraction",
-        "use the contraction",
+        "contraction form",
         "contraction in a sentence"
       ],
-      "sample_sentence": "Find the contraction in the sentence.",
+      "sample_sentence": "Make a contraction.",
       "watch_out": "Use contraction when talking about sentence grammar, not just the topic.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"contraction\"?",
           "choices": [
-            "contraction form",
+            "make a contraction",
             "sleep the contraction",
             "contraction banana"
           ],
-          "answer": "contraction form"
+          "answer": "make a contraction"
         },
         {
           "type": "meaning_check",
@@ -669,7 +669,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"contraction\" in a classroom sentence.",
-          "answer_example": "Find the contraction in the sentence."
+          "answer_example": "Make a contraction."
         }
       ]
     },
@@ -731,24 +731,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a reading or writing word Leo uses when working with texts",
       "common_partners": [
-        "definition in the text",
-        "find the definition",
-        "write the definition",
-        "underline the definition",
-        "definition and details"
+        "read the definition",
+        "write a definition",
+        "dictionary definition",
+        "definition of the word",
+        "match the definition"
       ],
-      "sample_sentence": "Find the definition in the text.",
+      "sample_sentence": "Read the definition.",
       "watch_out": "Look back at the text before choosing the definition.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"definition\"?",
           "choices": [
-            "definition in the text",
+            "read the definition",
             "sleep the definition",
             "definition banana"
           ],
-          "answer": "definition in the text"
+          "answer": "read the definition"
         },
         {
           "type": "meaning_check",
@@ -763,7 +763,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"definition\" in a classroom sentence.",
-          "answer_example": "Find the definition in the text."
+          "answer_example": "Read the definition."
         }
       ]
     },
@@ -778,24 +778,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "describe the ideas",
-        "describe the text",
-        "describe your answer",
-        "describe with evidence",
-        "describe carefully"
+        "describe the picture",
+        "describe a person",
+        "describe your idea",
+        "describe in detail",
+        "describe what happened"
       ],
-      "sample_sentence": "Describe the ideas carefully.",
+      "sample_sentence": "Describe the picture.",
       "watch_out": "Use reasons or examples when you work with describe.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"describe\"?",
           "choices": [
-            "describe the ideas",
+            "describe the picture",
             "sleep the describe",
             "describe banana"
           ],
-          "answer": "describe the ideas"
+          "answer": "describe the picture"
         },
         {
           "type": "meaning_check",
@@ -810,7 +810,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"describe\" in a classroom sentence.",
-          "answer_example": "Describe the ideas carefully."
+          "answer_example": "Describe the picture."
         }
       ]
     },
@@ -1906,24 +1906,24 @@
       "part_of_speech": "academic word",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "use sequence",
-        "sequence in your answer",
-        "explain sequence",
-        "sequence example",
-        "talk about sequence"
+        "sequence of events",
+        "put in sequence",
+        "in the correct sequence",
+        "sequence words",
+        "sequence chart"
       ],
-      "sample_sentence": "Use sequence to explain your answer.",
+      "sample_sentence": "Put the events in the correct sequence.",
       "watch_out": "Use reasons or examples when you work with sequence.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"sequence\"?",
           "choices": [
-            "use sequence",
+            "sequence of events",
             "sleep the sequence",
             "sequence banana"
           ],
-          "answer": "use sequence"
+          "answer": "sequence of events"
         },
         {
           "type": "meaning_check",
@@ -1938,7 +1938,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"sequence\" in a classroom sentence.",
-          "answer_example": "Use sequence to explain your answer."
+          "answer_example": "Put the events in the correct sequence."
         }
       ]
     },

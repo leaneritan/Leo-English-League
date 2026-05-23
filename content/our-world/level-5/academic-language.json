@@ -214,24 +214,24 @@
       "part_of_speech": "academic word",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "use cause",
-        "cause in your answer",
-        "explain cause",
-        "cause example",
-        "talk about cause"
+        "cause and effect",
+        "the cause of the problem",
+        "main cause",
+        "possible cause",
+        "explain the cause"
       ],
-      "sample_sentence": "Use cause to explain your answer.",
+      "sample_sentence": "Cause and effect.",
       "watch_out": "Use reasons or examples when you work with cause.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"cause\"?",
           "choices": [
-            "use cause",
+            "cause and effect",
             "sleep the cause",
             "cause banana"
           ],
-          "answer": "use cause"
+          "answer": "cause and effect"
         },
         {
           "type": "meaning_check",
@@ -246,7 +246,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"cause\" in a classroom sentence.",
-          "answer_example": "Use cause to explain your answer."
+          "answer_example": "Cause and effect."
         }
       ]
     },
@@ -543,24 +543,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "compare the ideas",
-        "compare the text",
-        "compare your answer",
-        "compare with evidence",
-        "compare carefully"
+        "compare two ideas",
+        "compare and contrast",
+        "compare the pictures",
+        "compare your answers",
+        "compare the results"
       ],
-      "sample_sentence": "Compare the ideas carefully.",
+      "sample_sentence": "Compare two ideas.",
       "watch_out": "Use reasons or examples when you work with compare.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"compare\"?",
           "choices": [
-            "compare the ideas",
+            "compare two ideas",
             "sleep the compare",
             "compare banana"
           ],
-          "answer": "compare the ideas"
+          "answer": "compare two ideas"
         },
         {
           "type": "meaning_check",
@@ -575,7 +575,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"compare\" in a classroom sentence.",
-          "answer_example": "Compare the ideas carefully."
+          "answer_example": "Compare two ideas."
         }
       ]
     },
@@ -778,24 +778,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a grammar word Leo uses to talk about contraction",
       "common_partners": [
-        "contraction form",
+        "make a contraction",
+        "use a contraction",
         "find the contraction",
-        "circle the contraction",
-        "use the contraction",
+        "contraction form",
         "contraction in a sentence"
       ],
-      "sample_sentence": "Find the contraction in the sentence.",
+      "sample_sentence": "Make a contraction.",
       "watch_out": "Use contraction when talking about sentence grammar, not just the topic.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"contraction\"?",
           "choices": [
-            "contraction form",
+            "make a contraction",
             "sleep the contraction",
             "contraction banana"
           ],
-          "answer": "contraction form"
+          "answer": "make a contraction"
         },
         {
           "type": "meaning_check",
@@ -810,7 +810,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"contraction\" in a classroom sentence.",
-          "answer_example": "Find the contraction in the sentence."
+          "answer_example": "Make a contraction."
         }
       ]
     },
@@ -825,24 +825,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "contrast the ideas",
-        "contrast the text",
-        "contrast your answer",
-        "contrast with evidence",
-        "contrast carefully"
+        "contrast two ideas",
+        "compare and contrast",
+        "show a contrast",
+        "contrast the pictures",
+        "contrast the answers"
       ],
-      "sample_sentence": "Contrast the ideas carefully.",
+      "sample_sentence": "Contrast two ideas.",
       "watch_out": "Use reasons or examples when you work with contrast.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"contrast\"?",
           "choices": [
-            "contrast the ideas",
+            "contrast two ideas",
             "sleep the contrast",
             "contrast banana"
           ],
-          "answer": "contrast the ideas"
+          "answer": "contrast two ideas"
         },
         {
           "type": "meaning_check",
@@ -857,7 +857,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"contrast\" in a classroom sentence.",
-          "answer_example": "Contrast the ideas carefully."
+          "answer_example": "Contrast two ideas."
         }
       ]
     },
@@ -1113,7 +1113,7 @@
         "possible effect",
         "explain the effect"
       ],
-      "sample_sentence": "Explain the effect of the change.",
+      "sample_sentence": "Cause and effect.",
       "watch_out": "Use reasons or examples when you work with effect.",
       "mini_test": [
         {
@@ -1139,7 +1139,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"effect\" in a classroom sentence.",
-          "answer_example": "Explain the effect of the change."
+          "answer_example": "Cause and effect."
         }
       ]
     },
@@ -2987,24 +2987,24 @@
       "part_of_speech": "academic word",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "use sequence",
-        "sequence in your answer",
-        "explain sequence",
-        "sequence example",
-        "talk about sequence"
+        "sequence of events",
+        "put in sequence",
+        "in the correct sequence",
+        "sequence words",
+        "sequence chart"
       ],
-      "sample_sentence": "Use sequence to explain your answer.",
+      "sample_sentence": "Put the events in the correct sequence.",
       "watch_out": "Use reasons or examples when you work with sequence.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"sequence\"?",
           "choices": [
-            "use sequence",
+            "sequence of events",
             "sleep the sequence",
             "sequence banana"
           ],
-          "answer": "use sequence"
+          "answer": "sequence of events"
         },
         {
           "type": "meaning_check",
@@ -3019,7 +3019,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"sequence\" in a classroom sentence.",
-          "answer_example": "Use sequence to explain your answer."
+          "answer_example": "Put the events in the correct sequence."
         }
       ]
     },

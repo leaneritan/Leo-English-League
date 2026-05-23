@@ -1,0 +1,4282 @@
+{
+  "level": 3,
+  "words": [
+    {
+      "id": "alike",
+      "word": "alike",
+      "emoji": "📘",
+      "pos": "adjective",
+      "sample": "Use <b>alike</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"alike\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use alike",
+        "patterns": [
+          "use alike",
+          "alike in your answer",
+          "explain alike",
+          "alike example",
+          "talk about alike"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use alike to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use alike"
+        },
+        {
+          "en": "alike in your answer"
+        },
+        {
+          "en": "explain alike"
+        },
+        {
+          "en": "alike example"
+        },
+        {
+          "en": "talk about alike"
+        }
+      ],
+      "common_partners": [
+        "use alike",
+        "alike in your answer",
+        "explain alike",
+        "alike example",
+        "talk about alike"
+      ],
+      "watch_out": "Use reasons or examples when you work with alike.",
+      "jp_note": "Use reasons or examples when you work with alike.",
+      "practice_prompt": "Use \"alike\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"alike\"?",
+          "choices": [
+            "use alike",
+            "sleep the alike",
+            "alike banana"
+          ],
+          "answer": "use alike"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"alike\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"alike\" in a classroom sentence.",
+          "answer_example": "Use alike to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "amount",
+      "word": "amount",
+      "emoji": "📘",
+      "pos": "academic word",
+      "sample": "Use <b>amount</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"amount\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use amount",
+        "patterns": [
+          "use amount",
+          "amount in your answer",
+          "explain amount",
+          "amount example",
+          "talk about amount"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use amount to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use amount"
+        },
+        {
+          "en": "amount in your answer"
+        },
+        {
+          "en": "explain amount"
+        },
+        {
+          "en": "amount example"
+        },
+        {
+          "en": "talk about amount"
+        }
+      ],
+      "common_partners": [
+        "use amount",
+        "amount in your answer",
+        "explain amount",
+        "amount example",
+        "talk about amount"
+      ],
+      "watch_out": "Use reasons or examples when you work with amount.",
+      "jp_note": "Use reasons or examples when you work with amount.",
+      "practice_prompt": "Use \"amount\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"amount\"?",
+          "choices": [
+            "use amount",
+            "sleep the amount",
+            "amount banana"
+          ],
+          "answer": "use amount"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"amount\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"amount\" in a classroom sentence.",
+          "answer_example": "Use amount to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "author",
+      "word": "author",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>author</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"author\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "author in the text",
+        "patterns": [
+          "author in the text",
+          "find the author",
+          "write the author",
+          "underline the author",
+          "author and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the author in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "author in the text"
+        },
+        {
+          "en": "find the author"
+        },
+        {
+          "en": "write the author"
+        },
+        {
+          "en": "underline the author"
+        },
+        {
+          "en": "author and details"
+        }
+      ],
+      "common_partners": [
+        "author in the text",
+        "find the author",
+        "write the author",
+        "underline the author",
+        "author and details"
+      ],
+      "watch_out": "Look back at the text before choosing the author.",
+      "jp_note": "Look back at the text before choosing the author.",
+      "practice_prompt": "Use \"author\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"author\"?",
+          "choices": [
+            "author in the text",
+            "sleep the author",
+            "author banana"
+          ],
+          "answer": "author in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"author\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"author\" in a classroom sentence.",
+          "answer_example": "Find the author in the text."
+        }
+      ]
+    },
+    {
+      "id": "bar-graph",
+      "word": "bar graph",
+      "emoji": "📘",
+      "pos": "noun phrase",
+      "sample": "Use the <b>bar graph</b> to show your ideas.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "chart / organizer word",
+      "academic_category": "organizer",
+      "meaning": "a graph that uses bars to show numbers or amounts",
+      "when_to_use": [
+        "When you see \"bar graph\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "bar graph organizer",
+        "patterns": [
+          "bar graph organizer",
+          "complete the bar graph",
+          "look at the bar graph",
+          "use the bar graph",
+          "make a bar graph"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use the bar graph to show your ideas.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "bar graph organizer"
+        },
+        {
+          "en": "complete the bar graph"
+        },
+        {
+          "en": "look at the bar graph"
+        },
+        {
+          "en": "use the bar graph"
+        },
+        {
+          "en": "make a bar graph"
+        }
+      ],
+      "common_partners": [
+        "bar graph organizer",
+        "complete the bar graph",
+        "look at the bar graph",
+        "use the bar graph",
+        "make a bar graph"
+      ],
+      "watch_out": "A bar graph helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "A bar graph helps organize ideas; it is not the final answer by itself.",
+      "practice_prompt": "Use \"bar graph\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"bar graph\"?",
+          "choices": [
+            "bar graph organizer",
+            "sleep the bar graph",
+            "bar graph banana"
+          ],
+          "answer": "bar graph organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"bar graph\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"bar graph\" in a classroom sentence.",
+          "answer_example": "Use the bar graph to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "body",
+      "word": "body",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use <b>body</b> in your classroom work.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom academic word",
+      "academic_category": "classroom",
+      "meaning": "a classroom academic word Leo uses in school tasks",
+      "when_to_use": [
+        "When you see \"body\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "the body",
+        "patterns": [
+          "the body",
+          "body in class",
+          "use body",
+          "talk about body",
+          "body activity"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use body in your classroom work.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "the body"
+        },
+        {
+          "en": "body in class"
+        },
+        {
+          "en": "use body"
+        },
+        {
+          "en": "talk about body"
+        },
+        {
+          "en": "body activity"
+        }
+      ],
+      "common_partners": [
+        "the body",
+        "body in class",
+        "use body",
+        "talk about body",
+        "body activity"
+      ],
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "practice_prompt": "Use \"body\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"body\"?",
+          "choices": [
+            "the body",
+            "sleep the body",
+            "body banana"
+          ],
+          "answer": "the body"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"body\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"body\" in a classroom sentence.",
+          "answer_example": "Use body in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "body-text",
+      "word": "body text",
+      "emoji": "📘",
+      "pos": "noun phrase",
+      "sample": "Find the <b>body text</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"body text\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "body text in the text",
+        "patterns": [
+          "body text in the text",
+          "find the body text",
+          "write the body text",
+          "underline the body text",
+          "body text and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the body text in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "body text in the text"
+        },
+        {
+          "en": "find the body text"
+        },
+        {
+          "en": "write the body text"
+        },
+        {
+          "en": "underline the body text"
+        },
+        {
+          "en": "body text and details"
+        }
+      ],
+      "common_partners": [
+        "body text in the text",
+        "find the body text",
+        "write the body text",
+        "underline the body text",
+        "body text and details"
+      ],
+      "watch_out": "Look back at the text before choosing the body text.",
+      "jp_note": "Look back at the text before choosing the body text.",
+      "practice_prompt": "Use \"body text\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"body text\"?",
+          "choices": [
+            "body text in the text",
+            "sleep the body text",
+            "body text banana"
+          ],
+          "answer": "body text in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"body text\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"body text\" in a classroom sentence.",
+          "answer_example": "Find the body text in the text."
+        }
+      ]
+    },
+    {
+      "id": "caption",
+      "word": "caption",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>caption</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"caption\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "caption in the text",
+        "patterns": [
+          "caption in the text",
+          "find the caption",
+          "write the caption",
+          "underline the caption",
+          "caption and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the caption in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "caption in the text"
+        },
+        {
+          "en": "find the caption"
+        },
+        {
+          "en": "write the caption"
+        },
+        {
+          "en": "underline the caption"
+        },
+        {
+          "en": "caption and details"
+        }
+      ],
+      "common_partners": [
+        "read the caption",
+        "write a caption",
+        "picture caption",
+        "caption under the photo",
+        "caption and photo"
+      ],
+      "watch_out": "Look back at the text before choosing the caption.",
+      "jp_note": "Look back at the text before choosing the caption.",
+      "practice_prompt": "Use \"caption\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"caption\"?",
+          "choices": [
+            "caption in the text",
+            "sleep the caption",
+            "caption banana"
+          ],
+          "answer": "caption in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"caption\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"caption\" in a classroom sentence.",
+          "answer_example": "Find the caption in the text."
+        }
+      ]
+    },
+    {
+      "id": "chart",
+      "word": "chart",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use the <b>chart</b> to show your ideas.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "chart / organizer word",
+      "academic_category": "organizer",
+      "meaning": "a chart or organizer word Leo uses when showing ideas clearly",
+      "when_to_use": [
+        "When you see \"chart\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "chart organizer",
+        "patterns": [
+          "chart organizer",
+          "complete the chart",
+          "look at the chart",
+          "use the chart",
+          "make a chart"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use the chart to show your ideas.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "chart organizer"
+        },
+        {
+          "en": "complete the chart"
+        },
+        {
+          "en": "look at the chart"
+        },
+        {
+          "en": "use the chart"
+        },
+        {
+          "en": "make a chart"
+        }
+      ],
+      "common_partners": [
+        "chart organizer",
+        "complete the chart",
+        "look at the chart",
+        "use the chart",
+        "make a chart"
+      ],
+      "watch_out": "A chart helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "A chart helps organize ideas; it is not the final answer by itself.",
+      "practice_prompt": "Use \"chart\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"chart\"?",
+          "choices": [
+            "chart organizer",
+            "sleep the chart",
+            "chart banana"
+          ],
+          "answer": "chart organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"chart\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"chart\" in a classroom sentence.",
+          "answer_example": "Use the chart to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "choose",
+      "word": "choose",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "Please <b>choose</b> the answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom action",
+      "academic_category": "action",
+      "meaning": "a classroom action word Leo hears in instructions",
+      "when_to_use": [
+        "When you see \"choose\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "choose the answer",
+        "patterns": [
+          "choose the answer",
+          "choose the words",
+          "choose with a partner",
+          "choose carefully",
+          "choose on the page"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Please choose the answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "choose the answer"
+        },
+        {
+          "en": "choose the words"
+        },
+        {
+          "en": "choose with a partner"
+        },
+        {
+          "en": "choose carefully"
+        },
+        {
+          "en": "choose on the page"
+        }
+      ],
+      "common_partners": [
+        "choose the answer",
+        "choose the words",
+        "choose with a partner",
+        "choose carefully",
+        "choose on the page"
+      ],
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "jp_note": "Listen for this action word in classroom instructions.",
+      "practice_prompt": "Use \"choose\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"choose\"?",
+          "choices": [
+            "choose the answer",
+            "sleep the choose",
+            "choose banana"
+          ],
+          "answer": "choose the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"choose\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"choose\" in a classroom sentence.",
+          "answer_example": "Please choose the answer."
+        }
+      ]
+    },
+    {
+      "id": "collect",
+      "word": "collect",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "Please <b>collect</b> the answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom action",
+      "academic_category": "action",
+      "meaning": "a classroom action word Leo hears in instructions",
+      "when_to_use": [
+        "When you see \"collect\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "collect the answer",
+        "patterns": [
+          "collect the answer",
+          "collect the words",
+          "collect with a partner",
+          "collect carefully",
+          "collect on the page"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Please collect the answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "collect the answer"
+        },
+        {
+          "en": "collect the words"
+        },
+        {
+          "en": "collect with a partner"
+        },
+        {
+          "en": "collect carefully"
+        },
+        {
+          "en": "collect on the page"
+        }
+      ],
+      "common_partners": [
+        "collect the answer",
+        "collect the words",
+        "collect with a partner",
+        "collect carefully",
+        "collect on the page"
+      ],
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "jp_note": "Listen for this action word in classroom instructions.",
+      "practice_prompt": "Use \"collect\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"collect\"?",
+          "choices": [
+            "collect the answer",
+            "sleep the collect",
+            "collect banana"
+          ],
+          "answer": "collect the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"collect\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"collect\" in a classroom sentence.",
+          "answer_example": "Please collect the answer."
+        }
+      ]
+    },
+    {
+      "id": "column",
+      "word": "column",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use the <b>column</b> to show your ideas.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "chart / organizer word",
+      "academic_category": "organizer",
+      "meaning": "a chart or organizer word Leo uses when showing ideas clearly",
+      "when_to_use": [
+        "When you see \"column\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "column organizer",
+        "patterns": [
+          "column organizer",
+          "complete the column",
+          "look at the column",
+          "use the column",
+          "make a column"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use the column to show your ideas.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "column organizer"
+        },
+        {
+          "en": "complete the column"
+        },
+        {
+          "en": "look at the column"
+        },
+        {
+          "en": "use the column"
+        },
+        {
+          "en": "make a column"
+        }
+      ],
+      "common_partners": [
+        "column organizer",
+        "complete the column",
+        "look at the column",
+        "use the column",
+        "make a column"
+      ],
+      "watch_out": "A column helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "A column helps organize ideas; it is not the final answer by itself.",
+      "practice_prompt": "Use \"column\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"column\"?",
+          "choices": [
+            "column organizer",
+            "sleep the column",
+            "column banana"
+          ],
+          "answer": "column organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"column\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"column\" in a classroom sentence.",
+          "answer_example": "Use the column to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "connect",
+      "word": "connect",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "Please <b>connect</b> the answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom action",
+      "academic_category": "action",
+      "meaning": "a classroom action word Leo hears in instructions",
+      "when_to_use": [
+        "When you see \"connect\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "connect the answer",
+        "patterns": [
+          "connect the answer",
+          "connect the words",
+          "connect with a partner",
+          "connect carefully",
+          "connect on the page"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Please connect the answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "connect the answer"
+        },
+        {
+          "en": "connect the words"
+        },
+        {
+          "en": "connect with a partner"
+        },
+        {
+          "en": "connect carefully"
+        },
+        {
+          "en": "connect on the page"
+        }
+      ],
+      "common_partners": [
+        "connect the answer",
+        "connect the words",
+        "connect with a partner",
+        "connect carefully",
+        "connect on the page"
+      ],
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "jp_note": "Listen for this action word in classroom instructions.",
+      "practice_prompt": "Use \"connect\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"connect\"?",
+          "choices": [
+            "connect the answer",
+            "sleep the connect",
+            "connect banana"
+          ],
+          "answer": "connect the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"connect\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"connect\" in a classroom sentence.",
+          "answer_example": "Please connect the answer."
+        }
+      ]
+    },
+    {
+      "id": "context",
+      "word": "context",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>context</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"context\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "context in the text",
+        "patterns": [
+          "context in the text",
+          "find the context",
+          "write the context",
+          "underline the context",
+          "context and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the context in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "context in the text"
+        },
+        {
+          "en": "find the context"
+        },
+        {
+          "en": "write the context"
+        },
+        {
+          "en": "underline the context"
+        },
+        {
+          "en": "context and details"
+        }
+      ],
+      "common_partners": [
+        "context in the text",
+        "find the context",
+        "write the context",
+        "underline the context",
+        "context and details"
+      ],
+      "watch_out": "Look back at the text before choosing the context.",
+      "jp_note": "Look back at the text before choosing the context.",
+      "practice_prompt": "Use \"context\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"context\"?",
+          "choices": [
+            "context in the text",
+            "sleep the context",
+            "context banana"
+          ],
+          "answer": "context in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"context\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"context\" in a classroom sentence.",
+          "answer_example": "Find the context in the text."
+        }
+      ]
+    },
+    {
+      "id": "contraction",
+      "word": "contraction",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>contraction</b> in the sentence.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "grammar term",
+      "academic_category": "grammar",
+      "meaning": "a grammar word Leo uses to talk about contraction",
+      "when_to_use": [
+        "When you see \"contraction\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "contraction form",
+        "patterns": [
+          "contraction form",
+          "find the contraction",
+          "circle the contraction",
+          "use the contraction",
+          "contraction in a sentence"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the contraction in the sentence.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "contraction form"
+        },
+        {
+          "en": "find the contraction"
+        },
+        {
+          "en": "circle the contraction"
+        },
+        {
+          "en": "use the contraction"
+        },
+        {
+          "en": "contraction in a sentence"
+        }
+      ],
+      "common_partners": [
+        "make a contraction",
+        "use a contraction",
+        "find the contraction",
+        "contraction form",
+        "contraction in a sentence"
+      ],
+      "watch_out": "Use contraction when talking about sentence grammar, not just the topic.",
+      "jp_note": "Use contraction when talking about sentence grammar, not just the topic.",
+      "practice_prompt": "Use \"contraction\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"contraction\"?",
+          "choices": [
+            "contraction form",
+            "sleep the contraction",
+            "contraction banana"
+          ],
+          "answer": "contraction form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"contraction\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"contraction\" in a classroom sentence.",
+          "answer_example": "Find the contraction in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "count",
+      "word": "count",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "Please <b>count</b> the answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom action",
+      "academic_category": "action",
+      "meaning": "a classroom action word Leo hears in instructions",
+      "when_to_use": [
+        "When you see \"count\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "count the answer",
+        "patterns": [
+          "count the answer",
+          "count the words",
+          "count with a partner",
+          "count carefully",
+          "count on the page"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Please count the answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "count the answer"
+        },
+        {
+          "en": "count the words"
+        },
+        {
+          "en": "count with a partner"
+        },
+        {
+          "en": "count carefully"
+        },
+        {
+          "en": "count on the page"
+        }
+      ],
+      "common_partners": [
+        "count the answer",
+        "count the words",
+        "count with a partner",
+        "count carefully",
+        "count on the page"
+      ],
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "jp_note": "Listen for this action word in classroom instructions.",
+      "practice_prompt": "Use \"count\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"count\"?",
+          "choices": [
+            "count the answer",
+            "sleep the count",
+            "count banana"
+          ],
+          "answer": "count the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"count\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"count\" in a classroom sentence.",
+          "answer_example": "Please count the answer."
+        }
+      ]
+    },
+    {
+      "id": "definition",
+      "word": "definition",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>definition</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"definition\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "definition in the text",
+        "patterns": [
+          "definition in the text",
+          "find the definition",
+          "write the definition",
+          "underline the definition",
+          "definition and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the definition in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "definition in the text"
+        },
+        {
+          "en": "find the definition"
+        },
+        {
+          "en": "write the definition"
+        },
+        {
+          "en": "underline the definition"
+        },
+        {
+          "en": "definition and details"
+        }
+      ],
+      "common_partners": [
+        "read the definition",
+        "write a definition",
+        "dictionary definition",
+        "definition of the word",
+        "match the definition"
+      ],
+      "watch_out": "Look back at the text before choosing the definition.",
+      "jp_note": "Look back at the text before choosing the definition.",
+      "practice_prompt": "Use \"definition\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"definition\"?",
+          "choices": [
+            "definition in the text",
+            "sleep the definition",
+            "definition banana"
+          ],
+          "answer": "definition in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"definition\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"definition\" in a classroom sentence.",
+          "answer_example": "Find the definition in the text."
+        }
+      ]
+    },
+    {
+      "id": "describe",
+      "word": "describe",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "<b>describe</b> the ideas carefully.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"describe\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "describe the ideas",
+        "patterns": [
+          "describe the ideas",
+          "describe the text",
+          "describe your answer",
+          "describe with evidence",
+          "describe carefully"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Describe the ideas carefully.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "describe the ideas"
+        },
+        {
+          "en": "describe the text"
+        },
+        {
+          "en": "describe your answer"
+        },
+        {
+          "en": "describe with evidence"
+        },
+        {
+          "en": "describe carefully"
+        }
+      ],
+      "common_partners": [
+        "describe the picture",
+        "describe a person",
+        "describe your idea",
+        "describe in detail",
+        "describe what happened"
+      ],
+      "watch_out": "Use reasons or examples when you work with describe.",
+      "jp_note": "Use reasons or examples when you work with describe.",
+      "practice_prompt": "Use \"describe\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"describe\"?",
+          "choices": [
+            "describe the ideas",
+            "sleep the describe",
+            "describe banana"
+          ],
+          "answer": "describe the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"describe\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"describe\" in a classroom sentence.",
+          "answer_example": "Describe the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "detail",
+      "word": "detail",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>detail</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"detail\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "detail in the text",
+        "patterns": [
+          "detail in the text",
+          "find the detail",
+          "write the detail",
+          "underline the detail",
+          "detail and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the detail in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "detail in the text"
+        },
+        {
+          "en": "find the detail"
+        },
+        {
+          "en": "write the detail"
+        },
+        {
+          "en": "underline the detail"
+        },
+        {
+          "en": "detail and details"
+        }
+      ],
+      "common_partners": [
+        "detail in the text",
+        "find the detail",
+        "write the detail",
+        "underline the detail",
+        "detail and details"
+      ],
+      "watch_out": "Look back at the text before choosing the detail.",
+      "jp_note": "Look back at the text before choosing the detail.",
+      "practice_prompt": "Use \"detail\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"detail\"?",
+          "choices": [
+            "detail in the text",
+            "sleep the detail",
+            "detail banana"
+          ],
+          "answer": "detail in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"detail\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"detail\" in a classroom sentence.",
+          "answer_example": "Find the detail in the text."
+        }
+      ]
+    },
+    {
+      "id": "diagram",
+      "word": "diagram",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use the <b>diagram</b> to show your ideas.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "chart / organizer word",
+      "academic_category": "organizer",
+      "meaning": "a chart or organizer word Leo uses when showing ideas clearly",
+      "when_to_use": [
+        "When you see \"diagram\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "diagram organizer",
+        "patterns": [
+          "diagram organizer",
+          "complete the diagram",
+          "look at the diagram",
+          "use the diagram",
+          "make a diagram"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use the diagram to show your ideas.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "diagram organizer"
+        },
+        {
+          "en": "complete the diagram"
+        },
+        {
+          "en": "look at the diagram"
+        },
+        {
+          "en": "use the diagram"
+        },
+        {
+          "en": "make a diagram"
+        }
+      ],
+      "common_partners": [
+        "diagram organizer",
+        "complete the diagram",
+        "look at the diagram",
+        "use the diagram",
+        "make a diagram"
+      ],
+      "watch_out": "A diagram helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "A diagram helps organize ideas; it is not the final answer by itself.",
+      "practice_prompt": "Use \"diagram\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"diagram\"?",
+          "choices": [
+            "diagram organizer",
+            "sleep the diagram",
+            "diagram banana"
+          ],
+          "answer": "diagram organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"diagram\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"diagram\" in a classroom sentence.",
+          "answer_example": "Use the diagram to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "dictionary",
+      "word": "dictionary",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>dictionary</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"dictionary\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "dictionary in the text",
+        "patterns": [
+          "dictionary in the text",
+          "find the dictionary",
+          "write the dictionary",
+          "underline the dictionary",
+          "dictionary and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the dictionary in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "dictionary in the text"
+        },
+        {
+          "en": "find the dictionary"
+        },
+        {
+          "en": "write the dictionary"
+        },
+        {
+          "en": "underline the dictionary"
+        },
+        {
+          "en": "dictionary and details"
+        }
+      ],
+      "common_partners": [
+        "dictionary in the text",
+        "find the dictionary",
+        "write the dictionary",
+        "underline the dictionary",
+        "dictionary and details"
+      ],
+      "watch_out": "Look back at the text before choosing the dictionary.",
+      "jp_note": "Look back at the text before choosing the dictionary.",
+      "practice_prompt": "Use \"dictionary\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"dictionary\"?",
+          "choices": [
+            "dictionary in the text",
+            "sleep the dictionary",
+            "dictionary banana"
+          ],
+          "answer": "dictionary in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"dictionary\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"dictionary\" in a classroom sentence.",
+          "answer_example": "Find the dictionary in the text."
+        }
+      ]
+    },
+    {
+      "id": "different",
+      "word": "different",
+      "emoji": "📘",
+      "pos": "adjective",
+      "sample": "Use <b>different</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"different\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use different",
+        "patterns": [
+          "use different",
+          "different in your answer",
+          "explain different",
+          "different example",
+          "talk about different"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use different to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use different"
+        },
+        {
+          "en": "different in your answer"
+        },
+        {
+          "en": "explain different"
+        },
+        {
+          "en": "different example"
+        },
+        {
+          "en": "talk about different"
+        }
+      ],
+      "common_partners": [
+        "use different",
+        "different in your answer",
+        "explain different",
+        "different example",
+        "talk about different"
+      ],
+      "watch_out": "Use reasons or examples when you work with different.",
+      "jp_note": "Use reasons or examples when you work with different.",
+      "practice_prompt": "Use \"different\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"different\"?",
+          "choices": [
+            "use different",
+            "sleep the different",
+            "different banana"
+          ],
+          "answer": "use different"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"different\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"different\" in a classroom sentence.",
+          "answer_example": "Use different to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "guess",
+      "word": "guess",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "Please <b>guess</b> the answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom action",
+      "academic_category": "action",
+      "meaning": "a classroom action word Leo hears in instructions",
+      "when_to_use": [
+        "When you see \"guess\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "guess the answer",
+        "patterns": [
+          "guess the answer",
+          "guess the words",
+          "guess with a partner",
+          "guess carefully",
+          "guess on the page"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Please guess the answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "guess the answer"
+        },
+        {
+          "en": "guess the words"
+        },
+        {
+          "en": "guess with a partner"
+        },
+        {
+          "en": "guess carefully"
+        },
+        {
+          "en": "guess on the page"
+        }
+      ],
+      "common_partners": [
+        "guess the answer",
+        "guess the words",
+        "guess with a partner",
+        "guess carefully",
+        "guess on the page"
+      ],
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "jp_note": "Listen for this action word in classroom instructions.",
+      "practice_prompt": "Use \"guess\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"guess\"?",
+          "choices": [
+            "guess the answer",
+            "sleep the guess",
+            "guess banana"
+          ],
+          "answer": "guess the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"guess\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"guess\" in a classroom sentence.",
+          "answer_example": "Please guess the answer."
+        }
+      ]
+    },
+    {
+      "id": "how-often",
+      "word": "how often",
+      "emoji": "📘",
+      "pos": "noun phrase",
+      "sample": "Use <b>how often</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"how often\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use how often",
+        "patterns": [
+          "use how often",
+          "how often in your answer",
+          "explain how often",
+          "how often example",
+          "talk about how often"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use how often to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use how often"
+        },
+        {
+          "en": "how often in your answer"
+        },
+        {
+          "en": "explain how often"
+        },
+        {
+          "en": "how often example"
+        },
+        {
+          "en": "talk about how often"
+        }
+      ],
+      "common_partners": [
+        "use how often",
+        "how often in your answer",
+        "explain how often",
+        "how often example",
+        "talk about how often"
+      ],
+      "watch_out": "Use reasons or examples when you work with how often.",
+      "jp_note": "Use reasons or examples when you work with how often.",
+      "practice_prompt": "Use \"how often\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"how often\"?",
+          "choices": [
+            "use how often",
+            "sleep the how often",
+            "how often banana"
+          ],
+          "answer": "use how often"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"how often\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"how often\" in a classroom sentence.",
+          "answer_example": "Use how often to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "idea",
+      "word": "idea",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use <b>idea</b> in your classroom work.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom academic word",
+      "academic_category": "classroom",
+      "meaning": "a classroom academic word Leo uses in school tasks",
+      "when_to_use": [
+        "When you see \"idea\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "the idea",
+        "patterns": [
+          "the idea",
+          "idea in class",
+          "use idea",
+          "talk about idea",
+          "idea activity"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use idea in your classroom work.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "the idea"
+        },
+        {
+          "en": "idea in class"
+        },
+        {
+          "en": "use idea"
+        },
+        {
+          "en": "talk about idea"
+        },
+        {
+          "en": "idea activity"
+        }
+      ],
+      "common_partners": [
+        "the idea",
+        "idea in class",
+        "use idea",
+        "talk about idea",
+        "idea activity"
+      ],
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "practice_prompt": "Use \"idea\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"idea\"?",
+          "choices": [
+            "the idea",
+            "sleep the idea",
+            "idea banana"
+          ],
+          "answer": "the idea"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"idea\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"idea\" in a classroom sentence.",
+          "answer_example": "Use idea in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "information",
+      "word": "information",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>information</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"information\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "information in the text",
+        "patterns": [
+          "information in the text",
+          "find the information",
+          "write the information",
+          "underline the information",
+          "information and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the information in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "information in the text"
+        },
+        {
+          "en": "find the information"
+        },
+        {
+          "en": "write the information"
+        },
+        {
+          "en": "underline the information"
+        },
+        {
+          "en": "information and details"
+        }
+      ],
+      "common_partners": [
+        "information in the text",
+        "find the information",
+        "write the information",
+        "underline the information",
+        "information and details"
+      ],
+      "watch_out": "Look back at the text before choosing the information.",
+      "jp_note": "Look back at the text before choosing the information.",
+      "practice_prompt": "Use \"information\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"information\"?",
+          "choices": [
+            "information in the text",
+            "sleep the information",
+            "information banana"
+          ],
+          "answer": "information in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"information\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"information\" in a classroom sentence.",
+          "answer_example": "Find the information in the text."
+        }
+      ]
+    },
+    {
+      "id": "key-words",
+      "word": "key words",
+      "emoji": "📘",
+      "pos": "noun phrase",
+      "sample": "Find the <b>key words</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "important words that help you understand the text",
+      "when_to_use": [
+        "When you see \"key words\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "key words in the text",
+        "patterns": [
+          "key words in the text",
+          "find the key words",
+          "write the key words",
+          "underline the key words",
+          "key words and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the key words in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "key words in the text"
+        },
+        {
+          "en": "find the key words"
+        },
+        {
+          "en": "write the key words"
+        },
+        {
+          "en": "underline the key words"
+        },
+        {
+          "en": "key words and details"
+        }
+      ],
+      "common_partners": [
+        "key words in the text",
+        "find the key words",
+        "write the key words",
+        "underline the key words",
+        "key words and details"
+      ],
+      "watch_out": "Look back at the text before choosing the key words.",
+      "jp_note": "Look back at the text before choosing the key words.",
+      "practice_prompt": "Use \"key words\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"key words\"?",
+          "choices": [
+            "key words in the text",
+            "sleep the key words",
+            "key words banana"
+          ],
+          "answer": "key words in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"key words\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"key words\" in a classroom sentence.",
+          "answer_example": "Find the key words in the text."
+        }
+      ]
+    },
+    {
+      "id": "label",
+      "word": "label",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use <b>label</b> in your classroom work.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom academic word",
+      "academic_category": "classroom",
+      "meaning": "a classroom academic word Leo uses in school tasks",
+      "when_to_use": [
+        "When you see \"label\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "the label",
+        "patterns": [
+          "the label",
+          "label in class",
+          "use label",
+          "talk about label",
+          "label activity"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use label in your classroom work.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "the label"
+        },
+        {
+          "en": "label in class"
+        },
+        {
+          "en": "use label"
+        },
+        {
+          "en": "talk about label"
+        },
+        {
+          "en": "label activity"
+        }
+      ],
+      "common_partners": [
+        "the label",
+        "label in class",
+        "use label",
+        "talk about label",
+        "label activity"
+      ],
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "practice_prompt": "Use \"label\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"label\"?",
+          "choices": [
+            "the label",
+            "sleep the label",
+            "label banana"
+          ],
+          "answer": "the label"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"label\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"label\" in a classroom sentence.",
+          "answer_example": "Use label in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "main-idea",
+      "word": "main idea",
+      "emoji": "📘",
+      "pos": "noun phrase",
+      "sample": "Find the <b>main idea</b>.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "the most important idea in a text or paragraph",
+      "when_to_use": [
+        "When you see \"main idea\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "find the main idea",
+        "patterns": [
+          "find the main idea",
+          "main idea of the text",
+          "write the main idea",
+          "circle the main idea",
+          "main idea and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the main idea.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "find the main idea"
+        },
+        {
+          "en": "main idea of the text"
+        },
+        {
+          "en": "write the main idea"
+        },
+        {
+          "en": "circle the main idea"
+        },
+        {
+          "en": "main idea and details"
+        }
+      ],
+      "common_partners": [
+        "find the main idea",
+        "main idea of the text",
+        "write the main idea",
+        "circle the main idea",
+        "main idea and details"
+      ],
+      "watch_out": "Look back at the text before choosing the main idea.",
+      "jp_note": "Look back at the text before choosing the main idea.",
+      "practice_prompt": "Use \"main idea\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"main idea\"?",
+          "choices": [
+            "find the main idea",
+            "sleep the main idea",
+            "main idea banana"
+          ],
+          "answer": "find the main idea"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"main idea\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"main idea\" in a classroom sentence.",
+          "answer_example": "Find the main idea."
+        }
+      ]
+    },
+    {
+      "id": "opinion",
+      "word": "opinion",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Give an <b>opinion</b>.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"opinion\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "give an opinion",
+        "patterns": [
+          "give an opinion",
+          "state your opinion",
+          "fact or opinion",
+          "support your opinion",
+          "opinion sentence"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Give an opinion.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "give an opinion"
+        },
+        {
+          "en": "state your opinion"
+        },
+        {
+          "en": "fact or opinion"
+        },
+        {
+          "en": "support your opinion"
+        },
+        {
+          "en": "opinion sentence"
+        }
+      ],
+      "common_partners": [
+        "give an opinion",
+        "state your opinion",
+        "fact or opinion",
+        "support your opinion",
+        "opinion sentence"
+      ],
+      "watch_out": "Look back at the text before choosing the opinion.",
+      "jp_note": "Look back at the text before choosing the opinion.",
+      "practice_prompt": "Use \"opinion\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"opinion\"?",
+          "choices": [
+            "give an opinion",
+            "sleep the opinion",
+            "opinion banana"
+          ],
+          "answer": "give an opinion"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"opinion\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"opinion\" in a classroom sentence.",
+          "answer_example": "Give an opinion."
+        }
+      ]
+    },
+    {
+      "id": "order",
+      "word": "order",
+      "emoji": "📘",
+      "pos": "academic word",
+      "sample": "Use <b>order</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"order\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use order",
+        "patterns": [
+          "use order",
+          "order in your answer",
+          "explain order",
+          "order example",
+          "talk about order"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use order to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use order"
+        },
+        {
+          "en": "order in your answer"
+        },
+        {
+          "en": "explain order"
+        },
+        {
+          "en": "order example"
+        },
+        {
+          "en": "talk about order"
+        }
+      ],
+      "common_partners": [
+        "use order",
+        "order in your answer",
+        "explain order",
+        "order example",
+        "talk about order"
+      ],
+      "watch_out": "Use reasons or examples when you work with order.",
+      "jp_note": "Use reasons or examples when you work with order.",
+      "practice_prompt": "Use \"order\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"order\"?",
+          "choices": [
+            "use order",
+            "sleep the order",
+            "order banana"
+          ],
+          "answer": "use order"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"order\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"order\" in a classroom sentence.",
+          "answer_example": "Use order to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "part",
+      "word": "part",
+      "emoji": "📘",
+      "pos": "academic word",
+      "sample": "Use <b>part</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"part\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use part",
+        "patterns": [
+          "use part",
+          "part in your answer",
+          "explain part",
+          "part example",
+          "talk about part"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use part to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use part"
+        },
+        {
+          "en": "part in your answer"
+        },
+        {
+          "en": "explain part"
+        },
+        {
+          "en": "part example"
+        },
+        {
+          "en": "talk about part"
+        }
+      ],
+      "common_partners": [
+        "use part",
+        "part in your answer",
+        "explain part",
+        "part example",
+        "talk about part"
+      ],
+      "watch_out": "Use reasons or examples when you work with part.",
+      "jp_note": "Use reasons or examples when you work with part.",
+      "practice_prompt": "Use \"part\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"part\"?",
+          "choices": [
+            "use part",
+            "sleep the part",
+            "part banana"
+          ],
+          "answer": "use part"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"part\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"part\" in a classroom sentence.",
+          "answer_example": "Use part to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "phrase",
+      "word": "phrase",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>phrase</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"phrase\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "phrase in the text",
+        "patterns": [
+          "phrase in the text",
+          "find the phrase",
+          "write the phrase",
+          "underline the phrase",
+          "phrase and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the phrase in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "phrase in the text"
+        },
+        {
+          "en": "find the phrase"
+        },
+        {
+          "en": "write the phrase"
+        },
+        {
+          "en": "underline the phrase"
+        },
+        {
+          "en": "phrase and details"
+        }
+      ],
+      "common_partners": [
+        "phrase in the text",
+        "find the phrase",
+        "write the phrase",
+        "underline the phrase",
+        "phrase and details"
+      ],
+      "watch_out": "Look back at the text before choosing the phrase.",
+      "jp_note": "Look back at the text before choosing the phrase.",
+      "practice_prompt": "Use \"phrase\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"phrase\"?",
+          "choices": [
+            "phrase in the text",
+            "sleep the phrase",
+            "phrase banana"
+          ],
+          "answer": "phrase in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"phrase\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"phrase\" in a classroom sentence.",
+          "answer_example": "Find the phrase in the text."
+        }
+      ]
+    },
+    {
+      "id": "pick",
+      "word": "pick",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "Please <b>pick</b> the answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom action",
+      "academic_category": "action",
+      "meaning": "a classroom action word Leo hears in instructions",
+      "when_to_use": [
+        "When you see \"pick\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "pick the answer",
+        "patterns": [
+          "pick the answer",
+          "pick the words",
+          "pick with a partner",
+          "pick carefully",
+          "pick on the page"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Please pick the answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "pick the answer"
+        },
+        {
+          "en": "pick the words"
+        },
+        {
+          "en": "pick with a partner"
+        },
+        {
+          "en": "pick carefully"
+        },
+        {
+          "en": "pick on the page"
+        }
+      ],
+      "common_partners": [
+        "pick the answer",
+        "pick the words",
+        "pick with a partner",
+        "pick carefully",
+        "pick on the page"
+      ],
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "jp_note": "Listen for this action word in classroom instructions.",
+      "practice_prompt": "Use \"pick\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"pick\"?",
+          "choices": [
+            "pick the answer",
+            "sleep the pick",
+            "pick banana"
+          ],
+          "answer": "pick the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"pick\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"pick\" in a classroom sentence.",
+          "answer_example": "Please pick the answer."
+        }
+      ]
+    },
+    {
+      "id": "piece",
+      "word": "piece",
+      "emoji": "📘",
+      "pos": "academic word",
+      "sample": "Use <b>piece</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"piece\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use piece",
+        "patterns": [
+          "use piece",
+          "piece in your answer",
+          "explain piece",
+          "piece example",
+          "talk about piece"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use piece to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use piece"
+        },
+        {
+          "en": "piece in your answer"
+        },
+        {
+          "en": "explain piece"
+        },
+        {
+          "en": "piece example"
+        },
+        {
+          "en": "talk about piece"
+        }
+      ],
+      "common_partners": [
+        "use piece",
+        "piece in your answer",
+        "explain piece",
+        "piece example",
+        "talk about piece"
+      ],
+      "watch_out": "Use reasons or examples when you work with piece.",
+      "jp_note": "Use reasons or examples when you work with piece.",
+      "practice_prompt": "Use \"piece\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"piece\"?",
+          "choices": [
+            "use piece",
+            "sleep the piece",
+            "piece banana"
+          ],
+          "answer": "use piece"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"piece\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"piece\" in a classroom sentence.",
+          "answer_example": "Use piece to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "word": "plan",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use <b>plan</b> in your classroom work.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom academic word",
+      "academic_category": "classroom",
+      "meaning": "a classroom academic word Leo uses in school tasks",
+      "when_to_use": [
+        "When you see \"plan\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "the plan",
+        "patterns": [
+          "the plan",
+          "plan in class",
+          "use plan",
+          "talk about plan",
+          "plan activity"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use plan in your classroom work.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "the plan"
+        },
+        {
+          "en": "plan in class"
+        },
+        {
+          "en": "use plan"
+        },
+        {
+          "en": "talk about plan"
+        },
+        {
+          "en": "plan activity"
+        }
+      ],
+      "common_partners": [
+        "the plan",
+        "plan in class",
+        "use plan",
+        "talk about plan",
+        "plan activity"
+      ],
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "practice_prompt": "Use \"plan\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"plan\"?",
+          "choices": [
+            "the plan",
+            "sleep the plan",
+            "plan banana"
+          ],
+          "answer": "the plan"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"plan\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"plan\" in a classroom sentence.",
+          "answer_example": "Use plan in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "reason",
+      "word": "reason",
+      "emoji": "📘",
+      "pos": "academic word",
+      "sample": "Use <b>reason</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"reason\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use reason",
+        "patterns": [
+          "use reason",
+          "reason in your answer",
+          "explain reason",
+          "reason example",
+          "talk about reason"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use reason to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use reason"
+        },
+        {
+          "en": "reason in your answer"
+        },
+        {
+          "en": "explain reason"
+        },
+        {
+          "en": "reason example"
+        },
+        {
+          "en": "talk about reason"
+        }
+      ],
+      "common_partners": [
+        "use reason",
+        "reason in your answer",
+        "explain reason",
+        "reason example",
+        "talk about reason"
+      ],
+      "watch_out": "Use reasons or examples when you work with reason.",
+      "jp_note": "Use reasons or examples when you work with reason.",
+      "practice_prompt": "Use \"reason\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"reason\"?",
+          "choices": [
+            "use reason",
+            "sleep the reason",
+            "reason banana"
+          ],
+          "answer": "use reason"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"reason\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"reason\" in a classroom sentence.",
+          "answer_example": "Use reason to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "request",
+      "word": "request",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "Please <b>request</b> the answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom action",
+      "academic_category": "action",
+      "meaning": "a classroom action word Leo hears in instructions",
+      "when_to_use": [
+        "When you see \"request\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "request the answer",
+        "patterns": [
+          "request the answer",
+          "request the words",
+          "request with a partner",
+          "request carefully",
+          "request on the page"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Please request the answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "request the answer"
+        },
+        {
+          "en": "request the words"
+        },
+        {
+          "en": "request with a partner"
+        },
+        {
+          "en": "request carefully"
+        },
+        {
+          "en": "request on the page"
+        }
+      ],
+      "common_partners": [
+        "request the answer",
+        "request the words",
+        "request with a partner",
+        "request carefully",
+        "request on the page"
+      ],
+      "watch_out": "Listen for this action word in classroom instructions.",
+      "jp_note": "Listen for this action word in classroom instructions.",
+      "practice_prompt": "Use \"request\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"request\"?",
+          "choices": [
+            "request the answer",
+            "sleep the request",
+            "request banana"
+          ],
+          "answer": "request the answer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"request\"?",
+          "choices": [
+            "classroom action",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom action"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"request\" in a classroom sentence.",
+          "answer_example": "Please request the answer."
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "word": "research",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "<b>research</b> the ideas carefully.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"research\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "research the ideas",
+        "patterns": [
+          "research the ideas",
+          "research the text",
+          "research your answer",
+          "research with evidence",
+          "research carefully"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Research the ideas carefully.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "research the ideas"
+        },
+        {
+          "en": "research the text"
+        },
+        {
+          "en": "research your answer"
+        },
+        {
+          "en": "research with evidence"
+        },
+        {
+          "en": "research carefully"
+        }
+      ],
+      "common_partners": [
+        "research the ideas",
+        "research the text",
+        "research your answer",
+        "research with evidence",
+        "research carefully"
+      ],
+      "watch_out": "Use reasons or examples when you work with research.",
+      "jp_note": "Use reasons or examples when you work with research.",
+      "practice_prompt": "Use \"research\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"research\"?",
+          "choices": [
+            "research the ideas",
+            "sleep the research",
+            "research banana"
+          ],
+          "answer": "research the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"research\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"research\" in a classroom sentence.",
+          "answer_example": "Research the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "row",
+      "word": "row",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use the <b>row</b> to show your ideas.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "chart / organizer word",
+      "academic_category": "organizer",
+      "meaning": "a chart or organizer word Leo uses when showing ideas clearly",
+      "when_to_use": [
+        "When you see \"row\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "row organizer",
+        "patterns": [
+          "row organizer",
+          "complete the row",
+          "look at the row",
+          "use the row",
+          "make a row"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use the row to show your ideas.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "row organizer"
+        },
+        {
+          "en": "complete the row"
+        },
+        {
+          "en": "look at the row"
+        },
+        {
+          "en": "use the row"
+        },
+        {
+          "en": "make a row"
+        }
+      ],
+      "common_partners": [
+        "row organizer",
+        "complete the row",
+        "look at the row",
+        "use the row",
+        "make a row"
+      ],
+      "watch_out": "A row helps organize ideas; it is not the final answer by itself.",
+      "jp_note": "A row helps organize ideas; it is not the final answer by itself.",
+      "practice_prompt": "Use \"row\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"row\"?",
+          "choices": [
+            "row organizer",
+            "sleep the row",
+            "row banana"
+          ],
+          "answer": "row organizer"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"row\"?",
+          "choices": [
+            "chart / organizer word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "chart / organizer word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"row\" in a classroom sentence.",
+          "answer_example": "Use the row to show your ideas."
+        }
+      ]
+    },
+    {
+      "id": "scan",
+      "word": "scan",
+      "emoji": "📘",
+      "pos": "verb",
+      "sample": "<b>scan</b> the ideas carefully.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"scan\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "scan the ideas",
+        "patterns": [
+          "scan the ideas",
+          "scan the text",
+          "scan your answer",
+          "scan with evidence",
+          "scan carefully"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Scan the ideas carefully.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "scan the ideas"
+        },
+        {
+          "en": "scan the text"
+        },
+        {
+          "en": "scan your answer"
+        },
+        {
+          "en": "scan with evidence"
+        },
+        {
+          "en": "scan carefully"
+        }
+      ],
+      "common_partners": [
+        "scan the ideas",
+        "scan the text",
+        "scan your answer",
+        "scan with evidence",
+        "scan carefully"
+      ],
+      "watch_out": "Use reasons or examples when you work with scan.",
+      "jp_note": "Use reasons or examples when you work with scan.",
+      "practice_prompt": "Use \"scan\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"scan\"?",
+          "choices": [
+            "scan the ideas",
+            "sleep the scan",
+            "scan banana"
+          ],
+          "answer": "scan the ideas"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"scan\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"scan\" in a classroom sentence.",
+          "answer_example": "Scan the ideas carefully."
+        }
+      ]
+    },
+    {
+      "id": "sequence",
+      "word": "sequence",
+      "emoji": "📘",
+      "pos": "academic word",
+      "sample": "Use <b>sequence</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"sequence\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use sequence",
+        "patterns": [
+          "use sequence",
+          "sequence in your answer",
+          "explain sequence",
+          "sequence example",
+          "talk about sequence"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use sequence to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use sequence"
+        },
+        {
+          "en": "sequence in your answer"
+        },
+        {
+          "en": "explain sequence"
+        },
+        {
+          "en": "sequence example"
+        },
+        {
+          "en": "talk about sequence"
+        }
+      ],
+      "common_partners": [
+        "sequence of events",
+        "put in sequence",
+        "in the correct sequence",
+        "sequence words",
+        "sequence chart"
+      ],
+      "watch_out": "Use reasons or examples when you work with sequence.",
+      "jp_note": "Use reasons or examples when you work with sequence.",
+      "practice_prompt": "Use \"sequence\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"sequence\"?",
+          "choices": [
+            "use sequence",
+            "sleep the sequence",
+            "sequence banana"
+          ],
+          "answer": "use sequence"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"sequence\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"sequence\" in a classroom sentence.",
+          "answer_example": "Use sequence to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "spin",
+      "word": "spin",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use <b>spin</b> in your classroom work.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom academic word",
+      "academic_category": "classroom",
+      "meaning": "a classroom academic word Leo uses in school tasks",
+      "when_to_use": [
+        "When you see \"spin\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "the spin",
+        "patterns": [
+          "the spin",
+          "spin in class",
+          "use spin",
+          "talk about spin",
+          "spin activity"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use spin in your classroom work.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "the spin"
+        },
+        {
+          "en": "spin in class"
+        },
+        {
+          "en": "use spin"
+        },
+        {
+          "en": "talk about spin"
+        },
+        {
+          "en": "spin activity"
+        }
+      ],
+      "common_partners": [
+        "the spin",
+        "spin in class",
+        "use spin",
+        "talk about spin",
+        "spin activity"
+      ],
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "practice_prompt": "Use \"spin\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"spin\"?",
+          "choices": [
+            "the spin",
+            "sleep the spin",
+            "spin banana"
+          ],
+          "answer": "the spin"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"spin\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"spin\" in a classroom sentence.",
+          "answer_example": "Use spin in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "steps",
+      "word": "steps",
+      "emoji": "📘",
+      "pos": "academic word",
+      "sample": "Use <b>steps</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"steps\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use steps",
+        "patterns": [
+          "use steps",
+          "steps in your answer",
+          "explain steps",
+          "steps example",
+          "talk about steps"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use steps to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use steps"
+        },
+        {
+          "en": "steps in your answer"
+        },
+        {
+          "en": "explain steps"
+        },
+        {
+          "en": "steps example"
+        },
+        {
+          "en": "talk about steps"
+        }
+      ],
+      "common_partners": [
+        "use steps",
+        "steps in your answer",
+        "explain steps",
+        "steps example",
+        "talk about steps"
+      ],
+      "watch_out": "Use reasons or examples when you work with steps.",
+      "jp_note": "Use reasons or examples when you work with steps.",
+      "practice_prompt": "Use \"steps\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"steps\"?",
+          "choices": [
+            "use steps",
+            "sleep the steps",
+            "steps banana"
+          ],
+          "answer": "use steps"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"steps\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"steps\" in a classroom sentence.",
+          "answer_example": "Use steps to explain your answer."
+        }
+      ]
+    },
+    {
+      "id": "survey",
+      "word": "survey",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Use <b>survey</b> in your classroom work.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "classroom academic word",
+      "academic_category": "classroom",
+      "meaning": "a classroom academic word Leo uses in school tasks",
+      "when_to_use": [
+        "When you see \"survey\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "the survey",
+        "patterns": [
+          "the survey",
+          "survey in class",
+          "use survey",
+          "talk about survey",
+          "survey activity"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use survey in your classroom work.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "the survey"
+        },
+        {
+          "en": "survey in class"
+        },
+        {
+          "en": "use survey"
+        },
+        {
+          "en": "talk about survey"
+        },
+        {
+          "en": "survey activity"
+        }
+      ],
+      "common_partners": [
+        "the survey",
+        "survey in class",
+        "use survey",
+        "talk about survey",
+        "survey activity"
+      ],
+      "watch_out": "This is a school word; listen for how it is used with other words.",
+      "jp_note": "This is a school word; listen for how it is used with other words.",
+      "practice_prompt": "Use \"survey\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"survey\"?",
+          "choices": [
+            "the survey",
+            "sleep the survey",
+            "survey banana"
+          ],
+          "answer": "the survey"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"survey\"?",
+          "choices": [
+            "classroom academic word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "classroom academic word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"survey\" in a classroom sentence.",
+          "answer_example": "Use survey in your classroom work."
+        }
+      ]
+    },
+    {
+      "id": "title",
+      "word": "title",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>title</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a reading or writing word Leo uses when working with texts",
+      "when_to_use": [
+        "When you see \"title\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "title in the text",
+        "patterns": [
+          "title in the text",
+          "find the title",
+          "write the title",
+          "underline the title",
+          "title and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the title in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "title in the text"
+        },
+        {
+          "en": "find the title"
+        },
+        {
+          "en": "write the title"
+        },
+        {
+          "en": "underline the title"
+        },
+        {
+          "en": "title and details"
+        }
+      ],
+      "common_partners": [
+        "title in the text",
+        "find the title",
+        "write the title",
+        "underline the title",
+        "title and details"
+      ],
+      "watch_out": "Look back at the text before choosing the title.",
+      "jp_note": "Look back at the text before choosing the title.",
+      "practice_prompt": "Use \"title\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"title\"?",
+          "choices": [
+            "title in the text",
+            "sleep the title",
+            "title banana"
+          ],
+          "answer": "title in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"title\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"title\" in a classroom sentence.",
+          "answer_example": "Find the title in the text."
+        }
+      ]
+    },
+    {
+      "id": "topic-sentence",
+      "word": "topic sentence",
+      "emoji": "📘",
+      "pos": "noun phrase",
+      "sample": "Find the <b>topic sentence</b> in the text.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "reading / writing term",
+      "academic_category": "text",
+      "meaning": "a sentence that gives the main idea of a paragraph",
+      "when_to_use": [
+        "When you see \"topic sentence\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "topic sentence in the text",
+        "patterns": [
+          "topic sentence in the text",
+          "find the topic sentence",
+          "write the topic sentence",
+          "underline the topic sentence",
+          "topic sentence and details"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the topic sentence in the text.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "topic sentence in the text"
+        },
+        {
+          "en": "find the topic sentence"
+        },
+        {
+          "en": "write the topic sentence"
+        },
+        {
+          "en": "underline the topic sentence"
+        },
+        {
+          "en": "topic sentence and details"
+        }
+      ],
+      "common_partners": [
+        "topic sentence in the text",
+        "find the topic sentence",
+        "write the topic sentence",
+        "underline the topic sentence",
+        "topic sentence and details"
+      ],
+      "watch_out": "Look back at the text before choosing the topic sentence.",
+      "jp_note": "Look back at the text before choosing the topic sentence.",
+      "practice_prompt": "Use \"topic sentence\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"topic sentence\"?",
+          "choices": [
+            "topic sentence in the text",
+            "sleep the topic sentence",
+            "topic sentence banana"
+          ],
+          "answer": "topic sentence in the text"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"topic sentence\"?",
+          "choices": [
+            "reading / writing term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "reading / writing term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"topic sentence\" in a classroom sentence.",
+          "answer_example": "Find the topic sentence in the text."
+        }
+      ]
+    },
+    {
+      "id": "verb",
+      "word": "verb",
+      "emoji": "📘",
+      "pos": "noun",
+      "sample": "Find the <b>verb</b> in the sentence.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "grammar term",
+      "academic_category": "grammar",
+      "meaning": "a grammar word Leo uses to talk about verb",
+      "when_to_use": [
+        "When you see \"verb\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "verb form",
+        "patterns": [
+          "verb form",
+          "find the verb",
+          "circle the verb",
+          "use the verb",
+          "verb in a sentence"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Find the verb in the sentence.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "verb form"
+        },
+        {
+          "en": "find the verb"
+        },
+        {
+          "en": "circle the verb"
+        },
+        {
+          "en": "use the verb"
+        },
+        {
+          "en": "verb in a sentence"
+        }
+      ],
+      "common_partners": [
+        "verb form",
+        "find the verb",
+        "circle the verb",
+        "use the verb",
+        "verb in a sentence"
+      ],
+      "watch_out": "Use verb when talking about sentence grammar, not just the topic.",
+      "jp_note": "Use verb when talking about sentence grammar, not just the topic.",
+      "practice_prompt": "Use \"verb\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"verb\"?",
+          "choices": [
+            "verb form",
+            "sleep the verb",
+            "verb banana"
+          ],
+          "answer": "verb form"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"verb\"?",
+          "choices": [
+            "grammar term",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "grammar term"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"verb\" in a classroom sentence.",
+          "answer_example": "Find the verb in the sentence."
+        }
+      ]
+    },
+    {
+      "id": "whole",
+      "word": "whole",
+      "emoji": "📘",
+      "pos": "adjective",
+      "sample": "Use <b>whole</b> to explain your answer.",
+      "category": "academic",
+      "kind": "academic_language",
+      "level": 3,
+      "source": "academic-language.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "meaning": "an academic thinking word Leo uses to explain ideas carefully",
+      "when_to_use": [
+        "When you see \"whole\" in classroom instructions.",
+        "When you need to talk about reading, writing, grammar, or thinking work.",
+        "When you are doing an Our World academic task."
+      ],
+      "how_to_use": {
+        "structure": "use whole",
+        "patterns": [
+          "use whole",
+          "whole in your answer",
+          "explain whole",
+          "whole example",
+          "talk about whole"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Use whole to explain your answer.",
+          "context_en": "Academic language"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "use whole"
+        },
+        {
+          "en": "whole in your answer"
+        },
+        {
+          "en": "explain whole"
+        },
+        {
+          "en": "whole example"
+        },
+        {
+          "en": "talk about whole"
+        }
+      ],
+      "common_partners": [
+        "use whole",
+        "whole in your answer",
+        "explain whole",
+        "whole example",
+        "talk about whole"
+      ],
+      "watch_out": "Use reasons or examples when you work with whole.",
+      "jp_note": "Use reasons or examples when you work with whole.",
+      "practice_prompt": "Use \"whole\" in one classroom sentence.",
+      "mini_test": [
+        {
+          "type": "common_partner_choice",
+          "prompt": "Which phrase sounds natural with \"whole\"?",
+          "choices": [
+            "use whole",
+            "sleep the whole",
+            "whole banana"
+          ],
+          "answer": "use whole"
+        },
+        {
+          "type": "meaning_check",
+          "prompt": "What kind of academic word is \"whole\"?",
+          "choices": [
+            "academic thinking word",
+            "a food word",
+            "a place name"
+          ],
+          "answer": "academic thinking word"
+        },
+        {
+          "type": "use_it",
+          "prompt": "Use \"whole\" in a classroom sentence.",
+          "answer_example": "Use whole to explain your answer."
+        }
+      ]
+    }
+  ],
+  "word_count": 48,
+  "sources": [
+    "academic-language.json"
+  ],
+  "updated": "2026-05-23"
+}

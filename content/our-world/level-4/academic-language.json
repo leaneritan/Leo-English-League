@@ -214,24 +214,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a reading or writing word Leo uses when working with texts",
       "common_partners": [
-        "caption in the text",
-        "find the caption",
-        "write the caption",
-        "underline the caption",
-        "caption and details"
+        "read the caption",
+        "write a caption",
+        "picture caption",
+        "caption under the photo",
+        "caption and photo"
       ],
-      "sample_sentence": "Find the caption in the text.",
+      "sample_sentence": "Read the caption.",
       "watch_out": "Look back at the text before choosing the caption.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"caption\"?",
           "choices": [
-            "caption in the text",
+            "read the caption",
             "sleep the caption",
             "caption banana"
           ],
-          "answer": "caption in the text"
+          "answer": "read the caption"
         },
         {
           "type": "meaning_check",
@@ -246,7 +246,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"caption\" in a classroom sentence.",
-          "answer_example": "Find the caption in the text."
+          "answer_example": "Read the caption."
         }
       ]
     },
@@ -355,24 +355,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a grammar word Leo uses to talk about clause",
       "common_partners": [
-        "clause form",
+        "main clause",
+        "relative clause",
         "find the clause",
-        "circle the clause",
-        "use the clause",
+        "use a clause",
         "clause in a sentence"
       ],
-      "sample_sentence": "Find the clause in the sentence.",
+      "sample_sentence": "Main clause.",
       "watch_out": "Use clause when talking about sentence grammar, not just the topic.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"clause\"?",
           "choices": [
-            "clause form",
+            "main clause",
             "sleep the clause",
             "clause banana"
           ],
-          "answer": "clause form"
+          "answer": "main clause"
         },
         {
           "type": "meaning_check",
@@ -387,7 +387,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"clause\" in a classroom sentence.",
-          "answer_example": "Find the clause in the sentence."
+          "answer_example": "Main clause."
         }
       ]
     },
@@ -402,24 +402,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "compare the ideas",
-        "compare the text",
-        "compare your answer",
-        "compare with evidence",
-        "compare carefully"
+        "compare two ideas",
+        "compare and contrast",
+        "compare the pictures",
+        "compare your answers",
+        "compare the results"
       ],
-      "sample_sentence": "Compare the ideas carefully.",
+      "sample_sentence": "Compare two ideas.",
       "watch_out": "Use reasons or examples when you work with compare.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"compare\"?",
           "choices": [
-            "compare the ideas",
+            "compare two ideas",
             "sleep the compare",
             "compare banana"
           ],
-          "answer": "compare the ideas"
+          "answer": "compare two ideas"
         },
         {
           "type": "meaning_check",
@@ -434,7 +434,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"compare\" in a classroom sentence.",
-          "answer_example": "Compare the ideas carefully."
+          "answer_example": "Compare two ideas."
         }
       ]
     },
@@ -449,24 +449,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a grammar word Leo uses to talk about contraction",
       "common_partners": [
-        "contraction form",
+        "make a contraction",
+        "use a contraction",
         "find the contraction",
-        "circle the contraction",
-        "use the contraction",
+        "contraction form",
         "contraction in a sentence"
       ],
-      "sample_sentence": "Find the contraction in the sentence.",
+      "sample_sentence": "Make a contraction.",
       "watch_out": "Use contraction when talking about sentence grammar, not just the topic.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"contraction\"?",
           "choices": [
-            "contraction form",
+            "make a contraction",
             "sleep the contraction",
             "contraction banana"
           ],
-          "answer": "contraction form"
+          "answer": "make a contraction"
         },
         {
           "type": "meaning_check",
@@ -481,7 +481,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"contraction\" in a classroom sentence.",
-          "answer_example": "Find the contraction in the sentence."
+          "answer_example": "Make a contraction."
         }
       ]
     },
@@ -496,24 +496,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "contrast the ideas",
-        "contrast the text",
-        "contrast your answer",
-        "contrast with evidence",
-        "contrast carefully"
+        "contrast two ideas",
+        "compare and contrast",
+        "show a contrast",
+        "contrast the pictures",
+        "contrast the answers"
       ],
-      "sample_sentence": "Contrast the ideas carefully.",
+      "sample_sentence": "Contrast two ideas.",
       "watch_out": "Use reasons or examples when you work with contrast.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"contrast\"?",
           "choices": [
-            "contrast the ideas",
+            "contrast two ideas",
             "sleep the contrast",
             "contrast banana"
           ],
-          "answer": "contrast the ideas"
+          "answer": "contrast two ideas"
         },
         {
           "type": "meaning_check",
@@ -528,7 +528,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"contrast\" in a classroom sentence.",
-          "answer_example": "Contrast the ideas carefully."
+          "answer_example": "Contrast two ideas."
         }
       ]
     },
@@ -590,24 +590,24 @@
       "part_of_speech": "noun",
       "student_friendly_meaning": "a reading or writing word Leo uses when working with texts",
       "common_partners": [
-        "definition in the text",
-        "find the definition",
-        "write the definition",
-        "underline the definition",
-        "definition and details"
+        "read the definition",
+        "write a definition",
+        "dictionary definition",
+        "definition of the word",
+        "match the definition"
       ],
-      "sample_sentence": "Find the definition in the text.",
+      "sample_sentence": "Read the definition.",
       "watch_out": "Look back at the text before choosing the definition.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"definition\"?",
           "choices": [
-            "definition in the text",
+            "read the definition",
             "sleep the definition",
             "definition banana"
           ],
-          "answer": "definition in the text"
+          "answer": "read the definition"
         },
         {
           "type": "meaning_check",
@@ -622,7 +622,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"definition\" in a classroom sentence.",
-          "answer_example": "Find the definition in the text."
+          "answer_example": "Read the definition."
         }
       ]
     },
@@ -637,24 +637,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "describe the ideas",
-        "describe the text",
-        "describe your answer",
-        "describe with evidence",
-        "describe carefully"
+        "describe the picture",
+        "describe a person",
+        "describe your idea",
+        "describe in detail",
+        "describe what happened"
       ],
-      "sample_sentence": "Describe the ideas carefully.",
+      "sample_sentence": "Describe the picture.",
       "watch_out": "Use reasons or examples when you work with describe.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"describe\"?",
           "choices": [
-            "describe the ideas",
+            "describe the picture",
             "sleep the describe",
             "describe banana"
           ],
-          "answer": "describe the ideas"
+          "answer": "describe the picture"
         },
         {
           "type": "meaning_check",
@@ -669,7 +669,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"describe\" in a classroom sentence.",
-          "answer_example": "Describe the ideas carefully."
+          "answer_example": "Describe the picture."
         }
       ]
     },
@@ -690,7 +690,7 @@
         "clear description",
         "read the description"
       ],
-      "sample_sentence": "Write a clear description of the picture.",
+      "sample_sentence": "Write a description.",
       "watch_out": "Use reasons or examples when you work with description.",
       "mini_test": [
         {
@@ -716,7 +716,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"description\" in a classroom sentence.",
-          "answer_example": "Write a clear description of the picture."
+          "answer_example": "Write a description."
         }
       ]
     },
@@ -872,24 +872,24 @@
       "part_of_speech": "noun phrase",
       "student_friendly_meaning": "the noun that receives the action of a verb",
       "common_partners": [
-        "direct object form",
         "find the direct object",
         "circle the direct object",
-        "use the direct object",
-        "direct object in a sentence"
+        "direct object in a sentence",
+        "verb and direct object",
+        "use a direct object"
       ],
-      "sample_sentence": "Find the direct object in the sentence.",
+      "sample_sentence": "Find the direct object.",
       "watch_out": "Use direct object when talking about sentence grammar, not just the topic.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"direct object\"?",
           "choices": [
-            "direct object form",
+            "find the direct object",
             "sleep the direct object",
             "direct object banana"
           ],
-          "answer": "direct object form"
+          "answer": "find the direct object"
         },
         {
           "type": "meaning_check",
@@ -904,7 +904,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"direct object\" in a classroom sentence.",
-          "answer_example": "Find the direct object in the sentence."
+          "answer_example": "Find the direct object."
         }
       ]
     },
@@ -925,7 +925,7 @@
         "possible effect",
         "explain the effect"
       ],
-      "sample_sentence": "Explain the effect of the change.",
+      "sample_sentence": "Cause and effect.",
       "watch_out": "Use reasons or examples when you work with effect.",
       "mini_test": [
         {
@@ -951,7 +951,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"effect\" in a classroom sentence.",
-          "answer_example": "Explain the effect of the change."
+          "answer_example": "Cause and effect."
         }
       ]
     },
@@ -1342,24 +1342,24 @@
       "part_of_speech": "noun phrase",
       "student_friendly_meaning": "the person or thing that receives the direct object",
       "common_partners": [
-        "indirect object form",
         "find the indirect object",
         "circle the indirect object",
-        "use the indirect object",
-        "indirect object in a sentence"
+        "indirect object in a sentence",
+        "direct and indirect objects",
+        "use an indirect object"
       ],
-      "sample_sentence": "Find the indirect object in the sentence.",
+      "sample_sentence": "Find the indirect object.",
       "watch_out": "Use indirect object when talking about sentence grammar, not just the topic.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"indirect object\"?",
           "choices": [
-            "indirect object form",
+            "find the indirect object",
             "sleep the indirect object",
             "indirect object banana"
           ],
-          "answer": "indirect object form"
+          "answer": "find the indirect object"
         },
         {
           "type": "meaning_check",
@@ -1374,7 +1374,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"indirect object\" in a classroom sentence.",
-          "answer_example": "Find the indirect object in the sentence."
+          "answer_example": "Find the indirect object."
         }
       ]
     },

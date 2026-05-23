@@ -543,24 +543,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "compare the ideas",
-        "compare the text",
-        "compare your answer",
-        "compare with evidence",
-        "compare carefully"
+        "compare two ideas",
+        "compare and contrast",
+        "compare the pictures",
+        "compare your answers",
+        "compare the results"
       ],
-      "sample_sentence": "Compare the ideas carefully.",
+      "sample_sentence": "Compare two ideas.",
       "watch_out": "Use reasons or examples when you work with compare.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"compare\"?",
           "choices": [
-            "compare the ideas",
+            "compare two ideas",
             "sleep the compare",
             "compare banana"
           ],
-          "answer": "compare the ideas"
+          "answer": "compare two ideas"
         },
         {
           "type": "meaning_check",
@@ -575,7 +575,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"compare\" in a classroom sentence.",
-          "answer_example": "Compare the ideas carefully."
+          "answer_example": "Compare two ideas."
         }
       ]
     },
@@ -684,24 +684,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "contrast the ideas",
-        "contrast the text",
-        "contrast your answer",
-        "contrast with evidence",
-        "contrast carefully"
+        "contrast two ideas",
+        "compare and contrast",
+        "show a contrast",
+        "contrast the pictures",
+        "contrast the answers"
       ],
-      "sample_sentence": "Contrast the ideas carefully.",
+      "sample_sentence": "Contrast two ideas.",
       "watch_out": "Use reasons or examples when you work with contrast.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"contrast\"?",
           "choices": [
-            "contrast the ideas",
+            "contrast two ideas",
             "sleep the contrast",
             "contrast banana"
           ],
-          "answer": "contrast the ideas"
+          "answer": "contrast two ideas"
         },
         {
           "type": "meaning_check",
@@ -716,7 +716,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"contrast\" in a classroom sentence.",
-          "answer_example": "Contrast the ideas carefully."
+          "answer_example": "Contrast two ideas."
         }
       ]
     },
@@ -825,24 +825,24 @@
       "part_of_speech": "verb",
       "student_friendly_meaning": "an academic thinking word Leo uses to explain ideas carefully",
       "common_partners": [
-        "describe the ideas",
-        "describe the text",
-        "describe your answer",
-        "describe with evidence",
-        "describe carefully"
+        "describe the picture",
+        "describe a person",
+        "describe your idea",
+        "describe in detail",
+        "describe what happened"
       ],
-      "sample_sentence": "Describe the ideas carefully.",
+      "sample_sentence": "Describe the picture.",
       "watch_out": "Use reasons or examples when you work with describe.",
       "mini_test": [
         {
           "type": "common_partner_choice",
           "prompt": "Which phrase sounds natural with \"describe\"?",
           "choices": [
-            "describe the ideas",
+            "describe the picture",
             "sleep the describe",
             "describe banana"
           ],
-          "answer": "describe the ideas"
+          "answer": "describe the picture"
         },
         {
           "type": "meaning_check",
@@ -857,7 +857,7 @@
         {
           "type": "use_it",
           "prompt": "Use \"describe\" in a classroom sentence.",
-          "answer_example": "Describe the ideas carefully."
+          "answer_example": "Describe the picture."
         }
       ]
     },
