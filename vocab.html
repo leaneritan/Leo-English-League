@@ -449,6 +449,14 @@
         .replace(/>/g, '&gt;');
     }
 
+    function nonDuplicateJpPatterns(entry) {
+      const patterns = entry.jp_how_to_use?.patterns || [];
+      const partners = new Set((entry.collocations || []).map(c =>
+        `${(c.en || '').trim()} = ${(c.jp || '').trim()}`
+      ));
+      return patterns.filter(p => !partners.has(String(p || '').trim()));
+    }
+
     // ════════════════════════════════════════════════════════════════
     // RENDER PIECES
     // ════════════════════════════════════════════════════════════════
@@ -747,6 +755,7 @@
     function renderSectionHowToUse(entry) {
       const how = entry.how_to_use || {};
       const jpHow = entry.jp_how_to_use || {};
+      const jpPatterns = nonDuplicateJpPatterns(entry);
       if (!how.structure && (!how.patterns || how.patterns.length === 0)) return '';
       return `
         <section class="rich-section">
@@ -765,7 +774,7 @@
                 </ul>
               ` : ''}
             </div>
-            ${(jpHow.structure || (jpHow.patterns && jpHow.patterns.length)) ? `
+            ${(jpHow.structure || jpPatterns.length) ? `
               <div class="jp-block-inline">
                 <div class="jp-mini-label">
                   <span class="bar"></span>
@@ -774,10 +783,10 @@
                 </div>
                 <div class="jp-body">
                   ${jpHow.structure ? `<strong style="font-weight:600">基本の形：</strong>
-                    <div class="structure">${jpHow.structure}</div>` : ''}
-                  ${(jpHow.patterns && jpHow.patterns.length) ? `
+                    <div class="structure">${safeHTML(jpHow.structure)}</div>` : ''}
+                  ${jpPatterns.length ? `
                     <ul style="margin-top:10px">
-                      ${jpHow.patterns.map(p => `<li>${p}</li>`).join('')}
+                      ${jpPatterns.map(p => `<li>${safeHTML(p)}</li>`).join('')}
                     </ul>
                   ` : ''}
                 </div>
