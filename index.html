@@ -2421,6 +2421,23 @@ header {
     )
   ).then(arrays => { OW_VOCAB = arrays.flat(); });
 
+  // Our World Level 4 grammar, loaded from JSON so search follows content files.
+  let OW_GRAMMAR = [];
+  Promise.all(
+    OW_UNITS.flatMap(unit =>
+      OW_SETS.map(set =>
+        fetch(`content/our-world/level-4/unit-${unit}/grammar-${set}.json`)
+          .then(r => r.json())
+          .then(data => [{
+            t: 'g',
+            w: data.title,
+            u: `grammar.html?level=4&unit=${unit}&set=${set}`
+          }])
+          .catch(() => [])
+      )
+    )
+  ).then(arrays => { OW_GRAMMAR = arrays.flat().filter(d => d.w); });
+
   // ── OUR WORLD LEVEL 4 GLOSSARY (loaded async) ──
   let OW_GLOSSARY = [];
   fetch('content/our-world/level-4/glossary.json')
@@ -2433,27 +2450,6 @@ header {
       }));
     })
     .catch(() => {});
-
-  // ── SEARCH DATA (hardcoded grammar only; vocab comes from JSON) ──
-  const DATA = [
-    // Grammar — all 16 sets
-    {t:'g',w:'Comparatives with -er',u:'grammar.html?level=4&unit=1&set=1'},
-    {t:'g',w:'Present progressive for future plans',u:'grammar.html?level=4&unit=1&set=2'},
-    {t:'g',w:"Have to / Don't have to",u:'grammar.html?level=4&unit=2&set=1'},
-    {t:'g',w:'Would like',u:'grammar.html?level=4&unit=2&set=2'},
-    {t:'g',w:'Contrast with but and instead',u:'grammar.html?level=4&unit=3&set=1'},
-    {t:'g',w:'Comparatives with more',u:'grammar.html?level=4&unit=3&set=2'},
-    {t:'g',w:'Advice with should',u:'grammar.html?level=4&unit=4&set=1'},
-    {t:'g',w:'Reflexive pronouns',u:'grammar.html?level=4&unit=4&set=2'},
-    {t:'g',w:'Superlatives with -est and most',u:'grammar.html?level=4&unit=5&set=1'},
-    {t:'g',w:'Irregular comparatives and superlatives',u:'grammar.html?level=4&unit=5&set=2'},
-    {t:'g',w:"Have to, must, can't, and don't",u:'grammar.html?level=4&unit=6&set=1'},
-    {t:'g',w:"Future with will and won't",u:'grammar.html?level=4&unit=6&set=2'},
-    {t:'g',w:'You for general statements',u:'grammar.html?level=4&unit=7&set=1'},
-    {t:'g',w:'Used to for past habits',u:'grammar.html?level=4&unit=7&set=2'},
-    {t:'g',w:'Describing people with who',u:'grammar.html?level=4&unit=8&set=1'},
-    {t:'g',w:'Direct and indirect objects',u:'grammar.html?level=4&unit=8&set=2'},
-  ];
 
   // ── SEARCH ──
   const input    = document.getElementById('searchInput');
@@ -2496,11 +2492,13 @@ header {
     // Group results by word
     const groups = {};
 
-    // Our World + Grammar
-    DATA.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+    // Our World grammar JSON
+    OW_GRAMMAR.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
-      groups[key].sources.push({ t: d.t, u: d.u, ext: false });
+      if (!groups[key].sources.find(s => s.t === 'g' && s.u === d.u)) {
+        groups[key].sources.push({ t: 'g', u: d.u, ext: false });
+      }
     });
 
     // Our World vocab JSON
