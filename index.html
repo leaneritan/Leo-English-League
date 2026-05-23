@@ -589,6 +589,7 @@ header {
 .result-badge.g  { background: var(--ink); color: #fff; }
 .result-badge.jh { background: var(--nc-green); color: #fff; }
 .result-badge.d  { background: var(--ow-blue); color: #fff; }
+.result-badge.al { background: var(--ow-orange); color: #fff; }
 .result-word { flex:1; font-size:0.86rem; font-weight:600; color:var(--ink); }
 .result-word mark { background:var(--yellow); color:var(--ink); border-radius:2px; padding:0 2px; }
 .result-link {
@@ -606,6 +607,8 @@ header {
 .result-link.jh:hover { background: var(--nc-green); color: #fff; }
 .result-link.gl { border-color: var(--ow-orange); color: var(--ow-orange); }
 .result-link.gl:hover { background: var(--ow-orange); color: #fff; }
+.result-link.al { border-color: var(--ow-orange); color: var(--ow-orange); }
+.result-link.al:hover { background: var(--ow-orange); color: #fff; }
 .result-links { display:flex; gap:6px; flex-wrap:wrap; }
 #noResults { display:none; padding:14px 0; font-size:0.83rem; color:var(--ink-3); }
 .suggest-chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
@@ -1610,6 +1613,7 @@ header {
         <button class="search-filter-btn" data-filter="ow" type="button">OUR WORLD VOCAB</button>
         <button class="search-filter-btn" data-filter="grammar" type="button">GRAMMAR</button>
         <button class="search-filter-btn" data-filter="glossary" type="button">GLOSSARY</button>
+        <button class="search-filter-btn" data-filter="academic" type="button">ACADEMIC</button>
         <button class="search-filter-btn" data-filter="jh" type="button">JUNIOR HIGH</button>
         <button class="search-filter-btn" data-filter="dict" type="button">DICTIONARY</button>
       </div>
@@ -2463,6 +2467,7 @@ header {
   let OW_VOCAB = [];
   const OW_UNITS = [1,2,3,4,5,6,7,8];
   const OW_SETS = [1,2];
+  const OW_LEVELS = [1,2,3,4,5,6];
   Promise.all(
     OW_UNITS.flatMap(unit =>
       OW_SETS.map(set =>
@@ -2508,6 +2513,30 @@ header {
     })
     .catch(() => {});
 
+  // Our World academic language, loaded from level-wide JSON files.
+  let OW_ACADEMIC = [];
+  Promise.all(
+    OW_LEVELS.map(level =>
+      fetch(`content/our-world/level-${level}/academic-language.json`)
+        .then(r => r.json())
+        .then(data => (data.words || []).map(w => ({
+          t: 'al',
+          level,
+          w: w.word,
+          u: `content/our-world/level-${level}/academic-language.json`,
+          search: [
+            w.word,
+            w.type,
+            w.category,
+            w.part_of_speech,
+            w.student_friendly_meaning,
+            ...(w.common_partners || [])
+          ].filter(Boolean).join(' ')
+        })))
+        .catch(() => [])
+    )
+  ).then(arrays => { OW_ACADEMIC = arrays.flat(); });
+
   // ── SEARCH ──
   const input    = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearBtn');
@@ -2527,6 +2556,7 @@ header {
     if (t === 'g')  return 'G';
     if (t === 'jh') return 'JH';
     if (t === 'gl') return 'GL';
+    if (t === 'al') return 'AL';
     if (t === 'd')  return '📖';
     return t;
   }
@@ -2536,6 +2566,7 @@ header {
     if (t === 'g')  return 'Grammar';
     if (t === 'jh') return 'Junior High Vocab';
     if (t === 'gl') return 'Our World Glossary';
+    if (t === 'al') return 'Academic Language';
     if (t === 'd')  return 'NC1 Dictionary';
     return '';
   }
@@ -2545,6 +2576,7 @@ header {
     if (activeSearchFilter === 'ow') return t === 'v';
     if (activeSearchFilter === 'grammar') return t === 'g';
     if (activeSearchFilter === 'glossary') return t === 'gl';
+    if (activeSearchFilter === 'academic') return t === 'al';
     if (activeSearchFilter === 'jh') return t === 'jh';
     if (activeSearchFilter === 'dict') return t === 'd';
     return true;
@@ -2588,6 +2620,15 @@ header {
       }
     });
 
+    // Our World academic language
+    if (sourceVisible('al')) OW_ACADEMIC.filter(d => d.search.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      if (!groups[key].sources.find(s => s.t === 'al' && s.level === d.level)) {
+        groups[key].sources.push({ t: 'al', u: d.u, ext: false, level: d.level });
+      }
+    });
+
     // Junior High vocab
     if (sourceVisible('jh')) JH_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
@@ -2627,7 +2668,7 @@ header {
 
       const wordSpan = `<span class="result-word">${hl(g.word, q)}</span>`;
       const links = g.sources.map(s => {
-        const label = badgeTitle(s.t);
+        const label = s.t === 'al' && s.level ? `Academic L${s.level}` : badgeTitle(s.t);
         const ext = s.ext ? 'target="_blank" rel="noopener"' : '';
         const arrow = s.ext ? '↗' : '→';
         return `<a class="result-link ${s.t}" href="${s.u}" ${ext} title="${label}">${label} ${arrow}</a>`;
