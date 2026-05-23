@@ -508,6 +508,12 @@ header {
   margin-top: auto;
 }
 .search-inner { max-width: 640px; margin: 0 auto; }
+.search-screen .search-section {
+  background: var(--paper);
+  border-top: 0;
+  padding: 24px 32px 70px;
+}
+.search-screen .search-inner { max-width: 860px; }
 .search-label {
   font-family: 'Oswald', sans-serif;
   font-size: 0.65rem;
@@ -536,6 +542,31 @@ header {
   font-size: 0.9rem;
   padding: 11px 0;
   color: var(--ink);
+}
+.search-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0 4px;
+}
+.search-filter-btn {
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--ink-3);
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  transition: all 0.15s;
+}
+.search-filter-btn:hover,
+.search-filter-btn.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
 }
 .search-clear {
   background: none; border: none;
@@ -1168,7 +1199,7 @@ header {
   background:var(--ink);
   border-top:2px solid rgba(255,255,255,0.12);
   padding:6px 8px calc(6px + env(safe-area-inset-bottom));
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(5,1fr);
   gap:6px;
 }
 .mobile-tab {
@@ -1233,6 +1264,7 @@ header {
   <button class="rail-btn" data-screen="screen-neritan" onclick="goTo('screen-neritan')" title="Neritan">👨</button>
   <button class="rail-btn" data-screen="screen-leo" onclick="goTo('screen-leo')" title="Leo">🦁</button>
   <button class="rail-btn" data-screen="screen-neritan-ow" onclick="goTo('screen-neritan-ow')" title="Neritan Our World">🌍</button>
+  <button class="rail-btn" data-screen="screen-search" onclick="goTo('screen-search')" title="Search Everything">⌕</button>
   <button class="rail-btn" data-screen="screen-reference" onclick="goTo('screen-reference')" title="Reference">📚</button>
 </nav>
 
@@ -1248,6 +1280,10 @@ header {
   <button class="mobile-tab" data-screen="screen-leo" onclick="goTo('screen-leo')" type="button">
     <span class="mobile-tab-icon">🦁</span>
     <span>LEO</span>
+  </button>
+  <button class="mobile-tab" data-screen="screen-search" onclick="goTo('screen-search')" type="button">
+    <span class="mobile-tab-icon">⌕</span>
+    <span>SEARCH</span>
   </button>
   <button class="mobile-tab" data-screen="screen-reference" onclick="goTo('screen-reference')" type="button">
     <span class="mobile-tab-icon">📚</span>
@@ -1344,25 +1380,6 @@ header {
     </div>
   </div>
 
-  <div class="search-section">
-    <div class="search-inner">
-      <div class="search-label">SEARCH EVERYTHING</div>
-      <div class="search-box">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="searchInput" placeholder="Search vocab or grammar…" autocomplete="off">
-        <button class="search-clear" id="clearBtn">✕</button>
-      </div>
-      <div id="results"></div>
-      <div id="noResults">No results found. Try:
-        <div class="suggest-chips">
-          <span class="suggest-chip" onclick="setSearch('invention')">invention</span>
-          <span class="suggest-chip" onclick="setSearch('comparatives')">comparatives</span>
-          <span class="suggest-chip" onclick="setSearch('pollution')">pollution</span>
-          <span class="suggest-chip" onclick="setSearch('should')">should</span>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- ══ SCREEN 2A: NERITAN MODES ══ -->
@@ -1570,6 +1587,41 @@ header {
         </div>
       </a>
 
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN 2D: UNIVERSAL SEARCH ══ -->
+<div class="screen search-screen" id="screen-search">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="showPerson()">← Back</button>
+    <div class="mode-screen-who">⌕ <span>SEARCH EVERYTHING</span></div>
+  </div>
+  <div class="search-section">
+    <div class="search-inner">
+      <div class="search-label">SEARCH EVERYTHING</div>
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search vocab, grammar, glossary, or Junior High..." autocomplete="off">
+        <button class="search-clear" id="clearBtn">✕</button>
+      </div>
+      <div class="search-filters" aria-label="Search filters">
+        <button class="search-filter-btn active" data-filter="all" type="button">ALL</button>
+        <button class="search-filter-btn" data-filter="ow" type="button">OUR WORLD VOCAB</button>
+        <button class="search-filter-btn" data-filter="grammar" type="button">GRAMMAR</button>
+        <button class="search-filter-btn" data-filter="glossary" type="button">GLOSSARY</button>
+        <button class="search-filter-btn" data-filter="jh" type="button">JUNIOR HIGH</button>
+        <button class="search-filter-btn" data-filter="dict" type="button">DICTIONARY</button>
+      </div>
+      <div id="results"></div>
+      <div id="noResults">No results found. Try:
+        <div class="suggest-chips">
+          <span class="suggest-chip" onclick="setSearch('invention')">invention</span>
+          <span class="suggest-chip" onclick="setSearch('comparatives')">comparatives</span>
+          <span class="suggest-chip" onclick="setSearch('pollution')">pollution</span>
+          <span class="suggest-chip" onclick="setSearch('should')">should</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -2071,6 +2123,7 @@ header {
     'screen-neritan': 'neritan',
     'screen-leo': 'leo',
     'screen-reference': 'reference',
+    'screen-search': 'search',
     'screen-neritan-ow': 'neritan/our-world',
     'screen-leo-ow': 'leo/our-world'
   };
@@ -2143,6 +2196,10 @@ header {
     if (id === 'screen-leo') renderLeoHomework();
     if (id === 'screen-neritan') renderNeritanHomework();
     if (id === 'screen-neritan-ow' || id === 'screen-leo-ow') renderHomeworkBadges();
+    if (id === 'screen-search') setTimeout(() => {
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.focus();
+    }, 80);
   }
 
   function goTo(id, push = true) {
@@ -2456,6 +2513,8 @@ header {
   const clearBtn = document.getElementById('clearBtn');
   const results  = document.getElementById('results');
   const noRes    = document.getElementById('noResults');
+  const filterBtns = document.querySelectorAll('.search-filter-btn');
+  let activeSearchFilter = 'all';
 
   function hl(text, q) {
     const i = text.toLowerCase().indexOf(q.toLowerCase());
@@ -2481,6 +2540,16 @@ header {
     return '';
   }
 
+  function sourceVisible(t) {
+    if (activeSearchFilter === 'all') return true;
+    if (activeSearchFilter === 'ow') return t === 'v';
+    if (activeSearchFilter === 'grammar') return t === 'g';
+    if (activeSearchFilter === 'glossary') return t === 'gl';
+    if (activeSearchFilter === 'jh') return t === 'jh';
+    if (activeSearchFilter === 'dict') return t === 'd';
+    return true;
+  }
+
   function doSearch(q) {
     results.innerHTML = '';
     noRes.style.display = 'none';
@@ -2493,7 +2562,7 @@ header {
     const groups = {};
 
     // Our World grammar JSON
-    OW_GRAMMAR.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+    if (sourceVisible('g')) OW_GRAMMAR.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
       if (!groups[key].sources.find(s => s.t === 'g' && s.u === d.u)) {
@@ -2502,7 +2571,7 @@ header {
     });
 
     // Our World vocab JSON
-    OW_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+    if (sourceVisible('v')) OW_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
       if (!groups[key].sources.find(s => s.t === 'v' && s.u === d.u)) {
@@ -2511,7 +2580,7 @@ header {
     });
 
     // Our World Level 4 glossary
-    OW_GLOSSARY.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+    if (sourceVisible('gl')) OW_GLOSSARY.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
       if (!groups[key].sources.find(s => s.t === 'gl')) {
@@ -2520,7 +2589,7 @@ header {
     });
 
     // Junior High vocab
-    JH_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+    if (sourceVisible('jh')) JH_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
       // avoid duplicate JH entries for same word
@@ -2530,7 +2599,9 @@ header {
     });
 
     // Sanseido dictionary (max 8 matches to avoid flooding)
-    const dictMatches = SANSEIDO.filter(d => d.w.toLowerCase().includes(ql)).slice(0, 8);
+    const dictMatches = sourceVisible('d')
+      ? SANSEIDO.filter(d => d.w.toLowerCase().includes(ql)).slice(0, 8)
+      : [];
     dictMatches.forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
@@ -2569,9 +2640,18 @@ header {
 
   function setSearch(val) { input.value = val; doSearch(val); input.focus(); }
 
+  function setSearchFilter(filter) {
+    activeSearchFilter = filter;
+    filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+    doSearch(input.value.trim());
+  }
+
   input.addEventListener('input', () => doSearch(input.value.trim()));
   clearBtn.addEventListener('click', () => {
     input.value = ''; doSearch(''); results.innerHTML = ''; input.focus();
+  });
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => setSearchFilter(btn.dataset.filter));
   });
 </script>
 </body>
