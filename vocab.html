@@ -362,7 +362,8 @@
         level: levelRaw === 'all' ? 'all' : parseInt(levelRaw, 10) || null,
         word: word,
         unit: unitRaw ? parseInt(unitRaw, 10) : null,
-        set: setRaw ? parseInt(setRaw, 10) : null
+        set: setRaw ? parseInt(setRaw, 10) : null,
+        module: p.get('module') === 'academic' ? 'academic' : 'glossary'
       };
     }
 
@@ -394,7 +395,17 @@
       }
     }
 
-    async function findEntry(level, wordId, unitHint, setHint) {
+    async function findEntry(level, wordId, unitHint, setHint, module) {
+      if (module === 'academic') {
+        const academic = await loadJson('content/our-world/academic_vocab.json');
+        if (academic && Array.isArray(academic.words)) {
+          const hit = academic.words.find(w =>
+            w.id === wordId && (level === 'all' || (w.levels || []).includes(level))
+          );
+          if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
+        }
+        return null;
+      }
       // 1. Try level-wide glossary.json
       const glossary = await loadJson(`content/our-world/level-${level}/glossary.json`);
       if (glossary && Array.isArray(glossary.words)) {
@@ -407,7 +418,13 @@
         const hit = extras.words.find(w => w.id === wordId);
         if (hit) return { entry: hit, source: 'extras' };
       }
-      // 3. Per-unit V1/V2 fallback (existing tile URL pattern: ?unit=N&set=N&id=ID)
+      // 3. Backward compatibility for old Academic links that did not include module=academic.
+      const academic = await loadJson('content/our-world/academic_vocab.json');
+      if (academic && Array.isArray(academic.words)) {
+        const hit = academic.words.find(w => w.id === wordId && (w.levels || []).includes(level));
+        if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
+      }
+      // 4. Per-unit V1/V2 fallback (existing tile URL pattern: ?unit=N&set=N&id=ID)
       //    Per-unit JSONs predate the glossary architecture and may use either
       //    {words: [...]} or {items: [...]} or a top-level array. We try all.
       if (unitHint && setHint) {
@@ -501,6 +518,14 @@
       return words;
     }
 
+    async function loadAcademicWords(level) {
+      const academic = await loadJson('content/our-world/academic_vocab.json');
+      if (!academic || !Array.isArray(academic.words)) return [];
+      return academic.words
+        .filter(w => level === 'all' || (w.levels || []).includes(level))
+        .map(w => ({ ...w, level, source: 'academic_vocab' }));
+    }
+
     function levelWordCategory(entry) {
       if (entry.category === 'academic' || entry.kind === 'academic_language') return 'academic';
       if (entry.category === 'content') return 'content';
@@ -514,13 +539,16 @@
       return clean.length > limit ? clean.slice(0, limit - 1) + '…' : clean;
     }
 
-    function renderLevelIndex(level, words) {
+    function renderLevelIndex(level, words, module = 'glossary') {
       const crumb = document.getElementById('crumb');
-      const title = level === 'all' ? 'All Levels' : `Level ${level}`;
+      const academicMode = module === 'academic';
+      const title = academicMode
+        ? (level === 'all' ? 'All Academic Levels' : `Academic Level ${level}`)
+        : (level === 'all' ? 'All Levels' : `Level ${level}`);
       crumb.innerHTML = [
         `<a href="index.html">Home</a><span class="sep">/</span>`,
         `<a href="our-world.html">Our World</a><span class="sep">/</span>`,
-        `<span class="active">${title} Glossary</span>`
+        `<span class="active">${academicMode ? title : `${title} Glossary`}</span>`
       ].join('');
 
       const counts = words.reduce((acc, w) => {
@@ -528,14 +556,21 @@
         acc[cat] = (acc[cat] || 0) + 1;
         return acc;
       }, {});
-      const filters = [
+      const filters = academicMode ? [
+        ['all', `All ${words.length}`]
+      ] : [
         ['all', `All ${words.length}`],
         ['academic', `Academic ${counts.academic || 0}`],
         ['content', `Content ${counts.content || 0}`],
         ['related', `Related ${counts.related || 0}`],
         ['extras', `Extras ${counts.extras || 0}`]
       ].filter(([key]) => key === 'all' || counts[key]);
-      const statItems = [
+      const statItems = academicMode ? [
+        ['Words', words.length],
+        ['Shared', words.filter(w => (w.levels || []).length > 1).length],
+        ['Level', level === 'all' ? '1-6' : level],
+        ['Module', 'Academic']
+      ] : [
         ['Words', words.length],
         ['Academic', counts.academic || 0],
         ['Content', counts.content || 0],
@@ -547,9 +582,11 @@
         <div class="level-index-hero">
           <div class="level-index-hero-top">
             <div>
-              <div class="level-index-kicker">Our World Glossary</div>
+              <div class="level-index-kicker">${academicMode ? 'Our World Academic Module' : 'Our World Glossary'}</div>
               <h1 class="level-index-title">${title}</h1>
-              <p class="level-index-sub">Search the level, filter by word type, then open a card for examples, Japanese support, common partners, and mini tests.</p>
+              <p class="level-index-sub">${academicMode
+                ? 'Academic language is kept separately from lesson glossaries. Choose a word for examples, Japanese support, common partners, and mini tests.'
+                : 'Search the level, filter by word type, then open a card for examples, Japanese support, common partners, and mini tests.'}</p>
             </div>
             <div class="level-index-mark">📚✨</div>
           </div>
@@ -573,12 +610,12 @@
             const summary = w.meaning || w.sample || w.sentence || '';
             const jpPreview = w.jp_meaning || w.jp_sentence || w.jp_word || '';
             return `
-              <a class="level-word-card ${cat}" href="vocab.html?level=${w.level || level}&id=${encodeURIComponent(w.id)}" data-cat="${safeAttr(cat)}" data-search="${safeAttr([w.word, w.id, label, summary, jpPreview, `level ${w.level || level}`].join(' '))}">
+              <a class="level-word-card ${cat}" href="vocab.html?${academicMode ? 'module=academic&' : ''}level=${level}&id=${encodeURIComponent(w.id)}" data-cat="${safeAttr(cat)}" data-search="${safeAttr([w.word, w.id, label, summary, jpPreview, ...(w.levels || []).map(l => `level ${l}`)].join(' '))}">
                 <div class="level-word-emoji">${safeHTML(w.emoji || '📚')}</div>
                 <div class="level-word-main">
                   <div class="level-word-top">
                     <div class="level-word-name">${safeHTML(w.word || w.id)}</div>
-                    <div class="level-word-kind">${level === 'all' ? `L${w.level} · ` : ''}${safeHTML(label)}</div>
+                    <div class="level-word-kind">${academicMode && level === 'all' ? `${(w.levels || []).map(l => `L${l}`).join(' / ')} · ` : ''}${safeHTML(label)}</div>
                   </div>
                   <div class="level-word-meta">${previewText(summary, 120)}</div>
                   ${jpPreview ? `<div class="level-word-jp">${previewText(jpPreview, 86)}</div>` : ''}
@@ -623,12 +660,15 @@
       });
     }
 
-    function renderCrumb(entry, originTag) {
+    function renderCrumb(entry, originTag, module) {
       const crumb = document.getElementById('crumb');
       const parts = [
         `<a href="index.html">Home</a><span class="sep">/</span>`,
         `<a href="our-world.html">Our World</a>`
       ];
+      if (module === 'academic') {
+        parts.push(`<span class="sep">/</span><a href="vocab.html?module=academic&level=all">Academic</a>`);
+      }
       if (originTag) {
         parts.push(`<span class="sep">/</span><a href="our-world.html">Level ${originTag.level}</a>`);
         parts.push(`<span class="sep">/</span><a href="our-world.html">Unit ${originTag.unit}</a>`);
@@ -1013,9 +1053,9 @@
     // FULL PAGE RENDER
     // ════════════════════════════════════════════════════════════════
 
-    function renderEntry(entry, source) {
+    function renderEntry(entry, source, module, level) {
       const originTag = parseTag((entry.tags || [])[0]);
-      renderCrumb(entry, originTag);
+      renderCrumb(entry, originTag, module);
 
       // Set page title
       document.title = `${entry.word} — Leo's English League`;
@@ -1023,7 +1063,9 @@
       const main = document.getElementById('main');
 
       let html = '';
-      html += `<a href="our-world.html" class="back-link">← Back to Our World</a>`;
+      html += module === 'academic'
+        ? `<a href="vocab.html?module=academic&level=${level}" class="back-link">Back to Academic Words</a>`
+        : `<a href="our-world.html" class="back-link">Back to Our World</a>`;
       html += renderPageMeta(entry, source, originTag);
       html += renderVisualSlot(entry);
       html += renderWordHead(entry);
@@ -1146,12 +1188,12 @@
       `;
     }
 
-    function renderNotFound(wordId, level) {
+    function renderNotFound(wordId, level, module) {
       document.getElementById('main').innerHTML = `
         <div class="state-msg">
           <div class="ico">🔍</div>
           <h2>Word not found</h2>
-          <p>The word <strong>"${wordId}"</strong> wasn't found in Level ${level}'s glossary or extras. It may not be added yet, or the link may be wrong.</p>
+          <p>The word <strong>"${wordId}"</strong> wasn't found in ${module === 'academic' ? `the Academic Level ${level} module` : `Level ${level}'s glossary or extras`}. It may not be added yet, or the link may be wrong.</p>
           <a href="our-world.html" class="home-link">Back to Our World</a>
         </div>
       `;
@@ -1162,29 +1204,36 @@
     // ════════════════════════════════════════════════════════════════
 
     async function init() {
-      const { level, word, unit, set } = getParams();
+      const { level, word, unit, set, module } = getParams();
 
       if (!level) {
         renderError('No level specified', 'Please add ?level=N to the URL (e.g. ?level=4&id=describe).');
         return;
       }
       if (!word) {
-        const words = await loadLevelWords(level);
+        const words = module === 'academic'
+          ? await loadAcademicWords(level)
+          : await loadLevelWords(level);
         if (!words.length) {
-          renderError('No glossary found', `Level ${level} does not have glossary words yet.`);
+          renderError(
+            module === 'academic' ? 'No academic words found' : 'No glossary found',
+            module === 'academic'
+              ? `Level ${level} does not have academic words yet.`
+              : `Level ${level} does not have lesson glossary words yet.`
+          );
           return;
         }
-        renderLevelIndex(level, words);
+        renderLevelIndex(level, words, module);
         return;
       }
 
-      const result = await findEntry(level, word, unit, set);
+      const result = await findEntry(level, word, unit, set, module);
       if (!result) {
-        renderNotFound(word, level);
+        renderNotFound(word, level, module);
         return;
       }
 
-      renderEntry(result.entry, result.source);
+      renderEntry(result.entry, result.source, result.module || module, level);
     }
 
     document.addEventListener('DOMContentLoaded', init);

@@ -7,7 +7,7 @@
 
   <!--
     CALIBRATION MOCKUP — Our World home screen
-    Vocab / Grammar / Levels tabs with search + level pill filter
+    Vocab / Grammar / Academic / Levels tabs with search + level pill filter
     Vocab tab is active, showing Level 4 content from Vocab.pdf + Grammar.pdf
   -->
 
@@ -404,6 +404,16 @@
     .level-badge { display: inline-block; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 10px 3px; }
     .level-badge.soon { background: var(--soft); color: var(--ink-4); }
     .level-badge.now { background: var(--ink); color: var(--yellow); }
+    .academic-intro {
+      max-width: 760px;
+      margin: 8px 0 24px;
+      padding: 18px 20px;
+      border-left: 4px solid #0EA5E9;
+      background: #F0F9FF;
+      color: var(--ink-2);
+      font-size: 14px;
+      line-height: 1.65;
+    }
 
     /* responsive */
     @media (max-width: 840px) {
@@ -446,6 +456,7 @@
     <nav class="tabs-bar" id="tabsBar">
       <button class="tab active" data-tab="vocab">Vocab <span class="count">312</span></button>
       <button class="tab" data-tab="grammar">Grammar <span class="count">6</span></button>
+      <button class="tab" data-tab="academic">Academic <span class="count">244</span></button>
       <button class="tab" data-tab="levels">Levels <span class="count">6</span></button>
     </nav>
 
@@ -453,15 +464,10 @@
     <div class="tab-panel active" id="panel-vocab">
 
     <div class="filter-row">
-      <div class="filter-label">Showing</div>
+      <div class="filter-label">Lesson glossary</div>
       <div class="level-pills">
-        <a class="pill active" href="vocab.html?level=4">Level 4</a>
-        <a class="pill" href="vocab.html?level=1">L1</a>
-        <a class="pill" href="vocab.html?level=2">L2</a>
-        <a class="pill" href="vocab.html?level=3">L3</a>
-        <a class="pill" href="vocab.html?level=5">L5</a>
-        <a class="pill" href="vocab.html?level=6">L6</a>
-        <a class="pill" href="vocab.html?level=all">All levels</a>
+        <a class="pill active" href="vocab.html?level=4">Level 4 · 20 words</a>
+        <a class="pill" href="vocab.html?module=academic&amp;level=all">Academic module</a>
       </div>
     </div>
 
@@ -853,7 +859,7 @@
         <span class="acc-num">Unit 8</span><span class="acc-sep">·</span>
         <span class="acc-title">That's Really Interesting!</span>
         <span class="acc-rule"></span>
-        <span class="acc-count">19 vocab · 34 glossary · 2 grammar</span>
+        <span class="acc-count">19 vocab · 20 glossary · 2 grammar</span>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="acc-body">
@@ -901,29 +907,11 @@
           <div class="glossary-toggle" role="button" tabindex="0" onclick="this.parentElement.classList.toggle('open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
             <span class="gloss-ico">📚</span>
             <span class="gloss-label">Glossary</span>
-            <span class="gloss-count">34 words</span>
+            <span class="gloss-count">20 words</span>
             <a class="gloss-open" href="vocab.html?level=4" onclick="event.stopPropagation()">Open all</a>
             <svg class="gloss-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
           <div class="glossary-body">
-
-            <div class="set-label glossary-academic"><span class="dot"></span>Academic Language · 14</div>
-            <div class="vocab-grid">
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=analyze"><div class="emoji">🔍🧠</div><div class="word">analyze</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=describe"><div class="emoji">🔬👀</div><div class="word">describe</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=explain"><div class="emoji">💡🗣️</div><div class="word">explain</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=caption"><div class="emoji">📝🖼️</div><div class="word">caption</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=accuracy"><div class="emoji">🎯✓</div><div class="word">accuracy</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=clause"><div class="emoji">🧩📝</div><div class="word">clause</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=contraction"><div class="emoji">✂️🔡</div><div class="word">contraction</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=direct-object"><div class="emoji">🎯🔗</div><div class="word">direct object</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=indirect-object"><div class="emoji">📦↪️</div><div class="word">indirect object</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=sequence"><div class="emoji">🔢➡️</div><div class="word">sequence</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=definition"><div class="emoji">📖📝</div><div class="word">definition</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=description"><div class="emoji">📋👁️</div><div class="word">description</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=details"><div class="emoji">🔍✨</div><div class="word">details</div></a>
-          <a class="vocab-tile glossary-academic" href="vocab.html?level=4&amp;id=biography"><div class="emoji">📚👤</div><div class="word">biography</div></a>
-            </div>
 
             <div class="set-label glossary-content"><span class="dot"></span>Content Vocabulary · 15</div>
             <div class="vocab-grid">
@@ -1105,40 +1093,86 @@
 
     </div><!-- /panel-grammar -->
 
+    <!-- ACADEMIC PANEL -->
+    <div class="tab-panel" id="panel-academic">
+      <div class="academic-intro">
+        Academic Language is a separate study module for classroom instructions, reading skills,
+        writing tools, and thinking words. It is organized by level and does not count as a
+        lesson glossary.
+      </div>
+      <div class="levels-grid">
+        <a class="level-card" href="vocab.html?module=academic&amp;level=1">
+          <div class="level-card-num">L1</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">54 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=2">
+          <div class="level-card-num">L2</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">55 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=3">
+          <div class="level-card-num">L3</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">48 words</div>
+        </a>
+        <a class="level-card active-level" href="vocab.html?module=academic&amp;level=4">
+          <div class="level-card-num">L4</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">40 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=5">
+          <div class="level-card-num">L5</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">73 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=6">
+          <div class="level-card-num">L6</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">67 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=all">
+          <div class="level-card-num">ALL</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">244 unique words</div>
+        </a>
+      </div>
+    </div><!-- /panel-academic -->
+
     <!-- ── LEVELS PANEL ── -->
     <div class="tab-panel" id="panel-levels">
 
       <div class="levels-grid">
-        <a class="level-card" href="vocab.html?level=1">
+        <div class="level-card">
           <div class="level-card-num">L1</div>
-          <div class="level-card-name">Level 1</div>
-          <div class="level-badge now">Glossary ready</div>
-        </a>
-        <a class="level-card" href="vocab.html?level=2">
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
+        </div>
+        <div class="level-card">
           <div class="level-card-num">L2</div>
-          <div class="level-card-name">Level 2</div>
-          <div class="level-badge now">Glossary ready</div>
-        </a>
-        <a class="level-card" href="vocab.html?level=3">
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
+        </div>
+        <div class="level-card">
           <div class="level-card-num">L3</div>
-          <div class="level-card-name">Level 3</div>
-          <div class="level-badge now">Glossary ready</div>
-        </a>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
+        </div>
         <a class="level-card active-level" href="vocab.html?level=4">
           <div class="level-card-num">L4</div>
-          <div class="level-card-name">Level 4</div>
-          <div class="level-badge now">Active now</div>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge now">20 words</div>
         </a>
-        <a class="level-card" href="vocab.html?level=5">
+        <div class="level-card">
           <div class="level-card-num">L5</div>
-          <div class="level-card-name">Level 5</div>
-          <div class="level-badge now">Glossary ready</div>
-        </a>
-        <a class="level-card" href="vocab.html?level=6">
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
+        </div>
+        <div class="level-card">
           <div class="level-card-num">L6</div>
-          <div class="level-card-name">Level 6</div>
-          <div class="level-badge now">Glossary ready</div>
-        </a>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
+        </div>
       </div>
 
     </div><!-- /panel-levels -->
@@ -1159,7 +1193,7 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById('panel-' + key).classList.add('active');
-      document.querySelector('.search-box').style.display = key === 'levels' ? 'none' : '';
+      document.querySelector('.search-box').style.display = (key === 'levels' || key === 'academic') ? 'none' : '';
       searchInput.placeholder = key === 'grammar'
         ? "Search grammar — 'should', 'comparatives', 'who'..."
         : "Search a word or a grammar point — 'pumpkin', 'comparatives', 'should'...";

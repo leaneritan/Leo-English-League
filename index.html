@@ -2525,6 +2525,29 @@ header {
     )
   ).then(arrays => { OW_GLOSSARY = arrays.flat(); });
 
+  // Academic Language is a separate cross-level module.
+  let OW_ACADEMIC = [];
+  fetch('content/our-world/academic_vocab.json')
+    .then(r => r.json())
+    .then(data => {
+      OW_ACADEMIC = (data.words || []).map(w => ({
+        t: 'al',
+        levels: w.levels || [],
+        w: w.word,
+        u: `vocab.html?module=academic&level=all&id=${w.id}`,
+        search: [
+          w.word,
+          w.category,
+          w.kind,
+          w.meaning,
+          w.academic_type,
+          w.academic_category,
+          ...(w.common_partners || [])
+        ].filter(Boolean).join(' ')
+      }));
+    })
+    .catch(() => {});
+
   // ── SEARCH ──
   const input    = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearBtn');
@@ -2608,6 +2631,15 @@ header {
       }
     });
 
+    // Cross-level Academic Language module
+    OW_ACADEMIC.filter(d => sourceVisible(d.t) && d.search.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      if (!groups[key].sources.find(s => s.t === 'al')) {
+        groups[key].sources.push({ t: 'al', u: d.u, ext: false, levels: d.levels });
+      }
+    });
+
     // Junior High vocab
     if (sourceVisible('jh')) JH_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
@@ -2647,7 +2679,9 @@ header {
 
       const wordSpan = `<span class="result-word">${hl(g.word, q)}</span>`;
       const links = g.sources.map(s => {
-        const label = s.t === 'al' && s.level ? `Academic L${s.level}` : badgeTitle(s.t);
+        const label = s.t === 'al' && s.levels?.length
+          ? `Academic ${s.levels.map(level => `L${level}`).join('/')}`
+          : (s.t === 'al' && s.level ? `Academic L${s.level}` : badgeTitle(s.t));
         const ext = s.ext ? 'target="_blank" rel="noopener"' : '';
         const arrow = s.ext ? '↗' : '→';
         return `<a class="result-link ${s.t}" href="${s.u}" ${ext} title="${label}">${label} ${arrow}</a>`;
