@@ -28,6 +28,8 @@
       --yellow:      #FFCC00;
       --yellow-bg:   #FFFBE6;
       --yellow-ink:  #8B6B00;
+      --academic:    #0EA5E9;
+      --academic-bg: #F0F9FF;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -413,6 +415,12 @@
       color: var(--ink-2);
       font-size: 14px;
       line-height: 1.65;
+    }
+    .academic-results { display: none; margin-top: 26px; }
+    .academic-result-meta {
+      font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--academic);
+      margin-top: 8px;
     }
 
     /* responsive */
@@ -1100,7 +1108,7 @@
         writing tools, and thinking words. It is organized by level and does not count as a
         lesson glossary.
       </div>
-      <div class="levels-grid">
+      <div class="levels-grid" id="academicLevelGrid">
         <a class="level-card" href="vocab.html?module=academic&amp;level=1">
           <div class="level-card-num">L1</div>
           <div class="level-card-name">Academic Language</div>
@@ -1136,6 +1144,11 @@
           <div class="level-card-name">Academic Language</div>
           <div class="level-badge now">244 unique words</div>
         </a>
+      </div>
+      <div class="academic-results" id="academicResults">
+        <div class="set-label glossary-academic"><span class="dot"></span>Matching Academic Words</div>
+        <div class="vocab-grid" id="academicResultGrid"></div>
+        <div class="no-results" id="academicNoResults">No academic matches found</div>
       </div>
     </div><!-- /panel-academic -->
 
@@ -1193,10 +1206,12 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById('panel-' + key).classList.add('active');
-      document.querySelector('.search-box').style.display = (key === 'levels' || key === 'academic') ? 'none' : '';
+      document.querySelector('.search-box').style.display = key === 'levels' ? 'none' : '';
       searchInput.placeholder = key === 'grammar'
         ? "Search grammar — 'should', 'comparatives', 'who'..."
-        : "Search a word or a grammar point — 'pumpkin', 'comparatives', 'should'...";
+        : key === 'academic'
+          ? "Search Academic Language — 'summarize', 'main idea', 'compare'..."
+          : "Search a word or a grammar point — 'pumpkin', 'comparatives', 'should'...";
       doSearch(searchInput.value);
     });
 
@@ -1215,6 +1230,21 @@
     const clearBtn    = document.getElementById('clearSearch');
     const noResults   = document.getElementById('noResults');
     const grammarNoResults = document.getElementById('grammarNoResults');
+    const academicLevelGrid = document.getElementById('academicLevelGrid');
+    const academicResults = document.getElementById('academicResults');
+    const academicResultGrid = document.getElementById('academicResultGrid');
+    const academicNoResults = document.getElementById('academicNoResults');
+    let academicWords = [];
+
+    fetch('content/our-world/academic_vocab.json')
+      .then(res => res.json())
+      .then(data => {
+        academicWords = data.words || [];
+        if (activeTabKey() === 'academic') doSearch(searchInput.value);
+      })
+      .catch(() => {
+        academicWords = [];
+      });
 
     function activeTabKey() {
       const tab = document.querySelector('#tabsBar .tab.active');
@@ -1242,6 +1272,40 @@
       if (grammarNoResults) grammarNoResults.style.display = (q && totalVisible === 0) ? 'block' : 'none';
     }
 
+    function searchAcademic(q) {
+      academicResultGrid.innerHTML = '';
+      if (!q) {
+        academicLevelGrid.style.display = '';
+        academicResults.style.display = 'none';
+        return;
+      }
+      academicLevelGrid.style.display = 'none';
+      academicResults.style.display = 'block';
+      const matches = academicWords.filter(word => [
+        word.word,
+        word.meaning,
+        word.academic_type,
+        ...(word.common_partners || [])
+      ].filter(Boolean).join(' ').toLowerCase().includes(q));
+      matches.forEach(word => {
+        const tile = document.createElement('a');
+        tile.className = 'vocab-tile glossary-academic';
+        tile.href = `vocab.html?module=academic&level=all&id=${encodeURIComponent(word.id)}`;
+        const emoji = document.createElement('div');
+        emoji.className = 'emoji';
+        emoji.textContent = word.emoji || '📚';
+        const label = document.createElement('div');
+        label.className = 'word';
+        label.textContent = word.word || word.id;
+        const levels = document.createElement('div');
+        levels.className = 'academic-result-meta';
+        levels.textContent = (word.levels || []).map(level => `L${level}`).join(' / ');
+        tile.append(emoji, label, levels);
+        academicResultGrid.appendChild(tile);
+      });
+      academicNoResults.style.display = matches.length ? 'none' : 'block';
+    }
+
     function doSearch(raw) {
       const q = raw.toLowerCase().trim();
       clearBtn.style.display = q ? 'inline-block' : 'none';
@@ -1250,6 +1314,10 @@
 
       if (activeTabKey() === 'grammar') {
         searchGrammar(q);
+        return;
+      }
+      if (activeTabKey() === 'academic') {
+        searchAcademic(q);
         return;
       }
 
