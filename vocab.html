@@ -398,8 +398,8 @@
     }
 
     async function findEntry(level, wordId, unitHint, setHint, module) {
+      const academic = await loadJson('content/our-world/academic_vocab.json');
       if (module === 'academic') {
-        const academic = await loadJson('content/our-world/academic_vocab.json');
         if (academic && Array.isArray(academic.words)) {
           const hit = academic.words.find(w =>
             w.id === wordId && (level === 'all' || (w.levels || []).includes(level))
@@ -407,6 +407,12 @@
           if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
         }
         return null;
+      }
+      // Standalone academic links should always use the translated shared bank.
+      // Unit/set links remain tied to their lesson-specific vocabulary source.
+      if (!unitHint && !setHint && academic && Array.isArray(academic.words)) {
+        const hit = academic.words.find(w => w.id === wordId && (w.levels || []).includes(level));
+        if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
       }
       // 1. Try level-wide glossary.json
       const glossary = await loadJson(`content/our-world/level-${level}/glossary.json`);
@@ -420,8 +426,7 @@
         const hit = extras.words.find(w => w.id === wordId);
         if (hit) return { entry: hit, source: 'extras' };
       }
-      // 3. Backward compatibility for old Academic links that did not include module=academic.
-      const academic = await loadJson('content/our-world/academic_vocab.json');
+      // 3. Backward compatibility for academic words accessed through older lesson routes.
       if (academic && Array.isArray(academic.words)) {
         const hit = academic.words.find(w => w.id === wordId && (w.levels || []).includes(level));
         if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
