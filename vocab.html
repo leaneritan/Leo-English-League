@@ -209,8 +209,9 @@
     .collocations-list { display: flex; flex-direction: column; gap: 0; }
     .collocation { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .collocation:last-child { border-bottom: 0; }
-    .colloc-en { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; color: var(--ink); min-width: 110px; }
-    .colloc-en::before { content: attr(data-word) " "; color: var(--ink-3); font-weight: 400; }
+    .colloc-en { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; color: var(--ink); min-width: 210px; }
+    .colloc-head { color: var(--ink-3); font-weight: 500; }
+    .colloc-partner { color: var(--ink); font-weight: 700; }
     .colloc-arrow { color: var(--academic); font-weight: 700; }
     .colloc-jp { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: var(--ink-2); }
 
@@ -290,7 +291,8 @@
       .rich-section-body { padding: 16px 18px; }
       .en-block { font-size: 15px; }
       .jp-body { font-size: 15px; }
-      .colloc-en { min-width: 90px; font-size: 14px; }
+      .collocation { flex-wrap: wrap; gap: 8px 12px; }
+      .colloc-en { min-width: 100%; font-size: 14px; }
       .colloc-jp { font-size: 13px; }
     }
 
@@ -924,6 +926,7 @@
     function renderSectionCollocations(entry, headWord) {
       const cols = entry.collocations || [];
       if (cols.length === 0) return '';
+      const normalizedHead = String(headWord || '').trim();
       return `
         <section class="rich-section">
           <div class="rich-section-head">
@@ -934,11 +937,15 @@
           <div class="rich-section-body">
             <div class="collocations-list">
               ${cols.map(c => {
-                const phrase = c.en || '';
-                const prefix = phrase.toLowerCase().startsWith(headWord.toLowerCase()) ? '' : headWord;
+                const phrase = String(c.en || '').trim();
+                const startsWithHead = phrase.toLowerCase().startsWith(normalizedHead.toLowerCase());
+                const partner = startsWithHead ? phrase.slice(normalizedHead.length).trim() : phrase;
                 return `
                   <div class="collocation">
-                    <span class="colloc-en" data-word="${prefix}">${safeHTML(phrase)}</span>
+                    <span class="colloc-en">
+                      ${startsWithHead ? `<span class="colloc-head">${safeHTML(normalizedHead)}</span>` : ''}
+                      <span class="colloc-partner">${safeHTML(partner || phrase)}</span>
+                    </span>
                     <span class="colloc-arrow">→</span>
                     <span class="colloc-jp">${safeHTML(c.jp || '')}</span>
                   </div>
