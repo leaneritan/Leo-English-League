@@ -1064,15 +1064,44 @@ function loadM3() {
 function loadM4PlanRef() {
   const inv = lLoad(SAVE_PREFIX + 'm3-inv', '');
   const f1 = lLoad(SAVE_PREFIX + 'm3-f1', '');
+  const f2 = lLoad(SAVE_PREFIX + 'm3-f2', '');
+  const f3 = lLoad(SAVE_PREFIX + 'm3-f3', '');
   const o1 = lLoad(SAVE_PREFIX + 'm3-o1', '');
+  const o2 = lLoad(SAVE_PREFIX + 'm3-o2', '');
+  const o3 = lLoad(SAVE_PREFIX + 'm3-o3', '');
   const ref = document.getElementById('m4-plan-ref');
   if (inv || f1 || o1) {
-    ref.innerHTML = `<div class="ref-card"><div class="ref-card-title">📋 YOUR PLAN FROM MODULE 3</div>
-      <strong>Invention:</strong> ${inv || '?'}<br>
-      <strong>Fact:</strong> ${f1 || '...'}<br>
-      <strong>Opinion:</strong> ${o1 || '...'}</div>`;
+    const rows = [];
+    if (f1 || o1) rows.push(
+      '<div class="chart-cols">' +
+      '<div class="chart-col"><div class="chart-cell">' + (f1 || '…') + '</div></div>' +
+      '<div class="chart-col"><div class="chart-cell">' + (o1 || '…') + '</div></div>' +
+      '</div>'
+    );
+    if (f2 || o2) rows.push(
+      '<div class="chart-cols">' +
+      '<div class="chart-col"><div class="chart-cell">' + (f2 || '…') + '</div></div>' +
+      '<div class="chart-col"><div class="chart-cell">' + (o2 || '…') + '</div></div>' +
+      '</div>'
+    );
+    if (f3 || o3) rows.push(
+      '<div class="chart-cols">' +
+      '<div class="chart-col"><div class="chart-cell">' + (f3 || '…') + '</div></div>' +
+      '<div class="chart-col"><div class="chart-cell">' + (o3 || '…') + '</div></div>' +
+      '</div>'
+    );
+    ref.innerHTML =
+      '<div style="font-family:var(--fnh);font-size:.58rem;font-weight:700;letter-spacing:2px;color:var(--bl);margin-bottom:5px">📋 YOUR PLAN FROM MODULE 3</div>' +
+      '<div style="font-size:.78rem;font-weight:800;color:var(--ink2);margin-bottom:6px">Invention: <strong style=\"color:var(--or)\">' + (inv || '?') + '</strong></div>' +
+      '<div class="chart-wrap">' +
+        '<div class="chart-cols">' +
+          '<div class="chart-col"><div class="chart-hd bl">📌 FACTS</div></div>' +
+          '<div class="chart-col"><div class="chart-hd or">💭 MY OPINIONS</div></div>' +
+        '</div>' +
+        (rows.length ? rows.join('') : '<div class="chart-cols"><div class="chart-col"><div class="chart-cell" style="color:var(--ink3);font-style:italic">No facts added yet</div></div><div class="chart-col"><div class="chart-cell" style="color:var(--ink3);font-style:italic">No opinions added yet</div></div></div>') +
+      '</div>';
   } else {
-    ref.innerHTML = `<div class="ex-box"><div class="ex-lbl">TIP</div>Do Module 3 first to fill in your plan! But you can also write directly here.</div>`;
+    ref.innerHTML = '<div class="ex-box"><div class="ex-lbl">TIP</div>Complete Module 3 first to see your plan here! Then use it to write your paragraphs.</div>';
   }
 }
 
@@ -1689,6 +1718,5 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-<script src="unit-7-nav.js"></script>
 </body>
 </html>
