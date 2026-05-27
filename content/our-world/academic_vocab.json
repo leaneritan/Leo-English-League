@@ -11793,6 +11793,115 @@
       ]
     },
     {
+      "id": "evaluate",
+      "word": "evaluate",
+      "emoji": "⚖️",
+      "ipa": "/ɪˈvæl.ju.eɪt/",
+      "syllables": "e·val·u·ate",
+      "pos": "Verb",
+      "sample": "<b>Evaluate</b> each statement — is it true or false based on the photo?",
+      "jp_word": "評価する・判断する",
+      "jp_reading": "ひょうかする",
+      "jp_sentence": "証拠(しょうこ)をもとに、それぞれの文が正しいかどうか<b>評価(ひょうか)</b>しなさい。",
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4"
+      ],
+      "meaning": "To carefully look at evidence and decide whether something is correct, true, or of good quality.",
+      "jp_meaning": "「evaluate」は「評価(ひょうか)する・判断(はんだん)する」という意味です。証拠(しょうこ)や理由をもとに、「正しいか・良いか・本当か」を決めることです。ただ「思う」のではなく、根拠(こんきょ)をもとに判断します。",
+      "when_to_use": [
+        "Test: 'Evaluate whether each statement is true or false.'",
+        "Science: 'Evaluate the results of your experiment.'",
+        "Opinion: 'Evaluate which caption is best.'"
+      ],
+      "jp_when_to_use": [
+        "テスト: 'Evaluate whether each statement is true or false.' → 「それぞれの文が正しいかどうか判断しなさい」",
+        "理科: 'Evaluate the results.' → 「実験(じっけん)の結果を評価しなさい」"
+      ],
+      "how_to_use": {
+        "structure": "evaluate + WHAT",
+        "patterns": [
+          "evaluate + noun → evaluate the evidence",
+          "evaluate whether → evaluate whether it is true",
+          "evaluate how well → evaluate how well it works"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "evaluate + 評価するもの",
+        "patterns": [
+          "evaluate + 名詞: evaluate the results（結果を評価する）",
+          "evaluate whether: evaluate whether it is true（それが本当かどうか評価する）"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Evaluate whether each statement about the seal photo is true or false.",
+          "jp": "アザラシの写真についての各文が正しいか・間違(まちが)いかを判断(はんだん)しなさい。",
+          "context_en": "Test",
+          "context_jp": "テスト"
+        },
+        {
+          "en": "The VAR referee evaluates whether the goal was offside.",
+          "jp": "VAR審判(しんぱん)はゴールがオフサイドかどうかを評価(ひょうか)します。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        },
+        {
+          "en": "Scientists evaluate ocean pollution levels to protect sea life.",
+          "jp": "科学者は海の生き物を守るために、海の汚染(おせん)レベルを評価します。",
+          "context_en": "Science",
+          "context_jp": "理科"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "evaluate evidence",
+          "jp": "証拠をもとに判断する"
+        },
+        {
+          "en": "evaluate results",
+          "jp": "結果を評価する"
+        },
+        {
+          "en": "evaluate whether",
+          "jp": "～かどうか判断する"
+        },
+        {
+          "en": "critically evaluate",
+          "jp": "批判的に評価する"
+        },
+        {
+          "en": "evaluate a statement",
+          "jp": "文を評価する"
+        }
+      ],
+      "jp_note": "「evaluate」は「ただ見る」のではなく、「証拠(しょうこ)をもとに判断(はんだん)する」という意味です。サッカーのVAR審判がリプレイを見てゴールか決めるのと同じイメージ！",
+      "practice_prompt": "Read 3 statements about the harbor seal. Evaluate each one — True or False? Write one sentence of evidence for each.",
+      "jp_practice_prompt": "アザラシについての3つの文。それぞれ正しいか（True）・間違いか（False）を判断(はんだん)し、証拠(しょうこ)を1文で書きなさい。",
+      "kind": "academic_language",
+      "level": 4,
+      "source": "academic_vocab.json",
+      "academic_type": "academic thinking word",
+      "academic_category": "thinking",
+      "common_partners": [
+        "evaluate evidence",
+        "evaluate results",
+        "evaluate whether",
+        "critically evaluate",
+        "evaluate a statement"
+      ],
+      "levels": [
+        4
+      ],
+      "lesson_tags": [
+        "L4U6Op"
+      ]
+    },
+    {
       "id": "events",
       "word": "events",
       "emoji": "📅",
@@ -24039,6 +24148,116 @@
       ]
     },
     {
+      "id": "prohibition",
+      "word": "prohibition",
+      "emoji": "🚫",
+      "ipa": "/ˌprəʊ.hɪˈbɪʃ.ən/",
+      "syllables": "pro·hi·bi·tion",
+      "pos": "Noun",
+      "sample": "There is a <b>prohibition</b> on dumping garbage into the ocean.",
+      "jp_word": "禁止",
+      "jp_reading": "きんし",
+      "jp_sentence": "海にゴミを捨てることは<b>禁止(きんし)</b>されています。",
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4"
+      ],
+      "meaning": "An official rule or law that says you must NOT do something. The action is forbidden.",
+      "jp_meaning": "「prohibition」は「禁止(きんし)」という意味です。「してはいけない」という公式(こうしき)なルールや法律のことです。「can't」や「don't」が禁止を表します。",
+      "when_to_use": [
+        "Grammar: 'can't' and 'don't' express prohibition.",
+        "Signs: 'No fishing' = a prohibition on fishing.",
+        "Rules: 'Don't litter' = a prohibition on littering."
+      ],
+      "jp_when_to_use": [
+        "文法: 'can't'と'don't'は禁止(きんし)を表します",
+        "標識: 'No fishing' → 「釣り禁止」= 禁止の表現",
+        "ルール: 'Don't litter' → 「ゴミ捨て禁止」"
+      ],
+      "how_to_use": {
+        "structure": "a prohibition on + noun/gerund",
+        "patterns": [
+          "a prohibition on fishing",
+          "a prohibition against dumping",
+          "strict prohibition"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "a prohibition on + 名詞/動名詞",
+        "patterns": [
+          "a prohibition on fishing → 釣り禁止",
+          "strict prohibition → 厳格(げんかく)な禁止"
+        ]
+      },
+      "examples": [
+        {
+          "en": "There is a strict prohibition on overfishing in this area.",
+          "jp": "この地域(ちいき)では乱獲(らんかく)に対する厳格(げんかく)な禁止(きんし)があります。",
+          "context_en": "Grammar 1 / Environment",
+          "context_jp": "文法1・環境"
+        },
+        {
+          "en": "The sign shows a prohibition — you can't swim here.",
+          "jp": "その標識(ひょうしき)は禁止を示しています — ここでは泳げません。",
+          "context_en": "Signs / Rules",
+          "context_jp": "標識・ルール"
+        },
+        {
+          "en": "Red cards in soccer are a prohibition — you can't continue playing.",
+          "jp": "サッカーのレッドカードは禁止(きんし)の一種 — 試合(しあい)を続けることができません。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        }
+      ],
+      "collocations": [
+        {
+          "en": "a prohibition on",
+          "jp": "～の禁止"
+        },
+        {
+          "en": "prohibition against",
+          "jp": "～を禁止すること"
+        },
+        {
+          "en": "strict prohibition",
+          "jp": "厳しい禁止"
+        },
+        {
+          "en": "legal prohibition",
+          "jp": "法律による禁止"
+        },
+        {
+          "en": "prohibition sign",
+          "jp": "禁止の標識"
+        }
+      ],
+      "jp_note": "「prohibition」は「禁止(きんし)」です。文法では「can't」や「don't」が禁止を表します。「You can't throw trash in the ocean.」= 「海にゴミを捨ててはいけない」= prohibition！",
+      "practice_prompt": "Write 2 prohibition sentences using can't and don't about protecting the ocean.",
+      "jp_practice_prompt": "海を守ることについて、can'tとdon'tを使った禁止(きんし)の文を1つずつ書きなさい。",
+      "kind": "academic_language",
+      "level": 4,
+      "source": "academic_vocab.json",
+      "academic_type": "grammar term",
+      "academic_category": "grammar",
+      "common_partners": [
+        "a prohibition on",
+        "prohibition against",
+        "strict prohibition",
+        "legal prohibition",
+        "prohibition sign"
+      ],
+      "levels": [
+        4
+      ],
+      "lesson_tags": [
+        "L4U6G1"
+      ]
+    },
+    {
       "id": "pronoun",
       "word": "pronoun",
       "emoji": "🎨",
@@ -33676,7 +33895,7 @@
       ]
     }
   ],
-  "word_count": 244,
-  "updated": "2026-05-26",
+  "word_count": 246,
+  "updated": "2026-05-27",
   "source_note": "Consolidated from the original Level 1-6 academic language banks."
 }
