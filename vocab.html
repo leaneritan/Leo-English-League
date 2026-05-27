@@ -937,7 +937,8 @@
           <div class="rich-section-body">
             <div class="collocations-list">
               ${cols.map(c => {
-                const phrase = String(c.en || '').trim();
+                const phrase = String(typeof c === 'string' ? c : (c.en || '')).trim();
+                const japanese = typeof c === 'string' ? '' : (c.jp || '');
                 const startsWithHead = phrase.toLowerCase().startsWith(normalizedHead.toLowerCase());
                 const partner = startsWithHead ? phrase.slice(normalizedHead.length).trim() : phrase;
                 return `
@@ -946,8 +947,7 @@
                       ${startsWithHead ? `<span class="colloc-head">${safeHTML(normalizedHead)}</span>` : ''}
                       <span class="colloc-partner">${safeHTML(partner || phrase)}</span>
                     </span>
-                    <span class="colloc-arrow">→</span>
-                    <span class="colloc-jp">${safeHTML(c.jp || '')}</span>
+                    ${japanese ? `<span class="colloc-arrow">→</span><span class="colloc-jp">${safeHTML(japanese)}</span>` : ''}
                   </div>
                 `;
               }).join('')}
