@@ -2,16 +2,1311 @@
   "level": 4,
   "words": [
     {
+      "id": "analyze",
+      "word": "analyze",
+      "emoji": "🔬",
+      "ipa": "/ˈæn.ə.laɪz/",
+      "syllables": "an·a·lyze",
+      "pos": "Verb",
+      "sample": "We will <b>analyze</b> the photo to find information about the seal.",
+      "jp_word": "分析する",
+      "jp_reading": "ぶんせきする",
+      "jp_sentence": "写真を<b>分析(ぶんせき)</b>してアザラシについての情報を見つけます。",
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6Op",
+        "L4U8Op"
+      ],
+      "meaning": "To look at something very carefully — examining each part — in order to understand it fully.",
+      "jp_meaning": "「analyze」は「分析(ぶんせき)する」という意味です。何かを細かく調べて、一つひとつをよく理解することです。ただ見るのではなく、「なぜ？」「どのように？」を考えながら調べます。",
+      "when_to_use": [
+        "Test: 'Analyze the photo and answer the questions.'",
+        "Science: 'Analyze the data from the experiment.'",
+        "Everyday: 'Analyze a soccer replay to understand how the goal happened.'"
+      ],
+      "jp_when_to_use": [
+        "テスト: 'Analyze the photo.' → 「写真を分析しなさい」",
+        "理科: 'Analyze the data.' → 「データを分析しなさい」",
+        "日常: サッカーのゴールシーンをリプレイで細かく見て理解するのも「分析(ぶんせき)」"
+      ],
+      "how_to_use": {
+        "structure": "analyze + WHAT",
+        "patterns": [
+          "analyze + noun → analyze a photo",
+          "analyze + how/why → analyze why it happened",
+          "carefully analyze → carefully analyze the evidence"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "analyze + 分析するもの",
+        "patterns": [
+          "analyze + 名詞: analyze a photo（写真を分析する）",
+          "analyze + how/why: analyze how it happened（どうやって起きたか分析する）"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Analyze the photo and find three clues about where the seal lives.",
+          "jp": "写真を分析(ぶんせき)して、アザラシがどこに住んでいるかの手がかりを3つ見つけなさい。",
+          "context_en": "Test",
+          "context_jp": "テスト"
+        },
+        {
+          "en": "Scientists analyze ocean water every year to check for pollution.",
+          "jp": "科学者は毎年、海水を分析して汚染(おせん)がないか確認します。",
+          "context_en": "Science",
+          "context_jp": "理科"
+        },
+        {
+          "en": "The coach analyzed the game footage to improve the strategy.",
+          "jp": "コーチは試合映像(えいぞう)を分析して戦略(せんりゃく)を改善しました。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        }
+      ],
+      "collocations": [
+        "analyze a photo",
+        "analyze data",
+        "analyze information",
+        "analyze results",
+        "carefully analyze"
+      ],
+      "jp_note": "テストで'Analyze...'と出てきたら、「ただ見て答えるのではなく、細かく調べて説明する」という指示です。VARのサッカー審判(しんぱん)が映像を何度も見てゴールか判断するのと同じイメージ！",
+      "practice_prompt": "Look at the harbor seal photo. Analyze it! Write 3 observations: what you see, where it is, and how the seal looks.",
+      "jp_practice_prompt": "アザラシの写真を見てください。分析してみよう！①何が見えるか ②どこにいるか ③アザラシの様子 の3つを英語で書きなさい。"
+    },
+    {
+      "id": "describe",
+      "word": "describe",
+      "emoji": "📝",
+      "ipa": "/dɪˈskraɪb/",
+      "syllables": "de·scribe",
+      "pos": "Verb",
+      "sample": "Please <b>describe</b> what you see in the photo — the animal, the place, and the colors.",
+      "jp_word": "描写する・説明する",
+      "jp_reading": "びょうしゃする",
+      "jp_sentence": "写真の中のアザラシの様子を<b>描写(びょうしゃ)</b>してください。",
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6Op",
+        "L4U8Op"
+      ],
+      "meaning": "To tell or write what something looks like, where it is, or what is happening — using clear, specific words so another person can picture it.",
+      "jp_meaning": "「describe」は「描写(びょうしゃ)する・詳(くわ)しく説明する」という意味です。見た目・場所・様子を言葉で詳しく伝えて、聞いた人が頭の中で想像できるようにすることです。",
+      "when_to_use": [
+        "Test: 'Describe the photo in complete sentences.'",
+        "Writing: 'Describe a sea animal you find interesting.'",
+        "Speaking: 'Can you describe what you see?'"
+      ],
+      "jp_when_to_use": [
+        "テスト: 'Describe the photo.' → 「写真を描写しなさい」",
+        "ライティング: 'Describe a sea animal.' → 「海の生き物を説明しなさい」",
+        "スピーキング: 'Can you describe what you see?' → 「見えているものを説明できますか？」"
+      ],
+      "how_to_use": {
+        "structure": "describe + WHAT + (details)",
+        "patterns": [
+          "describe + noun → describe the seal",
+          "describe + what/where/how → describe where it lives",
+          "describe in detail → describe in detail"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "describe + 説明するもの + (くわしい情報)",
+        "patterns": [
+          "describe + 名詞: describe the seal（アザラシを描写する）",
+          "describe + what: describe what you see（見えているものを説明する）"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Describe the seal in the photo using at least three details.",
+          "jp": "写真のアザラシを、少なくとも3つの詳細(しょうさい)を使って描写(びょうしゃ)しなさい。",
+          "context_en": "Test",
+          "context_jp": "テスト"
+        },
+        {
+          "en": "Can you describe your favorite sea animal?",
+          "jp": "あなたの好きな海の生き物を説明できますか？",
+          "context_en": "Spoken",
+          "context_jp": "会話"
+        },
+        {
+          "en": "Describe what happens when there is an oil spill in the ocean.",
+          "jp": "海で油流出(ゆりゅうしゅつ)が起きると何が起こるか説明しなさい。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        }
+      ],
+      "collocations": [
+        "describe a photo",
+        "describe what you see",
+        "describe in detail",
+        "describe the characteristics",
+        "describe how"
+      ],
+      "jp_note": "「describe」は「描写する」と訳されますが、もっとシンプルに「くわしく言葉で伝える」と考えましょう。WHO（誰？）・WHAT（何？）・WHERE（どこ？）・HOW（どんな様子？）の順に話すと上手に描写できます！",
+      "practice_prompt": "Describe the harbor seal photo using WHO, WHAT, WHERE, and HOW. Write at least 3 sentences.",
+      "jp_practice_prompt": "アザラシの写真をWHO・WHAT・WHERE・HOWの順に、英語で3文以上書きなさい。"
+    },
+    {
+      "id": "evaluate",
+      "word": "evaluate",
+      "emoji": "⚖️",
+      "ipa": "/ɪˈvæl.ju.eɪt/",
+      "syllables": "e·val·u·ate",
+      "pos": "Verb",
+      "sample": "<b>Evaluate</b> each statement — is it true or false based on the photo?",
+      "jp_word": "評価する・判断する",
+      "jp_reading": "ひょうかする",
+      "jp_sentence": "証拠(しょうこ)をもとに、それぞれの文が正しいかどうか<b>評価(ひょうか)</b>しなさい。",
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6Op"
+      ],
+      "meaning": "To carefully look at evidence and decide whether something is correct, true, or of good quality.",
+      "jp_meaning": "「evaluate」は「評価(ひょうか)する・判断(はんだん)する」という意味です。証拠(しょうこ)や理由をもとに、「正しいか・良いか・本当か」を決めることです。ただ「思う」のではなく、根拠(こんきょ)をもとに判断します。",
+      "when_to_use": [
+        "Test: 'Evaluate whether each statement is true or false.'",
+        "Science: 'Evaluate the results of your experiment.'",
+        "Opinion: 'Evaluate which caption is best.'"
+      ],
+      "jp_when_to_use": [
+        "テスト: 'Evaluate whether each statement is true or false.' → 「それぞれの文が正しいかどうか判断しなさい」",
+        "理科: 'Evaluate the results.' → 「実験(じっけん)の結果を評価しなさい」"
+      ],
+      "how_to_use": {
+        "structure": "evaluate + WHAT",
+        "patterns": [
+          "evaluate + noun → evaluate the evidence",
+          "evaluate whether → evaluate whether it is true",
+          "evaluate how well → evaluate how well it works"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "evaluate + 評価するもの",
+        "patterns": [
+          "evaluate + 名詞: evaluate the results（結果を評価する）",
+          "evaluate whether: evaluate whether it is true（それが本当かどうか評価する）"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Evaluate whether each statement about the seal photo is true or false.",
+          "jp": "アザラシの写真についての各文が正しいか・間違(まちが)いかを判断(はんだん)しなさい。",
+          "context_en": "Test",
+          "context_jp": "テスト"
+        },
+        {
+          "en": "The VAR referee evaluates whether the goal was offside.",
+          "jp": "VAR審判(しんぱん)はゴールがオフサイドかどうかを評価(ひょうか)します。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        },
+        {
+          "en": "Scientists evaluate ocean pollution levels to protect sea life.",
+          "jp": "科学者は海の生き物を守るために、海の汚染(おせん)レベルを評価します。",
+          "context_en": "Science",
+          "context_jp": "理科"
+        }
+      ],
+      "collocations": [
+        "evaluate evidence",
+        "evaluate results",
+        "evaluate whether",
+        "critically evaluate",
+        "evaluate a statement"
+      ],
+      "jp_note": "「evaluate」は「ただ見る」のではなく、「証拠(しょうこ)をもとに判断(はんだん)する」という意味です。サッカーのVAR審判がリプレイを見てゴールか決めるのと同じイメージ！",
+      "practice_prompt": "Read 3 statements about the harbor seal. Evaluate each one — True or False? Write one sentence of evidence for each.",
+      "jp_practice_prompt": "アザラシについての3つの文。それぞれ正しいか（True）・間違いか（False）を判断(はんだん)し、証拠(しょうこ)を1文で書きなさい。"
+    },
+    {
+      "id": "caption",
+      "word": "caption",
+      "emoji": "🏷️",
+      "ipa": "/ˈkæp.ʃən/",
+      "syllables": "cap·tion",
+      "pos": "Noun / Verb",
+      "sample": "Write a <b>caption</b> for the seal photo — include who is in it and where it was taken.",
+      "jp_word": "キャプション・説明文",
+      "jp_reading": "キャプション",
+      "jp_sentence": "アザラシの写真に<b>キャプション</b>を書きなさい。誰が・どこにいるかを入れましょう。",
+      "jp_tags": [
+        "名詞",
+        "動詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6Op",
+        "L4U8Op"
+      ],
+      "meaning": "A short piece of text placed below a photo or picture that tells the reader who or what is shown, and often where or when it was taken.",
+      "jp_meaning": "「caption」は写真や絵の下に書かれた短い説明文のことです。「誰が(or何が)・どこで」を短くまとめたものです。長すぎず、具体的(ぐたいてき)であることが大切です。",
+      "when_to_use": [
+        "Under newspaper and magazine photos",
+        "In National Geographic articles next to wildlife photos",
+        "On social media posts as a description"
+      ],
+      "jp_when_to_use": [
+        "新聞(しんぶん)や雑誌(ざっし)の写真の下",
+        "ナショナルジオグラフィックの記事の中の写真の横",
+        "SNSの投稿(とうこう)の説明文"
+      ],
+      "how_to_use": {
+        "structure": "A [WHO/WHAT], [WHERE].",
+        "patterns": [
+          "A [animal] + verb + location",
+          "WHO + WHERE — short and specific",
+          "Keep under 15 words"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "A [誰が/何が], [どこで].",
+        "patterns": [
+          "短く具体的に: A harbor seal, California, USA.",
+          "15語以内が目安 — キャプションは段落(だんらく)ではない！"
+        ]
+      },
+      "examples": [
+        {
+          "en": "A harbor seal, California, USA.",
+          "jp": "アメリカ・カリフォルニアのゴマフアザラシ。",
+          "context_en": "Real caption (Student Book p.92)",
+          "context_jp": "教科書92ページの実際のキャプション"
+        },
+        {
+          "en": "A harbor seal swims through kelp in California.",
+          "jp": "カリフォルニアでコンブの中を泳ぐゴマフアザラシ。",
+          "context_en": "Expanded caption",
+          "context_jp": "少しくわしいキャプション"
+        },
+        {
+          "en": "Write a caption for the photo on page 92.",
+          "jp": "92ページの写真にキャプションを書きなさい。",
+          "context_en": "Test instruction",
+          "context_jp": "テストの指示文"
+        }
+      ],
+      "collocations": [
+        "write a caption",
+        "photo caption",
+        "image caption",
+        "add a caption",
+        "caption a photo"
+      ],
+      "jp_note": "「caption」は日本語でも「キャプション」と使われます！テストで'Write a caption'と出たら、合言葉は「短く・具体的(ぐたいてき)に・15語以内」です。",
+      "practice_prompt": "Write a caption for the harbor seal photo. Include WHO and WHERE. Keep it under 12 words.",
+      "jp_practice_prompt": "アザラシの写真のキャプションを書いてみよう。WHO（誰/何）とWHERE（どこ）を入れて、12語以内で書きなさい。"
+    },
+    {
+      "id": "obligation",
+      "word": "obligation",
+      "emoji": "📋",
+      "ipa": "/ˌɒb.lɪˈɡeɪ.ʃən/",
+      "syllables": "ob·li·ga·tion",
+      "pos": "Noun",
+      "sample": "We have an <b>obligation</b> to protect the oceans for future generations.",
+      "jp_word": "義務",
+      "jp_reading": "ぎむ",
+      "jp_sentence": "私たちは将来(しょうらい)の世代のために海を守る<b>義務(ぎむ)</b>があります。",
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6G1"
+      ],
+      "meaning": "Something you must do because of a rule, law, duty, or moral responsibility. You do not have a choice.",
+      "jp_meaning": "「obligation」は「義務(ぎむ)」という意味です。ルールや法律(ほうりつ)、または道徳的(どうとくてき)な責任(せきにん)から「しなければならないこと」です。選択(せんたく)の余地(よち)がない「しなければならないこと」を表します。",
+      "when_to_use": [
+        "Grammar: 'have to' and 'must' express obligation.",
+        "Ethics class: 'We have an obligation to protect nature.'",
+        "Law: 'It is a legal obligation to recycle.'"
+      ],
+      "jp_when_to_use": [
+        "文法: 'have to'と'must'は義務(ぎむ)を表します",
+        "道徳: 'We have an obligation to protect nature.' → 「私たちは自然を守る義務がある」",
+        "法律: 'It is a legal obligation to recycle.' → 「リサイクルは法的義務です」"
+      ],
+      "how_to_use": {
+        "structure": "have an obligation to + VERB",
+        "patterns": [
+          "have an obligation to protect",
+          "a moral obligation to help",
+          "legal obligation to follow the rules"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "have an obligation to + 動詞",
+        "patterns": [
+          "have an obligation to protect → 守る義務がある",
+          "a moral obligation → 道徳的(どうとくてき)な義務"
+        ]
+      },
+      "examples": [
+        {
+          "en": "We have an obligation to keep the oceans clean.",
+          "jp": "私たちは海をきれいに保つ義務(ぎむ)があります。",
+          "context_en": "Grammar 1 / Environment",
+          "context_jp": "文法1・環境"
+        },
+        {
+          "en": "Countries have an obligation to stop ocean pollution.",
+          "jp": "各国は海洋汚染(かいようおせん)を止める義務があります。",
+          "context_en": "Law / Environment",
+          "context_jp": "法律・環境"
+        },
+        {
+          "en": "In soccer, players have an obligation to follow the referee's decisions.",
+          "jp": "サッカーでは、選手は審判(しんぱん)の判定(はんてい)に従(したが)う義務があります。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        }
+      ],
+      "collocations": [
+        "have an obligation to",
+        "moral obligation",
+        "legal obligation",
+        "obligation to protect",
+        "sense of obligation"
+      ],
+      "jp_note": "「obligation」は日本語の「義務(ぎむ)」に直(なお)訳されます。文法では「have to」や「must」が義務を表します。「I have to protect the oceans.」= 「海を守る義務がある」。学校でよく出てくる単語なので覚えておきましょう！",
+      "practice_prompt": "Write 2 sentences about things we have an obligation to do — one about the ocean and one about school.",
+      "jp_practice_prompt": "義務(ぎむ)について2文書きなさい — 海に関すること1文と、学校に関すること1文。"
+    },
+    {
+      "id": "prohibition",
+      "word": "prohibition",
+      "emoji": "🚫",
+      "ipa": "/ˌprəʊ.hɪˈbɪʃ.ən/",
+      "syllables": "pro·hi·bi·tion",
+      "pos": "Noun",
+      "sample": "There is a <b>prohibition</b> on dumping garbage into the ocean.",
+      "jp_word": "禁止",
+      "jp_reading": "きんし",
+      "jp_sentence": "海にゴミを捨てることは<b>禁止(きんし)</b>されています。",
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6G1"
+      ],
+      "meaning": "An official rule or law that says you must NOT do something. The action is forbidden.",
+      "jp_meaning": "「prohibition」は「禁止(きんし)」という意味です。「してはいけない」という公式(こうしき)なルールや法律のことです。「can't」や「don't」が禁止を表します。",
+      "when_to_use": [
+        "Grammar: 'can't' and 'don't' express prohibition.",
+        "Signs: 'No fishing' = a prohibition on fishing.",
+        "Rules: 'Don't litter' = a prohibition on littering."
+      ],
+      "jp_when_to_use": [
+        "文法: 'can't'と'don't'は禁止(きんし)を表します",
+        "標識: 'No fishing' → 「釣り禁止」= 禁止の表現",
+        "ルール: 'Don't litter' → 「ゴミ捨て禁止」"
+      ],
+      "how_to_use": {
+        "structure": "a prohibition on + noun/gerund",
+        "patterns": [
+          "a prohibition on fishing",
+          "a prohibition against dumping",
+          "strict prohibition"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "a prohibition on + 名詞/動名詞",
+        "patterns": [
+          "a prohibition on fishing → 釣り禁止",
+          "strict prohibition → 厳格(げんかく)な禁止"
+        ]
+      },
+      "examples": [
+        {
+          "en": "There is a strict prohibition on overfishing in this area.",
+          "jp": "この地域(ちいき)では乱獲(らんかく)に対する厳格(げんかく)な禁止(きんし)があります。",
+          "context_en": "Grammar 1 / Environment",
+          "context_jp": "文法1・環境"
+        },
+        {
+          "en": "The sign shows a prohibition — you can't swim here.",
+          "jp": "その標識(ひょうしき)は禁止を示しています — ここでは泳げません。",
+          "context_en": "Signs / Rules",
+          "context_jp": "標識・ルール"
+        },
+        {
+          "en": "Red cards in soccer are a prohibition — you can't continue playing.",
+          "jp": "サッカーのレッドカードは禁止(きんし)の一種 — 試合(しあい)を続けることができません。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        }
+      ],
+      "collocations": [
+        "a prohibition on",
+        "prohibition against",
+        "strict prohibition",
+        "legal prohibition",
+        "prohibition sign"
+      ],
+      "jp_note": "「prohibition」は「禁止(きんし)」です。文法では「can't」や「don't」が禁止を表します。「You can't throw trash in the ocean.」= 「海にゴミを捨ててはいけない」= prohibition！",
+      "practice_prompt": "Write 2 prohibition sentences using can't and don't about protecting the ocean.",
+      "jp_practice_prompt": "海を守ることについて、can'tとdon'tを使った禁止(きんし)の文を1つずつ書きなさい。"
+    },
+    {
+      "id": "definition",
+      "word": "definition",
+      "emoji": "📖",
+      "ipa": "/ˌdef.ɪˈnɪʃ.ən/",
+      "syllables": "def·i·ni·tion",
+      "pos": "Noun",
+      "sample": "Write the <b>definition</b> of the word 'organism' in your own words.",
+      "jp_word": "定義",
+      "jp_reading": "ていぎ",
+      "jp_sentence": "「organism」という単語の<b>定義(ていぎ)</b>をあなた自身の言葉で書きなさい。",
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6Re"
+      ],
+      "meaning": "A statement that explains exactly what a word, idea, or thing means — usually short, clear, and specific.",
+      "jp_meaning": "「definition」は「定義(ていぎ)」という意味です。ある単語や概念(がいねん)が「何を意味するか」を正確(せいかく)に説明した短い文のことです。辞書(じしょ)に書いてあるような説明文です。",
+      "when_to_use": [
+        "Reading: 'Complete the definitions.'",
+        "Test: 'Write a definition of biodegradable.'",
+        "Vocabulary study: looking up definitions in a dictionary."
+      ],
+      "jp_when_to_use": [
+        "リーディング: 'Complete the definitions.' → 「定義を完成させなさい」",
+        "テスト: 'Write a definition of biodegradable.' → 「biodegradableの定義を書きなさい」",
+        "語彙(ごい)学習: 辞書(じしょ)で定義を調べる"
+      ],
+      "how_to_use": {
+        "structure": "the definition of + WORD",
+        "patterns": [
+          "the definition of a word",
+          "write a definition",
+          "give a definition",
+          "look up the definition"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "the definition of + 単語",
+        "patterns": [
+          "the definition of a word → 単語の定義",
+          "write a definition → 定義を書く",
+          "look up the definition → 定義を調べる"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Read the definitions and complete the sentences about corals.",
+          "jp": "定義(ていぎ)を読んで、サンゴについての文を完成させなさい。",
+          "context_en": "Reading task",
+          "context_jp": "リーディング課題"
+        },
+        {
+          "en": "The definition of 'polyp' is a tiny sea animal that builds coral reefs.",
+          "jp": "「polyp」の定義(ていぎ)は「サンゴ礁(しょう)を作る小さな海の生き物」です。",
+          "context_en": "Vocabulary",
+          "context_jp": "語彙"
+        },
+        {
+          "en": "What is the definition of 'overfishing'?",
+          "jp": "「overfishing」の定義(ていぎ)は何ですか？",
+          "context_en": "Test question",
+          "context_jp": "テストの質問"
+        }
+      ],
+      "collocations": [
+        "the definition of",
+        "write a definition",
+        "give a definition",
+        "look up the definition",
+        "dictionary definition"
+      ],
+      "jp_note": "「definition」は「定義(ていぎ)」です。テストで'Complete the definitions'と出たら、「単語の意味を説明する文を完成させなさい」という指示です。辞書(じしょ)に書いてあるような説明が「definition」です！",
+      "practice_prompt": "Write a definition for 'overfishing' in your own words. Keep it under 20 words.",
+      "jp_practice_prompt": "「overfishing」の定義(ていぎ)をあなた自身の言葉で書きなさい。20語以内にしましょう。"
+    },
+    {
+      "id": "diagram",
+      "word": "diagram",
+      "emoji": "📊",
+      "ipa": "/ˈdaɪ.ə.ɡræm/",
+      "syllables": "di·a·gram",
+      "pos": "Noun",
+      "sample": "Look at the <b>diagram</b> and label the three parts of the coral polyp.",
+      "jp_word": "図・ダイアグラム",
+      "jp_reading": "ず",
+      "jp_sentence": "<b>図(ず)</b>を見て、サンゴポリプの3つの部分にラベルをつけなさい。",
+      "jp_tags": [
+        "名詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6Re"
+      ],
+      "meaning": "A drawing or picture — often with labels and arrows — that explains how something works, what something is made of, or what it looks like.",
+      "jp_meaning": "「diagram」は「図(ず)・ダイアグラム」という意味です。ラベルや矢印(やじるし)がついた絵や図で、何かの仕組(しく)みや構造(こうぞう)、見た目を説明するものです。教科書によく出てきます。",
+      "when_to_use": [
+        "Reading: 'Look at the diagram and answer questions.'",
+        "Science: 'Draw a diagram of the ocean layers.'",
+        "Test: 'Label the parts of the diagram.'"
+      ],
+      "jp_when_to_use": [
+        "リーディング: 'Look at the diagram.' → 「図を見なさい」",
+        "理科: 'Draw a diagram of the ocean layers.' → 「海の層(そう)の図を描きなさい」",
+        "テスト: 'Label the parts of the diagram.' → 「図の各部分にラベルをつけなさい」"
+      ],
+      "how_to_use": {
+        "structure": "look at / draw / label + the diagram",
+        "patterns": [
+          "look at the diagram",
+          "draw a diagram",
+          "label the diagram",
+          "read the diagram"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "look at / draw / label + the diagram",
+        "patterns": [
+          "look at the diagram → 図を見る",
+          "draw a diagram → 図を描く",
+          "label the diagram → 図にラベルをつける"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Look at the diagram of the coral polyp and label parts 1, 2, and 3.",
+          "jp": "サンゴポリプの図(ず)を見て、1・2・3の部分にラベルをつけなさい。",
+          "context_en": "Reading task",
+          "context_jp": "リーディング課題"
+        },
+        {
+          "en": "The diagram shows the three layers of the ocean.",
+          "jp": "その図(ず)は海の3つの層(そう)を示しています。",
+          "context_en": "Science / Vocabulary 1",
+          "context_jp": "理科・語彙1"
+        },
+        {
+          "en": "Draw a diagram to show how pollution affects sea animals.",
+          "jp": "汚染(おせん)が海の生き物にどう影響(えいきょう)するかを示す図(ず)を描きなさい。",
+          "context_en": "Writing / Project",
+          "context_jp": "ライティング・プロジェクト"
+        }
+      ],
+      "collocations": [
+        "look at the diagram",
+        "draw a diagram",
+        "label a diagram",
+        "read a diagram",
+        "Venn diagram"
+      ],
+      "jp_note": "「diagram」は「図(ず)」です。理科(りか)や英語の教科書でよく出てくる言葉です。テストで'Look at the diagram'と出たら「図を見なさい」、'Label the diagram'なら「図にラベルをつけなさい」という指示です！",
+      "practice_prompt": "Draw a simple diagram of the ocean layers (sunlit / twilight / midnight zone). Add labels in English.",
+      "jp_practice_prompt": "海の層(そう)（日光帯・薄明(はくめい)帯・深海帯）の簡単な図(ず)を描いて、英語でラベルをつけなさい。"
+    },
+    {
+      "id": "label",
+      "word": "label",
+      "emoji": "🔖",
+      "ipa": "/ˈleɪ.bəl/",
+      "syllables": "la·bel",
+      "pos": "Noun / Verb",
+      "sample": "Write a <b>label</b> for each part of the diagram — mouth, tentacle, and stomach.",
+      "jp_word": "ラベル・名前をつける",
+      "jp_reading": "ラベル・なまえをつける",
+      "jp_sentence": "図(ず)の各部分に<b>ラベル</b>（名前）をつけなさい — 口・触手・胃。",
+      "jp_tags": [
+        "名詞",
+        "動詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U6Re"
+      ],
+      "meaning": "A word or short text written on or next to something — in a picture or diagram — to identify what it is. As a verb: to write a label on something.",
+      "jp_meaning": "「label」は「ラベル・名前(なまえ)をつける」という意味です。図(ず)や写真の中の部分に「これは何か」を示す短い言葉を書くことです。動詞としても使われます（to label = ラベルをつける）。",
+      "when_to_use": [
+        "Reading: 'Write a label for each number.'",
+        "Science: 'Label the parts of the animal.'",
+        "Test: 'Look at the diagram and add labels.'"
+      ],
+      "jp_when_to_use": [
+        "リーディング: 'Write a label for each number.' → 「それぞれの番号にラベルを書きなさい」",
+        "理科: 'Label the parts of the animal.' → 「動物の各部分にラベルをつけなさい」",
+        "テスト: 'Add labels to the diagram.' → 「図にラベルを追加しなさい」"
+      ],
+      "how_to_use": {
+        "structure": "write / add a label + for + WHAT",
+        "patterns": [
+          "write a label for each part",
+          "label the diagram",
+          "add labels to the picture"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "write / add a label + for + 何",
+        "patterns": [
+          "write a label for each part → 各部分にラベルを書く",
+          "label the diagram → 図にラベルをつける"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Write a label for each numbered part of the coral polyp diagram.",
+          "jp": "サンゴポリプの図(ず)の番号がついた各部分にラベルを書きなさい。",
+          "context_en": "Reading task",
+          "context_jp": "リーディング課題"
+        },
+        {
+          "en": "Label the mouth, tentacle, and stomach of the polyp.",
+          "jp": "ポリプの口・触手(しょくしゅ)・胃(い)にラベルをつけなさい。",
+          "context_en": "Science",
+          "context_jp": "理科"
+        },
+        {
+          "en": "The label on the bottle says 'not biodegradable'.",
+          "jp": "ボトルのラベルには「生分解性(せいぶんかいせい)なし」と書いてあります。",
+          "context_en": "Vocabulary 2",
+          "context_jp": "語彙2"
+        }
+      ],
+      "collocations": [
+        "write a label",
+        "add a label",
+        "label the diagram",
+        "label the parts",
+        "the label says"
+      ],
+      "jp_note": "「label」は名詞と動詞の両方に使われます。名詞: 'Write a label' = ラベルを書く。動詞: 'Label the diagram' = 図にラベルをつける。「caption」（写真の下の説明）と混同(こんどう)しないように注意！",
+      "practice_prompt": "Draw a simple sea animal (seal, shark, or octopus). Label at least 3 body parts in English.",
+      "jp_practice_prompt": "簡単な海の生き物（アザラシ・サメ・タコ）を描いて、体の部分を英語で3つ以上ラベルをつけなさい。"
+    },
+    {
+      "id": "flippers",
+      "word": "flippers",
+      "emoji": "🏊",
+      "ipa": "/ˈflɪp.ərz/",
+      "syllables": "flip·pers",
+      "pos": "Noun (plural)",
+      "sample": "The seal uses its <b>flippers</b> to swim fast through the water.",
+      "jp_word": "ひれあし",
+      "jp_reading": "ひれあし",
+      "jp_sentence": "アザラシは<b>ひれあし</b>を使って速く泳ぎます。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6Op"
+      ]
+    },
+    {
+      "id": "kelp",
+      "word": "kelp",
+      "emoji": "🌿",
+      "ipa": "/kɛlp/",
+      "syllables": "kelp",
+      "pos": "Noun (uncountable)",
+      "sample": "The seal swims through a forest of tall <b>kelp</b>.",
+      "jp_word": "コンブ",
+      "jp_reading": "コンブ",
+      "jp_sentence": "アザラシは大きな<b>コンブ</b>の森の中を泳ぎます。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6Op"
+      ]
+    },
+    {
+      "id": "seal",
+      "word": "seal",
+      "emoji": "🦭",
+      "ipa": "/siːl/",
+      "syllables": "seal",
+      "pos": "Noun",
+      "sample": "A <b>seal</b> can swim in the ocean and rest on land.",
+      "jp_word": "アザラシ",
+      "jp_reading": "アザラシ",
+      "jp_sentence": "<b>アザラシ</b>は海で泳いだり、陸で休んだりします。",
+      "jp_tags": [
+        "名詞",
+        "動物"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6Op"
+      ]
+    },
+    {
+      "id": "seaweed",
+      "word": "seaweed",
+      "emoji": "🪸",
+      "ipa": "/ˈsiːwiːd/",
+      "syllables": "sea·weed",
+      "pos": "Noun (uncountable)",
+      "sample": "<b>Seaweed</b> grows from the bottom of the ocean. Kelp is a type of seaweed.",
+      "jp_word": "海藻",
+      "jp_reading": "かいそう",
+      "jp_sentence": "<b>海藻(かいそう)</b>は海の底から生えています。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6Op"
+      ]
+    },
+    {
+      "id": "underwater",
+      "word": "underwater",
+      "emoji": "🤿",
+      "ipa": "/ˌʌn.dəˈwɔː.tər/",
+      "syllables": "un·der·wa·ter",
+      "pos": "Adjective / Adverb",
+      "sample": "The seal swims <b>underwater</b> in the kelp forest.",
+      "jp_word": "水中で",
+      "jp_reading": "すいちゅうで",
+      "jp_sentence": "アザラシはコンブの森の<b>水中(すいちゅう)</b>を泳ぎます。",
+      "jp_tags": [
+        "形容詞",
+        "副詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6Op"
+      ]
+    },
+    {
+      "id": "whiskers",
+      "word": "whiskers",
+      "emoji": "🐱",
+      "ipa": "/ˈwɪs.kərz/",
+      "syllables": "whis·kers",
+      "pos": "Noun (plural)",
+      "sample": "The seal's <b>whiskers</b> help it detect fish in dark water.",
+      "jp_word": "ひげ",
+      "jp_reading": "ひげ",
+      "jp_sentence": "アザラシの<b>ひげ</b>は暗い水の中で魚を見つけるのに役立ちます。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6Op"
+      ]
+    },
+    {
+      "id": "pop-top",
+      "word": "pop-top",
+      "emoji": "🥤",
+      "ipa": "/ˈpɒp.tɒp/",
+      "syllables": "pop-top",
+      "pos": "Noun",
+      "sample": "A <b>pop-top</b> from a can is not biodegradable and can harm sea animals.",
+      "jp_word": "缶のプルタブ",
+      "jp_reading": "かんのプルタブ",
+      "jp_sentence": "缶の<b>プルタブ</b>は生分解性(せいぶんかいせい)がなく、海の生き物を傷つける可能性があります。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6So"
+      ]
+    },
+    {
+      "id": "sand",
+      "word": "sand",
+      "emoji": "🏖️",
+      "ipa": "/sænd/",
+      "syllables": "sand",
+      "pos": "Noun (uncountable)",
+      "sample": "We must not leave garbage on the <b>sand</b> at the beach.",
+      "jp_word": "砂",
+      "jp_reading": "すな",
+      "jp_sentence": "ビーチの<b>砂(すな)</b>にゴミを残してはいけません。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6So"
+      ]
+    },
+    {
+      "id": "shells",
+      "word": "shells",
+      "emoji": "🐚",
+      "ipa": "/ʃɛlz/",
+      "syllables": "shells",
+      "pos": "Noun (plural)",
+      "sample": "Animals use <b>shells</b> to protect their soft bodies.",
+      "jp_word": "貝殻",
+      "jp_reading": "かいがら",
+      "jp_sentence": "動物は柔(やわ)らかい体を守るために<b>貝殻(かいがら)</b>を使います。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "related",
+      "tags": [
+        "L4U6So"
+      ]
+    },
+    {
+      "id": "mysterious",
+      "word": "mysterious",
+      "emoji": "🔮",
+      "ipa": "/mɪˈstɪər.i.əs/",
+      "syllables": "mys·te·ri·ous",
+      "pos": "Adjective",
+      "sample": "Many <b>mysterious</b> animals live in the dark midnight zone of the ocean.",
+      "jp_word": "神秘的な",
+      "jp_reading": "しんぴてきな",
+      "jp_sentence": "多くの<b>神秘的(しんぴてき)</b>な動物が海の暗い深海帯に住んでいます。",
+      "jp_tags": [
+        "形容詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6V1"
+      ]
+    },
+    {
+      "id": "transportation",
+      "word": "transportation",
+      "emoji": "🚢",
+      "ipa": "/ˌtræns.pɔːˈteɪ.ʃən/",
+      "syllables": "trans·por·ta·tion",
+      "pos": "Noun",
+      "sample": "We use the ocean for <b>transportation</b> — ships carry goods across the world.",
+      "jp_word": "交通・輸送",
+      "jp_reading": "こうつう・ゆそう",
+      "jp_sentence": "私たちは<b>輸送(ゆそう)</b>のために海を使っています — 船が世界中に荷物を運びます。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6V1"
+      ]
+    },
+    {
+      "id": "twilight",
+      "word": "twilight",
+      "emoji": "🌑",
+      "ipa": "/ˈtwaɪ.laɪt/",
+      "syllables": "twi·light",
+      "pos": "Noun / Adjective",
+      "sample": "The <b>twilight</b> zone of the ocean goes from 200 to 1,000 meters deep.",
+      "jp_word": "薄暮・薄明帯",
+      "jp_reading": "はくぼ・はくめいたい",
+      "jp_sentence": "海の<b>薄明帯(はくめいたい)</b>は深さ200メートルから1,000メートルです。",
+      "jp_tags": [
+        "名詞",
+        "形容詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6V1"
+      ]
+    },
+    {
+      "id": "habitats",
+      "word": "habitats",
+      "emoji": "🏕️",
+      "ipa": "/ˈhæb.ɪ.tæts/",
+      "syllables": "hab·i·tats",
+      "pos": "Noun (plural)",
+      "sample": "We must protect natural <b>habitats</b> so sea animals can survive.",
+      "jp_word": "生息地",
+      "jp_reading": "せいそくち",
+      "jp_sentence": "海の生き物が生き残れるように、自然の<b>生息地(せいそくち)</b>を守らなければなりません。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6G1"
+      ]
+    },
+    {
+      "id": "natural",
+      "word": "natural",
+      "emoji": "🌱",
+      "ipa": "/ˈnætʃ.ər.əl/",
+      "syllables": "nat·u·ral",
+      "pos": "Adjective",
+      "sample": "Coral reefs are <b>natural</b> habitats for thousands of sea animals.",
+      "jp_word": "自然の",
+      "jp_reading": "しぜんの",
+      "jp_sentence": "サンゴ礁(しょう)は何千もの海の生き物の<b>自然(しぜん)</b>の生息地です。",
+      "jp_tags": [
+        "形容詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6G1"
+      ]
+    },
+    {
+      "id": "fishermen",
+      "word": "fishermen",
+      "emoji": "👨‍🎣",
+      "ipa": "/ˈfɪʃ.ə.mən/",
+      "syllables": "fish·er·men",
+      "pos": "Noun (plural)",
+      "sample": "<b>Fishermen</b> catch fish, but overfishing can destroy the ocean's ecosystem.",
+      "jp_word": "漁師",
+      "jp_reading": "りょうし",
+      "jp_sentence": "<b>漁師(りょうし)</b>は魚を捕りますが、乱獲(らんかく)は海の生態系(せいたいけい)を壊す可能性があります。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6V2"
+      ]
+    },
+    {
+      "id": "reproduce",
+      "word": "reproduce",
+      "emoji": "🔄",
+      "ipa": "/ˌriː.prəˈdjuːs/",
+      "syllables": "re·pro·duce",
+      "pos": "Verb",
+      "sample": "If we overfish, there won't be enough fish left to <b>reproduce</b>.",
+      "jp_word": "繁殖する",
+      "jp_reading": "はんしょくする",
+      "jp_sentence": "乱獲(らんかく)すると、<b>繁殖(はんしょく)</b>するために残る魚が足りなくなります。",
+      "jp_tags": [
+        "動詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6V2"
+      ]
+    },
+    {
+      "id": "tankers",
+      "word": "tankers",
+      "emoji": "🛢️",
+      "ipa": "/ˈtæŋ.kərz/",
+      "syllables": "tank·ers",
+      "pos": "Noun (plural)",
+      "sample": "Big ships called <b>tankers</b> transport oil across the ocean.",
+      "jp_word": "タンカー",
+      "jp_reading": "タンカー",
+      "jp_sentence": "<b>タンカー</b>と呼ばれる大きな船が海を越えて石油を輸送します。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6V2"
+      ]
+    },
+    {
+      "id": "transport",
+      "word": "transport",
+      "emoji": "🚛",
+      "ipa": "/ˈtræns.pɔːt/",
+      "syllables": "trans·port",
+      "pos": "Verb / Noun",
+      "sample": "Tankers <b>transport</b> oil from one country to another.",
+      "jp_word": "輸送する",
+      "jp_reading": "ゆそうする",
+      "jp_sentence": "タンカーは石油を一国から別の国へ<b>輸送(ゆそう)</b>します。",
+      "jp_tags": [
+        "動詞",
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6V2"
+      ]
+    },
+    {
+      "id": "future",
+      "word": "future",
+      "emoji": "⏭️",
+      "ipa": "/ˈfjuː.tʃər/",
+      "syllables": "fu·ture",
+      "pos": "Noun / Adjective",
+      "sample": "In the <b>future</b>, sea animals will disappear if we don't protect the oceans.",
+      "jp_word": "未来・将来",
+      "jp_reading": "みらい・しょうらい",
+      "jp_sentence": "もし海を守らなければ、<b>将来(しょうらい)</b>、海の生き物は消えてしまうでしょう。",
+      "jp_tags": [
+        "名詞",
+        "形容詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6G2"
+      ]
+    },
+    {
+      "id": "oxygen",
+      "word": "oxygen",
+      "emoji": "💨",
+      "ipa": "/ˈɒk.sɪ.dʒən/",
+      "syllables": "ox·y·gen",
+      "pos": "Noun",
+      "sample": "Pollution affects <b>oxygen</b> levels in the ocean — animals can't breathe.",
+      "jp_word": "酸素",
+      "jp_reading": "さんそ",
+      "jp_sentence": "汚染(おせん)は海の<b>酸素(さんそ)</b>レベルに影響(えいきょう)し、動物が呼吸できなくなります。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6G2"
+      ]
+    },
+    {
+      "id": "algae",
+      "word": "algae",
+      "emoji": "🟢",
+      "ipa": "/ˈæl.dʒiː/",
+      "syllables": "al·gae",
+      "pos": "Noun (plural)",
+      "sample": "In warm water, polyps get food from tiny plants called <b>algae</b>.",
+      "jp_word": "藻類",
+      "jp_reading": "そうるい",
+      "jp_sentence": "温かい水の中では、ポリプは<b>藻類(そうるい)</b>と呼ばれる小さな植物から食べ物を得ます。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Re"
+      ]
+    },
+    {
+      "id": "colonies",
+      "word": "colonies",
+      "emoji": "🏘️",
+      "ipa": "/ˈkɒl.ə.niz/",
+      "syllables": "col·o·nies",
+      "pos": "Noun (plural)",
+      "sample": "Most corals live in large groups called <b>colonies</b>.",
+      "jp_word": "群体・コロニー",
+      "jp_reading": "ぐんたい",
+      "jp_sentence": "ほとんどのサンゴは<b>群体(ぐんたい)</b>と呼ばれる大きなグループで生活しています。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Re"
+      ]
+    },
+    {
+      "id": "organisms",
+      "word": "organisms",
+      "emoji": "🦠",
+      "ipa": "/ˈɔː.ɡən.ɪ.zəmz/",
+      "syllables": "or·gan·isms",
+      "pos": "Noun (plural)",
+      "sample": "Coral reefs are home to more than 4,000 kinds of fish and thousands of other <b>organisms</b>.",
+      "jp_word": "生物・有機体",
+      "jp_reading": "せいぶつ",
+      "jp_sentence": "サンゴ礁(しょう)は4,000種以上の魚と何千もの他の<b>生物(せいぶつ)</b>の住処(すみか)です。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Re"
+      ]
+    },
+    {
+      "id": "plankton",
+      "word": "plankton",
+      "emoji": "🔬",
+      "ipa": "/ˈplæŋk.tən/",
+      "syllables": "plank·ton",
+      "pos": "Noun (uncountable)",
+      "sample": "In cold dark water, polyps use their tentacles to catch tiny animals called <b>plankton</b>.",
+      "jp_word": "プランクトン",
+      "jp_reading": "プランクトン",
+      "jp_sentence": "冷たく暗い水の中では、ポリプは触手(しょくしゅ)を使って<b>プランクトン</b>という小さな生き物を捕まえます。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Re"
+      ]
+    },
+    {
+      "id": "polyps",
+      "word": "polyps",
+      "emoji": "🌸",
+      "ipa": "/ˈpɒl.ɪps/",
+      "syllables": "pol·yps",
+      "pos": "Noun (plural)",
+      "sample": "Corals are not plants — they are made up of tiny animals called <b>polyps</b>.",
+      "jp_word": "ポリプ",
+      "jp_reading": "ポリプ",
+      "jp_sentence": "サンゴは植物ではありません — <b>ポリプ</b>と呼ばれる小さな動物からできています。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Re"
+      ]
+    },
+    {
+      "id": "tentacles",
+      "word": "tentacles",
+      "emoji": "🦑",
+      "ipa": "/ˈten.tə.kəlz/",
+      "syllables": "ten·ta·cles",
+      "pos": "Noun (plural)",
+      "sample": "Polyps use their <b>tentacles</b> to catch food and protect themselves.",
+      "jp_word": "触手",
+      "jp_reading": "しょくしゅ",
+      "jp_sentence": "ポリプは<b>触手(しょくしゅ)</b>を使って食べ物を捕まえ、自分を守ります。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Re"
+      ]
+    },
+    {
+      "id": "transparent",
+      "word": "transparent",
+      "emoji": "💎",
+      "ipa": "/trænsˈpær.ənt/",
+      "syllables": "trans·par·ent",
+      "pos": "Adjective",
+      "sample": "Polyps have soft, <b>transparent</b> bodies — you can see through them.",
+      "jp_word": "透明な",
+      "jp_reading": "とうめいな",
+      "jp_sentence": "ポリプは柔(やわ)らかく<b>透明(とうめい)</b>な体を持っています — 透けて見えます。",
+      "jp_tags": [
+        "形容詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Re"
+      ]
+    },
+    {
+      "id": "explain",
+      "word": "explain",
+      "emoji": "💡",
+      "ipa": "/ɪkˈspleɪn/",
+      "syllables": "ex·plain",
+      "pos": "Verb",
+      "sample": "Please <b>explain</b> how the polar bear found the camera.",
+      "jp_word": "説明する",
+      "jp_reading": "せつめいする",
+      "jp_sentence": "ホッキョクグマがどのようにカメラを見つけたか<b>説明(せつめい)</b>してください。",
+      "jp_tags": [
+        "動詞",
+        "学習語"
+      ],
+      "category": "academic",
+      "tags": [
+        "L4U8Op"
+      ],
+      "meaning": "To make something clear and easy to understand by giving reasons, details, or step-by-step information.",
+      "jp_meaning": "「explain」は「説明(せつめい)する」という意味です。理由(りゆう)や詳(くわ)しい情報を使って、相手がわかりやすいように伝えることです。「describe」（様子を伝える）とは違い、「なぜ・どのように」を伝えることが多いです。",
+      "when_to_use": [
+        "Test: 'Explain why the ocean is important.'",
+        "Writing: 'Explain how to take a good photo.'",
+        "Speaking: 'Can you explain what happened?'"
+      ],
+      "jp_when_to_use": [
+        "テスト: 'Explain why the ocean is important.' → 「なぜ海が大切か説明しなさい」",
+        "ライティング: 'Explain how to take a good photo.' → 「良い写真の撮り方を説明しなさい」"
+      ],
+      "how_to_use": {
+        "structure": "explain + WHAT / WHY / HOW",
+        "patterns": [
+          "explain + why → explain why it happened",
+          "explain + how → explain how to do it",
+          "explain + noun → explain the reason"
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "explain + 説明すること",
+        "patterns": [
+          "explain why → なぜかを説明する",
+          "explain how → やり方を説明する"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Explain why hobbies are important in your life.",
+          "jp": "趣味(しゅみ)がなぜあなたの生活に大切かを説明しなさい。",
+          "context_en": "Writing",
+          "context_jp": "ライティング"
+        },
+        {
+          "en": "Can you explain how the polar bear found the camera?",
+          "jp": "ホッキョクグマがどうやってカメラを見つけたか説明できますか？",
+          "context_en": "Discussion",
+          "context_jp": "話し合い"
+        },
+        {
+          "en": "The coach explained the new strategy to the team.",
+          "jp": "コーチはチームに新しい戦略(せんりゃく)を説明しました。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        }
+      ],
+      "collocations": [
+        "explain why",
+        "explain how",
+        "explain the reason",
+        "explain in detail",
+        "explain clearly"
+      ],
+      "jp_note": "「explain」と「describe」の違い: describe は「様子・見た目を伝える」、explain は「理由(りゆう)ややり方を伝える」。テストでどちらが使われているか確認しよう！",
+      "practice_prompt": "Explain why sea animals need the ocean to survive. Write 2–3 sentences with reasons.",
+      "jp_practice_prompt": "海の生き物がなぜ海が必要か説明しなさい。理由(りゆう)を入れて2〜3文で書きなさい。"
+    },
+    {
       "id": "hobby",
       "word": "hobby",
-      "emoji": "🎨🎯",
-      "ipa": "/ˈhɑːbi/",
+      "emoji": "🎨",
+      "ipa": "/ˈhɒb.i/",
       "syllables": "hob·by",
       "pos": "Noun",
-      "sample": "My <b>hobby</b> is playing soccer.",
+      "sample": "My <b>hobby</b> is playing soccer — I do it every weekend.",
       "jp_word": "趣味",
       "jp_reading": "しゅみ",
-      "jp_sentence": "私の<b>趣味</b>はサッカーをすることです。",
+      "jp_sentence": "私の<b>趣味(しゅみ)</b>はサッカーです。毎週末やっています。",
       "jp_tags": [
         "名詞"
       ],
@@ -23,14 +1318,14 @@
     {
       "id": "photographer",
       "word": "photographer",
-      "emoji": "📷👤",
-      "ipa": "/fəˈtɑːɡrəfər/",
+      "emoji": "📷",
+      "ipa": "/fəˈtɒɡ.rə.fər/",
       "syllables": "pho·tog·ra·pher",
       "pos": "Noun",
-      "sample": "A <b>photographer</b> takes photos.",
+      "sample": "The <b>photographer</b> took the photo of the polar bear.",
       "jp_word": "写真家",
       "jp_reading": "しゃしんか",
-      "jp_sentence": "<b>写真家</b>が写真を撮ります。",
+      "jp_sentence": "<b>写真家(しゃしんか)</b>がホッキョクグマの写真を撮りました。",
       "jp_tags": [
         "名詞",
         "職業"
@@ -43,17 +1338,16 @@
     {
       "id": "hiker",
       "word": "hiker",
-      "emoji": "🚶🏔️",
-      "ipa": "/ˈhaɪkər/",
+      "emoji": "🥾",
+      "ipa": "/ˈhaɪ.kər/",
       "syllables": "hik·er",
       "pos": "Noun",
-      "sample": "The <b>hiker</b> walks in the mountains.",
+      "sample": "The <b>hiker</b> walked through the forest and took photos.",
       "jp_word": "ハイカー",
       "jp_reading": "ハイカー",
-      "jp_sentence": "<b>ハイカー</b>は山を歩きます。",
+      "jp_sentence": "<b>ハイカー</b>は森の中を歩いて写真を撮りました。",
       "jp_tags": [
-        "名詞",
-        "カタカナ語"
+        "名詞"
       ],
       "category": "related",
       "tags": [
@@ -64,13 +1358,13 @@
       "id": "polar-bear",
       "word": "polar bear",
       "emoji": "🐻‍❄️",
-      "ipa": "/ˈpoʊlər ˈbɛr/",
+      "ipa": "/ˈpoʊ.lər beər/",
       "syllables": "po·lar bear",
       "pos": "Noun",
-      "sample": "A <b>polar bear</b> lives in the cold.",
-      "jp_word": "白くま",
-      "jp_reading": "しろくま",
-      "jp_sentence": "<b>白くま</b>は寒いところに住んでいます。",
+      "sample": "A <b>polar bear</b> found a camera in the snow and took a selfie!",
+      "jp_word": "ホッキョクグマ",
+      "jp_reading": "ホッキョクグマ",
+      "jp_sentence": "<b>ホッキョクグマ</b>が雪の中でカメラを見つけました。",
       "jp_tags": [
         "名詞",
         "動物"
@@ -81,315 +1375,218 @@
       ]
     },
     {
-      "id": "musical-instrument",
-      "word": "musical instrument",
-      "emoji": "🎸🎺",
-      "ipa": "/ˈmjuːzɪkəl ˈɪnstrəmənt/",
-      "syllables": "mu·si·cal in·stru·ment",
-      "pos": "Noun",
-      "sample": "A guitar is a <b>musical instrument</b>.",
-      "jp_word": "楽器",
-      "jp_reading": "がっき",
-      "jp_sentence": "ギターは<b>楽器</b>です。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "related",
-      "tags": [
-        "L4U8V1"
-      ]
-    },
-    {
-      "id": "trilobite",
-      "word": "trilobite",
-      "emoji": "🪨🦂",
-      "ipa": "/ˈtraɪləˌbaɪt/",
-      "syllables": "tri·lo·bite",
-      "pos": "Noun",
-      "sample": "A <b>trilobite</b> is an ancient sea creature.",
-      "jp_word": "三葉虫",
-      "jp_reading": "さんようちゅう",
-      "jp_sentence": "<b>三葉虫</b>は古代の海の生き物です。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8G1"
-      ]
-    },
-    {
-      "id": "outdoor",
-      "word": "outdoor",
-      "emoji": "🌳☀️",
-      "ipa": "/ˌaʊtˈdɔːr/",
-      "syllables": "out·door",
-      "pos": "Adjective",
-      "sample": "Hiking is an <b>outdoor</b> hobby.",
-      "jp_word": "屋外の",
-      "jp_reading": "おくがいの",
-      "jp_sentence": "ハイキングは<b>屋外の</b>趣味です。",
-      "jp_tags": [
-        "形容詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "hider",
-      "word": "hider",
-      "emoji": "🙈🌳",
-      "ipa": "/ˈhaɪdər/",
-      "syllables": "hid·er",
-      "pos": "Noun",
-      "sample": "The <b>hider</b> hides the treasure.",
-      "jp_word": "隠す人",
-      "jp_reading": "かくすひと",
-      "jp_sentence": "<b>隠す人</b>は宝物を隠します。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "seeker",
-      "word": "seeker",
-      "emoji": "🔍🚶",
-      "ipa": "/ˈsiːkər/",
-      "syllables": "seek·er",
-      "pos": "Noun",
-      "sample": "The <b>seeker</b> looks for the treasure.",
-      "jp_word": "探す人",
-      "jp_reading": "さがすひと",
-      "jp_sentence": "<b>探す人</b>は宝物を探します。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "treasure",
-      "word": "treasure",
-      "emoji": "💎💰",
-      "ipa": "/ˈtrɛʒər/",
-      "syllables": "trea·sure",
-      "pos": "Noun",
-      "sample": "We found the <b>treasure</b>!",
-      "jp_word": "宝物",
-      "jp_reading": "たからもの",
-      "jp_sentence": "<b>宝物</b>を見つけました！",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "app",
-      "word": "app",
-      "emoji": "📱💚",
-      "ipa": "/æp/",
-      "syllables": "app",
-      "pos": "Noun",
-      "sample": "Use the <b>app</b> on your phone.",
-      "jp_word": "アプリ",
-      "jp_reading": "アプリ",
-      "jp_sentence": "スマホの<b>アプリ</b>を使います。",
+      "id": "contrast",
+      "word": "contrast",
+      "emoji": "↔️",
+      "ipa": "/ˈkɒn.træst/",
+      "syllables": "con·trast",
+      "pos": "Noun / Verb",
+      "sample": "In <b>contrast</b>, sea turtles have flat shells and swim away fast.",
+      "jp_word": "対比・対照する",
+      "jp_reading": "たいひ・たいしょうする",
+      "jp_sentence": "<b>対照的(たいしょうてき)</b>に、ウミガメは平らな甲羅(こうら)を持ち、速く泳いで逃げます。",
       "jp_tags": [
         "名詞",
-        "カタカナ語"
+        "動詞",
+        "学習語"
       ],
-      "category": "content",
+      "category": "academic",
       "tags": [
-        "L4U8Re"
-      ]
+        "L4U6Wr"
+      ],
+      "meaning": "To show or describe how two things are different from each other.",
+      "jp_meaning": "「contrast」は「対比する・違いを示す」という意味です。2つのものがどのように違(ちが)うかを説明することです。Writing では「違いを書く」ときに使います。",
+      "when_to_use": [
+        "Writing: 'Write a paragraph of contrast.'",
+        "Reading: 'Underline words that show contrast: but, however, in contrast.'",
+        "Test: 'Contrast warm corals and cold corals.'"
+      ],
+      "jp_when_to_use": [
+        "ライティング: 'Write a paragraph of contrast.' → 「対比の段落を書きなさい」",
+        "リーディング: 'Underline words that show contrast.' → 「対比を示す語に下線を引きなさい」",
+        "テスト: 'Contrast warm corals and cold corals.' → 「温かいサンゴと冷たいサンゴを対比しなさい」"
+      ],
+      "how_to_use": {
+        "structure": "In contrast, ... / However, ... / ... but ...",
+        "patterns": [
+          "In contrast, sea turtles swim away fast.",
+          "Land turtles have round shells. Sea turtles, however, have flat shells.",
+          "Land turtles are slow, but sea turtles are fast."
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "In contrast, ... / However, ... / ... but ...",
+        "patterns": [
+          "In contrast → 「それに対して」",
+          "However → 「しかしながら」",
+          "but → 「しかし」"
+        ]
+      },
+      "examples": [
+        {
+          "en": "In contrast writing, you describe differences between two things.",
+          "jp": "対比ライティングでは、2つのものの違(ちが)いを描写(びょうしゃ)します。",
+          "context_en": "Writing type",
+          "context_jp": "ライティングの種類"
+        },
+        {
+          "en": "Land turtles hide in their shells. In contrast, sea turtles swim away.",
+          "jp": "陸のカメは甲羅(こうら)の中に隠れます。それに対して、ウミガメは泳いで逃げます。",
+          "context_en": "Model text",
+          "context_jp": "モデル文"
+        },
+        {
+          "en": "Warm corals eat algae. Cold corals, however, catch plankton.",
+          "jp": "温かいサンゴは藻類(そうるい)を食べます。しかし、冷たいサンゴはプランクトンを捕まえます。",
+          "context_en": "Writing / Reading",
+          "context_jp": "ライティング・リーディング"
+        }
+      ],
+      "collocations": [
+        "in contrast",
+        "by contrast",
+        "contrast writing",
+        "contrast with",
+        "sharp contrast"
+      ],
+      "jp_note": "「contrast」は名詞と動詞両方に使えます。ライティングで違いを書くとき、「but」「however」「in contrast」などの対比語(たいひご)を使います。テストで'Contrast A and B'と出たら「AとBの違いを書きなさい」という意味です！",
+      "practice_prompt": "Write 2 sentences contrasting warm corals and cold corals. Use 'however' and 'in contrast'.",
+      "jp_practice_prompt": "温かいサンゴと冷たいサンゴを対比する文を2文書きなさい。「however」と「in contrast」を使いましょう。"
     },
     {
-      "id": "clue",
-      "word": "clue",
-      "emoji": "🔎🗒️",
-      "ipa": "/kluː/",
-      "syllables": "clue",
-      "pos": "Noun",
-      "sample": "Read the <b>clue</b> to find the treasure.",
-      "jp_word": "手がかり",
-      "jp_reading": "てがかり",
-      "jp_sentence": "宝物を見つけるために<b>手がかり</b>を読みましょう。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "compass",
-      "word": "compass",
-      "emoji": "🧭",
-      "ipa": "/ˈkʌmpəs/",
-      "syllables": "com·pass",
-      "pos": "Noun",
-      "sample": "Use a <b>compass</b> to find north.",
-      "jp_word": "方位磁石",
-      "jp_reading": "ほういじしゃく",
-      "jp_sentence": "北を見つけるために<b>方位磁石</b>を使います。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "ornament",
-      "word": "ornament",
-      "emoji": "🎄✨",
-      "ipa": "/ˈɔːrnəmənt/",
-      "syllables": "or·na·ment",
-      "pos": "Noun",
-      "sample": "Hang the <b>ornament</b> on the tree.",
-      "jp_word": "飾り",
-      "jp_reading": "かざり",
-      "jp_sentence": "木に<b>飾り</b>をつけましょう。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "sinking",
-      "word": "sinking",
-      "emoji": "🚢⬇️",
-      "ipa": "/ˈsɪŋkɪŋ/",
-      "syllables": "sink·ing",
-      "pos": "Verb",
-      "sample": "The boat is <b>sinking</b>.",
-      "jp_word": "沈んでいる",
-      "jp_reading": "しずんでいる",
-      "jp_sentence": "船が<b>沈んでいます</b>。",
-      "jp_tags": [
-        "動詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Re"
-      ]
-    },
-    {
-      "id": "origami",
-      "word": "origami",
-      "emoji": "🦢📄",
-      "ipa": "/ˌɔːrəˈɡɑːmi/",
-      "syllables": "or·i·ga·mi",
-      "pos": "Noun",
-      "sample": "<b>Origami</b> is the art of folding paper.",
-      "jp_word": "折り紙",
-      "jp_reading": "おりがみ",
-      "jp_sentence": "<b>折り紙</b>は紙を折る芸術です。",
-      "jp_tags": [
-        "名詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Wr"
-      ]
-    },
-    {
-      "id": "folding",
-      "word": "folding",
-      "emoji": "📄🔁",
-      "ipa": "/ˈfoʊldɪŋ/",
-      "syllables": "fold·ing",
-      "pos": "Verb",
-      "sample": "<b>Folding</b> paper takes practice.",
-      "jp_word": "折ること",
-      "jp_reading": "おること",
-      "jp_sentence": "紙を<b>折ること</b>は練習が必要です。",
-      "jp_tags": [
-        "動詞"
-      ],
-      "category": "content",
-      "tags": [
-        "L4U8Wr"
-      ]
-    },
-    {
-      "id": "design",
-      "word": "design",
-      "emoji": "🎨✏️",
-      "ipa": "/dɪˈzaɪn/",
-      "syllables": "de·sign",
-      "pos": "Noun",
-      "sample": "I like the <b>design</b> of this origami.",
-      "jp_word": "デザイン",
-      "jp_reading": "デザイン",
-      "jp_sentence": "この折り紙の<b>デザイン</b>が好きです。",
+      "id": "differences",
+      "word": "differences",
+      "emoji": "🔀",
+      "ipa": "/ˈdɪf.ər.əns.ɪz/",
+      "syllables": "dif·fer·en·ces",
+      "pos": "Noun (plural)",
+      "sample": "Write about the <b>differences</b> between warm and cold corals.",
+      "jp_word": "違い・相違点",
+      "jp_reading": "ちがい・そういてん",
+      "jp_sentence": "温かいサンゴと冷たいサンゴの<b>違(ちが)い</b>について書きなさい。",
       "jp_tags": [
         "名詞",
-        "カタカナ語"
+        "学習語"
       ],
-      "category": "content",
+      "category": "academic",
       "tags": [
-        "L4U8Wr"
-      ]
+        "L4U6Wr"
+      ],
+      "meaning": "The ways in which two or more things are not the same as each other.",
+      "jp_meaning": "「differences」は「違い・相違点(そういてん)」という意味です。2つ以上のものが「どのように異(こと)なるか」を表します。",
+      "when_to_use": [
+        "Writing: 'Describe the differences between land turtles and sea turtles.'",
+        "Reading: 'What are the differences between warm and cold corals?'",
+        "Venn diagram: 'Write differences in the left and right ovals.'"
+      ],
+      "jp_when_to_use": [
+        "ライティング: 'Describe the differences between A and B.' → 「AとBの違いを描写しなさい」",
+        "リーディング: 'What are the differences?' → 「違いは何ですか？」",
+        "Venn図: 左右の円に「違い」を書く"
+      ],
+      "how_to_use": {
+        "structure": "the differences between A and B",
+        "patterns": [
+          "What are the differences between A and B?",
+          "Write about the differences.",
+          "Find similarities and differences."
+        ]
+      },
+      "jp_how_to_use": {
+        "structure": "the differences between A and B",
+        "patterns": [
+          "the differences between A and B → AとBの違い",
+          "Find differences → 違いを見つける",
+          "similarities AND differences → 共通点と違い"
+        ]
+      },
+      "examples": [
+        {
+          "en": "Write about the differences between warm and cold corals.",
+          "jp": "温かいサンゴと冷たいサンゴの違(ちが)いについて書きなさい。",
+          "context_en": "Writing task",
+          "context_jp": "ライティング課題"
+        },
+        {
+          "en": "What are the differences between a sea turtle and a land turtle?",
+          "jp": "ウミガメと陸のカメの違いは何ですか？",
+          "context_en": "Reading",
+          "context_jp": "リーディング"
+        },
+        {
+          "en": "There are many differences between Premier League and Bundesliga.",
+          "jp": "プレミアリーグとブンデスリーガには多くの違いがあります。",
+          "context_en": "Soccer",
+          "context_jp": "サッカー"
+        }
+      ],
+      "collocations": [
+        "the differences between",
+        "key differences",
+        "spot the differences",
+        "similarities and differences",
+        "describe the differences"
+      ],
+      "jp_note": "「difference」（単数）と「differences」（複数）の両方があります。テストでは主に複数形「differences」が使われます。「similarities and differences」= 「共通点と違い」もよく一緒に出てきます！",
+      "practice_prompt": "List 3 differences between warm-water corals and cold-water corals.",
+      "jp_practice_prompt": "温かい水のサンゴと冷たい水のサンゴの違いを3つリストアップしなさい。"
     },
     {
-      "id": "dragon",
-      "word": "dragon",
-      "emoji": "🐉",
-      "ipa": "/ˈdræɡən/",
-      "syllables": "drag·on",
-      "pos": "Noun",
-      "sample": "I made a paper <b>dragon</b>.",
-      "jp_word": "竜",
-      "jp_reading": "りゅう",
-      "jp_sentence": "紙の<b>竜</b>を作りました。",
+      "id": "swamps",
+      "word": "swamps",
+      "emoji": "🌾",
+      "ipa": "/swɒmps/",
+      "syllables": "swamps",
+      "pos": "Noun (plural)",
+      "sample": "Baby land turtles crawl to live in woods, <b>swamps</b>, or deserts.",
+      "jp_word": "沼地",
+      "jp_reading": "ぬまち",
+      "jp_sentence": "陸ガメの赤ちゃんは<b>沼地(ぬまち)</b>や森、砂漠に移って生活します。",
       "jp_tags": [
         "名詞"
       ],
       "category": "content",
       "tags": [
-        "L4U8Wr"
+        "L4U6Wr"
       ]
     },
     {
-      "id": "crane",
-      "word": "crane",
-      "emoji": "🦢",
-      "ipa": "/kreɪn/",
-      "syllables": "crane",
-      "pos": "Noun",
-      "sample": "The paper <b>crane</b> is a famous origami.",
-      "jp_word": "鶴",
-      "jp_reading": "つる",
-      "jp_sentence": "折り<b>鶴</b>は有名な折り紙です。",
+      "id": "woods",
+      "word": "woods",
+      "emoji": "🌲",
+      "ipa": "/wʊdz/",
+      "syllables": "woods",
+      "pos": "Noun (plural)",
+      "sample": "Baby land turtles crawl away to live in <b>woods</b> or swamps.",
+      "jp_word": "森・林",
+      "jp_reading": "もり・はやし",
+      "jp_sentence": "陸ガメの赤ちゃんは<b>森(もり)</b>や沼地に移って生活します。",
       "jp_tags": [
         "名詞"
       ],
       "category": "content",
       "tags": [
-        "L4U8Wr"
+        "L4U6Wr"
+      ]
+    },
+    {
+      "id": "community",
+      "word": "community",
+      "emoji": "🏘️",
+      "ipa": "/kəˈmjuː.nɪ.ti/",
+      "syllables": "com·mu·ni·ty",
+      "pos": "Noun",
+      "sample": "Make cards inviting people to a <b>community</b> cleanup to protect sea animals.",
+      "jp_word": "地域社会・コミュニティ",
+      "jp_reading": "ちいきしゃかい",
+      "jp_sentence": "海の生き物を守るための地域(ちいき)清掃(せいそう)に人々を招く<b>地域社会(ちいきしゃかい)</b>カードを作りましょう。",
+      "jp_tags": [
+        "名詞"
+      ],
+      "category": "content",
+      "tags": [
+        "L4U6Pr"
       ]
     }
-  ],
-  "word_count": 20,
-  "sources": [
-    "lesson-glossary"
-  ],
-  "updated": "2026-05-26"
+  ]
 }
