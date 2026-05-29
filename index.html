@@ -2416,15 +2416,15 @@ header {
     if (!isOpen && shouldScroll) setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
   }
 
-  function openFirstLiveUnit(person, livePrefix = person) {
-    const firstLive = UNITS.find(u => getLiveCount(person, 4, u.n, livePrefix) > 0);
-    if (firstLive) toggleUnit(person, firstLive.n, false);
+  function openLatestLiveUnit(person, livePrefix = person) {
+    const latestLive = [...UNITS].reverse().find(u => getLiveCount(person, 4, u.n, livePrefix) > 0);
+    if (latestLive) toggleUnit(person, latestLive.n, false);
   }
 
   buildGrid('neritan-unit-grid', 'neritan', 'n');
   buildGrid('leo-unit-grid', 'leo', 'l');
-  openFirstLiveUnit('neritan', 'n');
-  openFirstLiveUnit('leo', 'l');
+  openLatestLiveUnit('neritan', 'n');
+  openLatestLiveUnit('leo', 'l');
   renderHomeworkBadges();
   renderLeoHomework();
   renderNeritanHomework();
