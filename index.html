@@ -86,11 +86,16 @@ header {
 }
 .header-home {
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: rgba(255,255,255,0.62);
   padding: 6px 8px;
 }
 .header-home:hover { color: #fff; }
+.header-home.active {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
 .role-switcher {
   display: flex;
   align-items: center;
@@ -112,6 +117,9 @@ header {
 .role-chip.active {
   background: var(--yellow);
   color: var(--ink);
+}
+.role-chip:not(.active) {
+  background: transparent;
 }
 
 /* SCREENS */
@@ -1194,7 +1202,7 @@ header {
   display:flex;
   align-items:center;
   gap:10px;
-  padding:0 10px;
+  padding:0 11px;
   transition:all 0.2s;
   text-align:left;
 }
@@ -1210,12 +1218,16 @@ header {
   text-align:center;
   font-size:1rem;
   line-height:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 }
 .rail-label {
   font-family:'Oswald',sans-serif;
   font-size:0.62rem;
   font-weight:700;
   letter-spacing:1.2px;
+  line-height:1;
   white-space:nowrap;
   opacity:0;
   transform:translateX(-4px);
@@ -2196,16 +2208,19 @@ header {
     return ROLE_SCREENS[role] ? role : null;
   }
 
-  function updateRoleSwitcher(role = getPreferredRole()) {
+  function updateHeaderNav(activeScreen, role = null) {
+    document.querySelectorAll('.header-home').forEach(btn => {
+      btn.classList.toggle('active', activeScreen === 'screen-person');
+    });
     document.querySelectorAll('.role-chip').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.role === role);
+      btn.classList.toggle('active', !!role && btn.dataset.role === role);
     });
   }
 
   function setPreferredRole(role, navigate = false) {
     if (!ROLE_SCREENS[role]) return;
     lSave('preferred-role', role);
-    updateRoleSwitcher(role);
+    updateHeaderNav(ROLE_SCREENS[role], role);
     if (navigate) goTo(ROLE_SCREENS[role]);
   }
 
@@ -2242,7 +2257,7 @@ header {
     screen.classList.add('active');
     window.scrollTo(0, 0);
     updateRail(id);
-    updateRoleSwitcher(roleFromScreen(screen.id) || getPreferredRole());
+    updateHeaderNav(screen.id, roleFromScreen(screen.id));
     if (id === 'screen-leo') renderLeoHomework();
     if (id === 'screen-neritan') renderNeritanHomework();
     if (id === 'screen-neritan-ow' || id === 'screen-leo-ow') renderHomeworkBadges();
