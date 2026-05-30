@@ -3158,32 +3158,15 @@ function revealChartRow() {
 }
 
 // ═══════════════════════════════════════════════
-// SLIDE 21 — LEO'S ORGANIZER (sessionStorage)
+// SLIDE 21 — LEO'S ORGANIZER
 // ═══════════════════════════════════════════════
-function saveChart() {
-  ['leo-f1','leo-f2','leo-f3','leo-o1','leo-o2','leo-o3'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) sessionStorage.setItem(id, el.value);
-  });
-}
-function saveInvention() {
-  const el = document.getElementById('leo-invention');
-  if (el) sessionStorage.setItem('leo-invention', el.value);
-}
+function saveChart() {}
+function saveInvention() {}
 function setInvention(name) {
   const el = document.getElementById('leo-invention');
-  if (el) { el.value = name; saveInvention(); }
+  if (el) el.value = name;
 }
-function loadChart() {
-  ['leo-f1','leo-f2','leo-f3','leo-o1','leo-o2','leo-o3'].forEach(id => {
-    const val = sessionStorage.getItem(id);
-    const el = document.getElementById(id);
-    if (el && val) el.value = val;
-  });
-  const inv = sessionStorage.getItem('leo-invention');
-  const invEl = document.getElementById('leo-invention');
-  if (invEl && inv) invEl.value = inv;
-}
+function loadChart() {}
 function saveToClipboard() {
   const inv = document.getElementById('leo-invention').value || '(not chosen)';
   const f1 = document.getElementById('leo-f1').value;
@@ -3242,13 +3225,8 @@ function updateWordCount() {
   if (!ta) return;
   const words = ta.value.trim().split(/\s+/).filter(w => w.length > 0).length;
   document.getElementById('word-counter').textContent = 'Words: ' + words;
-  sessionStorage.setItem('leo-writing', ta.value);
 }
-function loadWriting() {
-  const saved = sessionStorage.getItem('leo-writing');
-  const ta = document.getElementById('leo-writing');
-  if (ta && saved) { ta.value = saved; updateWordCount(); }
-}
+function loadWriting() {}
 function printWriting() {
   const text = document.getElementById('leo-writing').value;
   const w = window.open('', '_blank');

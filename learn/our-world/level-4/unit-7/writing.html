@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unit 7 · Writing — Fact &amp; Opinion</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<script src="../../../../lib/leea-cloud-config.js"></script>
+<script src="../../../../lib/leea-cloud.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -777,12 +779,23 @@ const HOMEWORK_ID = new URLSearchParams(location.search).get('hw') || 'leo-4-7-w
 
 function lSave(key, val) {
   try { localStorage.setItem('leea-' + key, JSON.stringify(val)); } catch(e) {}
+  if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) {
+    window.LEEA_CLOUD.saveProgress(HOMEWORK_ID, key, val);
+  }
 }
 function lLoad(key, fallback = null) {
   try {
     const v = localStorage.getItem('leea-' + key);
     return v !== null ? JSON.parse(v) : fallback;
   } catch(e) { return fallback; }
+}
+async function restoreProgressFromCloud() {
+  if (!window.LEEA_CLOUD || !window.LEEA_CLOUD.enabled) return;
+  const rows = await window.LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+  if (!rows) return;
+  rows.forEach(function(row) {
+    localStorage.setItem('leea-' + row.storage_key, JSON.stringify(row.value));
+  });
 }
 function lClear(prefix) {
   Object.keys(localStorage).filter(k => k.startsWith('leea-' + prefix)).forEach(k => localStorage.removeItem(k));
@@ -1674,7 +1687,7 @@ function initHWBanner() {
 // ═══════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', async function() {
   // Check review mode
   if (new URLSearchParams(location.search).get('review') === '1') {
     initReviewMode(); return;
@@ -1682,6 +1695,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
   // Init homework banner
   initHWBanner();
+
+  // Restore from Supabase first, then load into DOM
+  await restoreProgressFromCloud();
 
   // Load all saved data
   loadM3();
