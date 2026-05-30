@@ -510,12 +510,23 @@ body{display:flex;flex-direction:column}
     <div class="section-sub">Tap a ray to write your question. Each ray = one vocabulary word!</div></div>
     <div id="sunshine-wrap" style="display:flex;justify-content:center;width:100%"></div>
     <div id="sun-editor" style="display:none;width:100%" class="card">
-      <div style="font-size:15px;font-weight:700;color:var(--green-d);margin-bottom:8px" id="sun-editor-label"></div>
-      <textarea id="sun-editor-input" placeholder="Write your question here…"
+      <div style="font-size:15px;font-weight:700;color:var(--green-d);margin-bottom:12px" id="sun-editor-label"></div>
+      <!-- Sentence Builder -->
+      <div style="font-size:13px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">1️⃣ Build a sentence — tap the words in order:</div>
+      <div id="sun-built" style="min-height:44px;background:var(--paper);border:2px solid var(--border);border-radius:10px;padding:10px 14px;font-size:16px;color:var(--ink);margin-bottom:10px;line-height:1.6;cursor:pointer" onclick="sunClearLast()" title="Tap to remove last word"></div>
+      <div id="sun-chips" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px"></div>
+      <div style="display:flex;gap:10px;margin-bottom:14px">
+        <button onclick="sunCheckSentence()" style="background:var(--green);color:#fff;border:none;border-radius:10px;padding:9px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:Outfit,sans-serif">✓ Check</button>
+        <button onclick="sunResetChips()" style="background:none;border:2px solid var(--border);border-radius:10px;padding:9px 16px;font-size:14px;font-weight:700;cursor:pointer;font-family:Outfit,sans-serif">↺ Reset</button>
+        <div id="sun-sent-fb" style="font-size:14px;font-weight:700;align-self:center;min-height:20px"></div>
+      </div>
+      <!-- Question writer -->
+      <div style="font-size:13px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">2️⃣ Now write your own question:</div>
+      <textarea id="sun-editor-input" placeholder="Write a question using this word…"
         style="width:100%;border:2px solid var(--green);border-radius:10px;padding:10px;font-size:16px;
-               font-family:Outfit,sans-serif;resize:none;outline:none;min-height:70px"
+               font-family:Outfit,sans-serif;resize:none;outline:none;min-height:60px"
         oninput="sunEditorSave()"></textarea>
-      <div style="font-size:13px;color:var(--ink-3);margin-top:6px">💡 Tap another ray to switch</div>
+      <div style="font-size:12px;color:var(--ink-3);margin-top:6px">💡 Tap a different ray to switch word</div>
     </div>
   </div>
   <div class="tab-footer">
@@ -1253,17 +1264,81 @@ function initSunshine() {
   });
 }
 
+
+// ── SUNSHINE SENTENCE BUILDER DATA ───────────────────────────
+const sunSentences = {
+  0: { words: ['I', 'collect', 'soccer', 'cards', 'as', 'a', 'hobby', '.'], answer: 'I collect soccer cards as a hobby .' },
+  1: { words: ['Yamal', 'is', 'very', 'creative', 'with', 'the', 'ball', '.'], answer: 'Yamal is very creative with the ball .' },
+  2: { words: ['Do', 'you', 'enjoy', 'playing', 'video', 'games', '?'], answer: 'Do you enjoy playing video games ?' },
+  3: { words: ['Haaland', 'and', 'Kane', 'compete', 'every', 'season', '.'], answer: 'Haaland and Kane compete every season .' },
+  4: { words: ['We', 'cooperate', 'to', 'win', 'the', 'game', '.'], answer: 'We cooperate to win the game .' },
+};
+let sunBuilt = [], sunChipsData = [];
+
+function renderSunChips(si) {
+  sunBuilt = []; sunChipsData = [];
+  const data = sunSentences[si];
+  if (!data) return;
+  sunChipsData = [...data.words].sort(() => Math.random() - 0.5);
+  document.getElementById('sun-built').textContent = '';
+  document.getElementById('sun-sent-fb').textContent = '';
+  const wrap = document.getElementById('sun-chips');
+  wrap.innerHTML = '';
+  sunChipsData.forEach((w, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = w;
+    btn.id = 'sun-chip-' + i;
+    btn.style.cssText = 'padding:7px 14px;border:2px solid var(--green);border-radius:20px;background:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:Outfit,sans-serif;color:var(--green-d);transition:all .2s';
+    btn.onclick = () => sunTapChip(i, w, btn);
+    wrap.appendChild(btn);
+  });
+}
+function sunTapChip(i, word, btn) {
+  if (btn.disabled) return;
+  sunBuilt.push({ i, word });
+  btn.disabled = true;
+  btn.style.opacity = '.35';
+  const built = document.getElementById('sun-built');
+  built.textContent = sunBuilt.map(b => b.word).join(' ');
+}
+function sunClearLast() {
+  if (!sunBuilt.length) return;
+  const last = sunBuilt.pop();
+  const btn = document.getElementById('sun-chip-' + last.i);
+  if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
+  document.getElementById('sun-built').textContent = sunBuilt.map(b => b.word).join(' ') || '';
+}
+function sunResetChips() {
+  sunBuilt = [];
+  document.getElementById('sun-built').textContent = '';
+  document.getElementById('sun-sent-fb').textContent = '';
+  document.querySelectorAll('#sun-chips button').forEach(b => { b.disabled = false; b.style.opacity = '1'; });
+}
+function sunCheckSentence() {
+  const fb = document.getElementById('sun-sent-fb');
+  const built = sunBuilt.map(b => b.word).join(' ');
+  const data = sunSentences[sunActive];
+  if (!data) return;
+  if (built === data.answer) {
+    fb.style.color = 'var(--green)'; fb.textContent = '✅ Correct sentence!';
+    document.querySelectorAll('#sun-chips button').forEach(b => b.disabled = true);
+  } else {
+    fb.style.color = 'var(--red)'; fb.textContent = '❌ Not quite — try again!';
+    setTimeout(() => { fb.textContent = ''; }, 1000);
+  }
+}
+
 function openSunEditor(si) {
   sunActive = si;
   const w = vocabWords[sunWords[si]];
   const saved = lLoad('sunshine', {});
   document.getElementById('sun-editor-label').innerHTML =
-    [...w.emoji][0] + ' Write a question using "<b>' + w.word + '</b>":';
+    [...w.emoji][0] + ' <b>' + w.word + '</b>';
   document.getElementById('sun-editor-input').value = saved[si] || '';
+  renderSunChips(si);
   const ed = document.getElementById('sun-editor');
   ed.style.display = 'block';
   ed.scrollIntoView({behavior:'smooth'});
-  document.getElementById('sun-editor-input').focus();
 }
 
 function sunEditorSave() {
