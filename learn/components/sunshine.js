@@ -96,8 +96,10 @@ function buildSunshine({
     const qRaw   = (saved[si] || '').trim();
     const preview = qRaw.length > 18 ? qRaw.substring(0, 18) + '…' : qRaw;
 
+    // Register callback globally so inline onclick can reach it
+    if (onSelect) window.__sunCB = onSelect;
     const clickAttr = onSelect
-      ? `onclick="(${onSelect.toString()})(${si})" style="cursor:pointer"`
+      ? `onclick="window.__sunCB && window.__sunCB(${si})" style="cursor:pointer"`
       : '';
 
     rays += `
