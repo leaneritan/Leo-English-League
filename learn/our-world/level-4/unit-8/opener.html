@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 8 Opener — Leo's English League</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../../../lib/leea-cloud-config.js"></script>
+  <script src="../../../../lib/leea-cloud.js"></script>
+  <style>
+    :root{--green:#16A34A;--green-dk:#14532D;--green-lt:#DCFCE7;--green-md:#86EFAC;--arctic:#0EA5E9;--arc-bg:#F0F9FF;--arc-dk:#075985;--yellow:#FFCC00;--ybg:#FFFBE6;--paper:#FAFAF7;--surface:#FFFFFF;--border:#E5E3DC;--ink:#111111;--ink2:#5A5853;--ink3:#6B6963;--ink4:#9A9A95;--red:#DC2626;--red-lt:#FEE2E2;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Outfit',sans-serif;background:var(--paper);min-height:100vh;padding-bottom:80px;}
+    button{font-family:'Outfit',sans-serif;cursor:pointer;}
+
+    /* HEADER */
+    .app-header{background:var(--green);padding:20px 24px 16px;color:#fff;}
+    .hdr-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .hdr-unit{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.65);}
+    .hdr-title{font-size:26px;font-weight:900;line-height:1.1;}
+    .hdr-sub{font-size:14px;color:rgba(255,255,255,.72);margin-top:2px;}
+    .hdr-bear{font-size:44px;margin-left:auto;flex-shrink:0;}
+    .prog-row{display:flex;align-items:center;gap:10px;}
+    .prog-bar{flex:1;height:6px;background:rgba(255,255,255,.25);border-radius:3px;overflow:hidden;}
+    .prog-fill{height:100%;background:var(--yellow);border-radius:3px;transition:width .4s ease;}
+    .prog-lbl{font-size:12px;font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap;}
+
+    /* TABS */
+    .tab-bar{display:flex;overflow-x:auto;background:var(--green-dk);padding:0 8px;gap:2px;scrollbar-width:none;}
+    .tab-bar::-webkit-scrollbar{display:none;}
+    .tab-btn{flex-shrink:0;padding:12px 16px 10px;background:none;border:none;color:rgba(255,255,255,.55);font-weight:700;font-size:13px;cursor:pointer;border-bottom:3px solid transparent;transition:all .18s;white-space:nowrap;position:relative;}
+    .tab-btn:hover{color:rgba(255,255,255,.85);}
+    .tab-btn.active{color:#fff;border-bottom-color:var(--yellow);}
+    .tab-badge{position:absolute;top:6px;right:6px;width:10px;height:10px;border-radius:50%;background:var(--yellow);border:1.5px solid var(--green-dk);display:none;}
+    .tab-badge.show{display:block;}
+    .tab-panel{display:none;padding:20px 16px;max-width:680px;margin:0 auto;}
+    .tab-panel.active{display:block;}
+
+    /* SHARED */
+    .section-title{font-size:22px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+    .section-sub{font-size:15px;color:var(--ink3);margin-bottom:20px;}
+    .act-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink4);margin-bottom:8px;margin-top:24px;display:block;}
+    .done-banner{background:var(--green-lt);border:1.5px solid var(--green-md);border-radius:12px;padding:14px 18px;display:none;align-items:center;gap:12px;font-size:16px;font-weight:700;color:var(--green-dk);margin-bottom:16px;}
+    .done-banner.show{display:flex;}
+    .hidden{display:none!important;}
+    .mt-4{margin-top:16px;}
+
+    /* MODULE FOOTER */
+    .mod-footer{display:flex;gap:10px;margin-top:24px;padding-top:18px;border-top:2px solid var(--border);}
+    .complete-btn{flex:1;padding:14px;background:var(--green);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer;transition:all .2s;}
+    .complete-btn:hover:not(.confirmed){background:var(--green-dk);}
+    .complete-btn.confirmed{background:var(--green-dk);pointer-events:none;opacity:.7;}
+    .redo-btn{width:110px;flex-shrink:0;padding:14px;background:var(--red);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;}
+    .redo-btn.armed{background:#991B1B;font-size:12px;}
+
+    /* FLASHCARDS */
+    .fc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px;}
+    .fc-card{perspective:800px;height:160px;cursor:pointer;}
+    .fc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s;}
+    .fc-card.flipped .fc-inner{transform:rotateY(180deg);}
+    .fc-front,.fc-back{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;border:1.5px solid var(--border);}
+    .fc-front{background:var(--surface);}
+    .fc-back{background:var(--green-lt);border-color:var(--green-md);transform:rotateY(180deg);}
+    .fc-back.ac{background:var(--arc-bg);border-color:var(--arctic);}
+    .fc-em{font-size:44px;margin-bottom:6px;}
+    .fc-word{font-size:20px;font-weight:800;}
+    .fc-hint{font-size:12px;color:var(--ink4);margin-top:4px;}
+    .fc-def{font-size:15px;font-weight:600;color:var(--green-dk);line-height:1.5;}
+    .fc-def.ac{color:var(--arc-dk);}
+    .fc-ex{font-size:13px;color:var(--ink2);margin-top:8px;line-height:1.5;}
+
+    /* MATCHING */
+    .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .match-hdr{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink4);text-align:center;padding-bottom:4px;}
+    .match-item{padding:12px 14px;border:2.5px solid var(--border);border-radius:10px;background:var(--surface);cursor:pointer;font-size:15px;font-weight:600;text-align:center;transition:all .18s;line-height:1.4;}
+    .match-item:hover{border-color:var(--green);}
+    .match-item.sel{border-color:var(--arctic);background:var(--arc-bg);}
+    .match-item.right{border-color:var(--green);background:var(--green-lt);cursor:default;pointer-events:none;}
+    .match-item.wrong{border-color:var(--red);background:var(--red-lt);animation:shake .4s;}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+    .match-score{text-align:center;font-size:15px;font-weight:700;color:var(--ink2);margin-top:10px;}
+
+    /* FILL IN BLANK */
+    .fib-item{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;}
+    .fib-sent{font-size:18px;line-height:1.7;margin-bottom:12px;}
+    .fib-blank{display:inline-block;min-width:140px;border-bottom:3px solid var(--arctic);text-align:center;font-weight:700;color:var(--arc-dk);padding:0 8px;margin:0 4px;transition:all .2s;}
+    .fib-blank.correct{color:var(--green);border-color:var(--green);}
+    .fib-blank.wrong{color:var(--red);border-color:var(--red);animation:shake .4s;}
+    .fib-chips{display:flex;flex-wrap:wrap;gap:8px;}
+    .fib-chip{padding:8px 16px;border:2px solid var(--arctic);border-radius:20px;background:var(--surface);font-size:15px;font-weight:700;color:var(--arc-dk);cursor:pointer;transition:all .18s;}
+    .fib-chip:hover:not([disabled]){background:var(--arctic);color:#fff;}
+    .fib-chip[disabled]{opacity:.35;cursor:default;}
+    .fib-feedback{font-size:14px;margin-top:8px;font-weight:600;min-height:18px;}
+    .fib-feedback.ok{color:var(--green);}
+    .fib-feedback.err{color:var(--red);}
+
+    /* SORT */
+    .sort-instr{font-size:16px;color:var(--ink2);margin-bottom:14px;line-height:1.6;}
+    .sort-zones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+    .sort-zone{border:2.5px dashed var(--border);border-radius:14px;padding:16px;min-height:90px;}
+    .sz-label{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;text-align:center;}
+    .sz-what{border-color:var(--arctic);}
+    .sz-why{border-color:var(--green);}
+    .sz-what .sz-label{color:var(--arc-dk);}
+    .sz-why .sz-label{color:var(--green-dk);}
+    .sort-cards{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px;}
+    .sort-card{padding:10px 16px;border:2px solid var(--border);border-radius:10px;background:var(--surface);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;text-align:center;}
+    .sort-card:hover{border-color:var(--green);transform:translateY(-2px);}
+    .sort-placed{opacity:.35;cursor:default;pointer-events:none;}
+    .sz-item{padding:8px 12px;border-radius:8px;font-size:13px;font-weight:700;text-align:center;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);background:var(--green-lt);color:var(--green-dk);margin-bottom:6px;}
+    @keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+
+    /* SCENE */
+    .scene-art{position:relative;width:100%;background:linear-gradient(to bottom,#BFDBFE 0%,#93C5FD 40%,#E0F2FE 40%,#F0F9FF 72%,#CBD5E1 72%,#94A3B8 100%);border-radius:16px;overflow:hidden;border:1px solid var(--border);aspect-ratio:16/9;margin-bottom:16px;}
+    .sc-sun{position:absolute;top:8%;right:10%;font-size:40px;}
+    .sc-mtn{position:absolute;bottom:28%;left:6%;font-size:48px;opacity:.7;}
+    .sc-bear{position:absolute;bottom:29%;left:36%;font-size:70px;}
+    .sc-cam{position:absolute;bottom:27%;right:17%;font-size:54px;}
+    .sc-ice1{position:absolute;bottom:5%;left:4%;font-size:28px;opacity:.5;}
+    .sc-ice2{position:absolute;bottom:8%;right:6%;font-size:22px;opacity:.5;}
+    .scene-q{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px;transition:all .18s;}
+    .scene-q.right{border-color:var(--green);background:var(--green-lt);}
+    .sq-q{font-size:17px;font-weight:700;margin-bottom:8px;}
+    .sq-opts{display:flex;flex-wrap:wrap;gap:8px;}
+    .sq-opt{padding:7px 14px;border:2px solid var(--border);border-radius:8px;font-size:14px;font-weight:600;background:var(--surface);cursor:pointer;transition:all .15s;}
+    .sq-opt:hover{border-color:var(--arctic);}
+    .sq-opt.chosen-right{background:var(--green-lt);border-color:var(--green);}
+    .sq-opt.chosen-wrong{background:var(--red-lt);border-color:var(--red);animation:shake .3s;}
+    .sq-fb{font-size:14px;color:var(--green-dk);font-style:italic;margin-top:8px;display:none;}
+    .scene-q.right .sq-fb{display:block;}
+
+    /* CAPTION */
+    .reporter-nb{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:20px;background-image:repeating-linear-gradient(transparent,transparent 31px,#DBEAFE 31px,#DBEAFE 32px);background-position:0 10px;margin-bottom:16px;}
+    .nb-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+    .nb-icon{font-size:28px;}
+    .nb-htxt{font-size:16px;font-weight:800;color:var(--ink);}
+    .nb-ent{font-size:12px;color:var(--ink3);}
+    .nb-input{width:100%;border:none;outline:none;resize:none;font-family:'Outfit',sans-serif;font-size:19px;line-height:2;color:var(--ink);background:transparent;min-height:96px;}
+    .nb-input::placeholder{color:var(--ink4);}
+    .cap-tip{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;font-size:15px;background:var(--arc-bg);border:1px solid var(--arctic);color:var(--arc-dk);margin-bottom:8px;}
+    .cap-ex-good{background:var(--green-lt);border:1px solid var(--green-md);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--green-dk);margin-bottom:8px;}
+    .cap-ex-bad{background:var(--red-lt);border:1px solid #FECACA;border-radius:10px;padding:12px 14px;font-size:15px;color:var(--red);margin-bottom:12px;}
+
+    /* QUIZ */
+    .quiz-progress{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;}
+    .qp-dot{width:24px;height:6px;border-radius:3px;background:var(--border);transition:background .3s;}
+    .qp-dot.done{background:var(--green);}
+    .qp-dot.current{background:var(--arctic);}
+    .quiz-player{background:var(--green-lt);border:1.5px solid var(--green-md);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .qp-avatar{font-size:32px;}
+    .qp-info{font-size:15px;color:var(--green-dk);font-weight:600;line-height:1.4;}
+    .quiz-q{font-size:20px;font-weight:700;margin-bottom:16px;line-height:1.4;}
+    .quiz-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+    .qopt{padding:14px 18px;border:2.5px solid var(--border);border-radius:12px;background:var(--surface);font-size:17px;font-weight:600;cursor:pointer;transition:all .18s;text-align:left;}
+    .qopt:hover{border-color:var(--arctic);background:var(--arc-bg);}
+    .qopt.right{border-color:var(--green);background:var(--green-lt);cursor:default;}
+    .qopt.wrong{border-color:var(--red);background:var(--red-lt);cursor:default;animation:shake .4s;}
+    .quiz-fb{font-size:15px;font-weight:600;padding:10px 14px;border-radius:8px;margin-bottom:14px;display:none;line-height:1.55;}
+    .quiz-fb.ok{background:var(--green-lt);color:var(--green-dk);display:block;}
+    .quiz-fb.err{background:var(--red-lt);color:var(--red);display:block;}
+    .quiz-next{width:100%;padding:14px;background:var(--arctic);color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:800;cursor:pointer;display:none;transition:all .2s;}
+    .quiz-next:hover{background:var(--arc-dk);}
+    .goal-anim{text-align:center;font-size:48px;padding:16px;animation:goalPop .5s cubic-bezier(.34,1.56,.64,1);display:none;}
+    @keyframes goalPop{from{transform:scale(0) rotate(-12deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+    .quiz-results{text-align:center;display:none;flex-direction:column;align-items:center;gap:16px;padding:20px 0;}
+    .qr-score{font-size:64px;font-weight:900;color:var(--green);}
+    .qr-lbl{font-size:18px;color:var(--ink2);}
+    .qr-trophy{font-size:72px;}
+    .qr-msg{font-size:20px;font-weight:700;color:var(--ink);}
+    .qr-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+    .qr-chip{padding:6px 14px;border-radius:16px;font-size:14px;font-weight:700;background:var(--green-lt);color:var(--green-dk);}
+
+    /* PROGRESS TAB */
+    .prog-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;cursor:pointer;transition:all .18s;margin-bottom:8px;border:1.5px solid var(--border);}
+    .prog-item:hover{border-color:var(--green);}
+    .unit-card{background:var(--green);color:#fff;border-radius:16px;padding:24px;margin-bottom:20px;display:flex;align-items:center;gap:16px;}
+    .uc-num{font-size:48px;font-weight:900;opacity:.3;}
+    .uc-title{font-size:22px;font-weight:800;}
+    .uc-sub{font-size:14px;opacity:.8;margin-top:2px;}
+    .word-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+    .wc{padding:6px 14px;border-radius:20px;font-size:14px;font-weight:700;background:var(--surface);border:1.5px solid var(--border);}
+
+    #confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999;}
+
+    /* BOTTOM NAV */
+    .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:10px 16px;z-index:100;}
+    .bn-btn{display:flex;align-items:center;gap:8px;padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:var(--surface);font-size:14px;font-weight:700;color:var(--ink2);cursor:pointer;transition:all .15s;}
+    .bn-btn:hover{border-color:var(--green);color:var(--green);}
+    .bn-btn.next{background:var(--green);border-color:var(--green);color:#fff;}
+    .bn-btn.next:hover{background:var(--green-dk);}
+    .bn-btn:disabled{opacity:.35;cursor:default;}
+    .bn-center{font-size:13px;color:var(--ink3);font-weight:600;text-align:center;}
+  </style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+
+<div class="app-header">
+  <div class="hdr-top">
+    <div>
+      <div class="hdr-unit">Unit 8 · Opener</div>
+      <div class="hdr-title">That's Really Interesting!</div>
+      <div class="hdr-sub">8 words · Reporter's Notebook · Entry #1</div>
+    </div>
+    <div class="hdr-bear">🐻‍❄️</div>
+  </div>
+  <div class="prog-row">
+    <div class="prog-bar"><div class="prog-fill" id="master-fill" style="width:0%"></div></div>
+    <div class="prog-lbl" id="master-lbl">0 / 5 done</div>
+  </div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab(0)">📚 Related Words<span class="tab-badge" id="badge-0"></span></button>
+  <button class="tab-btn" onclick="showTab(1)">🔍 Academic Words<span class="tab-badge" id="badge-1"></span></button>
+  <button class="tab-btn" onclick="showTab(2)">🐻‍❄️ The Scene<span class="tab-badge" id="badge-2"></span></button>
+  <button class="tab-btn" onclick="showTab(3)">✍️ My Caption<span class="tab-badge" id="badge-3"></span></button>
+  <button class="tab-btn" onclick="showTab(4)">⚽ Can Leo Score?<span class="tab-badge" id="badge-4"></span></button>
+  <button class="tab-btn" onclick="showTab(5)">🎯 My Progress<span class="tab-badge" id="badge-5"></span></button>
+</div>
+
+<!-- TAB 0 — RELATED WORDS -->
+<div class="tab-panel active" id="tab-0">
+  <div class="section-title">📚 Related Words</div>
+  <div class="section-sub">Flashcards → Match → Fill in the blank</div>
+  <div class="done-banner" id="rel-done-banner">✅ Related Words complete!</div>
+
+  <span class="act-label">Step 1 — Flashcards · Tap to flip</span>
+  <div class="fc-grid">
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">🎨</span><div class="fc-word">hobby</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back"><div class="fc-def">Something you love to do for fun in your free time.</div><div class="fc-ex">⚽ "Soccer is Leo's hobby!"</div></div></div></div>
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">📸</span><div class="fc-word">photographer</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back"><div class="fc-def">A person who takes photos as a hobby or job.</div><div class="fc-ex">📸 "Roie Galitz is a wildlife photographer."</div></div></div></div>
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">🥾</span><div class="fc-word">hiker</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back"><div class="fc-def">Someone who walks long distances through nature.</div><div class="fc-ex">🥾 "Roie hiked across Arctic mountains."</div></div></div></div>
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">🐻‍❄️</span><div class="fc-word">polar bear</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back"><div class="fc-def">A huge white bear that lives in the Arctic.</div><div class="fc-ex">🐻‍❄️ "Polar bears can weigh 700 kg!"</div></div></div></div>
+  </div>
+
+  <span class="act-label">Step 2 — Match · Tap a word, then tap its meaning</span>
+  <div class="match-grid" id="rel-match-grid"></div>
+  <div class="match-score" id="rel-match-score"></div>
+
+  <span class="act-label">Step 3 — Fill in the Blank</span>
+  <div id="rel-fib-area"></div>
+
+  <div class="mod-footer">
+    <button class="redo-btn" id="redo-rel" onclick="armedRedo('rel')">↺ Redo</button>
+    <button class="complete-btn" id="complete-rel" onclick="markSectionComplete('rel')">Mark Related Words complete ✓</button>
+  </div>
+</div>
+
+<!-- TAB 1 — ACADEMIC WORDS -->
+<div class="tab-panel" id="tab-1">
+  <div class="section-title">🔍 Academic Words</div>
+  <div class="section-sub">4 words · Used in every lesson!</div>
+  <div class="done-banner" id="ac-done-banner">✅ Academic Words complete! 🌟</div>
+
+  <span class="act-label">Step 1 — Flashcards · Tap to flip</span>
+  <div class="fc-grid">
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">🔍</span><div class="fc-word">analyze</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back ac"><div class="fc-def ac">Look carefully to find information and understand something.</div><div class="fc-ex">🔍 "Analyze the photo carefully!"</div></div></div></div>
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">📝</span><div class="fc-word">describe</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back ac"><div class="fc-def ac">Use words to tell WHAT something looks like.</div><div class="fc-ex">📝 "Describe the bear: white, huge, curious."</div></div></div></div>
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">💡</span><div class="fc-word">explain</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back ac"><div class="fc-def ac">Say WHY or HOW something happened.</div><div class="fc-ex">💡 "Explain why the bear found the camera."</div></div></div></div>
+    <div class="fc-card" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-front"><span class="fc-em">🗒️</span><div class="fc-word">caption</div><div class="fc-hint">Tap to flip →</div></div><div class="fc-back ac"><div class="fc-def ac">A short sentence under a photo: who, what, where.</div><div class="fc-ex">🗒️ "Write a caption for the photo."</div></div></div></div>
+  </div>
+
+  <span class="act-label">Step 2 — Sort It! · WHAT or WHY?</span>
+  <div class="sort-instr"><strong>describe</strong> = WHAT · <strong>explain</strong> = WHY. Sort these sentences!</div>
+  <div class="sort-zones">
+    <div class="sort-zone sz-what"><div class="sz-label">📝 WHAT (describe)</div><div id="sz-what-items"></div></div>
+    <div class="sort-zone sz-why"><div class="sz-label">💡 WHY (explain)</div><div id="sz-why-items"></div></div>
+  </div>
+  <div class="sort-cards" id="sort-cards"></div>
+  <div id="sort-feedback" style="font-size:15px;color:var(--green);font-weight:700;text-align:center;min-height:20px"></div>
+
+  <span class="act-label">Step 3 — Fill in the Blank</span>
+  <div id="ac-fib-area"></div>
+
+  <div class="mod-footer">
+    <button class="redo-btn" id="redo-ac" onclick="armedRedo('ac')">↺ Redo</button>
+    <button class="complete-btn" id="complete-ac" onclick="markSectionComplete('ac')">Mark Academic Words complete ✓</button>
+  </div>
+</div>
+
+<!-- TAB 2 — THE SCENE -->
+<div class="tab-panel" id="tab-2">
+  <div class="section-title">🐻‍❄️ The Scene</div>
+  <div class="section-sub">Look carefully and answer 5 questions!</div>
+  <div class="done-banner" id="scene-done-banner">✅ Scene complete! Great analyzing! 🔍</div>
+  <div class="scene-art"><span class="sc-sun">☀️</span><span class="sc-mtn">🏔️</span><span class="sc-bear">🐻‍❄️</span><span class="sc-cam">📷</span><span class="sc-ice1">❄️</span><span class="sc-ice2">❄️</span></div>
+  <div id="scene-qs"></div>
+
+  <div class="mod-footer">
+    <button class="redo-btn" id="redo-scene" onclick="armedRedo('scene')">↺ Redo</button>
+    <button class="complete-btn" id="complete-scene" onclick="markSectionComplete('scene')">Mark The Scene complete ✓</button>
+  </div>
+</div>
+
+<!-- TAB 3 — MY CAPTION -->
+<div class="tab-panel" id="tab-3">
+  <div class="section-title">✍️ Reporter's Notebook</div>
+  <div class="section-sub">Entry #1 — Write your caption!</div>
+  <div class="done-banner" id="cap-done-banner">✅ Entry #1 saved! 📓</div>
+  <div class="cap-ex-good">✅ Good: "A curious polar bear investigates a photographer's camera in Svalbard, Norway."</div>
+  <div class="cap-ex-bad">❌ Too simple: "It's a bear." — Not specific enough!</div>
+  <div class="cap-tip">🔍 WHO · WHAT · WHERE · ✨ Adjective</div>
+  <div class="reporter-nb" style="margin-top:14px">
+    <div class="nb-header"><span class="nb-icon">📓</span><div><div class="nb-htxt">Reporter's Notebook</div><div class="nb-ent">Entry #1 · Unit 8 Opener</div></div></div>
+    <textarea class="nb-input" id="caption-input" placeholder="Write your caption here…" rows="4"></textarea>
+  </div>
+
+  <div class="mod-footer">
+    <button class="redo-btn" id="redo-cap" onclick="armedRedo('cap')">↺ Redo</button>
+    <button class="complete-btn" id="complete-cap" onclick="markSectionComplete('cap')">Mark My Caption complete ✓</button>
+  </div>
+</div>
+
+<!-- TAB 4 — QUIZ -->
+<div class="tab-panel" id="tab-4">
+  <div class="section-title">⚽ Can Leo Score?</div>
+  <div class="section-sub">11 questions · Score 8+ to win!</div>
+  <div id="quiz-area">
+    <div class="quiz-progress" id="quiz-progress"></div>
+    <div class="quiz-player" id="quiz-player-card"></div>
+    <div class="quiz-q" id="quiz-q"></div>
+    <div class="quiz-opts" id="quiz-opts"></div>
+    <div class="quiz-fb" id="quiz-fb"></div>
+    <div class="goal-anim" id="goal-anim">⚽ 🥅 GOAL! 🎉</div>
+    <button class="quiz-next" id="quiz-next" onclick="nextQ()">Next →</button>
+  </div>
+  <div class="quiz-results" id="quiz-results">
+    <div class="qr-trophy" id="qr-trophy">🏆</div>
+    <div class="qr-score" id="qr-score"></div>
+    <div class="qr-lbl">out of 11</div>
+    <div class="qr-msg" id="qr-msg"></div>
+    <div class="qr-chips" id="qr-words"></div>
+    <button onclick="restartQuiz()" style="margin-top:8px;padding:12px 28px;background:var(--arctic);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer">↺ Try Again</button>
+  </div>
+</div>
+
+<!-- TAB 5 — MY PROGRESS -->
+<div class="tab-panel" id="tab-5">
+  <div class="unit-card">
+    <div class="uc-num">8</div>
+    <div>
+      <div class="uc-title">That's Really Interesting!</div>
+      <div class="uc-sub">Opener · 8 words · Reporter's Notebook</div>
+    </div>
+  </div>
+
+  <div class="section-title">Today's 8 Words</div>
+  <div class="word-chips" style="margin-top:10px">
+    <span class="wc">🎨 hobby</span>
+    <span class="wc">📸 photographer</span>
+    <span class="wc">🥾 hiker</span>
+    <span class="wc">🐻‍❄️ polar bear</span>
+    <span class="wc">🔍 analyze</span>
+    <span class="wc">📝 describe</span>
+    <span class="wc">💡 explain</span>
+    <span class="wc">🗒️ caption</span>
+  </div>
+
+  <div class="section-title mt-4">Your Progress</div>
+  <div id="prog-list" style="margin-top:12px"></div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="bn-btn" id="bn-prev" onclick="prevTab()">← <span id="bn-prev-lbl">—</span></button>
+  <div class="bn-center" id="bn-center">Tab 1 of 6</div>
+  <button class="bn-btn next" id="bn-next" onclick="nextTab()"><span id="bn-next-lbl">Academic Words</span> →</button>
+</div>
+
+<script>
+const SAVE_PREFIX='4-8-opener-';
+const HOMEWORK_ID=new URLSearchParams(location.search).get('hw')||'leo-4-8-opener';
+function lSave(k,v){localStorage.setItem(SAVE_PREFIX+k,JSON.stringify(v));if(typeof LEEA_CLOUD!=='undefined')LEEA_CLOUD.saveProgress(HOMEWORK_ID,k,JSON.stringify(v)).catch(()=>{});}
+function lLoad(k,d=null){const v=localStorage.getItem(SAVE_PREFIX+k);return v!==null?JSON.parse(v):d;}
+async function restoreProgressFromCloud(){if(typeof LEEA_CLOUD!=='undefined'){try{const rows=await LEEA_CLOUD.fetchProgress(HOMEWORK_ID);if(rows)rows.forEach(r=>{try{localStorage.setItem(SAVE_PREFIX+r.key,r.value);}catch(e){}});}catch(e){}}}
+
+/* TABS */
+const TAB_NAMES=['Related Words','Academic Words','The Scene','My Caption','Can Leo Score?','My Progress'];
+let currentTab=0;
+function showTab(n){document.querySelectorAll('.tab-panel').forEach((p,i)=>p.classList.toggle('active',i===n));document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));currentTab=n;updateBottomNav();if(n===5)renderProgList();window.scrollTo(0,0);}
+function prevTab(){if(currentTab>0)showTab(currentTab-1);}
+function nextTab(){if(currentTab<5)showTab(currentTab+1);}
+function updateBottomNav(){
+  document.getElementById('bn-prev').disabled=currentTab===0;
+  document.getElementById('bn-prev-lbl').textContent=currentTab>0?TAB_NAMES[currentTab-1]:'—';
+  document.getElementById('bn-next-lbl').textContent=currentTab<5?TAB_NAMES[currentTab+1]:'—';
+  document.getElementById('bn-next').style.display=currentTab<5?'':'none';
+  document.getElementById('bn-center').textContent='Tab '+(currentTab+1)+' of 6';
+}
+
+/* PROGRESS */
+const SECTIONS=['rel','ac','scene','cap','quiz'];
+function isDone(s){const d=lLoad(s+'-done');return !!(d&&d.timestamp);}
+function updateProgress(){
+  let count=0;
+  SECTIONS.forEach((s,i)=>{const done=isDone(s);if(done){count++;document.getElementById('badge-'+i).classList.add('show');}});
+  document.getElementById('master-fill').style.width=(count/5*100)+'%';
+  document.getElementById('master-lbl').textContent=count+' / 5 done';
+}
+function renderProgList(){
+  const el=document.getElementById('prog-list');
+  const labels=['📚 Related Words','🔍 Academic Words','🐻‍❄️ The Scene','✍️ My Caption','⚽ Can Leo Score?'];
+  el.innerHTML=SECTIONS.map((s,i)=>{
+    const done=isDone(s);
+    return `<div onclick="showTab(${i})" class="prog-item" style="background:${done?'var(--green-lt)':'var(--surface)'};border-color:${done?'var(--green-md)':'var(--border)'}">
+      <span style="font-size:20px">${done?'✅':'⬜'}</span>
+      <span style="font-size:15px;font-weight:700;color:${done?'var(--green-dk)':'var(--ink)'}">${labels[i]}</span>
+      <span style="margin-left:auto;font-size:13px;color:var(--ink4)">${done?'Done!':'Tap →'}</span>
+    </div>`;
+  }).join('');
+}
+
+/* MARK COMPLETE + REDO */
+const completeLabels={rel:'Mark Related Words complete ✓',ac:'Mark Academic Words complete ✓',scene:'Mark The Scene complete ✓',cap:'Mark My Caption complete ✓'};
+function markSectionComplete(s){
+  const btn=document.getElementById('complete-'+s);
+  if(btn.classList.contains('confirmed'))return;
+  if(s==='cap'){const txt=document.getElementById('caption-input').value.trim();if(txt)lSave('caption-text',txt);}
+  lSave(s+'-done',{done:true,timestamp:Date.now()});
+  btn.classList.add('confirmed');btn.textContent='✅ Complete!';
+  document.getElementById(s+'-done-banner').classList.add('show');
+  document.getElementById('badge-'+SECTIONS.indexOf(s)).classList.add('show');
+  updateProgress();
+}
+const redoArmed={};
+function armedRedo(s){
+  const btn=document.getElementById('redo-'+s);
+  if(redoArmed[s]){clearRedoArm(s);doRedo(s);}
+  else{redoArmed[s]=true;btn.classList.add('armed');btn.textContent='Sure? Tap again!';redoArmed[s+'_t']=setTimeout(()=>clearRedoArm(s),3000);}
+}
+function clearRedoArm(s){clearTimeout(redoArmed[s+'_t']);redoArmed[s]=false;const btn=document.getElementById('redo-'+s);if(btn){btn.classList.remove('armed');btn.textContent='↺ Redo';}}
+function doRedo(s){
+  localStorage.removeItem(SAVE_PREFIX+s+'-done');
+  const cbtn=document.getElementById('complete-'+s);if(cbtn){cbtn.classList.remove('confirmed');cbtn.textContent=completeLabels[s]||'Mark complete ✓';}
+  document.getElementById(s+'-done-banner').classList.remove('show');
+  document.getElementById('badge-'+SECTIONS.indexOf(s)).classList.remove('show');
+  updateProgress();
+  if(s==='rel'){relDone=0;relFIBdone=0;relSel=null;buildRelMatch();buildRelFIB();document.getElementById('rel-match-score').textContent='';}
+  if(s==='ac'){sortDone=0;acFIBdone=0;document.getElementById('sz-what-items').innerHTML='';document.getElementById('sz-why-items').innerHTML='';document.getElementById('sort-feedback').textContent='';buildSort();buildAcFIB();}
+  if(s==='scene'){sceneCorrect=0;buildSceneQs();}
+  if(s==='cap'){document.getElementById('caption-input').value='';localStorage.removeItem(SAVE_PREFIX+'caption-text');}
+}
+function restoreConfirmed(){
+  SECTIONS.slice(0,4).forEach(s=>{
+    if(isDone(s)){
+      const btn=document.getElementById('complete-'+s);if(btn&&!btn.classList.contains('confirmed')){btn.classList.add('confirmed');btn.textContent='✅ Complete!';}
+      document.getElementById(s+'-done-banner').classList.add('show');
+    }
+  });
+}
+
+/* MATCHING */
+const relWords=[{word:'🎨 hobby',def:'Something to do for fun',id:'hw'},{word:'📸 photographer',def:'A person who takes photos',id:'ph'},{word:'🥾 hiker',def:'Someone who walks in nature',id:'hk'},{word:'🐻‍❄️ polar bear',def:'A huge white Arctic bear',id:'pb'}];
+let relSel=null,relDone=0;
+function buildRelMatch(){
+  const grid=document.getElementById('rel-match-grid');const ws=shuffle([...relWords]);const ds=shuffle([...relWords]);
+  let h='<div class="match-hdr">Word</div><div class="match-hdr">Meaning</div>';
+  ws.forEach(w=>h+=`<div class="match-item" id="mw-${w.id}" data-id="${w.id}" data-type="word" onclick="clickMatch(this)">${w.word}</div>`);
+  ds.forEach(d=>h+=`<div class="match-item" id="md-${d.id}" data-id="${d.id}" data-type="def" onclick="clickMatch(this)">${d.def}</div>`);
+  grid.innerHTML=h;
+}
+function clickMatch(el){
+  if(el.classList.contains('right'))return;
+  if(!relSel){el.classList.add('sel');relSel=el;return;}
+  if(relSel===el){el.classList.remove('sel');relSel=null;return;}
+  if(relSel.dataset.type===el.dataset.type){relSel.classList.remove('sel');relSel=el;el.classList.add('sel');return;}
+  if(relSel.dataset.id===el.dataset.id){
+    [relSel,el].forEach(e=>{e.classList.remove('sel');e.classList.add('right');e.onclick=null;});
+    relDone++;document.getElementById('rel-match-score').textContent=relDone+'/4 matched';
+    if(relDone>=4)document.getElementById('rel-match-score').textContent='✅ All matched!';
+  }else{
+    [relSel,el].forEach(e=>{e.classList.add('wrong');setTimeout(()=>e.classList.remove('wrong'),1200);});relSel.classList.remove('sel');
+  }
+  relSel=null;
+}
+
+/* FIB RELATED */
+const relFIB=[{sent:"Roie Galitz is a professional wildlife <blank>. He loves taking photos!",blank:'photographer',opts:['photographer','hiker','polar bear']},{sent:"A huge <blank> walked across the Arctic ice and found Roie's camera.",blank:'polar bear',opts:['polar bear','hobby','photographer']}];
+let relFIBdone=0;
+function buildRelFIB(){
+  document.getElementById('rel-fib-area').innerHTML=relFIB.map((item,i)=>{
+    const sh=item.sent.replace('<blank>',`<span class="fib-blank" id="rfb-blank-${i}">_______</span>`);
+    return `<div class="fib-item"><div class="fib-sent">${sh}</div><div class="fib-chips">${shuffle([...item.opts]).map(o=>`<button class="fib-chip" id="rfb-chip-${i}-${o.replace(/ /g,'-')}" onclick="pickRelFIB(${i},'${o.replace(/'/g,"\\'")}',this)">${o}</button>`).join('')}</div><div class="fib-feedback" id="rfb-fb-${i}"></div></div>`;
+  }).join('');
+}
+function pickRelFIB(i,ans){
+  const item=relFIB[i];const blank=document.getElementById('rfb-blank-'+i);const fb=document.getElementById('rfb-fb-'+i);
+  if(blank.classList.contains('correct'))return;
+  if(ans===item.blank){blank.textContent=ans;blank.classList.add('correct');fb.textContent='✅ Correct!';fb.className='fib-feedback ok';document.querySelectorAll('[id^="rfb-chip-'+i+'-"]').forEach(c=>c.disabled=true);relFIBdone++;}
+  else{blank.classList.add('wrong');setTimeout(()=>blank.classList.remove('wrong'),800);fb.textContent='❌ Try again!';fb.className='fib-feedback err';}
+}
+
+/* SORT */
+const sortItems=[{text:'📝 The bear is white and huge.',zone:'what'},{text:'💡 The bear came because it was curious.',zone:'why'},{text:'📝 Svalbard has ice and polar bears.',zone:'what'},{text:'💡 Roie stepped back because the bear was dangerous.',zone:'why'}];
+let sortDone=0;
+function buildSort(){
+  document.getElementById('sort-cards').innerHTML=shuffle([...sortItems]).map((it,i)=>`<button class="sort-card" id="sc-${i}" onclick="clickSort(${i},'${it.zone}')">${it.text}</button>`).join('');
+}
+function clickSort(i,zone){
+  const btn=document.getElementById('sc-'+i);if(btn.classList.contains('sort-placed'))return;
+  const item=document.createElement('div');item.className='sz-item';item.textContent=btn.textContent;document.getElementById('sz-'+zone+'-items').appendChild(item);
+  btn.classList.add('sort-placed');sortDone++;
+  if(sortDone>=sortItems.length)document.getElementById('sort-feedback').textContent='✅ Perfect! describe=WHAT · explain=WHY';
+}
+
+/* FIB ACADEMIC */
+const acFIB=[{sent:"Let's <blank> the photo carefully to find information.",blank:'analyze',opts:['analyze','describe','caption']},{sent:"Can you <blank> WHY the polar bear came to the camera?",blank:'explain',opts:['explain','describe','caption']}];
+let acFIBdone=0;
+function buildAcFIB(){
+  document.getElementById('ac-fib-area').innerHTML=acFIB.map((item,i)=>{
+    const sh=item.sent.replace('<blank>',`<span class="fib-blank" id="afb-blank-${i}">_______</span>`);
+    return `<div class="fib-item"><div class="fib-sent">${sh}</div><div class="fib-chips">${shuffle([...item.opts]).map(o=>`<button class="fib-chip" id="afb-chip-${i}-${o}" onclick="pickAcFIB(${i},'${o}',this)">${o}</button>`).join('')}</div><div class="fib-feedback" id="afb-fb-${i}"></div></div>`;
+  }).join('');
+}
+function pickAcFIB(i,ans){
+  const item=acFIB[i];const blank=document.getElementById('afb-blank-'+i);const fb=document.getElementById('afb-fb-'+i);
+  if(blank.classList.contains('correct'))return;
+  if(ans===item.blank){blank.textContent=ans;blank.classList.add('correct');fb.textContent='✅ Correct!';fb.className='fib-feedback ok';document.querySelectorAll('[id^="afb-chip-'+i+'-"]').forEach(c=>c.disabled=true);acFIBdone++;}
+  else{blank.classList.add('wrong');setTimeout(()=>blank.classList.remove('wrong'),800);fb.textContent='❌ Try another word!';fb.className='fib-feedback err';}
+}
+
+/* SCENE */
+const sceneQs=[
+  {q:'What animal do you see?',opts:['A penguin','A polar bear','A snow wolf'],correct:'A polar bear',fb:'Correct! 🐻‍❄️ A curious polar bear in the Arctic.'},
+  {q:'What did the polar bear find?',opts:['Food to eat',"Roie's camera",'A baby seal'],correct:"Roie's camera",fb:"Yes! The bear found Roie Galitz's camera on the ice."},
+  {q:'Where does this scene take place?',opts:['In a zoo','In the Amazon','In the Arctic'],correct:'In the Arctic',fb:'Correct! Svalbard, Norway — deep in the Arctic.'},
+  {q:'What adjective best describes the polar bear?',opts:['Angry','Sleeping','Curious'],correct:'Curious',fb:'Yes! "A CURIOUS polar bear" — the perfect adjective!'},
+  {q:'Who is the photographer?',opts:['Roie Galitz','Harry Kane','Leo'],correct:'Roie Galitz',fb:'Correct! Roie Galitz is a professional wildlife photographer.'},
+];
+let sceneCorrect=0;
+function buildSceneQs(){
+  sceneCorrect=0;
+  document.getElementById('scene-qs').innerHTML=sceneQs.map((q,i)=>`<div class="scene-q" id="sq-${i}"><div class="sq-q">${i+1}. ${q.q}</div><div class="sq-opts">${q.opts.map(o=>`<button class="sq-opt" onclick="pickScene(${i},'${o.replace(/'/g,"\\'")}',this)">${o}</button>`).join('')}</div><div class="sq-fb">${q.fb}</div></div>`).join('');
+}
+function pickScene(i,ans,btn){
+  const q=sceneQs[i];const card=document.getElementById('sq-'+i);if(card.classList.contains('right'))return;
+  if(ans===q.correct){card.classList.add('right');card.querySelectorAll('.sq-opt').forEach(o=>{o.disabled=true;if(o.textContent===ans)o.classList.add('chosen-right');});sceneCorrect++;}
+  else{btn.classList.add('chosen-wrong');setTimeout(()=>btn.classList.remove('chosen-wrong'),900);}
+}
+
+/* QUIZ — 11 questions (3 unit + 8 vocab) */
+const QUIZ=[
+  {player:'📘 Unit 8 — Quick Check!',q:'What unit are we studying right now?',opts:['Unit 6','Unit 7','Unit 8'],correct:2,word:'📘 Unit 8',fb:"We're on Unit 8 — 'That's Really Interesting!'"},
+  {player:'📌 Unit 8 — Quick Check!',q:"What is the title of Unit 8?",opts:["Go Outside!","That's Really Interesting!","Creative Minds"],correct:1,word:'📌 Title',fb:"\"That's Really Interesting!\" — about hobbies and interests!"},
+  {player:'🎨 Unit 8 — Quick Check!',q:'What is the main theme of Unit 8?',opts:['Ocean life','Inventions','Hobbies and interests'],correct:2,word:'🎨 Theme',fb:'Unit 8 is all about hobbies and interests! 🎨⚽📸'},
+  {player:'🟡 Erling Haaland · Man City · Premier League',q:"Haaland loves scoring goals — it's his passion! What does HOBBY mean?",opts:['Something you do for fun in your free time','A type of food','A school subject'],correct:0,word:'🎨 hobby',fb:"Correct! Scoring goals is Haaland's hobby — and his job! ⚽"},
+  {player:'🔴 Mohamed Salah · Liverpool · Premier League',q:"Salah used to photograph his teammates! A person who takes photos is a…?",opts:['hiker','photographer','polar bear'],correct:1,word:'📸 photographer',fb:'Yes! A photographer takes photos as a hobby or job. 📸'},
+  {player:'🟡 Jude Bellingham · Real Madrid · La Liga',q:"Bellingham walked across Madrid to explore. Someone who walks long distances in nature is a…?",opts:['captain','hiker','goalkeeper'],correct:1,word:'🥾 hiker',fb:'Correct! A hiker walks long distances in nature. 🥾'},
+  {player:'🔵 Lamine Yamal · Barcelona · La Liga',q:"Which animal lives in the Arctic?",opts:['a lion','a polar bear','a shark'],correct:1,word:'🐻‍❄️ polar bear',fb:'Right! Polar bears live in the Arctic. 🐻‍❄️'},
+  {player:'🔴 Khvicha Kvaratskhelia · PSG · Ligue 1',q:"Kvaratskhelia studies the goalkeeper carefully before shooting. What does ANALYZE mean?",opts:['To eat something','To look carefully to find information','To draw a picture'],correct:1,word:'🔍 analyze',fb:'Excellent! Analyze = look carefully to find information. 🔍'},
+  {player:'🔴 Harry Kane · Bayern Munich · Bundesliga',q:"Kane wants to tell you WHAT the stadium looks like. Which word means 'to use words to tell what something looks like'?",opts:['explain','caption','describe'],correct:2,word:'📝 describe',fb:'Yes! DESCRIBE = tell WHAT. 📝'},
+  {player:'🟡 Vinicius Jr. · Real Madrid · La Liga',q:"Vinicius wants to tell you WHY Real Madrid is the best. Which word means 'to say why something happened'?",opts:['describe','explain','caption'],correct:1,word:'💡 explain',fb:'Correct! EXPLAIN = say WHY. 💡'},
+  {player:'🔵 Scott McTominay · Napoli · Serie A',q:"'Napoli's Scottish hero scores the winner, Naples.' What is this short sentence under a photo called?",opts:['a hobby','a caption','a hiker'],correct:1,word:'🗒️ caption',fb:'Perfect! A caption is a short sentence under a photo. 🗒️'},
+];
+const QUIZ_TOTAL=QUIZ.length;
+let qIdx=0,qScore=0,wrongQs=[],qAnswered=false;
+function buildQuizProgress(){document.getElementById('quiz-progress').innerHTML=QUIZ.map((_,i)=>`<div class="qp-dot${i===0?' current':''}" id="qd-${i}"></div>`).join('');}
+function renderQ(i){
+  const q=QUIZ[i];qAnswered=false;
+  document.getElementById('quiz-player-card').innerHTML=`<span class="qp-avatar">${i<3?'📘':'⚽'}</span><div class="qp-info"><strong>${q.player}</strong></div>`;
+  document.getElementById('quiz-q').textContent=q.q;
+  document.getElementById('quiz-opts').innerHTML=q.opts.map((o,oi)=>`<button class="qopt" onclick="pickQ(${oi})">${o}</button>`).join('');
+  document.getElementById('quiz-fb').className='quiz-fb';document.getElementById('quiz-fb').textContent='';
+  document.getElementById('quiz-next').style.display='none';document.getElementById('goal-anim').style.display='none';
+  QUIZ.forEach((_,j)=>{const d=document.getElementById('qd-'+j);if(d)d.className='qp-dot'+(j<i?' done':j===i?' current':'');});
+}
+function pickQ(optIdx){
+  if(qAnswered)return;qAnswered=true;const q=QUIZ[qIdx];const correct=optIdx===q.correct;
+  document.querySelectorAll('.qopt').forEach((o,i)=>{if(i===q.correct)o.classList.add('right');else if(i===optIdx&&!correct)o.classList.add('wrong');o.onclick=null;});
+  const fb=document.getElementById('quiz-fb');
+  if(correct){qScore++;fb.textContent='✅ '+q.fb;fb.className='quiz-fb ok';const ga=document.getElementById('goal-anim');ga.style.display='block';setTimeout(()=>ga.style.display='none',1500);}
+  else{fb.textContent='❌ Not quite. Answer: '+q.opts[q.correct]+' — '+q.fb;fb.className='quiz-fb err';wrongQs.push({question:qIdx+1,word:q.word,chosen:q.opts[optIdx],correct:q.opts[q.correct]});}
+  document.getElementById('quiz-next').style.display='block';
+}
+function nextQ(){qIdx++;if(qIdx<QUIZ_TOTAL){renderQ(qIdx);}else{showResults();}}
+function showResults(){
+  document.getElementById('quiz-area').style.display='none';document.getElementById('quiz-results').style.display='flex';
+  const pct=Math.round(qScore/QUIZ_TOTAL*100);
+  document.getElementById('qr-score').textContent=qScore+'/'+QUIZ_TOTAL;
+  document.getElementById('qr-trophy').textContent=pct>=73?'🏆':'⚽';
+  document.getElementById('qr-msg').textContent=pct>=73?'⭐ Leo scores! Unit 8 Opener complete!':pct>=55?'👏 Good effort! Try again!':'💪 Keep practicing!';
+  document.getElementById('qr-words').innerHTML=QUIZ.map(q=>`<span class="qr-chip">${q.word}</span>`).join('');
+  lSave('quiz-done',{done:true,timestamp:Date.now()});
+  lSave('quiz-score',{score:qScore,total:QUIZ_TOTAL,percent:pct,done:true,timestamp:Date.now()});
+  lSave('quiz-wrong',wrongQs);
+  document.getElementById('badge-4').classList.add('show');
+  updateProgress();
+  if(pct>=73)setTimeout(launchConfetti,300);
+}
+function restartQuiz(){qIdx=0;qScore=0;wrongQs=[];qAnswered=false;document.getElementById('quiz-area').style.display='';document.getElementById('quiz-results').style.display='none';buildQuizProgress();renderQ(0);}
+
+/* CONFETTI */
+function launchConfetti(){
+  const canvas=document.getElementById('confetti-canvas');const ctx=canvas.getContext('2d');
+  canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+  const p=Array.from({length:120},()=>({x:Math.random()*canvas.width,y:-10,r:6+Math.random()*7,dx:(Math.random()-.5)*3,dy:2+Math.random()*4,color:['#16A34A','#FFCC00','#0EA5E9','#F97316','#fff'][Math.floor(Math.random()*5)],rot:Math.random()*Math.PI*2,drot:(Math.random()-.5)*.15}));
+  let f=0;function loop(){ctx.clearRect(0,0,canvas.width,canvas.height);p.forEach(q=>{q.x+=q.dx;q.y+=q.dy;q.rot+=q.drot;ctx.save();ctx.translate(q.x,q.y);ctx.rotate(q.rot);ctx.fillStyle=q.color;ctx.fillRect(-q.r/2,-q.r/2,q.r,q.r/2);ctx.restore();});f++;if(f<180)requestAnimationFrame(loop);else ctx.clearRect(0,0,canvas.width,canvas.height);}loop();
+}
+
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+document.addEventListener('DOMContentLoaded',async()=>{
+  await restoreProgressFromCloud();
+  buildRelMatch();buildRelFIB();buildSort();buildAcFIB();buildSceneQs();buildQuizProgress();renderQ(0);
+  const saved=lLoad('caption-text');if(saved)document.getElementById('caption-input').value=saved;
+  restoreConfirmed();
+  if(isDone('quiz'))document.getElementById('badge-4').classList.add('show');
+  updateProgress();updateBottomNav();
+});
+</script>
+</body>
+</html>

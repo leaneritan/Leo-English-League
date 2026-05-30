@@ -69,6 +69,58 @@ header {
   letter-spacing: 1px;
   color: #fff;
 }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-home,
+.role-chip {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.header-home {
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(255,255,255,0.62);
+  padding: 6px 8px;
+}
+.header-home:hover { color: #fff; }
+.header-home.active {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+.role-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(255,255,255,0.26);
+  border-radius: 2px;
+  padding: 3px;
+}
+.role-chip {
+  background: transparent;
+  border: 0;
+  color: rgba(255,255,255,0.68);
+  padding: 5px 9px;
+}
+.role-chip:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+.role-chip.active {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.role-chip:not(.active) {
+  background: transparent;
+}
 
 /* SCREENS */
 .screen { display:none; flex:1; flex-direction:column; }
@@ -194,6 +246,7 @@ header {
   letter-spacing: 1px;
   padding: 3px 9px;
   border-radius: 2px;
+  pointer-events: none;
 }
 .pill-ow  { background:#E3F0FF; color:var(--ow-blue); }
 .pill-jh  { background:#E8F5E9; color:var(--nc-dark); }
@@ -215,6 +268,7 @@ header {
   transition: color 0.2s;
 }
 .person-card:hover .person-arrow { color: var(--ink); }
+.person-card.leo:hover .person-arrow { color: var(--nc-green); }
 
 /* MODE SCREEN */
 .mode-screen-header {
@@ -464,6 +518,12 @@ header {
   margin-top: auto;
 }
 .search-inner { max-width: 640px; margin: 0 auto; }
+.search-screen .search-section {
+  background: var(--paper);
+  border-top: 0;
+  padding: 24px 32px 70px;
+}
+.search-screen .search-inner { max-width: 860px; }
 .search-label {
   font-family: 'Oswald', sans-serif;
   font-size: 0.65rem;
@@ -493,6 +553,31 @@ header {
   padding: 11px 0;
   color: var(--ink);
 }
+.search-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 10px 0 4px;
+}
+.search-filter-btn {
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--ink-3);
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  transition: all 0.15s;
+}
+.search-filter-btn:hover,
+.search-filter-btn.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
 .search-clear {
   background: none; border: none;
   cursor: pointer; color: var(--ink-4);
@@ -514,6 +599,7 @@ header {
 .result-badge.g  { background: var(--ink); color: #fff; }
 .result-badge.jh { background: var(--nc-green); color: #fff; }
 .result-badge.d  { background: var(--ow-blue); color: #fff; }
+.result-badge.al { background: var(--ow-orange); color: #fff; }
 .result-word { flex:1; font-size:0.86rem; font-weight:600; color:var(--ink); }
 .result-word mark { background:var(--yellow); color:var(--ink); border-radius:2px; padding:0 2px; }
 .result-link {
@@ -529,6 +615,10 @@ header {
 .result-link.d:hover  { background: var(--ow-blue); color: #fff; }
 .result-link.jh { border-color: var(--nc-green); color: var(--nc-green); }
 .result-link.jh:hover { background: var(--nc-green); color: #fff; }
+.result-link.gl { border-color: var(--ow-orange); color: var(--ow-orange); }
+.result-link.gl:hover { background: var(--ow-orange); color: #fff; }
+.result-link.al { border-color: var(--ow-orange); color: var(--ow-orange); }
+.result-link.al:hover { background: var(--ow-orange); color: #fff; }
 .result-links { display:flex; gap:6px; flex-wrap:wrap; }
 #noResults { display:none; padding:14px 0; font-size:0.83rem; color:var(--ink-3); }
 .suggest-chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
@@ -713,6 +803,8 @@ header {
 .unit-card-stat { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; padding:2px 8px; border-radius:2px; white-space:nowrap; flex-shrink:0; }
 .stat-live { background:#E8F5E9; color:var(--nc-dark); }
 .stat-lock { background:var(--soft); color:var(--ink-4); }
+.stat-assigned { background:var(--yellow-bg); color:var(--yellow-ink); }
+.stat-done { background:#E8F5E9; color:var(--nc-dark); }
 .unit-chevron { font-size:0.7rem; color:var(--ink-4); flex-shrink:0; transition:transform 0.2s; }
 .unit-card.open .unit-chevron { transform:rotate(180deg); }
 .lesson-panel { display:none; grid-column:1/-1; border:2px solid var(--ow-blue); border-top:none; border-radius:0 0 4px 4px; background:#F5F9FF; padding:16px; margin-top:-10px; }
@@ -734,6 +826,7 @@ header {
 .lesson-chip.live { border-color:var(--ow-blue); cursor:pointer; }
 .lesson-chip.live:hover { background:var(--ow-blue); }
 .lesson-chip.live:hover .lc-name { color:#fff; }
+.lesson-chip.live:hover .lc-desc { color:rgba(255,255,255,0.82); }
 .lesson-chip.live:hover .lc-status { background:rgba(255,255,255,0.2); color:#fff; }
 .lesson-chip.assigned { border-color:var(--yellow); box-shadow:inset 0 0 0 2px rgba(255,204,0,0.16); }
 .lesson-chip.done { border-color:var(--nc-green); background:#F0FDF4; }
@@ -741,6 +834,7 @@ header {
 .lesson-chip.hidden-by-filter { display:none; }
 .lc-icon { font-size:1.25rem; margin-bottom:5px; }
 .lc-name { font-weight:800; font-size:0.72rem; color:var(--ink); margin-bottom:5px; line-height:1.2; }
+.lc-desc { font-size:0.62rem; color:var(--ink-4); font-weight:700; line-height:1.25; margin:-1px 0 6px; }
 .lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
 .lc-live { background:#E8F5E9; color:var(--nc-dark); }
 .lc-lock { background:var(--soft); color:var(--ink-4); }
@@ -771,6 +865,7 @@ header {
   color: var(--ink-4);
   margin-bottom: 12px;
 }
+.hw-group + .hw-group { margin-top: 18px; }
 .hw-card {
   display: flex;
   align-items: center;
@@ -787,6 +882,7 @@ header {
 }
 .hw-card:hover { border-color: var(--ow-blue); background: #EEF5FF; }
 .hw-card.hw-done { border-color: var(--nc-green); background: #F0FDF4; }
+.hw-card.hw-review-ready { border-color: var(--yellow); background: var(--yellow-bg); }
 .hw-lesson { font-weight: 800; font-size: 0.92rem; color: var(--ink); }
 .hw-unit { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
 .hw-card-right { text-align: right; flex-shrink: 0; }
@@ -885,6 +981,11 @@ header {
 .hw-review-btn:hover {
   background: #1E40AF;
 }
+@media (max-width: 720px) {
+  .hw-card { align-items:flex-start; flex-direction:column; }
+  .hw-card-right { text-align:left; width:100%; }
+  .hw-card-actions { justify-content:flex-start; }
+}
 
 /* ── ASSIGN HOMEWORK BUTTON ON LESSON CHIPS ── */
 .lesson-chip .hw-assign-btn {
@@ -904,6 +1005,117 @@ header {
 }
 .lesson-chip.live .hw-assign-btn {
   display: block;
+}
+.assign-modal {
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(17,17,17,0.58);
+  padding:24px;
+}
+.assign-dialog {
+  width:min(420px,100%);
+  background:var(--surface);
+  border:2px solid var(--ink);
+  border-radius:4px;
+  padding:20px;
+}
+.assign-kicker {
+  font-family:'Oswald',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--ow-blue);
+  margin-bottom:8px;
+}
+.assign-title {
+  font-weight:900;
+  font-size:1.2rem;
+  color:var(--ink);
+}
+.assign-sub {
+  font-size:0.78rem;
+  color:var(--ink-4);
+  font-weight:700;
+  margin-top:3px;
+}
+.assign-field {
+  display:block;
+  margin-top:18px;
+}
+.assign-label {
+  display:block;
+  font-family:'Oswald',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--ink-4);
+  margin-bottom:6px;
+}
+.assign-date {
+  width:100%;
+  border:2px solid var(--border);
+  border-radius:4px;
+  padding:10px 12px;
+  font:700 0.92rem 'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+}
+.assign-date:focus {
+  outline:none;
+  border-color:var(--ow-blue);
+}
+.assign-quick-dates {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  margin-top:10px;
+}
+.assign-quick-dates button {
+  border:2px solid var(--border);
+  border-radius:2px;
+  background:var(--surface);
+  color:var(--ink-2);
+  cursor:pointer;
+  font-family:'Oswald',sans-serif;
+  font-size:0.58rem;
+  font-weight:700;
+  letter-spacing:1px;
+  padding:6px 8px;
+}
+.assign-quick-dates button:hover {
+  border-color:var(--yellow);
+  background:var(--yellow-bg);
+  color:var(--ink);
+}
+.assign-actions {
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:18px;
+}
+.assign-cancel,
+.assign-confirm {
+  font-family:'Oswald',sans-serif;
+  font-size:0.66rem;
+  font-weight:700;
+  letter-spacing:1px;
+  border-radius:2px;
+  padding:7px 14px;
+  cursor:pointer;
+}
+.assign-cancel {
+  border:2px solid var(--border);
+  background:var(--surface);
+  color:var(--ink-2);
+}
+.assign-confirm {
+  border:2px solid var(--yellow);
+  background:var(--yellow);
+  color:var(--ink);
 }
 .quick-nav,
 .ow-breadcrumbs {
@@ -970,19 +1182,29 @@ header {
   display:flex;
   flex-direction:column;
   gap:6px;
+  width:46px;
+  padding:2px;
+  overflow:hidden;
+  transition:width 0.2s ease;
+}
+.app-rail:hover,
+.app-rail:focus-within {
+  width:178px;
 }
 .rail-btn {
-  width:42px;
+  width:100%;
   height:42px;
   border:2px solid var(--border);
   border-radius:4px;
   background:var(--surface);
   color:var(--ink);
-  font-size:1rem;
   cursor:pointer;
-  display:grid;
-  place-items:center;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 11px;
   transition:all 0.2s;
+  text-align:left;
 }
 .rail-btn:hover,
 .rail-btn.active {
@@ -990,8 +1212,81 @@ header {
   background:var(--ow-blue);
   color:#fff;
 }
+.rail-icon {
+  width:18px;
+  min-width:18px;
+  text-align:center;
+  font-size:1rem;
+  line-height:1;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.rail-label {
+  font-family:'Oswald',sans-serif;
+  font-size:0.62rem;
+  font-weight:700;
+  letter-spacing:1.2px;
+  line-height:1;
+  white-space:nowrap;
+  opacity:0;
+  transform:translateX(-4px);
+  transition:opacity 0.16s ease, transform 0.16s ease;
+}
+.app-rail:hover .rail-label,
+.app-rail:focus-within .rail-label {
+  opacity:1;
+  transform:translateX(0);
+}
+.mobile-tabs {
+  display:none;
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:90;
+  background:var(--ink);
+  border-top:2px solid rgba(255,255,255,0.12);
+  padding:6px 8px calc(6px + env(safe-area-inset-bottom));
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+}
+.mobile-tab {
+  min-height:48px;
+  border:1px solid rgba(255,255,255,0.16);
+  border-radius:4px;
+  background:transparent;
+  color:rgba(255,255,255,0.7);
+  font-family:'Oswald',sans-serif;
+  font-size:0.58rem;
+  font-weight:700;
+  letter-spacing:1px;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  transition:all 0.2s;
+}
+.mobile-tab-icon { font-size:1rem; line-height:1; }
+.mobile-tab.active {
+  background:var(--yellow);
+  border-color:var(--yellow);
+  color:var(--ink);
+}
 @media (max-width: 720px) {
+  header { padding:0 16px; }
+  .brand-name { display:none; }
+  .header-actions { gap:6px; }
+  .header-home,
+  .role-chip {
+    font-size:0.58rem;
+    padding:5px 7px;
+  }
   .app-rail { display:none; }
+  .mobile-tabs { display:grid; }
+  body { padding-bottom:74px; }
   .quick-card { align-items:flex-start; flex-direction:column; }
   .quick-action { width:100%; text-align:center; }
 }
@@ -1004,15 +1299,79 @@ header {
     <div class="brand-badge">LEEA</div>
     <div class="brand-name">LEO'S ELITE ENGLISH ACADEMY</div>
   </div>
+  <div class="header-actions" aria-label="Global navigation">
+    <button class="header-home" type="button" onclick="showPerson()">HOME</button>
+    <div class="role-switcher" aria-label="Role switcher">
+      <button class="role-chip" data-role="neritan" type="button" onclick="setPreferredRole('neritan', true)">NERITAN</button>
+      <button class="role-chip" data-role="leo" type="button" onclick="setPreferredRole('leo', true)">LEO</button>
+    </div>
+  </div>
 </header>
 
 <nav class="app-rail" aria-label="Main navigation">
-  <button class="rail-btn" data-screen="screen-person" onclick="goTo('screen-person')" title="Home">⌂</button>
-  <button class="rail-btn" data-screen="screen-neritan" onclick="goTo('screen-neritan')" title="Neritan">👨</button>
-  <button class="rail-btn" data-screen="screen-leo" onclick="goTo('screen-leo')" title="Leo">🦁</button>
-  <button class="rail-btn" data-screen="screen-neritan-ow" onclick="goTo('screen-neritan-ow')" title="Neritan Our World">🌍</button>
-  <button class="rail-btn" data-screen="screen-reference" onclick="goTo('screen-reference')" title="Reference">📚</button>
+  <button class="rail-btn" data-screen="screen-person" onclick="goTo('screen-person')" title="Home" aria-label="Home">
+    <span class="rail-icon">⌂</span><span class="rail-label">Home</span>
+  </button>
+  <button class="rail-btn" data-screen="screen-neritan" onclick="goTo('screen-neritan')" title="Neritan Dashboard" aria-label="Neritan Dashboard">
+    <span class="rail-icon">👨</span><span class="rail-label">Neritan</span>
+  </button>
+  <button class="rail-btn" data-screen="screen-leo" onclick="goTo('screen-leo')" title="Leo Hub" aria-label="Leo Hub">
+    <span class="rail-icon">🦁</span><span class="rail-label">Leo Hub</span>
+  </button>
+  <button class="rail-btn" data-screen="screen-neritan-ow" onclick="goTo('screen-neritan-ow')" title="Our World Slides" aria-label="Our World Slides">
+    <span class="rail-icon">🌍</span><span class="rail-label">Our World</span>
+  </button>
+  <button class="rail-btn" data-screen="screen-search" onclick="goTo('screen-search')" title="Search Everything" aria-label="Search Everything">
+    <span class="rail-icon">⌕</span><span class="rail-label">Search</span>
+  </button>
+  <button class="rail-btn" data-screen="screen-reference" onclick="goTo('screen-reference')" title="Reference" aria-label="Reference">
+    <span class="rail-icon">📚</span><span class="rail-label">Reference</span>
+  </button>
 </nav>
+
+<nav class="mobile-tabs" aria-label="Mobile navigation">
+  <button class="mobile-tab" data-screen="screen-person" onclick="goTo('screen-person')" type="button">
+    <span class="mobile-tab-icon">⌂</span>
+    <span>HOME</span>
+  </button>
+  <button class="mobile-tab" data-screen="screen-neritan" onclick="goTo('screen-neritan')" type="button">
+    <span class="mobile-tab-icon">👨</span>
+    <span>NERITAN</span>
+  </button>
+  <button class="mobile-tab" data-screen="screen-leo" onclick="goTo('screen-leo')" type="button">
+    <span class="mobile-tab-icon">🦁</span>
+    <span>LEO</span>
+  </button>
+  <button class="mobile-tab" data-screen="screen-search" onclick="goTo('screen-search')" type="button">
+    <span class="mobile-tab-icon">⌕</span>
+    <span>SEARCH</span>
+  </button>
+  <button class="mobile-tab" data-screen="screen-reference" onclick="goTo('screen-reference')" type="button">
+    <span class="mobile-tab-icon">📚</span>
+    <span>REF</span>
+  </button>
+</nav>
+
+<div class="assign-modal" id="assign-modal" role="dialog" aria-modal="true" aria-labelledby="assign-title">
+  <div class="assign-dialog">
+    <div class="assign-kicker">ASSIGN HOMEWORK</div>
+    <div class="assign-title" id="assign-title">Lesson</div>
+    <div class="assign-sub" id="assign-sub">Unit</div>
+    <label class="assign-field">
+      <span class="assign-label">DUE DATE</span>
+      <input class="assign-date" id="assign-date" type="date">
+    </label>
+    <div class="assign-quick-dates" aria-label="Quick due dates">
+      <button type="button" onclick="setAssignDueOffset(0)">TODAY</button>
+      <button type="button" onclick="setAssignDueOffset(1)">TOMORROW</button>
+      <button type="button" onclick="setAssignDueOffset(7)">NEXT WEEK</button>
+    </div>
+    <div class="assign-actions">
+      <button class="assign-cancel" type="button" onclick="closeAssignDialog()">Cancel</button>
+      <button class="assign-confirm" type="button" onclick="confirmAssignDialog()">Assign</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══ SCREEN 1: PERSON SELECTOR ══ -->
 <div class="screen active" id="screen-person">
@@ -1040,7 +1399,7 @@ header {
             <span class="mode-pill pill-el">ENGLISH LEAGUE</span>
           </div>
         </div>
-        <div class="person-arrow">ENTER →</div>
+        <div class="person-arrow">OPEN DASHBOARD →</div>
       </div>
 
       <div class="person-card leo" onclick="showModes('leo')">
@@ -1058,7 +1417,7 @@ header {
             <span class="mode-pill pill-el">LEAGUE ELITE</span>
           </div>
         </div>
-        <div class="person-arrow">ENTER →</div>
+        <div class="person-arrow">KICK OFF! ⚽</div>
       </div>
 
       <div class="person-card ref" onclick="showModes('reference')">
@@ -1076,31 +1435,12 @@ header {
             <span class="mode-pill pill-ref">SEARCH</span>
           </div>
         </div>
-        <div class="person-arrow">ENTER →</div>
+        <div class="person-arrow">LOOK UP →</div>
       </div>
 
     </div>
   </div>
 
-  <div class="search-section">
-    <div class="search-inner">
-      <div class="search-label">SEARCH EVERYTHING</div>
-      <div class="search-box">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="searchInput" placeholder="Search vocab or grammar…" autocomplete="off">
-        <button class="search-clear" id="clearBtn">✕</button>
-      </div>
-      <div id="results"></div>
-      <div id="noResults">No results found. Try:
-        <div class="suggest-chips">
-          <span class="suggest-chip" onclick="setSearch('invention')">invention</span>
-          <span class="suggest-chip" onclick="setSearch('comparatives')">comparatives</span>
-          <span class="suggest-chip" onclick="setSearch('pollution')">pollution</span>
-          <span class="suggest-chip" onclick="setSearch('should')">should</span>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- ══ SCREEN 2A: NERITAN MODES ══ -->
@@ -1308,6 +1648,42 @@ header {
         </div>
       </a>
 
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCREEN 2D: UNIVERSAL SEARCH ══ -->
+<div class="screen search-screen" id="screen-search">
+  <div class="mode-screen-header">
+    <button class="back-btn" onclick="showPerson()">← Back</button>
+    <div class="mode-screen-who">⌕ <span>SEARCH EVERYTHING</span></div>
+  </div>
+  <div class="search-section">
+    <div class="search-inner">
+      <div class="search-label">SEARCH EVERYTHING</div>
+      <div class="search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search vocab, grammar, glossary, or Junior High..." autocomplete="off">
+        <button class="search-clear" id="clearBtn">✕</button>
+      </div>
+      <div class="search-filters" aria-label="Search filters">
+        <button class="search-filter-btn active" data-filter="all" type="button">ALL</button>
+        <button class="search-filter-btn" data-filter="ow" type="button">OUR WORLD VOCAB</button>
+        <button class="search-filter-btn" data-filter="grammar" type="button">GRAMMAR</button>
+        <button class="search-filter-btn" data-filter="glossary" type="button">GLOSSARY</button>
+        <button class="search-filter-btn" data-filter="academic" type="button">ACADEMIC</button>
+        <button class="search-filter-btn" data-filter="jh" type="button">JUNIOR HIGH</button>
+        <button class="search-filter-btn" data-filter="dict" type="button">DICTIONARY</button>
+      </div>
+      <div id="results"></div>
+      <div id="noResults">No results found. Try:
+        <div class="suggest-chips">
+          <span class="suggest-chip" onclick="setSearch('invention')">invention</span>
+          <span class="suggest-chip" onclick="setSearch('comparatives')">comparatives</span>
+          <span class="suggest-chip" onclick="setSearch('pollution')">pollution</span>
+          <span class="suggest-chip" onclick="setSearch('should')">should</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1534,6 +1910,40 @@ header {
     Object.keys(lessonFilters).forEach(person => {
       Object.keys(lessonFilters[person]).forEach(unit => applyLessonFilter(person, unit));
     });
+    refreshUnitStats();
+  }
+
+  function getUnitHomeworkStats(person, unitNum) {
+    const owner = person === 'neritan' ? 'leo' : person;
+    const prefix = `${owner}-4-${unitNum}-`;
+    const active = getHomework().filter(h => h.id && h.id.startsWith(prefix));
+    const assigned = active.filter(h => !isHomeworkDone(h.id)).length;
+    const done = active.filter(h => isHomeworkDone(h.id)).length;
+    const completed = getCompletedHomework().filter(h => h.id && h.id.startsWith(prefix)).length;
+    return { assigned, done, completed };
+  }
+
+  function getUnitStat(person, unitNum, liveCount) {
+    const stats = getUnitHomeworkStats(person, unitNum);
+    if (stats.done) return { cls: 'stat-done', label: `✅ ${stats.done} done` };
+    if (stats.assigned) return { cls: 'stat-assigned', label: `📚 ${stats.assigned} HW` };
+    if (stats.completed) return { cls: 'stat-done', label: `✅ ${stats.completed} complete` };
+    if (liveCount > 0) return { cls: 'stat-live', label: `✅ ${liveCount} live` };
+    return { cls: 'stat-lock', label: '🔒 Soon' };
+  }
+
+  function refreshUnitStats() {
+    ['neritan', 'leo'].forEach(person => {
+      UNITS.forEach(u => {
+        const stat = document.querySelector(`#${person}-u${u.n} .unit-card-stat`);
+        if (!stat) return;
+        const livePrefix = person === 'leo' ? 'l' : 'n';
+        const liveCount = getLiveCount(person, 4, u.n, livePrefix);
+        const unitStat = getUnitStat(person, u.n, liveCount);
+        stat.className = `unit-card-stat ${unitStat.cls}`;
+        stat.textContent = unitStat.label;
+      });
+    });
   }
 
 
@@ -1608,7 +2018,9 @@ header {
       return;
     }
     container.style.display = 'block';
-    const list = hw.map(h => {
+    const pending = hw.filter(h => !isHomeworkDone(h.id));
+    const doneList = hw.filter(h => isHomeworkDone(h.id));
+    const renderLeoCard = h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
@@ -1627,10 +2039,20 @@ header {
             </div>
           </div>
         </div>`;
-    }).join('');
+    };
+    const pendingList = pending.map(renderLeoCard).join('');
+    const completedList = doneList.map(renderLeoCard).join('');
     container.innerHTML = `
-      <div class="hw-section-title">📚 HOMEWORK</div>
-      ${list}`;
+      ${pending.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">HOMEWORK TO DO</div>
+          ${pendingList}
+        </div>` : ''}
+      ${doneList.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">DONE WORK</div>
+          ${completedList}
+        </div>` : ''}`;
   }
 
   function renderNeritanHomework() {
@@ -1642,11 +2064,13 @@ header {
     const completed = getCompletedHomework();
     container.style.display = hw.length ? 'block' : 'none';
     completedContainer.style.display = completed.length ? 'block' : 'none';
-    const activeList = hw.map(h => {
+    const assigned = hw.filter(h => !isHomeworkDone(h.id));
+    const readyForReview = hw.filter(h => isHomeworkDone(h.id));
+    const renderActiveCard = h => {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
-        <div class="hw-card ${done ? 'hw-done' : ''}">
+        <div class="hw-card ${done ? 'hw-review-ready' : ''}">
           <div class="hw-card-left">
             <div class="hw-lesson">${h.lesson}</div>
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
@@ -1669,7 +2093,9 @@ header {
             </div>
           </div>
         </div>`;
-    }).join('');
+    };
+    const assignedList = assigned.map(renderActiveCard).join('');
+    const reviewList = readyForReview.map(renderActiveCard).join('');
     const completedList = completed.map(h => {
       return `
         <div class="hw-card hw-done">
@@ -1693,22 +2119,64 @@ header {
         </div>`;
     }).join('');
     container.innerHTML = `
-      ${hw.length ? '<div class="hw-section-title">📋 ASSIGNED HOMEWORK</div>' + activeList : ''}`;
+      ${assigned.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">ASSIGNED HOMEWORK</div>
+          ${assignedList}
+        </div>` : ''}
+      ${readyForReview.length ? `
+        <div class="hw-group">
+          <div class="hw-section-title">READY FOR REVIEW</div>
+          ${reviewList}
+        </div>` : ''}`;
     completedContainer.innerHTML = `
-      ${completed.length ? '<div class="hw-section-title">✅ COMPLETED WORK</div>' + completedList : ''}`;
+      ${completed.length ? '<div class="hw-section-title">COMPLETED WORK</div>' + completedList : ''}`;
   }
 
 
   // ── ASSIGN HOMEWORK FROM NERITAN'S LESSON CHIPS ──
+  let pendingHomeworkAssignment = null;
+
   function showAssignDialog(id, lesson, unit, url) {
     const today = new Date().toISOString().split('T')[0];
-    const due = prompt(
-      '📚 Assign homework:\n' + lesson + ' · ' + unit +
-      '\n\nEnter due date (YYYY-MM-DD):',
-      today
-    );
-    if (due) assignHomework(id, lesson, unit, url, due);
+    pendingHomeworkAssignment = { id, lesson, unit, url };
+    document.getElementById('assign-title').textContent = lesson;
+    document.getElementById('assign-sub').textContent = unit + ' · Our World Level 4';
+    const dateInput = document.getElementById('assign-date');
+    dateInput.value = today;
+    document.getElementById('assign-modal').style.display = 'flex';
+    dateInput.focus();
   }
+
+  function closeAssignDialog() {
+    pendingHomeworkAssignment = null;
+    document.getElementById('assign-modal').style.display = 'none';
+  }
+
+  function setAssignDueOffset(days) {
+    const due = new Date();
+    due.setDate(due.getDate() + days);
+    document.getElementById('assign-date').value = due.toISOString().split('T')[0];
+  }
+
+  function confirmAssignDialog() {
+    if (!pendingHomeworkAssignment) return;
+    const due = document.getElementById('assign-date').value;
+    if (!due) {
+      alert('Please choose a due date.');
+      return;
+    }
+    const hw = pendingHomeworkAssignment;
+    closeAssignDialog();
+    assignHomework(hw.id, hw.lesson, hw.unit, hw.url, due);
+  }
+
+  document.getElementById('assign-modal').addEventListener('click', e => {
+    if (e.target.id === 'assign-modal') closeAssignDialog();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && pendingHomeworkAssignment) closeAssignDialog();
+  });
 
 
   // ── NAVIGATION ──
@@ -1717,21 +2185,68 @@ header {
     'screen-neritan': 'neritan',
     'screen-leo': 'leo',
     'screen-reference': 'reference',
+    'screen-search': 'search',
     'screen-neritan-ow': 'neritan/our-world',
     'screen-leo-ow': 'leo/our-world'
   };
   const HASH_SCREENS = Object.fromEntries(
     Object.entries(SCREEN_HASHES).map(([screen, hash]) => [hash, screen])
   );
+  const ROLE_SCREENS = {
+    neritan: 'screen-neritan',
+    leo: 'screen-leo'
+  };
+
+  function roleFromScreen(id) {
+    if (id && id.startsWith('screen-neritan')) return 'neritan';
+    if (id && id.startsWith('screen-leo')) return 'leo';
+    return null;
+  }
+
+  function getPreferredRole() {
+    const role = lLoad('preferred-role', null);
+    return ROLE_SCREENS[role] ? role : null;
+  }
+
+  function updateHeaderNav(activeScreen, role = null) {
+    document.querySelectorAll('.header-home').forEach(btn => {
+      btn.classList.toggle('active', activeScreen === 'screen-person');
+    });
+    document.querySelectorAll('.role-chip').forEach(btn => {
+      btn.classList.toggle('active', !!role && btn.dataset.role === role);
+    });
+  }
+
+  function setPreferredRole(role, navigate = false) {
+    if (!ROLE_SCREENS[role]) return;
+    lSave('preferred-role', role);
+    updateHeaderNav(ROLE_SCREENS[role], role);
+    if (navigate) goTo(ROLE_SCREENS[role]);
+  }
 
   function screenFromHash() {
     const hash = window.location.hash.replace(/^#/, '');
     return HASH_SCREENS[hash] || 'screen-person';
   }
 
+  function initialScreenFromState() {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash && HASH_SCREENS[hash]) return HASH_SCREENS[hash];
+    const role = getPreferredRole();
+    return role ? ROLE_SCREENS[role] : 'screen-person';
+  }
+
   function updateRail(id) {
     document.querySelectorAll('.rail-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.screen === id);
+    });
+    document.querySelectorAll('.mobile-tab').forEach(btn => {
+      const screen = btn.dataset.screen;
+      const active =
+        screen === id ||
+        (screen === 'screen-neritan' && id === 'screen-neritan-ow') ||
+        (screen === 'screen-leo' && id === 'screen-leo-ow');
+      btn.classList.toggle('active', active);
     });
   }
 
@@ -1742,12 +2257,19 @@ header {
     screen.classList.add('active');
     window.scrollTo(0, 0);
     updateRail(id);
+    updateHeaderNav(screen.id, roleFromScreen(screen.id));
     if (id === 'screen-leo') renderLeoHomework();
     if (id === 'screen-neritan') renderNeritanHomework();
     if (id === 'screen-neritan-ow' || id === 'screen-leo-ow') renderHomeworkBadges();
+    if (id === 'screen-search') setTimeout(() => {
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.focus();
+    }, 80);
   }
 
   function goTo(id, push = true) {
+    const role = roleFromScreen(id);
+    if (role) lSave('preferred-role', role);
     showScreen(id);
     const hash = SCREEN_HASHES[id] || 'home';
     if (push) history.pushState({ screen: id }, '', '#' + hash);
@@ -1785,29 +2307,30 @@ header {
   // Add new live lessons here as we build them
   // Key format: '{person}-{level}-{unit}-{lessonId}'
   const LIVE = {
-    'n-4-7-opener': { url:'teach/our-world/level4/unit7/opener.html', desc:'22 slides' },
-    'n-4-7-vocab1': { url:'teach/our-world/level4/unit7/vocab1.html', desc:'8 slides' },
-    'n-4-7-song':     { url:'teach/our-world/level4/unit7/song.html',     desc:'Inventions song · 12 slides' },
-    'n-4-7-grammar1': { url:'teach/our-world/level4/unit7/grammar1.html', desc:'Used to — past habits' },
-    'n-4-7-vocab2':   { url:'teach/our-world/level4/unit7/vocab2.html',   desc:'5 action words' },
-    'n-4-7-grammar2': { url:'teach/our-world/level4/unit7/grammar2.html', desc:'You — general statements' },
-    'n-4-7-reading':  { url:'teach/our-world/level4/unit7/reading.html',  desc:'Young and Creative' },
-    'n-4-7-writing':  { url:'teach/our-world/level4/unit7/writing.html',  desc:'Fact and Opinion Writing' },
-    'n-4-7-mission':  { url:'teach/our-world/level4/unit7/mission.html',  desc:'Use your imagination' },
-    'n-4-7-project':  { url:'teach/our-world/level4/unit7/project.html',  desc:'Design a superpower app' },
-    'n-4-7-book-reading': { url:'teach/our-world/level4/unit7/book-reading.html', desc:'Extended reading' },
-    'l-4-7-opener':   { url:'learn/our-world/level4/unit7/opener.html',   desc:'Unit opener app' },
-    'l-4-7-vocab1':   { url:'learn/our-world/level4/unit7/vocab1.html',   desc:'14 invention words' },
-    'l-4-7-song':     { url:'learn/our-world/level4/unit7/song.html',     desc:'Inventions song app' },
-    'l-4-7-grammar1': { url:'learn/our-world/level4/unit7/grammar1.html', desc:'Used to — past habits' },
-    'l-4-7-vocab2':   { url:'learn/our-world/level4/unit7/vocab2.html',   desc:'5 action words' },
-    'l-4-7-grammar2': { url:'learn/our-world/level4/unit7/grammar2.html', desc:'You — general statements' },
-    'l-4-7-reading':  { url:'learn/our-world/level4/unit7/reading.html',  desc:'Young and Creative' },
-    'l-4-7-writing':  { url:'learn/our-world/level4/unit7/writing.html',  desc:'Fact and Opinion Writing' },
-    'l-4-7-mission':  { url:'learn/our-world/level4/unit7/mission.html',  desc:'Use your imagination' },
-    'l-4-7-project':  { url:'learn/our-world/level4/unit7/project.html',  desc:'Design a superpower app' },
-    'l-4-7-book-reading': { url:'learn/our-world/level4/unit7/book-reading.html', desc:'Extended reading' },
+    'n-4-7-opener': { url:'teach/our-world/level-4/unit-7/opener.html', desc:'22 slides' },
+    'n-4-7-vocab1': { url:'teach/our-world/level-4/unit-7/vocab-1.html', desc:'8 slides' },
+    'n-4-7-song':     { url:'teach/our-world/level-4/unit-7/song.html',     desc:'Inventions song · 12 slides' },
+    'n-4-7-grammar1': { url:'teach/our-world/level-4/unit-7/grammar-1.html', desc:'Used to — past habits' },
+    'n-4-7-vocab2':   { url:'teach/our-world/level-4/unit-7/vocab-2.html',   desc:'5 action words' },
+    'n-4-7-grammar2': { url:'teach/our-world/level-4/unit-7/grammar-2.html', desc:'You — general statements' },
+    'n-4-7-reading':  { url:'teach/our-world/level-4/unit-7/reading.html',  desc:'Young and Creative' },
+    'n-4-7-writing':  { url:'teach/our-world/level-4/unit-7/writing.html',  desc:'Fact and Opinion Writing' },
+    'n-4-7-mission':  { url:'teach/our-world/level-4/unit-7/mission.html',  desc:'Use your imagination' },
+    'n-4-7-project':  { url:'teach/our-world/level-4/unit-7/project.html',  desc:'Design a superpower app' },
+    'n-4-7-book-reading': { url:'teach/our-world/level-4/unit-7/book-reading.html', desc:'Extended reading' },
     'n-4-8-opener': { url:'teach/our-world/level-4/unit-8/opener.html', desc:'Unit 8 opener slides' },
+    'n-4-8-vocab1': { url:'teach/our-world/level-4/unit-8/vocab-1.html', desc:'41 slides' },
+    'l-4-7-opener':   { url:'learn/our-world/level-4/unit-7/opener.html',   desc:'Unit opener app' },
+    'l-4-7-vocab1':   { url:'learn/our-world/level-4/unit-7/vocab-1.html',   desc:'14 invention words' },
+    'l-4-7-song':     { url:'learn/our-world/level-4/unit-7/song.html',     desc:'Inventions song app' },
+    'l-4-7-grammar1': { url:'learn/our-world/level-4/unit-7/grammar-1.html', desc:'Used to — past habits' },
+    'l-4-7-vocab2':   { url:'learn/our-world/level-4/unit-7/vocab-2.html',   desc:'5 action words' },
+    'l-4-7-grammar2': { url:'learn/our-world/level-4/unit-7/grammar-2.html', desc:'You — general statements' },
+    'l-4-7-reading':  { url:'learn/our-world/level-4/unit-7/reading.html',  desc:'Young and Creative' },
+    'l-4-7-writing':  { url:'learn/our-world/level-4/unit-7/writing.html',  desc:'Fact and Opinion Writing' },
+    'l-4-7-mission':  { url:'learn/our-world/level-4/unit-7/mission.html',  desc:'Use your imagination' },
+    'l-4-7-project':  { url:'learn/our-world/level-4/unit-7/project.html',  desc:'Design a superpower app' },
+    'l-4-7-book-reading': { url:'learn/our-world/level-4/unit-7/book-reading.html', desc:'Extended reading' },
     'l-4-8-opener': { url:'learn/our-world/level-4/unit-8/opener.html', desc:'Unit opener app' },
     'l-4-8-vocab1': { url:'learn/our-world/level-4/unit-8/vocab-1.html', desc:'Hobbies & interests words' },
   };
@@ -1857,7 +2380,7 @@ header {
     grid.innerHTML = '';
     UNITS.forEach(u => {
       const liveCount = getLiveCount(person, 4, u.n, livePrefix);
-      const hasLive = liveCount > 0;
+      const unitStat = getUnitStat(person, u.n, liveCount);
       const card = document.createElement('div');
       card.className = 'unit-card';
       card.id = `${person}-u${u.n}`;
@@ -1868,8 +2391,8 @@ header {
             <div class="unit-card-name">${u.name}</div>
             <div class="unit-card-sub">${u.sub}</div>
           </div>
-          <div class="unit-card-stat ${hasLive?'stat-live':'stat-lock'}">
-            ${hasLive ? `✅ ${liveCount} live` : '🔒 Soon'}
+          <div class="unit-card-stat ${unitStat.cls}">
+            ${unitStat.label}
           </div>
           <div class="unit-chevron">▼</div>
         </div>`;
@@ -1896,6 +2419,7 @@ header {
           liveChips.push(`<a class="lesson-chip live" href="${live.url}" target="_blank" data-hw-id="${hwId}" data-live="1" data-assigned="0">
             <div class="lc-icon">${l.icon}</div>
             <div class="lc-name">${l.name}</div>
+            <div class="lc-desc">${live.desc}</div>
             <div class="lc-status lc-live">✅ Live</div>
             <div class="lc-action">${actionLabel}</div>
             ${assignButton}
@@ -1956,21 +2480,21 @@ header {
     if (!isOpen && shouldScroll) setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
   }
 
-  function openFirstLiveUnit(person, livePrefix = person) {
-    const firstLive = UNITS.find(u => getLiveCount(person, 4, u.n, livePrefix) > 0);
-    if (firstLive) toggleUnit(person, firstLive.n, false);
+  function openLatestLiveUnit(person, livePrefix = person) {
+    const latestLive = [...UNITS].reverse().find(u => getLiveCount(person, 4, u.n, livePrefix) > 0);
+    if (latestLive) toggleUnit(person, latestLive.n, false);
   }
 
   buildGrid('neritan-unit-grid', 'neritan', 'n');
   buildGrid('leo-unit-grid', 'leo', 'l');
-  openFirstLiveUnit('neritan', 'n');
-  openFirstLiveUnit('leo', 'l');
+  openLatestLiveUnit('neritan', 'n');
+  openLatestLiveUnit('leo', 'l');
   renderHomeworkBadges();
   renderLeoHomework();
   renderNeritanHomework();
   syncHomeworkFromCloud();
 
-  const initialScreen = screenFromHash();
+  const initialScreen = initialScreenFromState();
   showScreen(initialScreen);
   history.replaceState({ screen: initialScreen }, '', '#' + (SCREEN_HASHES[initialScreen] || 'home'));
 
@@ -2004,96 +2528,98 @@ header {
     )
   ).then(arrays => { JH_VOCAB = arrays.flat(); });
 
-  // ── SEARCH DATA (hardcoded — OW + Grammar) ──
-  const DATA = [
-    // OW L4 U1 Set 1
-    {t:'v',w:'relatives',u:'vocab.html?level=4&unit=1&set=1&id=relatives'},
-    {t:'v',w:'different',u:'vocab.html?level=4&unit=1&set=1&id=different'},
-    {t:'v',w:'uglier',u:'vocab.html?level=4&unit=1&set=1&id=uglier'},
-    {t:'v',w:'cuter',u:'vocab.html?level=4&unit=1&set=1&id=cuter'},
-    {t:'v',w:'smarter',u:'vocab.html?level=4&unit=1&set=1&id=smarter'},
-    {t:'v',w:'friendlier',u:'vocab.html?level=4&unit=1&set=1&id=friendlier'},
-    {t:'v',w:'bigger',u:'vocab.html?level=4&unit=1&set=1&id=bigger'},
-    {t:'v',w:'smaller',u:'vocab.html?level=4&unit=1&set=1&id=smaller'},
-    {t:'v',w:'stronger',u:'vocab.html?level=4&unit=1&set=1&id=stronger'},
-    {t:'v',w:'older',u:'vocab.html?level=4&unit=1&set=1&id=older'},
-    {t:'v',w:'younger',u:'vocab.html?level=4&unit=1&set=1&id=younger'},
-    {t:'v',w:'taller',u:'vocab.html?level=4&unit=1&set=1&id=taller'},
-    {t:'v',w:'shorter',u:'vocab.html?level=4&unit=1&set=1&id=shorter'},
-    {t:'v',w:'slower',u:'vocab.html?level=4&unit=1&set=1&id=slower'},
-    {t:'v',w:'faster',u:'vocab.html?level=4&unit=1&set=1&id=faster'},
-    // OW L4 U1 Set 2
-    {t:'v',w:'glasses',u:'vocab.html?level=4&unit=1&set=2&id=glasses'},
-    {t:'v',w:'wavy hair',u:'vocab.html?level=4&unit=1&set=2&id=wavy-hair'},
-    {t:'v',w:'blond hair',u:'vocab.html?level=4&unit=1&set=2&id=blond-hair'},
-    {t:'v',w:'straight hair',u:'vocab.html?level=4&unit=1&set=2&id=straight-hair'},
-    {t:'v',w:'curly hair',u:'vocab.html?level=4&unit=1&set=2&id=curly-hair'},
-    // OW L4 U2
-    {t:'v',w:'pumpkin',u:'vocab.html?level=4&unit=2&set=1&id=pumpkin'},
-    // OW L4 U6
-    {t:'v',w:'pollution',u:'vocab.html?level=4&unit=6&set=1&id=pollution'},
-    {t:'v',w:'resource',u:'vocab.html?level=4&unit=6&set=1&id=resource'},
-    {t:'v',w:'disappear',u:'vocab.html?level=4&unit=6&set=1&id=disappear'},
-    {t:'v',w:'creature',u:'vocab.html?level=4&unit=6&set=1&id=creature'},
-    {t:'v',w:'layer',u:'vocab.html?level=4&unit=6&set=1&id=layer'},
-    {t:'v',w:'zone',u:'vocab.html?level=4&unit=6&set=1&id=zone'},
-    {t:'v',w:'sunlight',u:'vocab.html?level=4&unit=6&set=1&id=sunlight'},
-    {t:'v',w:'midnight',u:'vocab.html?level=4&unit=6&set=1&id=midnight'},
-    {t:'v',w:'whale',u:'vocab.html?level=4&unit=6&set=1&id=whale'},
-    {t:'v',w:'squid',u:'vocab.html?level=4&unit=6&set=1&id=squid'},
-    {t:'v',w:'dolphin',u:'vocab.html?level=4&unit=6&set=1&id=dolphin'},
-    {t:'v',w:'shark',u:'vocab.html?level=4&unit=6&set=1&id=shark'},
-    {t:'v',w:'sea turtle',u:'vocab.html?level=4&unit=6&set=1&id=sea-turtle'},
-    {t:'v',w:'octopus',u:'vocab.html?level=4&unit=6&set=1&id=octopus'},
-    {t:'v',w:'sea sponge',u:'vocab.html?level=4&unit=6&set=1&id=sea-sponge'},
-    {t:'v',w:'oil spill',u:'vocab.html?level=4&unit=6&set=2&id=oil-spill'},
-    {t:'v',w:'garbage',u:'vocab.html?level=4&unit=6&set=2&id=garbage'},
-    {t:'v',w:'overfishing',u:'vocab.html?level=4&unit=6&set=2&id=overfishing'},
-    {t:'v',w:'plastic',u:'vocab.html?level=4&unit=6&set=2&id=plastic'},
-    {t:'v',w:'biodegradable',u:'vocab.html?level=4&unit=6&set=2&id=biodegradable'},
-    // OW L4 U7
-    {t:'v',w:'invention',u:'vocab.html?level=4&unit=7&set=1&id=invention'},
-    {t:'v',w:'problem',u:'vocab.html?level=4&unit=7&set=1&id=problem'},
-    {t:'v',w:'solution',u:'vocab.html?level=4&unit=7&set=1&id=solution'},
-    {t:'v',w:'wheel',u:'vocab.html?level=4&unit=7&set=1&id=wheel'},
-    {t:'v',w:'electricity',u:'vocab.html?level=4&unit=7&set=1&id=electricity'},
-    {t:'v',w:'useful',u:'vocab.html?level=4&unit=7&set=1&id=useful'},
-    {t:'v',w:'battery',u:'vocab.html?level=4&unit=7&set=1&id=battery'},
-    {t:'v',w:'imagination',u:'vocab.html?level=4&unit=7&set=1&id=imagination'},
-    {t:'v',w:'creativity',u:'vocab.html?level=4&unit=7&set=1&id=creativity'},
-    {t:'v',w:'idea',u:'vocab.html?level=4&unit=7&set=1&id=idea'},
-    {t:'v',w:'invent',u:'vocab.html?level=4&unit=7&set=1&id=invent'},
-    {t:'v',w:'fail',u:'vocab.html?level=4&unit=7&set=1&id=fail'},
-    {t:'v',w:'succeed',u:'vocab.html?level=4&unit=7&set=1&id=succeed'},
-    {t:'v',w:'move',u:'vocab.html?level=4&unit=7&set=2&id=move'},
-    {t:'v',w:'turn',u:'vocab.html?level=4&unit=7&set=2&id=turn'},
-    {t:'v',w:'put',u:'vocab.html?level=4&unit=7&set=2&id=put'},
-    {t:'v',w:'use',u:'vocab.html?level=4&unit=7&set=2&id=use'},
-    {t:'v',w:'lift',u:'vocab.html?level=4&unit=7&set=2&id=lift'},
-    // Grammar — all 16 sets
-    {t:'g',w:'Comparatives with -er',u:'grammar.html?level=4&unit=1&set=1'},
-    {t:'g',w:'Present progressive for future plans',u:'grammar.html?level=4&unit=1&set=2'},
-    {t:'g',w:"Have to / Don't have to",u:'grammar.html?level=4&unit=2&set=1'},
-    {t:'g',w:'Would like',u:'grammar.html?level=4&unit=2&set=2'},
-    {t:'g',w:'Contrast with but and instead',u:'grammar.html?level=4&unit=3&set=1'},
-    {t:'g',w:'Comparatives with more',u:'grammar.html?level=4&unit=3&set=2'},
-    {t:'g',w:'Advice with should',u:'grammar.html?level=4&unit=4&set=1'},
-    {t:'g',w:'Reflexive pronouns',u:'grammar.html?level=4&unit=4&set=2'},
-    {t:'g',w:'Superlatives with -est and most',u:'grammar.html?level=4&unit=5&set=1'},
-    {t:'g',w:'Irregular comparatives and superlatives',u:'grammar.html?level=4&unit=5&set=2'},
-    {t:'g',w:"Have to, must, can't, and don't",u:'grammar.html?level=4&unit=6&set=1'},
-    {t:'g',w:"Future with will and won't",u:'grammar.html?level=4&unit=6&set=2'},
-    {t:'g',w:'You for general statements',u:'grammar.html?level=4&unit=7&set=1'},
-    {t:'g',w:'Used to for past habits',u:'grammar.html?level=4&unit=7&set=2'},
-    {t:'g',w:'Describing people with who',u:'grammar.html?level=4&unit=8&set=1'},
-    {t:'g',w:'Direct and indirect objects',u:'grammar.html?level=4&unit=8&set=2'},
-  ];
+  // ── OUR WORLD LEVEL 4 VOCAB (loaded async from unit JSON files) ──
+  let OW_VOCAB = [];
+  const OW_UNITS = [1,2,3,4,5,6,7,8];
+  const OW_SETS = [1,2];
+  const OW_LEVELS = [1,2,3,4,5,6];
+  Promise.all(
+    OW_UNITS.flatMap(unit =>
+      OW_SETS.map(set =>
+        fetch(`content/our-world/level-4/unit-${unit}/vocab-${set}.json`)
+          .then(r => r.json())
+          .then(data => (data.words || []).map(w => ({
+            t: 'v',
+            w: w.word,
+            u: `vocab.html?level=4&unit=${unit}&set=${set}&id=${w.id}`
+          })))
+          .catch(() => [])
+      )
+    )
+  ).then(arrays => { OW_VOCAB = arrays.flat(); });
+
+  // Our World Level 4 grammar, loaded from JSON so search follows content files.
+  let OW_GRAMMAR = [];
+  Promise.all(
+    OW_UNITS.flatMap(unit =>
+      OW_SETS.map(set =>
+        fetch(`content/our-world/level-4/unit-${unit}/grammar-${set}.json`)
+          .then(r => r.json())
+          .then(data => [{
+            t: 'g',
+            w: data.title,
+            u: `grammar.html?level=4&unit=${unit}&set=${set}`
+          }])
+          .catch(() => [])
+      )
+    )
+  ).then(arrays => { OW_GRAMMAR = arrays.flat().filter(d => d.w); });
+
+  // ── OUR WORLD LEVEL GLOSSARIES (loaded async) ──
+  let OW_GLOSSARY = [];
+  Promise.all(
+    OW_LEVELS.map(level =>
+      fetch(`content/our-world/level-${level}/glossary.json`)
+        .then(r => r.json())
+        .then(data => (data.words || []).map(w => ({
+          t: w.category === 'academic' || w.kind === 'academic_language' ? 'al' : 'gl',
+          level,
+          w: w.word,
+          u: `vocab.html?level=${level}&id=${w.id}`,
+          search: [
+            w.word,
+            w.category,
+            w.kind,
+            w.meaning,
+            w.academic_type,
+            w.academic_category,
+            ...(w.common_partners || [])
+          ].filter(Boolean).join(' ')
+        })))
+        .catch(() => [])
+    )
+  ).then(arrays => { OW_GLOSSARY = arrays.flat(); });
+
+  // Academic Language is a separate cross-level module.
+  let OW_ACADEMIC = [];
+  fetch('content/our-world/academic_vocab.json')
+    .then(r => r.json())
+    .then(data => {
+      OW_ACADEMIC = (data.words || []).map(w => ({
+        t: 'al',
+        levels: w.levels || [],
+        w: w.word,
+        u: `vocab.html?module=academic&level=all&id=${w.id}`,
+        search: [
+          w.word,
+          w.category,
+          w.kind,
+          w.meaning,
+          w.academic_type,
+          w.academic_category,
+          ...(w.common_partners || [])
+        ].filter(Boolean).join(' ')
+      }));
+    })
+    .catch(() => {});
 
   // ── SEARCH ──
   const input    = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearBtn');
   const results  = document.getElementById('results');
   const noRes    = document.getElementById('noResults');
+  const filterBtns = document.querySelectorAll('.search-filter-btn');
+  let activeSearchFilter = 'all';
 
   function hl(text, q) {
     const i = text.toLowerCase().indexOf(q.toLowerCase());
@@ -2105,6 +2631,8 @@ header {
     if (t === 'v')  return 'OW';
     if (t === 'g')  return 'G';
     if (t === 'jh') return 'JH';
+    if (t === 'gl') return 'GL';
+    if (t === 'al') return 'AL';
     if (t === 'd')  return '📖';
     return t;
   }
@@ -2113,8 +2641,21 @@ header {
     if (t === 'v')  return 'Our World Vocab';
     if (t === 'g')  return 'Grammar';
     if (t === 'jh') return 'Junior High Vocab';
+    if (t === 'gl') return 'Our World Glossary';
+    if (t === 'al') return 'Academic Language';
     if (t === 'd')  return 'NC1 Dictionary';
     return '';
+  }
+
+  function sourceVisible(t) {
+    if (activeSearchFilter === 'all') return true;
+    if (activeSearchFilter === 'ow') return t === 'v';
+    if (activeSearchFilter === 'grammar') return t === 'g';
+    if (activeSearchFilter === 'glossary') return t === 'gl';
+    if (activeSearchFilter === 'academic') return t === 'al';
+    if (activeSearchFilter === 'jh') return t === 'jh';
+    if (activeSearchFilter === 'dict') return t === 'd';
+    return true;
   }
 
   function doSearch(q) {
@@ -2128,15 +2669,44 @@ header {
     // Group results by word
     const groups = {};
 
-    // Our World + Grammar
-    DATA.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+    // Our World grammar JSON
+    if (sourceVisible('g')) OW_GRAMMAR.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
-      groups[key].sources.push({ t: d.t, u: d.u, ext: false });
+      if (!groups[key].sources.find(s => s.t === 'g' && s.u === d.u)) {
+        groups[key].sources.push({ t: 'g', u: d.u, ext: false });
+      }
+    });
+
+    // Our World vocab JSON
+    if (sourceVisible('v')) OW_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      if (!groups[key].sources.find(s => s.t === 'v' && s.u === d.u)) {
+        groups[key].sources.push({ t: 'v', u: d.u, ext: false });
+      }
+    });
+
+    // Our World level glossaries
+    OW_GLOSSARY.filter(d => sourceVisible(d.t) && d.search.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      if (!groups[key].sources.find(s => s.t === d.t && s.level === d.level)) {
+        groups[key].sources.push({ t: d.t, u: d.u, ext: false, level: d.level });
+      }
+    });
+
+    // Cross-level Academic Language module
+    OW_ACADEMIC.filter(d => sourceVisible(d.t) && d.search.toLowerCase().includes(ql)).forEach(d => {
+      const key = d.w.toLowerCase();
+      if (!groups[key]) groups[key] = { word: d.w, sources: [] };
+      if (!groups[key].sources.find(s => s.t === 'al')) {
+        groups[key].sources.push({ t: 'al', u: d.u, ext: false, levels: d.levels });
+      }
     });
 
     // Junior High vocab
-    JH_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
+    if (sourceVisible('jh')) JH_VOCAB.filter(d => d.w.toLowerCase().includes(ql)).forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
       // avoid duplicate JH entries for same word
@@ -2146,7 +2716,9 @@ header {
     });
 
     // Sanseido dictionary (max 8 matches to avoid flooding)
-    const dictMatches = SANSEIDO.filter(d => d.w.toLowerCase().includes(ql)).slice(0, 8);
+    const dictMatches = sourceVisible('d')
+      ? SANSEIDO.filter(d => d.w.toLowerCase().includes(ql)).slice(0, 8)
+      : [];
     dictMatches.forEach(d => {
       const key = d.w.toLowerCase();
       if (!groups[key]) groups[key] = { word: d.w, sources: [] };
@@ -2172,7 +2744,9 @@ header {
 
       const wordSpan = `<span class="result-word">${hl(g.word, q)}</span>`;
       const links = g.sources.map(s => {
-        const label = badgeTitle(s.t);
+        const label = s.t === 'al' && s.levels?.length
+          ? `Academic ${s.levels.map(level => `L${level}`).join('/')}`
+          : (s.t === 'al' && s.level ? `Academic L${s.level}` : badgeTitle(s.t));
         const ext = s.ext ? 'target="_blank" rel="noopener"' : '';
         const arrow = s.ext ? '↗' : '→';
         return `<a class="result-link ${s.t}" href="${s.u}" ${ext} title="${label}">${label} ${arrow}</a>`;
@@ -2185,9 +2759,18 @@ header {
 
   function setSearch(val) { input.value = val; doSearch(val); input.focus(); }
 
+  function setSearchFilter(filter) {
+    activeSearchFilter = filter;
+    filterBtns.forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+    doSearch(input.value.trim());
+  }
+
   input.addEventListener('input', () => doSearch(input.value.trim()));
   clearBtn.addEventListener('click', () => {
     input.value = ''; doSearch(''); results.innerHTML = ''; input.focus();
+  });
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => setSearchFilter(btn.dataset.filter));
   });
 </script>
 </body>

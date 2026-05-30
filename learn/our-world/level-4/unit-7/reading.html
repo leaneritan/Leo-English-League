@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 Reading — Young and Creative</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #F97316;
+  --primary-dark: #C2410C;
+  --secondary: #3B82F6;
+  --secondary-dark: #1D4ED8;
+  --accent: #FDE047;
+  --accent-dark: #CA8A04;
+  --bg: #0F172A;
+  --card: #1E293B;
+  --card2: #263245;
+  --text: #F8FAFC;
+  --text-muted: #94A3B8;
+  --success: #22C55E;
+  --error: #EF4444;
+  --border: #334155;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+h1,h2,h3{font-family:'Baloo 2',sans-serif}
+
+/* ── HEADER ── */
+.app-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 50%,#7C2D12 100%);padding:1.2rem 1rem;text-align:center;position:relative;overflow:hidden}
+.app-header::before{content:'💡🔦🍦📖⚡';position:absolute;top:-10px;left:0;right:0;font-size:1.4rem;opacity:.15;letter-spacing:2rem;white-space:nowrap}
+.app-header h1{font-size:1.5rem;font-weight:800;color:var(--accent);text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.app-header p{font-size:.85rem;color:#FED7AA;margin-top:.2rem}
+.unit-badge{display:inline-block;background:var(--secondary);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;margin-bottom:.4rem;letter-spacing:.05em;text-transform:uppercase}
+
+/* ── MAIN MENU ── */
+#main-menu{padding:1rem;max-width:760px;margin:0 auto}
+.menu-intro{text-align:center;margin-bottom:1rem}
+.menu-intro h2{font-size:1.1rem;color:var(--accent);margin-bottom:.3rem}
+.menu-intro p{font-size:.8rem;color:var(--text-muted)}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+.module-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem .7rem;cursor:pointer;transition:all .2s;text-align:center;position:relative;overflow:hidden}
+.module-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--primary),var(--secondary));opacity:0;transition:opacity .2s}
+.module-card:hover::before,.module-card:active::before{opacity:.1}
+.module-card .m-icon{font-size:1.5rem;display:block;margin-bottom:.3rem}
+.module-card .m-num{position:absolute;top:.4rem;right:.5rem;font-size:.65rem;color:var(--text-muted);font-weight:700}
+.module-card .m-name{font-size:.75rem;font-weight:700;color:var(--text);line-height:1.2}
+.module-card.done .m-icon::after{content:'✅';font-size:.7rem;position:absolute;top:.3rem;left:.4rem}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;overflow-y:auto}
+.modal-overlay.active{display:flex;flex-direction:column}
+.modal-box{background:var(--bg);min-height:100vh;width:100%;display:flex;flex-direction:column}
+.modal-header{background:linear-gradient(90deg,var(--primary-dark),var(--card));padding:.9rem 1rem;display:flex;align-items:center;gap:.6rem;position:sticky;top:0;z-index:10;border-bottom:2px solid var(--primary)}
+.modal-header .m-icon-lg{font-size:1.4rem}
+.modal-header h2{font-size:1rem;font-weight:800;color:var(--accent);flex:1}
+.modal-close{background:none;border:none;color:var(--text-muted);font-size:1.3rem;cursor:pointer;padding:.2rem}
+.modal-body{flex:1;padding:1rem;overflow-y:auto}
+.modal-footer{padding:.8rem 1rem;background:var(--card);border-top:1px solid var(--border);display:flex;gap:.5rem}
+.btn-prev,.btn-next{flex:1;padding:.7rem;border:none;border-radius:8px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s}
+.btn-prev{background:var(--card2);color:var(--text-muted)}
+.btn-prev:hover{background:var(--border);color:var(--text)}
+.btn-next{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff}
+.btn-next:hover{opacity:.9}
+.btn-prev:disabled,.btn-next:disabled{opacity:.3;cursor:default}
+
+/* ── SECTION TITLE ── */
+.section-title{font-family:'Baloo 2',sans-serif;font-size:1rem;font-weight:800;color:var(--primary);margin-bottom:.8rem;display:flex;align-items:center;gap:.4rem}
+.dad-bubble,.leo-bubble{border-radius:12px;padding:.7rem .9rem;margin:.5rem 0;font-size:.85rem;line-height:1.5}
+.dad-bubble{background:linear-gradient(135deg,var(--secondary-dark),#1E3A5F);border-left:3px solid var(--secondary)}
+.leo-bubble{background:linear-gradient(135deg,#1A3A1A,#1E3A1E);border-left:3px solid var(--success)}
+
+/* ── FLASHCARDS ── */
+.fc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-bottom:1rem}
+.fc{height:110px;perspective:800px;cursor:pointer}
+.fc-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.5rem;text-align:center}
+.fc-front{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--border)}
+.fc-back{background:linear-gradient(135deg,var(--primary-dark),#7C2D12);border:1px solid var(--primary);transform:rotateY(180deg)}
+.fc-front .fc-emoji{font-size:1.6rem;margin-bottom:.3rem}
+.fc-front .fc-word{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.9rem;color:var(--accent)}
+.fc-back .fc-def{font-size:.72rem;color:#FED7AA;line-height:1.3;margin-bottom:.3rem}
+.fc-back .fc-ex{font-size:.65rem;color:#FDA4AF;font-style:italic;line-height:1.2}
+.fc-hint{text-align:center;font-size:.7rem;color:var(--text-muted);margin-bottom.8rem}
+
+/* ── MCQ ── */
+.quiz-section{background:var(--card);border-radius:12px;padding:.9rem;margin-top.8rem}
+.quiz-q{font-size:.85rem;font-weight:700;margin-bottom.6rem;color:var(--accent)}
+.quiz-opts{display:flex;flex-direction:column;gap:.4rem}
+.quiz-opt{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:.6rem .8rem;font-size:.8rem;cursor:pointer;transition:all .2s;text-align:left;color:var(--text)}
+.quiz-opt:hover{border-color:var(--secondary);background:#1A2A3A}
+.quiz-opt.correct{background:linear-gradient(90deg,#14532D,#166534);border-color:var(--success);color:#86EFAC}
+.quiz-opt.wrong{background:linear-gradient(90deg,#450A0A,#7F1D1D);border-color:var(--error);color:#FCA5A5}
+.quiz-feedback{font-size:.78rem;margin-top.4rem;padding:.4rem .6rem;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:#14532D;color:#86EFAC}
+.quiz-feedback.bad{background:#450A0A;color:#FCA5A5}
+.quiz-next-btn{margin-top:.6rem;background:var(--primary);color:#fff;border:none;border-radius:8px;padding:.5rem 1rem;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;display:none}
+.quiz-next-btn.show{display:block}
+.quiz-score{text-align:center;font-family:'Baloo 2',sans-serif;font-size:1rem;color:var(--accent);margin-top.6rem;display:none}
+
+/* ── READING TEXT ── */
+.reading-container{background:var(--card);border-radius:12px;padding:1rem;margin-bottom:.8rem}
+.reading-title{font-family:'Baloo 2',sans-serif;font-size:1.2rem;font-weight:800;color:var(--primary);text-align:center;margin-bottom.8rem}
+.para-block{margin-bottom.8rem;border-left:3px solid var(--border);padding-left.8rem}
+.para-block.highlight{border-left-color:var(--primary);background:rgba(249,115,22,.05);border-radius:0 8px 8px 0;padding:.6rem .8rem}
+.para-label{font-size:.65rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.05em;margin-bottom.3rem}
+.para-text{font-size:.82rem;line-height:1.7;color:#E2E8F0}
+.vocab-highlight{color:var(--accent);font-weight:700;cursor:help;border-bottom:1px dashed var(--accent)}
+
+/* ── THINK ALOUD ── */
+.step-card{background:var(--card2);border-radius:10px;padding:.8rem;margin-bottom.6rem;border-left:4px solid var(--secondary)}
+.step-num{font-size:.65rem;font-weight:700;color:var(--secondary);text-transform:uppercase;margin-bottom.2rem}
+.step-text{font-size:.82rem;line-height:1.5}
+
+/* ── DRAG DROP ── */
+.word-bank{position:sticky;top:0;z-index:10;background:var(--bg);padding:.5rem 0;margin-bottom.6rem}
+.wb-label{font-size:.7rem;font-weight:700;color:var(--text-muted);margin-bottom.3rem}
+.wb-chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{background:linear-gradient(135deg,var(--secondary-dark),var(--secondary));color:#fff;border-radius:8px;padding:.35rem .65rem;font-size:.78rem;font-weight:700;cursor:grab;user-select:none;touch-action:none;transition:all .2s;white-space:nowrap}
+.chip.used{opacity:.3;cursor:default}
+.chip:active{cursor:grabbing;transform:scale(1.05)}
+.drop-zone{border:2px dashed var(--border);border-radius:8px;min-height:38px;padding:.4rem;margin:.3rem 0;display:flex;align-items:center;transition:all .2s;background:var(--card2)}
+.drop-zone.drag-over{border-color:var(--primary);background:rgba(249,115,22,.1)}
+.drop-zone.filled{border-style:solid;border-color:var(--success);background:rgba(34,197,94,.08)}
+.drop-zone.wrong-ans{border-color:var(--error);background:rgba(239,68,68,.08)}
+.clue-row{display:flex;align-items:center;gap.5rem;margin-bottom.5rem;font-size:.82rem}
+.clue-num{color:var(--primary);font-weight:800;min-width:1.2rem}
+.clue-text{flex:1;color:#CBD5E1}
+.check-btn{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff;border:none;border-radius:8px;padding:.55rem 1.1rem;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;margin-top.6rem}
+.result-msg{margin-top.5rem;font-size:.82rem;font-weight:700;padding:.5rem .7rem;border-radius:8px;display:none}
+.result-msg.show{display:block}
+.result-msg.ok{background:#14532D;color:#86EFAC}
+.result-msg.bad{background:#450A0A;color:#FCA5A5}
+
+/* ── CHART TABLE ── */
+.chart-table{width:100%;border-collapse:collapse;font-size:.75rem;margin-bottom.6rem}
+.chart-table th{background:var(--primary-dark);color:var(--accent);padding:.5rem .4rem;text-align:left;border:1px solid var(--border)}
+.chart-table td{background:var(--card2);padding:.4rem;border:1px solid var(--border);vertical-align:top}
+.chart-table td.answer-cell{background:var(--card);color:var(--success);font-weight:700}
+
+/* ── RIDDLES ── */
+.riddle-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding.8rem;margin-bottom.7rem;cursor:pointer}
+.riddle-q{font-size:.85rem;line-height:1.5;margin-bottom.4rem}
+.riddle-reveal{background:var(--card2);border-radius:8px;padding.4rem .6rem;font-size:.82rem;color:var(--accent);font-weight:700;display:none}
+.riddle-reveal.show{display:block}
+.reveal-hint{font-size:.7rem;color:var(--text-muted);font-style:italic}
+
+/* ── APPLY ── */
+.discuss-card{background:linear-gradient(135deg,var(--card),var(--card2));border-radius:12px;padding.8rem;margin-bottom.6rem;border:1px solid var(--secondary)}
+.discuss-q{font-size:.88rem;font-weight:700;color:var(--accent);margin-bottom.4rem}
+.starter{font-size:.78rem;color:#94A3B8;font-style:italic}
+.invent-form{background:var(--card);border-radius:12px;padding.9rem;margin-top.7rem}
+.invent-form h3{font-family:'Baloo 2',sans-serif;font-size.95rem;color:var(--primary);margin-bottom.6rem}
+.invent-input{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding.5rem .7rem;color:var(--text);font-family:'Nunito',sans-serif;font-size.82rem;margin-bottom.4rem}
+.invent-input:focus{outline:none;border-color:var(--primary)}
+
+/* ── WRAP UP ── */
+.interview-card{background:var(--card2);border-radius:12px;padding.8rem;margin-bottom.5rem;border-left:4px solid var(--accent)}
+.interview-role{font-size:.65rem;font-weight:700;color:var(--accent);text-transform:uppercase;margin-bottom.2rem}
+.interview-text{font-size.85rem;line-height:1.5}
+
+/* ── FORMATIVE ── */
+.fa-item{background:var(--card);border-radius:12px;padding.8rem;margin-bottom.6rem}
+.fa-skill{font-size.75rem;color:var(--text-muted);margin-bottom.3rem}
+.fa-q{font-size.85rem;font-weight:700;color:var(--text);margin-bottom.5rem}
+.thumbs{display:flex;gap.5rem}
+.thumb-btn{flex:1;padding.5rem;border:2px solid var(--border);border-radius:8px;background:var(--card2);font-size:1.1rem;cursor:pointer;transition:all .2s;text-align:center}
+.thumb-btn:hover{border-color:var(--primary)}
+.thumb-btn.selected-yes{border-color:var(--success);background:rgba(34,197,94,.12)}
+.thumb-btn.selected-no{border-color:var(--error);background:rgba(239,68,68,.12)}
+
+/* ── CAN LEO SCORE ── */
+.score-header{text-align:center;margin-bottom.8rem}
+.score-header h2{font-family:'Baloo 2',sans-serif;font-size:1.2rem;color:var(--accent)}
+.score-progress{text-align:center;font-size.78rem;color:var(--text-muted);margin-bottom.8rem}
+.score-q-box{background:var(--card);border-radius:12px;padding.9rem;margin-bottom.6rem}
+.score-q{font-size.88rem;font-weight:700;margin-bottom.7rem;line-height:1.4}
+.score-opts{display:flex;flex-direction:column;gap.4rem}
+.score-opt{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding.55rem .8rem;font-size.82rem;cursor:pointer;transition:all .2s;text-align:left;color:var(--text)}
+.score-opt:hover{border-color:var(--secondary)}
+.score-opt.correct{background:#14532D;border-color:var(--success);color:#86EFAC}
+.score-opt.wrong{background:#450A0A;border-color:var(--error);color:#FCA5A5}
+.goal-animation{display:none;text-align:center;padding:1.5rem;animation:goalPop .6s ease}
+@keyframes goalPop{0%{transform:scale(0.5);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
+.goal-animation h2{font-family:'Baloo 2',sans-serif;font-size:1.8rem;color:var(--primary)}
+.final-score{text-align:center;display:none}
+.final-score h2{font-family:'Baloo 2',sans-serif;font-size:1.3rem;color:var(--accent);margin-bottom.4rem}
+.score-bar{height:12px;background:var(--card);border-radius:999px;overflow:hidden;margin-bottom.4rem}
+.score-bar-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:999px;transition:width 1s}
+.confetti-rain{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:200}
+
+/* ── UTILITY ── */
+.tag{display:inline-block;background:rgba(249,115,22,.15);border:1px solid var(--primary);color:var(--primary);border-radius:6px;font-size:.68rem;font-weight:700;padding:.15rem .4rem;margin:.1rem}
+.strategy-box{background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border:1px solid var(--secondary);border-radius:10px;padding.7rem;margin-bottom.7rem;font-size.82rem;line-height:1.6}
+.strategy-box strong{color:var(--secondary)}
+.info-box{background:var(--card2);border-radius:10px;padding.6rem .8rem;font-size.8rem;line-height:1.5;margin-bottom.6rem;border-left:3px solid var(--accent)}
+.info-box strong{color:var(--accent)}
+.progress-dots{display:flex;justify-content:center;gap:.4rem;margin-bottom.7rem;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:background .3s}
+.dot.active{background:var(--primary)}
+.dot.done{background:var(--success)}
+.module-action-row{display:flex;gap:.5rem;margin-top:.7rem}
+.complete-btn{flex:1;background:var(--accent);color:#1C1917;border:2px solid #1C1917;border-radius:8px;padding:.65rem .8rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.84rem;cursor:pointer}
+.complete-btn.confirmed{background:#DCFCE7;border-color:var(--success);color:#14532D}
+.redo-module-btn{flex:0 0 96px;background:transparent;color:var(--error);border:2px solid var(--error);border-radius:8px;padding:.65rem .6rem;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:.82rem;cursor:pointer}
+.redo-module-btn:hover{background:var(--error);color:#fff}
+.review-screen{display:none;min-height:100vh;background:var(--bg);padding:1rem}
+.review-screen.show{display:block}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:.8rem}
+.review-label{font-size:.7rem;font-weight:800;color:var(--primary);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.25rem}
+.review-value{font-size:.9rem;line-height:1.5;color:var(--text)}
+.review-title{font-family:'Baloo 2',sans-serif;font-size:1.35rem;color:var(--accent);margin-bottom:.25rem}
+.review-sub{color:var(--text-muted);font-size:.82rem;margin-bottom:1rem}
+hr.divider{border:none;border-top:1px solid var(--border);margin:1rem 0}
+.pill{display:inline-block;background:var(--card2);border:1px solid var(--border);border-radius:999px;padding:.2rem .6rem;font-size.7rem;margin:.15rem}
+</style>
+</head>
+<body>
+
+<div class="review-screen" id="reviewScreen">
+  <div class="review-title">Review Mode — Leo's Reading Work</div>
+  <div class="review-sub">Unit 7 · Young and Creative</div>
+  <div id="reviewBody"></div>
+</div>
+
+<div id="appRoot">
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<div class="app-header">
+  <div class="unit-badge">Unit 7 · Good Idea!</div>
+  <h1>📖 Young and Creative</h1>
+  <p>Reading Lesson · Strategy: Ask Questions</p>
+</div>
+
+<!-- ═══════════════════ MAIN MENU ═══════════════════ -->
+<div id="main-menu">
+  <div class="menu-intro">
+    <h2>Choose a Module</h2>
+    <p>Tap any card to start learning</p>
+  </div>
+  <div class="module-grid">
+    <div class="module-card" onclick="openModal('m1')"><span class="m-num">1</span><span class="m-icon">📚</span><div class="m-name">Related Vocabulary</div></div>
+    <div class="module-card" onclick="openModal('m2')"><span class="m-num">2</span><span class="m-icon">🎓</span><div class="m-name">Academic Language</div></div>
+    <div class="module-card" onclick="openModal('m3')"><span class="m-num">3</span><span class="m-icon">📝</span><div class="m-name">Content Vocabulary</div></div>
+    <div class="module-card" onclick="openModal('m4')"><span class="m-num">4</span><span class="m-icon">🔥</span><div class="m-name">Warm Up</div></div>
+    <div class="module-card" onclick="openModal('m5')"><span class="m-num">5</span><span class="m-icon">📖</span><div class="m-name">Read Together</div></div>
+    <div class="module-card" onclick="openModal('m6')"><span class="m-num">6</span><span class="m-icon">🎧</span><div class="m-name">Listen</div></div>
+    <div class="module-card" onclick="openModal('m7')"><span class="m-num">7</span><span class="m-icon">❓</span><div class="m-name">Comprehension</div></div>
+    <div class="module-card" onclick="openModal('m8')"><span class="m-num">8</span><span class="m-icon">🧠</span><div class="m-name">Think Aloud</div></div>
+    <div class="module-card" onclick="openModal('m9')"><span class="m-num">9</span><span class="m-icon">✏️</span><div class="m-name">Practice</div></div>
+    <div class="module-card" onclick="openModal('m10')"><span class="m-num">10</span><span class="m-icon">🎭</span><div class="m-name">Recap</div></div>
+    <div class="module-card" onclick="openModal('m11')"><span class="m-num">11</span><span class="m-icon">💬</span><div class="m-name">Apply</div></div>
+    <div class="module-card" onclick="openModal('m12')"><span class="m-num">12</span><span class="m-icon">🎯</span><div class="m-name">Wrap Up</div></div>
+    <div class="module-card" onclick="openModal('m13')"><span class="m-num">13</span><span class="m-icon">✅</span><div class="m-name">Formative Assessment</div></div>
+    <div class="module-card" onclick="openModal('m14')"><span class="m-num">14</span><span class="m-icon">⚽</span><div class="m-name">Can Leo Score?</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ MODALS ═══════════════════ -->
+
+<!-- M1: Related Vocabulary -->
+<div class="modal-overlay" id="modal-m1">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">📚</span>
+      <h2>Related Vocabulary</h2>
+      <button class="modal-close" onclick="closeModal('m1')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">📌 Key Words</div>
+      <p class="fc-hint" style="margin-bottom:.7rem;font-size:.72rem;color:var(--text-muted)">👆 Tap a card to flip it!</p>
+      <div class="fc-grid" id="fc-rel"></div>
+      <div id="rel-quiz-section"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" disabled>—</button>
+      <button class="btn-next" onclick="openModal('m2')">🎓 Academic Language →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M2: Academic Language -->
+<div class="modal-overlay" id="modal-m2">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">🎓</span>
+      <h2>Academic Language</h2>
+      <button class="modal-close" onclick="closeModal('m2')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">📌 Academic Words</div>
+      <div class="strategy-box" style="margin-bottom:.8rem">
+        <strong>Why learn academic words?</strong> These words appear in many subjects — English, Science, Social Studies. Learn them once, use them everywhere!
+      </div>
+      <div id="acad-cards"></div>
+      <div id="acad-quiz"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m1')">← 📚 Related Vocab</button>
+      <button class="btn-next" onclick="openModal('m3')">📝 Content Vocab →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M3: Content Vocabulary -->
+<div class="modal-overlay" id="modal-m3">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">📝</span>
+      <h2>Content Vocabulary</h2>
+      <button class="modal-close" onclick="closeModal('m3')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">📌 Reading Words</div>
+      <p class="fc-hint" style="margin-bottom:.7rem;font-size:.72rem;color:var(--text-muted)">👆 Tap to flip!</p>
+      <div class="fc-grid" id="fc-cont"></div>
+      <div id="cont-quiz-section"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m2')">← 🎓 Academic</button>
+      <button class="btn-next" onclick="openModal('m4')">🔥 Warm Up →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M4: Warm Up -->
+<div class="modal-overlay" id="modal-m4">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">🔥</span>
+      <h2>Warm Up</h2>
+      <button class="modal-close" onclick="closeModal('m4')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">💡 Activate Prior Knowledge</div>
+      <div class="dad-bubble">Dad 💬 "Leo, did you know that some of the world's greatest inventions were made by young people — kids and teenagers, just like you?"</div>
+      <div class="leo-bubble">Leo 💬 "Really? Teenagers made famous inventions?"</div>
+      <div class="dad-bubble">Dad 💬 "Exactly! Before we read, think about inventions you use every day. Tap each card to discover something amazing!"</div>
+
+      <div class="section-title" style="margin-top:.9rem">👆 Tap to Discover</div>
+      <div id="warmup-reveal-cards"></div>
+
+      <hr class="divider">
+      <div class="section-title">🔮 Look and Predict</div>
+      <div class="dad-bubble">Dad 💬 "Open your book to page 124. Look at the photos. You will see four inventions. Can you guess who invented them — and how old they were?"</div>
+      <div class="info-box">
+        <strong>Hint:</strong> One inventor was only 11 years old! One was blind. One wanted to help her friend. One forgot something in the cold. Can you guess what they invented?
+      </div>
+
+      <div class="section-title">🧠 Quick Question</div>
+      <div id="warmup-quiz"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m3')">← 📝 Content</button>
+      <button class="btn-next" onclick="openModal('m5')">📖 Read Together →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M5: Read Together -->
+<div class="modal-overlay" id="modal-m5">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">📖</span>
+      <h2>Read Together</h2>
+      <button class="modal-close" onclick="closeModal('m5')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="dad-bubble">Dad 💬 "Let's read 'Young and Creative' together. I will read each paragraph aloud. Follow along and tap any orange word to see its meaning."</div>
+      <div class="reading-container">
+        <div class="reading-title">🌟 Young and Creative</div>
+        <div class="para-block highlight">
+          <div class="para-label">📌 Paragraph 1 — Introduction</div>
+          <div class="para-text">Did you know that a teenager had the first idea for a television? And a six-year-old boy invented the toy truck? Kids and teens are great inventors because they have a lot of <span class="vocab-highlight" title="the ability to think of new ideas">creativity</span> and <span class="vocab-highlight" title="thinking of new things in your mind">imagination 🌈</span>.</div>
+        </div>
+        <div class="para-block highlight">
+          <div class="para-label">🔦 Paragraph 2 — Ann Makosinski (2013, age 15)</div>
+          <div class="para-text">Canadian high school student Ann Makosinski was 15 when she invented the "hollow flashlight." The flashlight uses heat from the human body and changes it into light. It doesn't need <span class="vocab-highlight" title="a small object that stores power">batteries 🔋</span>. Ann thought of the idea when she heard about a friend who lived in the Philippines. Her friend was doing badly in school. She needed to do her homework at night, but there was no electrical light in her home. Ann's flashlight isn't expensive. Ann hopes it will help some of the 1.1 billion people in the world who still have no <span class="vocab-highlight" title="the power we use for lights and machines">electricity ⚡</span> in their homes.</div>
+        </div>
+        <div class="para-block highlight">
+          <div class="para-label">🍦 Paragraph 3 — Frank Epperson (1905, age 11)</div>
+          <div class="para-text">When Frank Epperson was eleven, he left a cup filled with soda and a stick in his yard. That night he forgot about it. It was a very cold night. When he went outside the next morning, he found something amazing: a "Popsicle"!</div>
+        </div>
+        <div class="para-block highlight">
+          <div class="para-label">📖 Paragraph 4 — Louis Braille (1824, age 15)</div>
+          <div class="para-text">Louis Braille had an accident when he was three. The accident left him <span class="vocab-highlight" title="not able to see">blind 👁️</span>. At that time, it was hard for blind children to read. They had to touch raised letters. But it was easy to confuse a Q with an O, an R with a B, and so on. When he was fifteen, Louis invented an alphabet that used raised dots. The Braille alphabet was a big success!</div>
+        </div>
+        <div class="para-block highlight">
+          <div class="para-label">🏙️ Paragraph 5 — Angad Daryani (2018, age 19)</div>
+          <div class="para-text">At the age of 19, Angad Daryani invented a <span class="vocab-highlight" title="the answer to a problem">solution 🔑</span> to the <span class="vocab-highlight" title="something difficult that needs fixing">problem ⚠️</span> of air pollution in cities. Growing up in Mumbai, India, he suffered from asthma caused by the polluted air. Air pollution is a big problem. Three <span class="vocab-highlight" title="1,000,000 — a very large number">millions 🔢</span> of people die each year. Angad's invention 💡 is an air pollution cleaning tower that is 6.1 meters (20 ft.) high. The tower sucks in air and takes out the particles of dust and carbon. The particles are collected and can even be reused. Angad's dream is to build thousands of the towers and improve the quality of air in cities.</div>
+        </div>
+      </div>
+      <div class="leo-bubble">Leo 💬 "Wow! All four inventors were young — like 11, 15, 15, and 19 years old!"</div>
+      <div class="dad-bubble">Dad 💬 "That's right! And each one had a problem to solve. Now let's listen again in the next module."</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m4')">← 🔥 Warm Up</button>
+      <button class="btn-next" onclick="openModal('m6')">🎧 Listen →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M6: Listen -->
+<div class="modal-overlay" id="modal-m6">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">🎧</span>
+      <h2>Listen</h2>
+      <button class="modal-close" onclick="closeModal('m6')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="dad-bubble">Dad 💬 "Leo, now I'll read each paragraph aloud. Listen carefully. After each paragraph, I'll ask you a question. Ready?"</div>
+
+      <div class="section-title" style="margin-top:.8rem">🎙️ Listen After Each Paragraph</div>
+
+      <div class="info-box" style="margin-bottom.8rem">
+        <strong>TR: 7.9</strong> — Dad reads the text aloud. Leo listens and answers the check questions below.
+      </div>
+
+      <div id="listen-questions"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m5')">← 📖 Read Together</button>
+      <button class="btn-next" onclick="openModal('m7')">❓ Questions →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M7: Comprehension Questions -->
+<div class="modal-overlay" id="modal-m7">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">❓</span>
+      <h2>Comprehension Questions</h2>
+      <button class="modal-close" onclick="closeModal('m7')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="dad-bubble">Dad 💬 "Now let's check your understanding. Answer these questions about the reading. Take your time!"</div>
+      <div id="comp-questions" style="margin-top:.8rem"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m6')">← 🎧 Listen</button>
+      <button class="btn-next" onclick="openModal('m8')">🧠 Think Aloud →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M8: Think Aloud -->
+<div class="modal-overlay" id="modal-m8">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">🧠</span>
+      <h2>Think Aloud</h2>
+      <button class="modal-close" onclick="closeModal('m8')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">📘 Reading Strategy: Ask Questions</div>
+      <div class="strategy-box">
+        <strong>Ask Questions</strong> helps you understand and remember a text. Ask questions <strong>before</strong>, <strong>during</strong>, and <strong>after</strong> you read.
+        <br><br>
+        Use <strong>Who · What · Where · When · Why · How</strong>
+      </div>
+
+      <div class="section-title">🎙️ Dad Models the Strategy</div>
+      <div class="dad-bubble">Dad 💬 "Leo, watch how I use 'Ask Questions' while I read. I'll think out loud so you can hear how I do it!"</div>
+
+      <div class="step-card">
+        <div class="step-num">🔍 Step 1 — Before Reading</div>
+        <div class="step-text">Dad 💬 "I look at the title <em>'Young and Creative.'</em> I ask: <strong>Who are these young people? What did they create?</strong> This gives me a purpose for reading!"</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">❓ Step 2 — During Reading (Paragraph 2)</div>
+        <div class="step-text">Dad 💬 "I read: <em>'Angad suffered from asthma.'</em> I'm not sure what <strong>asthma</strong> means. I ask: <strong>What is asthma? Are there any clues nearby?</strong>"</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">💡 Step 3 — Find the Clue</div>
+        <div class="step-text">Dad 💬 "The next sentence says: <em>'the asthma was caused by the polluted air.'</em> Now I think — asthma must be a problem with your breathing when the air is dirty!"</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">✅ Step 4 — After Reading</div>
+        <div class="step-text">Dad 💬 "I ask: <strong>What is the main idea? Which parts are unclear?</strong> This helps me check my understanding."</div>
+      </div>
+      <div class="leo-bubble">Leo 💬 "So asking questions before, during, and after helps me understand better!"</div>
+
+      <hr class="divider">
+      <div class="section-title">🏆 Graphic Literacy — The Patent Graph</div>
+      <div class="info-box">
+        <strong>Patent</strong> 📜 — An official paper that says a certain inventor is responsible for an invention. If you have a patent, nobody can steal your idea!
+      </div>
+      <div class="dad-bubble">Dad 💬 "Leo, look at the line graph on page 125. The numbers at the bottom show the years (2000–2006). The numbers on the left show how many patents were filed. Ask yourself: <strong>Which year had the most patents?</strong>"</div>
+      <div id="graph-quiz"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m7')">← ❓ Questions</button>
+      <button class="btn-next" onclick="openModal('m9')">✏️ Practice →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M9: Practice -->
+<div class="modal-overlay" id="modal-m9">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">✏️</span>
+      <h2>Practice</h2>
+      <button class="modal-close" onclick="closeModal('m9')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="dad-bubble">Dad 💬 "Two activities now. First, match each clue to the correct invention. Then, complete the chart!"</div>
+
+      <!-- Activity 2: Name the Invention -->
+      <div class="section-title" style="margin-top:.8rem">✏️ Activity 2 — Name the Invention</div>
+      <p style="font-size:.78rem;color:var(--text-muted);margin-bottom.6rem">Drag the correct invention name to each clue. (Student Book p. 124–125)</p>
+
+      <div class="word-bank" id="act2-bank">
+        <div class="wb-label">💡 Word Bank — Drag the inventions:</div>
+        <div class="wb-chips" id="act2-chips"></div>
+      </div>
+
+      <div id="act2-clues"></div>
+      <button class="check-btn" onclick="checkAct2()">✔ Check Answers</button>
+      <div class="result-msg" id="act2-result"></div>
+
+      <hr class="divider">
+
+      <!-- Activity 3: Complete the Chart -->
+      <div class="section-title">📊 Activity 3 — Complete the Chart</div>
+      <div class="dad-bubble">Dad 💬 "Now let's fill in the chart on p. 125. Read the text and find: Who invented it? When? What? Why?"</div>
+      <div style="overflow-x:auto;margin-bottom:.8rem">
+        <table class="chart-table" id="act3-table">
+          <thead>
+            <tr><th>Who 👤</th><th>When 📅</th><th>What 💡</th><th>Why ❓</th></tr>
+          </thead>
+          <tbody id="act3-body"></tbody>
+        </table>
+      </div>
+      <button class="check-btn" onclick="showChart()">👀 Show Answers</button>
+      <div class="result-msg" id="act3-result"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m8')">← 🧠 Think Aloud</button>
+      <button class="btn-next" onclick="openModal('m10')">🎭 Recap →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M10: Recap -->
+<div class="modal-overlay" id="modal-m10">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">🎭</span>
+      <h2>Recap</h2>
+      <button class="modal-close" onclick="closeModal('m10')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">🎯 Inventor Riddles</div>
+      <div class="dad-bubble">Dad 💬 "I'll give you a clue. You tell me the name of the invention and the inventor. Tap each card to check your answer!"</div>
+      <div id="riddles" style="margin-top:.8rem"></div>
+
+      <hr class="divider">
+      <div class="section-title">⚡ Quick Vocabulary Recap</div>
+      <div id="vocab-recap"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m9')">← ✏️ Practice</button>
+      <button class="btn-next" onclick="openModal('m11')">💬 Apply →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M11: Apply -->
+<div class="modal-overlay" id="modal-m11">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">💬</span>
+      <h2>Apply</h2>
+      <button class="modal-close" onclick="closeModal('m11')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">💬 Activity 4 — Discuss Your Opinion</div>
+      <div class="dad-bubble">Dad 💬 "Look at the two questions on page 125. Think about what you read and share your opinion with me!"</div>
+
+      <div class="discuss-card">
+        <div class="discuss-q">❓ Which story was the most interesting? Why?</div>
+        <div class="starter">Starter: <em>"In my opinion, the most interesting story is... because..."</em></div>
+      </div>
+      <div class="discuss-card">
+        <div class="discuss-q">❓ Which invention was the most useful? Why?</div>
+        <div class="starter">Starter: <em>"I think the most useful invention is... because..."</em></div>
+      </div>
+
+      <div class="leo-bubble">Leo 💬 "I think the Braille alphabet is the most useful because before it, blind people couldn't read at all!"</div>
+      <div class="dad-bubble">Dad 💬 "Great opinion! You used 'I think' and gave a reason. That's perfect fact and opinion writing!"</div>
+
+      <hr class="divider">
+      <div class="section-title">🚀 Extend — Invent Something!</div>
+      <div class="dad-bubble">Dad 💬 "Now it's your turn to be an inventor! Choose one of these problems and think of an invention to solve it. Draw it in your book!"</div>
+      <div id="extend-problems"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m10')">← 🎭 Recap</button>
+      <button class="btn-next" onclick="openModal('m12')">🎯 Wrap Up →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M12: Wrap Up -->
+<div class="modal-overlay" id="modal-m12">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">🎯</span>
+      <h2>Wrap Up</h2>
+      <button class="modal-close" onclick="closeModal('m12')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">🎙️ Interview Game!</div>
+      <div class="dad-bubble">Dad 💬 "We are going to do a fun interview! You choose one inventor. I am the reporter — you are the inventor. Answer my questions!"</div>
+      <div class="leo-bubble">Leo 💬 "I'll be Louis Braille!"</div>
+
+      <div class="info-box" style="margin-top:.6rem">
+        <strong>Sentence Frames:</strong><br>
+        "What did you invent?" → <em>"I invented..."</em><br>
+        "Why did you invent it?" → <em>"I invented it because..."</em><br>
+        "How is it used?" → <em>"It..."</em>
+      </div>
+
+      <div id="interview-cards"></div>
+
+      <hr class="divider">
+      <div class="section-title">🔄 Quick Review</div>
+      <div class="dad-bubble">Dad 💬 "I'll describe an invention. You tell me its name. Ready?"</div>
+      <div id="wrapup-quiz"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m11')">← 💬 Apply</button>
+      <button class="btn-next" onclick="openModal('m13')">✅ Assessment →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M13: Formative Assessment -->
+<div class="modal-overlay" id="modal-m13">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">✅</span>
+      <h2>Formative Assessment</h2>
+      <button class="modal-close" onclick="closeModal('m13')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="dad-bubble">Dad 💬 "Let's check what you can do now. Tap 👍 or 👎 for each skill!"</div>
+      <div id="fa-items" style="margin-top:.8rem"></div>
+      <div class="dad-bubble" style="margin-top:.8rem">Dad 💬 "Great work today, Leo! You read about four amazing young inventors. Are you ready for the final challenge?"</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m12')">← 🎯 Wrap Up</button>
+      <button class="btn-next" onclick="openModal('m14')">⚽ Can Leo Score? →</button>
+    </div>
+  </div>
+</div>
+
+<!-- M14: Can Leo Score? -->
+<div class="modal-overlay" id="modal-m14">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="m-icon-lg">⚽</span>
+      <h2>Can Leo Score?</h2>
+      <button class="modal-close" onclick="closeModal('m14')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="score-header">
+        <div style="font-size:2rem;margin-bottom:.3rem">⚽🥅</div>
+        <h2>Can Leo Score? 🏆</h2>
+        <p style="font-size.78rem;color:var(--text-muted)">Get 80% to score a goal! (8/10)</p>
+      </div>
+      <div class="score-progress" id="score-progress">Question 1 of 10</div>
+      <div class="progress-dots" id="score-dots"></div>
+      <div id="score-question-box"></div>
+      <div class="goal-animation" id="goal-anim">
+        <div style="font-size:3rem">⚽🥅💥</div>
+        <h2>GOAL!! 🎉</h2>
+        <p style="color:var(--accent);font-size.9rem">Just like Haaland in the Premier League! You scored!</p>
+      </div>
+      <div class="final-score" id="final-score">
+        <h2>Final Score ⚽</h2>
+        <div id="final-score-text" style="font-size1.1rem;color:var(--text-muted);margin-bottom.6rem"></div>
+        <div class="score-bar"><div class="score-bar-fill" id="score-bar-fill" style="width:0%"></div></div>
+        <div id="final-msg" style="margin-top.6rem;font-size.85rem;line-height:1.5"></div>
+        <button onclick="restartQuiz()" style="margin-top1rem;background:var(--primary);color:#fff;border:none;border-radius:8px;padding.6rem 1.2rem;font-family:'Baloo 2',sans-serif;font-weight:700;font-size.85rem;cursor:pointer">🔄 Try Again</button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-prev" onclick="openModal('m13')">← ✅ Assessment</button>
+      <button class="btn-next" disabled>— End —</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../../../lib/leea-cloud-config.js"></script>
+<script src="../../../../lib/leea-cloud.js"></script>
+<script>
+// ─── LEEA SAVE + REVIEW SYSTEM ─────────────────────────────────────────
+const SAVE_PREFIX = '4-7-reading-';
+const HOMEWORK_ID = new URLSearchParams(location.search).get('hw') || 'leo-4-7-reading';
+const isReview = new URLSearchParams(location.search).get('review') === '1';
+const moduleNames = {
+  m1:'Related Vocabulary',
+  m2:'Academic Language',
+  m3:'Content Vocabulary',
+  m4:'Warm Up',
+  m5:'Read Together',
+  m6:'Listen',
+  m7:'Comprehension',
+  m8:'Think Aloud',
+  m9:'Practice',
+  m10:'Recap',
+  m11:'Apply',
+  m12:'Wrap Up',
+  m13:'Formative Assessment',
+  m14:'Can Leo Score'
+};
+
+function lSave(key, val) {
+  try { localStorage.setItem('leea-' + key, JSON.stringify(val)); } catch(e) {}
+  syncProgressKey(key, val);
+}
+
+function lLoad(key, fallback = null) {
+  try {
+    const v = localStorage.getItem('leea-' + key);
+    return v !== null ? JSON.parse(v) : fallback;
+  } catch(e) { return fallback; }
+}
+
+function cloudProgressEnabled() {
+  return !!(window.LEEA_CLOUD && window.LEEA_CLOUD.enabled);
+}
+
+function syncProgressKey(key, val) {
+  if (!cloudProgressEnabled()) return;
+  window.LEEA_CLOUD.saveProgress(HOMEWORK_ID, key, val);
+}
+
+async function restoreProgressFromCloud() {
+  if (!cloudProgressEnabled()) return;
+  const rows = await window.LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+  if (!rows) return;
+  rows.forEach(row => {
+    try { localStorage.setItem('leea-' + row.storage_key, JSON.stringify(row.value)); } catch(e) {}
+  });
+}
+
+function getCompletedModules() {
+  return Object.keys(moduleNames)
+    .filter(id => lLoad(SAVE_PREFIX + id + '-done', false))
+    .map(id => moduleNames[id]);
+}
+
+function getWrongScoreQuestions() {
+  return lLoad(SAVE_PREFIX + 'wrongQuestions', []);
+}
+
+function markModuleDone(id) {
+  lSave(SAVE_PREFIX + id + '-done', true);
+  lSave(HOMEWORK_ID + '-' + id + '-done', true);
+  const card = document.querySelector(`.module-card[onclick="openModal('${id}')"]`);
+  if (card) card.classList.add('done');
+  const btn = document.getElementById('complete-' + id);
+  if (btn) {
+    btn.classList.add('confirmed');
+    btn.textContent = moduleNames[id] + ' complete ✓';
+  }
+}
+
+function redoModule(id) {
+  const btn = document.getElementById('redo-' + id);
+  if (btn && !btn.dataset.armed) {
+    btn.dataset.armed = '1';
+    btn.textContent = 'Sure?';
+    setTimeout(() => {
+      if (btn && btn.dataset.armed) {
+        delete btn.dataset.armed;
+        btn.textContent = 'Redo';
+      }
+    }, 2500);
+    return;
+  }
+  if (btn) {
+    delete btn.dataset.armed;
+    btn.textContent = 'Redo';
+  }
+  localStorage.removeItem('leea-' + SAVE_PREFIX + id + '-done');
+  localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
+  lSave(SAVE_PREFIX + id + '-done', false);
+  lSave(HOMEWORK_ID + '-' + id + '-done', false);
+  if (id === 'm14') {
+    ['score', 'wrongQuestions', 'done'].forEach(key => {
+      localStorage.removeItem('leea-' + SAVE_PREFIX + key);
+    });
+    lSave(SAVE_PREFIX + 'done', false);
+  }
+  const card = document.querySelector(`.module-card[onclick="openModal('${id}')"]`);
+  if (card) card.classList.remove('done');
+  const completeBtn = document.getElementById('complete-' + id);
+  if (completeBtn) {
+    completeBtn.classList.remove('confirmed');
+    completeBtn.textContent = 'Mark ' + moduleNames[id] + ' complete ✓';
+  }
+}
+
+function addCompleteButtons() {
+  Object.keys(moduleNames).forEach(id => {
+    const modal = document.getElementById('modal-' + id);
+    if (!modal || modal.querySelector('#complete-' + id)) return;
+    const body = modal.querySelector('.modal-body');
+    if (!body) return;
+    const row = document.createElement('div');
+    row.className = 'module-action-row';
+    const btn = document.createElement('button');
+    btn.className = 'complete-btn';
+    btn.id = 'complete-' + id;
+    btn.type = 'button';
+    btn.textContent = 'Mark ' + moduleNames[id] + ' complete ✓';
+    btn.addEventListener('click', () => markModuleDone(id));
+    const redoBtn = document.createElement('button');
+    redoBtn.className = 'redo-module-btn';
+    redoBtn.id = 'redo-' + id;
+    redoBtn.type = 'button';
+    redoBtn.textContent = 'Redo';
+    redoBtn.addEventListener('click', () => redoModule(id));
+    row.appendChild(btn);
+    row.appendChild(redoBtn);
+    body.appendChild(row);
+  });
+}
+
+function restoreCompletionUI() {
+  Object.keys(moduleNames).forEach(id => {
+    if (lLoad(SAVE_PREFIX + id + '-done', false)) markModuleDone(id);
+  });
+}
+
+function initReviewMode() {
+  const app = document.getElementById('appRoot');
+  const review = document.getElementById('reviewScreen');
+  const body = document.getElementById('reviewBody');
+  if (app) app.style.display = 'none';
+  if (review) review.classList.add('show');
+  const completed = getCompletedModules();
+  const score = lLoad(SAVE_PREFIX + 'score');
+  const wrong = getWrongScoreQuestions();
+  const hasWork = completed.length || score;
+  if (!hasWork) {
+    body.innerHTML = '<div class="review-card"><div class="review-value">Work not started yet.</div></div>';
+    return;
+  }
+  let html = '';
+  if (completed.length) {
+    html += `<div class="review-card"><div class="review-label">Completed Modules</div><div class="review-value">${completed.length}/14 complete<br>${completed.join(' · ')}</div></div>`;
+  }
+  if (score) {
+    html += `<div class="review-card"><div class="review-label">Can Leo Score?</div><div class="review-value">${score.score}/${score.total} correct · ${score.percent}% · ${score.done ? 'Done' : 'In progress'}</div></div>`;
+  }
+  if (wrong.length) {
+    html += `<div class="review-card"><div class="review-label">Mistakes</div><div class="review-value">${wrong.map(q => 'Question ' + q.question + ': ' + q.prompt).join('<br>')}</div></div>`;
+  }
+  body.innerHTML = html;
+}
+
+// ─── DATA ───────────────────────────────────────────────────────────
+const relVocab = [
+  {word:'invention',emoji:'💡',def:'A new thing someone makes for the first time',ex:'The telephone was an important invention.'},
+  {word:'creative',emoji:'🎨',def:'Good at making new and interesting things',ex:'She is very creative — she always has new ideas.'},
+  {word:'imagination',emoji:'🌈',def:'The ability to think of new ideas in your mind',ex:'You need imagination to be a great inventor.'},
+  {word:'electricity',emoji:'⚡',def:'The power we use to turn on lights and machines',ex:'We use electricity to charge our phones.'},
+  {word:'battery',emoji:'🔋',def:'A small object that stores power for machines',ex:"Ann's flashlight doesn't need a battery."},
+  {word:'problem',emoji:'⚠️',def:'Something difficult that needs to be fixed',ex:'Air pollution is a big problem in many cities.'},
+  {word:'solution',emoji:'🔑',def:'The answer to a problem',ex:"Angad's tower was a solution to air pollution."},
+  {word:'useful',emoji:'✅',def:'Good to use; it helps you',ex:'A flashlight is useful when there is no electricity.'}
+];
+
+const acadWords = [
+  {word:'chart',emoji:'📊',def:'A table or diagram that organizes information',kid:'Like a table with rows and columns to organize facts!',
+   examples:['Look at the chart. It shows who invented what and when.','The chart has four columns: Who, When, What, and Why.'],
+   quiz:[{q:'What is a chart?',opts:['A picture that shows data','A table that organizes information','A reading strategy','A type of graph'],ans:1},
+         {q:'In the reading, the chart shows information about...?',opts:['Soccer players','Young inventors','Countries','Machines'],ans:1}]},
+  {word:'graph',emoji:'📈',def:'A picture that shows numbers or data visually',kid:'A picture that shows how numbers change over time!',
+   examples:['The graph shows the number of patents from 2000 to 2006.','Look at the graph. Which year had the most patents?'],
+   quiz:[{q:'What does a graph show?',opts:['Words and definitions','Numbers and data visually','Names of inventors','Types of inventions'],ans:1},
+         {q:'In the reading, the graph shows the number of...?',opts:['Inventions per year','Patent filings around the world','Students in school','Flashlights sold'],ans:1}]},
+  {word:'opinion',emoji:'💭',def:'What you think or believe about something',kid:"It's not always a fact — it's what YOU think!",
+   examples:['In my opinion, the Popsicle was the most interesting invention.','I think Haaland is the best striker in the Premier League this season.'],
+   quiz:[{q:'Which sentence gives an OPINION?',opts:['Louis Braille was born in 1809.','I think the Braille alphabet is the most useful invention.','Angad was 19 years old.','Ann is from Canada.'],ans:1},
+         {q:'Which word introduces an opinion?',opts:['because','however','in my opinion','and'],ans:2}]}
+];
+
+const contVocab = [
+  {word:'blind',emoji:'👁️',def:'Not able to see',ex:'Louis Braille was blind. He could not see.'},
+  {word:'design',emoji:'✏️',def:'To plan and draw how something will look',ex:'Angad had to design his tower very carefully.'},
+  {word:'millions',emoji:'🔢',def:'A very large number — 1,000,000',ex:'More than three million people die from air pollution each year.'},
+  {word:'patent',emoji:'📜',def:"An official paper that protects an inventor's idea",ex:"If you get a patent, nobody can steal your idea."}
+];
+
+const warmupCards = [
+  {emoji:'🔋',front:'Batteries power so many things!',back:'What if batteries were never invented? No phones, no flashlights, no remote controls!'},
+  {emoji:'⚡',front:'We use electricity every day.',back:'Ann\'s friend had no electricity at home. She couldn\'t read at night!'},
+  {emoji:'📱',front:'Smartphones changed the world.',back:'What if a teenager invented the first smartphone? Maybe you will!'},
+  {emoji:'🍦',front:'A boy forgot a stick in soda overnight...',back:'...and in the morning he found a frozen Popsicle! An accident became an invention!'}
+];
+
+const warmupQ = {q:'What do young inventors all have in common, according to the reading?',opts:['They are all scientists','They have creativity and imagination','They all live in Canada','They used the same tools'],ans:1,fb:'Correct! Kids are great inventors because they have creativity and imagination!'};
+
+const listenQs = [
+  {para:'📌 Paragraph 1',q:'Why are kids and teens great inventors?',opts:['They go to school','They have creativity and imagination','They watch TV','They read many books'],ans:1,fb:'Right! Kids are great inventors because they have creativity and imagination.'},
+  {para:'🔦 Paragraph 2',q:"What problem did Angad want to solve with his invention?",opts:['No electricity in homes','Air pollution in cities','Hard work at school','No clean water'],ans:1,fb:'Correct! Angad wanted to solve the problem of air pollution in cities.'},
+  {para:'🔦 Paragraph 3',q:'How did Ann come up with the idea for her flashlight?',opts:['She read a science book','Her friend had no electricity to do homework','She wanted to be famous','She saw a broken flashlight'],ans:1,fb:'Right! Ann heard about her friend who could not do her homework because there was no electricity.'},
+  {para:'🍦 Paragraph 4',q:'How did Frank Epperson invent the Popsicle?',opts:['He made it in a kitchen','He forgot soda and a stick in the cold overnight','He bought it in a shop','His teacher showed him how'],ans:1,fb:'Correct! Frank forgot a cup of soda with a stick outside on a cold night.'},
+  {para:'📖 Paragraph 5',q:'What is Braille? Why was it important?',opts:['A type of food','A music instrument','An alphabet using raised dots for blind people to read','A type of painting'],ans:2,fb:'Right! Braille is an alphabet with raised dots that helped blind people read.'}
+];
+
+const compQs = [
+  {q:'Why are kids and teens great inventors?',opts:['They are very old','They have a lot of creativity and imagination','They have a lot of money','They have great teachers'],ans:1,fb:'Correct! Kids and teens are great inventors because they have creativity and imagination.'},
+  {q:"Ann Makosinski's flashlight uses energy from...?",opts:['The sun','Batteries','Heat from the human body','The wind'],ans:2,fb:"Right! Ann's hollow flashlight uses heat from the human body to produce light."},
+  {q:'How old was Frank Epperson when he invented the Popsicle?',opts:['6 years old','11 years old','15 years old','19 years old'],ans:1,fb:'Correct! Frank was eleven years old in 1905.'},
+  {q:'Why was reading difficult for blind children before Braille?',opts:['They had no teachers','It was easy to confuse raised letters','There were no books','School was too expensive'],ans:1,fb:'Right! It was easy to confuse raised letters — like Q with O, or R with B.'},
+  {q:"Angad Daryani's air pollution tower...?",opts:['Produces electricity','Sucks in air and removes dust and carbon','Makes clean water','Provides light at night'],ans:1,fb:"Correct! Angad's tower sucks in air and takes out particles of dust and carbon."}
+];
+
+const graphQ = {q:"Look at the patent graph (p. 125, years 2000–2006). Which year had the MOST patent filings?",opts:['2000','2002','2004','2006'],ans:3,fb:'Correct! The highest point on the graph is in 2006, which had the most patent filings.'};
+
+const act2Data = [
+  {num:1,clue:"It's something you eat.",ans:"Popsicle 🍦"},
+  {num:2,clue:"It can help people who live in big cities.",ans:"air pollution cleaning tower 🏙️"},
+  {num:3,clue:"It's something a blind person can use to read.",ans:"Braille 📖"},
+  {num:4,clue:"It's useful if you don't have electricity.",ans:"hollow flashlight 🔦"},
+  {num:5,clue:"It happened by accident.",ans:"Popsicle 🍦"}
+];
+const act2Opts = ["Popsicle 🍦","air pollution cleaning tower 🏙️","Braille 📖","hollow flashlight 🔦","Popsicle 🍦"];
+
+const chartData = [
+  {who:'Angad Daryani',when:'in 2018, when he was 19 years old',what:'an air pollution cleaning tower 🏙️',why:'He had asthma caused by air pollution.'},
+  {who:'Ann Makosinski',when:'in 2013, when she was 15 years old',what:'a heat-powered hollow flashlight 🔦',why:"Her friend couldn't do her homework — no electricity."},
+  {who:'Frank Epperson',when:'in 1905, when he was 11 years old',what:'a Popsicle 🍦',why:'He forgot a cup with soda and a stick outside overnight.'},
+  {who:'Louis Braille',when:'in 1824, when he was 15 years old',what:'the Braille alphabet 📖',why:'It was hard for blind children to read.'}
+];
+
+const riddles = [
+  {clue:"A boy forgot soda and a stick in the cold overnight. What did he find in the morning?",ans:"Popsicle 🍦 — invented by Frank Epperson in 1905"},
+  {clue:"A blind boy couldn't read with raised letters — they were too confusing. What did he invent?",ans:"The Braille alphabet 📖 — invented by Louis Braille in 1824"},
+  {clue:"A girl's friend had no light to do her homework. What did she create?",ans:"The hollow flashlight 🔦 — invented by Ann Makosinski in 2013"},
+  {clue:"A young man had trouble breathing because of dirty air in Mumbai. What did he build?",ans:"The air pollution cleaning tower 🏙️ — invented by Angad Daryani in 2018"}
+];
+
+const extendProblems = [
+  {emoji:'🐕',text:'Give a pet a bath'},
+  {emoji:'🧹',text:'Keep a room clean'},
+  {emoji:'🧣',text:'Keep legs warm in the cold'},
+  {emoji:'⚽',text:'Help a soccer player train alone'},
+  {emoji:'💡',text:'Your own idea!'}
+];
+
+const interviewCards = [
+  {role:'Reporter 🎙️',text:'Hello! Who are you, and what did you invent?'},
+  {role:'Inventor 💡',text:'My name is _______. I invented _______.'},
+  {role:'Reporter 🎙️',text:'Why did you invent it?'},
+  {role:'Inventor 💡',text:'I invented it because _______.'},
+  {role:'Reporter 🎙️',text:'How is your invention used?'},
+  {role:'Inventor 💡',text:'It _______.'}
+];
+
+const wrapupQ = [
+  {clue:'A boy left soda and a stick in the cold overnight. What is this invention?',ans:'Popsicle 🍦'},
+  {clue:'Blind children had difficulty reading raised letters. This invention used raised dots instead.',ans:'Braille alphabet 📖'},
+  {clue:'It uses heat from your body to produce light. No batteries needed!',ans:'Hollow flashlight 🔦'},
+  {clue:'A 6.1-meter tower that sucks in air and removes dust and carbon.',ans:'Air pollution cleaning tower 🏙️'}
+];
+
+const faItems = [
+  {skill:'Skill 1: Identify and describe inventions',q:'How does the hollow flashlight work? How did Braille help blind people?',
+   q2:'Dad 💬 "Tell me: How does Ann\'s flashlight work? How did Braille help blind people?"'},
+  {skill:'Skill 2: Ask questions about a text',q:'Can you ask a question about an invention from the reading?',
+   q2:'Dad 💬 "Ask me one question about an invention from the reading using Who, What, When, Why, or How!"'},
+  {skill:'Skill 3: Discuss opinions about inventions',q:'What is your favorite invention from this unit, and why?',
+   q2:'Dad 💬 "What is your favorite invention? Use: I think / I believe / In my opinion..."'}
+];
+
+const scoreQs = [
+  {q:'What is the reading about?',opts:['Old machines in museums','Young inventors and their inventions','Scientists at university','Teachers who help students'],ans:1},
+  {q:'How old was Ann Makosinski when she invented the hollow flashlight?',opts:['11','15','19','21'],ans:1},
+  {q:'Why did Ann invent the flashlight?',opts:['She wanted to be rich','Her friend had no electricity to do homework','She forgot a battery','She loved the dark'],ans:1},
+  {q:'How did Frank Epperson invent the Popsicle?',opts:['He cooked it in the kitchen','He read a recipe','He forgot a cup with soda and a stick in the cold','His teacher showed him'],ans:2},
+  {q:'Which word means "not able to see"?',opts:['useful','blind','patent','design'],ans:1},
+  {q:'The Braille alphabet uses...?',opts:['Raised dots','Raised letters','Colors','Pictures'],ans:0},
+  {q:'A patent is...?',opts:['A type of flashlight','An official paper that protects an inventor\'s idea','A chart or graph','A type of food'],ans:1},
+  {q:'What does Angad\'s invention do?',opts:['Makes electricity','Cleans the air of dust and carbon','Helps blind people read','Freezes drinks'],ans:1},
+  {q:'The reading strategy in this lesson is...?',opts:['Visualize','Make Predictions','Ask Questions','Main Idea and Details'],ans:2},
+  {q:'Erling Haaland leads the Premier League in goals this 2025-26 season. Just like him, Leo goes for the top. How many goals is Haaland scoring?',opts:['18','24','31','36'],ans:1}
+];
+
+// ─── RENDER FLASHCARDS ───────────────────────────────────────────────
+function renderFlashcards(data, containerId) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  data.forEach((item, i) => {
+    el.innerHTML += `<div class="fc" onclick="this.classList.toggle('flipped')" id="fc-${containerId}-${i}">
+      <div class="fc-inner">
+        <div class="fc-front"><div class="fc-emoji">${item.emoji}</div><div class="fc-word">${item.word}</div></div>
+        <div class="fc-back"><div class="fc-def">${item.def}</div><div class="fc-ex">"${item.ex}"</div></div>
+      </div>
+    </div>`;
+  });
+}
+
+// ─── RENDER MCQ ─────────────────────────────────────────────────────
+function renderMCQ(questions, containerId, prefix) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = `<hr class="divider"><div class="section-title">✏️ Quick Quiz</div>`;
+  questions.forEach((q, qi) => {
+    const id = `${prefix}-q${qi}`;
+    el.innerHTML += `<div class="quiz-section" id="${id}-box">
+      <div class="quiz-q">Q${qi+1}: ${q.q}</div>
+      <div class="quiz-opts">
+        ${q.opts.map((o,oi) => `<button class="quiz-opt" onclick="checkOpt('${id}',${oi},${q.ans},'${(q.fb||'').replace(/'/g,"\\'")}',this)">${o}</button>`).join('')}
+      </div>
+      <div class="quiz-feedback" id="${id}-fb"></div>
+    </div>`;
+  });
+}
+
+function checkOpt(id, chosen, ans, fb, btn) {
+  const box = document.getElementById(id+'-box');
+  if (box.dataset.done) return;
+  box.dataset.done = '1';
+  const opts = box.querySelectorAll('.quiz-opt');
+  opts.forEach((o,i) => { o.disabled = true; if(i===ans) o.classList.add('correct'); else if(i===chosen) o.classList.add('wrong'); });
+  const fbEl = document.getElementById(id+'-fb');
+  fbEl.textContent = chosen===ans ? '✅ '+fb : '❌ The correct answer is: '+box.querySelectorAll('.quiz-opt')[ans].textContent;
+  fbEl.className = 'quiz-feedback show '+(chosen===ans?'ok':'bad');
+}
+
+// ─── M1 INIT ────────────────────────────────────────────────────────
+function initM1() {
+  renderFlashcards(relVocab, 'fc-rel');
+  const qs = relVocab.map(w => ({q:`What does "${w.word}" mean?`,opts:[w.def,...relVocab.filter(x=>x.word!==w.word).slice(0,3).map(x=>x.def)].sort(()=>Math.random()-.5),ans:0,fb:w.def}));
+  // fix ans after shuffle
+  qs.forEach((q,i)=>{q.ans=q.opts.indexOf(relVocab[i].def);});
+  renderMCQ(qs.slice(0,4),'rel-quiz-section','rel');
+}
+
+// ─── M2 INIT ────────────────────────────────────────────────────────
+function initM2() {
+  const el = document.getElementById('acad-cards');
+  el.innerHTML = '';
+  acadWords.forEach((w,wi)=>{
+    el.innerHTML += `<div style="background:var(--card);border-radius:12px;padding:.9rem;margin-bottom:.8rem;border-left:4px solid var(--secondary)">
+      <div style="font-size:1.5rem;margin-bottom:.3rem">${w.emoji}</div>
+      <div style="font-family:'Baloo 2',sans-serif;font-size:1rem;font-weight:800;color:var(--accent);margin-bottom:.2rem">${w.word}</div>
+      <div style="font-size:.78rem;color:#CBD5E1;margin-bottom:.3rem">${w.def}</div>
+      <div style="background:var(--card2);border-radius:6px;padding:.4rem .6rem;font-size:.73rem;color:var(--primary);margin-bottom:.4rem;font-style:italic">"${w.kid}"</div>
+      ${w.examples.map(ex=>`<div style="font-size:.75rem;color:#94A3B8;margin-bottom.2rem">▸ ${ex}</div>`).join('')}
+    </div>`;
+  });
+  const allQs = acadWords.flatMap(w=>w.quiz);
+  renderMCQ(allQs, 'acad-quiz', 'acad');
+}
+
+// ─── M3 INIT ────────────────────────────────────────────────────────
+function initM3() {
+  renderFlashcards(contVocab, 'fc-cont');
+  const qs = contVocab.map(w=>({q:`What does "${w.word}" mean?`,opts:[w.def,...contVocab.filter(x=>x.word!==w.word).map(x=>x.def)].sort(()=>Math.random()-.5),ans:0,fb:w.def}));
+  qs.forEach((q,i)=>{q.ans=q.opts.indexOf(contVocab[i].def);});
+  renderMCQ(qs,'cont-quiz-section','cont');
+}
+
+// ─── M4 INIT ────────────────────────────────────────────────────────
+function initM4() {
+  const el = document.getElementById('warmup-reveal-cards');
+  el.innerHTML = '';
+  warmupCards.forEach((c,i)=>{
+    el.innerHTML += `<div onclick="revealWarm(${i})" style="background:var(--card);border-radius:12px;padding:.8rem;margin-bottom:.5rem;cursor:pointer;border:1px solid var(--border);display:flex;align-items:center;gap:.7rem">
+      <span style="font-size:1.6rem">${c.emoji}</span>
+      <div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--accent)">${c.front}</div>
+        <div id="warm-reveal-${i}" style="font-size:.75rem;color:#94A3B8;display:none;margin-top:.2rem">${c.back}</div>
+        <div id="warm-hint-${i}" style="font-size:.68rem;color:var(--primary);margin-top:.1rem">👆 Tap to discover!</div>
+      </div>
+    </div>`;
+  });
+  renderMCQ([warmupQ],'warmup-quiz','warmup');
+}
+function revealWarm(i){
+  document.getElementById(`warm-reveal-${i}`).style.display='block';
+  document.getElementById(`warm-hint-${i}`).style.display='none';
+}
+
+// ─── M6 INIT ────────────────────────────────────────────────────────
+function initM6() {
+  const el = document.getElementById('listen-questions');
+  el.innerHTML = '';
+  listenQs.forEach((q,i)=>{
+    el.innerHTML += `<div style="background:var(--card);border-radius:12px;padding:.8rem;margin-bottom.7rem">
+      <div style="font-size:.65rem;font-weight:700;color:var(--secondary);text-transform:uppercase;margin-bottom.3rem">${q.para}</div>
+      <div class="quiz-q" style="margin-bottom.5rem">${q.q}</div>
+      <div class="quiz-opts">
+        ${q.opts.map((o,oi)=>`<button class="quiz-opt" onclick="checkOpt('listen-${i}',${oi},${q.ans},'${q.fb.replace(/'/g,"\\'")}',this)">${o}</button>`).join('')}
+      </div>
+      <div class="quiz-feedback" id="listen-${i}-fb"></div>
+    </div>`;
+  });
+}
+
+// ─── M7 INIT ────────────────────────────────────────────────────────
+function initM7() {
+  renderMCQ(compQs,'comp-questions','comp');
+}
+
+// ─── M8 INIT ────────────────────────────────────────────────────────
+function initM8() {
+  renderMCQ([graphQ],'graph-quiz','graph');
+}
+
+// ─── M9 INIT ────────────────────────────────────────────────────────
+let dragItem = null;
+function initM9() {
+  // Activity 2 chips (unique labels for bank display, 4 unique)
+  const bankItems = [...new Set(act2Opts)];
+  const chipsEl = document.getElementById('act2-chips');
+  chipsEl.innerHTML = '';
+  bankItems.forEach(b=>{
+    const chip = document.createElement('div');
+    chip.className='chip';
+    chip.textContent=b;
+    chip.dataset.val=b;
+    chip.draggable=true;
+    chip.addEventListener('dragstart',e=>{dragItem=b;e.dataTransfer.effectAllowed='move';});
+    chip.addEventListener('touchstart',e=>{dragItem=b;},{ passive: true });
+    chipsEl.appendChild(chip);
+  });
+
+  // Activity 2 clues
+  const cluesEl = document.createElement('div');
+  cluesEl.id = 'act2-clues-inner';
+  document.getElementById('act2-clues') && document.getElementById('act2-clues').replaceWith(cluesEl);
+  act2Data.forEach((item,i)=>{
+    const row = document.createElement('div');
+    row.className='clue-row';
+    row.innerHTML=`<span class="clue-num">${item.num}.</span><span class="clue-text">${item.clue}</span>`;
+    const dz = document.createElement('div');
+    dz.className='drop-zone';
+    dz.dataset.idx=i;
+    dz.dataset.ans=item.ans;
+    dz.style.minWidth='130px';
+    dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
+    dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
+    dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag-over');dropOnZone(dz);});
+    dz.addEventListener('touchend',()=>{dropOnZone(dz);});
+    dz.innerHTML='<span style="font-size:.72rem;color:var(--text-muted)">Drop here</span>';
+    row.appendChild(dz);
+    cluesEl.appendChild(row);
+  });
+  // insert after bank
+  document.getElementById('act2-bank').insertAdjacentElement('afterend',cluesEl);
+  // also add check btn
+}
+function dropOnZone(dz){
+  if(!dragItem) return;
+  dz.classList.remove('drag-over','filled','wrong-ans');
+  dz.innerHTML=`<span style="font-size:.82rem;font-weight:700;color:var(--accent)">${dragItem}</span>`;
+  dz.dataset.filled=dragItem;
+  dz.classList.add('filled');
+  dragItem=null;
+}
+function checkAct2(){
+  let correct=0;
+  document.querySelectorAll('[data-idx]').forEach(dz=>{
+    const idx=parseInt(dz.dataset.idx);
+    const filled=dz.dataset.filled||'';
+    const expected=act2Data[idx].ans;
+    dz.classList.remove('filled','wrong-ans');
+    if(filled===expected){dz.classList.add('filled');correct++;}
+    else{dz.classList.add('wrong-ans');}
+  });
+  const res=document.getElementById('act2-result');
+  res.className='result-msg show '+(correct===5?'ok':'bad');
+  res.textContent=correct===5?`✅ Perfect! All 5 correct! 🎉`:`❌ ${correct}/5 correct. Check the red ones and try again!`;
+}
+
+function showChart(){
+  const tbody=document.getElementById('act3-body');
+  tbody.innerHTML='';
+  chartData.forEach(r=>{
+    tbody.innerHTML+=`<tr>
+      <td class="answer-cell">${r.who}</td>
+      <td class="answer-cell">${r.when}</td>
+      <td class="answer-cell">${r.what}</td>
+      <td class="answer-cell">${r.why}</td>
+    </tr>`;
+  });
+  const res=document.getElementById('act3-result');
+  res.className='result-msg show ok';
+  res.textContent='✅ Check your chart against these answers!';
+}
+
+// ─── M10 INIT ───────────────────────────────────────────────────────
+function initM10(){
+  const el=document.getElementById('riddles');
+  el.innerHTML='';
+  riddles.forEach((r,i)=>{
+    el.innerHTML+=`<div class="riddle-card" onclick="document.getElementById('rid-${i}').classList.add('show');this.querySelector('.reveal-hint').style.display='none'">
+      <div class="riddle-q">🤔 ${r.clue}</div>
+      <div class="riddle-reveal" id="rid-${i}">💡 ${r.ans}</div>
+      <div class="reveal-hint">👆 Tap to reveal!</div>
+    </div>`;
+  });
+  const vr=document.getElementById('vocab-recap');
+  vr.innerHTML='';
+  const recapWords=[...relVocab,...contVocab].slice(0,6);
+  vr.innerHTML=recapWords.map(w=>`<div style="display:flex;align-items:center;gap.5rem;background:var(--card2);border-radius:8px;padding.5rem .7rem;margin-bottom.3rem;font-size.8rem">
+    <span style="font-size:1.2rem">${w.emoji}</span>
+    <strong style="color:var(--accent);min-width:5rem">${w.word}</strong>
+    <span style="color:#CBD5E1">${w.def}</span>
+  </div>`).join('');
+}
+
+// ─── M11 INIT ───────────────────────────────────────────────────────
+function initM11(){
+  const el=document.getElementById('extend-problems');
+  el.innerHTML='';
+  extendProblems.forEach(p=>{
+    el.innerHTML+=`<div style="background:var(--card);border-radius:10px;padding.6rem .8rem;margin-bottom.4rem;display:flex;align-items:center;gap.6rem;font-size.85rem;border:1px solid var(--border)">
+      <span style="font-size:1.4rem">${p.emoji}</span>
+      <span style="color:#CBD5E1">${p.text}</span>
+    </div>`;
+  });
+}
+
+// ─── M12 INIT ───────────────────────────────────────────────────────
+function initM12(){
+  const el=document.getElementById('interview-cards');
+  el.innerHTML='';
+  interviewCards.forEach(c=>{
+    el.innerHTML+=`<div class="interview-card">
+      <div class="interview-role">${c.role}</div>
+      <div class="interview-text">${c.text}</div>
+    </div>`;
+  });
+  const wq=document.getElementById('wrapup-quiz');
+  wq.innerHTML='';
+  wrapupQ.forEach((item,i)=>{
+    wq.innerHTML+=`<div style="background:var(--card);border-radius:12px;padding.7rem;margin-bottom.5rem;cursor:pointer" onclick="document.getElementById('wrap-ans-${i}').classList.toggle('show')">
+      <div style="font-size.82rem;color:#CBD5E1;margin-bottom.3rem">🎙️ ${item.clue}</div>
+      <div class="riddle-reveal" id="wrap-ans-${i}">✅ ${item.ans}</div>
+      <div style="font-size.68rem;color:var(--text-muted);font-style:italic">👆 Tap to reveal</div>
+    </div>`;
+  });
+}
+
+// ─── M13 INIT ───────────────────────────────────────────────────────
+function initM13(){
+  const el=document.getElementById('fa-items');
+  el.innerHTML='';
+  faItems.forEach((item,i)=>{
+    el.innerHTML+=`<div class="fa-item">
+      <div class="fa-skill">${item.skill}</div>
+      <div class="fa-q">${item.q2}</div>
+      <div class="thumbs">
+        <button class="thumb-btn" onclick="selectThumb(this,'yes')">👍 I can!</button>
+        <button class="thumb-btn" onclick="selectThumb(this,'no')">👎 Need practice</button>
+      </div>
+    </div>`;
+  });
+}
+function selectThumb(btn,type){
+  const group=btn.closest('.thumbs');
+  group.querySelectorAll('.thumb-btn').forEach(b=>b.className='thumb-btn');
+  btn.classList.add(type==='yes'?'selected-yes':'selected-no');
+}
+
+// ─── M14 INIT / QUIZ ─────────────────────────────────────────────────
+let sqIdx=0, sqScore=0, sqAnswered=false, sqWrong=[];
+function initM14(){sqIdx=0;sqScore=0;sqWrong=[];renderScoreQ();}
+function renderScoreQ(){
+  const el=document.getElementById('score-question-box');
+  document.getElementById('goal-anim').style.display='none';
+  document.getElementById('final-score').style.display='none';
+  el.style.display='block';
+  if(sqIdx>=scoreQs.length){showFinalScore();return;}
+  document.getElementById('score-progress').textContent=`Question ${sqIdx+1} of ${scoreQs.length}`;
+  const dots=document.getElementById('score-dots');
+  dots.innerHTML=scoreQs.map((_,i)=>`<div class="dot ${i<sqIdx?'done':i===sqIdx?'active':''}"></div>`).join('');
+  const q=scoreQs[sqIdx];
+  sqAnswered=false;
+  el.innerHTML=`<div class="score-q-box">
+    <div class="score-q">Q${sqIdx+1}: ${q.q}</div>
+    <div class="score-opts">
+      ${q.opts.map((o,oi)=>`<button class="score-opt" onclick="answerScore(${oi},${q.ans},this)">${o}</button>`).join('')}
+    </div>
+    <div id="sq-fb" style="font-size.78rem;margin-top.5rem;display:none"></div>
+    <button id="sq-next" onclick="nextScoreQ()" style="display:none;margin-top.5rem;background:var(--primary);color:#fff;border:none;border-radius:8px;padding.5rem 1rem;font-family:'Baloo 2',sans-serif;font-weight:700;font-size.82rem;cursor:pointer">Next →</button>
+  </div>`;
+}
+function answerScore(chosen,ans,btn){
+  if(sqAnswered) return;
+  sqAnswered=true;
+  const opts=btn.closest('.score-opts').querySelectorAll('.score-opt');
+  opts.forEach((o,i)=>{o.disabled=true;if(i===ans)o.classList.add('correct');else if(i===chosen)o.classList.add('wrong');});
+  const fb=document.getElementById('sq-fb');
+  fb.style.display='block';
+  if(chosen===ans){sqScore++;fb.textContent='✅ Correct!';}
+  else{fb.textContent='❌ Correct answer: '+scoreQs[sqIdx].opts[ans];}
+  if (chosen !== ans) {
+    sqWrong.push({
+      question: sqIdx + 1,
+      prompt: scoreQs[sqIdx].q,
+      chosen: scoreQs[sqIdx].opts[chosen],
+      correct: scoreQs[sqIdx].opts[ans]
+    });
+  }
+  document.getElementById('sq-next').style.display='block';
+}
+function nextScoreQ(){sqIdx++;renderScoreQ();}
+function showFinalScore(){
+  document.getElementById('score-question-box').style.display='none';
+  const pct=Math.round((sqScore/scoreQs.length)*100);
+  const fs=document.getElementById('final-score');
+  fs.style.display='block';
+  document.getElementById('final-score-text').textContent=`${sqScore} / ${scoreQs.length} correct — ${pct}%`;
+  setTimeout(()=>document.getElementById('score-bar-fill').style.width=pct+'%',100);
+  let msg='';
+  if(pct>=80){
+    msg=`⚽ GOAL!! You scored! Just like Haaland (24 goals) in the Premier League — you're on top! 🏆`;
+    document.getElementById('goal-anim').style.display='block';
+    confetti();
+  } else if(pct>=60){
+    msg=`💪 Good effort! Kane scored 31 Bundesliga goals this season with practice. Keep going!`;
+  } else {
+    msg=`📖 Go back and review the reading. Even Mbappé (La Liga top scorer) had to work hard to be the best!`;
+  }
+  document.getElementById('final-msg').innerHTML=msg;
+  lSave(SAVE_PREFIX + 'score', {
+    score: sqScore,
+    total: scoreQs.length,
+    percent: pct,
+    done: true,
+    timestamp: new Date().toISOString()
+  });
+  lSave(SAVE_PREFIX + 'wrongQuestions', sqWrong);
+  lSave(SAVE_PREFIX + 'done', true);
+  lSave(HOMEWORK_ID + '-done', true);
+  markModuleDone('m14');
+}
+function restartQuiz(){sqIdx=0;sqScore=0;sqWrong=[];renderScoreQ();document.getElementById('final-score').style.display='none';}
+function confetti(){
+  const rain=document.createElement('div');rain.className='confetti-rain';document.body.appendChild(rain);
+  const colors=['#F97316','#3B82F6','#FDE047','#22C55E','#EF4444'];
+  for(let i=0;i<40;i++){
+    const dot=document.createElement('div');
+    dot.style.cssText=`position:absolute;width:8px;height:8px;background:${colors[i%colors.length]};border-radius:50%;left:${Math.random()*100}%;top:${-Math.random()*20}%;animation:fall ${1+Math.random()*2}s linear forwards;animation-delay:${Math.random()*.5}s`;
+    rain.appendChild(dot);
+  }
+  const style=document.createElement('style');
+  style.textContent='@keyframes fall{to{transform:translateY(100vh) rotate(360deg);opacity:0}}';
+  document.head.appendChild(style);
+  setTimeout(()=>{rain.remove();},3000);
+}
+
+// ─── MODAL SYSTEM ───────────────────────────────────────────────────
+const modalOrder=['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13','m14'];
+const initFns={m1:initM1,m2:initM2,m3:initM3,m4:initM4,m6:initM6,m7:initM7,m8:initM8,m9:initM9,m10:initM10,m11:initM11,m12:initM12,m13:initM13,m14:initM14};
+
+function openModal(id){
+  document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.remove('active'));
+  const el=document.getElementById('modal-'+id);
+  if(el){
+    el.classList.add('active');
+    el.querySelector('.modal-body').scrollTop=0;
+    if(initFns[id]) initFns[id]();
+  }
+}
+function closeModal(id){
+  document.getElementById('modal-'+id)?.classList.remove('active');
+}
+
+// init act2 clues container
+document.addEventListener('DOMContentLoaded',()=>{
+  if (isReview) {
+    restoreProgressFromCloud().then(initReviewMode);
+    return;
+  }
+  addCompleteButtons();
+  restoreProgressFromCloud().then(restoreCompletionUI);
+  const cluesDiv=document.createElement('div');
+  cluesDiv.id='act2-clues';
+  document.getElementById('act2-bank')?.insertAdjacentElement('afterend',cluesDiv);
+});
+</script>
+<script src="unit-7-nav.js"></script>
+</body>
+</html>

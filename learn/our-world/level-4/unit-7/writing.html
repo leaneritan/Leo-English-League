@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 · Writing — Fact &amp; Opinion</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<script src="../../../../lib/leea-cloud-config.js"></script>
+<script src="../../../../lib/leea-cloud.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --or:#F97316;--ord:#EA580C;--orl:#FFF7ED;
+  --bl:#3B82F6;--bld:#1D4ED8;--bll:#EFF6FF;
+  --ye:#FDE047;--yed:#EAB308;
+  --gn:#16A34A;--gnl:#F0FDF4;
+  --rd:#DC2626;--rdl:#FEE2E2;
+  --ink:#111111;--ink2:#374151;--ink3:#6B7280;
+  --paper:#FAFAF7;--surf:#FFFFFF;--bdr:#E5E7EB;
+  --fn:'Nunito',sans-serif;--fnh:'Oswald',sans-serif;
+}
+body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden}
+
+/* HEADER */
+.app-hdr{background:var(--ink);padding:0 16px;height:50px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.hdr-left{display:flex;align-items:center;gap:8px}
+.hdr-badge{background:var(--ye);color:var(--ink);font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;padding:2px 7px;border-radius:2px}
+.hdr-title{font-family:var(--fnh);font-size:.85rem;font-weight:700;color:#fff;letter-spacing:1px}
+.hdr-unit{font-size:.7rem;font-weight:700;color:var(--or)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--or),var(--ord));padding:20px 16px 16px;text-align:center}
+.hero-kick{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.7);margin-bottom:6px}
+.hero-title{font-family:var(--fnh);font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:1px}
+.hero-title span{color:var(--ye)}
+.hero-sub{font-size:.78rem;color:rgba(255,255,255,.85);font-weight:600;margin-top:4px}
+.hero-em{font-size:1.3rem;margin-top:8px}
+.prog-wrap{background:rgba(0,0,0,.15);height:4px}
+.prog-fill{height:100%;background:var(--ye);transition:width .5s;width:0%}
+
+/* HW BANNER */
+.hw-banner{background:var(--bll);border-bottom:2px solid var(--bl);padding:8px 16px;font-size:.8rem;font-weight:700;color:var(--bld);display:none;align-items:center;gap:8px}
+
+/* HOME */
+.home{max-width:680px;margin:0 auto;padding:16px 14px 80px}
+.sec-lbl{font-family:var(--fnh);font-size:.62rem;font-weight:700;letter-spacing:3px;color:var(--ink3);margin-bottom:10px;margin-top:20px;display:flex;align-items:center;gap:8px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--bdr)}
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mod-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px 13px 11px;cursor:pointer;transition:all .2s;position:relative}
+.mod-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.mod-card.ow:hover{border-color:var(--or)}
+.mod-card.wb:hover{border-color:var(--bl)}
+.mod-card.quiz:hover{border-color:var(--yed)}
+.mod-icon{font-size:1.5rem;margin-bottom:5px}
+.mod-name{font-weight:800;font-size:.82rem;color:var(--ink);margin-bottom:2px}
+.mod-desc{font-size:.7rem;color:var(--ink3);font-weight:600;line-height:1.4}
+.mod-badge{font-family:var(--fnh);font-size:.55rem;font-weight:700;letter-spacing:1px;padding:2px 6px;border-radius:2px;margin-top:7px;display:inline-block}
+.badge-new{background:var(--paper);color:var(--ink3);border:1px solid var(--bdr)}
+.badge-done{background:#D1FAE5;color:var(--gn)}
+.badge-prog{background:var(--orl);color:var(--ord)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:none;overflow-y:auto}
+.modal.open{display:block}
+.mbox{background:var(--surf);min-height:100vh;display:flex;flex-direction:column;max-width:680px;margin:0 auto}
+.mhd{padding:13px 14px;display:flex;align-items:center;gap:10px;color:#fff;position:sticky;top:0;z-index:10;flex-shrink:0}
+.mhd.or{background:var(--or)}.mhd.bl{background:var(--bl)}.mhd.gn{background:var(--gn)}.mhd.dk{background:var(--ink)}.mhd.ye{background:var(--yed)}
+.mbk{background:rgba(255,255,255,.15);border:none;color:#fff;font-family:var(--fn);font-size:.72rem;font-weight:800;padding:5px 11px;border-radius:20px;cursor:pointer;flex-shrink:0}
+.mhd-title{font-weight:900;font-size:1rem;flex:1;letter-spacing:.3px;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+.mhd-num{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:1px;opacity:.7}
+.mbody{flex:1;padding:14px;display:flex;flex-direction:column;gap:12px;background:var(--paper)}
+
+/* COMPONENTS */
+.dad-card{background:#D1FAE5;border:2px solid #A7F3D0;border-radius:4px;padding:11px 13px;font-size:.82rem;font-weight:700;color:#065F46;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.dad-icon{font-size:1.1rem;flex-shrink:0}
+
+.phrase-bank{background:var(--orl);border:2px solid #FDBA74;border-radius:4px;padding:9px 11px}
+.pb-title{font-family:var(--fnh);font-size:.58rem;font-weight:700;letter-spacing:2px;color:var(--ord);margin-bottom:6px}
+.pb-chips{display:flex;flex-wrap:wrap;gap:5px}
+.pb-chip{background:#fff;border:1px solid #FDBA74;border-radius:20px;padding:3px 10px;font-size:.75rem;font-weight:700;color:var(--ord)}
+
+.ex-box{background:var(--bll);border:2px solid #BFDBFE;border-left:4px solid var(--bl);border-radius:0 4px 4px 0;padding:9px 12px;font-size:.8rem;font-weight:600;color:var(--bld);line-height:1.6}
+.ex-lbl{font-family:var(--fnh);font-size:.55rem;font-weight:700;letter-spacing:2px;color:var(--bl);margin-bottom:3px}
+
+.sent-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:12px}
+.sent-text{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.5;font-style:italic}
+.fo-btns{display:flex;gap:8px}
+.fo-btn{flex:1;padding:9px 6px;border:2px solid var(--bdr);border-radius:4px;font-family:var(--fn);font-size:.82rem;font-weight:800;cursor:pointer;transition:all .2s;text-align:center}
+.fo-btn.fact{background:var(--bll);color:var(--bld);border-color:var(--bl)}
+.fo-btn.opinion{background:var(--orl);color:var(--ord);border-color:var(--or)}
+.fo-btn:disabled{opacity:.5;cursor:not-allowed}
+.fo-btn.ans-ok{background:#D1FAE5;border-color:var(--gn);color:var(--gn)}
+.fo-btn.ans-bad{background:var(--rdl);border-color:var(--rd);color:var(--rd);animation:shake .3s}
+.fo-fb{font-size:.75rem;font-weight:700;margin-top:7px;padding:5px 9px;border-radius:4px;display:none}
+.fo-fb.show{display:block}
+.fo-fb.ok{background:#D1FAE5;color:#065F46}
+.fo-fb.bad{background:var(--rdl);color:var(--rd)}
+
+.mcq-sentence{background:var(--paper);border:2px solid var(--bdr);border-radius:4px;padding:9px 12px;font-style:italic;font-weight:700;font-size:.86rem;margin-bottom:9px;line-height:1.5}
+.mcq-opts{display:flex;flex-direction:column;gap:7px}
+.mcq-opt{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:9px 12px;font-family:var(--fn);font-size:.82rem;font-weight:700;cursor:pointer;text-align:left;transition:all .2s}
+.mcq-opt:hover:not(:disabled){background:var(--paper);border-color:var(--or)}
+.mcq-opt.ok{background:#D1FAE5;border-color:var(--gn);color:var(--gn)}
+.mcq-opt.bad{background:var(--rdl);border-color:var(--rd);color:var(--rd);animation:shake .3s}
+.mcq-opt:disabled{cursor:not-allowed}
+.mcq-fb{font-size:.75rem;font-weight:700;padding:7px 11px;border-radius:4px;margin-top:7px;display:none}
+.mcq-fb.show{display:block}
+.mcq-fb.ok{background:#D1FAE5;color:#065F46}
+.mcq-fb.bad{background:var(--rdl);color:var(--rd)}
+
+.chart-wrap{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;overflow:hidden}
+.chart-cols{display:grid;grid-template-columns:1fr 1fr}
+.chart-col{border-right:1px solid var(--bdr)}
+.chart-col:last-child{border-right:none}
+.chart-hd{padding:9px 12px;font-family:var(--fnh);font-size:.7rem;font-weight:700;letter-spacing:1px;color:#fff;text-align:center}
+.chart-hd.bl{background:var(--bl)}.chart-hd.or{background:var(--or)}
+.chart-cell{padding:9px 11px;border-top:1px solid var(--bdr);font-size:.8rem;font-weight:600;min-height:58px;color:var(--ink2);line-height:1.5;display:flex;align-items:center}
+.chart-cell.pre{background:var(--paper);font-style:italic}
+.chart-ta{width:100%;border:none;background:#FFFBEB;font-family:var(--fn);font-size:.8rem;font-weight:600;color:var(--ink);resize:none;outline:none;min-height:58px;padding:9px 11px;line-height:1.5;border-top:1px solid var(--bdr)}
+.chart-ta:focus{background:#FFF7ED}
+
+.text-inp{width:100%;border:2px solid var(--bdr);border-radius:4px;padding:9px 12px;font-family:var(--fn);font-size:.85rem;font-weight:600;color:var(--ink);background:var(--surf);outline:none;transition:border-color .2s}
+.text-inp:focus{border-color:var(--or)}
+.write-ta{width:100%;border:2px solid var(--bdr);border-radius:4px;padding:11px 13px;font-family:var(--fn);font-size:.85rem;font-weight:600;color:var(--ink);background:var(--surf);resize:none;outline:none;min-height:130px;line-height:1.75;transition:border-color .2s}
+.write-ta:focus{border-color:var(--or)}
+.wc{font-size:.72rem;font-weight:700;color:var(--ink3);text-align:right;margin-top:3px}
+.wc.met{color:var(--gn)}
+
+.starter-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.starter{background:var(--orl);border:1px solid #FDBA74;border-radius:20px;padding:4px 10px;font-size:.72rem;font-weight:700;color:var(--ord);cursor:pointer;transition:all .15s}
+.starter:hover{background:var(--or);color:#fff;border-color:var(--or)}
+
+.sugg-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.sugg{background:var(--ye);border:2px solid var(--yed);border-radius:20px;padding:5px 12px;font-family:var(--fn);font-size:.75rem;font-weight:800;cursor:pointer;transition:all .15s;color:var(--ink)}
+.sugg:hover{background:var(--yed);color:#fff}
+
+.check-list{display:flex;flex-direction:column;gap:9px}
+.check-item{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:11px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .2s;font-size:.85rem;font-weight:700}
+.check-item:hover{background:var(--paper)}
+.check-item.ticked{background:#D1FAE5;border-color:var(--gn);color:#065F46}
+.chk{width:26px;height:26px;border:2px solid var(--bdr);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .2s}
+.check-item.ticked .chk{background:var(--gn);border-color:var(--gn);color:#fff}
+.all-done{background:var(--gn);color:#fff;border-radius:4px;padding:10px 14px;text-align:center;font-weight:800;font-size:.86rem;display:none;margin-top:4px}
+.all-done.show{display:block}
+
+.read-box{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px;font-size:.8rem;font-weight:600;line-height:1.85;color:var(--ink2)}
+.hl-or{background:#FED7AA;border-radius:2px;padding:0 2px}
+.hl-bl{background:#BFDBFE;border-radius:2px;padding:0 2px}
+
+.topic-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.topic-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:11px;cursor:pointer;transition:all .2s;text-align:center;font-size:.8rem;font-weight:700}
+.topic-card:hover{border-color:var(--bl);background:var(--bll)}
+.topic-card.picked{border-color:var(--bl);background:var(--bl);color:#fff}
+
+/* QUIZ */
+.qz-prog{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.qz-num{font-family:var(--fnh);font-size:.7rem;font-weight:700;letter-spacing:1px;color:var(--ink3)}
+.qz-sc{font-family:var(--fnh);font-size:.7rem;font-weight:700;letter-spacing:1px;color:var(--or)}
+.qz-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px}
+.qz-q{font-size:.88rem;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.5}
+
+/* RESULT */
+.result-box{text-align:center;padding:20px 10px}
+.result-score{font-family:var(--fnh);font-size:2.8rem;font-weight:700;color:var(--or);line-height:1}
+.result-msg{font-size:.95rem;font-weight:800;color:var(--ink);margin-top:8px}
+.result-detail{font-size:.78rem;font-weight:600;color:var(--ink3);margin-top:4px}
+.result-bullets{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.result-bullet{background:var(--paper);border:1px solid var(--bdr);border-radius:4px;padding:7px 12px;font-size:.78rem;font-weight:700;color:var(--ink2);text-align:left}
+.result-bullet.ok{background:#D1FAE5;border-color:var(--gn);color:#065F46}
+.result-bullet.bad{background:var(--rdl);border-color:var(--rd);color:var(--rd)}
+
+/* GOAL ANIM */
+.goal-anim{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:3.5rem;z-index:1000;pointer-events:none;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.goal-anim.show{transform:translate(-50%,-50%) scale(1)}
+
+/* CONFETTI */
+.cp{position:fixed;width:9px;height:9px;border-radius:2px;pointer-events:none;animation:cf 1.5s linear forwards;z-index:999}
+@keyframes cf{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg) translateX(var(--drift));opacity:0}}
+
+/* REVIEW */
+.review-screen{display:none;min-height:100vh;background:var(--paper)}
+.review-screen.show{display:block}
+.rv-hdr{background:var(--bld);padding:14px 16px;color:#fff}
+.rv-title{font-family:var(--fnh);font-size:.95rem;font-weight:700;letter-spacing:1px}
+.rv-sub{font-size:.72rem;color:rgba(255,255,255,.75);font-weight:600;margin-top:2px}
+.rv-body{padding:14px;max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.rv-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px}
+.rv-lbl{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--ink3);margin-bottom:8px}
+.rv-val{font-size:.85rem;font-weight:700;color:var(--ink);line-height:1.6;white-space:pre-wrap}
+.rv-score-big{font-family:var(--fnh);font-size:2.5rem;font-weight:700;color:var(--or)}
+.rv-not-started{text-align:center;padding:40px 20px;font-size:.9rem;font-weight:700;color:var(--ink3)}
+
+/* MISC */
+.divider{height:1px;background:var(--bdr);margin:4px 0}
+.sec-title{font-weight:900;font-size:.92rem;color:var(--ink);margin-bottom:5px}
+.tag{font-family:var(--fnh);font-size:.55rem;font-weight:700;letter-spacing:2px;padding:2px 6px;border-radius:2px;display:inline-block;margin-bottom:5px}
+.tag.or{background:var(--orl);color:var(--ord)}
+.tag.bl{background:var(--bll);color:var(--bld)}
+.tag.gn{background:var(--gnl);color:var(--gn)}
+.save-ind{font-size:.68rem;font-weight:700;color:var(--gn);text-align:right;height:14px;opacity:0;transition:opacity .5s}
+.save-ind.show{opacity:1}
+.nav-bar{display:flex;gap:8px;padding-top:8px;border-top:1px solid var(--bdr);margin-top:6px}
+.nav-btn{flex:1;padding:9px;border:2px solid var(--bdr);border-radius:4px;font-family:var(--fn);font-size:.8rem;font-weight:800;cursor:pointer;background:var(--surf);color:var(--ink2);transition:all .2s}
+.nav-btn.pr{background:var(--or);border-color:var(--or);color:#fff}
+.nav-btn:hover{border-color:var(--or)}
+.nav-btn.pr:hover{background:var(--ord)}
+.steps-list{display:flex;flex-direction:column;gap:8px}
+.step-item{background:var(--surf);border:2px solid var(--bdr);border-left:4px solid var(--or);border-radius:0 4px 4px 0;padding:9px 12px;font-size:.82rem;font-weight:700;color:var(--ink2);line-height:1.4}
+.step-item.bl{border-left-color:var(--bl)}
+
+@keyframes shake{0%,100%{transform:translateX(0)}25%,75%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+
+/* WB ACTIVITY 1 SELECTABLE PHRASES */
+.phrase-select-grid{display:flex;flex-direction:column;gap:7px}
+.phrase-sel{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:10px 13px;font-size:.82rem;font-weight:600;color:var(--ink2);cursor:pointer;transition:all .2s;line-height:1.5}
+.phrase-sel:hover{border-color:var(--or);background:var(--orl)}
+.phrase-sel.picked{border-color:var(--or);background:var(--orl);color:var(--ord)}
+.phrase-sel.ok{border-color:var(--gn);background:#D1FAE5;color:#065F46}
+.phrase-sel.miss{border-color:var(--rd);background:var(--rdl);color:var(--rd)}
+.phrase-sel:disabled{cursor:not-allowed}
+
+.check-ans-btn{background:var(--or);color:#fff;border:none;border-radius:4px;padding:9px 20px;font-family:var(--fn);font-size:.82rem;font-weight:800;cursor:pointer;align-self:flex-start;transition:background .2s}
+.check-ans-btn:hover{background:var(--ord)}
+
+.inv-wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.inv-label{font-weight:800;font-size:.85rem;color:var(--ink2);white-space:nowrap}
+.inv-inp{flex:1;min-width:160px;border:2px solid var(--or);border-radius:4px;padding:7px 11px;font-family:var(--fn);font-size:.85rem;font-weight:700;color:var(--ink);outline:none}
+
+.ref-card{background:var(--bll);border:2px solid #BFDBFE;border-radius:4px;padding:10px 13px;font-size:.78rem;font-weight:600;color:var(--bld);line-height:1.6;margin-bottom:4px}
+.ref-card-title{font-family:var(--fnh);font-size:.58rem;font-weight:700;letter-spacing:2px;color:var(--bl);margin-bottom:5px}
+
+.score-mini{font-size:.78rem;font-weight:800;color:var(--or);text-align:right}
+
+/* ── BOTTOM ACTION BUTTONS ─────────────────────────────────── */
+.btn-row-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 20px;
+}
+.complete-btn {
+  flex: 1;
+  padding: 18px 20px;
+  background: #16A34A;
+  border: 3px solid #15803D;
+  border-radius: 4px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all .2s;
+  text-align: center;
+  letter-spacing: .2px;
+}
+.complete-btn:hover { background: #15803D; border-color: #14532D; }
+.complete-btn.confirmed {
+  background: #D1FAE5;
+  border-color: #16A34A;
+  color: #16A34A;
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.85;
+}
+/* Redo button always stays fully active — no confirmed state */
+.reset-btn { pointer-events: auto !important; opacity: 1 !important; }
+.reset-btn {
+  flex: 0 0 110px;
+  padding: 18px 14px;
+  background: #ffffff;
+  border: 3px solid #DC2626;
+  border-radius: 4px;
+  font-family: 'Nunito', sans-serif;
+  font-size: .88rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: #DC2626;
+  transition: all .2s;
+  text-align: center;
+  white-space: nowrap;
+}
+.reset-btn:hover { background: #DC2626; color: #ffffff; }
+
+/* ── MODAL CLOSE X ─────────────────────────────────────────── */
+.mhd-close {
+  background: rgba(255,255,255,.18);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s;
+  margin-left: 8px;
+  line-height: 1;
+}
+.mhd-close:hover { background: rgba(255,255,255,.35); }
+
+</style>
+</head>
+<body>
+
+<!-- REVIEW SCREEN -->
+<div class="review-screen" id="reviewScreen">
+  <div class="rv-hdr">
+    <div class="rv-title">📋 Review Mode — Leo's Writing Work</div>
+    <div class="rv-sub">Unit 7 · Fact and Opinion Writing</div>
+  </div>
+  <div class="rv-body" id="reviewBody"></div>
+</div>
+
+<!-- GOAL ANIMATION -->
+<div class="goal-anim" id="goalAnim">⚽ GOAL!</div>
+
+<!-- APP (hidden in review mode) -->
+<div id="appRoot">
+
+<div class="app-hdr">
+  <div class="hdr-left">
+    <div class="hdr-badge">LEEA</div>
+    <div class="hdr-title">LEO'S WRITING</div>
+  </div>
+  <div class="hdr-unit">UNIT 7 ✍️</div>
+</div>
+
+<div id="hwBanner" class="hw-banner"></div>
+
+<div class="hero">
+  <div class="hero-kick">OUR WORLD · LEVEL 4 · UNIT 7</div>
+  <div class="hero-title">✍️ Writing: <span>Fact &amp; Opinion</span></div>
+  <div class="hero-sub">Do ALL modules — Student Book then Workbook!</div>
+  <div class="hero-em">💡 📌 💭 ⚽ 🎬</div>
+</div>
+<div class="prog-wrap"><div class="prog-fill" id="progFill"></div></div>
+
+<!-- HOME SCREEN -->
+<div class="home">
+
+  <!-- STUDENT BOOK -->
+  <div class="sec-lbl">📘 STUDENT BOOK</div>
+  <div class="mod-grid">
+    <div class="mod-card ow" onclick="openModal('m1')">
+      <div class="mod-icon">📌</div>
+      <div class="mod-name">Fact or Opinion?</div>
+      <div class="mod-desc">Tap FACT or OPINION for each sentence</div>
+      <div class="mod-badge badge-new" id="badge-m1">NOT STARTED</div>
+    </div>
+    <div class="mod-card ow" onclick="openModal('m2')">
+      <div class="mod-icon">💬</div>
+      <div class="mod-name">Key Expressions</div>
+      <div class="mod-desc">Choose the right opinion phrase</div>
+      <div class="mod-badge badge-new" id="badge-m2">NOT STARTED</div>
+    </div>
+    <div class="mod-card ow" onclick="openModal('m3')">
+      <div class="mod-icon">📋</div>
+      <div class="mod-name">Plan My Chart</div>
+      <div class="mod-desc">Facts &amp; opinions about your invention</div>
+      <div class="mod-badge badge-new" id="badge-m3">NOT STARTED</div>
+    </div>
+    <div class="mod-card ow" onclick="openModal('m4')">
+      <div class="mod-icon">✏️</div>
+      <div class="mod-name">Write!</div>
+      <div class="mod-desc">Write 2 paragraphs using your plan</div>
+      <div class="mod-badge badge-new" id="badge-m4">NOT STARTED</div>
+    </div>
+    <div class="mod-card ow" onclick="openModal('m5')" style="grid-column:1/-1">
+      <div class="mod-icon">✅</div>
+      <div class="mod-name">Edit Checklist</div>
+      <div class="mod-desc">Check your writing before sharing</div>
+      <div class="mod-badge badge-new" id="badge-m5">NOT STARTED</div>
+    </div>
+  </div>
+
+  <!-- WORKBOOK -->
+  <div class="sec-lbl">📓 WORKBOOK pp. 90–91</div>
+  <div class="mod-grid">
+    <div class="mod-card wb" onclick="openModal('m6')">
+      <div class="mod-icon">🔍</div>
+      <div class="mod-name">Analyse the Model</div>
+      <div class="mod-desc">Study how "A Good Idea" was planned</div>
+      <div class="mod-badge badge-new" id="badge-m6">WB ACT 1</div>
+    </div>
+    <div class="mod-card wb" onclick="openModal('m7')">
+      <div class="mod-icon">📋</div>
+      <div class="mod-name">My 2nd Plan</div>
+      <div class="mod-desc">Plan facts &amp; opinions for a new invention</div>
+      <div class="mod-badge badge-new" id="badge-m7">WB ACT 2</div>
+    </div>
+    <div class="mod-card wb" onclick="openModal('m8')">
+      <div class="mod-icon">✍️</div>
+      <div class="mod-name">Write More</div>
+      <div class="mod-desc">Write about your 2nd invention</div>
+      <div class="mod-badge badge-new" id="badge-m8">WB ACT 3</div>
+    </div>
+    <div class="mod-card wb" onclick="openModal('m9')">
+      <div class="mod-icon">🌍</div>
+      <div class="mod-name">Free Writing</div>
+      <div class="mod-desc">Pick a topic and write 2–3 paragraphs</div>
+      <div class="mod-badge badge-new" id="badge-m9">WB ACT 4</div>
+    </div>
+    <div class="mod-card quiz" onclick="openModal('m10')" style="grid-column:1/-1">
+      <div class="mod-icon">⚽</div>
+      <div class="mod-name">Can Leo Score?</div>
+      <div class="mod-desc">8 questions — need 80% to score the goal!</div>
+      <div class="mod-badge badge-new" id="badge-m10">FINAL QUIZ</div>
+    </div>
+  </div>
+</div>
+</div><!-- /appRoot -->
+
+<!-- ═══════════════════════════════════════════════
+     MODALS
+═══════════════════════════════════════════════ -->
+
+<!-- M1: FACT OR OPINION -->
+<div class="modal" id="m1">
+<div class="mbox">
+<div class="mhd or"><div class="mhd-title">📌 Fact or Opinion?</div><div class="mhd-num">1 / 10</div><button class="mhd-close" onclick="closeModal('m1')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Read each sentence carefully. Is it always true (FACT 📌) or is it what someone thinks (OPINION 💭)? Tap the right button!</div></div>
+  <div class="phrase-bank">
+    <div class="pb-title">REMEMBER — OPINION PHRASES</div>
+    <div class="pb-chips">
+      <span class="pb-chip">I think...</span><span class="pb-chip">I believe...</span><span class="pb-chip">In my opinion...</span><span class="pb-chip">→ OPINION!</span>
+    </div>
+  </div>
+  <div class="ex-box"><div class="ex-lbl">EXAMPLE</div>"Erling Haaland plays for Manchester City." → 📌 <strong>FACT</strong> — it's always true, everyone can check it!<br>"I think Haaland is the best striker ever." → 💭 <strong>OPINION</strong> — not everyone agrees!</div>
+  <div id="m1-questions"></div>
+  <div class="score-mini" id="m1-score" style="display:none"></div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m1" onclick="markComplete('m1','Fact or Opinion')">Mark Fact or Opinion complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m1')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M2: KEY EXPRESSIONS -->
+<div class="modal" id="m2">
+<div class="mbox">
+<div class="mhd or"><div class="mhd-title">💬 Key Expressions</div><div class="mhd-num">2 / 10</div><button class="mhd-close" onclick="closeModal('m2')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Choose the best phrase to complete each sentence. Think: is it a fact or an opinion?</div></div>
+  <div class="phrase-bank">
+    <div class="pb-title">OPINION PHRASES</div>
+    <div class="pb-chips">
+      <span class="pb-chip">I think</span><span class="pb-chip">I believe</span><span class="pb-chip">In my opinion</span>
+    </div>
+  </div>
+  <div class="phrase-bank" style="background:var(--bll);border-color:#BFDBFE">
+    <div class="pb-title" style="color:var(--bld)">FACT PHRASES</div>
+    <div class="pb-chips">
+      <span class="pb-chip" style="border-color:#BFDBFE;color:var(--bld)">It's true that</span><span class="pb-chip" style="border-color:#BFDBFE;color:var(--bld)">Many people use</span><span class="pb-chip" style="border-color:#BFDBFE;color:var(--bld)">[Name] invented</span>
+    </div>
+  </div>
+  <div id="m2-questions"></div>
+  <div class="score-mini" id="m2-score" style="display:none"></div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m2" onclick="markComplete('m2','Key Expressions')">Mark Key Expressions complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m2')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M3: PLAN MY CHART -->
+<div class="modal" id="m3">
+<div class="mbox">
+<div class="mhd or"><div class="mhd-title">📋 Plan My Chart</div><div class="mhd-num">3 / 10</div><button class="mhd-close" onclick="closeModal('m3')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Choose an invention you like. Then write facts (always true) in the left column and your opinions (I think...) in the right column. This is your plan!</div></div>
+  <div class="ex-box">
+    <div class="ex-lbl">DAD'S EXAMPLE — Goal-line technology ⚽</div>
+    <strong>Fact:</strong> "Goal-line technology was first used in the Premier League in 2013."<br>
+    <strong>Opinion:</strong> "In my opinion, goal-line technology makes football fairer."
+  </div>
+  <div class="phrase-bank">
+    <div class="pb-title">USEFUL STARTERS</div>
+    <div class="pb-chips">
+      <span class="pb-chip">I think...</span><span class="pb-chip">I believe...</span><span class="pb-chip">In my opinion...</span><span class="pb-chip">It's true that...</span><span class="pb-chip">Many people use...</span>
+    </div>
+  </div>
+  <div class="inv-wrap">
+    <span class="inv-label">My invention:</span>
+    <input class="inv-inp" type="text" id="m3-inv" placeholder="Type your invention..." oninput="m3Save()">
+  </div>
+  <div class="sugg-row">
+    <button class="sugg" onclick="setInv('📱 Smartphone')">📱 Smartphone</button>
+    <button class="sugg" onclick="setInv('⚽ Goal-line technology')">⚽ Goal-line tech</button>
+    <button class="sugg" onclick="setInv('🎮 Video games')">🎮 Video games</button>
+    <button class="sugg" onclick="setInv('💡 My own idea!')">💡 My own idea!</button>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-cols">
+      <div class="chart-col"><div class="chart-hd bl">📌 FACTS</div></div>
+      <div class="chart-col"><div class="chart-hd or">💭 MY OPINIONS</div></div>
+    </div>
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m3-f1" placeholder="Fact 1..." oninput="m3Save()"></textarea></div>
+      <div class="chart-col"><textarea class="chart-ta" id="m3-o1" placeholder="I think / I believe / In my opinion..." oninput="m3Save()"></textarea></div>
+    </div>
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m3-f2" placeholder="Fact 2..." oninput="m3Save()"></textarea></div>
+      <div class="chart-col"><textarea class="chart-ta" id="m3-o2" placeholder="I think / I believe / In my opinion..." oninput="m3Save()"></textarea></div>
+    </div>
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m3-f3" placeholder="Fact 3 (if you know one)..." oninput="m3Save()"></textarea></div>
+      <div class="chart-col"><textarea class="chart-ta" id="m3-o3" placeholder="Another opinion..." oninput="m3Save()"></textarea></div>
+    </div>
+  </div>
+  <div class="save-ind" id="m3-saved">✅ Saved!</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m3" onclick="markComplete('m3','Plan My Chart')">Mark Plan My Chart complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m3')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M4: WRITE -->
+<div class="modal" id="m4">
+<div class="mbox">
+<div class="mhd or"><div class="mhd-title">✏️ Write!</div><div class="mhd-num">4 / 10</div><button class="mhd-close" onclick="closeModal('m4')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Use your plan chart! Write 2 paragraphs. Start with your opinion, add facts, then end with your opinion again. Aim for 80–120 words total.</div></div>
+  <div id="m4-plan-ref"></div>
+  <div class="steps-list">
+    <div class="step-item">💭 Start with: <em>"In my opinion, [invention] is..."</em></div>
+    <div class="step-item">📌 Add facts: <em>"It's true that... / [Name] invented it in [year]..."</em></div>
+    <div class="step-item">💡 Explain how to use it.</div>
+    <div class="step-item bl">✅ Finish with your opinion again.</div>
+  </div>
+  <div class="starter-row">
+    <button class="starter" onclick="insertStarter('m4-p1','In my opinion, ')">In my opinion,</button>
+    <button class="starter" onclick="insertStarter('m4-p1','I think ')">I think</button>
+    <button class="starter" data-ta="m4-p1" data-text="It's true that " onclick="insertStarterData(this)">It's true that</button>
+    <button class="starter" onclick="insertStarter('m4-p1','Many people use ')">Many people use</button>
+    <button class="starter" onclick="insertStarter('m4-p1','I believe ')">I believe</button>
+  </div>
+  <div class="sec-title">Paragraph 1</div>
+  <textarea class="write-ta" id="m4-p1" placeholder="Write your first paragraph here..." oninput="m4Update()"></textarea>
+  <div class="wc" id="m4-wc1">Words: 0</div>
+  <div class="sec-title" style="margin-top:4px">Paragraph 2</div>
+  <textarea class="write-ta" id="m4-p2" placeholder="Write your second paragraph here..." oninput="m4Update()"></textarea>
+  <div class="wc" id="m4-wc2">Words: 0 · Total: 0 / aim for 80–120 words</div>
+  <div class="save-ind" id="m4-saved">✅ Saved!</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m4" onclick="markComplete('m4','Writing')">Mark Writing complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m4')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M5: EDIT CHECKLIST -->
+<div class="modal" id="m5">
+<div class="mbox">
+<div class="mhd gn"><div class="mhd-title">✅ Edit Checklist</div><div class="mhd-num">5 / 10</div><button class="mhd-close" onclick="closeModal('m5')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: Read your writing from Module 4. Tick each box when you can find it in your writing. All 4 must be ticked before you're done!</div></div>
+  <div class="ex-box"><div class="ex-lbl">WRITING SUPPORT — PRONOUNS!</div>
+    After ticking the checklist, check your pronouns:<br>
+    ✅ One person (male) → <strong>he / his</strong> · One person (female) → <strong>she / her</strong><br>
+    ✅ One thing → <strong>it / its</strong> · Two or more people/things → <strong>they / their</strong>
+  </div>
+  <div class="check-list">
+    <div class="check-item" id="ci-1" onclick="toggleCheck('ci-1','m5')"><div class="chk" id="cb-1"></div><span>My writing describes an invention and how to use it.</span></div>
+    <div class="check-item" id="ci-2" onclick="toggleCheck('ci-2','m5')"><div class="chk" id="cb-2"></div><span>My writing says WHY I like the invention.</span></div>
+    <div class="check-item" id="ci-3" onclick="toggleCheck('ci-3','m5')"><div class="chk" id="cb-3"></div><span>I used opinion words: I think / I believe / In my opinion.</span></div>
+    <div class="check-item" id="ci-4" onclick="toggleCheck('ci-4','m5')"><div class="chk" id="cb-4"></div><span>I included FACTS to support my opinions.</span></div>
+  </div>
+  <div class="all-done" id="m5-done">🎉 Great job! Your writing is ready to share! ✅</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m5" onclick="markComplete('m5','Edit Checklist')">Mark Edit Checklist complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m5')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M6: WB ANALYSE -->
+<div class="modal" id="m6">
+<div class="mbox">
+<div class="mhd bl"><div class="mhd-title">🔍 Analyse the Model</div><div class="mhd-num">6 / 10 · WB p.90</div><button class="mhd-close" onclick="closeModal('m6')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 1. Read how the writer planned "A Good Idea" — then complete the chart and find 3 opinion phrases!</div></div>
+  <div class="steps-list">
+    <div class="step-item">1️⃣ She chose an invention she likes: <strong>sticky notes 📎</strong></div>
+    <div class="step-item">2️⃣ She listed opinions + supporting facts in a chart (complete below!)</div>
+    <div class="step-item bl">3️⃣ She used opinion phrases: <em>I think, I believe, In my opinion</em></div>
+    <div class="step-item bl">4️⃣ She found 3 opinion examples in the text (find them below!)</div>
+    <div class="step-item">5️⃣ She wrote her first draft.</div>
+  </div>
+  <div class="read-box">
+    <strong>📖 "A Good Idea" (the model)</strong><br><br>
+    <em>In my opinion, sticky notes are a great invention.</em> They're easy to use. You write a note and stick it on your notebook or on your computer. And they come off easily. <em>I think most people like them because they help you to remember things.</em><br><br>
+    <em>In my opinion, the story of sticky notes is interesting, too.</em> Sticky notes have two inventors. Spencer Silver invented the glue in 1970. It wasn't strong, so he didn't know how to use it. But four years later, Arthur Fry found a use for it. One day, all his notes fell on the floor. He wasn't happy! Then he remembered Silver's glue! He used the glue on small pieces of paper. It worked! You could stick the notes to almost any surface, and it was easy to remove them. Now we have a cool—and useful—invention!
+  </div>
+
+  <div class="sec-title">Step 2: Complete the chart 📊</div>
+  <div class="chart-wrap">
+    <div class="chart-cols">
+      <div class="chart-col"><div class="chart-hd or">💭 OPINIONS</div></div>
+      <div class="chart-col"><div class="chart-hd bl">📌 SUPPORTING FACTS</div></div>
+    </div>
+    <!-- Row a -->
+    <div class="chart-cols">
+      <div class="chart-col"><div class="chart-cell pre">They're easy to use and a great idea.</div></div>
+      <div class="chart-col"><textarea class="chart-ta" id="m6-a" placeholder="Find the facts in the text... (how do you use them?)" oninput="m6Save()"></textarea></div>
+    </div>
+    <!-- Row b -->
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m6-b" placeholder="What else does the writer think about them? (hint: popular / remember things)" oninput="m6Save()"></textarea></div>
+      <div class="chart-col"><div class="chart-cell pre">They help you remember things.</div></div>
+    </div>
+    <!-- Row c -->
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m6-c" placeholder="What does the writer think about the story? (hint: interesting...)" oninput="m6Save()"></textarea></div>
+      <div class="chart-col"><div class="chart-cell pre">Spencer Silver invented the glue in 1970. Arthur Fry found a use four years later.</div></div>
+    </div>
+  </div>
+
+  <div class="sec-title" style="margin-top:6px">Step 4: Find 3 opinion phrases in the text 🔍</div>
+  <div class="dad-card" style="background:#FEF9C3;border-color:var(--yed)"><div class="dad-icon">💡</div><div style="color:#713F12">Tap the 3 sentences that use an opinion phrase (I think / I believe / In my opinion).</div></div>
+  <div class="phrase-select-grid" id="m6-phrases">
+    <div class="phrase-sel" data-correct="true" onclick="m6PickPhrase(this)">"In my opinion, sticky notes are a great invention."</div>
+    <div class="phrase-sel" data-correct="false" onclick="m6PickPhrase(this)">"Sticky notes have two inventors."</div>
+    <div class="phrase-sel" data-correct="true" onclick="m6PickPhrase(this)">"I think most people like them because they help you to remember things."</div>
+    <div class="phrase-sel" data-correct="false" onclick="m6PickPhrase(this)">"Spencer Silver invented the glue in 1970."</div>
+    <div class="phrase-sel" data-correct="true" onclick="m6PickPhrase(this)">"In my opinion, the story of sticky notes is interesting, too."</div>
+    <div class="phrase-sel" data-correct="false" onclick="m6PickPhrase(this)">"They come off easily."</div>
+  </div>
+  <button class="check-ans-btn" onclick="m6CheckPhrases()" id="m6-check-btn">Check my answers ✅</button>
+  <div class="mcq-fb" id="m6-phrase-fb"></div>
+  <div class="save-ind" id="m6-saved">✅ Saved!</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m6" onclick="markComplete('m6','Analyse the Model')">Mark Analyse the Model complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m6')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M7: 2ND PLAN -->
+<div class="modal" id="m7">
+<div class="mbox">
+<div class="mhd bl"><div class="mhd-title">📋 My 2nd Plan</div><div class="mhd-num">7 / 10 · WB p.90–91</div><button class="mhd-close" onclick="closeModal('m7')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 2. Choose a DIFFERENT invention from the one you used before. Fill in the chart with facts and opinions.</div></div>
+  <div class="ex-box">
+    <div class="ex-lbl">EXAMPLE — Electricity ⚡</div>
+    <strong>Opinion:</strong> "In my opinion, electricity is the most important invention ever." 💭<br>
+    <strong>Fact:</strong> "Thomas Edison developed the first practical light bulb in 1879." 📌
+  </div>
+  <div class="phrase-bank">
+    <div class="pb-title">REMEMBER — OPINION PHRASES</div>
+    <div class="pb-chips">
+      <span class="pb-chip">I think...</span><span class="pb-chip">I believe...</span><span class="pb-chip">In my opinion...</span>
+    </div>
+  </div>
+  <div class="inv-wrap">
+    <span class="inv-label">My 2nd invention:</span>
+    <input class="inv-inp" type="text" id="m7-inv" placeholder="Different from before..." oninput="m7Save()">
+  </div>
+  <div class="sugg-row">
+    <button class="sugg" onclick="setInv2('⚡ Electricity')">⚡ Electricity</button>
+    <button class="sugg" onclick="setInv2('🔋 Battery')">🔋 Battery</button>
+    <button class="sugg" onclick="setInv2('⚙️ Wheel')">⚙️ Wheel</button>
+    <button class="sugg" onclick="setInv2('📺 Television')">📺 Television</button>
+    <button class="sugg" onclick="setInv2('✏️ Pencil')">✏️ Pencil</button>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-cols">
+      <div class="chart-col"><div class="chart-hd or">💭 MY OPINIONS</div></div>
+      <div class="chart-col"><div class="chart-hd bl">📌 SUPPORTING FACTS</div></div>
+    </div>
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m7-o1" placeholder="In my opinion..." oninput="m7Save()"></textarea></div>
+      <div class="chart-col"><textarea class="chart-ta" id="m7-f1" placeholder="Fact 1..." oninput="m7Save()"></textarea></div>
+    </div>
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m7-o2" placeholder="I think..." oninput="m7Save()"></textarea></div>
+      <div class="chart-col"><textarea class="chart-ta" id="m7-f2" placeholder="Fact 2..." oninput="m7Save()"></textarea></div>
+    </div>
+    <div class="chart-cols">
+      <div class="chart-col"><textarea class="chart-ta" id="m7-o3" placeholder="I believe..." oninput="m7Save()"></textarea></div>
+      <div class="chart-col"><textarea class="chart-ta" id="m7-f3" placeholder="Fact 3 (optional)..." oninput="m7Save()"></textarea></div>
+    </div>
+  </div>
+  <div class="save-ind" id="m7-saved">✅ Saved!</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m7" onclick="markComplete('m7','My 2nd Plan')">Mark My 2nd Plan complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m7')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M8: WRITE MORE -->
+<div class="modal" id="m8">
+<div class="mbox">
+<div class="mhd bl"><div class="mhd-title">✍️ Write More</div><div class="mhd-num">8 / 10 · WB p.91</div><button class="mhd-close" onclick="closeModal('m8')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 3. Use your plan from Module 7. Follow steps 2–5 and write 2 paragraphs about your 2nd invention!</div></div>
+  <div id="m8-plan-ref"></div>
+  <div class="steps-list">
+    <div class="step-item">💭 Start with your opinion of the invention</div>
+    <div class="step-item">📌 Add facts to support your opinion</div>
+    <div class="step-item bl">💡 Explain how people use it</div>
+    <div class="step-item bl">✅ End with your opinion again</div>
+  </div>
+  <div class="starter-row">
+    <button class="starter" onclick="insertStarter('m8-ta','In my opinion, ')">In my opinion,</button>
+    <button class="starter" onclick="insertStarter('m8-ta','I think ')">I think</button>
+    <button class="starter" data-ta="m8-ta" data-text="It's true that " onclick="insertStarterData(this)">It's true that</button>
+    <button class="starter" onclick="insertStarter('m8-ta','Many people use ')">Many people use</button>
+    <button class="starter" onclick="insertStarter('m8-ta','I believe ')">I believe</button>
+  </div>
+  <textarea class="write-ta" id="m8-ta" style="min-height:160px" placeholder="Write your paragraphs here..." oninput="m8Update()"></textarea>
+  <div class="wc" id="m8-wc">Words: 0 · Aim for 60–100 words</div>
+  <div class="save-ind" id="m8-saved">✅ Saved!</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m8" onclick="markComplete('m8','Write More')">Mark Write More complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m8')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M9: FREE WRITING -->
+<div class="modal" id="m9">
+<div class="mbox">
+<div class="mhd bl"><div class="mhd-title">🌍 Free Writing</div><div class="mhd-num">9 / 10 · WB p.91</div><button class="mhd-close" onclick="closeModal('m9')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: This is Workbook Activity 4. Pick ONE topic below and write 2–3 paragraphs of fact and opinion. Use I think, I believe, In my opinion + facts to support!</div></div>
+  <div class="ex-box">
+    <div class="ex-lbl">EXAMPLE — TV and Movies 🎬</div>
+    <em>Opinion:</em> "In my opinion, The Dark Knight is the best superhero movie ever made." 💭<br>
+    <em>Fact:</em> "The Dark Knight was released in 2008 and earned over $1 billion worldwide." 📌
+  </div>
+  <div class="phrase-bank">
+    <div class="pb-title">OPINION PHRASES</div>
+    <div class="pb-chips">
+      <span class="pb-chip">I think...</span><span class="pb-chip">I believe...</span><span class="pb-chip">In my opinion...</span><span class="pb-chip">It's true that...</span><span class="pb-chip">Many people...</span>
+    </div>
+  </div>
+  <div class="sec-title">Pick your topic:</div>
+  <div class="topic-grid" id="m9-topics">
+    <div class="topic-card" data-tip="Think about a subject at school you enjoy." onclick="m9Pick(this)">📚 A useful school subject</div>
+    <div class="topic-card" data-tip="Think about your favourite movie actor." onclick="m9Pick(this)">🎬 Your favourite actor</div>
+    <div class="topic-card" data-tip="Think about plastic in the ocean." onclick="m9Pick(this)">🌊 Pollution in oceans</div>
+    <div class="topic-card" data-tip="Think about The Dark Knight or Avatar!" onclick="m9Pick(this)">📺 TV and movies</div>
+    <div class="topic-card" data-tip="Think about a book you like." onclick="m9Pick(this)">📖 Your favourite book</div>
+    <div class="topic-card" data-tip="Think about your own family." onclick="m9Pick(this)">👨‍👩‍👦 Big &amp; small families</div>
+  </div>
+  <div class="ex-box" id="m9-tip" style="display:none"><div class="ex-lbl">TIP</div><span id="m9-tip-text"></span></div>
+  <div class="starter-row">
+    <button class="starter" onclick="insertStarter('m9-ta','In my opinion, ')">In my opinion,</button>
+    <button class="starter" onclick="insertStarter('m9-ta','I think ')">I think</button>
+    <button class="starter" data-ta="m9-ta" data-text="It's true that " onclick="insertStarterData(this)">It's true that</button>
+    <button class="starter" onclick="insertStarter('m9-ta','I believe ')">I believe</button>
+    <button class="starter" onclick="insertStarter('m9-ta','Many people ')">Many people</button>
+  </div>
+  <textarea class="write-ta" id="m9-ta" style="min-height:180px" placeholder="Write 2–3 paragraphs here..." oninput="m9Update()"></textarea>
+  <div class="wc" id="m9-wc">Words: 0 · Aim for 80–130 words</div>
+  <div class="save-ind" id="m9-saved">✅ Saved!</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m9" onclick="markComplete('m9','Free Writing')">Mark Free Writing complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m9')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M10: CAN LEO SCORE -->
+<div class="modal" id="m10">
+<div class="mbox">
+<div class="mhd dk"><div class="mhd-title">⚽ Can Leo Score?</div><div class="mhd-num">10 / 10</div><button class="mhd-close" onclick="closeModal('m10')" title="Just close">✕</button></div>
+<div class="mbody" id="m10-body">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Dad: 8 questions! You need 7/8 (80%) to score the goal! ⚽ Good luck!</div></div>
+  <div id="m10-quiz"></div>
+  <div id="m10-result" style="display:none"></div>
+</div></div></div>
+
+<script>
+// ═══════════════════════════════════════════════
+// LEEA SAVE SYSTEM
+// ═══════════════════════════════════════════════
+const SAVE_PREFIX = '4-7-writing-';
+const HOMEWORK_ID = new URLSearchParams(location.search).get('hw') || 'leo-4-7-writing';
+
+function lSave(key, val) {
+  try { localStorage.setItem('leea-' + key, JSON.stringify(val)); } catch(e) {}
+  if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) {
+    window.LEEA_CLOUD.saveProgress(HOMEWORK_ID, key, val);
+  }
+}
+function lLoad(key, fallback = null) {
+  try {
+    const v = localStorage.getItem('leea-' + key);
+    return v !== null ? JSON.parse(v) : fallback;
+  } catch(e) { return fallback; }
+}
+async function restoreProgressFromCloud() {
+  if (!window.LEEA_CLOUD || !window.LEEA_CLOUD.enabled) return;
+  const rows = await window.LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+  if (!rows) return;
+  rows.forEach(function(row) {
+    localStorage.setItem('leea-' + row.storage_key, JSON.stringify(row.value));
+  });
+}
+function lClear(prefix) {
+  Object.keys(localStorage).filter(k => k.startsWith('leea-' + prefix)).forEach(k => localStorage.removeItem(k));
+}
+
+function saveScore(score, done, extra = {}) {
+  const data = { score, done, timestamp: new Date().toISOString(), ...extra };
+  lSave(SAVE_PREFIX + 'score', data);
+  lSave(HOMEWORK_ID + '-score', data);
+  if (done) {
+    lSave(SAVE_PREFIX + 'done', true);
+    lSave(HOMEWORK_ID + '-done', true);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// REVIEW MODE
+// ═══════════════════════════════════════════════
+function initReviewMode() {
+  document.getElementById('appRoot').style.display = 'none';
+  const rs = document.getElementById('reviewScreen');
+  rs.classList.add('show');
+  const body = document.getElementById('reviewBody');
+
+  const scoreData = lLoad(SAVE_PREFIX + 'score');
+  const m4p1 = lLoad(SAVE_PREFIX + 'm4-p1', '');
+  const m4p2 = lLoad(SAVE_PREFIX + 'm4-p2', '');
+  const m3inv = lLoad(SAVE_PREFIX + 'm3-inv', '');
+  const m8ta = lLoad(SAVE_PREFIX + 'm8-ta', '');
+  const m9ta = lLoad(SAVE_PREFIX + 'm9-ta', '');
+  const checklist = lLoad(SAVE_PREFIX + 'checklist', [false,false,false,false]);
+
+  if (!scoreData && !m4p1 && !m8ta && !m9ta) {
+    body.innerHTML = '<div class="rv-not-started">📋 Work not started yet.</div>';
+    return;
+  }
+
+  let html = '';
+
+  if (scoreData) {
+    const pct = Math.round((scoreData.score / 8) * 100);
+    html += `<div class="rv-card"><div class="rv-lbl">QUIZ RESULT</div>
+      <div class="rv-score-big">${scoreData.score}/8 — ${pct}% ${pct >= 80 ? '✅ PASS' : '❌ Retry'}</div>
+      <div class="rv-val" style="margin-top:4px;font-size:.75rem;color:var(--ink3)">Submitted: ${new Date(scoreData.timestamp).toLocaleString()}</div>
+      ${scoreData.wrongQuestions && scoreData.wrongQuestions.length ? `<div class="rv-val" style="margin-top:6px;color:var(--rd)">Missed: ${scoreData.wrongQuestions.join(', ')}</div>` : ''}
+    </div>`;
+  }
+
+  if (m3inv) html += `<div class="rv-card"><div class="rv-lbl">MODULE 3 — CHOSEN INVENTION</div><div class="rv-val">${m3inv}</div></div>`;
+  if (m4p1 || m4p2) html += `<div class="rv-card"><div class="rv-lbl">MODULE 4 — LEO'S WRITING</div><div class="rv-val">${m4p1 || '(empty)'}${m4p2 ? '\n\n' + m4p2 : ''}</div></div>`;
+
+  const doneCount = checklist.filter(Boolean).length;
+  html += `<div class="rv-card"><div class="rv-lbl">MODULE 5 — EDIT CHECKLIST</div><div class="rv-val">${doneCount}/4 items ticked</div></div>`;
+
+  const m7inv = lLoad(SAVE_PREFIX + 'm7-inv', '');
+  if (m7inv) html += `<div class="rv-card"><div class="rv-lbl">MODULE 7 — 2ND INVENTION</div><div class="rv-val">${m7inv}</div></div>`;
+  if (m8ta) html += `<div class="rv-card"><div class="rv-lbl">MODULE 8 — WRITE MORE</div><div class="rv-val">${m8ta}</div></div>`;
+  if (m9ta) html += `<div class="rv-card"><div class="rv-lbl">MODULE 9 — FREE WRITING</div><div class="rv-val">${m9ta}</div></div>`;
+
+  if (!scoreData) html += `<div class="rv-card" style="border-color:var(--or)"><div class="rv-lbl">STATUS</div><div class="rv-val" style="color:var(--or)">In progress — quiz not completed yet.</div></div>`;
+
+  body.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════
+// MODAL OPEN / CLOSE
+// ═══════════════════════════════════════════════
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (id === 'm4') loadM4PlanRef();
+  if (id === 'm8') loadM8PlanRef();
+  if (id === 'm10' && !m10Started) initM10();
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ═══════════════════════════════════════════════
+// PROGRESS + BADGE UPDATE
+// ═══════════════════════════════════════════════
+function updateBadge(id, state) {
+  try {
+    const el = document.getElementById('badge-' + id);
+    if (!el) return;
+    const labels = { m6:'WB ACT 1', m7:'WB ACT 2', m8:'WB ACT 3', m9:'WB ACT 4', m10:'FINAL QUIZ' };
+    el.className = 'mod-badge ' + (state === 'done' ? 'badge-done' : state === 'prog' ? 'badge-prog' : 'badge-new');
+    el.textContent = state === 'done' ? '✅ DONE' : state === 'prog' ? '▶ IN PROGRESS' : (labels[id] || 'NOT STARTED');
+    const pf = document.getElementById('progFill');
+    if (pf) {
+      const done = ['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10'].filter(m => {
+        const b = document.getElementById('badge-' + m);
+        return b && b.classList && b.classList.contains('badge-done');
+      }).length;
+      pf.style.width = (done / 10 * 100) + '%';
+    }
+  } catch(e) { console.warn('updateBadge error:', e); }
+}
+
+function showSaveInd(id) {
+  const el = document.getElementById(id + '-saved');
+  if (!el) return;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 1: FACT OR OPINION
+// ═══════════════════════════════════════════════
+const m1Data = [
+  { s: '"Erling Haaland scored 36 Premier League goals in the 2022–23 season." ⚽', a: 'fact' },
+  { s: '"I think Haaland is the most exciting striker in football history." 💭', a: 'opinion' },
+  { s: '"The Dark Knight was released in 2008 and directed by Christopher Nolan." 🎬', a: 'fact' },
+  { s: '"In my opinion, The Dark Knight is the greatest film ever made." 💭', a: 'opinion' },
+  { s: '"Lamine Yamal plays for FC Barcelona in La Liga and was born in 2007." ⚽', a: 'fact' },
+  { s: '"I believe Yamal will be the best player in the world very soon." 💭', a: 'opinion' }
+];
+let m1Score = 0, m1Done = 0;
+
+function initM1() {
+  const saved = lLoad(SAVE_PREFIX + 'm1-score');
+  m1Score = saved ? saved.score : 0;
+  m1Done = saved ? 6 : 0;
+  const container = document.getElementById('m1-questions');
+  container.innerHTML = '';
+  m1Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'sent-card';
+    div.id = 'm1-q' + i;
+    div.innerHTML = `
+      <div class="sent-text">${item.s}</div>
+      <div class="fo-btns">
+        <button class="fo-btn fact" onclick="answerM1(${i},'fact')">📌 FACT</button>
+        <button class="fo-btn opinion" onclick="answerM1(${i},'opinion')">💭 OPINION</button>
+      </div>
+      <div class="fo-fb" id="m1-fb${i}"></div>`;
+    container.appendChild(div);
+  });
+  if (saved) restoreM1(saved.answers || []);
+}
+
+function restoreM1(answers) {
+  answers.forEach((ans, i) => { if (ans) markM1(i, ans, m1Data[i].a); });
+}
+
+function answerM1(i, choice) {
+  const correct = m1Data[i].a;
+  if (!lLoad(SAVE_PREFIX + 'm1-answers')) lSave(SAVE_PREFIX + 'm1-answers', []);
+  const answers = lLoad(SAVE_PREFIX + 'm1-answers', new Array(6).fill(null));
+  answers[i] = choice;
+  lSave(SAVE_PREFIX + 'm1-answers', answers);
+  markM1(i, choice, correct);
+  if (answers.filter(a => a !== null).length === 6) {
+    m1Score = answers.filter((a, j) => a === m1Data[j].a).length;
+    lSave(SAVE_PREFIX + 'm1-score', { score: m1Score, answers });
+    document.getElementById('m1-score').style.display = 'block';
+    document.getElementById('m1-score').textContent = `Score: ${m1Score}/6 ⚽`;
+    updateBadge('m1', m1Score >= 5 ? 'done' : 'prog');
+  }
+}
+
+function markM1(i, choice, correct) {
+  const card = document.getElementById('m1-q' + i);
+  const btns = card.querySelectorAll('.fo-btn');
+  btns.forEach(b => b.disabled = true);
+  const isOk = choice === correct;
+  btns.forEach(b => {
+    if (b.classList.contains(choice)) b.classList.add(isOk ? 'ans-ok' : 'ans-bad');
+    if (!isOk && b.classList.contains(correct)) b.classList.add('ans-ok');
+  });
+  const fb = document.getElementById('m1-fb' + i);
+  fb.className = 'fo-fb show ' + (isOk ? 'ok' : 'bad');
+  fb.textContent = isOk ? '✅ Correct! ' + (correct === 'fact' ? 'This is always true and checkable.' : 'This is what someone thinks — not everyone agrees!') : '❌ ' + (correct === 'fact' ? 'This IS a fact — a specific number/name everyone can check.' : 'This IS an opinion — it uses "I think / I believe / In my opinion".');
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 2: KEY EXPRESSIONS
+// ═══════════════════════════════════════════════
+const m2Data = [
+  {
+    q: 'Complete the sentence:', s: '_____ , the smartphone is the greatest invention of the 21st century. 📱',
+    opts: ['It\'s true that', 'In my opinion,', 'Many people use'], correct: 1,
+    fb: '"In my opinion" introduces what YOU think — a great opinion phrase! ✅'
+  },
+  {
+    q: 'Choose the right phrase:', s: '_____ Harry Kane scored 36 Bundesliga goals in his debut season at Bayern Munich. ⚽',
+    opts: ['I believe', 'In my opinion,', 'It\'s true that'], correct: 2,
+    fb: '"It\'s true that" introduces a FACT — a specific number that everyone can check! 📌 ✅'
+  },
+  {
+    q: 'Which phrase fits best?', s: '_____ football is the most exciting sport in the world. 💭',
+    opts: ['It\'s true that', 'I believe', 'Many people use'], correct: 1,
+    fb: '"I believe" is a perfect opinion phrase! Not everyone agrees football is most exciting. ✅'
+  },
+  {
+    q: 'Complete correctly:', s: '_____ smartphones every day to communicate, study, and play games. 📱',
+    opts: ['I think', 'In my opinion,', 'Many people use'], correct: 2,
+    fb: '"Many people use" introduces a general FACT — something true for many people. 📌 ✅'
+  }
+];
+let m2Score = 0;
+
+function initM2() {
+  const saved = lLoad(SAVE_PREFIX + 'm2-score');
+  const container = document.getElementById('m2-questions');
+  container.innerHTML = '';
+  m2Data.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'sent-card';
+    div.innerHTML = `
+      <div class="tag or">QUESTION ${i+1}</div>
+      <div class="mcq-sentence">${item.s}</div>
+      <div class="mcq-opts" id="m2-opts${i}">
+        ${item.opts.map((o, j) => `<button class="mcq-opt" onclick="answerM2(${i},${j})">
+          <span style="font-family:var(--fnh);font-size:.65rem;font-weight:700;letter-spacing:1px;opacity:.5">${String.fromCharCode(65+j)})</span> "${o}"
+        </button>`).join('')}
+      </div>
+      <div class="mcq-fb" id="m2-fb${i}"></div>`;
+    container.appendChild(div);
+  });
+  if (saved && saved.answers) restoreM2(saved.answers, saved.feedbacks);
+}
+
+function answerM2(qi, choice) {
+  const correct = m2Data[qi].correct;
+  const fb = m2Data[qi].fb;
+  const opts = document.querySelectorAll(`#m2-opts${qi} .mcq-opt`);
+  opts.forEach(o => o.disabled = true);
+  const isOk = choice === correct;
+  opts[choice].classList.add(isOk ? 'ok' : 'bad');
+  if (!isOk) opts[correct].classList.add('ok');
+  const fbEl = document.getElementById('m2-fb' + qi);
+  fbEl.className = 'mcq-fb show ' + (isOk ? 'ok' : 'bad');
+  fbEl.textContent = isOk ? fb : '❌ Not quite! The correct answer is highlighted. ' + fb;
+  // Save
+  const answers = lLoad(SAVE_PREFIX + 'm2-answers', new Array(4).fill(null));
+  answers[qi] = choice;
+  lSave(SAVE_PREFIX + 'm2-answers', answers);
+  if (answers.filter(a => a !== null).length === 4) {
+    m2Score = answers.filter((a, j) => a === m2Data[j].correct).length;
+    lSave(SAVE_PREFIX + 'm2-score', { score: m2Score, answers });
+    document.getElementById('m2-score').style.display = 'block';
+    document.getElementById('m2-score').textContent = `Score: ${m2Score}/4 ⚽`;
+    updateBadge('m2', m2Score >= 3 ? 'done' : 'prog');
+  }
+}
+
+function restoreM2(answers) {
+  answers.forEach((ans, i) => {
+    if (ans !== null) answerM2(i, ans, m2Data[i].correct, m2Data[i].fb);
+  });
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 3: PLAN CHART
+// ═══════════════════════════════════════════════
+function setInv(name) { document.getElementById('m3-inv').value = name; m3Save(); }
+function m3Save() {
+  ['m3-inv','m3-f1','m3-f2','m3-f3','m3-o1','m3-o2','m3-o3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) lSave(SAVE_PREFIX + id, el.value);
+  });
+  showSaveInd('m3');
+  // Check if enough filled
+  const inv = document.getElementById('m3-inv').value.trim();
+  const f1 = document.getElementById('m3-f1').value.trim();
+  const o1 = document.getElementById('m3-o1').value.trim();
+  if (inv && f1 && o1) updateBadge('m3', 'done');
+  else if (inv || f1 || o1) updateBadge('m3', 'prog');
+}
+function loadM3() {
+  ['m3-inv','m3-f1','m3-f2','m3-f3','m3-o1','m3-o2','m3-o3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = lLoad(SAVE_PREFIX + id, '');
+  });
+  m3Save();
+}
+function loadM4PlanRef() {
+  const inv = lLoad(SAVE_PREFIX + 'm3-inv', '');
+  const f1 = lLoad(SAVE_PREFIX + 'm3-f1', '');
+  const f2 = lLoad(SAVE_PREFIX + 'm3-f2', '');
+  const f3 = lLoad(SAVE_PREFIX + 'm3-f3', '');
+  const o1 = lLoad(SAVE_PREFIX + 'm3-o1', '');
+  const o2 = lLoad(SAVE_PREFIX + 'm3-o2', '');
+  const o3 = lLoad(SAVE_PREFIX + 'm3-o3', '');
+  const ref = document.getElementById('m4-plan-ref');
+  if (inv || f1 || o1) {
+    const rows = [];
+    if (f1 || o1) rows.push(
+      '<div class="chart-cols">' +
+      '<div class="chart-col"><div class="chart-cell">' + (f1 || '…') + '</div></div>' +
+      '<div class="chart-col"><div class="chart-cell">' + (o1 || '…') + '</div></div>' +
+      '</div>'
+    );
+    if (f2 || o2) rows.push(
+      '<div class="chart-cols">' +
+      '<div class="chart-col"><div class="chart-cell">' + (f2 || '…') + '</div></div>' +
+      '<div class="chart-col"><div class="chart-cell">' + (o2 || '…') + '</div></div>' +
+      '</div>'
+    );
+    if (f3 || o3) rows.push(
+      '<div class="chart-cols">' +
+      '<div class="chart-col"><div class="chart-cell">' + (f3 || '…') + '</div></div>' +
+      '<div class="chart-col"><div class="chart-cell">' + (o3 || '…') + '</div></div>' +
+      '</div>'
+    );
+    ref.innerHTML =
+      '<div style="font-family:var(--fnh);font-size:.58rem;font-weight:700;letter-spacing:2px;color:var(--bl);margin-bottom:5px">📋 YOUR PLAN FROM MODULE 3</div>' +
+      '<div style="font-size:.78rem;font-weight:800;color:var(--ink2);margin-bottom:6px">Invention: <strong style=\"color:var(--or)\">' + (inv || '?') + '</strong></div>' +
+      '<div class="chart-wrap">' +
+        '<div class="chart-cols">' +
+          '<div class="chart-col"><div class="chart-hd bl">📌 FACTS</div></div>' +
+          '<div class="chart-col"><div class="chart-hd or">💭 MY OPINIONS</div></div>' +
+        '</div>' +
+        (rows.length ? rows.join('') : '<div class="chart-cols"><div class="chart-col"><div class="chart-cell" style="color:var(--ink3);font-style:italic">No facts added yet</div></div><div class="chart-col"><div class="chart-cell" style="color:var(--ink3);font-style:italic">No opinions added yet</div></div></div>') +
+      '</div>';
+  } else {
+    ref.innerHTML = '<div class="ex-box"><div class="ex-lbl">TIP</div>Complete Module 3 first to see your plan here! Then use it to write your paragraphs.</div>';
+  }
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 4: WRITE
+// ═══════════════════════════════════════════════
+function insertStarterData(btn) {
+  const ta = document.getElementById(btn.dataset.ta);
+  const text = btn.dataset.text;
+  if (!ta) return;
+  const pos = ta.selectionStart;
+  ta.value = ta.value.slice(0, pos) + text + ta.value.slice(pos);
+  ta.selectionStart = ta.selectionEnd = pos + text.length;
+  ta.focus();
+  if (btn.dataset.ta === 'm4-p1' || btn.dataset.ta === 'm4-p2') m4Update();
+  if (btn.dataset.ta === 'm8-ta') m8Update();
+  if (btn.dataset.ta === 'm9-ta') m9Update();
+}
+function insertStarter(taId, text) {
+  const ta = document.getElementById(taId);
+  if (!ta) return;
+  const pos = ta.selectionStart;
+  const val = ta.value;
+  ta.value = val.slice(0, pos) + text + val.slice(pos);
+  ta.selectionStart = ta.selectionEnd = pos + text.length;
+  ta.focus();
+  if (taId === 'm4-p1' || taId === 'm4-p2') m4Update();
+  if (taId === 'm8-ta') m8Update();
+  if (taId === 'm9-ta') m9Update();
+}
+
+function m4Update() {
+  const p1 = document.getElementById('m4-p1').value;
+  const p2 = document.getElementById('m4-p2').value;
+  const w1 = countWords(p1), w2 = countWords(p2);
+  const total = w1 + w2;
+  document.getElementById('m4-wc1').textContent = `Words: ${w1}`;
+  const wc2 = document.getElementById('m4-wc2');
+  wc2.textContent = `Words: ${w2} · Total: ${total} / aim for 80–120 words`;
+  wc2.className = 'wc' + (total >= 80 ? ' met' : '');
+  lSave(SAVE_PREFIX + 'm4-p1', p1);
+  lSave(SAVE_PREFIX + 'm4-p2', p2);
+  showSaveInd('m4');
+  updateBadge('m4', total >= 40 ? 'done' : total > 0 ? 'prog' : 'new');
+}
+function loadM4() {
+  const p1 = lLoad(SAVE_PREFIX + 'm4-p1', '');
+  const p2 = lLoad(SAVE_PREFIX + 'm4-p2', '');
+  document.getElementById('m4-p1').value = p1;
+  document.getElementById('m4-p2').value = p2;
+  m4Update();
+}
+function countWords(text) {
+  return text.trim().split(/\s+/).filter(w => w.length > 0).length;
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 5: CHECKLIST
+// ═══════════════════════════════════════════════
+function toggleCheck(id, module) {
+  const item = document.getElementById(id);
+  const box = item.querySelector('.chk');
+  const ticked = item.classList.toggle('ticked');
+  box.textContent = ticked ? '✅' : '';
+  const checklist = ['ci-1','ci-2','ci-3','ci-4'].map(cid => document.getElementById(cid).classList.contains('ticked'));
+  lSave(SAVE_PREFIX + 'checklist', checklist);
+  const allDone = checklist.every(Boolean);
+  document.getElementById('m5-done').className = 'all-done' + (allDone ? ' show' : '');
+  updateBadge('m5', allDone ? 'done' : checklist.some(Boolean) ? 'prog' : 'new');
+  if (allDone) launchConfetti();
+}
+function loadM5() {
+  const checklist = lLoad(SAVE_PREFIX + 'checklist', [false,false,false,false]);
+  ['ci-1','ci-2','ci-3','ci-4'].forEach((cid, i) => {
+    const item = document.getElementById(cid);
+    const box = item.querySelector('.chk');
+    if (checklist[i]) { item.classList.add('ticked'); box.textContent = '✅'; }
+    else { item.classList.remove('ticked'); box.textContent = ''; }
+  });
+  const allDone = checklist.every(Boolean);
+  document.getElementById('m5-done').className = 'all-done' + (allDone ? ' show' : '');
+  updateBadge('m5', allDone ? 'done' : checklist.some(Boolean) ? 'prog' : 'new');
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 6: WB ANALYSE
+// ═══════════════════════════════════════════════
+let m6PickedPhrases = [];
+
+function m6Save() {
+  ['m6-a','m6-b','m6-c'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) lSave(SAVE_PREFIX + id, el.value);
+  });
+  showSaveInd('m6');
+}
+function loadM6() {
+  ['m6-a','m6-b','m6-c'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = lLoad(SAVE_PREFIX + id, '');
+  });
+  m6PickedPhrases = lLoad(SAVE_PREFIX + 'm6-phrases', []);
+  // Restore phrase selections
+  const items = document.querySelectorAll('#m6-phrases .phrase-sel');
+  const checked = lLoad(SAVE_PREFIX + 'm6-checked', false);
+  if (checked) {
+    items.forEach(el => {
+      el.disabled = true;
+      const idx = [...el.parentElement.children].indexOf(el);
+      el.classList.add(el.dataset.correct === 'true' ? 'ok' : 'miss');
+    });
+  } else {
+    items.forEach((el, idx) => {
+      if (m6PickedPhrases.includes(idx)) el.classList.add('picked');
+    });
+  }
+}
+function m6PickPhrase(el) {
+  const items = document.querySelectorAll('#m6-phrases .phrase-sel');
+  const idx = [...el.parentElement.children].indexOf(el);
+  if (el.classList.contains('picked')) {
+    el.classList.remove('picked');
+    m6PickedPhrases = m6PickedPhrases.filter(i => i !== idx);
+  } else if (m6PickedPhrases.length < 3) {
+    el.classList.add('picked');
+    m6PickedPhrases.push(idx);
+  }
+  lSave(SAVE_PREFIX + 'm6-phrases', m6PickedPhrases);
+}
+function m6CheckPhrases() {
+  const items = document.querySelectorAll('#m6-phrases .phrase-sel');
+  items.forEach(el => el.disabled = true);
+  const correctItems = [...items].filter(el => el.dataset.correct === 'true');
+  const correctIdxs = correctItems.map(el => [...el.parentElement.children].indexOf(el));
+  let score = 0;
+  items.forEach((el, idx) => {
+    const isPicked = m6PickedPhrases.includes(idx);
+    const isCorrect = el.dataset.correct === 'true';
+    if (isPicked && isCorrect) { el.classList.add('ok'); score++; }
+    else if (isPicked && !isCorrect) el.classList.add('bad');
+    else if (!isPicked && isCorrect) el.classList.add('miss');
+  });
+  const fb = document.getElementById('m6-phrase-fb');
+  fb.className = 'mcq-fb show ' + (score === 3 ? 'ok' : 'bad');
+  fb.textContent = score === 3 ? '🎉 Perfect! You found all 3 opinion phrases! They all use "In my opinion" or "I think".' : `${score}/3 correct. The missed phrases are now highlighted. Opinion phrases always use: "I think", "I believe", "In my opinion".`;
+  lSave(SAVE_PREFIX + 'm6-checked', true);
+  updateBadge('m6', score >= 2 ? 'done' : 'prog');
+  if (score === 3) launchConfetti();
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 7: 2ND PLAN
+// ═══════════════════════════════════════════════
+function setInv2(name) { document.getElementById('m7-inv').value = name; m7Save(); }
+function m7Save() {
+  ['m7-inv','m7-f1','m7-f2','m7-f3','m7-o1','m7-o2','m7-o3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) lSave(SAVE_PREFIX + id, el.value);
+  });
+  showSaveInd('m7');
+  const inv = document.getElementById('m7-inv').value.trim();
+  const o1 = document.getElementById('m7-o1').value.trim();
+  const f1 = document.getElementById('m7-f1').value.trim();
+  if (inv && o1 && f1) updateBadge('m7', 'done');
+  else if (inv || o1 || f1) updateBadge('m7', 'prog');
+}
+function loadM7() {
+  ['m7-inv','m7-f1','m7-f2','m7-f3','m7-o1','m7-o2','m7-o3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = lLoad(SAVE_PREFIX + id, '');
+  });
+}
+function loadM8PlanRef() {
+  const inv = lLoad(SAVE_PREFIX + 'm7-inv', '');
+  const o1 = lLoad(SAVE_PREFIX + 'm7-o1', '');
+  const f1 = lLoad(SAVE_PREFIX + 'm7-f1', '');
+  const ref = document.getElementById('m8-plan-ref');
+  if (inv || o1) {
+    ref.innerHTML = `<div class="ref-card"><div class="ref-card-title">📋 YOUR 2ND PLAN (MODULE 7)</div>
+      <strong>Invention:</strong> ${inv || '?'}<br>
+      <strong>Opinion:</strong> ${o1 || '...'}<br>
+      <strong>Fact:</strong> ${f1 || '...'}</div>`;
+  } else {
+    ref.innerHTML = `<div class="ex-box"><div class="ex-lbl">TIP</div>Do Module 7 first to fill in your 2nd plan! Then write here.</div>`;
+  }
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 8: WRITE MORE
+// ═══════════════════════════════════════════════
+function m8Update() {
+  const text = document.getElementById('m8-ta').value;
+  const w = countWords(text);
+  const wc = document.getElementById('m8-wc');
+  wc.textContent = `Words: ${w} · Aim for 60–100 words`;
+  wc.className = 'wc' + (w >= 60 ? ' met' : '');
+  lSave(SAVE_PREFIX + 'm8-ta', text);
+  showSaveInd('m8');
+  updateBadge('m8', w >= 40 ? 'done' : w > 0 ? 'prog' : 'new');
+}
+function loadM8() {
+  const text = lLoad(SAVE_PREFIX + 'm8-ta', '');
+  document.getElementById('m8-ta').value = text;
+  m8Update();
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 9: FREE WRITING
+// ═══════════════════════════════════════════════
+let m9Topic = lLoad(SAVE_PREFIX + 'm9-topic', null);
+function m9Pick(card) {
+  document.querySelectorAll('.topic-card').forEach(c => c.classList.remove('picked'));
+  card.classList.add('picked');
+  m9Topic = card.textContent.trim();
+  lSave(SAVE_PREFIX + 'm9-topic', m9Topic);
+  const tip = document.getElementById('m9-tip');
+  const tipText = document.getElementById('m9-tip-text');
+  tip.style.display = 'block';
+  tipText.textContent = card.dataset.tip;
+}
+function m9Update() {
+  const text = document.getElementById('m9-ta').value;
+  const w = countWords(text);
+  const wc = document.getElementById('m9-wc');
+  wc.textContent = `Words: ${w} · Aim for 80–130 words`;
+  wc.className = 'wc' + (w >= 80 ? ' met' : '');
+  lSave(SAVE_PREFIX + 'm9-ta', text);
+  showSaveInd('m9');
+  updateBadge('m9', w >= 60 ? 'done' : w > 0 ? 'prog' : 'new');
+}
+function loadM9() {
+  document.getElementById('m9-ta').value = lLoad(SAVE_PREFIX + 'm9-ta', '');
+  const saved = lLoad(SAVE_PREFIX + 'm9-topic', null);
+  if (saved) {
+    document.querySelectorAll('.topic-card').forEach(c => {
+      if (c.textContent.trim() === saved) c.classList.add('picked');
+    });
+  }
+  m9Update();
+}
+
+// ═══════════════════════════════════════════════
+// MODULE 10: CAN LEO SCORE?
+// ═══════════════════════════════════════════════
+const m10Qs = [
+  {
+    type: 'fo',
+    q: 'Is this sentence a FACT or an OPINION?',
+    s: '"Erling Haaland scored 36 Premier League goals in the 2022–23 season." ⚽',
+    a: 'fact',
+    fb: 'FACT ✅ — A specific number in a real competition. Everyone can check it!'
+  },
+  {
+    type: 'fo',
+    q: 'Is this sentence a FACT or an OPINION?',
+    s: '"I believe Lamine Yamal will be the best player in the world very soon." 💭',
+    a: 'opinion',
+    fb: 'OPINION ✅ — "I believe" tells us it\'s what someone thinks. Not everyone agrees!'
+  },
+  {
+    type: 'mcq',
+    q: 'Choose the right phrase to complete the sentence:',
+    s: '_____ The Dark Knight is the greatest superhero film ever made. 🎬',
+    opts: ['It\'s true that', 'I believe', 'Many people use'],
+    correct: 1,
+    fb: '"I believe" is an opinion phrase ✅ — the sentence says what someone THINKS about the film.'
+  },
+  {
+    type: 'fo',
+    q: 'Is this sentence a FACT or an OPINION?',
+    s: '"The Dark Knight was released in 2008 and earned over $1 billion worldwide." 🎬',
+    a: 'fact',
+    fb: 'FACT ✅ — A year (2008) and a number ($1 billion). Both are checkable!'
+  },
+  {
+    type: 'tf',
+    q: 'True or False?',
+    s: 'A fact is something that not everyone agrees on — it depends on what you think.',
+    a: false,
+    fb: 'FALSE ✅ — A FACT is always true and everyone can check it. An OPINION depends on what you think.'
+  },
+  {
+    type: 'mcq',
+    q: 'Which pronoun is correct?',
+    s: '"Mbappé and Haaland are great players. ___ both play for top European clubs." ⚽',
+    opts: ['He', 'She', 'They'],
+    correct: 2,
+    fb: '"They" ✅ — Two people = plural! Mbappé + Haaland = they.'
+  },
+  {
+    type: 'mcq',
+    q: 'Choose the fact phrase:',
+    s: '_____ many people watch football every weekend around the world.',
+    opts: ['In my opinion,', 'I believe', 'It\'s true that'],
+    correct: 2,
+    fb: '"It\'s true that" ✅ — This introduces a FACT. Many people DO watch football — it\'s checkable!'
+  },
+  {
+    type: 'tf',
+    q: 'True or False?',
+    s: 'In fact and opinion writing, you should support your opinions with facts.',
+    a: true,
+    fb: 'TRUE ✅ — That\'s the key! Opinions need facts to support them. That\'s what makes your writing strong!'
+  }
+];
+
+let m10Started = false, m10Idx = 0, m10Score = 0, m10Wrong = [], m10StartTime = null;
+
+function initM10() {
+  m10Started = true;
+  m10Idx = 0; m10Score = 0; m10Wrong = [];
+  m10StartTime = Date.now();
+  document.getElementById('m10-result').style.display = 'none';
+  renderM10();
+}
+
+function renderM10() {
+  const container = document.getElementById('m10-quiz');
+  if (m10Idx >= m10Qs.length) { showM10Result(); return; }
+  const q = m10Qs[m10Idx];
+  const pct = Math.round(m10Idx / m10Qs.length * 100);
+
+  let content = `
+    <div class="qz-prog">
+      <span class="qz-num">Question ${m10Idx + 1} of ${m10Qs.length}</span>
+      <span class="qz-sc">Score: ${m10Score} ⚽</span>
+    </div>
+    <div style="background:var(--bdr);height:4px;border-radius:2px;margin-bottom:12px">
+      <div style="background:var(--or);height:4px;border-radius:2px;width:${pct}%;transition:width .4s"></div>
+    </div>
+    <div class="qz-card">
+      <div class="tag or">${q.type === 'fo' ? 'FACT OR OPINION' : q.type === 'tf' ? 'TRUE OR FALSE' : 'CHOOSE'}</div>
+      <div class="qz-q">${q.q}</div>
+      <div class="mcq-sentence">${q.s}</div>`;
+
+  if (q.type === 'fo') {
+    content += `<div class="fo-btns">
+      <button class="fo-btn fact" onclick="ansM10('fact')">📌 FACT</button>
+      <button class="fo-btn opinion" onclick="ansM10('opinion')">💭 OPINION</button>
+    </div>`;
+  } else if (q.type === 'tf') {
+    content += `<div class="fo-btns">
+      <button class="fo-btn fact" style="background:#D1FAE5;color:#065F46;border-color:var(--gn)" onclick="ansM10(true)">✅ TRUE</button>
+      <button class="fo-btn opinion" style="background:var(--rdl);color:var(--rd);border-color:var(--rd)" onclick="ansM10(false)">❌ FALSE</button>
+    </div>`;
+  } else {
+    content += `<div class="mcq-opts">` + q.opts.map((o, i) =>
+      `<button class="mcq-opt" onclick="ansM10(${i})">${String.fromCharCode(65+i)}) "${o}"</button>`
+    ).join('') + `</div>`;
+  }
+  content += `<div class="mcq-fb" id="m10-fb"></div></div>`;
+  container.innerHTML = content;
+}
+
+function ansM10(choice) {
+  const q = m10Qs[m10Idx];
+  const isOk = q.type === 'mcq' ? choice === q.correct : choice === q.a;
+  // Disable buttons
+  document.querySelectorAll('#m10-quiz .fo-btn, #m10-quiz .mcq-opt').forEach(b => b.disabled = true);
+  // Mark
+  if (q.type === 'fo' || q.type === 'tf') {
+    const btns = document.querySelectorAll('#m10-quiz .fo-btn');
+    btns.forEach(b => {
+      const bVal = b.textContent.includes('FACT') || b.textContent.includes('TRUE') ? (q.type === 'fo' ? 'fact' : true) : (q.type === 'fo' ? 'opinion' : false);
+      if (bVal === choice) b.classList.add(isOk ? 'ans-ok' : 'ans-bad');
+      if (!isOk && bVal === q.a) b.classList.add('ans-ok');
+    });
+  } else {
+    const opts = document.querySelectorAll('#m10-quiz .mcq-opt');
+    opts[choice].classList.add(isOk ? 'ok' : 'bad');
+    if (!isOk) opts[q.correct].classList.add('ok');
+  }
+  const fb = document.getElementById('m10-fb');
+  fb.className = 'mcq-fb show ' + (isOk ? 'ok' : 'bad');
+  fb.textContent = isOk ? '⚽ GOAL! ' + q.fb : '❌ Not quite. ' + q.fb;
+  if (isOk) { m10Score++; showGoalAnim(); }
+  else m10Wrong.push('Q' + (m10Idx + 1));
+  setTimeout(() => { m10Idx++; renderM10(); }, 1600);
+}
+
+function showM10Result() {
+  document.getElementById('m10-quiz').innerHTML = '';
+  const pct = Math.round(m10Score / m10Qs.length * 100);
+  const pass = pct >= 80;
+  const timeSpent = Math.round((Date.now() - m10StartTime) / 1000) + 's';
+  saveScore(m10Score, pass, { wrongQuestions: m10Wrong, timeSpent });
+  updateBadge('m10', pass ? 'done' : 'prog');
+
+  const res = document.getElementById('m10-result');
+  res.style.display = 'block';
+  res.innerHTML = `
+    <div class="result-box">
+      <div style="font-size:3rem">${pass ? '🏆' : '💪'}</div>
+      <div class="result-score">${m10Score}/${m10Qs.length}</div>
+      <div style="font-family:var(--fnh);font-size:1.1rem;font-weight:700;color:${pass ? 'var(--gn)' : 'var(--rd)'};">${pct}% — ${pass ? '⚽ GOAL! You passed!' : 'Keep trying!'}</div>
+      <div class="result-msg">${pass ? '🎉 Amazing work, Leo! You\'re a real Fact & Opinion Writer!' : '📚 Great effort! Review the modules and try again!'}</div>
+      <div class="result-detail">Time: ${timeSpent}</div>
+      <div class="result-bullets">
+        ${m10Qs.map((q, i) => `<div class="result-bullet ${m10Wrong.includes('Q'+(i+1)) ? 'bad' : 'ok'}">
+          ${m10Wrong.includes('Q'+(i+1)) ? '❌' : '✅'} Q${i+1}: ${q.s.substring(0, 50)}...
+        </div>`).join('')}
+      </div>
+      ${pass ? '' : `<button class="check-ans-btn" style="margin:16px auto 0;display:block" onclick="initM10()">🔄 Try Again</button>`}
+    </div>`;
+  // Add complete button to result
+  const completeHtml = `<div class="btn-row-bottom" style="margin-top:16px">
+    <button class="complete-btn" id="cbtn-m10" onclick="markComplete('m10','Can Leo Score')">Mark Can Leo Score complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m10')">↺ Redo</button>
+  </div>`;
+  res.innerHTML += completeHtml;
+  if (pass) launchConfetti();
+}
+
+// ═══════════════════════════════════════════════
+// ANIMATIONS
+// ═══════════════════════════════════════════════
+function showGoalAnim() {
+  const el = document.getElementById('goalAnim');
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 900);
+}
+function launchConfetti() {
+  const colors = ['#F97316','#3B82F6','#FDE047','#16A34A','#EC4899','#8B5CF6'];
+  for (let i = 0; i < 50; i++) {
+    const p = document.createElement('div');
+    p.className = 'cp';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.top = '-10px';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.setProperty('--drift', ((Math.random() - 0.5) * 200) + 'px');
+    p.style.animationDuration = (1.2 + Math.random() * 1.5) + 's';
+    p.style.animationDelay = Math.random() * 0.5 + 's';
+    p.style.width = p.style.height = (7 + Math.random() * 8) + 'px';
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 2500);
+  }
+}
+
+// ═══════════════════════════════════════════════
+// HW BANNER
+// ═══════════════════════════════════════════════
+function markComplete(id, name) {
+  try {
+    lSave(SAVE_PREFIX + id + '-complete', { name: name, timestamp: new Date().toISOString(), done: true });
+    lSave(SAVE_PREFIX + id + '-done', true);
+    lSave(HOMEWORK_ID + '-' + id + '-done', true);
+    updateBadge(id, 'done');
+    const btn = document.getElementById('cbtn-' + id);
+    if (btn) {
+      btn.classList.add('confirmed');
+      btn.textContent = '✅ ' + name + ' complete';
+    }
+    setTimeout(function() { closeModal(id); }, 400);
+  } catch(e) { console.error('markComplete error:', e); }
+}
+
+
+function resetModule(id) {
+  const names = {
+    m1:'Fact or Opinion', m2:'Key Expressions', m3:'Plan My Chart',
+    m4:'Writing', m5:'Edit Checklist', m6:'Analyse the Model',
+    m7:'My 2nd Plan', m8:'Write More', m9:'Free Writing', m10:'Can Leo Score'
+  };
+
+  // Find the redo button for this module
+  let redoBtn = null;
+  document.querySelectorAll('.reset-btn').forEach(function(b) {
+    if (b.getAttribute('onclick') === "resetModule('" + id + "')") redoBtn = b;
+  });
+
+  // Two-tap safety: first tap shows warning, second tap resets
+  if (redoBtn && !redoBtn.dataset.armed) {
+    redoBtn.dataset.armed = '1';
+    redoBtn.textContent = 'Sure? ↺';
+    redoBtn.style.background = '#DC2626';
+    redoBtn.style.color = '#fff';
+    setTimeout(function() {
+      if (redoBtn && redoBtn.dataset.armed) {
+        delete redoBtn.dataset.armed;
+        redoBtn.textContent = '↺ Redo';
+        redoBtn.style.background = '';
+        redoBtn.style.color = '';
+      }
+    }, 3000);
+    return;
+  }
+
+  // Second tap — execute reset
+  if (redoBtn) {
+    delete redoBtn.dataset.armed;
+    redoBtn.textContent = '↺ Redo';
+    redoBtn.style.background = '';
+    redoBtn.style.color = '';
+  }
+
+  // Clear localStorage for this module
+  const prefix = 'leea-' + SAVE_PREFIX;
+  Object.keys(localStorage).filter(function(k) {
+    return k.startsWith(prefix + id + '-') || k === prefix + id + '-done';
+  }).forEach(function(k) { localStorage.removeItem(k); });
+  localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
+
+  // Reset badge
+  updateBadge(id, 'new');
+
+  // Reset complete button
+  var completeBtnEl = document.getElementById('cbtn-' + id);
+  if (completeBtnEl) {
+    completeBtnEl.classList.remove('confirmed');
+    var lbl = names[id] || id;
+    completeBtnEl.textContent = 'Mark ' + lbl + ' complete ✓';
+  }
+
+  // Re-init the module content
+  if (id === 'm1') { lSave(SAVE_PREFIX + 'm1-answers', new Array(6).fill(null)); initM1(); }
+  else if (id === 'm2') { lSave(SAVE_PREFIX + 'm2-answers', new Array(4).fill(null)); initM2(); }
+  else if (id === 'm3') {
+    ['m3-inv','m3-f1','m3-f2','m3-f3','m3-o1','m3-o2','m3-o3'].forEach(function(k) {
+      var el = document.getElementById(k); if (el) el.value = '';
+    });
+  }
+  else if (id === 'm4') {
+    ['m4-p1','m4-p2'].forEach(function(k) { var el = document.getElementById(k); if (el) el.value = ''; });
+    m4Update();
+  }
+  else if (id === 'm5') {
+    ['ci-1','ci-2','ci-3','ci-4'].forEach(function(cid) {
+      var item = document.getElementById(cid);
+      if (item) { item.classList.remove('ticked'); var cb = item.querySelector('.chk'); if (cb) cb.textContent = ''; }
+    });
+    var doneBanner = document.getElementById('m5-done');
+    if (doneBanner) doneBanner.classList.remove('show');
+  }
+  else if (id === 'm6') {
+    ['m6-a','m6-b','m6-c'].forEach(function(k) { var el = document.getElementById(k); if (el) el.value = ''; });
+    document.querySelectorAll('#m6-phrases .phrase-sel').forEach(function(el) {
+      el.className = 'phrase-sel'; el.disabled = false;
+    });
+    var fb = document.getElementById('m6-phrase-fb');
+    if (fb) { fb.className = 'mcq-fb'; fb.textContent = ''; }
+    m6PickedPhrases = [];
+  }
+  else if (id === 'm7') {
+    ['m7-inv','m7-f1','m7-f2','m7-f3','m7-o1','m7-o2','m7-o3'].forEach(function(k) {
+      var el = document.getElementById(k); if (el) el.value = '';
+    });
+  }
+  else if (id === 'm8') { var el = document.getElementById('m8-ta'); if (el) { el.value = ''; m8Update(); } }
+  else if (id === 'm9') {
+    var ta = document.getElementById('m9-ta'); if (ta) { ta.value = ''; m9Update(); }
+    document.querySelectorAll('.topic-card').forEach(function(c) { c.classList.remove('picked'); });
+    var tip = document.getElementById('m9-tip'); if (tip) tip.style.display = 'none';
+  }
+  else if (id === 'm10') {
+    m10Started = false;
+    var quiz = document.getElementById('m10-quiz'); if (quiz) quiz.innerHTML = '';
+    var res = document.getElementById('m10-result'); if (res) res.style.display = 'none';
+  }
+}
+
+function initHWBanner() {
+  const hw = HOMEWORK_ID !== 'leo-4-7-writing';
+  if (hw) {
+    const banner = document.getElementById('hwBanner');
+    banner.style.display = 'flex';
+    banner.innerHTML = '📚 Homework assigned · Unit 7 Writing · Due: check your home screen';
+  }
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', async function() {
+  // Check review mode
+  if (new URLSearchParams(location.search).get('review') === '1') {
+    initReviewMode(); return;
+  }
+
+  // Init homework banner
+  initHWBanner();
+
+  // Restore from Supabase first, then load into DOM
+  await restoreProgressFromCloud();
+
+  // Load all saved data
+  loadM3();
+  loadM4();
+  loadM5();
+  loadM6();
+  loadM7();
+  loadM8();
+  loadM9();
+
+  // Init M1 and M2
+  initM1();
+  initM2();
+
+  // Restore badge states from saved data
+  const m1s = lLoad(SAVE_PREFIX + 'm1-score');
+  if (m1s) updateBadge('m1', m1s.score >= 5 ? 'done' : 'prog');
+  const m2s = lLoad(SAVE_PREFIX + 'm2-score');
+  if (m2s) updateBadge('m2', m2s.score >= 3 ? 'done' : 'prog');
+  const m10s = lLoad(SAVE_PREFIX + 'score');
+  if (m10s) updateBadge('m10', m10s.done ? 'done' : 'prog');
+  // Restore confirmed state — only if marked via new system (has timestamp)
+  const modNames = {m1:'Fact or Opinion',m2:'Key Expressions',m3:'Plan My Chart',
+    m4:'Writing',m5:'Edit Checklist',m6:'Analyse the Model',
+    m7:'My 2nd Plan',m8:'Write More',m9:'Free Writing'};
+  Object.keys(modNames).forEach(id => {
+    const data = lLoad(SAVE_PREFIX + id + '-complete', null);
+    const btn = document.getElementById('cbtn-' + id);
+    if (data && data.timestamp && btn) {
+      btn.classList.add('confirmed');
+      btn.textContent = modNames[id] + ' complete ✓';
+      updateBadge(id, 'done');
+    }
+  });
+});
+</script>
+</body>
+</html>

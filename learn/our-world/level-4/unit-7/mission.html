@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 · Mission — Use Your Imagination</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pu:#7C3AED;--pul:#EDE9FE;--pud:#6D28D9;
+  --or:#F97316;--ord:#EA580C;--orl:#FFF7ED;
+  --ye:#FDE047;--yed:#EAB308;
+  --gn:#16A34A;--gnl:#F0FDF4;
+  --rd:#DC2626;--rdl:#FEE2E2;
+  --ink:#111111;--ink2:#374151;--ink3:#6B7280;
+  --paper:#FAFAF7;--surf:#FFFFFF;--bdr:#E5E7EB;
+  --fn:"Nunito",sans-serif;--fnh:"Oswald",sans-serif;
+}
+*{box-sizing:border-box}
+body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden}
+
+/* HEADER */
+.app-hdr{background:var(--ink);padding:0 16px;height:50px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.hdr-badge{background:var(--ye);color:var(--ink);font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;padding:2px 7px;border-radius:2px}
+.hdr-title{font-family:var(--fnh);font-size:.85rem;font-weight:700;color:#fff;letter-spacing:1px}
+.hdr-unit{font-size:.7rem;font-weight:700;color:var(--pu)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--pu),var(--pud));padding:20px 16px 16px;text-align:center}
+.hero-kick{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.7);margin-bottom:6px}
+.hero-title{font-family:var(--fnh);font-size:1.4rem;font-weight:700;color:#fff}
+.hero-title span{color:var(--ye)}
+.hero-sub{font-size:.78rem;color:rgba(255,255,255,.85);font-weight:600;margin-top:4px}
+.prog-wrap{background:rgba(0,0,0,.15);height:4px}
+.prog-fill{height:100%;background:var(--ye);transition:width .5s;width:0%}
+
+/* HOME */
+.home{max-width:560px;margin:0 auto;padding:16px 14px 80px}
+.sec-lbl{font-family:var(--fnh);font-size:.62rem;font-weight:700;letter-spacing:3px;color:var(--ink3);margin-bottom:10px;margin-top:20px;display:flex;align-items:center;gap:8px}
+.sec-lbl::after{content:"";flex:1;height:1px;background:var(--bdr)}
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mod-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px 13px 11px;cursor:pointer;transition:all .2s}
+.mod-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1);border-color:var(--pu)}
+.mod-card.quiz:hover{border-color:var(--yed)}
+.mod-icon{font-size:1.5rem;margin-bottom:5px}
+.mod-name{font-weight:800;font-size:.82rem;color:var(--ink);margin-bottom:2px}
+.mod-desc{font-size:.7rem;color:var(--ink3);font-weight:600;line-height:1.4}
+.mod-badge{font-family:var(--fnh);font-size:.55rem;font-weight:700;letter-spacing:1px;padding:2px 6px;border-radius:2px;margin-top:7px;display:inline-block}
+.badge-new{background:var(--paper);color:var(--ink3);border:1px solid var(--bdr)}
+.badge-done{background:#D1FAE5;color:var(--gn)}
+.badge-prog{background:var(--orl);color:var(--ord)}
+@media(max-width:640px){.mod-grid{grid-template-columns:1fr}}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:none;overflow-y:auto}
+.modal.open{display:block}
+.mbox{background:var(--surf);min-height:100vh;display:flex;flex-direction:column;max-width:680px;margin:0 auto}
+.mhd{padding:13px 14px;display:flex;align-items:center;gap:10px;color:#fff;position:sticky;top:0;z-index:10;flex-shrink:0}
+.mhd.pu{background:var(--pu)}.mhd.or{background:var(--or)}.mhd.dk{background:var(--ink)}
+.mhd-title{font-weight:900;font-size:.95rem;flex:1;letter-spacing:.3px;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+.mhd-num{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:1px;opacity:.7}
+.mhd-close{background:rgba(255,255,255,.18);border:none;color:#fff;font-size:1rem;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;margin-left:8px}
+.mhd-close:hover{background:rgba(255,255,255,.35)}
+.mbody{flex:1;padding:14px;display:flex;flex-direction:column;gap:12px;background:var(--paper)}
+
+/* COMPONENTS */
+.dad-card{background:#D1FAE5;border:2px solid #A7F3D0;border-radius:4px;padding:11px 13px;font-size:.82rem;font-weight:700;color:#065F46;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.dad-icon{font-size:1.1rem;flex-shrink:0}
+
+.info-card{background:var(--pul);border:2px solid #C4B5FD;border-radius:4px;padding:11px 13px;font-size:.82rem;font-weight:600;color:var(--pud);line-height:1.6}
+.info-title{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--pu);margin-bottom:5px}
+
+.vocab-box{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.vocab-word{font-family:var(--fnh);font-size:1rem;font-weight:700;color:var(--pu);letter-spacing:1px}
+.vocab-def{font-size:.85rem;font-weight:700;color:var(--ink2);line-height:1.5}
+.vocab-ex{font-size:.78rem;font-weight:600;color:var(--ink3);font-style:italic;background:var(--pul);border-radius:4px;padding:8px 10px;line-height:1.5}
+
+.sent-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:12px}
+.sent-text{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.5;font-style:italic}
+.mcq-opts{display:flex;flex-direction:column;gap:7px}
+.mcq-opt{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:9px 12px;font-family:var(--fn);font-size:.82rem;font-weight:700;cursor:pointer;text-align:left;transition:all .2s}
+.mcq-opt:hover:not(:disabled){border-color:var(--pu)}
+.mcq-opt.ok{background:#D1FAE5;border-color:var(--gn);color:var(--gn)}
+.mcq-opt.bad{background:var(--rdl);border-color:var(--rd);color:var(--rd);animation:shake .3s}
+.mcq-opt:disabled{cursor:not-allowed}
+.mcq-fb{font-size:.75rem;font-weight:700;padding:7px 11px;border-radius:4px;margin-top:7px;display:none}
+.mcq-fb.show{display:block}
+.mcq-fb.ok{background:#D1FAE5;color:#065F46}
+.mcq-fb.bad{background:var(--rdl);color:var(--rd)}
+
+.fill-wrap{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:14px;font-size:.88rem;font-weight:700;line-height:2;color:var(--ink)}
+.blank{border:none;border-bottom:2px solid var(--pu);background:transparent;font-family:var(--fn);font-size:.88rem;font-weight:700;color:var(--pu);outline:none;width:120px;text-align:center;padding:2px 4px}
+.blank.ok{border-bottom-color:var(--gn);color:var(--gn)}
+.blank.bad{border-bottom-color:var(--rd);color:var(--rd);animation:shake .3s}
+
+.write-ta{width:100%;border:2px solid var(--bdr);border-radius:4px;padding:11px 13px;font-family:var(--fn);font-size:.85rem;font-weight:600;color:var(--ink);background:var(--surf);resize:none;outline:none;min-height:120px;line-height:1.75;transition:border-color .2s}
+.write-ta:focus{border-color:var(--pu)}
+.wc{font-size:.72rem;font-weight:700;color:var(--ink3);text-align:right;margin-top:3px}
+.wc.met{color:var(--gn)}
+
+.starter-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.starter{background:var(--pul);border:1px solid #C4B5FD;border-radius:20px;padding:4px 10px;font-size:.72rem;font-weight:700;color:var(--pud);cursor:pointer;transition:all .15s}
+.starter:hover{background:var(--pu);color:#fff;border-color:var(--pu)}
+
+.save-ind{font-size:.68rem;font-weight:700;color:var(--gn);text-align:right;height:14px;opacity:0;transition:opacity .5s}
+.save-ind.show{opacity:1}
+
+/* BOTTOM BUTTONS */
+.btn-row-bottom{display:flex;justify-content:space-between;align-items:stretch;gap:14px;margin-top:20px}
+.complete-btn{flex:1;padding:18px 20px;background:#16A34A;border:3px solid #15803D;border-radius:4px;font-family:var(--fn);font-size:1rem;font-weight:900;cursor:pointer;color:#fff;transition:all .2s;text-align:center}
+.complete-btn:hover{background:#15803D}
+.complete-btn.confirmed{background:#D1FAE5;border-color:var(--gn);color:var(--gn);cursor:default;pointer-events:none;opacity:.85}
+.reset-btn{flex:0 0 110px;padding:18px 14px;background:#fff;border:3px solid var(--rd);border-radius:4px;font-family:var(--fn);font-size:.88rem;font-weight:900;cursor:pointer;color:var(--rd);transition:all .2s;text-align:center;pointer-events:auto !important;opacity:1 !important}
+.reset-btn:hover{background:var(--rd);color:#fff}
+
+/* QUIZ */
+.qz-prog-bar{background:var(--bdr);height:6px;border-radius:3px;margin-bottom:16px}
+.qz-prog-fill{height:100%;background:var(--pu);border-radius:3px;transition:width .4s}
+.qz-tag{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;padding:2px 7px;border-radius:2px;display:inline-block;margin-bottom:8px;background:var(--pul);color:var(--pud)}
+.qz-q{font-size:.9rem;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.5}
+.qz-sentence{background:var(--paper);border:2px solid var(--bdr);border-radius:4px;padding:10px 14px;font-style:italic;font-weight:700;font-size:.88rem;margin-bottom:10px;line-height:1.5}
+
+/* RESULT */
+.result-box{text-align:center;padding:20px 10px}
+.result-score{font-family:var(--fnh);font-size:2.8rem;font-weight:700;color:var(--pu);line-height:1}
+.result-bullets{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.result-bullet{background:var(--paper);border:1px solid var(--bdr);border-radius:4px;padding:7px 12px;font-size:.78rem;font-weight:700;color:var(--ink2);text-align:left}
+.result-bullet.ok{background:#D1FAE5;border-color:var(--gn);color:#065F46}
+.result-bullet.bad{background:var(--rdl);border-color:var(--rd);color:var(--rd)}
+
+/* GOAL ANIM */
+.goal-anim{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:3.5rem;z-index:1000;pointer-events:none;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.goal-anim.show{transform:translate(-50%,-50%) scale(1)}
+.cp{position:fixed;width:9px;height:9px;border-radius:2px;pointer-events:none;animation:cf 1.5s linear forwards;z-index:999}
+
+/* REVIEW */
+.review-screen{display:none;min-height:100vh;background:var(--paper)}
+.review-screen.show{display:block}
+.rv-hdr{background:var(--pud);padding:14px 16px;color:#fff}
+.rv-title{font-family:var(--fnh);font-size:.95rem;font-weight:700;letter-spacing:1px}
+.rv-sub{font-size:.72rem;color:rgba(255,255,255,.75);font-weight:600;margin-top:2px}
+.rv-body{padding:14px;max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.rv-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px}
+.rv-lbl{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--ink3);margin-bottom:8px}
+.rv-val{font-size:.85rem;font-weight:700;color:var(--ink);line-height:1.6;white-space:pre-wrap}
+
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes cf{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../../../lib/leea-cloud-config.js"></script>
+<script src="../../../../lib/leea-cloud.js"></script>
+</head>
+<body>
+
+<!-- REVIEW -->
+<div class="review-screen" id="reviewScreen">
+  <div class="rv-hdr">
+    <div class="rv-title">📋 Review — Unit 7 Mission</div>
+    <div class="rv-sub">Leo's work on: Use Your Imagination &amp; Creativity</div>
+  </div>
+  <div class="rv-body" id="reviewBody"></div>
+</div>
+
+<!-- GOAL ANIMATION -->
+<div class="goal-anim" id="goalAnim">⚽ GOAL!</div>
+
+<div id="appRoot">
+<div class="app-hdr">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div class="hdr-badge">LEEA</div>
+    <div class="hdr-title">MISSION</div>
+  </div>
+  <div class="hdr-unit">UNIT 7 💡</div>
+</div>
+
+<div class="hero">
+  <div class="hero-kick">OUR WORLD · LEVEL 4 · UNIT 7</div>
+  <div class="hero-title">🌟 Mission: <span>Use Your Imagination!</span></div>
+  <div class="hero-sub">Complete all 6 modules — then score the goal! ⚽</div>
+  <div style="font-size:1.3rem;margin-top:8px">💡 🔬 🐑 🌍 🎯</div>
+</div>
+<div class="prog-wrap"><div class="prog-fill" id="progFill"></div></div>
+
+<div class="home">
+  <div class="sec-lbl">📘 UNIT 7 MISSION</div>
+  <div class="mod-grid">
+    <div class="mod-card" onclick="openModal('m1')">
+      <div class="mod-icon">📖</div>
+      <div class="mod-name">Vocabulary</div>
+      <div class="mod-desc">curiosity &amp; typical — do you know them?</div>
+      <div class="mod-badge badge-new" id="badge-m1">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m2')">
+      <div class="mod-icon">🌍</div>
+      <div class="mod-name">Be the Expert</div>
+      <div class="mod-desc">Ozcan &amp; Sheep View 360 quiz</div>
+      <div class="mod-badge badge-new" id="badge-m2">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m3')">
+      <div class="mod-icon">💬</div>
+      <div class="mod-name">The Quote</div>
+      <div class="mod-desc">Fill the blanks in Ozcan's quote</div>
+      <div class="mod-badge badge-new" id="badge-m3">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m4')">
+      <div class="mod-icon">🧠</div>
+      <div class="mod-name">Think</div>
+      <div class="mod-desc">Write your problem &amp; invention idea</div>
+      <div class="mod-badge badge-new" id="badge-m4">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m5')">
+      <div class="mod-icon">👥</div>
+      <div class="mod-name">Pair Notes</div>
+      <div class="mod-desc">Write your discussion summary</div>
+      <div class="mod-badge badge-new" id="badge-m5">NOT STARTED</div>
+    </div>
+    <div class="mod-card quiz" onclick="openModal('m6')">
+      <div class="mod-icon">⚽</div>
+      <div class="mod-name">Can Leo Score?</div>
+      <div class="mod-desc">8 questions — need 80% to score!</div>
+      <div class="mod-badge badge-new" id="badge-m6">FINAL QUIZ</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- M1: VOCABULARY -->
+<div class="modal" id="m1">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">📖 Vocabulary</div><div class="mhd-num">1 / 6</div><button class="mhd-close" onclick="closeModal('m1')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Read the words and examples. Then answer the questions below. You saw these words in today's lesson!</div></div>
+
+  <div class="vocab-box">
+    <div class="vocab-word">🔍 curiosity</div>
+    <div class="vocab-def">The strong desire to know or learn about something.</div>
+    <div class="vocab-ex">⚽ "Haaland's curiosity about goalkeepers helps him always find the best spot to shoot."<br/>🔬 "Ozcan said: science is entirely based on curiosity."</div>
+  </div>
+
+  <div class="vocab-box">
+    <div class="vocab-word">📋 typical</div>
+    <div class="vocab-def">Normal, usual — something that happens often.</div>
+    <div class="vocab-ex">⚽ "A typical problem for a goalkeeper is not knowing where the striker will shoot."<br/>📱 "A typical problem for me is my phone battery dying at bad moments!"</div>
+  </div>
+
+  <div id="m1-questions"></div>
+  <div class="save-ind" id="m1-score-disp" style="display:none;text-align:center;font-size:.88rem;font-weight:800;color:var(--pu)"></div>
+
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m1" onclick="markComplete('m1','Vocabulary')">Mark Vocabulary complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m1')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M2: BE THE EXPERT -->
+<div class="modal" id="m2">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">🌍 Be the Expert</div><div class="mhd-num">2 / 6</div><button class="mhd-close" onclick="closeModal('m2')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>What did you learn about Aydogan Ozcan and Sheep View 360? Answer these questions from today's lesson!</div></div>
+
+  <div class="info-card">
+    <div class="info-title">QUICK REMINDER 🔍</div>
+    <strong>Aydogan Ozcan</strong> — Electrical Engineer &amp; National Geographic Explorer.<br/>
+    He turned smartphones into <strong>microscopes</strong> to help diagnose diseases in remote areas.<br/><br/>
+    <strong>Sheep View 360 🐑</strong> — A project in the Faroe Islands (Northeast Atlantic Ocean).<br/>
+    Sheep carried solar-powered cameras to map the islands for Google Street View.
+  </div>
+
+  <div id="m2-questions"></div>
+  <div class="save-ind" id="m2-score-disp" style="display:none;text-align:center;font-size:.88rem;font-weight:800;color:var(--pu)"></div>
+
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m2" onclick="markComplete('m2','Be the Expert')">Mark Be the Expert complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m2')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M3: THE QUOTE -->
+<div class="modal" id="m3">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">💬 The Quote</div><div class="mhd-num">3 / 6</div><button class="mhd-close" onclick="closeModal('m3')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>This is Ozcan's quote from today's lesson. Fill in the 3 missing words! Use the word bank to help you.</div></div>
+
+  <div style="background:var(--pul);border:2px solid #C4B5FD;border-radius:4px;padding:10px 14px;margin-bottom:4px">
+    <div class="info-title">WORD BANK</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span style="background:var(--pu);color:#fff;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:800">succeed</span>
+      <span style="background:var(--pu);color:#fff;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:800">fail</span>
+      <span style="background:var(--pu);color:#fff;border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:800">curiosity</span>
+    </div>
+  </div>
+
+  <div class="fill-wrap" id="quote-fill">
+    "In science, it's always a long train of ideas. Many <input class="blank" id="b1" placeholder="___"/>,
+    but in between you often <input class="blank" id="b2" placeholder="___"/>
+    … science is entirely based on <input class="blank" id="b3" placeholder="___"/>."
+    <div style="font-size:.75rem;font-style:normal;color:var(--ink3);margin-top:8px;font-weight:600">— Aydogan Ozcan, National Geographic Explorer</div>
+  </div>
+
+  <div style="display:flex;gap:8px;margin-top:4px">
+    <button style="background:var(--pu);color:#fff;border:none;border-radius:4px;padding:10px 20px;font-family:var(--fn);font-size:.85rem;font-weight:800;cursor:pointer" onclick="checkQuote()">Check ✅</button>
+    <button style="background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:10px 20px;font-family:var(--fn);font-size:.85rem;font-weight:800;cursor:pointer;color:var(--ink3)" onclick="resetQuote()">Try again 🔄</button>
+  </div>
+  <div class="mcq-fb" id="quote-fb"></div>
+
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m3" onclick="markComplete('m3','The Quote')">Mark The Quote complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m3')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M4: THINK -->
+<div class="modal" id="m4">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">🧠 Think</div><div class="mhd-num">4 / 6</div><button class="mhd-close" onclick="closeModal('m4')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Think about a typical problem in your life. Then think of an invention that could solve it! Write your ideas below.</div></div>
+
+  <div class="info-card">
+    <div class="info-title">REMEMBER FROM THE LESSON</div>
+    <strong>Typical problem</strong> = something that often goes wrong in your daily life.<br/>
+    <strong>Invention idea</strong> = a creative solution — it doesn't have to exist yet!<br/>
+    ⚽ Haaland's typical problem: defenders who know his moves → his solution: always learn a new trick!
+  </div>
+
+  <div style="font-weight:800;font-size:.88rem;color:var(--ink);margin-bottom:4px">My typical problem: ⚠️</div>
+  <textarea class="write-ta" id="m4-problem" placeholder="A typical problem for me is..." oninput="m4Save()"></textarea>
+
+  <div style="font-weight:800;font-size:.88rem;color:var(--ink);margin-bottom:4px;margin-top:4px">My invention idea: 💡</div>
+  <div class="starter-row">
+    <button class="starter" onclick="insertStarter('m4-invention','I would invent a device that ')">I would invent...</button>
+    <button class="starter" onclick="insertStarter('m4-invention','My invention would use ')">My invention would use...</button>
+    <button class="starter" onclick="insertStarter('m4-invention','This would solve the problem because ')">This would solve...</button>
+  </div>
+  <textarea class="write-ta" id="m4-invention" placeholder="My invention idea is..." oninput="m4Save()" style="margin-top:6px"></textarea>
+  <div class="save-ind" id="m4-saved">✅ Saved!</div>
+
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m4" onclick="markComplete('m4','Think')">Mark Think complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m4')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M5: PAIR NOTES -->
+<div class="modal" id="m5">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">👥 Pair Notes</div><div class="mhd-num">5 / 6</div><button class="mhd-close" onclick="closeModal('m5')" title="Just close">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>After discussing with Dad, write a short summary of what you talked about. What was your problem? What was your invention? Would you use it again?</div></div>
+
+  <div class="info-card">
+    <div class="info-title">PAIR DISCUSSION QUESTIONS</div>
+    ❓ What was the problem?<br/>
+    ❓ Was it easy or difficult to solve?<br/>
+    ❓ How did you solve it? What was the invention?<br/>
+    ❓ Would you use the same invention again? Why?
+  </div>
+
+  <div style="font-weight:800;font-size:.88rem;color:var(--ink);margin-bottom:4px">My discussion summary:</div>
+  <div class="starter-row">
+    <button class="starter" onclick="insertStarter('m5-notes','The problem was ')">The problem was...</button>
+    <button class="starter" onclick="insertStarter('m5-notes','The invention was ')">The invention was...</button>
+    <button class="starter" onclick="insertStarter('m5-notes','I would / would not use it again because ')">I would/not use it again...</button>
+  </div>
+  <textarea class="write-ta" id="m5-notes" placeholder="Write your summary here..." oninput="m5Save()" style="min-height:160px;margin-top:6px"></textarea>
+  <div class="wc" id="m5-wc">Words: 0</div>
+  <div class="save-ind" id="m5-saved">✅ Saved!</div>
+
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m5" onclick="markComplete('m5','Pair Notes')">Mark Pair Notes complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m5')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M6: CAN LEO SCORE? -->
+<div class="modal" id="m6">
+<div class="mbox">
+<div class="mhd dk"><div class="mhd-title">⚽ Can Leo Score?</div><div class="mhd-num">6 / 6</div><button class="mhd-close" onclick="closeModal('m6')" title="Just close">✕</button></div>
+<div class="mbody" id="m6-body">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>8 questions! You need 7/8 to score the goal! ⚽ Good luck Leo!</div></div>
+  <div id="m6-quiz"></div>
+  <div id="m6-result" style="display:none"></div>
+  <div class="btn-row-bottom" id="m6-bottom" style="display:none">
+    <button class="complete-btn" id="cbtn-m6" onclick="markComplete('m6','Can Leo Score')">Mark Can Leo Score complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m6')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<script>
+// ═══════════════════════════════
+// LEEA SAVE SYSTEM
+// ═══════════════════════════════
+const SAVE_PREFIX = '4-7-mission-';
+const HOMEWORK_ID = new URLSearchParams(location.search).get('hw') || 'leo-4-7-mission';
+const isReview = new URLSearchParams(location.search).get('review') === '1';
+
+function lSave(key, val) {
+  try { localStorage.setItem('leea-' + key, JSON.stringify(val)); } catch(e) {}
+  if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) {
+    window.LEEA_CLOUD.saveProgress(HOMEWORK_ID, key, val);
+  }
+}
+function lLoad(key, fallback=null) {
+  try { const v = localStorage.getItem('leea-' + key); return v !== null ? JSON.parse(v) : fallback; } catch(e) { return fallback; }
+}
+
+function saveScore(score, done, extra={}) {
+  const total = m6Qs.length;
+  const percent = Math.round(score / total * 100);
+  const data = { score, total, percent, done, timestamp: new Date().toISOString(), ...extra };
+  lSave(SAVE_PREFIX + 'score', data);
+  lSave(HOMEWORK_ID + '-score', data);
+  if (done) { lSave(SAVE_PREFIX + 'done', true); lSave(HOMEWORK_ID + '-done', true); }
+}
+
+// ═══════════════════════════════
+// CLOUD RESTORE
+async function restoreProgressFromCloud() {
+  if (!window.LEEA_CLOUD || !window.LEEA_CLOUD.enabled) return;
+  const rows = await window.LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+  if (!rows) return;
+  rows.forEach(function(row) {
+    localStorage.setItem('leea-' + row.storage_key, JSON.stringify(row.value));
+  });
+}
+
+// REVIEW MODE
+// ═══════════════════════════════
+function initReviewMode() {
+  document.getElementById('appRoot').style.display = 'none';
+  document.getElementById('reviewScreen').classList.add('show');
+  const body = document.getElementById('reviewBody');
+  const score = lLoad(SAVE_PREFIX + 'score');
+  const problem = lLoad(SAVE_PREFIX + 'm4-problem', '');
+  const invention = lLoad(SAVE_PREFIX + 'm4-invention', '');
+  const notes = lLoad(SAVE_PREFIX + 'm5-notes', '');
+  if (!score && !problem && !notes) {
+    body.innerHTML = '<div style="text-align:center;padding:40px;font-size:.9rem;font-weight:700;color:var(--ink3)">📋 Work not started yet.</div>';
+    return;
+  }
+  let html = '';
+  if (score) {
+    const pct = Math.round(score.score / 8 * 100);
+    html += `<div class="rv-card"><div class="rv-lbl">QUIZ RESULT</div>
+      <div style="font-family:var(--fnh);font-size:2rem;font-weight:700;color:var(--pu)">${score.score}/8 — ${pct}% ${pct>=80?'✅ PASS':'❌ Retry'}</div>
+      ${score.wrongQuestions&&score.wrongQuestions.length?`<div style="margin-top:6px;font-size:.78rem;font-weight:700;color:var(--rd)">Missed: ${score.wrongQuestions.join(', ')}</div>`:''}
+    </div>`;
+  }
+  if (problem) html += `<div class="rv-card"><div class="rv-lbl">THINK — TYPICAL PROBLEM</div><div class="rv-val">${problem}</div></div>`;
+  if (invention) html += `<div class="rv-card"><div class="rv-lbl">THINK — INVENTION IDEA</div><div class="rv-val">${invention}</div></div>`;
+  if (notes) html += `<div class="rv-card"><div class="rv-lbl">PAIR NOTES</div><div class="rv-val">${notes}</div></div>`;
+  body.innerHTML = html;
+}
+
+// ═══════════════════════════════
+// MODAL
+// ═══════════════════════════════
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (id === 'm6' && !m6Started) initM6();
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ═══════════════════════════════
+// BADGE + PROGRESS
+// ═══════════════════════════════
+function updateBadge(id, state) {
+  try {
+    const el = document.getElementById('badge-' + id);
+    if (!el) return;
+    el.className = 'mod-badge ' + (state==='done'?'badge-done':state==='prog'?'badge-prog':'badge-new');
+    el.textContent = state==='done'?'✅ DONE':state==='prog'?'▶ IN PROGRESS':id==='m6'?'FINAL QUIZ':'NOT STARTED';
+    const pf = document.getElementById('progFill');
+    if (pf) {
+      const done = ['m1','m2','m3','m4','m5','m6'].filter(m => {
+        const b = document.getElementById('badge-'+m);
+        return b && b.classList && b.classList.contains('badge-done');
+      }).length;
+      pf.style.width = (done/6*100) + '%';
+    }
+  } catch(e) { console.warn(e); }
+}
+
+function showSaveInd(id) {
+  const el = document.getElementById(id + '-saved');
+  if (!el) return;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+// ═══════════════════════════════
+// MARK COMPLETE
+// ═══════════════════════════════
+function markComplete(id, name) {
+  try {
+    lSave(SAVE_PREFIX + id + '-complete', { name, timestamp: new Date().toISOString(), done: true });
+    lSave(SAVE_PREFIX + id + '-done', true);
+    lSave(HOMEWORK_ID + '-' + id + '-done', true);
+    updateBadge(id, 'done');
+    const btn = document.getElementById('cbtn-' + id);
+    if (btn) { btn.classList.add('confirmed'); btn.textContent = '✅ ' + name + ' complete'; }
+    setTimeout(function() { closeModal(id); }, 400);
+  } catch(e) { console.error(e); }
+}
+
+// ═══════════════════════════════
+// RESET MODULE
+// ═══════════════════════════════
+function resetModule(id) {
+  const names = { m1:'Vocabulary', m2:'Be the Expert', m3:'The Quote', m4:'Think', m5:'Pair Notes', m6:'Can Leo Score' };
+  let redoBtn = null;
+  document.querySelectorAll('.reset-btn').forEach(function(b) {
+    if (b.getAttribute('onclick') === "resetModule('" + id + "')") redoBtn = b;
+  });
+  if (redoBtn && !redoBtn.dataset.armed) {
+    redoBtn.dataset.armed = '1';
+    redoBtn.textContent = 'Sure? ↺';
+    redoBtn.style.background = '#DC2626'; redoBtn.style.color = '#fff';
+    setTimeout(function() {
+      if (redoBtn && redoBtn.dataset.armed) {
+        delete redoBtn.dataset.armed; redoBtn.textContent = '↺ Redo';
+        redoBtn.style.background = ''; redoBtn.style.color = '';
+      }
+    }, 3000);
+    return;
+  }
+  if (redoBtn) { delete redoBtn.dataset.armed; redoBtn.textContent = '↺ Redo'; redoBtn.style.background = ''; redoBtn.style.color = ''; }
+
+  const prefix = 'leea-' + SAVE_PREFIX;
+  Object.keys(localStorage).filter(function(k) { return k.startsWith(prefix + id + '-'); }).forEach(function(k) { localStorage.removeItem(k); });
+  localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
+
+  lSave(SAVE_PREFIX + id + '-complete', null);
+  lSave(SAVE_PREFIX + id + '-done', false);
+  lSave(HOMEWORK_ID + '-' + id + '-done', false);
+
+  updateBadge(id, 'new');
+  const completBtn = document.getElementById('cbtn-' + id);
+  if (completBtn) { completBtn.classList.remove('confirmed'); completBtn.textContent = 'Mark ' + (names[id]||id) + ' complete ✓'; }
+
+  if (id==='m1') { lSave(SAVE_PREFIX+'m1-score', null); lSave(SAVE_PREFIX+'m1-answers', new Array(4).fill(null)); initM1(); }
+  else if (id==='m2') { lSave(SAVE_PREFIX+'m2-score', null); lSave(SAVE_PREFIX+'m2-answers', new Array(5).fill(null)); initM2(); }
+  else if (id==='m3') { lSave(SAVE_PREFIX+'m3-done-correct', false); ['b1','b2','b3'].forEach(function(bid){ var el=document.getElementById(bid); if(el){el.value='';el.className='blank';el.disabled=false;} }); var fb=document.getElementById('quote-fb'); if(fb){fb.className='mcq-fb';fb.textContent='';} }
+  else if (id==='m4') { lSave(SAVE_PREFIX+'m4-problem', ''); lSave(SAVE_PREFIX+'m4-invention', ''); ['m4-problem','m4-invention'].forEach(function(k){ var el=document.getElementById(k); if(el) el.value=''; }); }
+  else if (id==='m5') { lSave(SAVE_PREFIX+'m5-notes', ''); var ta=document.getElementById('m5-notes'); if(ta){ta.value='';} var wc=document.getElementById('m5-wc'); if(wc) wc.textContent='Words: 0'; }
+  else if (id==='m6') { lSave(SAVE_PREFIX+'score', null); lSave(SAVE_PREFIX+'wrongQuestions', []); lSave(SAVE_PREFIX+'done', false); m6Started=false; var q=document.getElementById('m6-quiz'); if(q) q.innerHTML=''; var r=document.getElementById('m6-result'); if(r) r.style.display='none'; var bot=document.getElementById('m6-bottom'); if(bot) bot.style.display='none'; }
+}
+
+// ═══════════════════════════════
+// M1: VOCABULARY MCQ
+// ═══════════════════════════════
+const m1Data = [
+  { q: 'What does "curiosity" mean?', opts: ['A feeling of fear', 'The desire to know or learn', 'A type of invention', 'Being bored'], correct: 1, fb: '✅ Curiosity = the desire to know or learn! Ozcan says science is based on curiosity.' },
+  { q: 'Which sentence uses "curiosity" correctly?', opts: ['I have curiosity for dinner.', 'My curiosity made me research how planes fly!', 'Curiosity is a type of football.', 'I feel curiosity every Sunday.'], correct: 1, fb: '✅ "My curiosity made me research..." — perfect! Curiosity drives learning.' },
+  { q: 'What does "typical" mean?', opts: ['Very unusual and strange', 'Impossible to solve', 'Normal, usual, happening often', 'Extremely difficult'], correct: 2, fb: '✅ Typical = normal and usual — something that happens regularly!' },
+  { q: 'Which is a "typical" problem?', opts: ['A dragon attacks your school', 'Your phone battery dies at the worst moment ⚡', 'You score 10 goals in one match', 'You meet Haaland in the supermarket'], correct: 1, fb: '✅ Phone battery dying is a typical everyday problem — it happens to everyone!' }
+];
+let m1Score = 0;
+
+function initM1() {
+  const container = document.getElementById('m1-questions');
+  container.innerHTML = '';
+  m1Data.forEach(function(item, i) {
+    const div = document.createElement('div');
+    div.className = 'sent-card';
+    div.style.marginBottom = '8px';
+    div.innerHTML = '<div class="sent-text">' + item.q + '</div><div class="mcq-opts" id="m1-opts' + i + '"></div><div class="mcq-fb" id="m1-fb' + i + '"></div>';
+    container.appendChild(div);
+    const opts = document.getElementById('m1-opts' + i);
+    item.opts.forEach(function(o, j) {
+      const btn = document.createElement('button');
+      btn.className = 'mcq-opt';
+      btn.textContent = String.fromCharCode(65+j) + ') ' + o;
+      btn.onclick = function() { ansM1(i, j); };
+      opts.appendChild(btn);
+    });
+  });
+  const saved = lLoad(SAVE_PREFIX + 'm1-answers', new Array(4).fill(null));
+  saved.forEach(function(ans, i) { if (ans !== null) ansM1(i, ans, true); });
+}
+
+function ansM1(qi, choice, restore) {
+  const saved = lLoad(SAVE_PREFIX + 'm1-answers', new Array(4).fill(null));
+  if (!restore && saved[qi] !== null) return;
+  if (!restore) { saved[qi] = choice; lSave(SAVE_PREFIX + 'm1-answers', saved); }
+  const opts = document.querySelectorAll('#m1-opts' + qi + ' .mcq-opt');
+  opts.forEach(function(o) { o.disabled = true; });
+  const isOk = choice === m1Data[qi].correct;
+  opts[choice].classList.add(isOk ? 'ok' : 'bad');
+  if (!isOk) opts[m1Data[qi].correct].classList.add('ok');
+  const fb = document.getElementById('m1-fb' + qi);
+  fb.className = 'mcq-fb show ' + (isOk ? 'ok' : 'bad');
+  fb.textContent = isOk ? m1Data[qi].fb : '❌ Not quite! ' + m1Data[qi].fb;
+  if (!restore) {
+    const all = lLoad(SAVE_PREFIX + 'm1-answers', []);
+    if (all.filter(function(a) { return a !== null; }).length === 4) {
+      m1Score = all.filter(function(a, j) { return a === m1Data[j].correct; }).length;
+      lSave(SAVE_PREFIX + 'm1-score', m1Score);
+      const disp = document.getElementById('m1-score-disp');
+      disp.style.display = 'block'; disp.textContent = 'Score: ' + m1Score + '/4 ⚽';
+      updateBadge('m1', m1Score >= 3 ? 'done' : 'prog');
+    }
+  }
+}
+
+// ═══════════════════════════════
+// M2: BE THE EXPERT
+// ═══════════════════════════════
+const m2Data = [
+  { q: 'What did Aydogan Ozcan invent?', opts: ['A new type of soccer ball', 'A way to turn smartphones into microscopes 🔬', 'Solar-powered cars', 'A vaccine for malaria'], correct: 1, fb: '✅ Ozcan turned smartphones into microscopes — using a simple lens attachment!' },
+  { q: 'Why is Ozcan important? What did he invent?', opts: ['It makes phones cheaper', 'It lets doctors diagnose diseases in remote areas 🌍', 'It makes photos look better', 'It gives better Wi-Fi signal'], correct: 1, fb: '✅ It helps doctors diagnose malaria in places with no hospitals — amazing!' },
+  { q: 'Where are the Faroe Islands?', opts: ['Mediterranean Sea', 'Indian Ocean', 'Northeast Atlantic Ocean 🌊', 'Pacific Ocean'], correct: 2, fb: '✅ The Faroe Islands are 18 volcanic islands in the Northeast Atlantic Ocean.' },
+  { q: 'What was the Sheep View 360 project?', opts: ['Counting sheep from space', 'Training sheep to play football', 'Putting cameras on sheep to map the islands 🐑📷', 'A documentary about farming'], correct: 2, fb: '✅ Sheep carried solar-powered cameras to map the Faroe Islands for Google Street View!' },
+  { q: 'Why could not cars map the Faroe Islands?', opts: ['Cars are too expensive', 'The island paths are too narrow for cars 🚗❌', 'There is no petrol on the islands', 'Cars are not allowed on the islands'], correct: 1, fb: '✅ The paths are too narrow — sheep can walk anywhere that cars cannot!' }
+];
+let m2Score = 0;
+
+function initM2() {
+  const container = document.getElementById('m2-questions');
+  container.innerHTML = '';
+  m2Data.forEach(function(item, i) {
+    const div = document.createElement('div');
+    div.className = 'sent-card';
+    div.style.marginBottom = '8px';
+    div.innerHTML = '<div class="sent-text">' + item.q + '</div><div class="mcq-opts" id="m2-opts' + i + '"></div><div class="mcq-fb" id="m2-fb' + i + '"></div>';
+    container.appendChild(div);
+    const opts = document.getElementById('m2-opts' + i);
+    item.opts.forEach(function(o, j) {
+      const btn = document.createElement('button');
+      btn.className = 'mcq-opt';
+      btn.textContent = String.fromCharCode(65+j) + ') ' + o;
+      btn.onclick = function() { ansM2(i, j); };
+      opts.appendChild(btn);
+    });
+  });
+  const saved = lLoad(SAVE_PREFIX + 'm2-answers', new Array(5).fill(null));
+  saved.forEach(function(ans, i) { if (ans !== null) ansM2(i, ans, true); });
+}
+
+function ansM2(qi, choice, restore) {
+  const saved = lLoad(SAVE_PREFIX + 'm2-answers', new Array(5).fill(null));
+  if (!restore && saved[qi] !== null) return;
+  if (!restore) { saved[qi] = choice; lSave(SAVE_PREFIX + 'm2-answers', saved); }
+  const opts = document.querySelectorAll('#m2-opts' + qi + ' .mcq-opt');
+  opts.forEach(function(o) { o.disabled = true; });
+  const isOk = choice === m2Data[qi].correct;
+  opts[choice].classList.add(isOk ? 'ok' : 'bad');
+  if (!isOk) opts[m2Data[qi].correct].classList.add('ok');
+  const fb = document.getElementById('m2-fb' + qi);
+  fb.className = 'mcq-fb show ' + (isOk ? 'ok' : 'bad');
+  fb.textContent = isOk ? m2Data[qi].fb : '❌ Not quite! ' + m2Data[qi].fb;
+  if (!restore) {
+    const all = lLoad(SAVE_PREFIX + 'm2-answers', []);
+    if (all.filter(function(a) { return a !== null; }).length === 5) {
+      m2Score = all.filter(function(a, j) { return a === m2Data[j].correct; }).length;
+      lSave(SAVE_PREFIX + 'm2-score', m2Score);
+      const disp = document.getElementById('m2-score-disp');
+      disp.style.display = 'block'; disp.textContent = 'Score: ' + m2Score + '/5 ⚽';
+      updateBadge('m2', m2Score >= 4 ? 'done' : 'prog');
+    }
+  }
+}
+
+// ═══════════════════════════════
+// M3: THE QUOTE
+// ═══════════════════════════════
+function checkQuote() {
+  const answers = { b1: 'succeed', b2: 'fail', b3: 'curiosity' };
+  let allOk = true;
+  Object.keys(answers).forEach(function(id) {
+    const inp = document.getElementById(id);
+    const val = inp.value.trim().toLowerCase();
+    if (val === answers[id]) {
+      inp.classList.remove('bad'); inp.classList.add('ok'); inp.disabled = true;
+    } else {
+      inp.classList.remove('ok'); inp.classList.add('bad');
+      allOk = false;
+      setTimeout(function() { inp.classList.remove('bad'); }, 600);
+    }
+  });
+  const fb = document.getElementById('quote-fb');
+  if (allOk) {
+    fb.className = 'mcq-fb show ok';
+    fb.textContent = '🎉 Perfect! "Many succeed, but in between you often fail… science is entirely based on curiosity." — You remembered it!';
+    lSave(SAVE_PREFIX + 'm3-done-correct', true);
+    updateBadge('m3', 'done');
+    launchConfetti();
+  } else {
+    fb.className = 'mcq-fb show bad';
+    fb.textContent = '❌ Check your spelling! Hint: succeed / fail / curiosity';
+  }
+}
+
+function resetQuote() {
+  ['b1','b2','b3'].forEach(function(id) {
+    const el = document.getElementById(id);
+    el.value = ''; el.className = 'blank'; el.disabled = false;
+  });
+  const fb = document.getElementById('quote-fb');
+  fb.className = 'mcq-fb'; fb.textContent = '';
+}
+
+// ═══════════════════════════════
+// M4: THINK
+// ═══════════════════════════════
+function m4Save() {
+  lSave(SAVE_PREFIX + 'm4-problem', document.getElementById('m4-problem').value);
+  lSave(SAVE_PREFIX + 'm4-invention', document.getElementById('m4-invention').value);
+  showSaveInd('m4');
+  const p = document.getElementById('m4-problem').value.trim();
+  const inv = document.getElementById('m4-invention').value.trim();
+  updateBadge('m4', p && inv ? 'done' : p || inv ? 'prog' : 'new');
+}
+function loadM4() {
+  document.getElementById('m4-problem').value = lLoad(SAVE_PREFIX + 'm4-problem', '');
+  document.getElementById('m4-invention').value = lLoad(SAVE_PREFIX + 'm4-invention', '');
+}
+
+// ═══════════════════════════════
+// M5: PAIR NOTES
+// ═══════════════════════════════
+function m5Save() {
+  const text = document.getElementById('m5-notes').value;
+  lSave(SAVE_PREFIX + 'm5-notes', text);
+  const w = text.trim().split(/\s+/).filter(function(x){ return x.length>0; }).length;
+  const wc = document.getElementById('m5-wc');
+  wc.textContent = 'Words: ' + w;
+  wc.className = 'wc' + (w >= 30 ? ' met' : '');
+  showSaveInd('m5');
+  updateBadge('m5', w >= 20 ? 'done' : w > 0 ? 'prog' : 'new');
+}
+function loadM5() {
+  const text = lLoad(SAVE_PREFIX + 'm5-notes', '');
+  document.getElementById('m5-notes').value = text;
+  m5Save();
+}
+
+// ═══════════════════════════════
+// STARTER CHIPS
+// ═══════════════════════════════
+function insertStarter(taId, text) {
+  const ta = document.getElementById(taId);
+  if (!ta) return;
+  const pos = ta.selectionStart;
+  ta.value = ta.value.slice(0, pos) + text + ta.value.slice(pos);
+  ta.selectionStart = ta.selectionEnd = pos + text.length;
+  ta.focus();
+  if (taId === 'm4-problem' || taId === 'm4-invention') m4Save();
+  if (taId === 'm5-notes') m5Save();
+}
+
+// ═══════════════════════════════
+// M6: CAN LEO SCORE?
+// ═══════════════════════════════
+const m6Qs = [
+  { type:'mcq', tag:'VOCABULARY', q:'What does "curiosity" mean?', opts:['Feeling tired','The desire to know and learn 🔍','A type of problem','Being happy'], correct:1, fb:'✅ Curiosity = the desire to know and learn. Ozcan said science is based on it!' },
+  { type:'mcq', tag:'VOCABULARY', q:'Which sentence uses "typical" correctly?', opts:['A typical elephant lives on Mars.','It is typical for Haaland to score in important matches. ⚽','Typical is my favourite food.','I feel typical today.'], correct:1, fb:'✅ "It is typical for Haaland to score" — typical means it happens regularly, normally!' },
+  { type:'tf', tag:'BE THE EXPERT', q:'True or False?', s:'Aydogan Ozcan invented a way to turn smartphones into microscopes to help doctors in remote areas.🔬', a:true, fb:'✅ TRUE! His invention uses smartphones as microscopes — saving lives in areas with no hospitals.' },
+  { type:'mcq', tag:'BE THE EXPERT', q:'What was the problem that Sheep View 360 solved?', opts:['Sheep were getting lost on the islands','The Faroe Islands were not on Google Street View 🗺️','There was no internet on the islands','Tourists could not find the islands'], correct:1, fb:'✅ Cars cannot go on the narrow paths — so sheep carried cameras instead! Brilliant solution!' },
+  { type:'tf', tag:'THE QUOTE', q:'True or False?', s:'"Many succeed, but in between you often fail… science is entirely based on curiosity." — This quote means failure is part of learning.', a:true, fb:'✅ TRUE! Ozcan says fail is normal in science. Curiosity keeps you going after failure!' },
+  { type:'mcq', tag:'THE QUOTE', q:'Complete the quote: "Science is entirely based on ___".', opts:['success','technology','curiosity 🔍','imagination'], correct:2, fb:'✅ Curiosity! Ozcan believes curiosity drives all scientific discovery.' },
+  { type:'mcq', tag:'THINK', q:'What is a "typical problem"?', opts:['Something that never happens','Something impossible to solve','Something normal that often goes wrong in daily life ⚠️','A problem in a science experiment'], correct:2, fb:'✅ A typical problem = something normal that often goes wrong — like a phone dying or forgetting homework!' },
+  { type:'tf', tag:'MISSION', q:'True or False?', s:'To be a great inventor, you need expensive equipment and a university degree before you can start.', a:false, fb:'✅ FALSE! Ozcan used a simple lens. Sheep carried cameras. Big ideas start with curiosity and imagination — not equipment!' }
+];
+
+let m6Started = false, m6Idx = 0, m6Score = 0, m6Wrong = [], m6StartTime = null;
+
+function initM6() {
+  m6Started = true; m6Idx = 0; m6Score = 0; m6Wrong = [];
+  m6StartTime = Date.now();
+  document.getElementById('m6-result').style.display = 'none';
+  document.getElementById('m6-bottom').style.display = 'none';
+  renderM6();
+}
+
+function renderM6() {
+  const container = document.getElementById('m6-quiz');
+  if (m6Idx >= m6Qs.length) { showM6Result(); return; }
+  const q = m6Qs[m6Idx];
+  const pct = Math.round(m6Idx / m6Qs.length * 100);
+  let html = '<div class="qz-prog-bar"><div class="qz-prog-fill" style="width:' + pct + '%"></div></div>';
+  html += '<div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="font-family:var(--fnh);font-size:.7rem;letter-spacing:1px;color:var(--ink3)">Question ' + (m6Idx+1) + ' of ' + m6Qs.length + '</span><span style="font-family:var(--fnh);font-size:.7rem;letter-spacing:1px;color:var(--pu)">Score: ' + m6Score + ' ⚽</span></div>';
+  html += '<div class="sent-card"><div class="qz-tag">' + q.tag + '</div><div class="qz-q">' + q.q + '</div>';
+  if (q.s) html += '<div class="qz-sentence">' + q.s + '</div>';
+  if (q.type === 'mcq') {
+    html += '<div class="mcq-opts">' + q.opts.map(function(o,i){ return '<button class="mcq-opt" onclick="ansM6(' + i + ')">' + String.fromCharCode(65+i) + ') ' + o + '</button>'; }).join('') + '</div>';
+  } else {
+    html += '<div style="display:flex;gap:10px;margin-top:8px"><button class="mcq-opt" style="flex:1;text-align:center;background:var(--gnl);border-color:var(--gn);color:var(--gn)" onclick="ansM6(true)">✅ TRUE</button><button class="mcq-opt" style="flex:1;text-align:center;background:var(--rdl);border-color:var(--rd);color:var(--rd)" onclick="ansM6(false)">❌ FALSE</button></div>';
+  }
+  html += '<div class="mcq-fb" id="m6-fb"></div></div>';
+  container.innerHTML = html;
+}
+
+function ansM6(choice) {
+  const q = m6Qs[m6Idx];
+  const isOk = (q.type === 'mcq') ? choice === q.correct : choice === q.a;
+  document.querySelectorAll('#m6-quiz .mcq-opt').forEach(function(b) { b.disabled = true; });
+  if (q.type === 'mcq') {
+    const opts = document.querySelectorAll('#m6-quiz .mcq-opt');
+    opts[choice].classList.add(isOk ? 'ok' : 'bad');
+    if (!isOk) opts[q.correct].classList.add('ok');
+  } else {
+    const btns = document.querySelectorAll('#m6-quiz .mcq-opt');
+    btns.forEach(function(b) {
+      const bVal = b.textContent.includes('TRUE');
+      if (bVal === choice) b.classList.add(isOk ? 'ok' : 'bad');
+      if (!isOk && bVal === q.a) b.classList.add('ok');
+    });
+  }
+  const fb = document.getElementById('m6-fb');
+  fb.className = 'mcq-fb show ' + (isOk ? 'ok' : 'bad');
+  fb.textContent = isOk ? '⚽ GOAL! ' + q.fb : '❌ Not quite. ' + q.fb;
+  if (isOk) { m6Score++; showGoalAnim(); }
+  else m6Wrong.push('Q' + (m6Idx+1));
+  setTimeout(function() { m6Idx++; renderM6(); }, 1700);
+}
+
+function showM6Result() {
+  document.getElementById('m6-quiz').innerHTML = '';
+  const pct = Math.round(m6Score / m6Qs.length * 100);
+  const pass = pct >= 80;
+  const timeSpent = Math.round((Date.now() - m6StartTime) / 1000) + 's';
+  const wrongDetails = m6Wrong.map(function(qLabel) {
+    const idx = parseInt(qLabel.replace('Q','')) - 1;
+    const q = m6Qs[idx];
+    return { question: idx+1, prompt: q.q, tag: q.tag };
+  });
+  lSave(SAVE_PREFIX + 'wrongQuestions', wrongDetails);
+  saveScore(m6Score, pass, { wrongQuestions: m6Wrong, timeSpent });
+  updateBadge('m6', pass ? 'done' : 'prog');
+  const res = document.getElementById('m6-result');
+  res.style.display = 'block';
+  res.innerHTML = '<div class="result-box"><div style="font-size:3rem">' + (pass?'🏆':'💪') + '</div><div class="result-score">' + m6Score + '/' + m6Qs.length + '</div><div style="font-family:var(--fnh);font-size:1.1rem;font-weight:700;color:' + (pass?'var(--gn)':'var(--rd)') + '">' + pct + '% — ' + (pass?'⚽ GOAL! PASS!':'Keep trying!') + '</div><div style="font-size:.9rem;font-weight:800;color:var(--ink);margin-top:8px">' + (pass?'🎉 Amazing, Leo! You are a Mission expert!':'📚 Review the modules and try again!') + '</div><div style="font-size:.78rem;color:var(--ink3);margin-top:4px">Time: ' + timeSpent + '</div><div class="result-bullets" style="margin-top:14px">' + m6Qs.map(function(q,i){ return '<div class="result-bullet ' + (m6Wrong.includes('Q'+(i+1))?'bad':'ok') + '">' + (m6Wrong.includes('Q'+(i+1))?'❌':'✅') + ' Q' + (i+1) + ': ' + q.tag + '</div>'; }).join('') + '</div></div>';
+  document.getElementById('m6-bottom').style.display = 'flex';
+  if (pass) launchConfetti();
+}
+
+// ═══════════════════════════════
+// ANIMATIONS
+// ═══════════════════════════════
+function showGoalAnim() {
+  const el = document.getElementById('goalAnim');
+  el.classList.add('show');
+  setTimeout(function() { el.classList.remove('show'); }, 900);
+}
+function launchConfetti() {
+  const colors = ['#7C3AED','#C4B5FD','#F59E0B','#22C55E','#EF4444','#fff'];
+  for (let i = 0; i < 50; i++) {
+    setTimeout(function() {
+      const d = document.createElement('div');
+      d.className = 'cp';
+      d.style.left = Math.random() * 100 + 'vw';
+      d.style.top = '-10px';
+      d.style.background = colors[Math.floor(Math.random() * colors.length)];
+      d.style.width = d.style.height = (7 + Math.random() * 8) + 'px';
+      d.style.animationDuration = (1.2 + Math.random() * 1.5) + 's';
+      document.body.appendChild(d);
+      setTimeout(function() { d.remove(); }, 2500);
+    }, i * 30);
+  }
+}
+
+// ═══════════════════════════════
+// INIT
+// ═══════════════════════════════
+window.addEventListener('DOMContentLoaded', async function() {
+  await restoreProgressFromCloud();
+  if (isReview) { initReviewMode(); return; }
+  initM1(); initM2(); loadM4(); loadM5();
+  const modNames = { m1:'Vocabulary', m2:'Be the Expert', m3:'The Quote', m4:'Think', m5:'Pair Notes', m6:'Can Leo Score' };
+  Object.keys(modNames).forEach(function(id) {
+    const data = lLoad(SAVE_PREFIX + id + '-complete', null);
+    const btn = document.getElementById('cbtn-' + id);
+    if (data && data.timestamp && btn) {
+      btn.classList.add('confirmed');
+      btn.textContent = '✅ ' + modNames[id] + ' complete';
+      updateBadge(id, 'done');
+    }
+  });
+  const m1s = lLoad(SAVE_PREFIX + 'm1-score'); if (m1s !== null) updateBadge('m1', m1s >= 3 ? 'done' : 'prog');
+  const m2s = lLoad(SAVE_PREFIX + 'm2-score'); if (m2s !== null) updateBadge('m2', m2s >= 4 ? 'done' : 'prog');
+  if (lLoad(SAVE_PREFIX + 'm3-done-correct', false)) updateBadge('m3', 'done');
+  const scoreData = lLoad(SAVE_PREFIX + 'score'); if (scoreData) updateBadge('m6', scoreData.done ? 'done' : 'prog');
+});
+</script>
+<script src="unit-7-nav.js"></script>
+</body>
+</html>

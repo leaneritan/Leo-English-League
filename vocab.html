@@ -3,66 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leo's English League</title>
+  <title>Word — Leo's English League</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --paper:       #FAFAF7;
-      --surface:     #FFFFFF;
-      --soft:        #F0EEE8;
-      --border:      #E5E3DC;
-      --ink:         #111111;
-      --ink-2:       #5A5853;
-      --ink-3:       #6B6963;
-      --ink-4:       #9A9A95;
-      --yellow:      #FFCC00;
-      --yellow-bg:   #FFFBE6;
+      --paper:        #FAFAF7;
+      --surface:      #FFFFFF;
+      --soft:         #F0EEE8;
+      --border:       #E5E3DC;
+      --ink:          #111111;
+      --ink-2:        #5A5853;
+      --ink-3:        #6B6963;
+      --ink-4:        #9A9A95;
+      --yellow:       #FFCC00;
+      --yellow-bg:    #FFFBE6;
       --yellow-ink:  #8B6B00;
+      --academic:     #0284C7;
+      --academic-bg:  #F0F9FF;
+      --academic-ink: #075985;
+      --related:      #737373;
+      --related-bg:   #F5F5F5;
+      --content-ink:  #713F12;
+      --content-bg:   #FEF3C7;
+      --extras-bg:    #FDE68A;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: var(--paper); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; min-height: 100vh; -webkit-font-smoothing: antialiased; }
-    .jp-font { font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif; }
 
+    /* Topbar */
     .topbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; background: var(--ink); color: #FFFFFF; }
     .brand { display: flex; align-items: center; gap: 14px; }
     .yellow-mark { background: var(--yellow); color: var(--ink); font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; padding: 5px 10px 4px; }
     .brand-text { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFFFF; text-decoration: none; }
-    .brand-text:hover { color: var(--yellow); }
     .crumb { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); }
     .crumb a { color: var(--ink-4); text-decoration: none; }
-    .crumb a:hover { color: #FFFFFF; }
     .crumb .active { color: var(--yellow); }
     .crumb .sep { color: var(--yellow); margin: 0 6px; }
 
+    /* Container */
     .container { max-width: 860px; margin: 0 auto; padding: 24px 32px 48px; }
     .back-link { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; display: inline-block; cursor: pointer; text-decoration: none; }
     .back-link:hover { color: var(--ink); }
 
+    /* Loading / error / not-found states */
+    .state-msg { text-align: center; padding: 60px 24px; }
+    .state-msg .ico { font-size: 48px; margin-bottom: 16px; }
+    .state-msg h2 { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; color: var(--ink); }
+    .state-msg p { color: var(--ink-2); font-size: 15px; line-height: 1.6; max-width: 520px; margin: 0 auto; }
+    .state-msg .home-link { display: inline-block; margin-top: 24px; padding: 10px 20px; background: var(--ink); color: var(--yellow); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; }
+    .state-msg .home-link:hover { background: var(--yellow); color: var(--ink); }
+
+    /* Level glossary index */
+    .level-index-hero { background: var(--ink); color: #fff; border: 1px solid var(--ink); margin-bottom: 18px; }
+    .level-index-hero-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 22px 24px 20px; }
+    .level-index-kicker { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; }
+    .level-index-title { font-family: 'Oswald', sans-serif; font-size: 52px; line-height: 0.95; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .level-index-sub { max-width: 620px; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.72); }
+    .level-index-mark { width: 76px; min-width: 76px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,0.28); display: grid; place-items: center; font-size: 34px; background: rgba(255,255,255,0.06); }
+    .level-index-stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,0.18); }
+    .level-stat { padding: 12px 16px; border-right: 1px solid rgba(255,255,255,0.18); }
+    .level-stat:last-child { border-right: 0; }
+    .level-stat-num { font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; color: var(--yellow); line-height: 1; }
+    .level-stat-label { font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.62); margin-top: 5px; }
+    .level-index-tools { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 12px; background: rgba(250,250,247,0.96); border: 1px solid var(--border); backdrop-filter: blur(8px); flex-wrap: wrap; }
+    .level-index-search { flex: 1; min-width: 240px; border: 1.5px solid var(--ink); background: var(--surface); color: var(--ink); padding: 12px 14px; font: 700 15px 'Inter', sans-serif; }
+    .level-index-search:focus { outline: 2px solid var(--yellow); outline-offset: 2px; }
+    .level-filter { border: 1px solid var(--border); background: var(--surface); color: var(--ink-3); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 10px 11px; cursor: pointer; }
+    .level-filter:hover { border-color: var(--ink); color: var(--ink); }
+    .level-filter.active { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .level-word-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .level-word-card { display: grid; grid-template-columns: 58px 1fr; gap: 14px; min-height: 128px; background: var(--surface); border: 1px solid var(--border); color: inherit; text-decoration: none; padding: 14px; transition: all 0.15s; }
+    .level-word-card:hover { border-color: var(--ink); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(17,17,17,0.08); }
+    .level-word-card.academic { border-left: 4px solid var(--academic); }
+    .level-word-card.content { border-left: 4px solid var(--content-ink); }
+    .level-word-card.related { border-left: 4px solid var(--related); }
+    .level-word-card.extras { border-left: 4px solid var(--yellow); }
+    .level-word-emoji { width: 58px; height: 58px; display: grid; place-items: center; background: var(--yellow-bg); border: 1px solid var(--border); font-size: 26px; line-height: 1; }
+    .level-word-main { min-width: 0; display: flex; flex-direction: column; gap: 7px; }
+    .level-word-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .level-word-kind { font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-4); text-align: right; white-space: nowrap; }
+    .level-word-name { font-weight: 900; font-size: 18px; line-height: 1.16; color: var(--ink); overflow-wrap: anywhere; }
+    .level-word-meta { font-size: 13px; line-height: 1.42; color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .level-word-jp { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; line-height: 1.45; color: var(--ink-3); display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+    .level-word-action { margin-top: auto; font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+    .level-empty { border: 1px dashed var(--ink-3); background: var(--surface); color: var(--ink-2); padding: 24px; text-align: center; font-weight: 700; }
+
+    /* Page meta */
     .page-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
-    .tag { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); background: var(--surface); padding: 4px 8px 3px; border: 1px solid var(--border); }
-    .tag.main { background: var(--ink); color: var(--yellow); border-color: var(--ink); }
+    .tag { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-3); background: var(--surface); padding: 4px 8px 3px; border: 1px solid var(--border); text-transform: uppercase; }
+    .tag.academic { background: var(--academic); color: #FFFFFF; border-color: var(--academic); }
+    .tag.related  { background: var(--related-bg); color: var(--related); border-color: var(--related); }
+    .tag.content  { background: var(--content-bg); color: var(--content-ink); border-color: var(--content-ink); }
+    .tag.extras   { background: var(--extras-bg); color: var(--yellow-ink); border-color: var(--yellow-ink); }
+    .tag.vocab    { background: var(--yellow); color: var(--ink); border-color: var(--ink); }
+    .tag.origin   { background: var(--academic-bg); color: var(--academic-ink); border-color: var(--academic); }
     .unit-tag { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); }
 
+    /* Visual slot */
     .visual-slot { background: var(--surface); border: 1px solid var(--ink); margin-bottom: 24px; overflow: hidden; }
     .visual-head { background: var(--ink); color: #FFFFFF; padding: 10px 18px; display: flex; align-items: center; gap: 12px; }
     .visual-head .bar { width: 18px; height: 3px; background: var(--yellow); }
     .visual-head .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--yellow); }
-    .visual-head .scene-note { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; margin-left: auto; color: var(--ink-4); }
-    .visual-body { background: var(--yellow-bg); height: 320px; display: flex; align-items: center; justify-content: center; position: relative; }
-    .visual-body .mega-emoji { font-size: 180px; line-height: 1; user-select: none; }
-    .slot-hint { position: absolute; bottom: 12px; right: 14px; font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); background: var(--surface); padding: 4px 8px 3px; border: 1px solid var(--border); }
+    .visual-body { background: var(--yellow-bg); height: 280px; display: flex; align-items: center; justify-content: center; }
+    .visual-body .mega-emoji { font-size: 160px; line-height: 1; user-select: none; }
 
+    /* Word head */
     .word-head { margin-bottom: 22px; }
     .word-top-row { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
     .word { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 64px; line-height: 1; color: var(--ink); }
     .audio-btn { width: 48px; height: 48px; border: 1.5px solid var(--ink); background: var(--surface); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); transition: all 0.15s ease; }
     .audio-btn:hover { background: var(--ink); color: var(--yellow); }
     .audio-btn:active { transform: scale(0.95); }
-    .audio-btn.speaking { background: var(--yellow); color: var(--ink); border-color: var(--ink); animation: pulse 0.9s ease infinite; }
+    .audio-btn.speaking { background: var(--yellow); color: var(--ink); animation: pulse 0.9s ease infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
     .pron-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -73,13 +130,124 @@
     .pron-divider { width: 1px; height: 18px; background: var(--border); }
     .grammar-meta { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-4); }
 
+    /* Sentence card */
     .sentence-card { background: var(--yellow-bg); border: 1px solid var(--border); border-left: 3px solid var(--yellow); padding: 18px 22px; margin-bottom: 22px; }
     .sentence-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--yellow-ink); margin-bottom: 8px; }
     .sentence-text { font-size: 20px; line-height: 1.5; color: var(--ink); font-family: 'Inter', sans-serif; }
     .sentence-text b { font-weight: 600; background: var(--yellow); padding: 0 4px; }
 
+    /* Skeleton notice — for Academic words with empty rich fields */
+    .skeleton-notice { background: var(--soft); border: 1px dashed var(--ink-3); padding: 16px 20px; margin-bottom: 22px; text-align: center; }
+    .skeleton-notice .ico { font-size: 24px; margin-bottom: 6px; }
+    .skeleton-notice .msg { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+    .skeleton-notice .sub { font-size: 13px; color: var(--ink-2); }
+
+    /* Master Japanese toggle */
+    .master-jp-toggle-row { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); }
+    .master-jp-toggle-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); }
+    .master-jp-toggle-label .ja { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; letter-spacing: 0.04em; text-transform: none; color: var(--ink-2); font-weight: 500; margin-left: 6px; }
+
+    .switch { position: relative; display: inline-block; width: 56px; height: 28px; flex-shrink: 0; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .switch-slider { position: absolute; cursor: pointer; inset: 0; background: var(--border); transition: 0.2s; border: 1.5px solid var(--ink); }
+    .switch-slider::before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; top: 50%; transform: translateY(-50%); background: var(--ink); transition: 0.2s; }
+    .switch input:checked + .switch-slider { background: var(--yellow); }
+    .switch input:checked + .switch-slider::before { transform: translate(26px, -50%); background: var(--ink); }
+
+    .switch-state { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
+    .switch-state.on { color: var(--ink); }
+
+    /* JP hide rules */
+    body.jp-hidden .jp-block-inline { display: none; }
+    body.jp-hidden .example-jp { display: none; }
+    body.jp-hidden .colloc-jp,
+    body.jp-hidden .colloc-arrow { display: none; }
+    body.jp-hidden .note-callout { display: none; }
+    body.jp-hidden .try-it-jp { display: none; }
+    body.jp-hidden .rich-section-head .jp-label { display: none; }
+
+    .jp-block-inline, .example-jp, .colloc-jp, .colloc-arrow, .note-callout, .try-it-jp, .rich-section-head .jp-label { transition: opacity 0.2s; }
+
+    /* Rich sections */
+    .rich-section { background: var(--surface); border: 1px solid var(--border); margin-bottom: 18px; overflow: hidden; }
+    .rich-section-head { background: var(--ink); color: #FFFFFF; padding: 10px 18px; display: flex; align-items: center; gap: 12px; }
+    .rich-section-head .bar { width: 16px; height: 3px; background: var(--academic); }
+    .rich-section-head .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--academic); }
+    .rich-section-head .jp-label { font-family: 'Noto Sans JP', sans-serif; font-weight: 500; font-size: 12px; margin-left: auto; color: #FFFFFF; }
+    .rich-section-body { padding: 20px 22px; }
+
+    .en-block { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.65; color: var(--ink); }
+    .en-block.dense { font-size: 15px; }
+    .en-block ul { list-style: none; margin-top: 4px; }
+    .en-block li { padding: 6px 0; padding-left: 18px; position: relative; }
+    .en-block li::before { content: "•"; position: absolute; left: 4px; color: var(--academic); font-weight: 700; }
+
+    .jp-block-inline { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+    .jp-mini-label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--academic-ink); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .jp-mini-label .ja { font-family: 'Noto Sans JP', sans-serif; font-weight: 500; letter-spacing: 0.05em; text-transform: none; color: var(--ink-3); font-size: 12px; }
+    .jp-mini-label .bar { width: 14px; height: 2px; background: var(--academic); }
+    .jp-body { font-family: 'Noto Sans JP', sans-serif; font-size: 16px; line-height: 1.8; color: var(--ink); font-weight: 400; }
+    .jp-body ul { list-style: none; margin-top: 4px; }
+    .jp-body li { padding: 4px 0; padding-left: 22px; position: relative; }
+    .jp-body li::before { content: "▸"; position: absolute; left: 4px; color: var(--academic); }
+    .jp-body .arrow { color: var(--academic); font-weight: 600; padding: 0 4px; }
+
+    .structure { display: inline-block; background: var(--soft); padding: 6px 12px; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; color: var(--ink); margin-top: 6px; border-left: 3px solid var(--academic); }
+    .jp-body .structure { font-family: 'Noto Sans JP', sans-serif; font-weight: 500; }
+
+    /* Examples */
+    .examples-grid { display: flex; flex-direction: column; gap: 12px; }
+    .example-card { background: var(--paper); border: 1px solid var(--border); padding: 14px 16px; }
+    .example-context { display: inline-flex; align-items: center; gap: 6px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--academic-ink); background: var(--academic-bg); padding: 3px 8px 2px; margin-bottom: 8px; }
+    .example-context .ico { font-size: 13px; line-height: 1; }
+    .example-en { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.5; color: var(--ink); margin-bottom: 4px; }
+    .example-en b { font-weight: 600; background: var(--yellow); padding: 0 3px; }
+    .example-jp { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.6; color: var(--ink-2); margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border); }
+    .example-jp b { font-weight: 600; background: var(--yellow-bg); padding: 0 3px; }
+
+    /* Collocations */
+    .collocations-list { display: flex; flex-direction: column; gap: 0; }
+    .collocation { display: flex; align-items: baseline; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .collocation:last-child { border-bottom: 0; }
+    .colloc-en { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; color: var(--ink); min-width: 210px; }
+    .colloc-head { color: var(--ink-3); font-weight: 500; }
+    .colloc-partner { color: var(--ink); font-weight: 700; }
+    .colloc-arrow { color: var(--academic); font-weight: 700; }
+    .colloc-jp { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: var(--ink-2); }
+
+    /* Mini test */
+    .mini-test-card { background: var(--surface); border: 1px solid var(--border); padding: 18px 20px; margin-bottom: 18px; }
+    .mini-test-list { display: flex; flex-direction: column; gap: 14px; }
+    .mini-test-item { background: var(--paper); border: 1px solid var(--border); padding: 14px; }
+    .mini-test-prompt { font-weight: 700; font-size: 15px; line-height: 1.45; margin-bottom: 10px; color: var(--ink); }
+    .mini-test-choices { display: flex; flex-wrap: wrap; gap: 8px; }
+    .mini-choice { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; padding: 7px 10px; border: 1px solid var(--ink); background: #fff; color: var(--ink); cursor: pointer; transition: all 0.15s; }
+    .mini-choice:hover { background: var(--academic-bg); border-color: var(--academic); }
+    .mini-choice.correct { background: #E8F5E9; border-color: #2E7D32; color: #1B5E20; }
+    .mini-choice.wrong { background: #FEE2E2; border-color: #B91C1C; color: #7F1D1D; }
+    .mini-answer { font-size: 14px; line-height: 1.55; color: var(--ink-2); background: #fff; border-left: 3px solid var(--academic); padding: 9px 12px; }
+
+    /* Note callout */
+    .note-callout { background: var(--academic-bg); border: 1px solid var(--academic); border-left: 4px solid var(--academic); padding: 18px 20px; margin-bottom: 18px; }
+    .note-head { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--academic-ink); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .note-head .ja { font-family: 'Noto Sans JP', sans-serif; font-weight: 600; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+    .note-body { font-family: 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.85; color: var(--ink); }
+    .note-body em { font-style: normal; background: #FFFFFF; padding: 1px 6px; font-weight: 500; border: 1px solid var(--academic); display: inline-block; margin: 2px 1px; font-family: 'Inter', sans-serif; color: var(--academic-ink); }
+    .note-body .arrow { color: var(--academic); font-weight: 700; }
+
+    /* Try it */
+    .try-it-card { background: var(--surface); border: 1px solid var(--ink); padding: 18px 20px; margin-bottom: 28px; }
+    .try-it-head { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .try-it-head .ico { font-size: 18px; line-height: 1; }
+    .try-it-head .ja { font-family: 'Noto Sans JP', sans-serif; font-weight: 600; letter-spacing: 0.04em; text-transform: none; font-size: 14px; color: var(--ink-3); margin-left: auto; }
+    .try-it-en { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.55; color: var(--ink); margin-bottom: 10px; }
+    .try-it-en b { font-weight: 600; background: var(--yellow); padding: 0 3px; }
+    .try-it-jp { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.7; color: var(--ink-2); padding-top: 10px; border-top: 1px dashed var(--border); }
+    .try-it-jp b { font-weight: 600; background: var(--yellow-bg); padding: 0 3px; }
+
+    /* Basic JP collapsible (dictionary-style data) */
     .jp-section { margin-bottom: 24px; }
-    .jp-toggle { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 10px 18px; background: var(--yellow); color: var(--ink); border: 1.5px solid var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.15s ease; }
+    .jp-toggle { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 10px 18px; background: var(--yellow); color: var(--ink); border: 1.5px solid var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
     .jp-toggle:hover { background: var(--ink); color: var(--yellow); }
     .jp-toggle .chevron { transition: transform 0.15s ease; width: 12px; height: 12px; }
     .jp-toggle.open .chevron { transform: rotate(180deg); }
@@ -89,32 +257,52 @@
     .jp-section-head .bar { width: 16px; height: 3px; background: var(--yellow); }
     .jp-section-head .label { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--yellow); }
     .jp-section-head .jp-label { font-family: 'Noto Sans JP', sans-serif; font-weight: 500; font-size: 13px; margin-left: auto; color: #FFFFFF; }
-    .jp-block { padding: 20px 22px; border-bottom: 1px solid var(--border); }
+    .jp-block { padding: 18px 22px; border-bottom: 1px solid var(--border); }
     .jp-block:last-child { border-bottom: 0; }
     .jp-block-label { display: flex; align-items: baseline; gap: 8px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
     .jp-block-label .ja { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; letter-spacing: 0.05em; font-weight: 500; color: var(--ink-2); text-transform: none; }
-    .jp-word { font-family: 'Noto Sans JP', sans-serif; font-size: 32px; line-height: 1.3; color: var(--ink); font-weight: 500; margin-bottom: 4px; }
-    .jp-reading { font-size: 14px; color: var(--ink-3); font-style: italic; }
-    .jp-sentence { font-family: 'Noto Sans JP', sans-serif; font-size: 18px; line-height: 1.7; color: var(--ink); font-weight: 400; }
+    .jp-word { font-family: 'Noto Sans JP', sans-serif; font-size: 30px; line-height: 1.3; color: var(--ink); font-weight: 500; margin-bottom: 4px; }
+    .jp-reading { font-size: 13px; color: var(--ink-3); font-style: italic; }
+    .jp-sentence { font-family: 'Noto Sans JP', sans-serif; font-size: 17px; line-height: 1.7; color: var(--ink); font-weight: 400; }
     .jp-sentence b { font-weight: 600; background: var(--yellow-bg); padding: 0 3px; }
     .jp-grammar-row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .jp-grammar-tag { font-family: 'Noto Sans JP', sans-serif; font-weight: 500; font-size: 15px; padding: 6px 12px 5px; background: var(--yellow-bg); color: var(--yellow-ink); border: 1px solid var(--yellow); }
+    .jp-grammar-tag { font-family: 'Noto Sans JP', sans-serif; font-weight: 500; font-size: 14px; padding: 5px 11px 4px; background: var(--yellow-bg); color: var(--yellow-ink); border: 1px solid var(--yellow); }
 
-    .error-state { padding: 48px 32px; text-align: center; color: var(--ink-3); font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.1em; }
-
+    /* Mobile */
     @media (max-width: 700px) {
       .word { font-size: 48px; }
-      .visual-body { height: 240px; }
-      .visual-body .mega-emoji { font-size: 120px; }
+      .visual-body { height: 220px; }
+      .visual-body .mega-emoji { font-size: 110px; }
       .sentence-text { font-size: 17px; }
       .pron-row { gap: 10px; }
       .pron-divider { display: none; }
       .topbar { padding: 14px 20px; }
       .container { padding: 20px 20px 40px; }
+      .level-index-hero-top { padding: 18px; }
+      .level-index-mark { display: none; }
+      .level-index-stats { grid-template-columns: repeat(2, 1fr); }
+      .level-stat:nth-child(2) { border-right: 0; }
+      .level-stat:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.18); }
+      .level-index-tools { position: static; }
+      .level-word-grid { grid-template-columns: 1fr; }
+      .level-word-card { grid-template-columns: 50px 1fr; min-height: 118px; }
+      .level-word-emoji { width: 50px; height: 50px; font-size: 23px; }
+      .level-index-title { font-size: 38px; }
+      .rich-section-body { padding: 16px 18px; }
+      .en-block { font-size: 15px; }
+      .jp-body { font-size: 15px; }
+      .collocation { flex-wrap: wrap; gap: 8px 12px; }
+      .colloc-en { min-width: 100%; font-size: 14px; }
+      .colloc-jp { font-size: 13px; }
     }
+
+    ruby { ruby-position: over; }
+    rt { font-size: 0.55em; color: var(--ink-3); font-weight: 400; letter-spacing: 0.04em; }
+
+    .hidden { display: none !important; }
   </style>
 </head>
-<body>
+<body class="jp-hidden">
 
   <header class="topbar">
     <div class="brand">
@@ -122,74 +310,417 @@
       <a href="index.html" class="brand-text">Leo's English League</a>
     </div>
     <div class="crumb" id="crumb">
-      <a href="index.html">Home</a><span class="sep">/</span><a href="our-world.html">Our World</a>
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="our-world.html">Our World</a>
     </div>
   </header>
 
   <main class="container" id="main">
-    <div class="error-state">Loading…</div>
+    <div class="state-msg" id="loadingState">
+      <div class="ico">⏳</div>
+      <h2>Loading…</h2>
+    </div>
   </main>
 
   <script>
-    const params = new URLSearchParams(location.search);
-    const level = params.get('level') || '4';
-    const unit  = params.get('unit')  || '1';
-    const set   = params.get('set')   || '1';
-    const id    = params.get('id')    || '';
+    // ════════════════════════════════════════════════════════════════
+    // CONSTANTS
+    // ════════════════════════════════════════════════════════════════
 
-    const jsonPath = `content/our-world/level-${level}/unit-${unit}/vocab-${set}.json`;
+    const COMPONENT_NAMES = {
+      Op: "Opener",
+      V1: "Vocab 1",
+      V2: "Vocab 2",
+      G1: "Grammar 1",
+      G2: "Grammar 2",
+      So: "Song",
+      Re: "Reading",
+      Wr: "Writing",
+      Mi: "Mission",
+      Pr: "Project",
+      Bk: "Book Reading"
+    };
 
-    fetch(jsonPath)
-      .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); })
-      .then(data => {
-        const w = data.words.find(x => x.id === id);
-        if (!w) { showError('Word not found.'); return; }
-        render(w, data);
-      })
-      .catch(() => showError('Could not load content.'));
+    const CATEGORY_LABELS = {
+      academic: "Academic Language",
+      related:  "Related Vocabulary",
+      content:  "Content Vocabulary",
+      extras:   "Additional Vocabulary",
+      vocab:    "Vocabulary"
+    };
 
-    function showError(msg) {
-      document.getElementById('main').innerHTML = `<div class="error-state">${msg}</div>`;
+    // ════════════════════════════════════════════════════════════════
+    // URL PARSING
+    // ════════════════════════════════════════════════════════════════
+
+    function getParams() {
+      const p = new URLSearchParams(window.location.search);
+      // Accept BOTH ?word= (glossary convention) and ?id= (existing V1/V2 convention)
+      const word = (p.get('word') || p.get('id') || '').trim();
+      const unitRaw = p.get('unit');
+      const setRaw = p.get('set');
+      const levelRaw = (p.get('level') || '').trim().toLowerCase();
+      return {
+        level: levelRaw === 'all' ? 'all' : parseInt(levelRaw, 10) || null,
+        word: word,
+        unit: unitRaw ? parseInt(unitRaw, 10) : null,
+        set: setRaw ? parseInt(setRaw, 10) : null,
+        module: p.get('module') === 'academic' ? 'academic' : 'glossary'
+      };
     }
 
-    function render(w, data) {
-      document.title = `${w.word} — Leo's English League`;
+    // Parse tag like "L4U8Op" → { level: 4, unit: 8, component: "Op", componentName: "Opener" }
+    function parseTag(tag) {
+      const m = (tag || '').match(/^L(\d+)U(\d+)([A-Za-z]+)$/);
+      if (!m) return null;
+      return {
+        raw: tag,
+        level: parseInt(m[1], 10),
+        unit: parseInt(m[2], 10),
+        component: m[3],
+        componentName: COMPONENT_NAMES[m[3]] || m[3]
+      };
+    }
 
+    // ════════════════════════════════════════════════════════════════
+    // DATA LOADING
+    // ════════════════════════════════════════════════════════════════
+
+    async function loadJson(path) {
+      try {
+        const res = await fetch(path);
+        if (!res.ok) return null;
+        return await res.json();
+      } catch (e) {
+        console.warn(`Failed to load ${path}:`, e);
+        return null;
+      }
+    }
+
+    async function findEntry(level, wordId, unitHint, setHint, module) {
+      const academic = await loadJson('content/our-world/academic_vocab.json');
+      if (module === 'academic') {
+        if (academic && Array.isArray(academic.words)) {
+          const hit = academic.words.find(w =>
+            w.id === wordId && (level === 'all' || (w.levels || []).includes(level))
+          );
+          if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
+        }
+        return null;
+      }
+      // Standalone academic links should always use the translated shared bank.
+      // Unit/set links remain tied to their lesson-specific vocabulary source.
+      if (!unitHint && !setHint && academic && Array.isArray(academic.words)) {
+        const hit = academic.words.find(w => w.id === wordId && (w.levels || []).includes(level));
+        if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
+      }
+      // 1. Try level-wide glossary.json
+      const glossary = await loadJson(`content/our-world/level-${level}/glossary.json`);
+      if (glossary && Array.isArray(glossary.words)) {
+        const hit = glossary.words.find(w => w.id === wordId);
+        if (hit) return { entry: hit, source: 'glossary' };
+      }
+      // 2. Try level-wide extras.json
+      const extras = await loadJson(`content/our-world/level-${level}/extras.json`);
+      if (extras && Array.isArray(extras.words)) {
+        const hit = extras.words.find(w => w.id === wordId);
+        if (hit) return { entry: hit, source: 'extras' };
+      }
+      // 3. Backward compatibility for academic words accessed through older lesson routes.
+      if (academic && Array.isArray(academic.words)) {
+        const hit = academic.words.find(w => w.id === wordId && (w.levels || []).includes(level));
+        if (hit) return { entry: hit, source: 'academic_vocab', module: 'academic' };
+      }
+      // 4. Per-unit V1/V2 fallback (existing tile URL pattern: ?unit=N&set=N&id=ID)
+      //    Per-unit JSONs predate the glossary architecture and may use either
+      //    {words: [...]} or {items: [...]} or a top-level array. We try all.
+      if (unitHint && setHint) {
+        const unitPath = `content/our-world/level-${level}/unit-${unitHint}/vocab-${setHint}.json`;
+        const unitData = await loadJson(unitPath);
+        if (unitData) {
+          const list = Array.isArray(unitData) ? unitData
+                     : Array.isArray(unitData.words) ? unitData.words
+                     : Array.isArray(unitData.items) ? unitData.items
+                     : [];
+          const hit = list.find(w => w.id === wordId);
+          if (hit) {
+            // Synthesize a unit-specific origin tag so the breadcrumb works.
+            // The category 'vocab' renders with the bright-yellow V1/V2 styling.
+            const synthTag = `L${level}U${unitHint}V${setHint}`;
+            return {
+              entry: { ...hit, category: hit.category || 'vocab', tags: hit.tags || [synthTag] },
+              source: `unit-${unitHint}/vocab-${setHint}`
+            };
+          }
+        }
+      }
+      return null;
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // RENDER STATE DETECTION
+    // ════════════════════════════════════════════════════════════════
+
+    function isRichAcademic(entry) {
+      if (entry.category !== 'academic') return false;
+      // Treat as rich only if the core fields are populated
+      return Boolean(entry.meaning && entry.meaning.trim());
+    }
+
+    function isSkeletonAcademic(entry) {
+      return entry.category === 'academic' && !isRichAcademic(entry);
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // ESCAPE HELPER (basic — string values are trusted authored content,
+    // but we still escape stray <script> just in case)
+    // ════════════════════════════════════════════════════════════════
+
+    function safeHTML(s) {
+      // We pass through <b> tags (authored), but block <script> etc.
+      // Authored content uses only <b> for highlighting.
+      if (typeof s !== 'string') return '';
+      return s.replace(/<(?!\/?b\b)[^>]*>/gi, '');
+    }
+
+    function safeAttr(s) {
+      return safeHTML(s)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function nonDuplicateJpPatterns(entry) {
+      const patterns = entry.jp_how_to_use?.patterns || [];
+      const partners = new Set((entry.collocations || []).map(c =>
+        `${(c.en || '').trim()} = ${(c.jp || '').trim()}`
+      ));
+      return patterns.filter(p => !partners.has(String(p || '').trim()));
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // RENDER PIECES
+    // ════════════════════════════════════════════════════════════════
+
+    async function loadLevelWords(level) {
+      if (level === 'all') {
+        const all = [];
+        for (let l = 1; l <= 6; l++) {
+          const levelWords = await loadLevelWords(l);
+          all.push(...levelWords.map(w => ({ ...w, level: l })));
+        }
+        return all;
+      }
+      const glossary = await loadJson(`content/our-world/level-${level}/glossary.json`);
+      const extras = await loadJson(`content/our-world/level-${level}/extras.json`);
+      const words = [];
+      if (glossary && Array.isArray(glossary.words)) {
+        words.push(...glossary.words.map(w => ({ ...w, level, source: 'glossary' })));
+      }
+      if (extras && Array.isArray(extras.words)) {
+        words.push(...extras.words.map(w => ({ ...w, level, category: w.category || 'extras', source: 'extras' })));
+      }
+      return words;
+    }
+
+    async function loadAcademicWords(level) {
+      const academic = await loadJson('content/our-world/academic_vocab.json');
+      if (!academic || !Array.isArray(academic.words)) return [];
+      return academic.words
+        .filter(w => level === 'all' || (w.levels || []).includes(level))
+        .map(w => ({ ...w, level, source: 'academic_vocab' }));
+    }
+
+    function levelWordCategory(entry) {
+      if (entry.category === 'academic' || entry.kind === 'academic_language') return 'academic';
+      if (entry.category === 'content') return 'content';
+      if (entry.category === 'related') return 'related';
+      if (entry.category === 'extras') return 'extras';
+      return entry.category || 'vocab';
+    }
+
+    function previewText(text, limit = 128) {
+      const clean = safeHTML(text || '').replace(/\s+/g, ' ').trim();
+      return clean.length > limit ? clean.slice(0, limit - 1) + '…' : clean;
+    }
+
+    function renderLevelIndex(level, words, module = 'glossary') {
       const crumb = document.getElementById('crumb');
-      crumb.innerHTML =
-        `<a href="index.html">Home</a><span class="sep">/</span>` +
-        `<a href="our-world.html">Our World</a><span class="sep">/</span>` +
-        `<a href="our-world.html">Level ${data.level}</a><span class="sep">/</span>` +
-        `<a href="our-world.html">Unit ${data.unit}</a><span class="sep">/</span>` +
-        `<span class="active">${w.word}</span>`;
+      const academicMode = module === 'academic';
+      const title = academicMode
+        ? (level === 'all' ? 'All Academic Levels' : `Academic Level ${level}`)
+        : (level === 'all' ? 'All Levels' : `Level ${level}`);
+      crumb.innerHTML = [
+        `<a href="index.html">Home</a><span class="sep">/</span>`,
+        `<a href="our-world.html">Our World</a><span class="sep">/</span>`,
+        `<span class="active">${academicMode ? title : `${title} Glossary`}</span>`
+      ].join('');
 
-      const jpTagsHtml = (w.jp_tags || []).map(t =>
-        `<div class="jp-grammar-tag">${t}</div>`
-      ).join('');
+      const counts = words.reduce((acc, w) => {
+        const cat = levelWordCategory(w);
+        acc[cat] = (acc[cat] || 0) + 1;
+        return acc;
+      }, {});
+      const filters = academicMode ? [
+        ['all', `All ${words.length}`]
+      ] : [
+        ['all', `All ${words.length}`],
+        ['academic', `Academic ${counts.academic || 0}`],
+        ['content', `Content ${counts.content || 0}`],
+        ['related', `Related ${counts.related || 0}`],
+        ['extras', `Extras ${counts.extras || 0}`]
+      ].filter(([key]) => key === 'all' || counts[key]);
+      const statItems = academicMode ? [
+        ['Words', words.length],
+        ['Shared', words.filter(w => (w.levels || []).length > 1).length],
+        ['Level', level === 'all' ? '1-6' : level],
+        ['Module', 'Academic']
+      ] : [
+        ['Words', words.length],
+        ['Academic', counts.academic || 0],
+        ['Content', counts.content || 0],
+        ['Related', counts.related || 0]
+      ];
 
       document.getElementById('main').innerHTML = `
-        <a href="our-world.html" onclick="history.back(); return false;" class="back-link">← Back to Our World</a>
-
-        <div class="page-meta">
-          <div class="tag main">Vocabulary</div>
-          <div class="unit-tag">Level ${data.level} · Unit ${data.unit} · ${data.unit_name}</div>
+        <a href="our-world.html" class="back-link">Back to Our World</a>
+        <div class="level-index-hero">
+          <div class="level-index-hero-top">
+            <div>
+              <div class="level-index-kicker">${academicMode ? 'Our World Academic Module' : 'Our World Glossary'}</div>
+              <h1 class="level-index-title">${title}</h1>
+              <p class="level-index-sub">${academicMode
+                ? 'Academic language is kept separately from lesson glossaries. Choose a word for examples, Japanese support, common partners, and mini tests.'
+                : 'Search the level, filter by word type, then open a card for examples, Japanese support, common partners, and mini tests.'}</p>
+            </div>
+            <div class="level-index-mark">📚✨</div>
+          </div>
+          <div class="level-index-stats">
+            ${statItems.map(([label, value]) => `
+              <div class="level-stat">
+                <div class="level-stat-num">${value}</div>
+                <div class="level-stat-label">${safeHTML(label)}</div>
+              </div>
+            `).join('')}
+          </div>
         </div>
+        <div class="level-index-tools">
+          <input class="level-index-search" id="levelWordSearch" type="search" placeholder="Search ${title} words...">
+          ${filters.map(([key, label]) => `<button class="level-filter ${key === 'all' ? 'active' : ''}" type="button" data-filter="${key}">${safeHTML(label)}</button>`).join('')}
+        </div>
+        <div class="level-word-grid" id="levelWordGrid">
+          ${words.map(w => {
+            const cat = levelWordCategory(w);
+            const label = CATEGORY_LABELS[cat] || cat;
+            const summary = w.meaning || w.sample || w.sentence || '';
+            const jpPreview = w.jp_meaning || w.jp_sentence || w.jp_word || '';
+            return `
+              <a class="level-word-card ${cat}" href="vocab.html?${academicMode ? 'module=academic&' : ''}level=${level}&id=${encodeURIComponent(w.id)}" data-cat="${safeAttr(cat)}" data-search="${safeAttr([w.word, w.id, label, summary, jpPreview, ...(w.levels || []).map(l => `level ${l}`)].join(' '))}">
+                <div class="level-word-emoji">${safeHTML(w.emoji || '📚')}</div>
+                <div class="level-word-main">
+                  <div class="level-word-top">
+                    <div class="level-word-name">${safeHTML(w.word || w.id)}</div>
+                    <div class="level-word-kind">${academicMode && level === 'all' ? `${(w.levels || []).map(l => `L${l}`).join(' / ')} · ` : ''}${safeHTML(label)}</div>
+                  </div>
+                  <div class="level-word-meta">${previewText(summary, 120)}</div>
+                  ${jpPreview ? `<div class="level-word-jp">${previewText(jpPreview, 86)}</div>` : ''}
+                  <div class="level-word-action">Open word →</div>
+                </div>
+              </a>
+            `;
+          }).join('')}
+        </div>
+        <div class="level-empty hidden" id="levelEmpty">No matching words in this level.</div>
+      `;
+      wireLevelIndex();
+    }
 
+    function wireLevelIndex() {
+      const search = document.getElementById('levelWordSearch');
+      const cards = Array.from(document.querySelectorAll('.level-word-card'));
+      const filters = Array.from(document.querySelectorAll('.level-filter'));
+      const empty = document.getElementById('levelEmpty');
+      let activeFilter = 'all';
+
+      function apply() {
+        const q = (search.value || '').trim().toLowerCase();
+        let shown = 0;
+        cards.forEach(card => {
+          const catOk = activeFilter === 'all' || card.dataset.cat === activeFilter;
+          const searchOk = !q || (card.dataset.search || '').toLowerCase().includes(q);
+          const visible = catOk && searchOk;
+          card.classList.toggle('hidden', !visible);
+          if (visible) shown++;
+        });
+        empty.classList.toggle('hidden', shown > 0);
+      }
+
+      search.addEventListener('input', apply);
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeFilter = btn.dataset.filter || 'all';
+          filters.forEach(b => b.classList.toggle('active', b === btn));
+          apply();
+        });
+      });
+    }
+
+    function renderCrumb(entry, originTag, module) {
+      const crumb = document.getElementById('crumb');
+      const parts = [
+        `<a href="index.html">Home</a><span class="sep">/</span>`,
+        `<a href="our-world.html">Our World</a>`
+      ];
+      if (module === 'academic') {
+        parts.push(`<span class="sep">/</span><a href="vocab.html?module=academic&level=all">Academic</a>`);
+      }
+      if (originTag) {
+        parts.push(`<span class="sep">/</span><a href="our-world.html">Level ${originTag.level}</a>`);
+        parts.push(`<span class="sep">/</span><a href="our-world.html">Unit ${originTag.unit}</a>`);
+      }
+      parts.push(`<span class="sep">/</span><span class="active">${entry.word}</span>`);
+      crumb.innerHTML = parts.join('');
+    }
+
+    function renderPageMeta(entry, source, originTag) {
+      const catLabel = CATEGORY_LABELS[entry.category] || entry.category;
+      const catClass = entry.category;
+      const originLabel = originTag
+        ? `L${originTag.level}U${originTag.unit} · ${originTag.componentName}`
+        : '';
+      const sourceLabel = source === 'extras' ? 'Extras' : '';
+
+      return `
+        <div class="page-meta">
+          <div class="tag ${catClass}">${catLabel}</div>
+          ${originLabel ? `<div class="tag origin">${originLabel}</div>` : ''}
+          ${sourceLabel ? `<div class="tag extras">${sourceLabel}</div>` : ''}
+          <div class="unit-tag">Level ${originTag ? originTag.level : '?'}${originTag ? ` · Unit ${originTag.unit}` : ''}</div>
+        </div>
+      `;
+    }
+
+    function renderVisualSlot(entry) {
+      return `
         <section class="visual-slot">
           <div class="visual-head">
             <div class="bar"></div>
             <div class="label">Visual</div>
-            <div class="scene-note">Interactive scene coming later</div>
           </div>
           <div class="visual-body">
-            <div class="mega-emoji">${w.emoji}</div>
-            <div class="slot-hint">Emoji · v1 fallback</div>
+            <div class="mega-emoji">${entry.emoji || '📖'}</div>
           </div>
         </section>
+      `;
+    }
 
+    function renderWordHead(entry) {
+      return `
         <section class="word-head">
           <div class="word-top-row">
-            <div class="word">${w.word}</div>
+            <div class="word">${entry.word}</div>
             <button class="audio-btn" id="audioBtn" aria-label="Play pronunciation">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -199,81 +730,526 @@
             </button>
           </div>
           <div class="pron-row">
-            <div class="pron-item">
-              <span class="pron-label">IPA</span>
-              <span class="pron-value">${w.ipa}</span>
-            </div>
-            <div class="pron-divider"></div>
-            <div class="pron-item syllables">
-              <span class="pron-label">Syllables</span>
-              <span class="pron-value">${w.syllables}</span>
-            </div>
+            ${entry.ipa ? `
+              <div class="pron-item">
+                <span class="pron-label">IPA</span>
+                <span class="pron-value">${entry.ipa}</span>
+              </div>
+            ` : ''}
+            ${entry.ipa && entry.syllables ? `<div class="pron-divider"></div>` : ''}
+            ${entry.syllables ? `
+              <div class="pron-item syllables">
+                <span class="pron-label">Syllables</span>
+                <span class="pron-value">${entry.syllables}</span>
+              </div>
+            ` : ''}
           </div>
-          <div class="grammar-meta">${w.pos}</div>
+          ${entry.pos ? `<div class="grammar-meta">${entry.pos}</div>` : ''}
         </section>
+      `;
+    }
 
+    function renderSentenceCard(entry) {
+      if (!entry.sample) return '';
+      return `
         <section class="sentence-card">
           <div class="sentence-label">Sample sentence</div>
-          <div class="sentence-text">${w.sample}</div>
+          <div class="sentence-text">${safeHTML(entry.sample)}</div>
         </section>
+      `;
+    }
 
+    function renderSkeletonNotice() {
+      return `
+        <div class="skeleton-notice">
+          <div class="ico">📝</div>
+          <div class="msg">In-depth content coming soon</div>
+          <div class="sub">The full mini-lesson for this Academic word will be added when its lesson component is built.</div>
+        </div>
+      `;
+    }
+
+    function renderMasterJpToggle() {
+      return `
+        <div class="master-jp-toggle-row">
+          <div class="master-jp-toggle-label">
+            Japanese explanations
+            <span class="ja">日本語の説明</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="jpMasterToggle">
+            <span class="switch-slider"></span>
+          </label>
+          <div class="switch-state" id="jpStateLabel">OFF</div>
+        </div>
+      `;
+    }
+
+    // ────────────────────────────────────────────────────────────────
+    // RICH ACADEMIC SECTIONS
+    // ────────────────────────────────────────────────────────────────
+
+    function renderSectionMeaning(entry) {
+      if (!entry.meaning) return '';
+      return `
+        <section class="rich-section">
+          <div class="rich-section-head">
+            <div class="bar"></div>
+            <div class="label">What it means</div>
+            <div class="jp-label">意味</div>
+          </div>
+          <div class="rich-section-body">
+            <div class="en-block">${safeHTML(entry.meaning)}</div>
+            ${entry.jp_meaning ? `
+              <div class="jp-block-inline">
+                <div class="jp-mini-label">
+                  <span class="bar"></span>
+                  Japanese explanation
+                  <span class="ja">日本語の説明</span>
+                </div>
+                <div class="jp-body">${entry.jp_meaning}</div>
+              </div>
+            ` : ''}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderSectionWhenToUse(entry) {
+      const en = entry.when_to_use || [];
+      const jp = entry.jp_when_to_use || [];
+      if (en.length === 0) return '';
+      return `
+        <section class="rich-section">
+          <div class="rich-section-head">
+            <div class="bar"></div>
+            <div class="label">When you see it</div>
+            <div class="jp-label">いつ使うか</div>
+          </div>
+          <div class="rich-section-body">
+            <div class="en-block dense">
+              <ul>${en.map(x => `<li>${safeHTML(x)}</li>`).join('')}</ul>
+            </div>
+            ${jp.length ? `
+              <div class="jp-block-inline">
+                <div class="jp-mini-label">
+                  <span class="bar"></span>
+                  Japanese examples
+                  <span class="ja">日本語での例</span>
+                </div>
+                <div class="jp-body">
+                  <ul>${jp.map(x => `<li>${x}</li>`).join('')}</ul>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderSectionHowToUse(entry) {
+      const how = entry.how_to_use || {};
+      const jpHow = entry.jp_how_to_use || {};
+      const jpPatterns = nonDuplicateJpPatterns(entry);
+      if (!how.structure && (!how.patterns || how.patterns.length === 0)) return '';
+      return `
+        <section class="rich-section">
+          <div class="rich-section-head">
+            <div class="bar"></div>
+            <div class="label">How to use it</div>
+            <div class="jp-label">使い方</div>
+          </div>
+          <div class="rich-section-body">
+            <div class="en-block dense">
+              ${how.structure ? `<strong style="font-weight:600">Structure:</strong>
+                <div class="structure">${safeHTML(how.structure)}</div>` : ''}
+              ${(how.patterns && how.patterns.length) ? `
+                <ul style="margin-top:10px">
+                  ${how.patterns.map(p => `<li>${safeHTML(p)}</li>`).join('')}
+                </ul>
+              ` : ''}
+            </div>
+            ${(jpHow.structure || jpPatterns.length) ? `
+              <div class="jp-block-inline">
+                <div class="jp-mini-label">
+                  <span class="bar"></span>
+                  Japanese pattern guide
+                  <span class="ja">日本語の使い方</span>
+                </div>
+                <div class="jp-body">
+                  ${jpHow.structure ? `<strong style="font-weight:600">基本の形：</strong>
+                    <div class="structure">${safeHTML(jpHow.structure)}</div>` : ''}
+                  ${jpPatterns.length ? `
+                    <ul style="margin-top:10px">
+                      ${jpPatterns.map(p => `<li>${safeHTML(p)}</li>`).join('')}
+                    </ul>
+                  ` : ''}
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        </section>
+      `;
+    }
+
+    const EXAMPLE_ICONS = {
+      Academic: '📝',
+      Spoken: '💬',
+      Test: '📋',
+      Writing: '✍️',
+      Conversation: '💬'
+    };
+
+    function renderSectionExamples(entry) {
+      const ex = entry.examples || [];
+      if (ex.length === 0) return '';
+      return `
+        <section class="rich-section">
+          <div class="rich-section-head">
+            <div class="bar"></div>
+            <div class="label">Examples in different situations</div>
+            <div class="jp-label">いろいろな例文</div>
+          </div>
+          <div class="rich-section-body">
+            <div class="examples-grid">
+              ${ex.map(e => {
+                const ico = EXAMPLE_ICONS[e.context_en] || '✨';
+                return `
+                  <div class="example-card">
+                    <div class="example-context"><span class="ico">${ico}</span>${e.context_en || ''}${e.context_jp ? ` · ${e.context_jp}` : ''}</div>
+                    <div class="example-en">${safeHTML(e.en || '')}</div>
+                    ${e.jp ? `<div class="example-jp">${e.jp}</div>` : ''}
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderSectionCollocations(entry, headWord) {
+      const cols = entry.collocations || [];
+      if (cols.length === 0) return '';
+      const normalizedHead = String(headWord || '').trim();
+      return `
+        <section class="rich-section">
+          <div class="rich-section-head">
+            <div class="bar"></div>
+            <div class="label">Common partners</div>
+            <div class="jp-label">よく一緒に使う言葉</div>
+          </div>
+          <div class="rich-section-body">
+            <div class="collocations-list">
+              ${cols.map(c => {
+                const phrase = String(typeof c === 'string' ? c : (c.en || '')).trim();
+                const japanese = typeof c === 'string' ? '' : (c.jp || '');
+                const startsWithHead = phrase.toLowerCase().startsWith(normalizedHead.toLowerCase());
+                const partner = startsWithHead ? phrase.slice(normalizedHead.length).trim() : phrase;
+                return `
+                  <div class="collocation">
+                    <span class="colloc-en">
+                      ${startsWithHead ? `<span class="colloc-head">${safeHTML(normalizedHead)}</span>` : ''}
+                      <span class="colloc-partner">${safeHTML(partner || phrase)}</span>
+                    </span>
+                    ${japanese ? `<span class="colloc-arrow">→</span><span class="colloc-jp">${safeHTML(japanese)}</span>` : ''}
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderMiniTest(entry) {
+      const tests = entry.mini_test || [];
+      if (!tests.length) return '';
+      return `
+        <section class="rich-section">
+          <div class="rich-section-head">
+            <div class="bar"></div>
+            <div class="label">Mini test game</div>
+            <div class="jp-label">ミニテスト</div>
+          </div>
+          <div class="rich-section-body">
+            <div class="mini-test-card">
+              <div class="mini-test-list">
+                ${tests.map((t, index) => `
+                  <div class="mini-test-item" data-answer="${safeAttr(t.answer || '')}">
+                    <div class="mini-test-prompt">${safeHTML(t.prompt || '')}</div>
+                    ${Array.isArray(t.choices) && t.choices.length ? `
+                      <div class="mini-test-choices">
+                        ${t.choices.map(choice => `<button class="mini-choice" type="button">${safeHTML(choice)}</button>`).join('')}
+                      </div>
+                    ` : `<div class="mini-answer">${safeHTML(t.answer_example || t.answer || '')}</div>`}
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderNoteCallout(entry) {
+      if (!entry.jp_note) return '';
+      return `
+        <div class="note-callout">
+          <div class="note-head">Watch out! <span class="ja">注意ポイント</span></div>
+          <div class="note-body">${entry.jp_note}</div>
+        </div>
+      `;
+    }
+
+    function renderTryIt(entry) {
+      if (!entry.practice_prompt) return '';
+      return `
+        <div class="try-it-card">
+          <div class="try-it-head">
+            <span class="ico">💭</span>Try it
+            <span class="ja">やってみよう</span>
+          </div>
+          <div class="try-it-en">${safeHTML(entry.practice_prompt)}</div>
+          ${entry.jp_practice_prompt ? `<div class="try-it-jp">${entry.jp_practice_prompt}</div>` : ''}
+        </div>
+      `;
+    }
+
+    // ────────────────────────────────────────────────────────────────
+    // BASIC JAPANESE CARD (bottom of every page)
+    // ────────────────────────────────────────────────────────────────
+
+    function renderBasicJp(entry) {
+      if (!entry.jp_word && !entry.jp_sentence) return '';
+      const tags = (entry.jp_tags || []).map(t => `<div class="jp-grammar-tag">${t}</div>`).join('');
+      return `
         <section class="jp-section">
-          <button class="jp-toggle" id="jpToggle" aria-expanded="false">
-            <span id="jpLabel">Show Japanese</span>
+          <button class="jp-toggle" id="jpToggleBtn" aria-expanded="false">
+            <span id="jpToggleLabel">Show basic Japanese info</span>
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
-          <div class="jp-card" id="jpCard">
+          <div class="jp-card" id="jpBasicCard">
             <div class="jp-section-head">
               <div class="bar"></div>
               <div class="label">Japanese</div>
               <div class="jp-label">日本語</div>
             </div>
-            <div class="jp-block">
-              <div class="jp-block-label">Word <span class="ja">単語</span></div>
-              <div class="jp-word">${w.jp_word}</div>
-              <div class="jp-reading">${w.jp_reading}</div>
-            </div>
-            <div class="jp-block">
-              <div class="jp-block-label">Sentence <span class="ja">例文</span></div>
-              <div class="jp-sentence">${w.jp_sentence}</div>
-            </div>
-            <div class="jp-block">
-              <div class="jp-block-label">Grammar <span class="ja">品詞</span></div>
-              <div class="jp-grammar-row">${jpTagsHtml}</div>
-            </div>
+            ${entry.jp_word ? `
+              <div class="jp-block">
+                <div class="jp-block-label">Word <span class="ja">単語</span></div>
+                <div class="jp-word">${entry.jp_word}</div>
+                ${entry.jp_reading ? `<div class="jp-reading">${entry.jp_reading}</div>` : ''}
+              </div>
+            ` : ''}
+            ${entry.jp_sentence ? `
+              <div class="jp-block">
+                <div class="jp-block-label">Sentence <span class="ja">例文</span></div>
+                <div class="jp-sentence">${entry.jp_sentence}</div>
+              </div>
+            ` : ''}
+            ${tags ? `
+              <div class="jp-block">
+                <div class="jp-block-label">Grammar <span class="ja">品詞</span></div>
+                <div class="jp-grammar-row">${tags}</div>
+              </div>
+            ` : ''}
           </div>
         </section>
       `;
+    }
 
-      const audioBtn = document.getElementById('audioBtn');
-      audioBtn.addEventListener('click', () => {
-        if (!('speechSynthesis' in window)) {
-          alert("Sorry — your browser doesn't support speech. Try Chrome, Safari, or Edge.");
-          return;
-        }
+    // ════════════════════════════════════════════════════════════════
+    // FULL PAGE RENDER
+    // ════════════════════════════════════════════════════════════════
+
+    function renderEntry(entry, source, module, level) {
+      const originTag = parseTag((entry.tags || [])[0]);
+      renderCrumb(entry, originTag, module);
+
+      // Set page title
+      document.title = `${entry.word} — Leo's English League`;
+
+      const main = document.getElementById('main');
+
+      let html = '';
+      html += module === 'academic'
+        ? `<a href="vocab.html?module=academic&level=${level}" class="back-link">Back to Academic Words</a>`
+        : `<a href="our-world.html" class="back-link">Back to Our World</a>`;
+      html += renderPageMeta(entry, source, originTag);
+      html += renderVisualSlot(entry);
+      html += renderWordHead(entry);
+      html += renderSentenceCard(entry);
+
+      const rich = isRichAcademic(entry);
+      const skeletonAcademic = isSkeletonAcademic(entry);
+
+      // Master JP toggle — only show if there's Japanese content to toggle
+      const hasAnyJp = entry.jp_meaning || entry.jp_when_to_use?.length || entry.jp_how_to_use?.structure
+        || entry.jp_note || entry.jp_practice_prompt
+        || (entry.examples || []).some(e => e.jp);
+      if (rich && hasAnyJp) {
+        html += renderMasterJpToggle();
+      }
+
+      // Skeleton notice
+      if (skeletonAcademic) {
+        html += renderSkeletonNotice();
+      }
+
+      // Rich sections (only if rich)
+      if (rich) {
+        html += renderSectionMeaning(entry);
+        html += renderSectionWhenToUse(entry);
+        html += renderSectionHowToUse(entry);
+        html += renderSectionExamples(entry);
+        html += renderSectionCollocations(entry, entry.word);
+        html += renderMiniTest(entry);
+        html += renderNoteCallout(entry);
+        html += renderTryIt(entry);
+      }
+
+      // Basic JP card (always at bottom if jp data present)
+      html += renderBasicJp(entry);
+
+      main.innerHTML = html;
+
+      // Wire up interactions
+      wireAudioButton(entry.word);
+      wireBasicJpToggle();
+      wireMiniTest();
+      if (rich && hasAnyJp) {
+        wireMasterJpToggle();
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // INTERACTIONS
+    // ════════════════════════════════════════════════════════════════
+
+    function wireAudioButton(word) {
+      const btn = document.getElementById('audioBtn');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        if (!('speechSynthesis' in window)) return;
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(w.word);
-        utterance.lang = 'en-US';
-        utterance.rate = 0.85;
-        utterance.pitch = 1.0;
-        audioBtn.classList.add('speaking');
-        utterance.onend = () => audioBtn.classList.remove('speaking');
-        utterance.onerror = () => audioBtn.classList.remove('speaking');
-        window.speechSynthesis.speak(utterance);
-      });
-
-      const jpToggle = document.getElementById('jpToggle');
-      const jpCard = document.getElementById('jpCard');
-      const jpLabel = document.getElementById('jpLabel');
-      jpToggle.addEventListener('click', () => {
-        const isOpen = jpCard.classList.toggle('open');
-        jpToggle.classList.toggle('open', isOpen);
-        jpToggle.setAttribute('aria-expanded', isOpen);
-        jpLabel.textContent = isOpen ? 'Hide Japanese' : 'Show Japanese';
+        const u = new SpeechSynthesisUtterance(word);
+        u.lang = 'en-US'; u.rate = 0.85; u.pitch = 1.0;
+        btn.classList.add('speaking');
+        u.onend = () => btn.classList.remove('speaking');
+        window.speechSynthesis.speak(u);
       });
     }
+
+    function wireMasterJpToggle() {
+      const toggle = document.getElementById('jpMasterToggle');
+      const stateLabel = document.getElementById('jpStateLabel');
+      if (!toggle || !stateLabel) return;
+      toggle.addEventListener('change', e => {
+        if (e.target.checked) {
+          document.body.classList.remove('jp-hidden');
+          stateLabel.textContent = 'ON';
+          stateLabel.classList.add('on');
+        } else {
+          document.body.classList.add('jp-hidden');
+          stateLabel.textContent = 'OFF';
+          stateLabel.classList.remove('on');
+        }
+      });
+    }
+
+    function wireBasicJpToggle() {
+      const btn = document.getElementById('jpToggleBtn');
+      const card = document.getElementById('jpBasicCard');
+      const label = document.getElementById('jpToggleLabel');
+      if (!btn || !card) return;
+      btn.addEventListener('click', () => {
+        const open = card.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        if (label) label.textContent = open ? 'Hide basic Japanese info' : 'Show basic Japanese info';
+      });
+    }
+
+    function wireMiniTest() {
+      document.querySelectorAll('.mini-test-item').forEach(item => {
+        const answer = (item.dataset.answer || '').trim();
+        item.querySelectorAll('.mini-choice').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const choice = btn.textContent.trim();
+            item.querySelectorAll('.mini-choice').forEach(b => b.classList.remove('correct', 'wrong'));
+            btn.classList.add(choice === answer ? 'correct' : 'wrong');
+          });
+        });
+      });
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // ERROR STATES
+    // ════════════════════════════════════════════════════════════════
+
+    function renderError(title, message) {
+      document.getElementById('main').innerHTML = `
+        <div class="state-msg">
+          <div class="ico">⚠️</div>
+          <h2>${title}</h2>
+          <p>${message}</p>
+          <a href="our-world.html" class="home-link">Back to Our World</a>
+        </div>
+      `;
+    }
+
+    function renderNotFound(wordId, level, module) {
+      document.getElementById('main').innerHTML = `
+        <div class="state-msg">
+          <div class="ico">🔍</div>
+          <h2>Word not found</h2>
+          <p>The word <strong>"${wordId}"</strong> wasn't found in ${module === 'academic' ? `the Academic Level ${level} module` : `Level ${level}'s glossary or extras`}. It may not be added yet, or the link may be wrong.</p>
+          <a href="our-world.html" class="home-link">Back to Our World</a>
+        </div>
+      `;
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // BOOT
+    // ════════════════════════════════════════════════════════════════
+
+    async function init() {
+      const { level, word, unit, set, module } = getParams();
+
+      if (!level) {
+        renderError('No level specified', 'Please add ?level=N to the URL (e.g. ?level=4&id=describe).');
+        return;
+      }
+      if (!word) {
+        const words = module === 'academic'
+          ? await loadAcademicWords(level)
+          : await loadLevelWords(level);
+        if (!words.length) {
+          renderError(
+            module === 'academic' ? 'No academic words found' : 'No glossary found',
+            module === 'academic'
+              ? `Level ${level} does not have academic words yet.`
+              : `Level ${level} does not have lesson glossary words yet.`
+          );
+          return;
+        }
+        renderLevelIndex(level, words, module);
+        return;
+      }
+
+      const result = await findEntry(level, word, unit, set, module);
+      if (!result) {
+        renderNotFound(word, level, module);
+        return;
+      }
+
+      renderEntry(result.entry, result.source, result.module || module, level);
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
   </script>
+
 </body>
 </html>

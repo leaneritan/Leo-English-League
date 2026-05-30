@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 7 · Project — Design a Superpower App</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../../../lib/leea-cloud-config.js"></script>
+<script src="../../../../lib/leea-cloud.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pu:#7C3AED;--pul:#EDE9FE;--pud:#6D28D9;
+  --or:#F97316;--orl:#FFF7ED;
+  --ye:#FDE047;--yed:#EAB308;
+  --gn:#16A34A;--gnl:#F0FDF4;
+  --rd:#DC2626;--rdl:#FEE2E2;
+  --ink:#111111;--ink2:#374151;--ink3:#6B7280;
+  --paper:#FAFAF7;--surf:#FFFFFF;--bdr:#E5E7EB;
+  --fn:"Nunito",sans-serif;--fnh:"Oswald",sans-serif;
+}
+body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden}
+
+.app-hdr{background:var(--ink);padding:0 16px;height:50px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.hdr-badge{background:var(--ye);color:var(--ink);font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;padding:2px 7px;border-radius:2px}
+.hdr-title{font-family:var(--fnh);font-size:.85rem;font-weight:700;color:#fff;letter-spacing:1px}
+.hdr-unit{font-size:.7rem;font-weight:700;color:var(--pu)}
+
+.hero{background:linear-gradient(135deg,var(--pu),var(--pud));padding:20px 16px 16px;text-align:center}
+.hero-kick{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.7);margin-bottom:6px}
+.hero-title{font-family:var(--fnh);font-size:1.4rem;font-weight:700;color:#fff}
+.hero-title span{color:var(--ye)}
+.hero-sub{font-size:.78rem;color:rgba(255,255,255,.85);font-weight:600;margin-top:4px}
+.prog-wrap{background:rgba(0,0,0,.15);height:4px}
+.prog-fill{height:100%;background:var(--ye);transition:width .5s;width:0%}
+
+.home{max-width:680px;margin:0 auto;padding:16px 14px 80px}
+.sec-lbl{font-family:var(--fnh);font-size:.62rem;font-weight:700;letter-spacing:3px;color:var(--ink3);margin-bottom:10px;margin-top:20px;display:flex;align-items:center;gap:8px}
+.sec-lbl::after{content:"";flex:1;height:1px;background:var(--bdr)}
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mod-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px 13px 11px;cursor:pointer;transition:all .2s}
+.mod-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1);border-color:var(--pu)}
+.mod-card.quiz:hover{border-color:var(--yed)}
+.mod-icon{font-size:1.5rem;margin-bottom:5px}
+.mod-name{font-weight:800;font-size:.82rem;color:var(--ink);margin-bottom:2px}
+.mod-desc{font-size:.7rem;color:var(--ink3);font-weight:600;line-height:1.4}
+.mod-badge{font-family:var(--fnh);font-size:.55rem;font-weight:700;letter-spacing:1px;padding:2px 6px;border-radius:2px;margin-top:7px;display:inline-block}
+.badge-new{background:var(--paper);color:var(--ink3);border:1px solid var(--bdr)}
+.badge-done{background:#D1FAE5;color:var(--gn)}
+.badge-prog{background:var(--orl);color:var(--or)}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;display:none;overflow-y:auto}
+.modal.open{display:block}
+.mbox{background:var(--surf);min-height:100vh;display:flex;flex-direction:column;max-width:680px;margin:0 auto}
+.mhd{padding:13px 14px;display:flex;align-items:center;gap:10px;color:#fff;position:sticky;top:0;z-index:10;flex-shrink:0}
+.mhd.pu{background:var(--pu)}.mhd.or{background:var(--or)}.mhd.dk{background:var(--ink)}
+.mhd-title{font-weight:900;font-size:.95rem;flex:1;letter-spacing:.3px;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+.mhd-num{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:1px;opacity:.7}
+.mhd-close{background:rgba(255,255,255,.18);border:none;color:#fff;font-size:1rem;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s;margin-left:8px}
+.mhd-close:hover{background:rgba(255,255,255,.35)}
+.mbody{flex:1;padding:14px;display:flex;flex-direction:column;gap:12px;background:var(--paper)}
+
+.dad-card{background:#D1FAE5;border:2px solid #A7F3D0;border-radius:4px;padding:11px 13px;font-size:.82rem;font-weight:700;color:#065F46;line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.dad-icon{font-size:1.1rem;flex-shrink:0}
+
+.info-card{background:var(--pul);border:2px solid #C4B5FD;border-radius:4px;padding:11px 13px;font-size:.82rem;font-weight:600;color:var(--pud);line-height:1.6}
+.info-title{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--pu);margin-bottom:5px}
+
+.sent-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:12px;margin-bottom:8px}
+.sent-text{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:9px;line-height:1.5}
+.mcq-opts{display:flex;flex-direction:column;gap:7px}
+.mcq-opt{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:9px 12px;font-family:var(--fn);font-size:.82rem;font-weight:700;cursor:pointer;text-align:left;transition:all .2s}
+.mcq-opt:hover:not(:disabled){border-color:var(--pu)}
+.mcq-opt.ok{background:#D1FAE5;border-color:var(--gn);color:var(--gn)}
+.mcq-opt.bad{background:var(--rdl);border-color:var(--rd);color:var(--rd);animation:shake .3s}
+.mcq-opt:disabled{cursor:not-allowed}
+.mcq-fb{font-size:.75rem;font-weight:700;padding:7px 11px;border-radius:4px;margin-top:7px;display:none}
+.mcq-fb.show{display:block}
+.mcq-fb.ok{background:#D1FAE5;color:#065F46}
+.mcq-fb.bad{background:var(--rdl);color:var(--rd)}
+
+.write-ta{width:100%;border:2px solid var(--bdr);border-radius:4px;padding:11px 13px;font-family:var(--fn);font-size:.85rem;font-weight:600;color:var(--ink);background:var(--surf);resize:none;outline:none;min-height:100px;line-height:1.75;transition:border-color .2s}
+.write-ta:focus{border-color:var(--pu)}
+.text-inp{width:100%;border:2px solid var(--bdr);border-radius:4px;padding:9px 13px;font-family:var(--fn);font-size:.88rem;font-weight:700;color:var(--ink);background:var(--surf);outline:none;transition:border-color .2s}
+.text-inp:focus{border-color:var(--pu)}
+.wc{font-size:.72rem;font-weight:700;color:var(--ink3);text-align:right;margin-top:3px}
+.wc.met{color:var(--gn)}
+
+.starter-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.starter{background:var(--pul);border:1px solid #C4B5FD;border-radius:20px;padding:4px 10px;font-size:.72rem;font-weight:700;color:var(--pud);cursor:pointer;transition:all .15s}
+.starter:hover{background:var(--pu);color:#fff;border-color:var(--pu)}
+
+.cb-list{display:flex;flex-direction:column;gap:9px}
+.cb-item{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:11px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .2s;font-size:.85rem;font-weight:700}
+.cb-item:hover{background:var(--paper)}
+.cb-item.ticked{background:#D1FAE5;border-color:var(--gn);color:#065F46}
+.cb-box{width:26px;height:26px;border:2px solid var(--bdr);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all .2s}
+.cb-item.ticked .cb-box{background:var(--gn);border-color:var(--gn);color:#fff}
+.all-done{background:var(--gn);color:#fff;border-radius:4px;padding:10px 14px;text-align:center;font-weight:800;font-size:.86rem;display:none;margin-top:4px}
+.all-done.show{display:block}
+
+.save-ind{font-size:.68rem;font-weight:700;color:var(--gn);text-align:right;height:14px;opacity:0;transition:opacity .5s}
+.save-ind.show{opacity:1}
+
+.btn-row-bottom{display:flex;justify-content:space-between;align-items:stretch;gap:14px;margin-top:20px}
+.complete-btn{flex:1;padding:18px 20px;background:#16A34A;border:3px solid #15803D;border-radius:4px;font-family:var(--fn);font-size:1rem;font-weight:900;cursor:pointer;color:#fff;transition:all .2s;text-align:center}
+.complete-btn:hover{background:#15803D}
+.complete-btn.confirmed{background:#D1FAE5;border-color:var(--gn);color:var(--gn);cursor:default;pointer-events:none;opacity:.85}
+.reset-btn{flex:0 0 110px;padding:18px 14px;background:#fff;border:3px solid var(--rd);border-radius:4px;font-family:var(--fn);font-size:.88rem;font-weight:900;cursor:pointer;color:var(--rd);transition:all .2s;text-align:center;pointer-events:auto !important;opacity:1 !important}
+.reset-btn:hover{background:var(--rd);color:#fff}
+
+.qz-prog-bar{background:var(--bdr);height:6px;border-radius:3px;margin-bottom:16px}
+.qz-prog-fill{height:100%;background:var(--pu);border-radius:3px;transition:width .4s}
+.qz-tag{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;padding:2px 7px;border-radius:2px;display:inline-block;margin-bottom:8px;background:var(--pul);color:var(--pud)}
+.qz-q{font-size:.9rem;font-weight:800;color:var(--ink);margin-bottom:10px;line-height:1.5}
+
+.result-box{text-align:center;padding:20px 10px}
+.result-score{font-family:var(--fnh);font-size:2.8rem;font-weight:700;color:var(--pu);line-height:1}
+.result-bullets{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.result-bullet{background:var(--paper);border:1px solid var(--bdr);border-radius:4px;padding:7px 12px;font-size:.78rem;font-weight:700;text-align:left}
+.result-bullet.ok{background:#D1FAE5;border-color:var(--gn);color:#065F46}
+.result-bullet.bad{background:var(--rdl);border-color:var(--rd);color:var(--rd)}
+
+.goal-anim{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);font-size:3.5rem;z-index:1000;pointer-events:none;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.goal-anim.show{transform:translate(-50%,-50%) scale(1)}
+.cp{position:fixed;width:9px;height:9px;border-radius:2px;pointer-events:none;animation:cf 1.5s linear forwards;z-index:999}
+
+.review-screen{display:none;min-height:100vh;background:var(--paper)}
+.review-screen.show{display:block}
+.rv-hdr{background:var(--pud);padding:14px 16px;color:#fff}
+.rv-title{font-family:var(--fnh);font-size:.95rem;font-weight:700;letter-spacing:1px}
+.rv-sub{font-size:.72rem;color:rgba(255,255,255,.75);font-weight:600;margin-top:2px}
+.rv-body{padding:14px;max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.rv-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px}
+.rv-lbl{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--ink3);margin-bottom:8px}
+.rv-val{font-size:.85rem;font-weight:700;color:var(--ink);line-height:1.6;white-space:pre-wrap}
+
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes cf{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="review-screen" id="reviewScreen">
+  <div class="rv-hdr">
+    <div class="rv-title">📋 Review — Unit 7 Project</div>
+    <div class="rv-sub">Leo designed a Superpower App!</div>
+  </div>
+  <div class="rv-body" id="reviewBody"></div>
+</div>
+
+<div class="goal-anim" id="goalAnim">⚽ GOAL!</div>
+
+<div id="appRoot">
+<div class="app-hdr">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div class="hdr-badge">LEEA</div>
+    <div class="hdr-title">PROJECT</div>
+  </div>
+  <div class="hdr-unit">UNIT 7 🦸</div>
+</div>
+
+<div class="hero">
+  <div class="hero-kick">OUR WORLD · LEVEL 4 · UNIT 7</div>
+  <div class="hero-title">🦸 Project: <span>Design a Superpower App!</span></div>
+  <div class="hero-sub">Do all 6 modules. Use what you learned in class!</div>
+  <div style="font-size:1.3rem;margin-top:8px">📱 💡 🎨 💬 ✅ ⚽</div>
+</div>
+<div class="prog-wrap"><div class="prog-fill" id="progFill"></div></div>
+
+<div class="home">
+  <div class="sec-lbl">📘 UNIT 7 PROJECT</div>
+  <div class="mod-grid">
+    <div class="mod-card" onclick="openModal('m1')">
+      <div class="mod-icon">📖</div>
+      <div class="mod-name">Vocabulary</div>
+      <div class="mod-desc">Do you know the 5 words?</div>
+      <div class="mod-badge badge-new" id="badge-m1">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m2')">
+      <div class="mod-icon">💡</div>
+      <div class="mod-name">Unit 7 Inventions</div>
+      <div class="mod-desc">What did you learn in Unit 7?</div>
+      <div class="mod-badge badge-new" id="badge-m2">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m3')">
+      <div class="mod-icon">🦸</div>
+      <div class="mod-name">Design My App</div>
+      <div class="mod-desc">Create your superpower app!</div>
+      <div class="mod-badge badge-new" id="badge-m3">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m4')">
+      <div class="mod-icon">💬</div>
+      <div class="mod-name">Give Feedback</div>
+      <div class="mod-desc">Is this good feedback or bad?</div>
+      <div class="mod-badge badge-new" id="badge-m4">NOT STARTED</div>
+    </div>
+    <div class="mod-card" onclick="openModal('m5')">
+      <div class="mod-icon">✅</div>
+      <div class="mod-name">Now I Can</div>
+      <div class="mod-desc">Check what you learned in Unit 7</div>
+      <div class="mod-badge badge-new" id="badge-m5">NOT STARTED</div>
+    </div>
+    <div class="mod-card quiz" onclick="openModal('m6')">
+      <div class="mod-icon">⚽</div>
+      <div class="mod-name">Can Leo Score?</div>
+      <div class="mod-desc">8 questions — need 80% to score!</div>
+      <div class="mod-badge badge-new" id="badge-m6">FINAL QUIZ</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- M1: VOCABULARY -->
+<div class="modal" id="m1">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">📖 Vocabulary</div><div class="mhd-num">1 / 6</div><button class="mhd-close" onclick="closeModal('m1')">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Read each word and its meaning. Then pick the right answer!</div></div>
+  <div class="info-card">
+    <div class="info-title">REMEMBER THESE WORDS</div>
+    <strong>simple</strong> = easy, not difficult &nbsp;·&nbsp;
+    <strong>materials</strong> = things you use to make something &nbsp;·&nbsp;
+    <strong>recycle</strong> = use again in a new way &nbsp;·&nbsp;
+    <strong>ghost</strong> = something invisible that passes through things &nbsp;·&nbsp;
+    <strong>vacuum</strong> = a machine that sucks up dirt, or a space with no air
+  </div>
+  <div id="m1-qs"></div>
+  <div class="save-ind" id="m1-score-disp" style="display:none;text-align:center;font-size:.88rem;font-weight:800;color:var(--pu)"></div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m1" onclick="markComplete('m1','Vocabulary')">Mark Vocabulary complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m1')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M2: UNIT 7 INVENTIONS -->
+<div class="modal" id="m2">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">💡 Unit 7 Inventions</div><div class="mhd-num">2 / 6</div><button class="mhd-close" onclick="closeModal('m2')">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>You learned about many inventions in Unit 7. Can you remember them? Answer these questions!</div></div>
+  <div class="info-card">
+    <div class="info-title">INVENTIONS FROM UNIT 7</div>
+    🛞 The <strong>wheel</strong> &nbsp;·&nbsp; ✏️ The <strong>eraser</strong> &nbsp;·&nbsp; ✈️ The <strong>airplane</strong> &nbsp;·&nbsp; 📎 <strong>Sticky notes</strong> &nbsp;·&nbsp; ⚽ <strong>Goal-line technology</strong>
+  </div>
+  <div id="m2-qs"></div>
+  <div class="save-ind" id="m2-score-disp" style="display:none;text-align:center;font-size:.88rem;font-weight:800;color:var(--pu)"></div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m2" onclick="markComplete('m2','Unit 7 Inventions')">Mark Unit 7 Inventions complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m2')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M3: DESIGN MY APP -->
+<div class="modal" id="m3">
+<div class="mbox">
+<div class="mhd or"><div class="mhd-title">🦸 Design My App</div><div class="mhd-num">3 / 6</div><button class="mhd-close" onclick="closeModal('m3')">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Now design your superpower app! Use what you planned in class. Write your answers here — Dad will read them later.</div></div>
+
+  <div class="info-card">
+    <div class="info-title">THE MODEL — SUPERFOOD MAN</div>
+    <strong>Problem:</strong> "I did not use to eat breakfast." &nbsp;·&nbsp;
+    <strong>App name:</strong> Superfood Man &nbsp;·&nbsp;
+    <strong>How it works:</strong> It reminds me to eat a healthy breakfast every morning.
+  </div>
+
+  <div style="font-weight:800;font-size:.88rem;color:var(--ink);margin-bottom:4px">Step 1 — My problem: ⚠️</div>
+  <textarea class="write-ta" id="m3-problem" placeholder="A typical problem for me is..." oninput="m3Save()"></textarea>
+
+  <div style="font-weight:800;font-size:.88rem;color:var(--ink);margin-bottom:4px;margin-top:6px">Step 2 — My app name: 📱</div>
+  <input class="text-inp" id="m3-name" placeholder="My app is called..." oninput="m3Save()">
+
+  <div style="font-weight:800;font-size:.88rem;color:var(--ink);margin-bottom:4px;margin-top:6px">Step 3 — What does my app do? 🦸</div>
+  <div class="starter-row">
+    <button class="starter" onclick="insertS('m3-desc','My app helps me ')">My app helps me...</button>
+    <button class="starter" onclick="insertS('m3-desc','It works by ')">It works by...</button>
+    <button class="starter" onclick="insertS('m3-desc','It is useful because ')">It is useful because...</button>
+    <button class="starter" onclick="insertS('m3-desc','When you open the app, ')">When you open it...</button>
+  </div>
+  <textarea class="write-ta" id="m3-desc" placeholder="My app helps me... It works by... It is useful because..." oninput="m3Save()" style="margin-top:6px;min-height:120px"></textarea>
+  <div class="wc" id="m3-wc">Words: 0</div>
+  <div class="save-ind" id="m3-saved">✅ Saved!</div>
+
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m3" onclick="markComplete('m3','Design My App')">Mark Design My App complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m3')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M4: GIVE FEEDBACK -->
+<div class="modal" id="m4">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">💬 Give Feedback</div><div class="mhd-num">4 / 6</div><button class="mhd-close" onclick="closeModal('m4')">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Read the feedback sentences below. Is each one GOOD or BAD feedback? Good feedback is honest AND kind. It helps make the idea better!</div></div>
+  <div class="info-card">
+    <div class="info-title">GOOD FEEDBACK STARTERS</div>
+    ✅ "Your app looks fun. However, I do not understand how it will..."<br/>
+    ✅ "I like your idea, but I would maybe change..."<br/>
+    ✅ "I really like the part where..."
+  </div>
+  <div id="m4-qs"></div>
+  <div class="save-ind" id="m4-score-disp" style="display:none;text-align:center;font-size:.88rem;font-weight:800;color:var(--pu)"></div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m4" onclick="markComplete('m4','Give Feedback')">Mark Give Feedback complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m4')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M5: NOW I CAN -->
+<div class="modal" id="m5">
+<div class="mbox">
+<div class="mhd pu"><div class="mhd-title">✅ Now I Can</div><div class="mhd-num">5 / 6</div><button class="mhd-close" onclick="closeModal('m5')">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>Tick each box when you feel you can do it. Be honest! If you are not sure, go back and check.</div></div>
+  <div class="cb-list">
+    <div class="cb-item" id="cb1" onclick="toggleCb('cb1','m5')"><div class="cb-box" id="cbb1"></div><span>I can talk about inventions. 💡</span></div>
+    <div class="cb-item" id="cb2" onclick="toggleCb('cb2','m5')"><div class="cb-box" id="cbb2"></div><span>I can talk about past habits with "used to". ⏰</span></div>
+    <div class="cb-item" id="cb3" onclick="toggleCb('cb3','m5')"><div class="cb-box" id="cbb3"></div><span>I can describe how to use an invention. 🔧</span></div>
+    <div class="cb-item" id="cb4" onclick="toggleCb('cb4','m5')"><div class="cb-box" id="cbb4"></div><span>I can write facts and opinions. ✍️</span></div>
+    <div class="cb-item" id="cb5" onclick="toggleCb('cb5','m5')"><div class="cb-box" id="cbb5"></div><span>I designed a superpower app! 🦸📱</span></div>
+  </div>
+  <div class="all-done" id="m5-done">🎉 Amazing! You completed Unit 7 — Good Idea! ⭐</div>
+  <div class="btn-row-bottom">
+    <button class="complete-btn" id="cbtn-m5" onclick="markComplete('m5','Now I Can')">Mark Now I Can complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m5')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<!-- M6: CAN LEO SCORE? -->
+<div class="modal" id="m6">
+<div class="mbox">
+<div class="mhd dk"><div class="mhd-title">⚽ Can Leo Score?</div><div class="mhd-num">6 / 6</div><button class="mhd-close" onclick="closeModal('m6')">✕</button></div>
+<div class="mbody">
+  <div class="dad-card"><div class="dad-icon">💬</div><div>8 questions! You need 7 out of 8 to score the goal! Good luck, Leo! ⚽</div></div>
+  <div id="m6-quiz"></div>
+  <div id="m6-result" style="display:none"></div>
+  <div class="btn-row-bottom" id="m6-bottom" style="display:none">
+    <button class="complete-btn" id="cbtn-m6" onclick="markComplete('m6','Can Leo Score')">Mark Can Leo Score complete ✓</button>
+    <button class="reset-btn" onclick="resetModule('m6')">↺ Redo</button>
+  </div>
+</div></div></div>
+
+<script>
+// LEEA SAVE
+const SAVE_PREFIX = '4-7-project-';
+const HOMEWORK_ID = new URLSearchParams(location.search).get('hw') || 'leo-4-7-project';
+const isReview = new URLSearchParams(location.search).get('review') === '1';
+
+function lSave(key, val) {
+  try { localStorage.setItem('leea-' + key, JSON.stringify(val)); } catch(e) {}
+  if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) {
+    window.LEEA_CLOUD.saveProgress(HOMEWORK_ID, key, val);
+  }
+}
+function lLoad(key, fallback=null) {
+  try { const v = localStorage.getItem('leea-' + key); return v !== null ? JSON.parse(v) : fallback; } catch(e) { return fallback; }
+}
+
+async function restoreProgressFromCloud() {
+  if (!window.LEEA_CLOUD || !window.LEEA_CLOUD.enabled) return;
+  const rows = await window.LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+  if (!rows) return;
+  rows.forEach(function(row) {
+    localStorage.setItem('leea-' + row.storage_key, JSON.stringify(row.value));
+  });
+}
+
+// REVIEW MODE
+function initReviewMode() {
+  document.getElementById('appRoot').style.display = 'none';
+  document.getElementById('reviewScreen').classList.add('show');
+  const body = document.getElementById('reviewBody');
+  const score = lLoad(SAVE_PREFIX + 'score');
+  const problem = lLoad(SAVE_PREFIX + 'm3-problem', '');
+  const name = lLoad(SAVE_PREFIX + 'm3-name', '');
+  const desc = lLoad(SAVE_PREFIX + 'm3-desc', '');
+  const checks = lLoad(SAVE_PREFIX + 'm5-checks', []);
+  if (!score && !problem && !name) {
+    body.innerHTML = '<div style="text-align:center;padding:40px;font-size:.9rem;font-weight:700;color:var(--ink3)">Work not started yet.</div>';
+    return;
+  }
+  let html = '';
+  if (score) {
+    const pct = Math.round(score.score / score.total * 100);
+    html += '<div class="rv-card"><div class="rv-lbl">QUIZ RESULT</div>' +
+      '<div style="font-family:var(--fnh);font-size:2rem;color:var(--pu);font-weight:700">' + score.score + '/' + score.total + ' — ' + pct + '% ' + (pct>=80?'✅ PASS':'❌ Retry') + '</div>' +
+      (score.wrongQuestions&&score.wrongQuestions.length?'<div style="margin-top:6px;font-size:.78rem;font-weight:700;color:var(--rd)">Missed: ' + score.wrongQuestions.join(', ') + '</div>':'') + '</div>';
+  }
+  if (name) html += '<div class="rv-card"><div class="rv-lbl">APP NAME</div><div class="rv-val">' + name + '</div></div>';
+  if (problem) html += '<div class="rv-card"><div class="rv-lbl">THE PROBLEM</div><div class="rv-val">' + problem + '</div></div>';
+  if (desc) html += '<div class="rv-card"><div class="rv-lbl">HOW THE APP WORKS</div><div class="rv-val">' + desc + '</div></div>';
+  if (checks.length) html += '<div class="rv-card"><div class="rv-lbl">NOW I CAN — ' + checks.filter(Boolean).length + '/5 ticked</div></div>';
+  body.innerHTML = html;
+}
+
+// MODAL
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (id === 'm6' && !m6Started) initM6();
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// BADGE
+function updateBadge(id, state) {
+  try {
+    const el = document.getElementById('badge-' + id);
+    if (!el) return;
+    el.className = 'mod-badge ' + (state==='done'?'badge-done':state==='prog'?'badge-prog':'badge-new');
+    el.textContent = state==='done'?'✅ DONE':state==='prog'?'▶ IN PROGRESS':id==='m6'?'FINAL QUIZ':'NOT STARTED';
+    const pf = document.getElementById('progFill');
+    if (pf) {
+      const done = ['m1','m2','m3','m4','m5','m6'].filter(function(m) {
+        const b = document.getElementById('badge-'+m);
+        return b && b.classList && b.classList.contains('badge-done');
+      }).length;
+      pf.style.width = (done/6*100) + '%';
+    }
+  } catch(e) { console.warn(e); }
+}
+
+function showSave(id) {
+  const el = document.getElementById(id + '-saved');
+  if (!el) return;
+  el.classList.add('show');
+  setTimeout(function() { el.classList.remove('show'); }, 2000);
+}
+
+// MARK COMPLETE
+function markComplete(id, name) {
+  try {
+    lSave(SAVE_PREFIX + id + '-complete', { name: name, timestamp: new Date().toISOString(), done: true });
+    lSave(SAVE_PREFIX + id + '-done', true);
+    lSave(HOMEWORK_ID + '-' + id + '-done', true);
+    updateBadge(id, 'done');
+    const btn = document.getElementById('cbtn-' + id);
+    if (btn) { btn.classList.add('confirmed'); btn.textContent = '✅ ' + name + ' complete'; }
+    setTimeout(function() { closeModal(id); }, 400);
+  } catch(e) { console.error(e); }
+}
+
+// RESET
+function resetModule(id) {
+  const names = { m1:'Vocabulary', m2:'Unit 7 Inventions', m3:'Design My App', m4:'Give Feedback', m5:'Now I Can', m6:'Can Leo Score' };
+  let redoBtn = null;
+  document.querySelectorAll('.reset-btn').forEach(function(b) {
+    if (b.getAttribute('onclick') === "resetModule('" + id + "')") redoBtn = b;
+  });
+  if (redoBtn && !redoBtn.dataset.armed) {
+    redoBtn.dataset.armed = '1';
+    redoBtn.textContent = 'Sure? ↺';
+    redoBtn.style.background = '#DC2626'; redoBtn.style.color = '#fff';
+    setTimeout(function() {
+      if (redoBtn && redoBtn.dataset.armed) {
+        delete redoBtn.dataset.armed; redoBtn.textContent = '↺ Redo';
+        redoBtn.style.background = ''; redoBtn.style.color = '';
+      }
+    }, 3000);
+    return;
+  }
+  if (redoBtn) { delete redoBtn.dataset.armed; redoBtn.textContent = '↺ Redo'; redoBtn.style.background = ''; redoBtn.style.color = ''; }
+  const prefix = 'leea-' + SAVE_PREFIX;
+  Object.keys(localStorage).filter(function(k) { return k.startsWith(prefix + id + '-'); }).forEach(function(k) { localStorage.removeItem(k); });
+  localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
+  updateBadge(id, 'new');
+  const cb = document.getElementById('cbtn-' + id);
+  if (cb) { cb.classList.remove('confirmed'); cb.textContent = 'Mark ' + (names[id]||id) + ' complete ✓'; }
+  if (id==='m1') { lSave(SAVE_PREFIX+'m1-ans', new Array(4).fill(null)); initM1(); }
+  else if (id==='m2') { lSave(SAVE_PREFIX+'m2-ans', new Array(4).fill(null)); initM2(); }
+  else if (id==='m3') { ['m3-problem','m3-name','m3-desc'].forEach(function(k){ var el=document.getElementById(k); if(el) el.value=''; }); var wc=document.getElementById('m3-wc'); if(wc) wc.textContent='Words: 0'; }
+  else if (id==='m4') { lSave(SAVE_PREFIX+'m4-ans', new Array(4).fill(null)); initM4(); }
+  else if (id==='m5') { ['cb1','cb2','cb3','cb4','cb5'].forEach(function(cid){ var el=document.getElementById(cid); if(el){el.classList.remove('ticked');} var box=document.getElementById('cbb'+cid.slice(2)); if(box) box.textContent=''; }); var done=document.getElementById('m5-done'); if(done) done.classList.remove('show'); }
+  else if (id==='m6') { m6Started=false; var q=document.getElementById('m6-quiz'); if(q) q.innerHTML=''; var r=document.getElementById('m6-result'); if(r) r.style.display='none'; var bot=document.getElementById('m6-bottom'); if(bot) bot.style.display='none'; }
+}
+
+// MCQ HELPER
+function buildMCQ(containerId, dataArr, saveKey, scoreDisplayId, badgeId, passScore) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  dataArr.forEach(function(item, i) {
+    const div = document.createElement('div');
+    div.className = 'sent-card';
+    div.innerHTML = '<div class="qz-tag">' + (item.tag||'QUESTION') + '</div><div class="sent-text">' + item.q + '</div><div class="mcq-opts" id="' + containerId + '-opts' + i + '"></div><div class="mcq-fb" id="' + containerId + '-fb' + i + '"></div>';
+    container.appendChild(div);
+    const opts = document.getElementById(containerId + '-opts' + i);
+    item.opts.forEach(function(o, j) {
+      const btn = document.createElement('button');
+      btn.className = 'mcq-opt';
+      btn.textContent = String.fromCharCode(65+j) + ') ' + o;
+      btn.onclick = function() { answerMCQ(containerId, i, j, dataArr, saveKey, scoreDisplayId, badgeId, passScore); };
+      opts.appendChild(btn);
+    });
+  });
+  const saved = lLoad(SAVE_PREFIX + saveKey, new Array(dataArr.length).fill(null));
+  saved.forEach(function(ans, i) { if (ans !== null) answerMCQ(containerId, i, ans, dataArr, saveKey, scoreDisplayId, badgeId, passScore, true); });
+}
+
+function answerMCQ(containerId, qi, choice, dataArr, saveKey, scoreDisplayId, badgeId, passScore, restore) {
+  const saved = lLoad(SAVE_PREFIX + saveKey, new Array(dataArr.length).fill(null));
+  if (!restore && saved[qi] !== null) return;
+  if (!restore) { saved[qi] = choice; lSave(SAVE_PREFIX + saveKey, saved); }
+  const opts = document.querySelectorAll('#' + containerId + '-opts' + qi + ' .mcq-opt');
+  opts.forEach(function(o) { o.disabled = true; });
+  const isOk = choice === dataArr[qi].correct;
+  opts[choice].classList.add(isOk ? 'ok' : 'bad');
+  if (!isOk) opts[dataArr[qi].correct].classList.add('ok');
+  const fb = document.getElementById(containerId + '-fb' + qi);
+  fb.className = 'mcq-fb show ' + (isOk ? 'ok' : 'bad');
+  fb.textContent = isOk ? dataArr[qi].fb : '❌ ' + dataArr[qi].fb;
+  if (!restore) {
+    const all = lLoad(SAVE_PREFIX + saveKey, []);
+    if (all.filter(function(a){ return a!==null; }).length === dataArr.length) {
+      const sc = all.filter(function(a,j){ return a === dataArr[j].correct; }).length;
+      lSave(SAVE_PREFIX + saveKey.replace('-ans','') + '-score', sc);
+      const disp = document.getElementById(scoreDisplayId);
+      if (disp) { disp.style.display='block'; disp.textContent='Score: '+sc+'/'+dataArr.length+' ⚽'; }
+      updateBadge(badgeId, sc >= passScore ? 'done' : 'prog');
+    }
+  }
+}
+
+// M1 DATA
+const m1Data = [
+  { tag:'VOCABULARY', q:'What does "simple" mean?', opts:['Very difficult and complicated','Easy — not difficult ✨','Very expensive','Very big'], correct:1, fb:'✅ Simple = easy, not difficult! Arsenal used simple teamwork to beat Real Madrid 5-1 in the UCL!' },
+  { tag:'VOCABULARY', q:'What does "recycle" mean?', opts:['To throw something away','To buy something new','To use something again in a new way ♻️','To break something'], correct:2, fb:'✅ Recycle = use again in a new way. Ozcan recycled old phone technology to make a microscope!' },
+  { tag:'VOCABULARY', q:'What are "materials"?', opts:['The things you use to make something 🔧','The people in your team','The words in a book','The problems you have'], correct:0, fb:'✅ Materials = the things you use to make or build something. Like scissors, paper, and markers!' },
+  { tag:'VOCABULARY', q:'Which sentence uses "vacuum" correctly?', opts:['I eat a vacuum for breakfast.','A vacuum is a type of superpower.','A vacuum cleaner sucks up dirt from the floor. 🌀','Vacuum is a word for a big idea.'], correct:2, fb:'✅ A vacuum cleaner uses suction — it sucks up dirt! "Vacuum" also means a space with no air.' }
+];
+function initM1() { buildMCQ('m1-qs', m1Data, 'm1-ans', 'm1-score-disp', 'm1', 3); }
+
+// M2 DATA
+const m2Data = [
+  { tag:'UNIT 7 INVENTIONS', q:'Which invention helps football? ⚽', opts:['The eraser ✏️','Goal-line technology ⚽','The wheel 🛞','Sticky notes 📎'], correct:1, fb:'✅ Goal-line technology! It tells the referee if the ball crossed the line. Used in the Premier League and UCL!' },
+  { tag:'UNIT 7 INVENTIONS', q:'Who invented sticky notes?', opts:['The Wright Brothers','Thomas Edison','Spencer Silver made the glue — Arthur Fry found the use 📎','Aydogan Ozcan'], correct:2, fb:'✅ Spencer Silver invented the glue in 1970. Four years later, Arthur Fry found a great use for it!' },
+  { tag:'UNIT 7 INVENTIONS', q:'Why are inventions important?', opts:['They are always very expensive.','They help solve problems and make life better. 💡','They are always complicated to use.','Only scientists can use them.'], correct:1, fb:'✅ Inventions help solve problems! The wheel moved things faster. The eraser fixed mistakes. Your app will help YOU!' },
+  { tag:'UNIT 7 INVENTIONS', q:'The eraser was invented...', opts:['On purpose — someone planned it','By accident — a man noticed rubber removed pencil marks ✨','By the Wright Brothers','In 1992 by IBM'], correct:1, fb:'✅ By accident! Someone noticed rubber removed pencil marks. Many great inventions start by accident!' }
+];
+function initM2() { buildMCQ('m2-qs', m2Data, 'm2-ans', 'm2-score-disp', 'm2', 3); }
+
+// M3: DESIGN APP
+function insertS(id, text) {
+  const ta = document.getElementById(id);
+  if (!ta) return;
+  const pos = ta.selectionStart || ta.value.length;
+  ta.value = ta.value.slice(0, pos) + text + ta.value.slice(pos);
+  ta.selectionStart = ta.selectionEnd = pos + text.length;
+  ta.focus();
+  m3Save();
+}
+function m3Save() {
+  lSave(SAVE_PREFIX + 'm3-problem', document.getElementById('m3-problem').value);
+  lSave(SAVE_PREFIX + 'm3-name', document.getElementById('m3-name').value);
+  lSave(SAVE_PREFIX + 'm3-desc', document.getElementById('m3-desc').value);
+  const words = document.getElementById('m3-desc').value.trim().split(/\s+/).filter(function(w){ return w.length>0; }).length;
+  const wc = document.getElementById('m3-wc');
+  wc.textContent = 'Words: ' + words;
+  wc.className = 'wc' + (words >= 30 ? ' met' : '');
+  showSave('m3');
+  const p = document.getElementById('m3-problem').value.trim();
+  const n = document.getElementById('m3-name').value.trim();
+  const d = document.getElementById('m3-desc').value.trim();
+  updateBadge('m3', p && n && d ? 'done' : p || n || d ? 'prog' : 'new');
+}
+function loadM3() {
+  document.getElementById('m3-problem').value = lLoad(SAVE_PREFIX + 'm3-problem', '');
+  document.getElementById('m3-name').value = lLoad(SAVE_PREFIX + 'm3-name', '');
+  document.getElementById('m3-desc').value = lLoad(SAVE_PREFIX + 'm3-desc', '');
+  m3Save();
+}
+
+// M4: GIVE FEEDBACK
+const m4Data = [
+  { tag:'GIVE FEEDBACK', q:'Which sentence is GOOD feedback?', opts:['"This is a terrible idea."','"Your app looks fun. However, I do not understand how it will send messages." ✅','"I do not like this at all."','"This will never work."'], correct:1, fb:'✅ Good feedback is honest AND kind. It tells what is good and how to make it better.' },
+  { tag:'GIVE FEEDBACK', q:'True or False: Good feedback helps make an idea better.', opts:['True ✅','False'], correct:0, fb:'✅ TRUE! Good feedback always helps. Like a coach helping a player improve after a match!' },
+  { tag:'GIVE FEEDBACK', q:'Which is the best way to give feedback?', opts:['Say the idea is perfect with no changes needed.','Only say bad things about the idea.','Say what you like AND how to make it better. 💬','Do not say anything — just think it.'], correct:2, fb:'✅ Say what you like AND how to improve it. Honest + kind = great feedback!' },
+  { tag:'GIVE FEEDBACK', q:'Leo says to his friend: "I like your sketches, but I would maybe change the colours." Is this...?', opts:['Bad feedback — it is too negative.','Good feedback — it is honest and kind ✅','Not feedback at all.','Only an opinion — not feedback.'], correct:1, fb:'✅ This is great feedback! It says what is good ("I like your sketches") and gives a helpful idea ("change the colours").' }
+];
+function initM4() { buildMCQ('m4-qs', m4Data, 'm4-ans', 'm4-score-disp', 'm4', 3); }
+
+// M5: NOW I CAN
+function toggleCb(id, moduleId) {
+  const item = document.getElementById(id);
+  const box = document.getElementById('cbb' + id.slice(2));
+  const ticked = item.classList.toggle('ticked');
+  box.textContent = ticked ? '✓' : '';
+  const checks = ['cb1','cb2','cb3','cb4','cb5'].map(function(cid){ return document.getElementById(cid).classList.contains('ticked'); });
+  lSave(SAVE_PREFIX + 'm5-checks', checks);
+  const allDone = checks.every(Boolean);
+  document.getElementById('m5-done').className = 'all-done' + (allDone ? ' show' : '');
+  updateBadge('m5', allDone ? 'done' : checks.some(Boolean) ? 'prog' : 'new');
+  if (allDone) launchConfetti();
+}
+function loadM5() {
+  const checks = lLoad(SAVE_PREFIX + 'm5-checks', [false,false,false,false,false]);
+  ['cb1','cb2','cb3','cb4','cb5'].forEach(function(cid, i) {
+    if (checks[i]) {
+      document.getElementById(cid).classList.add('ticked');
+      document.getElementById('cbb' + cid.slice(2)).textContent = '✓';
+    }
+  });
+  const allDone = checks.every(Boolean);
+  document.getElementById('m5-done').className = 'all-done' + (allDone ? ' show' : '');
+  updateBadge('m5', allDone ? 'done' : checks.some(Boolean) ? 'prog' : 'new');
+}
+
+// M6: CAN LEO SCORE?
+const m6Qs = [
+  { tag:'VOCABULARY', q:'What does "simple" mean?', opts:['Very big and expensive','Easy — not difficult ✨','Very complicated','Very fast'], correct:1, fb:'Simple = easy! A simple idea can become a great invention!' },
+  { tag:'VOCABULARY', q:'What does "recycle" mean?', opts:['To buy something new','To throw something away','To use something again in a new way ♻️','To make something expensive'], correct:2, fb:'Recycle = use again in a new way. Great inventors always look at what they already have!' },
+  { tag:'UNIT 7', q:'Which was an invention from Unit 7?', opts:['The television','Goal-line technology ⚽','The computer','The submarine'], correct:1, fb:'Goal-line technology! It is used in the Premier League and Champions League to check if the ball crossed the line.' },
+  { tag:'SUPERPOWER APP', q:'What is a superpower app?', opts:['An app that already exists on your phone','An app that is very expensive','An app you design to solve a problem 📱','An app only for superheroes'], correct:2, fb:'A superpower app uses technology to solve a real problem — like a superhero power on your phone!' },
+  { tag:'SUPERPOWER APP', q:'What is the FIRST step to design a superpower app?', opts:['Draw a picture of your app','Choose a problem to solve 🎯','Write the app name','Give feedback to a friend'], correct:1, fb:'First — choose a problem! Then name it, describe it, and explain how it works.' },
+  { tag:'GIVE FEEDBACK', q:'Which sentence is GOOD feedback?', opts:['"This is a bad idea. I do not like it."','"Your app looks fun. However, I do not understand how it will work." ✅','"This will never work!"','"I have no comments."'], correct:1, fb:'Good feedback is honest AND kind. It says what is good and how to improve!' },
+  { tag:'GIVE FEEDBACK', q:'True or False: Good feedback only says positive things.', opts:['True','False ✅'], correct:1, fb:'FALSE! Good feedback says what is good AND how to make it better. Both are important!' },
+  { tag:'UNIT 7', q:'Guirassy and Raphinha both scored 13 goals in the 2024/25 Champions League. This sentence is...', opts:['An opinion — it is what someone thinks','A fact — it is always true and everyone can check it 📌','A superpower app idea','A type of feedback'], correct:1, fb:'A FACT! It has specific numbers and a real competition. Everyone can check it — just like the inventions we studied!' }
+];
+
+let m6Started = false, m6Idx = 0, m6Score = 0, m6Wrong = [], m6StartTime = null;
+
+function initM6() {
+  m6Started = true; m6Idx = 0; m6Score = 0; m6Wrong = [];
+  m6StartTime = Date.now();
+  document.getElementById('m6-result').style.display = 'none';
+  document.getElementById('m6-bottom').style.display = 'none';
+  renderM6();
+}
+
+function renderM6() {
+  const container = document.getElementById('m6-quiz');
+  if (m6Idx >= m6Qs.length) { showM6Result(); return; }
+  const q = m6Qs[m6Idx];
+  const pct = Math.round(m6Idx / m6Qs.length * 100);
+  let html = '<div class="qz-prog-bar"><div class="qz-prog-fill" style="width:' + pct + '%"></div></div>';
+  html += '<div style="display:flex;justify-content:space-between;margin-bottom:12px"><span style="font-family:var(--fnh);font-size:.7rem;color:var(--ink3)">Question ' + (m6Idx+1) + ' of 8</span><span style="font-family:var(--fnh);font-size:.7rem;color:var(--pu)">Score: ' + m6Score + ' ⚽</span></div>';
+  html += '<div class="sent-card"><div class="qz-tag">' + q.tag + '</div><div class="qz-q">' + q.q + '</div>';
+  html += '<div class="mcq-opts">' + q.opts.map(function(o,i){ return '<button class="mcq-opt" onclick="ansM6(' + i + ')">' + String.fromCharCode(65+i) + ') ' + o + '</button>'; }).join('') + '</div>';
+  html += '<div class="mcq-fb" id="m6-fb"></div></div>';
+  container.innerHTML = html;
+}
+
+function ansM6(choice) {
+  const q = m6Qs[m6Idx];
+  const isOk = choice === q.correct;
+  document.querySelectorAll('#m6-quiz .mcq-opt').forEach(function(b) { b.disabled = true; });
+  const opts = document.querySelectorAll('#m6-quiz .mcq-opt');
+  opts[choice].classList.add(isOk ? 'ok' : 'bad');
+  if (!isOk) opts[q.correct].classList.add('ok');
+  const fb = document.getElementById('m6-fb');
+  fb.className = 'mcq-fb show ' + (isOk ? 'ok' : 'bad');
+  fb.textContent = isOk ? '⚽ GOAL! ' + q.fb : '❌ Not quite. ' + q.fb;
+  if (isOk) { m6Score++; showGoalAnim(); }
+  else m6Wrong.push('Q' + (m6Idx+1));
+  setTimeout(function() { m6Idx++; renderM6(); }, 1700);
+}
+
+function showM6Result() {
+  document.getElementById('m6-quiz').innerHTML = '';
+  const total = m6Qs.length;
+  const pct = Math.round(m6Score / total * 100);
+  const pass = pct >= 80;
+  const timeSpent = Math.round((Date.now() - m6StartTime) / 1000) + 's';
+  const wrongDetails = m6Wrong.map(function(qLabel) {
+    const idx = parseInt(qLabel.replace('Q','')) - 1;
+    return { question: idx+1, prompt: m6Qs[idx].q, tag: m6Qs[idx].tag };
+  });
+  lSave(SAVE_PREFIX + 'wrongQuestions', wrongDetails);
+  lSave(SAVE_PREFIX + 'score', { score: m6Score, total: total, percent: pct, done: pass, timestamp: new Date().toISOString() });
+  lSave(SAVE_PREFIX + 'done', pass);
+  lSave(HOMEWORK_ID + '-done', pass);
+  updateBadge('m6', pass ? 'done' : 'prog');
+  const res = document.getElementById('m6-result');
+  res.style.display = 'block';
+  res.innerHTML = '<div class="result-box"><div style="font-size:3rem">' + (pass?'🏆':'💪') + '</div>' +
+    '<div class="result-score">' + m6Score + '/' + total + '</div>' +
+    '<div style="font-family:var(--fnh);font-size:1.1rem;font-weight:700;color:' + (pass?'var(--gn)':'var(--rd)') + '">' + pct + '% — ' + (pass?'⚽ GOAL! You passed!':'Keep trying!') + '</div>' +
+    '<div style="font-size:.9rem;font-weight:800;color:var(--ink);margin-top:8px">' + (pass?'🎉 Great work! Unit 7 Project complete, Leo!':'Review the modules and try again!') + '</div>' +
+    '<div style="font-size:.78rem;color:var(--ink3);margin-top:4px">Time: ' + timeSpent + '</div>' +
+    '<div class="result-bullets" style="margin-top:14px">' +
+    m6Qs.map(function(q,i){ return '<div class="result-bullet ' + (m6Wrong.includes('Q'+(i+1))?'bad':'ok') + '">' + (m6Wrong.includes('Q'+(i+1))?'❌':'✅') + ' Q' + (i+1) + ': ' + q.tag + '</div>'; }).join('') +
+    '</div></div>';
+  document.getElementById('m6-bottom').style.display = 'flex';
+  if (pass) launchConfetti();
+}
+
+// ANIMATIONS
+function showGoalAnim() {
+  const el = document.getElementById('goalAnim');
+  el.classList.add('show');
+  setTimeout(function() { el.classList.remove('show'); }, 900);
+}
+function launchConfetti() {
+  const colors = ['#7C3AED','#C4B5FD','#F59E0B','#22C55E','#EF4444','#F97316','#fff'];
+  for (let i = 0; i < 55; i++) {
+    setTimeout(function() {
+      const d = document.createElement('div');
+      d.className = 'cp';
+      d.style.left = Math.random() * 100 + 'vw';
+      d.style.top = '-10px';
+      d.style.background = colors[Math.floor(Math.random() * colors.length)];
+      d.style.width = d.style.height = (7 + Math.random() * 8) + 'px';
+      d.style.animationDuration = (1.2 + Math.random() * 1.5) + 's';
+      document.body.appendChild(d);
+      setTimeout(function() { d.remove(); }, 2500);
+    }, i * 30);
+  }
+}
+
+// INIT
+window.addEventListener('DOMContentLoaded', async function() {
+  await restoreProgressFromCloud();
+  if (isReview) { initReviewMode(); return; }
+  initM1(); initM2(); loadM3(); loadM5(); initM4();
+  const modNames = { m1:'Vocabulary', m2:'Unit 7 Inventions', m3:'Design My App', m4:'Give Feedback', m5:'Now I Can', m6:'Can Leo Score' };
+  Object.keys(modNames).forEach(function(id) {
+    const data = lLoad(SAVE_PREFIX + id + '-complete', null);
+    const btn = document.getElementById('cbtn-' + id);
+    if (data && data.timestamp && btn) {
+      btn.classList.add('confirmed');
+      btn.textContent = '✅ ' + modNames[id] + ' complete';
+      updateBadge(id, 'done');
+    }
+  });
+  const scoreData = lLoad(SAVE_PREFIX + 'score');
+  if (scoreData) updateBadge('m6', scoreData.done ? 'done' : 'prog');
+});
+</script>
+<script src="unit-7-nav.js"></script>
+</body>
+</html>

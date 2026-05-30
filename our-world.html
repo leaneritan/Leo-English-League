@@ -7,7 +7,7 @@
 
   <!--
     CALIBRATION MOCKUP — Our World home screen
-    Vocab / Grammar / Levels tabs with search + level pill filter
+    Vocab / Grammar / Academic / Levels tabs with search + level pill filter
     Vocab tab is active, showing Level 4 content from Vocab.pdf + Grammar.pdf
   -->
 
@@ -28,6 +28,8 @@
       --yellow:      #FFCC00;
       --yellow-bg:   #FFFBE6;
       --yellow-ink:  #8B6B00;
+      --academic:    #0EA5E9;
+      --academic-bg: #F0F9FF;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -143,12 +145,14 @@
     }
     .level-pills { display: flex; gap: 4px; }
     .pill {
+      display: inline-block;
       font-family: 'Oswald', sans-serif; font-weight: 600;
       font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
       padding: 6px 12px;
       background: var(--surface); border: 1px solid var(--border);
-      color: var(--ink-3); cursor: pointer;
+      color: var(--ink-3); cursor: pointer; text-decoration: none;
     }
+    .pill:hover { border-color: var(--ink); color: var(--ink); }
     .pill.active {
       background: var(--ink); color: var(--yellow);
       border-color: var(--ink);
@@ -321,13 +325,79 @@
     /* grammar section inside accordion */
     .acc-grammar { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
 
+    /* ── glossary subsection inside accordion (collapsible) ── */
+    .acc-glossary {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .glossary-toggle {
+      width: 100%;
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.12s ease;
+      font-family: inherit;
+      text-align: left;
+    }
+    .glossary-toggle:hover { background: var(--yellow-bg); border-color: var(--ink); }
+    .glossary-toggle .gloss-ico { font-size: 14px; line-height: 1; }
+    .glossary-toggle .gloss-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink);
+    }
+    .glossary-toggle .gloss-count {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-4);
+      margin-left: auto;
+    }
+    .gloss-open {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--academic);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      background: var(--surface);
+    }
+    .gloss-open:hover { border-color: var(--academic); background: var(--academic-bg); }
+    .glossary-toggle .gloss-chevron {
+      width: 12px; height: 12px;
+      color: var(--ink-4);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .acc-glossary.open .glossary-toggle { background: var(--yellow-bg); border-color: var(--ink); }
+    .acc-glossary.open .gloss-chevron { transform: rotate(180deg); color: var(--ink); }
+    .glossary-body {
+      display: none;
+      padding: 14px 0 4px;
+    }
+    .acc-glossary.open .glossary-body { display: block; }
+
+    /* glossary subgroup labels */
+    .set-label.glossary-academic .dot { background: #0EA5E9; }
+    .set-label.glossary-related  .dot { background: #737373; }
+    .set-label.glossary-content  .dot { background: #B8860B; }
+    .set-label.glossary-extras   .dot { background: #FDE68A; border: 1px solid #B8860B; }
+
+    /* glossary tile variants — left-accent only, keeping look unified with V1/V2 tiles */
+    .vocab-tile.glossary-academic { border-left: 3px solid #0EA5E9; }
+    .vocab-tile.glossary-related  { border-left: 3px solid #737373; }
+    .vocab-tile.glossary-content  { border-left: 3px solid #B8860B; }
+    .vocab-tile.glossary-extras   { border-left: 3px solid #FDE68A; }
+
     /* tab panels */
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
     /* levels grid */
     .levels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
-    .level-card { background: var(--surface); border: 1.5px solid var(--border); padding: 28px 24px; }
+    .level-card { display: block; background: var(--surface); border: 1.5px solid var(--border); padding: 28px 24px; color: inherit; text-decoration: none; transition: all 0.15s ease; }
+    .level-card:hover { border-color: var(--ink); transform: translateY(-1px); }
     .level-card.active-level { background: var(--yellow-bg); border-color: var(--yellow); }
     .level-card-num { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 36px; line-height: 1; color: var(--ink-4); margin-bottom: 6px; }
     .level-card.active-level .level-card-num { color: var(--ink); }
@@ -336,6 +406,22 @@
     .level-badge { display: inline-block; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 10px 3px; }
     .level-badge.soon { background: var(--soft); color: var(--ink-4); }
     .level-badge.now { background: var(--ink); color: var(--yellow); }
+    .academic-intro {
+      max-width: 760px;
+      margin: 8px 0 24px;
+      padding: 18px 20px;
+      border-left: 4px solid #0EA5E9;
+      background: #F0F9FF;
+      color: var(--ink-2);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .academic-results { display: none; margin-top: 26px; }
+    .academic-result-meta {
+      font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--academic);
+      margin-top: 8px;
+    }
 
     /* responsive */
     @media (max-width: 840px) {
@@ -378,6 +464,7 @@
     <nav class="tabs-bar" id="tabsBar">
       <button class="tab active" data-tab="vocab">Vocab <span class="count">312</span></button>
       <button class="tab" data-tab="grammar">Grammar <span class="count">6</span></button>
+      <button class="tab" data-tab="academic">Academic <span class="count">244</span></button>
       <button class="tab" data-tab="levels">Levels <span class="count">6</span></button>
     </nav>
 
@@ -385,15 +472,10 @@
     <div class="tab-panel active" id="panel-vocab">
 
     <div class="filter-row">
-      <div class="filter-label">Showing</div>
+      <div class="filter-label">Lesson glossary</div>
       <div class="level-pills">
-        <button class="pill active">Level 4</button>
-        <button class="pill">L1</button>
-        <button class="pill">L2</button>
-        <button class="pill">L3</button>
-        <button class="pill">L5</button>
-        <button class="pill">L6</button>
-        <button class="pill">All levels</button>
+        <a class="pill active" href="vocab.html?level=4">Level 4 · 20 words</a>
+        <a class="pill" href="vocab.html?module=academic&amp;level=all">Academic module</a>
       </div>
     </div>
 
@@ -677,7 +759,7 @@
         <span class="acc-num">Unit 6</span><span class="acc-sep">·</span>
         <span class="acc-title">Wonders of the Sea</span>
         <span class="acc-rule"></span>
-        <span class="acc-count">21 words · 2 grammar</span>
+        <span class="acc-count">21 vocab · 30 glossary · 2 grammar</span>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="acc-body">
@@ -721,6 +803,54 @@
               <div class="gram-name">Future with will and won't</div>
               <div class="gram-ex">In the future, people will live longer.</div>
             </a>
+          </div>
+        </div>
+        <div class="acc-glossary" id="unit-6-glossary">
+          <div class="glossary-toggle" role="button" tabindex="0" onclick="this.parentElement.classList.toggle('open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+            <span class="gloss-ico">📚</span>
+            <span class="gloss-label">Glossary</span>
+            <span class="gloss-count">30 words</span>
+            <a class="gloss-open" href="vocab.html?level=4" onclick="event.stopPropagation()">Open all</a>
+            <svg class="gloss-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="glossary-body">
+            <div class="set-label glossary-content"><span class="dot"></span>Content Vocabulary · 21</div>
+            <div class="vocab-grid">
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=mysterious"><div class="emoji">🔮</div><div class="word">mysterious</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=transportation"><div class="emoji">🚢</div><div class="word">transportation</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=twilight"><div class="emoji">🌑</div><div class="word">twilight</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=habitats"><div class="emoji">🏕️</div><div class="word">habitats</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=natural"><div class="emoji">🌱</div><div class="word">natural</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=fishermen"><div class="emoji">👨‍🎣</div><div class="word">fishermen</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=reproduce"><div class="emoji">🔄</div><div class="word">reproduce</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=tankers"><div class="emoji">🛢️</div><div class="word">tankers</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=transport"><div class="emoji">🚛</div><div class="word">transport</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=future"><div class="emoji">⏭️</div><div class="word">future</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=oxygen"><div class="emoji">💨</div><div class="word">oxygen</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=algae"><div class="emoji">🟢</div><div class="word">algae</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=colonies"><div class="emoji">🏘️</div><div class="word">colonies</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=organisms"><div class="emoji">🦠</div><div class="word">organisms</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=plankton"><div class="emoji">🔬</div><div class="word">plankton</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=polyps"><div class="emoji">🌸</div><div class="word">polyps</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=tentacles"><div class="emoji">🦑</div><div class="word">tentacles</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=transparent"><div class="emoji">💎</div><div class="word">transparent</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=swamps"><div class="emoji">🌾</div><div class="word">swamps</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=woods"><div class="emoji">🌲</div><div class="word">woods</div></a>
+              <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=community"><div class="emoji">🏘️</div><div class="word">community</div></a>
+            </div>
+
+            <div class="set-label glossary-related"><span class="dot"></span>Related Vocabulary · 9</div>
+            <div class="vocab-grid">
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=flippers"><div class="emoji">🏊</div><div class="word">flippers</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=kelp"><div class="emoji">🌿</div><div class="word">kelp</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=seal"><div class="emoji">🦭</div><div class="word">seal</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=seaweed"><div class="emoji">🪸</div><div class="word">seaweed</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=underwater"><div class="emoji">🤿</div><div class="word">underwater</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=whiskers"><div class="emoji">🐱</div><div class="word">whiskers</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=pop-top"><div class="emoji">🥤</div><div class="word">pop-top</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=sand"><div class="emoji">🏖️</div><div class="word">sand</div></a>
+              <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=shells"><div class="emoji">🐚</div><div class="word">shells</div></a>
+            </div>
           </div>
         </div>
       </div>
@@ -785,7 +915,7 @@
         <span class="acc-num">Unit 8</span><span class="acc-sep">·</span>
         <span class="acc-title">That's Really Interesting!</span>
         <span class="acc-rule"></span>
-        <span class="acc-count">19 words · 2 grammar</span>
+        <span class="acc-count">19 vocab · 20 glossary · 2 grammar</span>
         <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="acc-body">
@@ -827,6 +957,46 @@
               <div class="gram-name">Direct and indirect objects</div>
               <div class="gram-ex">My dad gave me this fossil.</div>
             </a>
+          </div>
+        </div>
+        <div class="acc-glossary" id="unit-8-glossary">
+          <div class="glossary-toggle" role="button" tabindex="0" onclick="this.parentElement.classList.toggle('open')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+            <span class="gloss-ico">📚</span>
+            <span class="gloss-label">Glossary</span>
+            <span class="gloss-count">20 words</span>
+            <a class="gloss-open" href="vocab.html?level=4" onclick="event.stopPropagation()">Open all</a>
+            <svg class="gloss-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="glossary-body">
+
+            <div class="set-label glossary-content"><span class="dot"></span>Content Vocabulary · 15</div>
+            <div class="vocab-grid">
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=trilobite"><div class="emoji">🪨🦂</div><div class="word">trilobite</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=outdoor"><div class="emoji">🌳☀️</div><div class="word">outdoor</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=hider"><div class="emoji">🙈🌳</div><div class="word">hider</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=seeker"><div class="emoji">🔍🚶</div><div class="word">seeker</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=treasure"><div class="emoji">💎💰</div><div class="word">treasure</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=app"><div class="emoji">📱💚</div><div class="word">app</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=clue"><div class="emoji">🔎🗒️</div><div class="word">clue</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=compass"><div class="emoji">🧭</div><div class="word">compass</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=ornament"><div class="emoji">🎄✨</div><div class="word">ornament</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=sinking"><div class="emoji">🚢⬇️</div><div class="word">sinking</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=origami"><div class="emoji">🦢📄</div><div class="word">origami</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=folding"><div class="emoji">📄🔁</div><div class="word">folding</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=design"><div class="emoji">🎨✏️</div><div class="word">design</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=dragon"><div class="emoji">🐉</div><div class="word">dragon</div></a>
+          <a class="vocab-tile glossary-content" href="vocab.html?level=4&amp;id=crane"><div class="emoji">🦢</div><div class="word">crane</div></a>
+            </div>
+
+            <div class="set-label glossary-related"><span class="dot"></span>Related Vocabulary · 5</div>
+            <div class="vocab-grid">
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=hobby"><div class="emoji">🎨🎯</div><div class="word">hobby</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=photographer"><div class="emoji">📷👤</div><div class="word">photographer</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=hiker"><div class="emoji">🚶🏔️</div><div class="word">hiker</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=polar-bear"><div class="emoji">🐻‍❄️</div><div class="word">polar bear</div></a>
+          <a class="vocab-tile glossary-related" href="vocab.html?level=4&amp;id=musical-instrument"><div class="emoji">🎸🎺</div><div class="word">musical instrument</div></a>
+            </div>
+
           </div>
         </div>
       </div>
@@ -975,7 +1145,60 @@
         </a>
       </div>
 
+      <div class="no-results" id="grammarNoResults">No grammar matches found</div>
+
     </div><!-- /panel-grammar -->
+
+    <!-- ACADEMIC PANEL -->
+    <div class="tab-panel" id="panel-academic">
+      <div class="academic-intro">
+        Academic Language is a separate study module for classroom instructions, reading skills,
+        writing tools, and thinking words. It is organized by level and does not count as a
+        lesson glossary.
+      </div>
+      <div class="levels-grid" id="academicLevelGrid">
+        <a class="level-card" href="vocab.html?module=academic&amp;level=1">
+          <div class="level-card-num">L1</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">54 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=2">
+          <div class="level-card-num">L2</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">55 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=3">
+          <div class="level-card-num">L3</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">48 words</div>
+        </a>
+        <a class="level-card active-level" href="vocab.html?module=academic&amp;level=4">
+          <div class="level-card-num">L4</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">42 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=5">
+          <div class="level-card-num">L5</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">73 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=6">
+          <div class="level-card-num">L6</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">67 words</div>
+        </a>
+        <a class="level-card" href="vocab.html?module=academic&amp;level=all">
+          <div class="level-card-num">ALL</div>
+          <div class="level-card-name">Academic Language</div>
+          <div class="level-badge now">246 unique words</div>
+        </a>
+      </div>
+      <div class="academic-results" id="academicResults">
+        <div class="set-label glossary-academic"><span class="dot"></span>Matching Academic Words</div>
+        <div class="vocab-grid" id="academicResultGrid"></div>
+        <div class="no-results" id="academicNoResults">No academic matches found</div>
+      </div>
+    </div><!-- /panel-academic -->
 
     <!-- ── LEVELS PANEL ── -->
     <div class="tab-panel" id="panel-levels">
@@ -983,33 +1206,33 @@
       <div class="levels-grid">
         <div class="level-card">
           <div class="level-card-num">L1</div>
-          <div class="level-card-name">Level 1</div>
-          <div class="level-badge soon">Coming soon</div>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
         </div>
         <div class="level-card">
           <div class="level-card-num">L2</div>
-          <div class="level-card-name">Level 2</div>
-          <div class="level-badge soon">Coming soon</div>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
         </div>
         <div class="level-card">
           <div class="level-card-num">L3</div>
-          <div class="level-card-name">Level 3</div>
-          <div class="level-badge soon">Coming soon</div>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
         </div>
-        <div class="level-card active-level">
+        <a class="level-card active-level" href="vocab.html?level=4">
           <div class="level-card-num">L4</div>
-          <div class="level-card-name">Level 4</div>
-          <div class="level-badge now">Active now</div>
-        </div>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge now">20 words</div>
+        </a>
         <div class="level-card">
           <div class="level-card-num">L5</div>
-          <div class="level-card-name">Level 5</div>
-          <div class="level-badge soon">Coming soon</div>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
         </div>
         <div class="level-card">
           <div class="level-card-num">L6</div>
-          <div class="level-card-name">Level 6</div>
-          <div class="level-badge soon">Coming soon</div>
+          <div class="level-card-name">Lesson Glossary</div>
+          <div class="level-badge soon">Not started</div>
         </div>
       </div>
 
@@ -1031,8 +1254,13 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.getElementById('panel-' + key).classList.add('active');
-      // search box only makes sense on vocab tab
-      document.querySelector('.search-box').style.display = key === 'vocab' ? '' : 'none';
+      document.querySelector('.search-box').style.display = key === 'levels' ? 'none' : '';
+      searchInput.placeholder = key === 'grammar'
+        ? "Search grammar — 'should', 'comparatives', 'who'..."
+        : key === 'academic'
+          ? "Search Academic Language — 'summarize', 'main idea', 'compare'..."
+          : "Search a word or a grammar point — 'pumpkin', 'comparatives', 'should'...";
+      doSearch(searchInput.value);
     });
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -1049,10 +1277,97 @@
     const searchInput = document.getElementById('searchInput');
     const clearBtn    = document.getElementById('clearSearch');
     const noResults   = document.getElementById('noResults');
+    const grammarNoResults = document.getElementById('grammarNoResults');
+    const academicLevelGrid = document.getElementById('academicLevelGrid');
+    const academicResults = document.getElementById('academicResults');
+    const academicResultGrid = document.getElementById('academicResultGrid');
+    const academicNoResults = document.getElementById('academicNoResults');
+    let academicWords = [];
+
+    fetch('content/our-world/academic_vocab.json')
+      .then(res => res.json())
+      .then(data => {
+        academicWords = data.words || [];
+        if (activeTabKey() === 'academic') doSearch(searchInput.value);
+      })
+      .catch(() => {
+        academicWords = [];
+      });
+
+    function activeTabKey() {
+      const tab = document.querySelector('#tabsBar .tab.active');
+      return tab ? tab.dataset.tab : 'vocab';
+    }
+
+    function searchGrammar(q) {
+      let totalVisible = 0;
+      const grammarPanel = document.getElementById('panel-grammar');
+      grammarPanel.querySelectorAll('.unit-divider').forEach(divider => {
+        const list = divider.nextElementSibling;
+        if (!list || !list.classList.contains('grammar-list')) return;
+        const unitText = divider.textContent.toLowerCase();
+        let unitVisible = 0;
+        list.querySelectorAll('.gram-row').forEach(row => {
+          const rowText = (unitText + ' ' + row.textContent).toLowerCase();
+          const show = !q || rowText.includes(q);
+          row.style.display = show ? '' : 'none';
+          if (show) unitVisible++;
+        });
+        divider.style.display = (!q || unitVisible) ? '' : 'none';
+        list.style.display = (!q || unitVisible) ? '' : 'none';
+        totalVisible += unitVisible;
+      });
+      if (grammarNoResults) grammarNoResults.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+    }
+
+    function searchAcademic(q) {
+      academicResultGrid.innerHTML = '';
+      if (!q) {
+        academicLevelGrid.style.display = '';
+        academicResults.style.display = 'none';
+        return;
+      }
+      academicLevelGrid.style.display = 'none';
+      academicResults.style.display = 'block';
+      const matches = academicWords.filter(word => [
+        word.word,
+        word.meaning,
+        word.academic_type,
+        ...(word.common_partners || [])
+      ].filter(Boolean).join(' ').toLowerCase().includes(q));
+      matches.forEach(word => {
+        const tile = document.createElement('a');
+        tile.className = 'vocab-tile glossary-academic';
+        tile.href = `vocab.html?module=academic&level=all&id=${encodeURIComponent(word.id)}`;
+        const emoji = document.createElement('div');
+        emoji.className = 'emoji';
+        emoji.textContent = word.emoji || '📚';
+        const label = document.createElement('div');
+        label.className = 'word';
+        label.textContent = word.word || word.id;
+        const levels = document.createElement('div');
+        levels.className = 'academic-result-meta';
+        levels.textContent = (word.levels || []).map(level => `L${level}`).join(' / ');
+        tile.append(emoji, label, levels);
+        academicResultGrid.appendChild(tile);
+      });
+      academicNoResults.style.display = matches.length ? 'none' : 'block';
+    }
 
     function doSearch(raw) {
       const q = raw.toLowerCase().trim();
       clearBtn.style.display = q ? 'inline-block' : 'none';
+      if (grammarNoResults) grammarNoResults.style.display = 'none';
+      noResults.style.display = 'none';
+
+      if (activeTabKey() === 'grammar') {
+        searchGrammar(q);
+        return;
+      }
+      if (activeTabKey() === 'academic') {
+        searchAcademic(q);
+        return;
+      }
 
       const accordions = document.querySelectorAll('.unit-accordion');
       let totalVisible = 0;
