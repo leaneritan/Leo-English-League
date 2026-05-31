@@ -825,8 +825,8 @@ header {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 1px;
-  background: var(--ow-blue);
-  color: #fff;
+  background: var(--yellow);
+  color: var(--ink);
   padding: 5px 12px;
   border-radius: 2px;
   flex-shrink: 0;
@@ -872,10 +872,10 @@ header {
 .lesson-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
 .lesson-chip { min-height:104px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:9px 8px; text-decoration:none; color:inherit; transition:all 0.2s; display:flex; flex-direction:column; justify-content:center; }
 .lesson-chip.live { border-color:var(--ow-blue); cursor:pointer; }
-.lesson-chip.live:hover { background:var(--ow-blue); }
-.lesson-chip.live:hover .lc-name { color:#fff; }
-.lesson-chip.live:hover .lc-desc { color:rgba(255,255,255,0.82); }
-.lesson-chip.live:hover .lc-status { background:rgba(255,255,255,0.2); color:#fff; }
+.lesson-chip.live:hover { background:var(--yellow); border-color:var(--yellow); }
+.lesson-chip.live:hover .lc-name { color:var(--ink); }
+.lesson-chip.live:hover .lc-desc { color:var(--ink-2); }
+.lesson-chip.live:hover .lc-status { background:rgba(0,0,0,0.1); color:var(--ink); }
 .lesson-chip.assigned { border-color:var(--yellow); box-shadow:inset 0 0 0 2px rgba(255,204,0,0.16); }
 .lesson-chip.done { border-color:var(--nc-green); background:#F0FDF4; }
 .lesson-chip.locked { opacity:0.45; cursor:not-allowed; pointer-events:none; }
@@ -886,8 +886,8 @@ header {
 .lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
 .lc-live { background:#E8F5E9; color:var(--nc-dark); }
 .lc-lock { background:var(--soft); color:var(--ink-4); }
-.lc-action { font-family:'Oswald',sans-serif; font-size:0.52rem; font-weight:700; letter-spacing:1px; color:var(--ow-blue); margin-top:5px; }
-.lesson-chip.live:hover .lc-action { color:#fff; }
+.lc-action { font-family:'Oswald',sans-serif; font-size:0.52rem; font-weight:700; letter-spacing:1px; color:var(--ink-2); margin-top:5px; }
+.lesson-chip.live:hover .lc-action { color:var(--ink); }
 @media (max-width: 720px) {
   .unit-grid { grid-template-columns:1fr; }
   .lesson-panel-top { display:block; }
@@ -1019,14 +1019,14 @@ header {
   letter-spacing: 1px;
   padding: 4px 12px;
   border-radius: 2px;
-  background: var(--ow-blue);
-  color: #fff;
+  background: var(--yellow);
+  color: var(--ink);
   text-decoration: none;
   transition: all 0.2s;
   display: inline-block;
 }
 .hw-open-btn:hover {
-  background: #155A99;
+  background: #E6B000;
 }
 .hw-review-btn {
   font-family: 'Oswald', sans-serif;
@@ -1035,14 +1035,14 @@ header {
   letter-spacing: 1px;
   padding: 4px 12px;
   border-radius: 2px;
-  background: #1D4ED8;
-  color: #fff;
+  background: var(--yellow);
+  color: var(--ink);
   text-decoration: none;
   transition: all 0.2s;
   display: inline-block;
 }
 .hw-review-btn:hover {
-  background: #1E40AF;
+  background: #E6B000;
 }
 @media (max-width: 720px) {
   .hw-card { align-items:flex-start; flex-direction:column; }
