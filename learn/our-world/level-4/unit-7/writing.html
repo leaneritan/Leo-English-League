@@ -824,35 +824,91 @@ function initReviewMode() {
   const m4p1 = lLoad(SAVE_PREFIX + 'm4-p1', '');
   const m4p2 = lLoad(SAVE_PREFIX + 'm4-p2', '');
   const m3inv = lLoad(SAVE_PREFIX + 'm3-inv', '');
-  const m8ta = lLoad(SAVE_PREFIX + 'm8-ta', '');
-  const m9ta = lLoad(SAVE_PREFIX + 'm9-ta', '');
+  const m3f1  = lLoad(SAVE_PREFIX + 'm3-f1', '');
+  const m3o1  = lLoad(SAVE_PREFIX + 'm3-o1', '');
+  const m8ta  = lLoad(SAVE_PREFIX + 'm8-ta', '');
+  const m9ta  = lLoad(SAVE_PREFIX + 'm9-ta', '');
   const checklist = lLoad(SAVE_PREFIX + 'checklist', [false,false,false,false]);
 
-  if (!scoreData && !m4p1 && !m8ta && !m9ta) {
+  const MOD_NAMES = {
+    m1:'Fact or Opinion', m2:'Key Expressions', m3:'Plan My Chart',
+    m4:'Write!', m5:'Edit Checklist', m6:'Analyse the Model',
+    m7:'My 2nd Plan', m8:'Write More', m9:'Free Writing', m10:'Can Leo Score'
+  };
+  const completedMods = Object.keys(MOD_NAMES).filter(id => {
+    const d = lLoad(SAVE_PREFIX + id + '-complete', null);
+    return d && d.timestamp;
+  });
+
+  const hasAnything = scoreData || m4p1 || m8ta || m9ta || m3inv || m3f1 || completedMods.length > 0;
+  if (!hasAnything) {
     body.innerHTML = '<div class="rv-not-started">📋 Work not started yet.</div>';
     return;
   }
 
   let html = '';
 
+  // Completed modules overview — shown first so it's immediately visible
+  if (completedMods.length > 0) {
+    const lines = completedMods.map(id => {
+      const d = lLoad(SAVE_PREFIX + id + '-complete', null);
+      const ts = d && d.timestamp ? ' · ' + new Date(d.timestamp).toLocaleString() : '';
+      return `✅ ${MOD_NAMES[id]}${ts}`;
+    }).join('\n');
+    html += `<div class="rv-card"><div class="rv-lbl">COMPLETED MODULES — ${completedMods.length} / 10</div><div class="rv-val" style="font-size:.82rem;line-height:1.9">${lines}</div></div>`;
+  }
+
+  // Final quiz result (M10)
   if (scoreData) {
     const pct = Math.round((scoreData.score / 8) * 100);
-    html += `<div class="rv-card"><div class="rv-lbl">QUIZ RESULT</div>
+    html += `<div class="rv-card"><div class="rv-lbl">FINAL QUIZ — CAN LEO SCORE?</div>
       <div class="rv-score-big">${scoreData.score}/8 — ${pct}% ${pct >= 80 ? '✅ PASS' : '❌ Retry'}</div>
       <div class="rv-val" style="margin-top:4px;font-size:.75rem;color:var(--ink3)">Submitted: ${new Date(scoreData.timestamp).toLocaleString()}</div>
       ${scoreData.wrongQuestions && scoreData.wrongQuestions.length ? `<div class="rv-val" style="margin-top:6px;color:var(--rd)">Missed: ${scoreData.wrongQuestions.join(', ')}</div>` : ''}
     </div>`;
   }
 
-  if (m3inv) html += `<div class="rv-card"><div class="rv-lbl">MODULE 3 — CHOSEN INVENTION</div><div class="rv-val">${m3inv}</div></div>`;
+  // M1 quiz score
+  const m1s = lLoad(SAVE_PREFIX + 'm1-score');
+  if (m1s) html += `<div class="rv-card"><div class="rv-lbl">MODULE 1 — FACT OR OPINION QUIZ</div><div class="rv-val">Score: ${m1s.score}/6</div></div>`;
+
+  // M2 quiz score
+  const m2s = lLoad(SAVE_PREFIX + 'm2-score');
+  if (m2s) html += `<div class="rv-card"><div class="rv-lbl">MODULE 2 — KEY EXPRESSIONS QUIZ</div><div class="rv-val">Score: ${m2s.score}/4</div></div>`;
+
+  // M3 Plan My Chart — show invention + chart content
+  if (m3inv || m3f1 || m3o1) {
+    const m3f2 = lLoad(SAVE_PREFIX + 'm3-f2', '');
+    const m3f3 = lLoad(SAVE_PREFIX + 'm3-f3', '');
+    const m3o2 = lLoad(SAVE_PREFIX + 'm3-o2', '');
+    const m3o3 = lLoad(SAVE_PREFIX + 'm3-o3', '');
+    let rows = m3inv ? `Invention: ${m3inv}` : '';
+    if (m3f1) rows += `\nFact 1: ${m3f1}`;
+    if (m3o1) rows += `\nOpinion 1: ${m3o1}`;
+    if (m3f2) rows += `\nFact 2: ${m3f2}`;
+    if (m3o2) rows += `\nOpinion 2: ${m3o2}`;
+    if (m3f3) rows += `\nFact 3: ${m3f3}`;
+    if (m3o3) rows += `\nOpinion 3: ${m3o3}`;
+    html += `<div class="rv-card"><div class="rv-lbl">MODULE 3 — PLAN MY CHART</div><div class="rv-val">${rows.trim()}</div></div>`;
+  }
+
+  // M4 Writing
   if (m4p1 || m4p2) html += `<div class="rv-card"><div class="rv-lbl">MODULE 4 — LEO'S WRITING</div><div class="rv-val">${m4p1 || '(empty)'}${m4p2 ? '\n\n' + m4p2 : ''}</div></div>`;
 
+  // M5 Edit Checklist — only show if something was ticked or marked complete
   const doneCount = checklist.filter(Boolean).length;
-  html += `<div class="rv-card"><div class="rv-lbl">MODULE 5 — EDIT CHECKLIST</div><div class="rv-val">${doneCount}/4 items ticked</div></div>`;
+  if (doneCount > 0 || completedMods.includes('m5')) {
+    html += `<div class="rv-card"><div class="rv-lbl">MODULE 5 — EDIT CHECKLIST</div><div class="rv-val">${doneCount}/4 items ticked</div></div>`;
+  }
 
+  // M7 2nd Plan
   const m7inv = lLoad(SAVE_PREFIX + 'm7-inv', '');
   if (m7inv) html += `<div class="rv-card"><div class="rv-lbl">MODULE 7 — 2ND INVENTION</div><div class="rv-val">${m7inv}</div></div>`;
+
+  // M8 Write More
   if (m8ta) html += `<div class="rv-card"><div class="rv-lbl">MODULE 8 — WRITE MORE</div><div class="rv-val">${m8ta}</div></div>`;
+
+  // M9 Free Writing
   if (m9ta) html += `<div class="rv-card"><div class="rv-lbl">MODULE 9 — FREE WRITING</div><div class="rv-val">${m9ta}</div></div>`;
 
   if (!scoreData) html += `<div class="rv-card" style="border-color:var(--or)"><div class="rv-lbl">STATUS</div><div class="rv-val" style="color:var(--or)">In progress — quiz not completed yet.</div></div>`;
