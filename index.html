@@ -893,15 +893,28 @@ header {
 .hw-card.hw-review-ready { border-color: var(--yellow); background: var(--yellow-bg); }
 .hw-lesson { font-weight: 800; font-size: 0.92rem; color: var(--ink); }
 .hw-unit { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
-.hw-card-right { text-align: right; flex-shrink: 0; }
-.hw-status { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; margin-bottom: 4px; display: inline-block; }
+.hw-card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.hw-status { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; display: inline-block; }
 .hw-status-done    { background: #E8F5E9; color: var(--nc-dark); }
 .hw-status-pending { background: #FEE2E2; color: var(--red); }
 .hw-due { font-size: 0.72rem; font-weight: 800; }
 .hw-ok      { color: var(--ink-4); }
 .hw-soon    { color: var(--ow-orange); }
 .hw-today   { color: var(--el-red); }
-.hw-overdue { color: var(--red); }
+.hw-overdue {
+  display: inline-block;
+  background: #EF4444;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.hw-card.hw-overdue-card {
+  border-left: 4px solid #EF4444;
+}
 .hw-chip-badge {
   font-family: 'Oswald', sans-serif;
   font-size: 0.55rem;
@@ -918,7 +931,6 @@ header {
   display: flex;
   justify-content: flex-end;
   gap: 6px;
-  margin-top: 8px;
   flex-wrap: wrap;
 }
 .hw-unassign-btn {
@@ -991,7 +1003,7 @@ header {
 }
 @media (max-width: 720px) {
   .hw-card { align-items:flex-start; flex-direction:column; }
-  .hw-card-right { text-align:left; width:100%; }
+  .hw-card-right { align-items:flex-start; width:100%; }
   .hw-card-actions { justify-content:flex-start; }
 }
 
@@ -2013,7 +2025,7 @@ header {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
-        <div class="hw-card ${done ? 'hw-done' : ''}">
+        <div class="hw-card ${done ? 'hw-done' : ''} ${!done && cls === 'hw-overdue' ? 'hw-overdue-card' : ''}">
           <div class="hw-card-left">
             <div class="hw-lesson">${h.lesson}</div>
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
@@ -2059,7 +2071,7 @@ header {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
-        <div class="hw-card ${done ? 'hw-review-ready' : ''}">
+        <div class="hw-card ${done ? 'hw-review-ready' : ''} ${!done && cls === 'hw-overdue' ? 'hw-overdue-card' : ''}">
           <div class="hw-card-left">
             <div class="hw-lesson">${h.lesson}</div>
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
