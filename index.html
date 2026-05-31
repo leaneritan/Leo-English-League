@@ -925,8 +925,9 @@ header {
 .hw-unit { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
 .hw-card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
 .hw-status { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 999px; display: inline-block; }
-.hw-status-done    { background: #E8F5E9; color: var(--nc-dark); }
-.hw-status-pending { background: #F0F0F0; color: var(--ink-3); }
+.hw-status-done     { background: #E8F5E9; color: var(--nc-dark); }
+.hw-status-progress { background: #EEF5FF; color: var(--ow-blue); }
+.hw-status-pending  { background: #F0F0F0; color: var(--ink-3); }
 .hw-due { font-size: 0.72rem; font-weight: 800; }
 .hw-ok      { color: var(--ink-4); }
 .hw-soon    { color: var(--ow-orange); }
@@ -1913,6 +1914,11 @@ header {
     return lLoad(id + '-done', false);
   }
 
+  function isHomeworkStarted(id) {
+    const prefix = 'leea-' + id + '-';
+    return Object.keys(localStorage).some(k => k.startsWith(prefix));
+  }
+
   function getDueDateLabel(dateStr) {
     const due = new Date(dateStr);
     const today = new Date();
@@ -2068,7 +2074,10 @@ header {
     const doneList = hw.filter(h => isHomeworkDone(h.id));
     const renderLeoCard = h => {
       const done = isHomeworkDone(h.id);
+      const started = !done && isHomeworkStarted(h.id);
       const { label, cls } = getDueDateLabel(h.due);
+      const statusLabel = done ? '✅ Done' : started ? '🔄 In progress' : '⬜ Not started';
+      const statusCls   = done ? 'hw-status-done' : started ? 'hw-status-progress' : 'hw-status-pending';
       return `
         <div class="hw-card ${done ? 'hw-done' : ''} ${!done && cls === 'hw-overdue' ? 'hw-overdue-card' : ''}">
           <div class="hw-card-left">
@@ -2076,9 +2085,7 @@ header {
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
           </div>
           <div class="hw-card-right">
-            <div class="hw-status ${done ? 'hw-status-done' : 'hw-status-pending'}">
-              ${done ? '✅ Done' : '🔴 Not started'}
-            </div>
+            <div class="hw-status ${statusCls}">${statusLabel}</div>
             <div class="hw-due ${cls}">${label}</div>
             <div class="hw-card-actions">
               <a class="hw-open-btn" href="${h.url}">Open →</a>
@@ -2114,7 +2121,10 @@ header {
     const readyForReview = hw.filter(h => isHomeworkDone(h.id));
     const renderActiveCard = h => {
       const done = isHomeworkDone(h.id);
+      const started = !done && isHomeworkStarted(h.id);
       const { label, cls } = getDueDateLabel(h.due);
+      const statusLabel = done ? '✅ Done' : started ? '🔄 In progress' : '⬜ Not started';
+      const statusCls   = done ? 'hw-status-done' : started ? 'hw-status-progress' : 'hw-status-pending';
       return `
         <div class="hw-card ${done ? 'hw-review-ready' : ''} ${!done && cls === 'hw-overdue' ? 'hw-overdue-card' : ''}">
           <div class="hw-card-left">
@@ -2122,9 +2132,7 @@ header {
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
           </div>
           <div class="hw-card-right">
-            <div class="hw-status ${done ? 'hw-status-done' : 'hw-status-pending'}">
-              ${done ? '✅ Done' : '🔴 In progress'}
-            </div>
+            <div class="hw-status ${statusCls}">${statusLabel}</div>
             <div class="hw-due ${cls}">${label}</div>
             <div class="hw-card-actions">
               <a class="hw-review-btn" href="${getReviewUrl(h)}" target="_blank">
