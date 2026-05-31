@@ -1915,8 +1915,19 @@ header {
   }
 
   function isHomeworkStarted(id) {
-    const prefix = 'leea-' + id + '-';
-    return Object.keys(localStorage).some(k => k.startsWith(prefix));
+    // A homework is "In progress" only when actual content exists in localStorage.
+    // Lesson apps write content under two prefixes:
+    //   HOMEWORK_ID-based:  leea-{id}-*          e.g. leea-leo-4-7-writing-score
+    //   SAVE_PREFIX-based:  leea-{id sans leo-}-* e.g. leea-4-7-writing-m4-p1
+    // Module-done flags (-done, -complete) are written by clicking buttons, not by
+    // entering content, so we exclude them to avoid false positives.
+    const savePrefix = 'leea-' + id.replace(/^leo-/, '') + '-';
+    const hwPrefix   = 'leea-' + id + '-';
+    const isContent  = k =>
+      !k.endsWith('-done') && !k.endsWith('-complete');
+    return Object.keys(localStorage).some(k =>
+      (k.startsWith(hwPrefix) || k.startsWith(savePrefix)) && isContent(k)
+    );
   }
 
   function getDueDateLabel(dateStr) {
