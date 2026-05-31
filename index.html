@@ -345,6 +345,38 @@ header {
 .mode-card.el:hover  { border-color: var(--el-red); }
 .mode-card.ref:hover { border-color: var(--ow-blue); }
 
+/* COMING SOON CARD */
+.mode-card.coming-soon {
+  opacity: 0.7;
+  cursor: default;
+  pointer-events: none;
+}
+.mode-card.coming-soon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border);
+}
+.slot-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.slot-badge-cs {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #fff;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.45);
+  padding: 5px 14px;
+  border-radius: 2px;
+}
+
 /* OUR WORLD LOGO */
 .ow-slot {
   background: var(--ink);
@@ -413,6 +445,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  position: relative;
 }
 .nc-slot.short { height: 120px; }
 .nc-crown-icon { font-size: 1.8rem; }
@@ -455,6 +488,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  position: relative;
 }
 .el-ball { font-size: 2rem; }
 .el-title-text {
@@ -1494,8 +1528,9 @@ header {
         </div>
       </div>
 
-      <a class="mode-card el" href="#">
+      <div class="mode-card el coming-soon">
         <div class="el-slot">
+          <div class="slot-overlay"><span class="slot-badge-cs">COMING SOON</span></div>
           <div class="el-ball">⚽</div>
           <div class="el-title-text">ENGLISH<br>LEAGUE</div>
         </div>
@@ -1503,9 +1538,9 @@ header {
           <div class="mode-tag"><div class="dot" style="color:var(--el-red)"></div>CUSTOM</div>
           <div class="mode-title">English League</div>
           <div class="mode-desc">Teaching slides for grammar points outside the textbook. Neritan designs the content.</div>
-          <div class="mode-meta"><span>Coming soon</span><span class="arrow">→</span></div>
+          <div class="mode-meta"><span>Coming soon</span></div>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -1552,8 +1587,9 @@ header {
         </div>
       </a>
 
-      <a class="mode-card el" href="#">
+      <div class="mode-card el coming-soon">
         <div class="el-slot">
+          <div class="slot-overlay"><span class="slot-badge-cs">COMING SOON</span></div>
           <div class="el-ball">⚽</div>
           <div class="el-title-text">ENGLISH<br>LEAGUE</div>
           <div class="el-elite-badge">ELITE MODE</div>
@@ -1562,9 +1598,9 @@ header {
           <div class="mode-tag"><div class="dot" style="color:var(--el-red)"></div>COMPETITIVE</div>
           <div class="mode-title">English League Elite</div>
           <div class="mode-desc">Timed grammar challenges, score tracking, and mastery badges.</div>
-          <div class="mode-meta"><span>Coming soon</span><span class="arrow">→</span></div>
+          <div class="mode-meta"><span>Coming soon</span></div>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
