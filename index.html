@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leo's Elite English Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -34,11 +34,19 @@
   --shadow-md:  0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
   --shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
   --accent-gradient: linear-gradient(135deg, #FFCC00 0%, #F0A500 100%);
+  --canvas:      #F5F6F8;
+  --font-display: 'Oswald', sans-serif;
+  --font-body:   'Inter', sans-serif;
+  --ow-blue-bg:  #EEF5FF;
+  --nc-green-bg: #E8F5E9;
+  --el-red-bg:   #FBF0ED;
+  --purple:      #6D5BD0;
+  --purple-bg:   #F1EFFB;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--paper);
+  background: var(--canvas);
   color: var(--ink);
   line-height: 1.6;
   min-height: 100vh;
@@ -46,289 +54,221 @@ body {
   flex-direction: column;
 }
 
-/* HEADER */
+/* ─── HEADER ─────────────────────────────────────── */
 header {
-  background: var(--ink);
-  padding: 0 32px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky; top: 0; z-index: 60;
+  height: 60px; background: var(--ink);
+  display: flex; align-items: center; gap: 14px;
+  padding: 0 22px;
 }
-.brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
 .brand-badge {
-  background: var(--yellow);
-  color: var(--ink);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 3px 10px;
-  border-radius: 6px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 12px; letter-spacing: .18em;
+  background: var(--yellow); color: var(--ink);
+  padding: 5px 10px 4px; border-radius: 5px;
+  cursor: pointer;
 }
 .brand-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  color: #fff;
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 13px; letter-spacing: .14em; color: #fff;
 }
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.header-spacer { flex: 1; }
+.header-context {
+  display: none; align-items: center; gap: 10px;
+  min-width: 0; overflow: hidden;
 }
-.header-home,
-.role-chip {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 0.2s;
+.header-context.visible { display: flex; }
+.switcher {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px; padding: 4px;
 }
-.header-home {
-  background: transparent;
-  border: 1px solid transparent;
-  color: rgba(255,255,255,0.62);
-  padding: 6px 8px;
+.avatar-pill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 13px 5px 5px; border-radius: 999px;
+  cursor: pointer; border: 1px solid transparent;
+  transition: background .16s, border-color .16s;
 }
-.header-home:hover { color: #fff; }
-.header-home.active {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  color: var(--ink);
+.avatar-pill:hover { background: rgba(255,255,255,.06); }
+.avatar-pill.active { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); }
+.avatar-glyph {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 11px;
+  flex-shrink: 0;
 }
-.role-switcher {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  border: 1px solid rgba(255,255,255,0.26);
-  border-radius: 2px;
-  padding: 3px;
+.avatar-glyph.n { background: var(--yellow); color: var(--ink); }
+.avatar-glyph.l { background: var(--ow-blue); color: #fff; }
+.avatar-name {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
 }
-.role-chip {
-  background: transparent;
-  border: 0;
-  color: rgba(255,255,255,0.68);
-  padding: 5px 9px;
-}
-.role-chip:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.08);
-}
-.role-chip.active {
-  background: var(--yellow);
-  color: var(--ink);
-}
-.role-chip:not(.active) {
-  background: transparent;
-}
+.avatar-pill.active .avatar-name { color: #fff; }
 
 /* SCREENS */
 .screen { display:none; flex:1; flex-direction:column; }
 .screen.active { display:flex; animation:fadeUp 0.3s ease; }
 @keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
-/* HERO */
+/* ─── HERO / STATS CARD ──────────────────────────── */
 .hero {
-  background: var(--ink);
-  background-image: radial-gradient(ellipse at 20% 50%, rgba(255,204,0,0.08) 0%, transparent 60%);
-  padding: 36px 32px 32px;
-  text-align: center;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: var(--shadow-sm);
+  padding: 28px 30px;
+  display: flex; align-items: center; justify-content: space-between; gap: 28px;
+  margin-bottom: 34px;
 }
+.hero-left { min-width: 0; }
 .hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,204,0,0.15);
-  color: #FFCC00;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 14px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
+  background: var(--yellow-bg); color: var(--yellow-ink);
+  border: 1px solid #F2E3A8;
+  padding: 4px 10px; border-radius: 6px; margin-bottom: 14px;
+}
+.hero-kicker .dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(255,204,0,.25);
 }
 .hero-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.5px;
-  line-height: 1;
-  margin-bottom: 8px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 34px; letter-spacing: .01em; line-height: 1.04; color: var(--ink);
 }
-.hero-title span { color: var(--yellow); }
-.hero-sub { color: rgba(255,255,255,0.5); font-size: 0.9rem; font-weight: 500; }
+.hero-title em { font-style: normal; color: var(--yellow); text-shadow: 0 1px 0 rgba(139,107,0,.12); }
+.hero-sub {
+  margin-top: 9px; font-size: 13px; font-weight: 500; color: var(--ink-3);
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.hero-sub .sep { color: var(--border); }
+.hero-stats { display: flex; gap: 12px; flex-shrink: 0; }
+.stat-chip {
+  background: var(--yellow-bg); border: 1px solid #F2E3A8;
+  border-radius: 12px; padding: 13px 18px; text-align: left; min-width: 108px;
+}
+.stat-num {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 26px; line-height: 1; color: var(--ink);
+}
+.stat-num small { font-size: 14px; color: var(--yellow-ink); }
+.stat-label {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--yellow-ink); margin-top: 6px;
+}
 
-/* PERSON SECTION */
+/* ─── PERSON SECTION ─────────────────────────────── */
 .person-section {
-  max-width: 1100px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 36px 24px;
+  padding: 34px 24px 56px;
   width: 100%;
 }
 .section-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--ink-3);
-  margin-bottom: 24px;
-  text-align: center;
-  display: block;
-  position: relative;
-  padding-bottom: 10px;
+  display: inline-block;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 18px; position: relative; padding-bottom: 9px;
 }
 .section-label::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 32px;
-  height: 2px;
-  background: var(--yellow);
-  border-radius: 999px;
+  content: ''; position: absolute; left: 0; bottom: 0;
+  width: 34px; height: 3px; border-radius: 3px; background: var(--yellow);
 }
 .person-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 18px;
 }
 
-/* PERSON CARD */
+/* ─── PERSON CARDS ───────────────────────────────── */
 .person-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
   overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: var(--shadow-md);
-  background: var(--surface);
 }
-.person-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-
-.person-logo {
-  height: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+.person-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.person-card.leo { border-color: #F2D45A; box-shadow: 0 0 0 1px #F2D45A, var(--shadow-sm); }
+.person-card.leo:hover { box-shadow: 0 0 0 1px #F2D45A, var(--shadow-md); }
+.card-flag {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--yellow-ink); background: var(--yellow);
+  padding: 5px 0; text-align: center;
 }
-.bg-dark  { background: var(--ink); }
-.bg-navy  { background: #1A3A5C; }
-
-.person-emoji { font-size: 3rem; }
-.person-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: 3px;
+.card-top {
+  padding: 24px 22px 0; display: flex; align-items: flex-start; justify-content: space-between;
 }
-.col-yellow { color: var(--yellow); }
-.col-green  { color: #81C784; }
-.col-blue   { color: #90CAF9; }
-
-.person-body { padding: 16px 18px; }
-.person-role {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--ink-4);
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  position: relative;
-  display: block;
+.card-emoji {
+  width: 52px; height: 52px; border-radius: 13px;
+  background: var(--canvas); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; font-size: 27px;
 }
-.person-role::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background: var(--yellow);
-  border-radius: 999px;
+.card-badge {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 9.5px; letter-spacing: .13em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 6px; margin-top: 6px;
 }
-.person-title {
-  font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: -0.3px;
-  color: var(--ink);
-  margin-bottom: 5px;
+.badge-teaching { background: var(--yellow); color: var(--ink); }
+.badge-learning { background: var(--ow-blue); color: #fff; }
+.badge-reference { background: var(--nc-green); color: #fff; }
+.card-body { padding: 18px 22px 20px; flex: 1; display: flex; flex-direction: column; }
+.card-title { font-family: var(--font-display); font-weight: 700; font-size: 21px; letter-spacing: .01em; color: var(--ink); margin-bottom: 8px; }
+.card-desc { font-size: 13px; line-height: 1.55; color: var(--ink-3); margin-bottom: 16px; flex: 1; }
+.card-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: 5px;
 }
-.person-desc {
-  font-size: 0.78rem;
-  color: var(--ink-3);
-  line-height: 1.5;
-  margin-bottom: 12px;
+.pill-ow  { background: var(--ow-blue-bg); color: var(--ow-blue); }
+.pill-jh  { background: var(--nc-green-bg); color: var(--nc-dark); }
+.pill-el  { background: var(--el-red-bg); color: var(--el-dark); }
+.pill-ref { background: #F0F0FF; color: #3949AB; }
+.pill-vocab { background: var(--purple-bg); color: var(--purple); }
+.pill-gram  { background: var(--yellow-bg); color: var(--yellow-ink); }
+.pill-grey  { background: var(--soft); color: var(--ink-3); }
+.card-foot {
+  border-top: 1px solid var(--border); padding: 14px 22px;
+  display: flex; align-items: center; justify-content: space-between;
 }
-.person-modes { display:flex; flex-wrap:wrap; gap:5px; }
+.foot-cta {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 11px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-3); display: flex; align-items: center; gap: 7px;
+  transition: color .16s;
+}
+.person-card:hover .foot-cta { color: var(--ink); }
+.person-card:hover .foot-cta .arr { transform: translateX(3px); }
+.foot-cta .arr { transition: transform .16s; display: inline-block; }
+.ready-dot {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--nc-green);
+}
+.ready-dot::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--nc-green);
+  box-shadow: 0 0 0 3px rgba(46,125,50,.16);
+}
 .mode-pill {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  pointer-events: none;
+  font-family: var(--font-display);
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 1px;
+  padding: 4px 10px; border-radius: 999px; pointer-events: none;
 }
-.pill-ow  { background:#E3F0FF; color:var(--ow-blue); }
-.pill-jh  { background:#E8F5E9; color:var(--nc-dark); }
-.pill-el  { background:#FBF0ED; color:var(--el-dark); }
-.pill-ref { background:#F0F0FF; color:#3949AB; }
 
-.person-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 14px 20px;
-  border-top: 1px solid var(--border);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--ink-4);
-  gap: 6px;
-  background: transparent;
-  transition: background 0.2s, color 0.2s;
-}
-.person-card:hover .person-arrow { background: var(--soft); color: var(--ink); }
-.person-card.leo:hover .person-arrow { background: var(--yellow-bg); color: var(--yellow-ink); }
-
-/* HEADER CONTEXT (back btn + title injected when on sub-screen) */
-.header-context {
-  display: none;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  margin: 0 12px;
-  min-width: 0;
-  overflow: hidden;
-}
-.header-context.visible { display: flex; }
 .back-btn {
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
   color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.72rem;
   letter-spacing: 1px;
   padding: 6px 14px;
-  border-radius: 2px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.2s;
   white-space: nowrap;
@@ -336,7 +276,7 @@ header {
 }
 .back-btn:hover { background: rgba(255,255,255,0.2); }
 .header-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 2px;
@@ -566,7 +506,7 @@ header {
   color: var(--ink-4);
   margin-bottom: 6px;
 }
-.dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+.mode-tag .dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
 .mode-title {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -717,7 +657,7 @@ header {
 .suggest-chip:hover { background: var(--ink); color: #fff; }
 
 @media (max-width: 680px) {
-  .person-grid, .cols-2, .cols-3 { grid-template-columns: 1fr; }
+  .cols-2, .cols-3 { grid-template-columns: 1fr; }
 }
 
 /* ── DASH CARDS (level grid) ── */
@@ -1293,68 +1233,33 @@ header {
 }
 .crumb-link:hover { text-decoration:underline; }
 .crumb-current { color:var(--ink); }
+/* ─── SIDEBAR RAIL ───────────────────────────────── */
 .app-rail {
   position: fixed;
-  left: 0;
-  top: 60px;
-  bottom: 0;
-  z-index: 20;
-  width: 72px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 8px 0;
-  background: #ffffff;
+  left: 0; top: 60px; bottom: 0;
+  z-index: 20; width: 72px;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 14px 0; gap: 4px;
+  background: var(--surface);
   border-right: 1px solid var(--border);
-  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
 }
 .rail-btn {
-  width: calc(100% - 12px);
-  height: 64px;
-  border: none;
-  border-left: 3px solid transparent;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--ink-3);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  margin: 2px 6px;
-  padding: 0;
-  transition: background 0.15s, color 0.15s;
-  text-align: center;
+  position: relative;
+  width: 48px; height: 48px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  border-radius: 10px; cursor: pointer; color: var(--ink-4);
+  background: transparent; border: none;
+  transition: background .15s, color .15s;
 }
-.rail-btn:hover {
-  background: var(--soft);
-  color: var(--ink);
-}
-.rail-btn.active {
-  background: var(--yellow-bg);
-  color: var(--yellow-ink);
-  border-left-color: var(--yellow);
-}
-.rail-btn.active .rail-icon { color: var(--yellow-ink); }
-.rail-icon {
-  font-size: 1.4rem;
-  line-height: 1;
-  display: block;
-}
+.rail-btn:hover { background: var(--soft); color: var(--ink-2); }
+.rail-btn.active { color: var(--ink); background: var(--yellow-bg); box-shadow: inset 3px 0 0 var(--yellow); }
+.rail-btn svg { width: 21px; height: 21px; }
+.rail-icon { font-size: 1.3rem; line-height: 1; display: block; }
 .rail-label {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  line-height: 1;
-  white-space: nowrap;
-  margin-top: 3px;
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 8px; letter-spacing: .08em; text-transform: uppercase;
 }
-.rail-btn.active .rail-label {
-  color: var(--yellow-ink);
-  font-weight: 700;
-}
+.rail-sep { width: 28px; height: 1px; background: var(--border); margin: 6px 0; }
 .mobile-tabs {
   display:none;
   position:fixed;
@@ -1395,61 +1300,71 @@ header {
 @media (min-width: 721px) {
   .screen { margin-left: 72px; }
 }
+@media (max-width: 880px) {
+  .person-grid { grid-template-columns: 1fr; }
+  .hero { flex-direction: column; align-items: flex-start; }
+  .hero-stats { width: 100%; }
+  .stat-chip { flex: 1; }
+}
 @media (max-width: 720px) {
-  header { padding:0 16px; }
-  .brand-name { display:none; }
-  .header-actions { gap:6px; }
-  .header-home,
-  .role-chip {
-    font-size:0.58rem;
-    padding:5px 7px;
-  }
-  .app-rail { display:none; }
-  .mobile-tabs { display:grid; }
-  body { padding-bottom:74px; }
-  .quick-card { align-items:flex-start; flex-direction:column; }
-  .quick-action { width:100%; text-align:center; }
+  header { padding: 0 16px; }
+  .brand-name { display: none; }
+  .app-rail { display: none; }
+  .mobile-tabs { display: grid; }
+  body { padding-bottom: 74px; }
+  .quick-card { align-items: flex-start; flex-direction: column; }
+  .quick-action { width: 100%; text-align: center; }
+  .hero-stats { flex-direction: column; }
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">
-    <div class="brand-badge">LEEA</div>
-    <div class="brand-name">LEO'S ELITE ENGLISH ACADEMY</div>
-  </div>
+  <div class="brand-badge" onclick="showPerson()">LEEA</div>
+  <div class="brand-name">LEO'S ELITE ENGLISH ACADEMY</div>
+  <div class="header-spacer"></div>
   <div class="header-context" id="header-context">
     <button class="back-btn" id="header-back">← Back</button>
     <span class="header-title" id="header-title"></span>
   </div>
-  <div class="header-actions" aria-label="Global navigation">
-    <button class="header-home" type="button" onclick="showPerson()">HOME</button>
-    <div class="role-switcher" aria-label="Role switcher">
-      <button class="role-chip" data-role="neritan" type="button" onclick="setPreferredRole('neritan', true)">NERITAN</button>
-      <button class="role-chip" data-role="leo" type="button" onclick="setPreferredRole('leo', true)">LEO</button>
+  <div class="switcher">
+    <div class="avatar-pill role-chip" data-role="neritan" onclick="setPreferredRole('neritan', true)">
+      <span class="avatar-glyph n">N</span>
+      <span class="avatar-name">Neritan</span>
+    </div>
+    <div class="avatar-pill role-chip" data-role="leo" onclick="setPreferredRole('leo', true)">
+      <span class="avatar-glyph l">L</span>
+      <span class="avatar-name">Leo</span>
     </div>
   </div>
 </header>
 
 <nav class="app-rail" aria-label="Main navigation">
   <button class="rail-btn" data-screen="screen-person" onclick="goTo('screen-person')" title="Home" aria-label="Home">
-    <span class="rail-icon">⌂</span><span class="rail-label">Home</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+    <span class="rail-label">Home</span>
   </button>
+  <div class="rail-sep"></div>
   <button class="rail-btn" data-screen="screen-neritan" onclick="goTo('screen-neritan')" title="Neritan Dashboard" aria-label="Neritan Dashboard">
-    <span class="rail-icon">👨</span><span class="rail-label">Neritan</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg>
+    <span class="rail-label">Dad</span>
   </button>
   <button class="rail-btn" data-screen="screen-leo" onclick="goTo('screen-leo')" title="Leo Hub" aria-label="Leo Hub">
-    <span class="rail-icon">🦁</span><span class="rail-label">Leo Hub</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.2"/><path d="M6 19c0-3 2.7-5 6-5s6 2 6 5"/></svg>
+    <span class="rail-label">Leo</span>
   </button>
   <button class="rail-btn" data-screen="screen-neritan-ow" onclick="goTo('screen-neritan-ow')" title="Our World Slides" aria-label="Our World Slides">
-    <span class="rail-icon">🌍</span><span class="rail-label">Our World</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>
+    <span class="rail-label">World</span>
   </button>
   <button class="rail-btn" data-screen="screen-search" onclick="goTo('screen-search')" title="Search Everything" aria-label="Search Everything">
-    <span class="rail-icon">⌕</span><span class="rail-label">Search</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <span class="rail-label">Search</span>
   </button>
   <button class="rail-btn" data-screen="screen-reference" onclick="goTo('screen-reference')" title="Reference" aria-label="Reference">
-    <span class="rail-icon">📚</span><span class="rail-label">Reference</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2z"/><path d="M18 16H7a2 2 0 0 0-2 2"/></svg>
+    <span class="rail-label">Ref</span>
   </button>
 </nav>
 
@@ -1499,72 +1414,101 @@ header {
 
 <!-- ══ SCREEN 1: PERSON SELECTOR ══ -->
 <div class="screen active" id="screen-person">
-  <div class="hero">
-    <div class="hero-kicker">⚽ WELCOME BACK</div>
-    <div class="hero-title">LEO'S <span>ELITE ACADEMY</span></div>
-    <div class="hero-sub">Our World · Junior High · English League · Level 4 Active</div>
-  </div>
-
   <div class="person-section">
-    <div class="section-label">WHO ARE YOU TODAY?</div>
+
+    <!-- HERO / STATS -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-kicker"><span class="dot"></span>Active Session</div>
+        <h1 class="hero-title">Leo's <em>Elite</em> Academy</h1>
+        <div class="hero-sub">
+          <span>Our World</span><span class="sep">·</span>
+          <span>Junior High</span><span class="sep">·</span>
+          <span>English League</span><span class="sep">·</span>
+          <span>Level 4</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-chip">
+          <div class="stat-num">108</div>
+          <div class="stat-label">Grammar Pts</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-num">Lv<small> 4</small></div>
+          <div class="stat-label">Active</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SELECTOR -->
+    <div class="section-label">Who Are You Today?</div>
+
     <div class="person-grid">
 
+      <!-- NERITAN -->
       <div class="person-card neritan" onclick="showModes('neritan')">
-        <div class="person-logo bg-dark">
-          <div class="person-emoji">👨</div>
-          <div class="person-name col-yellow">NERITAN</div>
+        <div class="card-top">
+          <div class="card-emoji">👨</div>
+          <div class="card-badge badge-teaching">Teaching Mode</div>
         </div>
-        <div class="person-body">
-          <div class="person-role">TEACHING MODE</div>
-          <div class="person-title">Dad's Dashboard</div>
-          <div class="person-desc">Teaching slides for Our World and English League. Present lessons step by step.</div>
-          <div class="person-modes">
-            <span class="mode-pill pill-ow">OUR WORLD</span>
-            <span class="mode-pill pill-el">ENGLISH LEAGUE</span>
+        <div class="card-body">
+          <div class="card-title">Neritan</div>
+          <div class="card-desc">Teaching slides for Our World and English League. Present lessons step by step.</div>
+          <div class="card-pills">
+            <span class="pill pill-ow">Our World</span>
+            <span class="pill pill-el">Eng League</span>
           </div>
         </div>
-        <div class="person-arrow">OPEN DASHBOARD →</div>
+        <div class="card-foot">
+          <span class="foot-cta">Open Dashboard <span class="arr">→</span></span>
+        </div>
       </div>
 
+      <!-- LEO (featured) -->
       <div class="person-card leo" onclick="showModes('leo')">
-        <div class="person-logo bg-dark">
-          <div class="person-emoji">🦁</div>
-          <div class="person-name col-green">LEO</div>
+        <div class="card-flag">Active Player</div>
+        <div class="card-top">
+          <div class="card-emoji">🦁</div>
+          <div class="card-badge badge-learning">Learning Mode</div>
         </div>
-        <div class="person-body">
-          <div class="person-role">LEARNING MODE</div>
-          <div class="person-title">Leo's Learning Hub</div>
-          <div class="person-desc">Vocab flashcards, grammar charts, quizzes and Master Quiz. Do it alone!</div>
-          <div class="person-modes">
-            <span class="mode-pill pill-ow">OUR WORLD</span>
-            <span class="mode-pill pill-jh">JUNIOR HIGH</span>
-            <span class="mode-pill pill-el">LEAGUE ELITE</span>
+        <div class="card-body">
+          <div class="card-title">Leo</div>
+          <div class="card-desc">Vocab flashcards, grammar charts, quizzes and Master Quiz. Do it alone!</div>
+          <div class="card-pills">
+            <span class="pill pill-ow">Our World</span>
+            <span class="pill pill-jh">Junior High</span>
+            <span class="pill pill-el">League Elite</span>
           </div>
         </div>
-        <div class="person-arrow">KICK OFF! ⚽</div>
+        <div class="card-foot">
+          <span class="foot-cta">Kick Off <span class="arr">⚡</span></span>
+          <span class="ready-dot">Ready</span>
+        </div>
       </div>
 
+      <!-- REFERENCE -->
       <div class="person-card ref" onclick="showModes('reference')">
-        <div class="person-logo bg-navy">
-          <div class="person-emoji">📚</div>
-          <div class="person-name col-blue">REFERENCE</div>
+        <div class="card-top">
+          <div class="card-emoji">📚</div>
+          <div class="card-badge badge-reference">Leo's Reference</div>
         </div>
-        <div class="person-body">
-          <div class="person-role">LEO'S REFERENCE</div>
-          <div class="person-title">Look It Up</div>
-          <div class="person-desc">Every word and grammar point Leo has learned. Search, review, check anytime.</div>
-          <div class="person-modes">
-            <span class="mode-pill pill-ref">VOCAB</span>
-            <span class="mode-pill pill-ref">GRAMMAR</span>
-            <span class="mode-pill pill-ref">SEARCH</span>
+        <div class="card-body">
+          <div class="card-title">Look It Up</div>
+          <div class="card-desc">Every word and grammar point Leo has learned. Search, review, check anytime.</div>
+          <div class="card-pills">
+            <span class="pill pill-vocab">Vocab</span>
+            <span class="pill pill-gram">Grammar</span>
+            <span class="pill pill-grey">Search</span>
           </div>
         </div>
-        <div class="person-arrow">LOOK UP →</div>
+        <div class="card-foot">
+          <span class="foot-cta">Look Up <span class="arr">🔍</span></span>
+          <span class="ready-dot">Ready</span>
+        </div>
       </div>
 
     </div>
   </div>
-
 </div>
 
 <!-- ══ SCREEN 2A: NERITAN MODES ══ -->
