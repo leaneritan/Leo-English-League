@@ -168,12 +168,15 @@ header {
 }
 .section-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.81rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--ink-4);
+  color: #333;
   margin-bottom: 20px;
   text-align: center;
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--yellow);
 }
 .person-grid {
   display: grid;
@@ -317,11 +320,14 @@ header {
 }
 .mode-section-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.81rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--ink-4);
+  color: #333;
   margin-bottom: 20px;
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--yellow);
 }
 
 /* MODE CARDS GRID */
@@ -861,7 +867,7 @@ header {
 .lesson-filter { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
 .lesson-filter-btn { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; border:2px solid var(--border); border-radius:2px; background:var(--surface); color:var(--ink-4); padding:4px 10px; cursor:pointer; }
 .lesson-filter-btn.active { border-color:var(--ow-blue); background:var(--ow-blue); color:#fff; }
-.lesson-section-title { font-family:'Oswald',sans-serif; font-size:0.62rem; font-weight:700; letter-spacing:2px; color:var(--ink-4); margin:10px 0 8px; }
+.lesson-section-title { font-family:'Oswald',sans-serif; font-size:0.81rem; font-weight:700; letter-spacing:2px; color:#333; margin:10px 0 8px; display:inline-block; padding-bottom:5px; border-bottom:2px solid var(--yellow); }
 .lesson-section.empty { display:none; }
 .lesson-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
 .lesson-chip { min-height:104px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:9px 8px; text-decoration:none; color:inherit; transition:all 0.2s; display:flex; flex-direction:column; justify-content:center; }
@@ -901,11 +907,14 @@ header {
 }
 .hw-section-title {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.81rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--ink-4);
+  color: #333;
   margin-bottom: 12px;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--yellow);
 }
 .hw-group + .hw-group { margin-top: 18px; }
 .hw-card {
