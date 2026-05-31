@@ -133,6 +133,7 @@ body{font-family:var(--fn);background:var(--paper);color:var(--ink);min-height:1
 .rv-card{background:var(--surf);border:2px solid var(--bdr);border-radius:4px;padding:13px}
 .rv-lbl{font-family:var(--fnh);font-size:.6rem;font-weight:700;letter-spacing:2px;color:var(--ink3);margin-bottom:8px}
 .rv-val{font-size:.85rem;font-weight:700;color:var(--ink);line-height:1.6;white-space:pre-wrap}
+.rv-not-started{text-align:center;padding:40px;font-size:.9rem;font-weight:700;color:#78716C}
 .rv-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:6px}
 .rv-table th{background:var(--or);color:#fff;padding:7px 10px;font-weight:700;text-align:left}
 .rv-table td{padding:7px 10px;border-bottom:1px solid var(--bdr);font-weight:600}
@@ -409,11 +410,27 @@ function initReviewMode() {
     c3: lLoad(SAVE_PREFIX+'cc-c3',''), p3: lLoad(SAVE_PREFIX+'cc-p3',''),
     same: lLoad(SAVE_PREFIX+'cc-same','')
   };
-  if (!score && !ceR1Cause && !sentence) {
-    body.innerHTML = '<div style="text-align:center;padding:40px;font-size:.9rem;font-weight:700;color:#78716C">Work not started yet.</div>';
+  const MOD_NAMES = { m1:'Vocabulary Quiz', m2:'Cause and Effect Chart', m3:'Story Comprehension', m4:'Grammar: used to', m5:'Compare and Contrast', m6:'Can Leo Score' };
+  const completedMods = Object.keys(MOD_NAMES).filter(function(id) {
+    const d = lLoad(SAVE_PREFIX + id + '-complete', null);
+    return d && d.timestamp;
+  });
+  const hasAnything = score || ceR1Cause || sentence || completedMods.length > 0 ||
+    Object.values(ccData).some(Boolean);
+  if (!hasAnything) {
+    body.innerHTML = '<div class="rv-not-started">📋 Work not started yet.</div>';
     return;
   }
   let html = '';
+  if (completedMods.length > 0) {
+    const lines = completedMods.map(function(id) {
+      const d = lLoad(SAVE_PREFIX + id + '-complete', null);
+      const ts = (d && d.timestamp) ? ' · ' + new Date(d.timestamp).toLocaleString() : '';
+      return '✅ ' + MOD_NAMES[id] + ts;
+    }).join('\n');
+    html += '<div class="rv-card"><div class="rv-lbl">COMPLETED MODULES — ' + completedMods.length + ' / ' + Object.keys(MOD_NAMES).length + '</div>' +
+      '<div class="rv-val" style="font-size:.82rem;line-height:1.9;white-space:pre-line">' + lines + '</div></div>';
+  }
   if (score) {
     const pct = Math.round(score.score/score.total*100);
     html += '<div class="rv-card"><div class="rv-lbl">FINAL QUIZ</div><div style="font-family:var(--fnh);font-size:2rem;color:var(--or);font-weight:700">' + score.score + '/' + score.total + ' — ' + pct + '% ' + (pct>=80?'✅ PASS':'❌ Retry') + '</div>' +

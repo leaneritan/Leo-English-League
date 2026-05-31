@@ -1744,6 +1744,9 @@ function initHWBanner() {
 // INIT
 // ═══════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', async function() {
+  // Restore cloud data first — required by both review mode and normal mode
+  await restoreProgressFromCloud();
+
   // Check review mode
   if (new URLSearchParams(location.search).get('review') === '1') {
     initReviewMode(); return;
@@ -1751,9 +1754,6 @@ window.addEventListener('DOMContentLoaded', async function() {
 
   // Init homework banner
   initHWBanner();
-
-  // Restore from Supabase first, then load into DOM
-  await restoreProgressFromCloud();
 
   // Load all saved data
   loadM3();
