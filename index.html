@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leo's Elite English Academy</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka:wght@600;700&family=Archivo+Black&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --paper:      #FAFAF7;
+  --paper:      #F4F5F7;
   --surface:    #FFFFFF;
-  --border:     #E5E3DC;
-  --soft:       #F0EEE8;
+  --border:     #E2E4E9;
+  --soft:       #ECEEF2;
   --ink:        #111111;
   --ink-2:      #5A5853;
   --ink-3:      #6B6963;
   --ink-4:      #9A9A95;
   --yellow:     #FFCC00;
+  --yellow-hover: #F0C000;
   --yellow-bg:  #FFFBE6;
   --yellow-ink: #8B6B00;
   --ow-blue:    #1A6BB5;
@@ -27,12 +28,19 @@
   --red:        #DC2626;
   --el-red:     #E85D3C;
   --el-dark:    #8F3618;
+  --radius:     12px;
+  --radius-lg:  18px;
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
+  --accent-gradient: linear-gradient(135deg, #FFCC00 0%, #F0A500 100%);
 }
 
 body {
   font-family: 'Inter', sans-serif;
   background: var(--paper);
   color: var(--ink);
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,7 +50,7 @@ body {
 header {
   background: var(--ink);
   padding: 0 32px;
-  height: 56px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,20 +58,21 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .brand { display:flex; align-items:center; gap:10px; text-decoration:none; }
 .brand-badge {
   background: var(--yellow);
   color: var(--ink);
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
   padding: 3px 10px;
-  border-radius: 2px;
+  border-radius: 6px;
 }
 .brand-name {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 1px;
@@ -76,7 +85,7 @@ header {
 }
 .header-home,
 .role-chip {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -130,6 +139,7 @@ header {
 /* HERO */
 .hero {
   background: var(--ink);
+  background-image: radial-gradient(ellipse at 20% 50%, rgba(255,204,0,0.08) 0%, transparent 60%);
   padding: 36px 32px 32px;
   text-align: center;
 }
@@ -137,27 +147,27 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--yellow);
-  color: var(--yellow-ink);
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.68rem;
+  background: rgba(255,204,0,0.15);
+  color: #FFCC00;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 3px;
-  padding: 4px 14px;
-  border-radius: 2px;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 999px;
   margin-bottom: 14px;
 }
 .hero-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
   color: #fff;
-  letter-spacing: 2px;
+  letter-spacing: -0.5px;
   line-height: 1;
   margin-bottom: 8px;
 }
 .hero-title span { color: var(--yellow); }
-.hero-sub { color: #9A9A95; font-size: 0.85rem; font-weight: 500; }
+.hero-sub { color: rgba(255,255,255,0.5); font-size: 0.9rem; font-weight: 500; }
 
 /* PERSON SECTION */
 .person-section {
@@ -167,16 +177,27 @@ header {
   width: 100%;
 }
 .section-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.81rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: #333;
-  margin-bottom: 20px;
+  color: var(--ink-3);
+  margin-bottom: 24px;
   text-align: center;
-  display: inline-block;
-  padding-bottom: 6px;
-  border-bottom: 2px solid var(--yellow);
+  display: block;
+  position: relative;
+  padding-bottom: 10px;
+}
+.section-label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 2px;
+  background: var(--yellow);
+  border-radius: 999px;
 }
 .person-grid {
   display: grid;
@@ -186,17 +207,15 @@ header {
 
 /* PERSON CARD */
 .person-card {
-  border: 2px solid var(--border);
-  border-radius: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-md);
   background: var(--surface);
 }
-.person-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
-.person-card.neritan:hover { border-color: var(--yellow); }
-.person-card.leo:hover     { border-color: #4CAF50; }
-.person-card.ref:hover     { border-color: var(--ow-blue); }
+.person-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
 .person-logo {
   height: 160px;
@@ -205,13 +224,14 @@ header {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 .bg-dark  { background: var(--ink); }
 .bg-navy  { background: #1A3A5C; }
 
-.person-emoji { font-size: 3.2rem; }
+.person-emoji { font-size: 3rem; }
 .person-name {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: 3px;
@@ -222,16 +242,30 @@ header {
 
 .person-body { padding: 16px 18px; }
 .person-role {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.62rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--ink-4);
-  margin-bottom: 5px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  position: relative;
+  display: block;
+}
+.person-role::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--yellow);
+  border-radius: 999px;
 }
 .person-title {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.3px;
   color: var(--ink);
   margin-bottom: 5px;
 }
@@ -243,12 +277,12 @@ header {
 }
 .person-modes { display:flex; flex-wrap:wrap; gap:5px; }
 .mode-pill {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.58rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 3px 9px;
-  border-radius: 2px;
+  padding: 4px 10px;
+  border-radius: 999px;
   pointer-events: none;
 }
 .pill-ow  { background:#E3F0FF; color:var(--ow-blue); }
@@ -260,18 +294,19 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 10px 18px;
+  padding: 14px 20px;
   border-top: 1px solid var(--border);
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.65rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   color: var(--ink-4);
   gap: 6px;
-  transition: color 0.2s;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
 }
-.person-card:hover .person-arrow { color: var(--ink); }
-.person-card.leo:hover .person-arrow { color: var(--nc-green); }
+.person-card:hover .person-arrow { background: var(--soft); color: var(--ink); }
+.person-card.leo:hover .person-arrow { background: var(--yellow-bg); color: var(--yellow-ink); }
 
 /* HEADER CONTEXT (back btn + title injected when on sub-screen) */
 .header-context {
@@ -288,7 +323,7 @@ header {
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
   color: #fff;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   font-size: 0.72rem;
   letter-spacing: 1px;
@@ -301,7 +336,7 @@ header {
 }
 .back-btn:hover { background: rgba(255,255,255,0.2); }
 .header-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 2px;
@@ -319,7 +354,7 @@ header {
   width: 100%;
 }
 .mode-section-label {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.81rem;
   font-weight: 700;
   letter-spacing: 3px;
@@ -336,16 +371,17 @@ header {
 .cols-3 { grid-template-columns: repeat(3, 1fr); }
 
 .mode-card {
-  border: 2px solid var(--border);
-  border-radius: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
   text-decoration: none;
   color: inherit;
   display: block;
 }
-.mode-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+.mode-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .mode-card.ow:hover  { border-color: var(--ow-blue); }
 .mode-card.nc:hover  { border-color: var(--nc-green); }
 .mode-card.el:hover  { border-color: var(--el-red); }
@@ -372,7 +408,7 @@ header {
   z-index: 1;
 }
 .slot-badge-cs {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 2.5px;
@@ -404,7 +440,7 @@ header {
 .ow-natgeo-text {
   position: absolute;
   top: 9px;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.5rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -434,7 +470,7 @@ header {
 .ow-world-row .l5 { color: #9B2FBE; }
 .ow-world-row .l6 { color: #1A6BB5; }
 .ow-edition-text {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.5rem;
   font-weight: 600;
   letter-spacing: 3px;
@@ -472,13 +508,13 @@ header {
   width: 22px; height: 22px;
   background: #fff;
   color: var(--nc-green);
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 0.75rem;
   border-radius: 50%;
 }
 .nc-series-text {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 3px;
@@ -498,7 +534,7 @@ header {
 }
 .el-ball { font-size: 2rem; }
 .el-title-text {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 1.5rem;
   color: #fff;
@@ -509,7 +545,7 @@ header {
 .el-elite-badge {
   background: rgba(0,0,0,0.22);
   color: rgba(255,255,255,0.85);
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 3px;
@@ -518,39 +554,39 @@ header {
 }
 
 /* MODE CARD BODY */
-.mode-body { padding: 16px 18px; background: var(--surface); }
+.mode-body { padding: 20px; background: var(--surface); }
 .mode-tag {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--ink-4);
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 .dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
 .mode-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 1px;
+  font-size: 1.15rem;
+  letter-spacing: -0.2px;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .mode-desc {
-  font-size: 0.77rem;
-  color: var(--ink-3);
-  line-height: 1.5;
-  margin-bottom: 10px;
+  font-size: 0.83rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 .mode-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.62rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--ink-4);
@@ -573,7 +609,7 @@ header {
 }
 .search-screen .search-inner { max-width: 860px; }
 .search-label {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 3px;
@@ -613,7 +649,7 @@ header {
   background: var(--surface);
   color: var(--ink-3);
   cursor: pointer;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -638,7 +674,7 @@ header {
 }
 .result-row:last-child { border-bottom: none; }
 .result-badge {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.58rem; font-weight: 700;
   letter-spacing: 1px; padding: 2px 7px;
   border-radius: 2px; flex-shrink: 0;
@@ -651,7 +687,7 @@ header {
 .result-word { flex:1; font-size:0.86rem; font-weight:600; color:var(--ink); }
 .result-word mark { background:var(--yellow); color:var(--ink); border-radius:2px; padding:0 2px; }
 .result-link {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.58rem; font-weight: 700;
   letter-spacing: 1px; padding: 3px 10px;
   border: 1px solid var(--border); border-radius: 2px;
@@ -674,7 +710,7 @@ header {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 2px; padding: 4px 12px;
   font-size: 0.76rem; cursor: pointer;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 600; letter-spacing: 1px;
   color: var(--ink-3); transition: all 0.15s;
 }
@@ -701,14 +737,14 @@ header {
   position: relative;
 }
 .dash-level-num {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 2rem;
   letter-spacing: 2px;
   line-height: 1;
 }
 .dash-level-name {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -720,7 +756,7 @@ header {
   top: 12px; right: 12px;
   background: var(--yellow);
   color: var(--ink);
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -737,7 +773,7 @@ header {
 
 /* status pills */
 .dash-status {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -765,7 +801,7 @@ header {
 .unit-row.active-row:hover { background: #EEF5FF; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
 .unit-row.locked { opacity: 0.5; }
 .unit-row-num {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -821,7 +857,7 @@ header {
 .lesson-name { font-weight: 800; font-size: 0.9rem; color: var(--ink); }
 .lesson-sub { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
 .lesson-open {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -835,7 +871,7 @@ header {
 /* ── OUR WORLD ACCORDION SCREEN ── */
 .ow-screen-body { max-width:1100px; margin:0 auto; padding:24px 24px 60px; width:100%; }
 .level-tabs { display:flex; gap:6px; margin-bottom:24px; flex-wrap:wrap; }
-.level-tab { font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; padding:7px 18px; border-radius:2px; border:2px solid var(--border); background:var(--surface); color:var(--ink-4); cursor:pointer; transition:all 0.2s; }
+.level-tab { font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; padding:7px 18px; border-radius:2px; border:2px solid var(--border); background:var(--surface); color:var(--ink-4); cursor:pointer; transition:all 0.2s; }
 .level-tab.active { background:var(--ow-blue); border-color:var(--ow-blue); color:#fff; }
 .level-tab.locked { opacity:0.4; cursor:not-allowed; }
 .unit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
@@ -843,12 +879,12 @@ header {
 .unit-card:hover { border-color:var(--ow-blue); }
 .unit-card.open { border-color:var(--ow-blue); background:#EEF5FF; }
 .unit-card-header { padding:14px 16px; display:flex; align-items:center; gap:10px; }
-.unit-num-badge { font-family:'Oswald',sans-serif; font-size:0.6rem; font-weight:700; letter-spacing:2px; color:var(--ink-4); flex-shrink:0; }
+.unit-num-badge { font-family:'Space Grotesk',sans-serif; font-size:0.6rem; font-weight:700; letter-spacing:2px; color:var(--ink-4); flex-shrink:0; }
 .unit-card.open .unit-num-badge { color:var(--ow-blue); }
 .unit-card-info { flex:1; min-width:0; }
 .unit-card-name { font-weight:800; font-size:0.88rem; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .unit-card-sub { font-size:0.7rem; color:var(--ink-4); font-weight:600; margin-top:2px; }
-.unit-card-stat { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; padding:2px 8px; border-radius:2px; white-space:nowrap; flex-shrink:0; }
+.unit-card-stat { font-family:'Space Grotesk',sans-serif; font-size:0.58rem; font-weight:700; padding:2px 8px; border-radius:2px; white-space:nowrap; flex-shrink:0; }
 .stat-live { background:#E8F5E9; color:var(--nc-dark); }
 .stat-lock { background:var(--soft); color:var(--ink-4); }
 .stat-assigned { background:var(--yellow-bg); color:var(--yellow-ink); }
@@ -859,15 +895,15 @@ header {
 .lesson-panel.open { display:block; animation:panelIn 0.2s ease; }
 @keyframes panelIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
 .lesson-panel-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:14px; }
-.lesson-panel-header { font-family:'Oswald',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; color:var(--ow-blue); margin-bottom:8px; }
+.lesson-panel-header { font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:2px; color:var(--ow-blue); margin-bottom:8px; }
 .lesson-progress { width:min(300px,100%); }
-.lesson-progress-label { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; color:var(--ink-4); margin-bottom:5px; text-align:right; }
+.lesson-progress-label { font-family:'Space Grotesk',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; color:var(--ink-4); margin-bottom:5px; text-align:right; }
 .lesson-progress-track { height:7px; border-radius:2px; background:#D9E8F8; overflow:hidden; }
 .lesson-progress-fill { height:100%; background:var(--ow-blue); }
 .lesson-filter { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
-.lesson-filter-btn { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; border:2px solid var(--border); border-radius:2px; background:var(--surface); color:var(--ink-4); padding:4px 10px; cursor:pointer; }
+.lesson-filter-btn { font-family:'Space Grotesk',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; border:2px solid var(--border); border-radius:2px; background:var(--surface); color:var(--ink-4); padding:4px 10px; cursor:pointer; }
 .lesson-filter-btn.active { border-color:var(--ow-blue); background:var(--ow-blue); color:#fff; }
-.lesson-section-title { font-family:'Oswald',sans-serif; font-size:0.81rem; font-weight:700; letter-spacing:2px; color:#333; margin:10px 0 8px; display:inline-block; padding-bottom:5px; border-bottom:2px solid var(--yellow); }
+.lesson-section-title { font-family:'Space Grotesk',sans-serif; font-size:0.81rem; font-weight:700; letter-spacing:2px; color:#333; margin:10px 0 8px; display:inline-block; padding-bottom:5px; border-bottom:2px solid var(--yellow); }
 .lesson-section.empty { display:none; }
 .lesson-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
 .lesson-chip { min-height:104px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:9px 8px; text-decoration:none; color:inherit; transition:all 0.2s; display:flex; flex-direction:column; justify-content:center; }
@@ -883,10 +919,10 @@ header {
 .lc-icon { font-size:1.25rem; margin-bottom:5px; }
 .lc-name { font-weight:800; font-size:0.72rem; color:var(--ink); margin-bottom:5px; line-height:1.2; }
 .lc-desc { font-size:0.62rem; color:var(--ink-4); font-weight:700; line-height:1.25; margin:-1px 0 6px; }
-.lc-status { font-family:'Oswald',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
+.lc-status { font-family:'Space Grotesk',sans-serif; font-size:0.55rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:2px; }
 .lc-live { background:#E8F5E9; color:var(--nc-dark); }
 .lc-lock { background:var(--soft); color:var(--ink-4); }
-.lc-action { font-family:'Oswald',sans-serif; font-size:0.52rem; font-weight:700; letter-spacing:1px; color:var(--ink-2); margin-top:5px; }
+.lc-action { font-family:'Space Grotesk',sans-serif; font-size:0.52rem; font-weight:700; letter-spacing:1px; color:var(--ink-2); margin-top:5px; }
 .lesson-chip.live:hover .lc-action { color:var(--ink); }
 @media (max-width: 720px) {
   .unit-grid { grid-template-columns:1fr; }
@@ -906,15 +942,25 @@ header {
   display: none;
 }
 .hw-section-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.81rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: #333;
+  color: var(--ink-3);
   margin-bottom: 12px;
-  display: inline-block;
-  padding-bottom: 5px;
-  border-bottom: 2px solid var(--yellow);
+  display: block;
+  position: relative;
+  padding-bottom: 9px;
+}
+.hw-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--yellow);
+  border-radius: 999px;
 }
 .hw-group + .hw-group { margin-top: 18px; }
 .hw-card {
@@ -922,44 +968,46 @@ header {
   align-items: center;
   justify-content: space-between;
   background: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: 4px;
-  padding: 14px 18px;
-  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 10px;
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-sm);
   gap: 16px;
 }
-.hw-card:hover { border-color: var(--ow-blue); background: #EEF5FF; }
+.hw-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
 .hw-card.hw-done { border-color: var(--nc-green); background: #F0FDF4; }
 .hw-card.hw-review-ready { border-color: var(--yellow); background: var(--yellow-bg); }
 .hw-lesson { font-weight: 800; font-size: 0.92rem; color: var(--ink); }
 .hw-unit { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
 .hw-card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
-.hw-status { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; display: inline-block; }
+.hw-status { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 999px; display: inline-block; }
 .hw-status-done    { background: #E8F5E9; color: var(--nc-dark); }
-.hw-status-pending { background: #FEE2E2; color: var(--red); }
+.hw-status-pending { background: #F0F0F0; color: var(--ink-3); }
 .hw-due { font-size: 0.72rem; font-weight: 800; }
 .hw-ok      { color: var(--ink-4); }
 .hw-soon    { color: var(--ow-orange); }
 .hw-today   { color: var(--el-red); }
 .hw-overdue {
   display: inline-block;
-  background: #EF4444;
+  background: var(--red);
   color: #fff;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 1px;
   padding: 3px 10px;
-  border-radius: 2px;
+  border-radius: 999px;
 }
 .hw-card.hw-overdue-card {
-  border-left: 4px solid #EF4444;
+  border-left: 4px solid var(--red);
+  background: #FFF5F5;
 }
 .hw-chip-badge {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -977,7 +1025,7 @@ header {
   flex-wrap: wrap;
 }
 .hw-unassign-btn {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -995,7 +1043,7 @@ header {
   background: #FCA5A5;
 }
 .hw-complete-btn {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -1013,23 +1061,23 @@ header {
   background: #BBF7D0;
 }
 .hw-open-btn {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.62rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  padding: 4px 12px;
-  border-radius: 2px;
-  background: var(--yellow);
-  color: var(--ink);
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
   text-decoration: none;
   transition: all 0.2s;
   display: inline-block;
 }
 .hw-open-btn:hover {
-  background: #E6B000;
+  background: #333;
 }
 .hw-review-btn {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -1062,7 +1110,7 @@ header {
   padding: 2px 6px;
   cursor: pointer;
   margin-top: 4px;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   letter-spacing: 1px;
   width: 100%;
 }
@@ -1087,7 +1135,7 @@ header {
   padding:20px;
 }
 .assign-kicker {
-  font-family:'Oswald',sans-serif;
+  font-family:'Space Grotesk',sans-serif;
   font-size:0.62rem;
   font-weight:700;
   letter-spacing:2px;
@@ -1111,7 +1159,7 @@ header {
 }
 .assign-label {
   display:block;
-  font-family:'Oswald',sans-serif;
+  font-family:'Space Grotesk',sans-serif;
   font-size:0.62rem;
   font-weight:700;
   letter-spacing:2px;
@@ -1143,7 +1191,7 @@ header {
   background:var(--surface);
   color:var(--ink-2);
   cursor:pointer;
-  font-family:'Oswald',sans-serif;
+  font-family:'Space Grotesk',sans-serif;
   font-size:0.58rem;
   font-weight:700;
   letter-spacing:1px;
@@ -1162,7 +1210,7 @@ header {
 }
 .assign-cancel,
 .assign-confirm {
-  font-family:'Oswald',sans-serif;
+  font-family:'Space Grotesk',sans-serif;
   font-size:0.66rem;
   font-weight:700;
   letter-spacing:1px;
@@ -1188,48 +1236,52 @@ header {
   width: 100%;
 }
 .quick-card {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  border:2px solid var(--yellow);
-  border-radius:4px;
-  background:#FFF9E6;
-  padding:14px 18px;
-  cursor:pointer;
-  transition:all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: none;
+  border-left: 4px solid var(--yellow);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-md);
+  color: #fff;
 }
-.quick-card:hover { border-color:#E6B000; background:#FFF3CC; }
+.quick-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 .quick-kicker {
-  display:inline-block;
-  font-family:'Oswald',sans-serif;
-  font-size:0.62rem;
-  font-weight:700;
-  letter-spacing:2px;
-  background:var(--yellow);
-  color:var(--yellow-ink);
-  padding:2px 8px;
-  border-radius:2px;
-  margin-bottom:5px;
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--yellow);
+  background: transparent;
+  padding: 0;
+  margin-bottom: 5px;
 }
-.quick-title { font-weight:900; font-size:0.98rem; color:var(--ink); }
-.quick-sub { font-size:0.72rem; color:var(--ink-4); font-weight:600; margin-top:2px; }
+.quick-title { font-weight: 900; font-size: 0.98rem; color: #fff; }
+.quick-sub { font-size: 0.72rem; color: rgba(255,255,255,0.55); font-weight: 600; margin-top: 2px; }
 .quick-action {
-  font-family:'Oswald',sans-serif;
-  font-size:0.62rem;
-  font-weight:700;
-  letter-spacing:1px;
-  color:var(--ink);
-  background:var(--yellow);
-  border-radius:2px;
-  padding:7px 14px;
-  white-space:nowrap;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #111;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  white-space: nowrap;
+  cursor: pointer;
 }
 .ow-breadcrumbs {
   padding-top:0;
   padding-bottom:12px;
   max-width:1100px;
-  font-family:'Oswald',sans-serif;
+  font-family:'Space Grotesk',sans-serif;
   font-size:0.62rem;
   font-weight:700;
   letter-spacing:1.5px;
@@ -1244,23 +1296,24 @@ header {
 .app-rail {
   position: fixed;
   left: 0;
-  top: 56px;
+  top: 60px;
   bottom: 0;
   z-index: 20;
-  width: 80px;
+  width: 72px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 10px 6px;
-  background: var(--surface);
+  gap: 0;
+  padding: 8px 0;
+  background: #ffffff;
   border-right: 1px solid var(--border);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
 }
 .rail-btn {
-  width: 100%;
-  height: auto;
+  width: calc(100% - 12px);
+  height: 64px;
   border: none;
   border-left: 3px solid transparent;
-  border-radius: 4px;
+  border-radius: 10px;
   background: transparent;
   color: var(--ink-3);
   cursor: pointer;
@@ -1268,36 +1321,39 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 10px 4px;
-  transition: all 0.15s;
+  gap: 0;
+  margin: 2px 6px;
+  padding: 0;
+  transition: background 0.15s, color 0.15s;
   text-align: center;
 }
 .rail-btn:hover {
   background: var(--soft);
   color: var(--ink);
-  border-left-color: rgba(255,204,0,0.5);
 }
 .rail-btn.active {
   background: var(--yellow-bg);
   color: var(--yellow-ink);
   border-left-color: var(--yellow);
 }
+.rail-btn.active .rail-icon { color: var(--yellow-ink); }
 .rail-icon {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1;
   display: block;
 }
 .rail-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 0.56rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
   line-height: 1;
   white-space: nowrap;
+  margin-top: 3px;
 }
 .rail-btn.active .rail-label {
   color: var(--yellow-ink);
+  font-weight: 700;
 }
 .mobile-tabs {
   display:none;
@@ -1318,7 +1374,7 @@ header {
   border-radius:4px;
   background:transparent;
   color:rgba(255,255,255,0.7);
-  font-family:'Oswald',sans-serif;
+  font-family:'Space Grotesk',sans-serif;
   font-size:0.58rem;
   font-weight:700;
   letter-spacing:1px;
@@ -1337,7 +1393,7 @@ header {
   color:var(--ink);
 }
 @media (min-width: 721px) {
-  .screen { margin-left: 80px; }
+  .screen { margin-left: 72px; }
 }
 @media (max-width: 720px) {
   header { padding:0 16px; }
