@@ -161,19 +161,22 @@ header {
 
 /* PERSON SECTION */
 .person-section {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 36px 24px;
   width: 100%;
 }
 .section-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.81rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--ink-4);
+  color: #333;
   margin-bottom: 20px;
   text-align: center;
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--yellow);
 }
 .person-grid {
   display: grid;
@@ -310,18 +313,21 @@ header {
 .header-title span { color: var(--yellow); }
 
 .mode-section {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 32px 24px 60px;
   width: 100%;
 }
 .mode-section-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.81rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--ink-4);
+  color: #333;
   margin-bottom: 20px;
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--yellow);
 }
 
 /* MODE CARDS GRID */
@@ -344,6 +350,38 @@ header {
 .mode-card.nc:hover  { border-color: var(--nc-green); }
 .mode-card.el:hover  { border-color: var(--el-red); }
 .mode-card.ref:hover { border-color: var(--ow-blue); }
+
+/* COMING SOON CARD */
+.mode-card.coming-soon {
+  opacity: 0.7;
+  cursor: default;
+  pointer-events: none;
+}
+.mode-card.coming-soon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border);
+}
+.slot-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.slot-badge-cs {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #fff;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.45);
+  padding: 5px 14px;
+  border-radius: 2px;
+}
 
 /* OUR WORLD LOGO */
 .ow-slot {
@@ -413,6 +451,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  position: relative;
 }
 .nc-slot.short { height: 120px; }
 .nc-crown-icon { font-size: 1.8rem; }
@@ -455,6 +494,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 6px;
+  position: relative;
 }
 .el-ball { font-size: 2rem; }
 .el-title-text {
@@ -827,7 +867,7 @@ header {
 .lesson-filter { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
 .lesson-filter-btn { font-family:'Oswald',sans-serif; font-size:0.58rem; font-weight:700; letter-spacing:1.5px; border:2px solid var(--border); border-radius:2px; background:var(--surface); color:var(--ink-4); padding:4px 10px; cursor:pointer; }
 .lesson-filter-btn.active { border-color:var(--ow-blue); background:var(--ow-blue); color:#fff; }
-.lesson-section-title { font-family:'Oswald',sans-serif; font-size:0.62rem; font-weight:700; letter-spacing:2px; color:var(--ink-4); margin:10px 0 8px; }
+.lesson-section-title { font-family:'Oswald',sans-serif; font-size:0.81rem; font-weight:700; letter-spacing:2px; color:#333; margin:10px 0 8px; display:inline-block; padding-bottom:5px; border-bottom:2px solid var(--yellow); }
 .lesson-section.empty { display:none; }
 .lesson-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; }
 .lesson-chip { min-height:104px; border:2px solid var(--border); border-radius:4px; background:var(--surface); text-align:center; padding:9px 8px; text-decoration:none; color:inherit; transition:all 0.2s; display:flex; flex-direction:column; justify-content:center; }
@@ -859,7 +899,7 @@ header {
 #leo-homework-section,
 #neritan-homework-section,
 #neritan-completed-section {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 24px 24px 0;
   width: 100%;
@@ -867,11 +907,14 @@ header {
 }
 .hw-section-title {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.81rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--ink-4);
+  color: #333;
   margin-bottom: 12px;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--yellow);
 }
 .hw-group + .hw-group { margin-top: 18px; }
 .hw-card {
@@ -893,15 +936,28 @@ header {
 .hw-card.hw-review-ready { border-color: var(--yellow); background: var(--yellow-bg); }
 .hw-lesson { font-weight: 800; font-size: 0.92rem; color: var(--ink); }
 .hw-unit { font-size: 0.72rem; color: var(--ink-4); font-weight: 600; margin-top: 2px; }
-.hw-card-right { text-align: right; flex-shrink: 0; }
-.hw-status { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; margin-bottom: 4px; display: inline-block; }
+.hw-card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.hw-status { font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; padding: 3px 10px; border-radius: 2px; display: inline-block; }
 .hw-status-done    { background: #E8F5E9; color: var(--nc-dark); }
 .hw-status-pending { background: #FEE2E2; color: var(--red); }
 .hw-due { font-size: 0.72rem; font-weight: 800; }
 .hw-ok      { color: var(--ink-4); }
 .hw-soon    { color: var(--ow-orange); }
 .hw-today   { color: var(--el-red); }
-.hw-overdue { color: var(--red); }
+.hw-overdue {
+  display: inline-block;
+  background: #EF4444;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.hw-card.hw-overdue-card {
+  border-left: 4px solid #EF4444;
+}
 .hw-chip-badge {
   font-family: 'Oswald', sans-serif;
   font-size: 0.55rem;
@@ -918,7 +974,6 @@ header {
   display: flex;
   justify-content: flex-end;
   gap: 6px;
-  margin-top: 8px;
   flex-wrap: wrap;
 }
 .hw-unassign-btn {
@@ -991,7 +1046,7 @@ header {
 }
 @media (max-width: 720px) {
   .hw-card { align-items:flex-start; flex-direction:column; }
-  .hw-card-right { text-align:left; width:100%; }
+  .hw-card-right { align-items:flex-start; width:100%; }
   .hw-card-actions { justify-content:flex-start; }
 }
 
@@ -1127,7 +1182,7 @@ header {
 }
 .quick-nav,
 .ow-breadcrumbs {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 18px 24px 0;
   width: 100%;
@@ -1137,21 +1192,25 @@ header {
   align-items:center;
   justify-content:space-between;
   gap:16px;
-  border:2px solid var(--border);
+  border:2px solid var(--yellow);
   border-radius:4px;
-  background:var(--surface);
+  background:#FFF9E6;
   padding:14px 18px;
   cursor:pointer;
   transition:all 0.2s;
 }
-.quick-card:hover { border-color:var(--ow-blue); background:#EEF5FF; }
+.quick-card:hover { border-color:#E6B000; background:#FFF3CC; }
 .quick-kicker {
+  display:inline-block;
   font-family:'Oswald',sans-serif;
-  font-size:0.58rem;
+  font-size:0.62rem;
   font-weight:700;
   letter-spacing:2px;
-  color:var(--ow-blue);
-  margin-bottom:3px;
+  background:var(--yellow);
+  color:var(--yellow-ink);
+  padding:2px 8px;
+  border-radius:2px;
+  margin-bottom:5px;
 }
 .quick-title { font-weight:900; font-size:0.98rem; color:var(--ink); }
 .quick-sub { font-size:0.72rem; color:var(--ink-4); font-weight:600; margin-top:2px; }
@@ -1160,10 +1219,10 @@ header {
   font-size:0.62rem;
   font-weight:700;
   letter-spacing:1px;
-  color:#fff;
-  background:var(--ow-blue);
+  color:var(--ink);
+  background:var(--yellow);
   border-radius:2px;
-  padding:5px 12px;
+  padding:7px 14px;
   white-space:nowrap;
 }
 .ow-breadcrumbs {
@@ -1478,8 +1537,9 @@ header {
         </div>
       </div>
 
-      <a class="mode-card el" href="#">
+      <div class="mode-card el coming-soon">
         <div class="el-slot">
+          <div class="slot-overlay"><span class="slot-badge-cs">COMING SOON</span></div>
           <div class="el-ball">⚽</div>
           <div class="el-title-text">ENGLISH<br>LEAGUE</div>
         </div>
@@ -1487,9 +1547,9 @@ header {
           <div class="mode-tag"><div class="dot" style="color:var(--el-red)"></div>CUSTOM</div>
           <div class="mode-title">English League</div>
           <div class="mode-desc">Teaching slides for grammar points outside the textbook. Neritan designs the content.</div>
-          <div class="mode-meta"><span>Coming soon</span><span class="arrow">→</span></div>
+          <div class="mode-meta"><span>Coming soon</span></div>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -1536,8 +1596,9 @@ header {
         </div>
       </a>
 
-      <a class="mode-card el" href="#">
+      <div class="mode-card el coming-soon">
         <div class="el-slot">
+          <div class="slot-overlay"><span class="slot-badge-cs">COMING SOON</span></div>
           <div class="el-ball">⚽</div>
           <div class="el-title-text">ENGLISH<br>LEAGUE</div>
           <div class="el-elite-badge">ELITE MODE</div>
@@ -1546,9 +1607,9 @@ header {
           <div class="mode-tag"><div class="dot" style="color:var(--el-red)"></div>COMPETITIVE</div>
           <div class="mode-title">English League Elite</div>
           <div class="mode-desc">Timed grammar challenges, score tracking, and mastery badges.</div>
-          <div class="mode-meta"><span>Coming soon</span><span class="arrow">→</span></div>
+          <div class="mode-meta"><span>Coming soon</span></div>
         </div>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -2009,7 +2070,7 @@ header {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
-        <div class="hw-card ${done ? 'hw-done' : ''}">
+        <div class="hw-card ${done ? 'hw-done' : ''} ${!done && cls === 'hw-overdue' ? 'hw-overdue-card' : ''}">
           <div class="hw-card-left">
             <div class="hw-lesson">${h.lesson}</div>
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
@@ -2055,7 +2116,7 @@ header {
       const done = isHomeworkDone(h.id);
       const { label, cls } = getDueDateLabel(h.due);
       return `
-        <div class="hw-card ${done ? 'hw-review-ready' : ''}">
+        <div class="hw-card ${done ? 'hw-review-ready' : ''} ${!done && cls === 'hw-overdue' ? 'hw-overdue-card' : ''}">
           <div class="hw-card-left">
             <div class="hw-lesson">${h.lesson}</div>
             <div class="hw-unit">${h.unit} · Our World Level 4</div>
