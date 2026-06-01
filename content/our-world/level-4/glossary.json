@@ -19,7 +19,8 @@
       "category": "academic",
       "tags": [
         "L4U6Op",
-        "L4U8Op"
+        "L4U8Op",
+        "L4U8V1"
       ],
       "meaning": "To look at something very carefully — examining each part — in order to understand it fully.",
       "jp_meaning": "「analyze」は「分析(ぶんせき)する」という意味です。何かを細かく調べて、一つひとつをよく理解することです。ただ見るのではなく、「なぜ？」「どのように？」を考えながら調べます。",
@@ -97,7 +98,8 @@
       "category": "academic",
       "tags": [
         "L4U6Op",
-        "L4U8Op"
+        "L4U8Op",
+        "L4U8V1"
       ],
       "meaning": "To tell or write what something looks like, where it is, or what is happening — using clear, specific words so another person can picture it.",
       "jp_meaning": "「describe」は「描写(びょうしゃ)する・詳(くわ)しく説明する」という意味です。見た目・場所・様子を言葉で詳しく伝えて、聞いた人が頭の中で想像できるようにすることです。",
@@ -252,7 +254,8 @@
       "category": "academic",
       "tags": [
         "L4U6Op",
-        "L4U8Op"
+        "L4U8Op",
+        "L4U8V1"
       ],
       "meaning": "A short piece of text placed below a photo or picture that tells the reader who or what is shown, and often where or when it was taken.",
       "jp_meaning": "「caption」は写真や絵の下に書かれた短い説明文のことです。「誰が(or何が)・どこで」を短くまとめたものです。長すぎず、具体的(ぐたいてき)であることが大切です。",
@@ -1237,7 +1240,8 @@
       ],
       "category": "academic",
       "tags": [
-        "L4U8Op"
+        "L4U8Op",
+        "L4U8V1"
       ],
       "meaning": "To make something clear and easy to understand by giving reasons, details, or step-by-step information.",
       "jp_meaning": "「explain」は「説明(せつめい)する」という意味です。理由(りゆう)や詳(くわ)しい情報を使って、相手がわかりやすいように伝えることです。「describe」（様子を伝える）とは違い、「なぜ・どのように」を伝えることが多いです。",
@@ -1587,6 +1591,19 @@
       "tags": [
         "L4U6Pr"
       ]
+    },
+    {
+      "id": "musical-instrument",
+      "word": "a musical instrument",
+      "emoji": "🎷🎻",
+      "category": "related",
+      "tags": ["L4U8V1"],
+      "pos": "noun",
+      "sample": "A guitar is a <b>musical instrument</b>.",
+      "jp_word": "楽器",
+      "jp_reading": "がっき",
+      "jp_sentence": "ギターは<b>楽器(がっき)</b>です。",
+      "jp_tags": ["楽器"]
     }
   ]
 }

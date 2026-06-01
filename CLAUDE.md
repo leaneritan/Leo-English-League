@@ -1,7 +1,12 @@
-# LEEA — Claude Code Instructions
+# LEEA — Build Instructions for Claude
 
-This file is read automatically by Claude Code at the start of every session.
-Follow every rule here when generating or editing lesson apps.
+This file is read by Claude at the start of every lesson-building session —
+whether in Claude Code (automatically) or Claude on the web (uploaded by Neritan).
+
+**If you are Claude reading this:** follow every rule in this file when generating
+or editing any LEEA lesson app. Do not skip the checklist at the bottom.
+The rules here were written to fix real bugs that caused Leo's review cards to
+show empty for Neritan. Ignoring them will break the review.
 
 ---
 
@@ -122,6 +127,61 @@ Similarly, never call `lSave` at module-scope (top-level) for things like
 
 ---
 
+## Cloud Sync — CRITICAL
+
+Every lesson app that uses cloud sync needs **all three scripts** in `<head>`, in this exact order:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../../../../lib/leea-cloud-config.js"></script>
+<script src="../../../../lib/leea-cloud.js"></script>
+```
+
+Without the Supabase CDN script, `window.supabase` is `undefined` and `leea-cloud.js`
+silently disables itself — cloud sync never runs, Neritan on a different device sees
+an empty review.
+
+### Exact save/load/restore implementation
+
+The `restoreProgressFromCloud` function has two common wrong spellings that silently
+fail. Always copy this exact version:
+
+```js
+async function restoreProgressFromCloud() {
+  if (!window.LEEA_CLOUD || !window.LEEA_CLOUD.enabled) return;
+  try {
+    const rows = await LEEA_CLOUD.fetchProgress(HOMEWORK_ID); // ← fetchProgress NOT getProgress
+    if (rows) rows.forEach(r =>
+      localStorage.setItem('leea-' + r.storage_key, JSON.stringify(r.value)) // ← storage_key NOT r.key
+    );
+  } catch(e) {}
+}
+```
+
+Apps that store under `SAVE_PREFIX + key` directly (no `leea-` prefix) use:
+```js
+localStorage.setItem(SAVE_PREFIX + r.storage_key, JSON.stringify(r.value))
+```
+Match whichever prefix pattern `lSave` uses in that app.
+
+### DOMContentLoaded — required exact order
+
+```js
+window.addEventListener('DOMContentLoaded', async function() {
+  await restoreProgressFromCloud(); // ← ALWAYS first — before review AND before load*()
+  if (new URLSearchParams(location.search).get('review') === '1') {
+    initReviewMode(); return;        // ← review uses cloud data, so must come after restore
+  }
+  // normal init: initHWBanner(), loadM3(), loadM4(), etc.
+});
+```
+
+**Never** put the review check before `await restoreProgressFromCloud()`.
+**Never** declare `isReview` without using it — declaring and then ignoring it in
+DOMContentLoaded means review mode silently falls through to normal init.
+
+---
+
 ## Review Mode — CRITICAL
 
 Every lesson app must support `?review=1` in the URL. When this param is present:
@@ -232,13 +292,24 @@ apps write empty strings and null arrays to localStorage on page load.
 
 ## Checklist When Generating a New Lesson App
 
+### Constants & save helpers
 - [ ] `SAVE_PREFIX` and `HOMEWORK_ID` constants defined at top
 - [ ] `lSave` / `lLoad` helper functions present
 - [ ] `saveScore()` writes to both namespaces
 - [ ] `markComplete()` writes `-complete` (with timestamp), `-done` (both namespaces)
 - [ ] `load*()` functions do NOT call `lSave` — read-only
-- [ ] `?review=1` mode implemented with `initReviewMode()`
+
+### Cloud sync
+- [ ] All three scripts present in `<head>`: Supabase CDN → leea-cloud-config.js → leea-cloud.js
+- [ ] `restoreProgressFromCloud()` uses `LEEA_CLOUD.fetchProgress` (not `getProgress`)
+- [ ] `restoreProgressFromCloud()` uses `r.storage_key` (not `r.key`)
+- [ ] DOMContentLoaded is `async` and `await`s `restoreProgressFromCloud()` as its **first line**
+
+### Review mode
+- [ ] `#appRoot` wraps the main app — `initReviewMode()` hides it
+- [ ] `#reviewScreen` element exists (hidden by default)
+- [ ] `isReview` is declared AND checked in DOMContentLoaded — not just declared
+- [ ] Review check comes **after** `await restoreProgressFromCloud()` in DOMContentLoaded
 - [ ] Review "not started" check includes `completedMods.length > 0`
 - [ ] Review shows completed modules card when any module is done
 - [ ] Review shows all content that shows as DONE in Leo's app
-- [ ] Cloud sync wired: `restoreProgressFromCloud()` called before `load*()` on init
