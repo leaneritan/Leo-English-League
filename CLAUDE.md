@@ -1,7 +1,12 @@
-# LEEA — Claude Code Instructions
+# LEEA — Build Instructions for Claude
 
-This file is read automatically by Claude Code at the start of every session.
-Follow every rule here when generating or editing lesson apps.
+This file is read by Claude at the start of every lesson-building session —
+whether in Claude Code (automatically) or Claude on the web (uploaded by Neritan).
+
+**If you are Claude reading this:** follow every rule in this file when generating
+or editing any LEEA lesson app. Do not skip the checklist at the bottom.
+The rules here were written to fix real bugs that caused Leo's review cards to
+show empty for Neritan. Ignoring them will break the review.
 
 ---
 
