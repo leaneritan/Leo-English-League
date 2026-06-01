@@ -1,4 +1,31 @@
 {
   "level": 4,
-  "words": []
+  "words": [
+    {
+      "id": "gorilla",
+      "word": "gorilla",
+      "emoji": "🦍",
+      "category": "extras",
+      "tags": ["L4U8V1"],
+      "pos": "noun",
+      "sample": "A student photographs a <b>gorilla</b> in Rwanda, Africa.",
+      "jp_word": "ゴリラ",
+      "jp_reading": "ゴリラ",
+      "jp_sentence": "学生がルワンダで<b>ゴリラ</b>の写真を撮ります。",
+      "jp_tags": ["ゴリラ"]
+    },
+    {
+      "id": "coin",
+      "word": "a coin",
+      "emoji": "🪙",
+      "category": "extras",
+      "tags": ["L4U8V1"],
+      "pos": "noun",
+      "sample": "I <b>collect</b> old <b>coins</b> from different countries.",
+      "jp_word": "コイン・硬貨",
+      "jp_reading": "コイン・こうか",
+      "jp_sentence": "私はいろいろな国の<b>コイン</b>を集めています。",
+      "jp_tags": ["コイン", "硬貨"]
+    }
+  ]
 }
