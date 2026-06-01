@@ -160,6 +160,30 @@ body{display:flex;flex-direction:column}
 .uns-hint{font-size:12px;color:var(--ink-3);margin-top:2px}
 
 
+/* ── REVIEW MODE ── */
+#reviewScreen{display:none;flex-direction:column;min-height:100vh;background:var(--paper);font-family:'Outfit',sans-serif}
+.rv-header{background:#16A34A;color:#fff;padding:16px 20px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.rv-header-title{font-size:20px;font-weight:800}
+.rv-header-sub{font-size:13px;opacity:.8;margin-top:2px}
+.rv-body{flex:1;padding:20px;display:flex;flex-direction:column;gap:16px;max-width:740px;width:100%;margin:0 auto;padding-bottom:40px}
+.rv-card{background:#fff;border-radius:14px;padding:18px 20px;border:2px solid #e5e7eb;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.rv-lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#16A34A;margin-bottom:12px;border-bottom:2px solid #bbf7d0;padding-bottom:8px}
+.rv-tab-row{display:flex;align-items:baseline;gap:8px;font-size:14px;font-weight:600;padding:5px 0;border-bottom:1px solid #f3f4f6}
+.rv-tab-row:last-child{border-bottom:none}
+.rv-ts{font-size:11px;font-weight:400;color:#9ca3af}
+.rv-field{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.rv-field-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#6b7280}
+.rv-val{font-size:15px;font-weight:600;color:#111;line-height:1.6;background:#f9fafb;border-radius:8px;padding:10px 12px;white-space:pre-wrap}
+.rv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.rv-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.rv-chip{background:#f0fdf4;border:2px solid #bbf7d0;border-radius:20px;padding:4px 12px;font-size:13px;font-weight:700;color:#15803d}
+.rv-ray{padding:12px 14px;border-radius:10px;background:#f9fafb;border:2px solid #e5e7eb;margin-bottom:8px}
+.rv-ray:last-child{margin-bottom:0}
+.rv-ray-word{font-size:13px;font-weight:800;color:#16A34A;margin-bottom:4px}
+.rv-ray-text{font-size:14px;font-weight:600;color:#111;line-height:1.5}
+.rv-ray-empty .rv-ray-text{color:#9ca3af;font-style:italic;font-weight:400}
+.rv-empty{text-align:center;padding:60px 20px;font-size:15px;font-weight:700;color:#9ca3af}
+
 /* Sunshine organizer */
 .sun-bubble{position:absolute;width:100px;height:100px;border-radius:50%;background:#fff;
   border:3px solid var(--green);display:flex;flex-direction:column;align-items:center;
@@ -173,7 +197,7 @@ body{display:flex;flex-direction:column}
 </style>
 </head>
 <body>
-
+<div id="appRoot">
 <!-- HEADER -->
 <div class="app-header">
   <div class="logo">🌍</div>
@@ -621,6 +645,17 @@ body{display:flex;flex-direction:column}
   </div>
 </div>
 
+</div><!-- /appRoot -->
+
+<!-- REVIEW SCREEN -->
+<div id="reviewScreen">
+  <div class="rv-header">
+    <div class="rv-header-title">📋 Leo's Progress — Unit 8 Vocabulary 1</div>
+    <div class="rv-header-sub">That's Really Interesting! · Parent review</div>
+  </div>
+  <div class="rv-body" id="reviewBody"></div>
+</div>
+
 <script>
 // ── CONSTANTS ─────────────────────────────────────────────
 const SAVE_PREFIX = '4-8-vocab-1-';
@@ -640,11 +675,84 @@ function lLoad(key, fallback) {
 
 // ── CLOUD RESTORE ─────────────────────────────────────────
 async function restoreProgressFromCloud() {
-  if (!window.LEEA_CLOUD) return;
+  if (!window.LEEA_CLOUD || !window.LEEA_CLOUD.enabled) return;
   try {
-    const rows = await LEEA_CLOUD.getProgress(HOMEWORK_ID);
-    if (rows) rows.forEach(r => localStorage.setItem(SAVE_PREFIX + r.key, JSON.stringify(r.value)));
+    const rows = await LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+    if (rows) rows.forEach(r => localStorage.setItem(SAVE_PREFIX + r.storage_key, JSON.stringify(r.value)));
   } catch(e) {}
+}
+
+// ── REVIEW MODE ───────────────────────────────────────────
+function initReviewMode() {
+  document.getElementById('appRoot').style.display = 'none';
+  document.getElementById('reviewScreen').style.display = 'flex';
+  const body = document.getElementById('reviewBody');
+
+  const tabs     = Array.from({length: 13}, (_, i) => lLoad('tab-' + i, null));
+  const hobbies  = lLoad('wu-hobbies', []);
+  const alone    = lLoad('wu-alone', '');
+  const together = lLoad('wu-together', '');
+  const answer   = lLoad('wu-answer', '');
+  const sunshine = lLoad('sunshine', {});
+
+  const doneCount  = tabs.filter(t => t && t.done).length;
+  const hasSun     = Object.values(sunshine).some(v => v && v.trim && v.trim().length > 0);
+  const hasAnything = doneCount > 0 || hobbies.length > 0 || alone || together || answer || hasSun;
+
+  if (!hasAnything) {
+    body.innerHTML = '<div class="rv-empty">📋 Work not started yet.</div>';
+    return;
+  }
+
+  const TAB_NAMES = ['📚 Academic','🔥 Warm Up','🎯 Present','🃏 Flashcards','🧠 Sort','📖 Reading','📝 Practice','🔤 Unscramble','🔗 Match','☀️ Apply','🎭 Wrap Up','✅ Quiz','⚽ Dribble!'];
+  const SUN_RAYS  = [
+    {word:'collect',   emoji:'🗂️🪙'},
+    {word:'creative',  emoji:'🎨💡'},
+    {word:'enjoy',     emoji:'😄🎉'},
+    {word:'compete',   emoji:'🏆⚔️'},
+    {word:'cooperate', emoji:'🤜🤛'}
+  ];
+
+  let html = '';
+
+  // 1. Progress summary
+  const tabRows = tabs.map(function(t, i) {
+    const ts = (t && t.timestamp) ? ' <span class="rv-ts">· ' + new Date(t.timestamp).toLocaleString() + '</span>' : '';
+    return '<div class="rv-tab-row">' + (t && t.done ? '✅' : '⬜') + ' <span>' + TAB_NAMES[i] + ts + '</span></div>';
+  }).join('');
+  html += '<div class="rv-card"><div class="rv-lbl">PROGRESS — ' + doneCount + ' / 13 TABS COMPLETE</div>' + tabRows + '</div>';
+
+  // 2. Warm Up
+  if (hobbies.length > 0 || alone || together || answer) {
+    html += '<div class="rv-card"><div class="rv-lbl">WARM UP — MY HOBBIES</div>';
+    if (hobbies.length > 0) {
+      html += '<div class="rv-field"><div class="rv-field-lbl">Selected hobbies</div><div class="rv-chips">' +
+        hobbies.map(function(h) { return '<span class="rv-chip">' + h + '</span>'; }).join('') + '</div></div>';
+    }
+    if (alone || together) {
+      html += '<div class="rv-grid">';
+      html += '<div class="rv-field"><div class="rv-field-lbl">🧍 Alone</div><div class="rv-val">' + (alone || '—') + '</div></div>';
+      html += '<div class="rv-field"><div class="rv-field-lbl">👫 Together</div><div class="rv-val">' + (together || '—') + '</div></div>';
+      html += '</div>';
+    }
+    if (answer) {
+      html += '<div class="rv-field"><div class="rv-field-lbl">💬 What is your number one hobby, Leo? Why do you enjoy it?</div><div class="rv-val">' + answer + '</div></div>';
+    }
+    html += '</div>';
+  }
+
+  // 3. Sunshine organizer
+  html += '<div class="rv-card"><div class="rv-lbl">SUNSHINE ORGANIZER — APPLY VOCABULARY</div>';
+  SUN_RAYS.forEach(function(ray, i) {
+    const text = (sunshine[i] || '').trim();
+    html += '<div class="rv-ray' + (text ? '' : ' rv-ray-empty') + '">' +
+      '<div class="rv-ray-word">' + ray.emoji + ' ' + ray.word + '</div>' +
+      '<div class="rv-ray-text">' + (text || '⬜ not written yet') + '</div>' +
+      '</div>';
+  });
+  html += '</div>';
+
+  body.innerHTML = html;
 }
 
 // ── TAB SYSTEM ────────────────────────────────────────────
@@ -1541,6 +1649,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── INIT ─────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', async () => {
   await restoreProgressFromCloud();
+  if (isReview) { initReviewMode(); return; }
   updateProgress();
   for (let i = 0; i < TOTAL_TABS; i++) restoreComplete(i);
   renderCard0();
