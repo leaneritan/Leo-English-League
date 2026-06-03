@@ -290,6 +290,52 @@ apps write empty strings and null arrays to localStorage on page load.
 
 ---
 
+## Adding a New Lesson to the Home Screen
+
+The list of live lessons is in **`live.json`** at the repo root — NOT hardcoded in `index.html`.
+`index.html` fetches it on boot: `fetch('live.json').then(r=>r.json()).then(data=>{ LIVE=data; ... })`.
+
+**Do NOT edit `index.html` to add a lesson.** Just add one line to `live.json`:
+
+```json
+"l-4-8-grammar1": { "url": "learn/our-world/level-4/unit-8/grammar-1.html", "desc": "Short description" }
+```
+
+Key format: `"{n|l}-{level}-{unit}-{slug}"` where `n` = Neritan (teach), `l` = Leo (learn).
+
+**Every time you create a new lesson app, output two things:**
+1. The complete HTML file with its exact repo path (e.g. `learn/our-world/level-4/unit-8/grammar-1.html`)
+2. The `live.json` line to add alongside it
+
+Neritan uploads the HTML file to GitHub manually, then edits `live.json` to add the entry.
+If the lesson shows "Coming Soon" on the home screen, the `live.json` entry is missing.
+
+### `doRedo` — required standard implementation
+
+When a module has a Redo button, **never use `lSave(key, null)` to clear it** — upserting
+`null` to Supabase silently fails if the `value` column has a NOT NULL constraint, leaving
+the cloud row intact. On mobile page reload, `restoreProgressFromCloud` re-fetches and
+restores the Done state, making Redo appear broken.
+
+Always use `localStorage.removeItem` + `LEEA_CLOUD.deleteProgress`:
+
+```js
+function doRedo(id) {
+  const keys = [SAVE_PREFIX + id + '-complete', SAVE_PREFIX + id + '-done', HOMEWORK_ID + '-' + id + '-done'];
+  keys.forEach(k => {
+    localStorage.removeItem('leea-' + k);
+    try { if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) LEEA_CLOUD.deleteProgress(HOMEWORK_ID, k); } catch(e) {}
+  });
+  updateBadge(id);
+  openModule(id);
+}
+```
+
+`LEEA_CLOUD.deleteProgress(homeworkId, storageKey)` is implemented in `lib/leea-cloud.js`
+and issues a real `DELETE` query on the `leea_progress` table.
+
+---
+
 ## Checklist When Generating a New Lesson App
 
 ### Constants & save helpers
@@ -313,3 +359,10 @@ apps write empty strings and null arrays to localStorage on page load.
 - [ ] Review "not started" check includes `completedMods.length > 0`
 - [ ] Review shows completed modules card when any module is done
 - [ ] Review shows all content that shows as DONE in Leo's app
+
+### Redo buttons
+- [ ] `doRedo` uses `localStorage.removeItem` + `LEEA_CLOUD.deleteProgress` — never `lSave(key, null)`
+
+### Registering the lesson
+- [ ] Output the exact repo file path for Neritan to upload
+- [ ] Output the `live.json` line to add (do NOT edit `index.html`)
