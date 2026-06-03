@@ -346,9 +346,11 @@ function armRedo(id,btn){
   setTimeout(()=>{ if(btn){btn.dataset.armed='';btn.classList.remove('armed');btn.textContent='↺ Redo';} },2500);
 }
 function doRedo(id){
-  lSave(SAVE_PREFIX+id+'-complete', null);
-  lSave(SAVE_PREFIX+id+'-done', null);
-  lSave(HOMEWORK_ID+'-'+id+'-done', null);
+  const keys=[SAVE_PREFIX+id+'-complete', SAVE_PREFIX+id+'-done', HOMEWORK_ID+'-'+id+'-done'];
+  keys.forEach(k=>{
+    localStorage.removeItem('leea-'+k);
+    try{ if(window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) LEEA_CLOUD.deleteProgress(HOMEWORK_ID, k); }catch(e){}
+  });
   updateBadge(id);
   openModule(id);
 }

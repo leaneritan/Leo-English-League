@@ -717,9 +717,12 @@ function doRedo(n) {
   redoArmed[n] = false;
   btn.classList.remove('armed');
   btn.textContent = '↺ Redo';
-  lSave('tab-' + n + '-complete', null);
-  lSave('tab-' + n + '-done', null);
+  localStorage.removeItem('leea-' + SAVE_PREFIX + 'tab-' + n + '-complete');
+  localStorage.removeItem('leea-' + SAVE_PREFIX + 'tab-' + n + '-done');
   localStorage.removeItem('leea-' + HOMEWORK_ID + '-tab-' + n + '-done');
+  [SAVE_PREFIX + 'tab-' + n + '-complete', SAVE_PREFIX + 'tab-' + n + '-done', HOMEWORK_ID + '-tab-' + n + '-done'].forEach(function(k) {
+    try { if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) LEEA_CLOUD.deleteProgress(HOMEWORK_ID, k); } catch(e) {}
+  });
   const cb = document.getElementById('complete-' + n);
   cb.classList.remove('confirmed');
   cb.textContent = 'Mark ' + TAB_NAMES[n] + ' complete ✓';
