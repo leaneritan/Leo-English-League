@@ -2461,38 +2461,8 @@ html[data-backdrop="night"] .card:hover { box-shadow:0 14px 30px rgba(0,0,0,.5);
     { id:'book-reading', name:'Book Reading', icon:'📗' },
   ];
 
-  // Add new live lessons here as we build them
-  // Key format: '{person}-{level}-{unit}-{lessonId}'
-  const LIVE = {
-    'n-4-7-opener': { url:'teach/our-world/level-4/unit-7/opener.html', desc:'22 slides' },
-    'n-4-7-vocab1': { url:'teach/our-world/level-4/unit-7/vocab-1.html', desc:'8 slides' },
-    'n-4-7-song':     { url:'teach/our-world/level-4/unit-7/song.html',     desc:'Inventions song · 12 slides' },
-    'n-4-7-grammar1': { url:'teach/our-world/level-4/unit-7/grammar-1.html', desc:'Used to — past habits' },
-    'n-4-7-vocab2':   { url:'teach/our-world/level-4/unit-7/vocab-2.html',   desc:'5 action words' },
-    'n-4-7-grammar2': { url:'teach/our-world/level-4/unit-7/grammar-2.html', desc:'You — general statements' },
-    'n-4-7-reading':  { url:'teach/our-world/level-4/unit-7/reading.html',  desc:'Young and Creative' },
-    'n-4-7-writing':  { url:'teach/our-world/level-4/unit-7/writing.html',  desc:'Fact and Opinion Writing' },
-    'n-4-7-mission':  { url:'teach/our-world/level-4/unit-7/mission.html',  desc:'Use your imagination' },
-    'n-4-7-project':  { url:'teach/our-world/level-4/unit-7/project.html',  desc:'Design a superpower app' },
-    'n-4-7-book-reading': { url:'teach/our-world/level-4/unit-7/book-reading.html', desc:'Extended reading' },
-    'n-4-8-opener': { url:'teach/our-world/level-4/unit-8/opener.html', desc:'Unit 8 opener slides' },
-    'n-4-8-vocab1': { url:'teach/our-world/level-4/unit-8/vocab-1.html', desc:'41 slides' },
-    'n-4-8-song':   { url:'teach/our-world/level-4/unit-8/song.html',   desc:'Hobbies song slides' },
-    'l-4-7-opener':   { url:'learn/our-world/level-4/unit-7/opener.html',   desc:'Unit opener app' },
-    'l-4-7-vocab1':   { url:'learn/our-world/level-4/unit-7/vocab-1.html',   desc:'14 invention words' },
-    'l-4-7-song':     { url:'learn/our-world/level-4/unit-7/song.html',     desc:'Inventions song app' },
-    'l-4-7-grammar1': { url:'learn/our-world/level-4/unit-7/grammar-1.html', desc:'Used to — past habits' },
-    'l-4-7-vocab2':   { url:'learn/our-world/level-4/unit-7/vocab-2.html',   desc:'5 action words' },
-    'l-4-7-grammar2': { url:'learn/our-world/level-4/unit-7/grammar-2.html', desc:'You — general statements' },
-    'l-4-7-reading':  { url:'learn/our-world/level-4/unit-7/reading.html',  desc:'Young and Creative' },
-    'l-4-7-writing':  { url:'learn/our-world/level-4/unit-7/writing.html',  desc:'Fact and Opinion Writing' },
-    'l-4-7-mission':  { url:'learn/our-world/level-4/unit-7/mission.html',  desc:'Use your imagination' },
-    'l-4-7-project':  { url:'learn/our-world/level-4/unit-7/project.html',  desc:'Design a superpower app' },
-    'l-4-7-book-reading': { url:'learn/our-world/level-4/unit-7/book-reading.html', desc:'Extended reading' },
-    'l-4-8-opener': { url:'learn/our-world/level-4/unit-8/opener.html', desc:'Unit opener app' },
-    'l-4-8-vocab1': { url:'learn/our-world/level-4/unit-8/vocab-1.html', desc:'Hobbies & interests words' },
-    'l-4-8-song':   { url:'learn/our-world/level-4/unit-8/song.html',   desc:'What\'s Your Hobby? song app' },
-  };
+  // Live lessons loaded from live.json — edit that file to add/remove lessons
+  let LIVE = {};
 
   function getLiveCount(person, level, unit, livePrefix = person) {
     return LESSONS.filter(l => LIVE[`${livePrefix}-${level}-${unit}-${l.id}`]).length;
@@ -2644,14 +2614,17 @@ html[data-backdrop="night"] .card:hover { box-shadow:0 14px 30px rgba(0,0,0,.5);
     if (latestLive) toggleUnit(person, latestLive.n, false);
   }
 
-  buildGrid('neritan-unit-grid', 'neritan', 'n');
-  buildGrid('leo-unit-grid', 'leo', 'l');
-  openLatestLiveUnit('neritan', 'n');
-  openLatestLiveUnit('leo', 'l');
-  renderHomeworkBadges();
-  renderLeoHomework();
-  renderNeritanHomework();
-  syncHomeworkFromCloud();
+  fetch('live.json').then(r=>r.json()).catch(()=>({})).then(data=>{
+    LIVE = data;
+    buildGrid('neritan-unit-grid', 'neritan', 'n');
+    buildGrid('leo-unit-grid', 'leo', 'l');
+    openLatestLiveUnit('neritan', 'n');
+    openLatestLiveUnit('leo', 'l');
+    renderHomeworkBadges();
+    renderLeoHomework();
+    renderNeritanHomework();
+    syncHomeworkFromCloud();
+  });
 
   const initialScreen = initialScreenFromState();
   showScreen(initialScreen);
