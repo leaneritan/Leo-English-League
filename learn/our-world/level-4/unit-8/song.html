@@ -126,7 +126,16 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);min-height:100vh;color
 </style>
 </head>
 <body>
-<div id="reviewBanner"></div>
+
+<div id="reviewScreen" style="display:none">
+  <div style="background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;padding:20px 18px 22px">
+    <div style="font-size:21px;font-weight:800">👀 Neritan's Review</div>
+    <div style="font-size:13px;opacity:.9;margin-top:3px">Unit 8 · Song · What's Your Hobby?</div>
+  </div>
+  <div style="max-width:680px;margin:0 auto;padding:18px 14px" id="reviewBody"></div>
+</div>
+
+<div id="appRoot">
 <div class="hdr">
   <h1>🎵 What's Your Hobby?</h1>
   <p>Unit 8 · Song · Leo's practice</p>
@@ -165,9 +174,14 @@ async function restoreProgressFromCloud(){
     rows.forEach(r=>{ try{ localStorage.setItem('leea-'+r.storage_key, JSON.stringify(r.value)); }catch(e){} });
   }catch(e){}
 }
-function saveScore(id, score, total){
-  const percent = total? Math.round(score/total*100):0;
-  lSave(SAVE_PREFIX+id+'-score', {score,total,percent,done:true,timestamp:Date.now()});
+function saveScore(score, done, extra = {}){
+  const data = { score, done, timestamp: new Date().toISOString(), ...extra };
+  lSave(SAVE_PREFIX + 'score', data);
+  lSave(HOMEWORK_ID + '-score', data);
+  if (done) {
+    lSave(SAVE_PREFIX + 'done', true);
+    lSave(HOMEWORK_ID + '-done', true);
+  }
 }
 
 /* ===================== CONTENT ===================== */
@@ -288,7 +302,7 @@ function updateBadge(id){
     const b=$('badge-'+id); if(!b) return;
     const m=MODULES.find(x=>x.id===id);
     if(m && m.quiz){
-      const sc=lLoad(SAVE_PREFIX+id+'-score');
+      const sc=lLoad(SAVE_PREFIX+'score');
       if(sc && sc.done){ b.className='badge score'; b.textContent=sc.percent+'%'; return; }
       b.className='badge'; b.textContent=''; return;
     }
@@ -318,7 +332,9 @@ function renderFooter(m){
     <button class="btn-redo" id="rbtn-${m.id}" onclick="armRedo('${m.id}',this)">↺ Redo</button>`;
 }
 function markComplete(id,name){
-  lSave(SAVE_PREFIX+id+'-complete', {done:true, timestamp:Date.now()});
+  lSave(SAVE_PREFIX+id+'-complete', {name, done:true, timestamp:new Date().toISOString()});
+  lSave(SAVE_PREFIX+id+'-done', true);
+  lSave(HOMEWORK_ID+'-'+id+'-done', true);
   updateBadge(id);
   const btn=$('cbtn-'+id);
   if(btn){ btn.classList.add('confirmed'); btn.textContent=name+' complete ✓'; }
@@ -331,7 +347,9 @@ function armRedo(id,btn){
 }
 function doRedo(id){
   try{ localStorage.removeItem('leea-'+SAVE_PREFIX+id+'-complete'); }catch(e){}
-  try{ if(window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) window.LEEA_CLOUD.saveProgress(HOMEWORK_ID, SAVE_PREFIX+id+'-complete', null); }catch(e){}
+  try{ localStorage.removeItem('leea-'+SAVE_PREFIX+id+'-done'); }catch(e){}
+  try{ localStorage.removeItem('leea-'+HOMEWORK_ID+'-'+id+'-done'); }catch(e){}
+  try{ if(window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) LEEA_CLOUD.saveProgress(HOMEWORK_ID, SAVE_PREFIX+id+'-complete', null); }catch(e){}
   updateBadge(id);
   openModule(id);
 }
@@ -513,9 +531,11 @@ function renderQuiz(){
   }
   function finish(){
     const pct=Math.round(score/QUIZ.length*100);
-    saveScore('m6', score, QUIZ.length);
+    saveScore(score, true, {total:QUIZ.length, percent:pct, wrong});
     lSave(SAVE_PREFIX+'m6-wrong', wrong);
-    lSave(SAVE_PREFIX+'m6-complete', {done:true, timestamp:Date.now()});
+    lSave(SAVE_PREFIX+'m6-complete', {name:'Quiz', done:true, timestamp:new Date().toISOString()});
+    lSave(SAVE_PREFIX+'m6-done', true);
+    lSave(HOMEWORK_ID+'-m6-done', true);
     updateBadge('m6');
     body.innerHTML=`<div class="quiz-result"><div class="qbig">${pct>=80?'🏆':pct>=50?'🎉':'💪'}</div>
       <div class="qpct">${pct}%</div><div style="font-size:18px;font-weight:700;margin-top:4px">${score} / ${QUIZ.length} correct</div>
@@ -527,7 +547,7 @@ function renderQuiz(){
   show();
 }
 function renderQuizReview(){
-  const sc=lLoad(SAVE_PREFIX+'m6-score'); const wrong=lLoad(SAVE_PREFIX+'m6-wrong')||[];
+  const sc=lLoad(SAVE_PREFIX+'score'); const wrong=lLoad(SAVE_PREFIX+'m6-wrong')||[];
   const body=$('mBody');
   if(!sc||!sc.done){ body.innerHTML=`<div class="note" style="font-size:16px">Quiz not done yet.</div>`; return; }
   body.innerHTML=`<div class="quiz-result"><div class="qpct">${sc.percent}%</div><div style="font-weight:700">${sc.score} / ${sc.total} correct</div></div>
@@ -538,7 +558,7 @@ function renderQuizReview(){
 function renderDash(){
   const body=$('mBody'); $('mFtr').innerHTML=`<button class="btn-complete" onclick="closeModal()">Close</button>`;
   const rows=MODULES.filter(m=>!m.dash).map(m=>{
-    if(m.quiz){ const sc=lLoad(SAVE_PREFIX+m.id+'-score'); return `<div class="prog-row"><span class="pi">${m.icon}</span><span class="pn">${m.title}</span><span class="ps ${sc&&sc.done?'score':''}">${sc&&sc.done?sc.percent+'%':'—'}</span></div>`; }
+    if(m.quiz){ const sc=lLoad(SAVE_PREFIX+'score'); return `<div class="prog-row"><span class="pi">${m.icon}</span><span class="pn">${m.title}</span><span class="ps ${sc&&sc.done?'score':''}">${sc&&sc.done?sc.percent+'%':'—'}</span></div>`; }
     const c=lLoad(SAVE_PREFIX+m.id+'-complete');
     return `<div class="prog-row"><span class="pi">${m.icon}</span><span class="pn">${m.title}</span><span class="ps ${c&&c.timestamp?'done':''}">${c&&c.timestamp?'✓ Done':'—'}</span></div>`;
   }).join('');
@@ -547,12 +567,68 @@ function renderDash(){
     + `<div class="note">Keep singing "What's Your Hobby?" 🎶</div>`;
 }
 
+/* ===================== REVIEW MODE ===================== */
+function initReviewMode(){
+  $('appRoot').style.display='none';
+  $('reviewScreen').style.display='block';
+  const body=$('reviewBody');
+
+  const MOD_NAMES={m1:'Listen & Sing',m2:'Song Words',ma:'Academic Words',m3:'Word Review',m4:'Use It Again',m5:'Write a Line',m6:'Quiz'};
+
+  const completedMods=Object.keys(MOD_NAMES).filter(id=>{
+    const d=lLoad(SAVE_PREFIX+id+'-complete');
+    return d && d.timestamp;
+  });
+  const scoreData=lLoad(SAVE_PREFIX+'score');
+
+  const hasAnything=completedMods.length>0 || scoreData;
+  if(!hasAnything){
+    body.innerHTML='<div style="text-align:center;padding:40px;color:var(--ink-3);font-size:16px">📋 Work not started yet.</div>';
+    return;
+  }
+
+  let html='';
+
+  if(completedMods.length>0){
+    const lines=completedMods.map(id=>{
+      const d=lLoad(SAVE_PREFIX+id+'-complete');
+      const mod=MODULES.find(m=>m.id===id);
+      const ts=d&&d.timestamp?' · '+new Date(d.timestamp).toLocaleString():'';
+      return `<div class="prog-row"><span class="pi">${mod?mod.icon:'✅'}</span><span class="pn">${MOD_NAMES[id]}${ts}</span><span class="ps done">✓ Done</span></div>`;
+    }).join('');
+    html+=`<div style="background:#fff;border:2px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;border-bottom:2px solid var(--green-l);padding-bottom:8px">COMPLETED MODULES — ${completedMods.length} / ${Object.keys(MOD_NAMES).length}</div>
+      ${lines}
+    </div>`;
+  }
+
+  if(scoreData&&scoreData.done){
+    const wrong=lLoad(SAVE_PREFIX+'m6-wrong')||[];
+    const ts=scoreData.timestamp?'<div style="font-size:12px;color:var(--ink-3);margin-top:6px">'+new Date(scoreData.timestamp).toLocaleString()+'</div>':'';
+    const wrongHtml=wrong.length
+      ?`<div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin:14px 0 8px">WORDS TO PRACTICE</div><div class="wrongs">${wrong.map(w=>`<div class="wrong-item"><div class="wp">${w.prompt}</div>Leo chose: <span class="wc">${w.chosen}</span><br>Answer: <span class="wok">${w.correct}</span></div>`).join('')}</div>`
+      :`<div style="text-align:center;color:var(--green-d);font-weight:700;margin-top:10px">🏆 Perfect — no wrong answers!</div>`;
+    html+=`<div style="background:#fff;border:2px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px">
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;border-bottom:2px solid var(--green-l);padding-bottom:8px">QUIZ RESULT</div>
+      <div style="text-align:center">
+        <div style="font-size:46px;font-weight:900;color:var(--green)">${scoreData.percent||0}%</div>
+        <div style="font-size:18px;font-weight:700">${scoreData.score} / ${scoreData.total||8} correct</div>
+        ${ts}
+      </div>
+      ${wrongHtml}
+    </div>`;
+  }
+
+  body.innerHTML=html;
+}
+
 /* ===================== INIT ===================== */
 document.addEventListener('DOMContentLoaded', async ()=>{
   await restoreProgressFromCloud();
-  if(isReview){ $('reviewBanner').innerHTML=`<div class="review-banner">👀 Review mode — Leo's results & answers</div>`; }
+  if(isReview){ initReviewMode(); return; }
   buildGrid();
 });
 </script>
+</div><!-- #appRoot -->
 </body>
 </html>

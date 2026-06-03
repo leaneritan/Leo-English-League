@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unit 7 Song: Inventions - Interactive App</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../../../../lib/leea-cloud-config.js"></script>
+  <script src="../../../../lib/leea-cloud.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -521,9 +524,42 @@
       pointer-events: none;
       z-index: 9999;
     }
+
+    /* ── REVIEW SCREEN ── */
+    #reviewScreen { display:none; padding:20px; max-width:520px; margin:0 auto; }
+    #reviewScreen.show { display:block; }
+    .rv-header { background:white; border-radius:20px; padding:20px 24px 14px; margin-bottom:14px;
+      box-shadow:0 4px 20px rgba(0,0,0,.12); text-align:center; }
+    .rv-header h2 { font-size:1.2rem; font-weight:800; color:#1e293b; margin-bottom:4px; }
+    .rv-header p  { font-size:.8rem; color:#64748b; margin:0; }
+    .rv-card  { background:white; border-radius:16px; padding:16px 18px; margin-bottom:12px;
+      box-shadow:0 2px 12px rgba(0,0,0,.08); }
+    .rv-lbl   { font-size:.65rem; font-weight:800; color:#7c3aed; letter-spacing:.08em;
+      text-transform:uppercase; margin-bottom:6px; }
+    .rv-val   { font-size:.92rem; color:#1e293b; line-height:1.7; white-space:pre-wrap; }
+    .rv-score { font-size:1.4rem; font-weight:800; color:#059669; }
+    .rv-ts    { font-size:.72rem; color:#94a3b8; margin-top:4px; }
+    .rv-not-started { background:white; border-radius:16px; padding:24px; text-align:center;
+      color:#64748b; font-size:.95rem; box-shadow:0 2px 12px rgba(0,0,0,.08); }
   </style>
 </head>
 <body>
+
+<!-- ══════════════════════════════════════════
+     REVIEW SCREEN
+══════════════════════════════════════════ -->
+<div id="reviewScreen">
+  <div class="rv-header">
+    <h2>🎤 Unit 7 Song — Neritan's Review</h2>
+    <p>Leo's work summary</p>
+  </div>
+  <div id="reviewBody"></div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MAIN APP
+══════════════════════════════════════════ -->
+<div id="appRoot">
 
 <!-- ══════════════════════════════════════════
      MAIN MENU
@@ -653,6 +689,118 @@
 </div>
 
 <script>
+// ════════════════════════════════════════════
+// CONSTANTS & SAVE HELPERS
+// ════════════════════════════════════════════
+
+const SAVE_PREFIX = '4-7-song-';
+const HOMEWORK_ID = new URLSearchParams(location.search).get('hw') || 'leo-4-7-song';
+const isReview    = new URLSearchParams(location.search).get('review') === '1';
+
+function lSave(key, val) { localStorage.setItem('leea-' + key, JSON.stringify(val)); }
+function lLoad(key, def) {
+  try { const v = JSON.parse(localStorage.getItem('leea-' + key)); return v !== null ? v : def; }
+  catch { return def; }
+}
+
+function saveScore(score, done, extra = {}) {
+  const data = { score, done, timestamp: new Date().toISOString(), ...extra };
+  lSave(SAVE_PREFIX + 'score', data);
+  lSave(HOMEWORK_ID + '-score', data);
+  if (done) {
+    lSave(SAVE_PREFIX + 'done', true);
+    lSave(HOMEWORK_ID + '-done', true);
+  }
+}
+
+async function restoreProgressFromCloud() {
+  if (!window.LEEA_CLOUD || !window.LEEA_CLOUD.enabled) return;
+  try {
+    const rows = await LEEA_CLOUD.fetchProgress(HOMEWORK_ID);
+    if (rows) rows.forEach(r =>
+      localStorage.setItem('leea-' + r.storage_key, JSON.stringify(r.value))
+    );
+  } catch(e) {}
+}
+
+// ════════════════════════════════════════════
+// REVIEW MODE
+// ════════════════════════════════════════════
+
+function initReviewMode() {
+  document.getElementById('appRoot').style.display = 'none';
+  document.getElementById('reviewScreen').classList.add('show');
+  const body = document.getElementById('reviewBody');
+
+  const vocabScore  = lLoad(SAVE_PREFIX + 'vocab-score', null);
+  const grammarData = lLoad(SAVE_PREFIX + 'grammar-score', null);
+  const finalData   = lLoad(SAVE_PREFIX + 'final-score', null);
+  const songDone    = lLoad(SAVE_PREFIX + 'song-checked', null);
+  const themeDone   = lLoad(SAVE_PREFIX + 'theme-checked', null);
+
+  const hasAnything = vocabScore || grammarData || finalData || songDone || themeDone;
+  if (!hasAnything) {
+    body.innerHTML = '<div class="rv-not-started">📋 Work not started yet.</div>';
+    return;
+  }
+
+  let html = '';
+
+  if (finalData) {
+    const pct = Math.round((finalData.score / (finalData.total || 11)) * 100);
+    const ts  = finalData.timestamp ? new Date(finalData.timestamp).toLocaleString() : '';
+    html += `<div class="rv-card">
+      <div class="rv-lbl">🏆 Can Leo Score? — Final Quiz</div>
+      <div class="rv-score">${finalData.score} / ${finalData.total || 11} (${pct}%)</div>
+      ${finalData.done ? '<div style="color:#059669;font-weight:700;font-size:.85rem;margin-top:4px">✅ Homework complete</div>' : ''}
+      <div class="rv-ts">${ts}</div>
+    </div>`;
+  }
+
+  if (grammarData) {
+    const ts = grammarData.timestamp ? new Date(grammarData.timestamp).toLocaleString() : '';
+    html += `<div class="rv-card">
+      <div class="rv-lbl">📐 Grammar Quiz — Used To</div>
+      <div class="rv-score">${grammarData.score} / ${grammarData.total || 8}</div>
+      <div class="rv-ts">${ts}</div>
+    </div>`;
+  }
+
+  if (vocabScore) {
+    const ts = vocabScore.timestamp ? new Date(vocabScore.timestamp).toLocaleString() : '';
+    html += `<div class="rv-card">
+      <div class="rv-lbl">🔤 Vocabulary Quiz</div>
+      <div class="rv-score">${vocabScore.score} / ${vocabScore.total || 8}</div>
+      <div class="rv-ts">${ts}</div>
+    </div>`;
+  }
+
+  if (songDone) {
+    const ts = songDone.timestamp ? new Date(songDone.timestamp).toLocaleString() : '';
+    html += `<div class="rv-card">
+      <div class="rv-lbl">🎵 Song Matching</div>
+      <div class="rv-val">✅ Checked answers</div>
+      <div class="rv-ts">${ts}</div>
+    </div>`;
+  }
+
+  if (themeDone) {
+    const ts = themeDone.timestamp ? new Date(themeDone.timestamp).toLocaleString() : '';
+    html += `<div class="rv-card">
+      <div class="rv-lbl">🚀 Inventions Match</div>
+      <div class="rv-val">✅ Checked answers</div>
+      <div class="rv-ts">${ts}</div>
+    </div>`;
+  }
+
+  body.innerHTML = html;
+}
+
+window.addEventListener('DOMContentLoaded', async function() {
+  await restoreProgressFromCloud();
+  if (isReview) { initReviewMode(); return; }
+});
+
 // ════════════════════════════════════════════
 // DATA
 // ════════════════════════════════════════════
@@ -874,6 +1022,7 @@ function showVocabTrophy() {
   document.getElementById('quizInput').style.display = 'none';
   document.querySelector('.submit-btn').style.display = 'none';
   document.getElementById('trophyScore').textContent = `${vocabCorrect} / ${vocabOrder.length} 🎉`;
+  lSave(SAVE_PREFIX + 'vocab-score', { score: vocabCorrect, total: vocabOrder.length, timestamp: new Date().toISOString() });
 }
 
 function switchVocabTab(tab, btn) {
@@ -991,6 +1140,7 @@ function checkSongAnswers() {
     dt.classList.remove('correct-ans', 'wrong-ans');
     dt.classList.add(placed === correct ? 'correct-ans' : 'wrong-ans');
   });
+  lSave(SAVE_PREFIX + 'song-checked', { timestamp: new Date().toISOString() });
 }
 
 function resetSong() { initSong(); }
@@ -1000,9 +1150,11 @@ function resetSong() { initSong(); }
 // ════════════════════════════════════════════
 
 let grammarScore = 0;
+let grammarAnswered = 0;
 
 function initGrammarQuiz() {
   grammarScore = 0;
+  grammarAnswered = 0;
   document.getElementById('grammarScore').textContent = '0';
   const c = document.getElementById('grammarQContainer');
   c.innerHTML = '';
@@ -1034,6 +1186,10 @@ function selectGrammarAnswer(qi, optIdx, correct) {
   if (optIdx === correct) {
     grammarScore++;
     document.getElementById('grammarScore').textContent = grammarScore;
+  }
+  grammarAnswered++;
+  if (grammarAnswered >= grammarQuestions.length) {
+    lSave(SAVE_PREFIX + 'grammar-score', { score: grammarScore, total: grammarQuestions.length, timestamp: new Date().toISOString() });
   }
 }
 
@@ -1135,6 +1291,7 @@ function checkThemeAnswers() {
     dt.classList.remove('correct-ans', 'wrong-ans');
     dt.classList.add(dt.dataset.placed === dt.dataset.answer ? 'correct-ans' : 'wrong-ans');
   });
+  lSave(SAVE_PREFIX + 'theme-checked', { timestamp: new Date().toISOString() });
 }
 function resetTheme() { initTheme(); }
 
@@ -1203,6 +1360,8 @@ function showFinalResult(total) {
   banner.className = `result-banner show ${cls}`;
   banner.textContent = msg;
   document.getElementById('finalRetryBtn').style.display = 'block';
+  lSave(SAVE_PREFIX + 'final-score', { score: finalScore, total, timestamp: new Date().toISOString(), done: pct >= 0.6 });
+  saveScore(finalScore, pct >= 0.6, { total });
 }
 
 function spawnConfetti() {
@@ -1224,6 +1383,8 @@ function spawnConfetti() {
 const origInitFinal = initFinalQuiz;
 window.initFinalQuiz = function() { finalAnswered = 0; origInitFinal(); };
 </script>
+</div><!-- #appRoot -->
+
 <script src="unit-7-nav.js"></script>
 </body>
 </html>
