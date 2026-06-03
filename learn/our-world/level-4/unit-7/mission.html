@@ -538,9 +538,9 @@ function resetModule(id) {
   Object.keys(localStorage).filter(function(k) { return k.startsWith(prefix + id + '-'); }).forEach(function(k) { localStorage.removeItem(k); });
   localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
 
-  lSave(SAVE_PREFIX + id + '-complete', null);
-  lSave(SAVE_PREFIX + id + '-done', false);
-  lSave(HOMEWORK_ID + '-' + id + '-done', false);
+  [SAVE_PREFIX + id + '-complete', SAVE_PREFIX + id + '-done', HOMEWORK_ID + '-' + id + '-done'].forEach(function(k) {
+    try { if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) LEEA_CLOUD.deleteProgress(HOMEWORK_ID, k); } catch(e) {}
+  });
 
   updateBadge(id, 'new');
   const completBtn = document.getElementById('cbtn-' + id);
