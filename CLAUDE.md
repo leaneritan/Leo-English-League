@@ -197,12 +197,34 @@ Every lesson app must support `?review=1` in the URL. When this param is present
 2. **"Work not started yet" check must include completions.** Only show it when
    *nothing at all* has been done — no completions, no written text, no scores.
 
-3. **Show everything that shows as DONE in Leo's app.** If a module badge says
-   DONE, the review must reflect that. The standard review shows:
-   - A "COMPLETED MODULES — X / 10" card listing every completed module + timestamp
-   - Quiz scores (both final quiz and sub-module quizzes)
-   - All written content (paragraphs, chart cells, free writing)
-   - Checklist state (only if something is ticked or module is marked complete)
+3. **Show ALL student-generated content — not just completion status.**
+   Neritan uses the review card to see exactly what Leo did. Every piece of
+   data Leo produced must appear as a readable card:
+   - Written text (paragraphs, sentences, free writing) → show the actual text
+   - Quiz scores → show score + total + pass/fail + timestamp + wrong answers listed
+   - Chip/slot selections → show the completed sentence Leo built
+   - Chart / table cells → show each cell value
+   - Checklist → show ticked items (only if something is ticked)
+   - Completed modules list → always first, with timestamps
+
+   **Do NOT show only "✅ Checked answers" for activities where the actual
+   answers can be saved and displayed.** If Leo filled in a blank, typed a
+   sentence, or selected a chip, save that value and show it in the review.
+
+4. **Save content on user action so it can appear in review.**
+   Any module where Leo produces content (writes text, selects chips, fills
+   blanks) must call `lSave` when Leo interacts — not just on markComplete.
+   markComplete writes flags only. Content must be saved separately.
+
+### Required CSS — include in every lesson app
+
+```css
+.rv-card  { background:#fff; border:2px solid #dfe7e1; border-radius:16px; padding:16px 18px; margin-bottom:12px; }
+.rv-lbl   { font-size:.65rem; font-weight:800; color:#7c3aed; letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px; }
+.rv-val   { font-size:.92rem; color:#1e293b; line-height:1.7; white-space:pre-wrap; }
+.rv-score-big { font-size:2rem; font-weight:900; color:#059669; text-align:center; }
+.rv-not-started { text-align:center; padding:40px; color:#7b8a82; font-size:16px; }
+```
 
 ### Standard `initReviewMode()` structure
 
@@ -212,9 +234,11 @@ function initReviewMode() {
   document.getElementById('reviewScreen').classList.add('show');
   const body = document.getElementById('reviewBody');
 
-  // 1. Load all data
-  const scoreData = lLoad(SAVE_PREFIX + 'score');
-  // ... load all content keys
+  // 1. Load ALL saved content keys
+  const scoreData  = lLoad(SAVE_PREFIX + 'score');
+  const writing1   = lLoad(SAVE_PREFIX + 'm4-p1', '');   // example — use real keys
+  const writing2   = lLoad(SAVE_PREFIX + 'm4-p2', '');
+  // ... load every content key the lesson saves
 
   // 2. Check which modules are marked complete
   const MOD_NAMES = { m1: 'Name 1', m2: 'Name 2', /* ... */ };
@@ -224,14 +248,16 @@ function initReviewMode() {
   });
 
   // 3. "Not started" — only if truly nothing exists
-  const hasAnything = scoreData || completedMods.length > 0 || /* written content keys */;
+  const hasAnything = scoreData || completedMods.length > 0 || writing1 || writing2 /* || other content */;
   if (!hasAnything) {
     body.innerHTML = '<div class="rv-not-started">📋 Work not started yet.</div>';
     return;
   }
 
-  // 4. Build HTML — completedMods card first, then content
+  // 4. Build HTML — completedMods card FIRST, then scores, then written content
   let html = '';
+
+  // Completed modules overview
   if (completedMods.length > 0) {
     const lines = completedMods.map(id => {
       const d = lLoad(SAVE_PREFIX + id + '-complete', null);
@@ -243,10 +269,45 @@ function initReviewMode() {
       <div class="rv-val" style="font-size:.82rem;line-height:1.9">${lines}</div>
     </div>`;
   }
-  // ... then quiz results, written content, etc.
+
+  // Quiz result — always show score + timestamp + wrong answers
+  if (scoreData) {
+    const pct = Math.round(scoreData.score / (scoreData.total || 1) * 100);
+    const wrongHtml = scoreData.wrong && scoreData.wrong.length
+      ? `<div class="rv-val" style="color:#dc2626;margin-top:8px">Missed: ${scoreData.wrong.join(', ')}</div>`
+      : `<div class="rv-val" style="color:#16a34a;margin-top:4px">🏆 No wrong answers!</div>`;
+    html += `<div class="rv-card">
+      <div class="rv-lbl">QUIZ RESULT</div>
+      <div class="rv-score-big">${scoreData.score} / ${scoreData.total || '?'} — ${pct}%</div>
+      <div class="rv-val" style="text-align:center;font-size:.75rem;color:#7b8a82">${new Date(scoreData.timestamp).toLocaleString()}</div>
+      ${wrongHtml}
+    </div>`;
+  }
+
+  // Written content — show actual text, not just "completed"
+  if (writing1 || writing2) {
+    html += `<div class="rv-card">
+      <div class="rv-lbl">MODULE 4 — LEO'S WRITING</div>
+      <div class="rv-val">${writing1 || '(empty)'}${writing2 ? '\n\n' + writing2 : ''}</div>
+    </div>`;
+  }
+
+  // ... add a card for every other content type (chips, chart cells, etc.)
 
   body.innerHTML = html;
 }
+```
+
+### Required `#reviewScreen` HTML — include in every lesson app
+
+```html
+<div id="reviewScreen" style="display:none;max-width:680px;margin:0 auto;padding:18px 14px">
+  <div style="background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;border-radius:16px;padding:18px 20px;margin-bottom:16px">
+    <div style="font-size:11px;font-weight:800;letter-spacing:2px;opacity:.8;text-transform:uppercase">Neritan's Review</div>
+    <div style="font-size:20px;font-weight:900;margin-top:4px">Leo's Work</div>
+  </div>
+  <div id="reviewBody"></div>
+</div>
 ```
 
 ---
@@ -290,6 +351,52 @@ apps write empty strings and null arrays to localStorage on page load.
 
 ---
 
+## Adding a New Lesson to the Home Screen
+
+The list of live lessons is in **`live.json`** at the repo root — NOT hardcoded in `index.html`.
+`index.html` fetches it on boot: `fetch('live.json').then(r=>r.json()).then(data=>{ LIVE=data; ... })`.
+
+**Do NOT edit `index.html` to add a lesson.** Just add one line to `live.json`:
+
+```json
+"l-4-8-grammar1": { "url": "learn/our-world/level-4/unit-8/grammar-1.html", "desc": "Short description" }
+```
+
+Key format: `"{n|l}-{level}-{unit}-{slug}"` where `n` = Neritan (teach), `l` = Leo (learn).
+
+**Every time you create a new lesson app, output two things:**
+1. The complete HTML file with its exact repo path (e.g. `learn/our-world/level-4/unit-8/grammar-1.html`)
+2. The `live.json` line to add alongside it
+
+Neritan uploads the HTML file to GitHub manually, then edits `live.json` to add the entry.
+If the lesson shows "Coming Soon" on the home screen, the `live.json` entry is missing.
+
+### `doRedo` — required standard implementation
+
+When a module has a Redo button, **never use `lSave(key, null)` to clear it** — upserting
+`null` to Supabase silently fails if the `value` column has a NOT NULL constraint, leaving
+the cloud row intact. On mobile page reload, `restoreProgressFromCloud` re-fetches and
+restores the Done state, making Redo appear broken.
+
+Always use `localStorage.removeItem` + `LEEA_CLOUD.deleteProgress`:
+
+```js
+function doRedo(id) {
+  const keys = [SAVE_PREFIX + id + '-complete', SAVE_PREFIX + id + '-done', HOMEWORK_ID + '-' + id + '-done'];
+  keys.forEach(k => {
+    localStorage.removeItem('leea-' + k);
+    try { if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) LEEA_CLOUD.deleteProgress(HOMEWORK_ID, k); } catch(e) {}
+  });
+  updateBadge(id);
+  openModule(id);
+}
+```
+
+`LEEA_CLOUD.deleteProgress(homeworkId, storageKey)` is implemented in `lib/leea-cloud.js`
+and issues a real `DELETE` query on the `leea_progress` table.
+
+---
+
 ## Checklist When Generating a New Lesson App
 
 ### Constants & save helpers
@@ -313,3 +420,10 @@ apps write empty strings and null arrays to localStorage on page load.
 - [ ] Review "not started" check includes `completedMods.length > 0`
 - [ ] Review shows completed modules card when any module is done
 - [ ] Review shows all content that shows as DONE in Leo's app
+
+### Redo buttons
+- [ ] `doRedo` uses `localStorage.removeItem` + `LEEA_CLOUD.deleteProgress` — never `lSave(key, null)`
+
+### Registering the lesson
+- [ ] Output the exact repo file path for Neritan to upload
+- [ ] Output the `live.json` line to add (do NOT edit `index.html`)

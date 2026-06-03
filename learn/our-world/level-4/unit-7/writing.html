@@ -1674,6 +1674,11 @@ function resetModule(id) {
   }).forEach(function(k) { localStorage.removeItem(k); });
   localStorage.removeItem('leea-' + HOMEWORK_ID + '-' + id + '-done');
 
+  // Delete cloud rows so page reload doesn't restore Done state
+  [SAVE_PREFIX + id + '-complete', SAVE_PREFIX + id + '-done', HOMEWORK_ID + '-' + id + '-done'].forEach(function(k) {
+    try { if (window.LEEA_CLOUD && window.LEEA_CLOUD.enabled) LEEA_CLOUD.deleteProgress(HOMEWORK_ID, k); } catch(e) {}
+  });
+
   // Reset badge
   updateBadge(id, 'new');
 
